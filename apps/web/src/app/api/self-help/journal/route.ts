@@ -22,8 +22,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     // Handle encryption
-    let encryptedContent = null
-    let keyDerivationSalt = null
+    let encryptedContent: Buffer
+    let keyDerivationSalt: Buffer
     let contentHash = ''
 
     if (data.encryptedContent && data.keyDerivationSalt) {
@@ -37,6 +37,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       encryptedContent = encrypted
       keyDerivationSalt = salt
       contentHash = hash
+    } else {
+      return NextResponse.json({ error: 'No content provided for encryption' }, { status: 400 })
     }
 
     // Perform sentiment analysis on client-provided data or content
