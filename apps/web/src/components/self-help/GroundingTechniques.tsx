@@ -592,11 +592,11 @@ export default function GroundingTechniques() {
                   ))}
                 </ul>
               </div>
-              {technique.contraindications && (
+              {'contraindications' in technique && technique.contraindications && (
                 <div className="p-3 bg-yellow-50 rounded-lg border border-yellow-200">
                   <h4 className="text-sm font-medium text-yellow-800 mb-1">Caution</h4>
                   <p className="text-sm text-yellow-700">
-                    Not recommended for: {technique.contraindications.join(', ')}
+                    Not recommended for: {technique.contraindications?.join(', ')}
                   </p>
                 </div>
               )}

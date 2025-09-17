@@ -32,6 +32,11 @@
     "components.disabled/**",
     "src/components.disabled/**",
     "**/crisis.disabled/**",
-    "**/*disabled*/**"
+    "**/*disabled*/**",
+    "**/__tests__/**",
+    "**/tests/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/test-utils/**"
   ]
 }

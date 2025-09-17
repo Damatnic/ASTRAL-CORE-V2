@@ -86,7 +86,7 @@ export default function JournalModule() {
   const [entries, setEntries] = useState<JournalEntry[]>([])
   const [currentEntry, setCurrentEntry] = useState('')
   const [entryTitle, setEntryTitle] = useState('')
-  const [selectedType, setSelectedType] = useState<keyof typeof JOURNAL_PROMPTS>('freeform')
+  const [selectedType, setSelectedType] = useState<keyof typeof JOURNAL_PROMPTS | 'freeform'>('freeform')
   const [selectedPrompt, setSelectedPrompt] = useState('')
   const [tags, setTags] = useState<string[]>([])
   const [currentTag, setCurrentTag] = useState('')

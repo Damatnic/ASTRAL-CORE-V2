@@ -106,7 +106,11 @@ export default function SelfHelpWidget() {
   }
 
   const compileRecentActivity = (mood: any, journal: any, breathing: any, grounding: any) => {
-    const activities = []
+    const activities: Array<{
+      type: string;
+      timestamp: Date;
+      improvement?: number;
+    }> = []
     
     // Add mood entries
     if (mood?.data) {

@@ -224,7 +224,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 }
 
 // Get single journal entry with content (requires decryption on client)
-export async function PUT(request: NextRequest) {
+export async function PUT(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {

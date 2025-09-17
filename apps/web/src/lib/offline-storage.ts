@@ -4,6 +4,8 @@
  * Uses IndexedDB for persistent storage when offline
  */
 
+import React from 'react'
+
 interface OfflineData {
   id: string
   type: 'mood' | 'journal' | 'breathing' | 'grounding' | 'crisis'
@@ -175,7 +177,7 @@ class OfflineStorage {
     }
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction(['offlineData'], 'readonly')
+      const transaction = this.db!.transaction(['offlineData'], 'readonly')
       const store = transaction.objectStore('offlineData')
       const index = store.index('type')
       const request = index.getAll(type, limit)
@@ -203,7 +205,7 @@ class OfflineStorage {
     }
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction(['offlineData'], 'readwrite')
+      const transaction = this.db!.transaction(['offlineData'], 'readwrite')
       const store = transaction.objectStore('offlineData')
       const request = store.put(data)
 
@@ -286,10 +288,10 @@ class OfflineStorage {
     if (!this.db) return []
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction(['offlineData'], 'readonly')
+      const transaction = this.db!.transaction(['offlineData'], 'readonly')
       const store = transaction.objectStore('offlineData')
       const index = store.index('synced')
-      const request = index.getAll(false)
+      const request = index.getAll(0) // false as 0
 
       request.onsuccess = () => resolve(request.result)
       request.onerror = () => {
@@ -306,7 +308,7 @@ class OfflineStorage {
     if (!this.db) return
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction(['offlineData'], 'readwrite')
+      const transaction = this.db!.transaction(['offlineData'], 'readwrite')
       const store = transaction.objectStore('offlineData')
       const getRequest = store.get(id)
 
@@ -374,7 +376,7 @@ class OfflineStorage {
     if (!this.db) return
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction([storeName], 'readwrite')
+      const transaction = this.db!.transaction([storeName], 'readwrite')
       const store = transaction.objectStore(storeName)
       
       // Clear existing data
@@ -411,7 +413,7 @@ class OfflineStorage {
     if (!this.db) return []
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction([storeName], 'readonly')
+      const transaction = this.db!.transaction([storeName], 'readonly')
       const store = transaction.objectStore(storeName)
       const request = store.getAll()
 
@@ -456,7 +458,7 @@ class OfflineStorage {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.createTransaction(['offlineData'], 'readwrite')
+      const transaction = this.db!.transaction(['offlineData'], 'readwrite')
       const store = transaction.objectStore('offlineData')
       const index = store.index('timestamp')
       const range = IDBKeyRange.upperBound(thirtyDaysAgo)
