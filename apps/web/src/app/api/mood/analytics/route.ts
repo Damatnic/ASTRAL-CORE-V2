@@ -5,8 +5,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { prisma } from '@astralcore/database';
-import { MoodService } from '@astralcore/database/services/mood.service';
-import { UserService } from '@astralcore/database/services/user.service';
+import { MoodService, UserService } from '@astralcore/database';
 import { auditLog } from '@/lib/audit-logger';
 
 const moodService = new MoodService(prisma as any);
