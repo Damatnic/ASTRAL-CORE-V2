@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "astral-core-v1",
+  "name": "astral-core-v2",
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "cd apps/web && pnpm build",
   "outputDirectory": "apps/web/.next",
