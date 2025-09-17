@@ -614,6 +614,148 @@ exports.Prisma.UserActivityScalarFieldEnum = {
   timestamp: 'timestamp'
 };
 
+exports.Prisma.JournalEntryScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  title: 'title',
+  promptId: 'promptId',
+  promptText: 'promptText',
+  entryType: 'entryType',
+  encryptedContent: 'encryptedContent',
+  contentHash: 'contentHash',
+  keyDerivationSalt: 'keyDerivationSalt',
+  mood: 'mood',
+  sentimentScore: 'sentimentScore',
+  emotions: 'emotions',
+  tags: 'tags',
+  isPrivate: 'isPrivate',
+  shareWithTherapist: 'shareWithTherapist',
+  wordCount: 'wordCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BreathingExerciseScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  technique: 'technique',
+  difficulty: 'difficulty',
+  inhaleSeconds: 'inhaleSeconds',
+  holdSeconds: 'holdSeconds',
+  exhaleSeconds: 'exhaleSeconds',
+  pauseSeconds: 'pauseSeconds',
+  cyclesRecommended: 'cyclesRecommended',
+  instructions: 'instructions',
+  visualGuideUrl: 'visualGuideUrl',
+  audioGuideUrl: 'audioGuideUrl',
+  benefits: 'benefits',
+  bestFor: 'bestFor',
+  contraindications: 'contraindications',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BreathingSessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  exerciseId: 'exerciseId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  duration: 'duration',
+  cyclesCompleted: 'cyclesCompleted',
+  moodBefore: 'moodBefore',
+  moodAfter: 'moodAfter',
+  anxietyBefore: 'anxietyBefore',
+  anxietyAfter: 'anxietyAfter',
+  averageBreathRate: 'averageBreathRate',
+  heartRateBefore: 'heartRateBefore',
+  heartRateAfter: 'heartRateAfter',
+  wasHelpful: 'wasHelpful',
+  rating: 'rating',
+  notes: 'notes'
+};
+
+exports.Prisma.GroundingTechniqueScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  category: 'category',
+  instructions: 'instructions',
+  duration: 'duration',
+  materials: 'materials',
+  audioGuideUrl: 'audioGuideUrl',
+  videoGuideUrl: 'videoGuideUrl',
+  imageGuides: 'imageGuides',
+  evidenceLevel: 'evidenceLevel',
+  bestFor: 'bestFor',
+  contraindications: 'contraindications',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.GroundingSessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  techniqueId: 'techniqueId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  duration: 'duration',
+  triggerType: 'triggerType',
+  severityBefore: 'severityBefore',
+  severityAfter: 'severityAfter',
+  panicBefore: 'panicBefore',
+  panicAfter: 'panicAfter',
+  dissociationBefore: 'dissociationBefore',
+  dissociationAfter: 'dissociationAfter',
+  stepsCompleted: 'stepsCompleted',
+  completionRate: 'completionRate',
+  wasHelpful: 'wasHelpful',
+  rating: 'rating',
+  notes: 'notes',
+  wouldUseAgain: 'wouldUseAgain'
+};
+
+exports.Prisma.SelfHelpResourceScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  category: 'category',
+  type: 'type',
+  content: 'content',
+  url: 'url',
+  mediaUrl: 'mediaUrl',
+  thumbnailUrl: 'thumbnailUrl',
+  duration: 'duration',
+  difficulty: 'difficulty',
+  evidenceLevel: 'evidenceLevel',
+  tags: 'tags',
+  conditions: 'conditions',
+  symptoms: 'symptoms',
+  viewCount: 'viewCount',
+  helpfulCount: 'helpfulCount',
+  averageRating: 'averageRating',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SelfHelpInteractionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  resourceId: 'resourceId',
+  interactionType: 'interactionType',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  duration: 'duration',
+  wasHelpful: 'wasHelpful',
+  rating: 'rating',
+  notes: 'notes',
+  moodBefore: 'moodBefore',
+  moodAfter: 'moodAfter'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -964,6 +1106,95 @@ exports.ActivityType = exports.$Enums.ActivityType = {
   CRISIS_RESOURCE_ACCESS: 'CRISIS_RESOURCE_ACCESS'
 };
 
+exports.JournalType = exports.$Enums.JournalType = {
+  FREEFORM: 'FREEFORM',
+  GUIDED: 'GUIDED',
+  GRATITUDE: 'GRATITUDE',
+  REFLECTION: 'REFLECTION',
+  GOAL_SETTING: 'GOAL_SETTING',
+  MOOD_LOG: 'MOOD_LOG',
+  DREAM: 'DREAM',
+  THERAPY_NOTES: 'THERAPY_NOTES'
+};
+
+exports.BreathingTechnique = exports.$Enums.BreathingTechnique = {
+  FOUR_SEVEN_EIGHT: 'FOUR_SEVEN_EIGHT',
+  BOX_BREATHING: 'BOX_BREATHING',
+  BELLY_BREATHING: 'BELLY_BREATHING',
+  ALTERNATE_NOSTRIL: 'ALTERNATE_NOSTRIL',
+  COHERENT: 'COHERENT',
+  LION_BREATH: 'LION_BREATH',
+  COOLING_BREATH: 'COOLING_BREATH',
+  FIRE_BREATH: 'FIRE_BREATH'
+};
+
+exports.ExerciseDifficulty = exports.$Enums.ExerciseDifficulty = {
+  BEGINNER: 'BEGINNER',
+  INTERMEDIATE: 'INTERMEDIATE',
+  ADVANCED: 'ADVANCED',
+  EXPERT: 'EXPERT'
+};
+
+exports.GroundingType = exports.$Enums.GroundingType = {
+  SENSORY: 'SENSORY',
+  PHYSICAL: 'PHYSICAL',
+  MENTAL: 'MENTAL',
+  SPIRITUAL: 'SPIRITUAL',
+  CREATIVE: 'CREATIVE',
+  MOVEMENT: 'MOVEMENT'
+};
+
+exports.GroundingCategory = exports.$Enums.GroundingCategory = {
+  PANIC_ATTACK: 'PANIC_ATTACK',
+  DISSOCIATION: 'DISSOCIATION',
+  FLASHBACK: 'FLASHBACK',
+  ANXIETY: 'ANXIETY',
+  ANGER: 'ANGER',
+  OVERWHELM: 'OVERWHELM',
+  TRAUMA_RESPONSE: 'TRAUMA_RESPONSE'
+};
+
+exports.EvidenceLevel = exports.$Enums.EvidenceLevel = {
+  HIGH: 'HIGH',
+  MODERATE: 'MODERATE',
+  LOW: 'LOW',
+  EMERGING: 'EMERGING'
+};
+
+exports.SelfHelpCategory = exports.$Enums.SelfHelpCategory = {
+  MOOD_TRACKING: 'MOOD_TRACKING',
+  JOURNALING: 'JOURNALING',
+  BREATHING: 'BREATHING',
+  GROUNDING: 'GROUNDING',
+  MEDITATION: 'MEDITATION',
+  EXERCISE: 'EXERCISE',
+  SLEEP: 'SLEEP',
+  NUTRITION: 'NUTRITION',
+  SOCIAL: 'SOCIAL',
+  CREATIVE: 'CREATIVE',
+  EDUCATIONAL: 'EDUCATIONAL'
+};
+
+exports.ResourceType = exports.$Enums.ResourceType = {
+  ARTICLE: 'ARTICLE',
+  VIDEO: 'VIDEO',
+  AUDIO: 'AUDIO',
+  INTERACTIVE: 'INTERACTIVE',
+  PDF: 'PDF',
+  WORKSHEET: 'WORKSHEET',
+  APP: 'APP',
+  WEBSITE: 'WEBSITE'
+};
+
+exports.InteractionType = exports.$Enums.InteractionType = {
+  VIEW: 'VIEW',
+  START: 'START',
+  COMPLETE: 'COMPLETE',
+  SAVE: 'SAVE',
+  SHARE: 'SHARE',
+  RATE: 'RATE'
+};
+
 exports.Prisma.ModelName = {
   CrisisSession: 'CrisisSession',
   CrisisMessage: 'CrisisMessage',
@@ -995,7 +1226,14 @@ exports.Prisma.ModelName = {
   UserAchievement: 'UserAchievement',
   Challenge: 'Challenge',
   UserChallenge: 'UserChallenge',
-  UserActivity: 'UserActivity'
+  UserActivity: 'UserActivity',
+  JournalEntry: 'JournalEntry',
+  BreathingExercise: 'BreathingExercise',
+  BreathingSession: 'BreathingSession',
+  GroundingTechnique: 'GroundingTechnique',
+  GroundingSession: 'GroundingSession',
+  SelfHelpResource: 'SelfHelpResource',
+  SelfHelpInteraction: 'SelfHelpInteraction'
 };
 
 /**

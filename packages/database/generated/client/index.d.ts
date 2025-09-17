@@ -168,6 +168,41 @@ export type UserChallenge = $Result.DefaultSelection<Prisma.$UserChallengePayloa
  * 
  */
 export type UserActivity = $Result.DefaultSelection<Prisma.$UserActivityPayload>
+/**
+ * Model JournalEntry
+ * 
+ */
+export type JournalEntry = $Result.DefaultSelection<Prisma.$JournalEntryPayload>
+/**
+ * Model BreathingExercise
+ * 
+ */
+export type BreathingExercise = $Result.DefaultSelection<Prisma.$BreathingExercisePayload>
+/**
+ * Model BreathingSession
+ * 
+ */
+export type BreathingSession = $Result.DefaultSelection<Prisma.$BreathingSessionPayload>
+/**
+ * Model GroundingTechnique
+ * 
+ */
+export type GroundingTechnique = $Result.DefaultSelection<Prisma.$GroundingTechniquePayload>
+/**
+ * Model GroundingSession
+ * 
+ */
+export type GroundingSession = $Result.DefaultSelection<Prisma.$GroundingSessionPayload>
+/**
+ * Model SelfHelpResource
+ * 
+ */
+export type SelfHelpResource = $Result.DefaultSelection<Prisma.$SelfHelpResourcePayload>
+/**
+ * Model SelfHelpInteraction
+ * 
+ */
+export type SelfHelpInteraction = $Result.DefaultSelection<Prisma.$SelfHelpInteractionPayload>
 
 /**
  * Enums
@@ -604,6 +639,122 @@ export const NotificationStatus: {
 
 export type NotificationStatus = (typeof NotificationStatus)[keyof typeof NotificationStatus]
 
+
+export const JournalType: {
+  FREEFORM: 'FREEFORM',
+  GUIDED: 'GUIDED',
+  GRATITUDE: 'GRATITUDE',
+  REFLECTION: 'REFLECTION',
+  GOAL_SETTING: 'GOAL_SETTING',
+  MOOD_LOG: 'MOOD_LOG',
+  DREAM: 'DREAM',
+  THERAPY_NOTES: 'THERAPY_NOTES'
+};
+
+export type JournalType = (typeof JournalType)[keyof typeof JournalType]
+
+
+export const BreathingTechnique: {
+  FOUR_SEVEN_EIGHT: 'FOUR_SEVEN_EIGHT',
+  BOX_BREATHING: 'BOX_BREATHING',
+  BELLY_BREATHING: 'BELLY_BREATHING',
+  ALTERNATE_NOSTRIL: 'ALTERNATE_NOSTRIL',
+  COHERENT: 'COHERENT',
+  LION_BREATH: 'LION_BREATH',
+  COOLING_BREATH: 'COOLING_BREATH',
+  FIRE_BREATH: 'FIRE_BREATH'
+};
+
+export type BreathingTechnique = (typeof BreathingTechnique)[keyof typeof BreathingTechnique]
+
+
+export const GroundingType: {
+  SENSORY: 'SENSORY',
+  PHYSICAL: 'PHYSICAL',
+  MENTAL: 'MENTAL',
+  SPIRITUAL: 'SPIRITUAL',
+  CREATIVE: 'CREATIVE',
+  MOVEMENT: 'MOVEMENT'
+};
+
+export type GroundingType = (typeof GroundingType)[keyof typeof GroundingType]
+
+
+export const GroundingCategory: {
+  PANIC_ATTACK: 'PANIC_ATTACK',
+  DISSOCIATION: 'DISSOCIATION',
+  FLASHBACK: 'FLASHBACK',
+  ANXIETY: 'ANXIETY',
+  ANGER: 'ANGER',
+  OVERWHELM: 'OVERWHELM',
+  TRAUMA_RESPONSE: 'TRAUMA_RESPONSE'
+};
+
+export type GroundingCategory = (typeof GroundingCategory)[keyof typeof GroundingCategory]
+
+
+export const ExerciseDifficulty: {
+  BEGINNER: 'BEGINNER',
+  INTERMEDIATE: 'INTERMEDIATE',
+  ADVANCED: 'ADVANCED',
+  EXPERT: 'EXPERT'
+};
+
+export type ExerciseDifficulty = (typeof ExerciseDifficulty)[keyof typeof ExerciseDifficulty]
+
+
+export const EvidenceLevel: {
+  HIGH: 'HIGH',
+  MODERATE: 'MODERATE',
+  LOW: 'LOW',
+  EMERGING: 'EMERGING'
+};
+
+export type EvidenceLevel = (typeof EvidenceLevel)[keyof typeof EvidenceLevel]
+
+
+export const SelfHelpCategory: {
+  MOOD_TRACKING: 'MOOD_TRACKING',
+  JOURNALING: 'JOURNALING',
+  BREATHING: 'BREATHING',
+  GROUNDING: 'GROUNDING',
+  MEDITATION: 'MEDITATION',
+  EXERCISE: 'EXERCISE',
+  SLEEP: 'SLEEP',
+  NUTRITION: 'NUTRITION',
+  SOCIAL: 'SOCIAL',
+  CREATIVE: 'CREATIVE',
+  EDUCATIONAL: 'EDUCATIONAL'
+};
+
+export type SelfHelpCategory = (typeof SelfHelpCategory)[keyof typeof SelfHelpCategory]
+
+
+export const ResourceType: {
+  ARTICLE: 'ARTICLE',
+  VIDEO: 'VIDEO',
+  AUDIO: 'AUDIO',
+  INTERACTIVE: 'INTERACTIVE',
+  PDF: 'PDF',
+  WORKSHEET: 'WORKSHEET',
+  APP: 'APP',
+  WEBSITE: 'WEBSITE'
+};
+
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType]
+
+
+export const InteractionType: {
+  VIEW: 'VIEW',
+  START: 'START',
+  COMPLETE: 'COMPLETE',
+  SAVE: 'SAVE',
+  SHARE: 'SHARE',
+  RATE: 'RATE'
+};
+
+export type InteractionType = (typeof InteractionType)[keyof typeof InteractionType]
+
 }
 
 export type CrisisStatus = $Enums.CrisisStatus
@@ -753,6 +904,42 @@ export const EmergencyNotificationType: typeof $Enums.EmergencyNotificationType
 export type NotificationStatus = $Enums.NotificationStatus
 
 export const NotificationStatus: typeof $Enums.NotificationStatus
+
+export type JournalType = $Enums.JournalType
+
+export const JournalType: typeof $Enums.JournalType
+
+export type BreathingTechnique = $Enums.BreathingTechnique
+
+export const BreathingTechnique: typeof $Enums.BreathingTechnique
+
+export type GroundingType = $Enums.GroundingType
+
+export const GroundingType: typeof $Enums.GroundingType
+
+export type GroundingCategory = $Enums.GroundingCategory
+
+export const GroundingCategory: typeof $Enums.GroundingCategory
+
+export type ExerciseDifficulty = $Enums.ExerciseDifficulty
+
+export const ExerciseDifficulty: typeof $Enums.ExerciseDifficulty
+
+export type EvidenceLevel = $Enums.EvidenceLevel
+
+export const EvidenceLevel: typeof $Enums.EvidenceLevel
+
+export type SelfHelpCategory = $Enums.SelfHelpCategory
+
+export const SelfHelpCategory: typeof $Enums.SelfHelpCategory
+
+export type ResourceType = $Enums.ResourceType
+
+export const ResourceType: typeof $Enums.ResourceType
+
+export type InteractionType = $Enums.InteractionType
+
+export const InteractionType: typeof $Enums.InteractionType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -1181,6 +1368,76 @@ export class PrismaClient<
     * ```
     */
   get userActivity(): Prisma.UserActivityDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.journalEntry`: Exposes CRUD operations for the **JournalEntry** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JournalEntries
+    * const journalEntries = await prisma.journalEntry.findMany()
+    * ```
+    */
+  get journalEntry(): Prisma.JournalEntryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.breathingExercise`: Exposes CRUD operations for the **BreathingExercise** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BreathingExercises
+    * const breathingExercises = await prisma.breathingExercise.findMany()
+    * ```
+    */
+  get breathingExercise(): Prisma.BreathingExerciseDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.breathingSession`: Exposes CRUD operations for the **BreathingSession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BreathingSessions
+    * const breathingSessions = await prisma.breathingSession.findMany()
+    * ```
+    */
+  get breathingSession(): Prisma.BreathingSessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.groundingTechnique`: Exposes CRUD operations for the **GroundingTechnique** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GroundingTechniques
+    * const groundingTechniques = await prisma.groundingTechnique.findMany()
+    * ```
+    */
+  get groundingTechnique(): Prisma.GroundingTechniqueDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.groundingSession`: Exposes CRUD operations for the **GroundingSession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GroundingSessions
+    * const groundingSessions = await prisma.groundingSession.findMany()
+    * ```
+    */
+  get groundingSession(): Prisma.GroundingSessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.selfHelpResource`: Exposes CRUD operations for the **SelfHelpResource** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SelfHelpResources
+    * const selfHelpResources = await prisma.selfHelpResource.findMany()
+    * ```
+    */
+  get selfHelpResource(): Prisma.SelfHelpResourceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.selfHelpInteraction`: Exposes CRUD operations for the **SelfHelpInteraction** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SelfHelpInteractions
+    * const selfHelpInteractions = await prisma.selfHelpInteraction.findMany()
+    * ```
+    */
+  get selfHelpInteraction(): Prisma.SelfHelpInteractionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1651,7 +1908,14 @@ export namespace Prisma {
     UserAchievement: 'UserAchievement',
     Challenge: 'Challenge',
     UserChallenge: 'UserChallenge',
-    UserActivity: 'UserActivity'
+    UserActivity: 'UserActivity',
+    JournalEntry: 'JournalEntry',
+    BreathingExercise: 'BreathingExercise',
+    BreathingSession: 'BreathingSession',
+    GroundingTechnique: 'GroundingTechnique',
+    GroundingSession: 'GroundingSession',
+    SelfHelpResource: 'SelfHelpResource',
+    SelfHelpInteraction: 'SelfHelpInteraction'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1670,7 +1934,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "crisisSession" | "crisisMessage" | "crisisEscalation" | "tetherLink" | "tetherPulse" | "tetherEmergency" | "volunteer" | "volunteerTraining" | "volunteerSession" | "volunteerFeedback" | "crisisResourceUsage" | "safetyReport" | "auditLog" | "analyticsEvent" | "performanceMetric" | "systemHealth" | "crisisResource" | "publicMetrics" | "emergencyContact" | "emergencyNotification" | "webSocketConnection" | "user" | "moodEntry" | "safetyPlan" | "safetyPlanVersion" | "userProfile" | "achievement" | "userAchievement" | "challenge" | "userChallenge" | "userActivity"
+      modelProps: "crisisSession" | "crisisMessage" | "crisisEscalation" | "tetherLink" | "tetherPulse" | "tetherEmergency" | "volunteer" | "volunteerTraining" | "volunteerSession" | "volunteerFeedback" | "crisisResourceUsage" | "safetyReport" | "auditLog" | "analyticsEvent" | "performanceMetric" | "systemHealth" | "crisisResource" | "publicMetrics" | "emergencyContact" | "emergencyNotification" | "webSocketConnection" | "user" | "moodEntry" | "safetyPlan" | "safetyPlanVersion" | "userProfile" | "achievement" | "userAchievement" | "challenge" | "userChallenge" | "userActivity" | "journalEntry" | "breathingExercise" | "breathingSession" | "groundingTechnique" | "groundingSession" | "selfHelpResource" | "selfHelpInteraction"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3968,6 +4232,524 @@ export namespace Prisma {
           }
         }
       }
+      JournalEntry: {
+        payload: Prisma.$JournalEntryPayload<ExtArgs>
+        fields: Prisma.JournalEntryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JournalEntryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JournalEntryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>
+          }
+          findFirst: {
+            args: Prisma.JournalEntryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JournalEntryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>
+          }
+          findMany: {
+            args: Prisma.JournalEntryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>[]
+          }
+          create: {
+            args: Prisma.JournalEntryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>
+          }
+          createMany: {
+            args: Prisma.JournalEntryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JournalEntryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>[]
+          }
+          delete: {
+            args: Prisma.JournalEntryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>
+          }
+          update: {
+            args: Prisma.JournalEntryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>
+          }
+          deleteMany: {
+            args: Prisma.JournalEntryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JournalEntryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JournalEntryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>[]
+          }
+          upsert: {
+            args: Prisma.JournalEntryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalEntryPayload>
+          }
+          aggregate: {
+            args: Prisma.JournalEntryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJournalEntry>
+          }
+          groupBy: {
+            args: Prisma.JournalEntryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JournalEntryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JournalEntryCountArgs<ExtArgs>
+            result: $Utils.Optional<JournalEntryCountAggregateOutputType> | number
+          }
+        }
+      }
+      BreathingExercise: {
+        payload: Prisma.$BreathingExercisePayload<ExtArgs>
+        fields: Prisma.BreathingExerciseFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BreathingExerciseFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BreathingExerciseFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>
+          }
+          findFirst: {
+            args: Prisma.BreathingExerciseFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BreathingExerciseFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>
+          }
+          findMany: {
+            args: Prisma.BreathingExerciseFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>[]
+          }
+          create: {
+            args: Prisma.BreathingExerciseCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>
+          }
+          createMany: {
+            args: Prisma.BreathingExerciseCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BreathingExerciseCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>[]
+          }
+          delete: {
+            args: Prisma.BreathingExerciseDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>
+          }
+          update: {
+            args: Prisma.BreathingExerciseUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>
+          }
+          deleteMany: {
+            args: Prisma.BreathingExerciseDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BreathingExerciseUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BreathingExerciseUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>[]
+          }
+          upsert: {
+            args: Prisma.BreathingExerciseUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingExercisePayload>
+          }
+          aggregate: {
+            args: Prisma.BreathingExerciseAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBreathingExercise>
+          }
+          groupBy: {
+            args: Prisma.BreathingExerciseGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BreathingExerciseGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BreathingExerciseCountArgs<ExtArgs>
+            result: $Utils.Optional<BreathingExerciseCountAggregateOutputType> | number
+          }
+        }
+      }
+      BreathingSession: {
+        payload: Prisma.$BreathingSessionPayload<ExtArgs>
+        fields: Prisma.BreathingSessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BreathingSessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BreathingSessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>
+          }
+          findFirst: {
+            args: Prisma.BreathingSessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BreathingSessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>
+          }
+          findMany: {
+            args: Prisma.BreathingSessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>[]
+          }
+          create: {
+            args: Prisma.BreathingSessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>
+          }
+          createMany: {
+            args: Prisma.BreathingSessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BreathingSessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>[]
+          }
+          delete: {
+            args: Prisma.BreathingSessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>
+          }
+          update: {
+            args: Prisma.BreathingSessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.BreathingSessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BreathingSessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BreathingSessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.BreathingSessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BreathingSessionPayload>
+          }
+          aggregate: {
+            args: Prisma.BreathingSessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBreathingSession>
+          }
+          groupBy: {
+            args: Prisma.BreathingSessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BreathingSessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BreathingSessionCountArgs<ExtArgs>
+            result: $Utils.Optional<BreathingSessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      GroundingTechnique: {
+        payload: Prisma.$GroundingTechniquePayload<ExtArgs>
+        fields: Prisma.GroundingTechniqueFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GroundingTechniqueFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GroundingTechniqueFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>
+          }
+          findFirst: {
+            args: Prisma.GroundingTechniqueFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GroundingTechniqueFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>
+          }
+          findMany: {
+            args: Prisma.GroundingTechniqueFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>[]
+          }
+          create: {
+            args: Prisma.GroundingTechniqueCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>
+          }
+          createMany: {
+            args: Prisma.GroundingTechniqueCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.GroundingTechniqueCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>[]
+          }
+          delete: {
+            args: Prisma.GroundingTechniqueDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>
+          }
+          update: {
+            args: Prisma.GroundingTechniqueUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>
+          }
+          deleteMany: {
+            args: Prisma.GroundingTechniqueDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GroundingTechniqueUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.GroundingTechniqueUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>[]
+          }
+          upsert: {
+            args: Prisma.GroundingTechniqueUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingTechniquePayload>
+          }
+          aggregate: {
+            args: Prisma.GroundingTechniqueAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGroundingTechnique>
+          }
+          groupBy: {
+            args: Prisma.GroundingTechniqueGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GroundingTechniqueGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GroundingTechniqueCountArgs<ExtArgs>
+            result: $Utils.Optional<GroundingTechniqueCountAggregateOutputType> | number
+          }
+        }
+      }
+      GroundingSession: {
+        payload: Prisma.$GroundingSessionPayload<ExtArgs>
+        fields: Prisma.GroundingSessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GroundingSessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GroundingSessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>
+          }
+          findFirst: {
+            args: Prisma.GroundingSessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GroundingSessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>
+          }
+          findMany: {
+            args: Prisma.GroundingSessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>[]
+          }
+          create: {
+            args: Prisma.GroundingSessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>
+          }
+          createMany: {
+            args: Prisma.GroundingSessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.GroundingSessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>[]
+          }
+          delete: {
+            args: Prisma.GroundingSessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>
+          }
+          update: {
+            args: Prisma.GroundingSessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.GroundingSessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GroundingSessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.GroundingSessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.GroundingSessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GroundingSessionPayload>
+          }
+          aggregate: {
+            args: Prisma.GroundingSessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGroundingSession>
+          }
+          groupBy: {
+            args: Prisma.GroundingSessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GroundingSessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GroundingSessionCountArgs<ExtArgs>
+            result: $Utils.Optional<GroundingSessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      SelfHelpResource: {
+        payload: Prisma.$SelfHelpResourcePayload<ExtArgs>
+        fields: Prisma.SelfHelpResourceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SelfHelpResourceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SelfHelpResourceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>
+          }
+          findFirst: {
+            args: Prisma.SelfHelpResourceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SelfHelpResourceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>
+          }
+          findMany: {
+            args: Prisma.SelfHelpResourceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>[]
+          }
+          create: {
+            args: Prisma.SelfHelpResourceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>
+          }
+          createMany: {
+            args: Prisma.SelfHelpResourceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SelfHelpResourceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>[]
+          }
+          delete: {
+            args: Prisma.SelfHelpResourceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>
+          }
+          update: {
+            args: Prisma.SelfHelpResourceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>
+          }
+          deleteMany: {
+            args: Prisma.SelfHelpResourceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SelfHelpResourceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SelfHelpResourceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>[]
+          }
+          upsert: {
+            args: Prisma.SelfHelpResourceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpResourcePayload>
+          }
+          aggregate: {
+            args: Prisma.SelfHelpResourceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSelfHelpResource>
+          }
+          groupBy: {
+            args: Prisma.SelfHelpResourceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SelfHelpResourceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SelfHelpResourceCountArgs<ExtArgs>
+            result: $Utils.Optional<SelfHelpResourceCountAggregateOutputType> | number
+          }
+        }
+      }
+      SelfHelpInteraction: {
+        payload: Prisma.$SelfHelpInteractionPayload<ExtArgs>
+        fields: Prisma.SelfHelpInteractionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SelfHelpInteractionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SelfHelpInteractionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>
+          }
+          findFirst: {
+            args: Prisma.SelfHelpInteractionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SelfHelpInteractionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>
+          }
+          findMany: {
+            args: Prisma.SelfHelpInteractionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>[]
+          }
+          create: {
+            args: Prisma.SelfHelpInteractionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>
+          }
+          createMany: {
+            args: Prisma.SelfHelpInteractionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SelfHelpInteractionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>[]
+          }
+          delete: {
+            args: Prisma.SelfHelpInteractionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>
+          }
+          update: {
+            args: Prisma.SelfHelpInteractionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>
+          }
+          deleteMany: {
+            args: Prisma.SelfHelpInteractionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SelfHelpInteractionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SelfHelpInteractionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>[]
+          }
+          upsert: {
+            args: Prisma.SelfHelpInteractionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SelfHelpInteractionPayload>
+          }
+          aggregate: {
+            args: Prisma.SelfHelpInteractionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSelfHelpInteraction>
+          }
+          groupBy: {
+            args: Prisma.SelfHelpInteractionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SelfHelpInteractionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SelfHelpInteractionCountArgs<ExtArgs>
+            result: $Utils.Optional<SelfHelpInteractionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -4095,6 +4877,13 @@ export namespace Prisma {
     challenge?: ChallengeOmit
     userChallenge?: UserChallengeOmit
     userActivity?: UserActivityOmit
+    journalEntry?: JournalEntryOmit
+    breathingExercise?: BreathingExerciseOmit
+    breathingSession?: BreathingSessionOmit
+    groundingTechnique?: GroundingTechniqueOmit
+    groundingSession?: GroundingSessionOmit
+    selfHelpResource?: SelfHelpResourceOmit
+    selfHelpInteraction?: SelfHelpInteractionOmit
   }
 
   /* Types for Logging */
@@ -4350,6 +5139,10 @@ export namespace Prisma {
     challenges: number
     activities: number
     emergencyContacts: number
+    journalEntries: number
+    breathingSessions: number
+    groundingSessions: number
+    selfHelpInteractions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4359,6 +5152,10 @@ export namespace Prisma {
     challenges?: boolean | UserCountOutputTypeCountChallengesArgs
     activities?: boolean | UserCountOutputTypeCountActivitiesArgs
     emergencyContacts?: boolean | UserCountOutputTypeCountEmergencyContactsArgs
+    journalEntries?: boolean | UserCountOutputTypeCountJournalEntriesArgs
+    breathingSessions?: boolean | UserCountOutputTypeCountBreathingSessionsArgs
+    groundingSessions?: boolean | UserCountOutputTypeCountGroundingSessionsArgs
+    selfHelpInteractions?: boolean | UserCountOutputTypeCountSelfHelpInteractionsArgs
   }
 
   // Custom InputTypes
@@ -4412,6 +5209,34 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountEmergencyContactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EmergencyContactWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountJournalEntriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JournalEntryWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountBreathingSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreathingSessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountGroundingSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GroundingSessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSelfHelpInteractionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SelfHelpInteractionWhereInput
   }
 
 
@@ -4505,6 +5330,99 @@ export namespace Prisma {
    */
   export type ChallengeCountOutputTypeCountUserChallengesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserChallengeWhereInput
+  }
+
+
+  /**
+   * Count Type BreathingExerciseCountOutputType
+   */
+
+  export type BreathingExerciseCountOutputType = {
+    sessions: number
+  }
+
+  export type BreathingExerciseCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sessions?: boolean | BreathingExerciseCountOutputTypeCountSessionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BreathingExerciseCountOutputType without action
+   */
+  export type BreathingExerciseCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExerciseCountOutputType
+     */
+    select?: BreathingExerciseCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BreathingExerciseCountOutputType without action
+   */
+  export type BreathingExerciseCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreathingSessionWhereInput
+  }
+
+
+  /**
+   * Count Type GroundingTechniqueCountOutputType
+   */
+
+  export type GroundingTechniqueCountOutputType = {
+    sessions: number
+  }
+
+  export type GroundingTechniqueCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sessions?: boolean | GroundingTechniqueCountOutputTypeCountSessionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * GroundingTechniqueCountOutputType without action
+   */
+  export type GroundingTechniqueCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechniqueCountOutputType
+     */
+    select?: GroundingTechniqueCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * GroundingTechniqueCountOutputType without action
+   */
+  export type GroundingTechniqueCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GroundingSessionWhereInput
+  }
+
+
+  /**
+   * Count Type SelfHelpResourceCountOutputType
+   */
+
+  export type SelfHelpResourceCountOutputType = {
+    interactions: number
+  }
+
+  export type SelfHelpResourceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    interactions?: boolean | SelfHelpResourceCountOutputTypeCountInteractionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SelfHelpResourceCountOutputType without action
+   */
+  export type SelfHelpResourceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResourceCountOutputType
+     */
+    select?: SelfHelpResourceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SelfHelpResourceCountOutputType without action
+   */
+  export type SelfHelpResourceCountOutputTypeCountInteractionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SelfHelpInteractionWhereInput
   }
 
 
@@ -29998,6 +30916,10 @@ export namespace Prisma {
     challenges?: boolean | User$challengesArgs<ExtArgs>
     activities?: boolean | User$activitiesArgs<ExtArgs>
     emergencyContacts?: boolean | User$emergencyContactsArgs<ExtArgs>
+    journalEntries?: boolean | User$journalEntriesArgs<ExtArgs>
+    breathingSessions?: boolean | User$breathingSessionsArgs<ExtArgs>
+    groundingSessions?: boolean | User$groundingSessionsArgs<ExtArgs>
+    selfHelpInteractions?: boolean | User$selfHelpInteractionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -30067,6 +30989,10 @@ export namespace Prisma {
     challenges?: boolean | User$challengesArgs<ExtArgs>
     activities?: boolean | User$activitiesArgs<ExtArgs>
     emergencyContacts?: boolean | User$emergencyContactsArgs<ExtArgs>
+    journalEntries?: boolean | User$journalEntriesArgs<ExtArgs>
+    breathingSessions?: boolean | User$breathingSessionsArgs<ExtArgs>
+    groundingSessions?: boolean | User$groundingSessionsArgs<ExtArgs>
+    selfHelpInteractions?: boolean | User$selfHelpInteractionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -30082,6 +31008,10 @@ export namespace Prisma {
       challenges: Prisma.$UserChallengePayload<ExtArgs>[]
       activities: Prisma.$UserActivityPayload<ExtArgs>[]
       emergencyContacts: Prisma.$EmergencyContactPayload<ExtArgs>[]
+      journalEntries: Prisma.$JournalEntryPayload<ExtArgs>[]
+      breathingSessions: Prisma.$BreathingSessionPayload<ExtArgs>[]
+      groundingSessions: Prisma.$GroundingSessionPayload<ExtArgs>[]
+      selfHelpInteractions: Prisma.$SelfHelpInteractionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -30501,6 +31431,10 @@ export namespace Prisma {
     challenges<T extends User$challengesArgs<ExtArgs> = {}>(args?: Subset<T, User$challengesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserChallengePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     activities<T extends User$activitiesArgs<ExtArgs> = {}>(args?: Subset<T, User$activitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     emergencyContacts<T extends User$emergencyContactsArgs<ExtArgs> = {}>(args?: Subset<T, User$emergencyContactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    journalEntries<T extends User$journalEntriesArgs<ExtArgs> = {}>(args?: Subset<T, User$journalEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    breathingSessions<T extends User$breathingSessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$breathingSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    groundingSessions<T extends User$groundingSessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$groundingSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    selfHelpInteractions<T extends User$selfHelpInteractionsArgs<ExtArgs> = {}>(args?: Subset<T, User$selfHelpInteractionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -31092,6 +32026,102 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: EmergencyContactScalarFieldEnum | EmergencyContactScalarFieldEnum[]
+  }
+
+  /**
+   * User.journalEntries
+   */
+  export type User$journalEntriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    where?: JournalEntryWhereInput
+    orderBy?: JournalEntryOrderByWithRelationInput | JournalEntryOrderByWithRelationInput[]
+    cursor?: JournalEntryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JournalEntryScalarFieldEnum | JournalEntryScalarFieldEnum[]
+  }
+
+  /**
+   * User.breathingSessions
+   */
+  export type User$breathingSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    where?: BreathingSessionWhereInput
+    orderBy?: BreathingSessionOrderByWithRelationInput | BreathingSessionOrderByWithRelationInput[]
+    cursor?: BreathingSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BreathingSessionScalarFieldEnum | BreathingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.groundingSessions
+   */
+  export type User$groundingSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    where?: GroundingSessionWhereInput
+    orderBy?: GroundingSessionOrderByWithRelationInput | GroundingSessionOrderByWithRelationInput[]
+    cursor?: GroundingSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GroundingSessionScalarFieldEnum | GroundingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.selfHelpInteractions
+   */
+  export type User$selfHelpInteractionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    where?: SelfHelpInteractionWhereInput
+    orderBy?: SelfHelpInteractionOrderByWithRelationInput | SelfHelpInteractionOrderByWithRelationInput[]
+    cursor?: SelfHelpInteractionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SelfHelpInteractionScalarFieldEnum | SelfHelpInteractionScalarFieldEnum[]
   }
 
   /**
@@ -41515,6 +42545,8870 @@ export namespace Prisma {
 
 
   /**
+   * Model JournalEntry
+   */
+
+  export type AggregateJournalEntry = {
+    _count: JournalEntryCountAggregateOutputType | null
+    _avg: JournalEntryAvgAggregateOutputType | null
+    _sum: JournalEntrySumAggregateOutputType | null
+    _min: JournalEntryMinAggregateOutputType | null
+    _max: JournalEntryMaxAggregateOutputType | null
+  }
+
+  export type JournalEntryAvgAggregateOutputType = {
+    mood: number | null
+    sentimentScore: number | null
+    wordCount: number | null
+  }
+
+  export type JournalEntrySumAggregateOutputType = {
+    mood: number | null
+    sentimentScore: number | null
+    wordCount: number | null
+  }
+
+  export type JournalEntryMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    title: string | null
+    promptId: string | null
+    promptText: string | null
+    entryType: $Enums.JournalType | null
+    encryptedContent: Uint8Array | null
+    contentHash: string | null
+    keyDerivationSalt: Uint8Array | null
+    mood: number | null
+    sentimentScore: number | null
+    isPrivate: boolean | null
+    shareWithTherapist: boolean | null
+    wordCount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JournalEntryMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    title: string | null
+    promptId: string | null
+    promptText: string | null
+    entryType: $Enums.JournalType | null
+    encryptedContent: Uint8Array | null
+    contentHash: string | null
+    keyDerivationSalt: Uint8Array | null
+    mood: number | null
+    sentimentScore: number | null
+    isPrivate: boolean | null
+    shareWithTherapist: boolean | null
+    wordCount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JournalEntryCountAggregateOutputType = {
+    id: number
+    userId: number
+    title: number
+    promptId: number
+    promptText: number
+    entryType: number
+    encryptedContent: number
+    contentHash: number
+    keyDerivationSalt: number
+    mood: number
+    sentimentScore: number
+    emotions: number
+    tags: number
+    isPrivate: number
+    shareWithTherapist: number
+    wordCount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type JournalEntryAvgAggregateInputType = {
+    mood?: true
+    sentimentScore?: true
+    wordCount?: true
+  }
+
+  export type JournalEntrySumAggregateInputType = {
+    mood?: true
+    sentimentScore?: true
+    wordCount?: true
+  }
+
+  export type JournalEntryMinAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    promptId?: true
+    promptText?: true
+    entryType?: true
+    encryptedContent?: true
+    contentHash?: true
+    keyDerivationSalt?: true
+    mood?: true
+    sentimentScore?: true
+    isPrivate?: true
+    shareWithTherapist?: true
+    wordCount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JournalEntryMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    promptId?: true
+    promptText?: true
+    entryType?: true
+    encryptedContent?: true
+    contentHash?: true
+    keyDerivationSalt?: true
+    mood?: true
+    sentimentScore?: true
+    isPrivate?: true
+    shareWithTherapist?: true
+    wordCount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JournalEntryCountAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    promptId?: true
+    promptText?: true
+    entryType?: true
+    encryptedContent?: true
+    contentHash?: true
+    keyDerivationSalt?: true
+    mood?: true
+    sentimentScore?: true
+    emotions?: true
+    tags?: true
+    isPrivate?: true
+    shareWithTherapist?: true
+    wordCount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type JournalEntryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JournalEntry to aggregate.
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalEntries to fetch.
+     */
+    orderBy?: JournalEntryOrderByWithRelationInput | JournalEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JournalEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalEntries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JournalEntries
+    **/
+    _count?: true | JournalEntryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JournalEntryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JournalEntrySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JournalEntryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JournalEntryMaxAggregateInputType
+  }
+
+  export type GetJournalEntryAggregateType<T extends JournalEntryAggregateArgs> = {
+        [P in keyof T & keyof AggregateJournalEntry]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJournalEntry[P]>
+      : GetScalarType<T[P], AggregateJournalEntry[P]>
+  }
+
+
+
+
+  export type JournalEntryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JournalEntryWhereInput
+    orderBy?: JournalEntryOrderByWithAggregationInput | JournalEntryOrderByWithAggregationInput[]
+    by: JournalEntryScalarFieldEnum[] | JournalEntryScalarFieldEnum
+    having?: JournalEntryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JournalEntryCountAggregateInputType | true
+    _avg?: JournalEntryAvgAggregateInputType
+    _sum?: JournalEntrySumAggregateInputType
+    _min?: JournalEntryMinAggregateInputType
+    _max?: JournalEntryMaxAggregateInputType
+  }
+
+  export type JournalEntryGroupByOutputType = {
+    id: string
+    userId: string
+    title: string | null
+    promptId: string | null
+    promptText: string | null
+    entryType: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood: number | null
+    sentimentScore: number | null
+    emotions: JsonValue | null
+    tags: JsonValue | null
+    isPrivate: boolean
+    shareWithTherapist: boolean
+    wordCount: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: JournalEntryCountAggregateOutputType | null
+    _avg: JournalEntryAvgAggregateOutputType | null
+    _sum: JournalEntrySumAggregateOutputType | null
+    _min: JournalEntryMinAggregateOutputType | null
+    _max: JournalEntryMaxAggregateOutputType | null
+  }
+
+  type GetJournalEntryGroupByPayload<T extends JournalEntryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JournalEntryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JournalEntryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JournalEntryGroupByOutputType[P]>
+            : GetScalarType<T[P], JournalEntryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JournalEntrySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    promptId?: boolean
+    promptText?: boolean
+    entryType?: boolean
+    encryptedContent?: boolean
+    contentHash?: boolean
+    keyDerivationSalt?: boolean
+    mood?: boolean
+    sentimentScore?: boolean
+    emotions?: boolean
+    tags?: boolean
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journalEntry"]>
+
+  export type JournalEntrySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    promptId?: boolean
+    promptText?: boolean
+    entryType?: boolean
+    encryptedContent?: boolean
+    contentHash?: boolean
+    keyDerivationSalt?: boolean
+    mood?: boolean
+    sentimentScore?: boolean
+    emotions?: boolean
+    tags?: boolean
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journalEntry"]>
+
+  export type JournalEntrySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    promptId?: boolean
+    promptText?: boolean
+    entryType?: boolean
+    encryptedContent?: boolean
+    contentHash?: boolean
+    keyDerivationSalt?: boolean
+    mood?: boolean
+    sentimentScore?: boolean
+    emotions?: boolean
+    tags?: boolean
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journalEntry"]>
+
+  export type JournalEntrySelectScalar = {
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    promptId?: boolean
+    promptText?: boolean
+    entryType?: boolean
+    encryptedContent?: boolean
+    contentHash?: boolean
+    keyDerivationSalt?: boolean
+    mood?: boolean
+    sentimentScore?: boolean
+    emotions?: boolean
+    tags?: boolean
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type JournalEntryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "promptId" | "promptText" | "entryType" | "encryptedContent" | "contentHash" | "keyDerivationSalt" | "mood" | "sentimentScore" | "emotions" | "tags" | "isPrivate" | "shareWithTherapist" | "wordCount" | "createdAt" | "updatedAt", ExtArgs["result"]["journalEntry"]>
+  export type JournalEntryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type JournalEntryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type JournalEntryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $JournalEntryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JournalEntry"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      title: string | null
+      promptId: string | null
+      promptText: string | null
+      entryType: $Enums.JournalType
+      encryptedContent: Uint8Array
+      contentHash: string
+      keyDerivationSalt: Uint8Array
+      mood: number | null
+      sentimentScore: number | null
+      emotions: Prisma.JsonValue | null
+      tags: Prisma.JsonValue | null
+      isPrivate: boolean
+      shareWithTherapist: boolean
+      wordCount: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["journalEntry"]>
+    composites: {}
+  }
+
+  type JournalEntryGetPayload<S extends boolean | null | undefined | JournalEntryDefaultArgs> = $Result.GetResult<Prisma.$JournalEntryPayload, S>
+
+  type JournalEntryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JournalEntryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: JournalEntryCountAggregateInputType | true
+    }
+
+  export interface JournalEntryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JournalEntry'], meta: { name: 'JournalEntry' } }
+    /**
+     * Find zero or one JournalEntry that matches the filter.
+     * @param {JournalEntryFindUniqueArgs} args - Arguments to find a JournalEntry
+     * @example
+     * // Get one JournalEntry
+     * const journalEntry = await prisma.journalEntry.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JournalEntryFindUniqueArgs>(args: SelectSubset<T, JournalEntryFindUniqueArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JournalEntry that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JournalEntryFindUniqueOrThrowArgs} args - Arguments to find a JournalEntry
+     * @example
+     * // Get one JournalEntry
+     * const journalEntry = await prisma.journalEntry.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JournalEntryFindUniqueOrThrowArgs>(args: SelectSubset<T, JournalEntryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JournalEntry that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryFindFirstArgs} args - Arguments to find a JournalEntry
+     * @example
+     * // Get one JournalEntry
+     * const journalEntry = await prisma.journalEntry.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JournalEntryFindFirstArgs>(args?: SelectSubset<T, JournalEntryFindFirstArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JournalEntry that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryFindFirstOrThrowArgs} args - Arguments to find a JournalEntry
+     * @example
+     * // Get one JournalEntry
+     * const journalEntry = await prisma.journalEntry.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JournalEntryFindFirstOrThrowArgs>(args?: SelectSubset<T, JournalEntryFindFirstOrThrowArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JournalEntries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JournalEntries
+     * const journalEntries = await prisma.journalEntry.findMany()
+     * 
+     * // Get first 10 JournalEntries
+     * const journalEntries = await prisma.journalEntry.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const journalEntryWithIdOnly = await prisma.journalEntry.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JournalEntryFindManyArgs>(args?: SelectSubset<T, JournalEntryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JournalEntry.
+     * @param {JournalEntryCreateArgs} args - Arguments to create a JournalEntry.
+     * @example
+     * // Create one JournalEntry
+     * const JournalEntry = await prisma.journalEntry.create({
+     *   data: {
+     *     // ... data to create a JournalEntry
+     *   }
+     * })
+     * 
+     */
+    create<T extends JournalEntryCreateArgs>(args: SelectSubset<T, JournalEntryCreateArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JournalEntries.
+     * @param {JournalEntryCreateManyArgs} args - Arguments to create many JournalEntries.
+     * @example
+     * // Create many JournalEntries
+     * const journalEntry = await prisma.journalEntry.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JournalEntryCreateManyArgs>(args?: SelectSubset<T, JournalEntryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many JournalEntries and returns the data saved in the database.
+     * @param {JournalEntryCreateManyAndReturnArgs} args - Arguments to create many JournalEntries.
+     * @example
+     * // Create many JournalEntries
+     * const journalEntry = await prisma.journalEntry.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many JournalEntries and only return the `id`
+     * const journalEntryWithIdOnly = await prisma.journalEntry.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JournalEntryCreateManyAndReturnArgs>(args?: SelectSubset<T, JournalEntryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a JournalEntry.
+     * @param {JournalEntryDeleteArgs} args - Arguments to delete one JournalEntry.
+     * @example
+     * // Delete one JournalEntry
+     * const JournalEntry = await prisma.journalEntry.delete({
+     *   where: {
+     *     // ... filter to delete one JournalEntry
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JournalEntryDeleteArgs>(args: SelectSubset<T, JournalEntryDeleteArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JournalEntry.
+     * @param {JournalEntryUpdateArgs} args - Arguments to update one JournalEntry.
+     * @example
+     * // Update one JournalEntry
+     * const journalEntry = await prisma.journalEntry.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JournalEntryUpdateArgs>(args: SelectSubset<T, JournalEntryUpdateArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JournalEntries.
+     * @param {JournalEntryDeleteManyArgs} args - Arguments to filter JournalEntries to delete.
+     * @example
+     * // Delete a few JournalEntries
+     * const { count } = await prisma.journalEntry.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JournalEntryDeleteManyArgs>(args?: SelectSubset<T, JournalEntryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JournalEntries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JournalEntries
+     * const journalEntry = await prisma.journalEntry.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JournalEntryUpdateManyArgs>(args: SelectSubset<T, JournalEntryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JournalEntries and returns the data updated in the database.
+     * @param {JournalEntryUpdateManyAndReturnArgs} args - Arguments to update many JournalEntries.
+     * @example
+     * // Update many JournalEntries
+     * const journalEntry = await prisma.journalEntry.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more JournalEntries and only return the `id`
+     * const journalEntryWithIdOnly = await prisma.journalEntry.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JournalEntryUpdateManyAndReturnArgs>(args: SelectSubset<T, JournalEntryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one JournalEntry.
+     * @param {JournalEntryUpsertArgs} args - Arguments to update or create a JournalEntry.
+     * @example
+     * // Update or create a JournalEntry
+     * const journalEntry = await prisma.journalEntry.upsert({
+     *   create: {
+     *     // ... data to create a JournalEntry
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JournalEntry we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JournalEntryUpsertArgs>(args: SelectSubset<T, JournalEntryUpsertArgs<ExtArgs>>): Prisma__JournalEntryClient<$Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JournalEntries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryCountArgs} args - Arguments to filter JournalEntries to count.
+     * @example
+     * // Count the number of JournalEntries
+     * const count = await prisma.journalEntry.count({
+     *   where: {
+     *     // ... the filter for the JournalEntries we want to count
+     *   }
+     * })
+    **/
+    count<T extends JournalEntryCountArgs>(
+      args?: Subset<T, JournalEntryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JournalEntryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JournalEntry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JournalEntryAggregateArgs>(args: Subset<T, JournalEntryAggregateArgs>): Prisma.PrismaPromise<GetJournalEntryAggregateType<T>>
+
+    /**
+     * Group by JournalEntry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalEntryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JournalEntryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JournalEntryGroupByArgs['orderBy'] }
+        : { orderBy?: JournalEntryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JournalEntryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournalEntryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JournalEntry model
+   */
+  readonly fields: JournalEntryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JournalEntry.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JournalEntryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JournalEntry model
+   */
+  interface JournalEntryFieldRefs {
+    readonly id: FieldRef<"JournalEntry", 'String'>
+    readonly userId: FieldRef<"JournalEntry", 'String'>
+    readonly title: FieldRef<"JournalEntry", 'String'>
+    readonly promptId: FieldRef<"JournalEntry", 'String'>
+    readonly promptText: FieldRef<"JournalEntry", 'String'>
+    readonly entryType: FieldRef<"JournalEntry", 'JournalType'>
+    readonly encryptedContent: FieldRef<"JournalEntry", 'Bytes'>
+    readonly contentHash: FieldRef<"JournalEntry", 'String'>
+    readonly keyDerivationSalt: FieldRef<"JournalEntry", 'Bytes'>
+    readonly mood: FieldRef<"JournalEntry", 'Int'>
+    readonly sentimentScore: FieldRef<"JournalEntry", 'Float'>
+    readonly emotions: FieldRef<"JournalEntry", 'Json'>
+    readonly tags: FieldRef<"JournalEntry", 'Json'>
+    readonly isPrivate: FieldRef<"JournalEntry", 'Boolean'>
+    readonly shareWithTherapist: FieldRef<"JournalEntry", 'Boolean'>
+    readonly wordCount: FieldRef<"JournalEntry", 'Int'>
+    readonly createdAt: FieldRef<"JournalEntry", 'DateTime'>
+    readonly updatedAt: FieldRef<"JournalEntry", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JournalEntry findUnique
+   */
+  export type JournalEntryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalEntry to fetch.
+     */
+    where: JournalEntryWhereUniqueInput
+  }
+
+  /**
+   * JournalEntry findUniqueOrThrow
+   */
+  export type JournalEntryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalEntry to fetch.
+     */
+    where: JournalEntryWhereUniqueInput
+  }
+
+  /**
+   * JournalEntry findFirst
+   */
+  export type JournalEntryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalEntry to fetch.
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalEntries to fetch.
+     */
+    orderBy?: JournalEntryOrderByWithRelationInput | JournalEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JournalEntries.
+     */
+    cursor?: JournalEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalEntries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JournalEntries.
+     */
+    distinct?: JournalEntryScalarFieldEnum | JournalEntryScalarFieldEnum[]
+  }
+
+  /**
+   * JournalEntry findFirstOrThrow
+   */
+  export type JournalEntryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalEntry to fetch.
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalEntries to fetch.
+     */
+    orderBy?: JournalEntryOrderByWithRelationInput | JournalEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JournalEntries.
+     */
+    cursor?: JournalEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalEntries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JournalEntries.
+     */
+    distinct?: JournalEntryScalarFieldEnum | JournalEntryScalarFieldEnum[]
+  }
+
+  /**
+   * JournalEntry findMany
+   */
+  export type JournalEntryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalEntries to fetch.
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalEntries to fetch.
+     */
+    orderBy?: JournalEntryOrderByWithRelationInput | JournalEntryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JournalEntries.
+     */
+    cursor?: JournalEntryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalEntries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalEntries.
+     */
+    skip?: number
+    distinct?: JournalEntryScalarFieldEnum | JournalEntryScalarFieldEnum[]
+  }
+
+  /**
+   * JournalEntry create
+   */
+  export type JournalEntryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JournalEntry.
+     */
+    data: XOR<JournalEntryCreateInput, JournalEntryUncheckedCreateInput>
+  }
+
+  /**
+   * JournalEntry createMany
+   */
+  export type JournalEntryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JournalEntries.
+     */
+    data: JournalEntryCreateManyInput | JournalEntryCreateManyInput[]
+  }
+
+  /**
+   * JournalEntry createManyAndReturn
+   */
+  export type JournalEntryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * The data used to create many JournalEntries.
+     */
+    data: JournalEntryCreateManyInput | JournalEntryCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * JournalEntry update
+   */
+  export type JournalEntryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JournalEntry.
+     */
+    data: XOR<JournalEntryUpdateInput, JournalEntryUncheckedUpdateInput>
+    /**
+     * Choose, which JournalEntry to update.
+     */
+    where: JournalEntryWhereUniqueInput
+  }
+
+  /**
+   * JournalEntry updateMany
+   */
+  export type JournalEntryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JournalEntries.
+     */
+    data: XOR<JournalEntryUpdateManyMutationInput, JournalEntryUncheckedUpdateManyInput>
+    /**
+     * Filter which JournalEntries to update
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * Limit how many JournalEntries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JournalEntry updateManyAndReturn
+   */
+  export type JournalEntryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * The data used to update JournalEntries.
+     */
+    data: XOR<JournalEntryUpdateManyMutationInput, JournalEntryUncheckedUpdateManyInput>
+    /**
+     * Filter which JournalEntries to update
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * Limit how many JournalEntries to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * JournalEntry upsert
+   */
+  export type JournalEntryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JournalEntry to update in case it exists.
+     */
+    where: JournalEntryWhereUniqueInput
+    /**
+     * In case the JournalEntry found by the `where` argument doesn't exist, create a new JournalEntry with this data.
+     */
+    create: XOR<JournalEntryCreateInput, JournalEntryUncheckedCreateInput>
+    /**
+     * In case the JournalEntry was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JournalEntryUpdateInput, JournalEntryUncheckedUpdateInput>
+  }
+
+  /**
+   * JournalEntry delete
+   */
+  export type JournalEntryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+    /**
+     * Filter which JournalEntry to delete.
+     */
+    where: JournalEntryWhereUniqueInput
+  }
+
+  /**
+   * JournalEntry deleteMany
+   */
+  export type JournalEntryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JournalEntries to delete
+     */
+    where?: JournalEntryWhereInput
+    /**
+     * Limit how many JournalEntries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JournalEntry without action
+   */
+  export type JournalEntryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalEntry
+     */
+    select?: JournalEntrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalEntry
+     */
+    omit?: JournalEntryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalEntryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BreathingExercise
+   */
+
+  export type AggregateBreathingExercise = {
+    _count: BreathingExerciseCountAggregateOutputType | null
+    _avg: BreathingExerciseAvgAggregateOutputType | null
+    _sum: BreathingExerciseSumAggregateOutputType | null
+    _min: BreathingExerciseMinAggregateOutputType | null
+    _max: BreathingExerciseMaxAggregateOutputType | null
+  }
+
+  export type BreathingExerciseAvgAggregateOutputType = {
+    inhaleSeconds: number | null
+    holdSeconds: number | null
+    exhaleSeconds: number | null
+    pauseSeconds: number | null
+    cyclesRecommended: number | null
+  }
+
+  export type BreathingExerciseSumAggregateOutputType = {
+    inhaleSeconds: number | null
+    holdSeconds: number | null
+    exhaleSeconds: number | null
+    pauseSeconds: number | null
+    cyclesRecommended: number | null
+  }
+
+  export type BreathingExerciseMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    technique: $Enums.BreathingTechnique | null
+    difficulty: $Enums.ExerciseDifficulty | null
+    inhaleSeconds: number | null
+    holdSeconds: number | null
+    exhaleSeconds: number | null
+    pauseSeconds: number | null
+    cyclesRecommended: number | null
+    visualGuideUrl: string | null
+    audioGuideUrl: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type BreathingExerciseMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    technique: $Enums.BreathingTechnique | null
+    difficulty: $Enums.ExerciseDifficulty | null
+    inhaleSeconds: number | null
+    holdSeconds: number | null
+    exhaleSeconds: number | null
+    pauseSeconds: number | null
+    cyclesRecommended: number | null
+    visualGuideUrl: string | null
+    audioGuideUrl: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type BreathingExerciseCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    technique: number
+    difficulty: number
+    inhaleSeconds: number
+    holdSeconds: number
+    exhaleSeconds: number
+    pauseSeconds: number
+    cyclesRecommended: number
+    instructions: number
+    visualGuideUrl: number
+    audioGuideUrl: number
+    benefits: number
+    bestFor: number
+    contraindications: number
+    isActive: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BreathingExerciseAvgAggregateInputType = {
+    inhaleSeconds?: true
+    holdSeconds?: true
+    exhaleSeconds?: true
+    pauseSeconds?: true
+    cyclesRecommended?: true
+  }
+
+  export type BreathingExerciseSumAggregateInputType = {
+    inhaleSeconds?: true
+    holdSeconds?: true
+    exhaleSeconds?: true
+    pauseSeconds?: true
+    cyclesRecommended?: true
+  }
+
+  export type BreathingExerciseMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    technique?: true
+    difficulty?: true
+    inhaleSeconds?: true
+    holdSeconds?: true
+    exhaleSeconds?: true
+    pauseSeconds?: true
+    cyclesRecommended?: true
+    visualGuideUrl?: true
+    audioGuideUrl?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type BreathingExerciseMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    technique?: true
+    difficulty?: true
+    inhaleSeconds?: true
+    holdSeconds?: true
+    exhaleSeconds?: true
+    pauseSeconds?: true
+    cyclesRecommended?: true
+    visualGuideUrl?: true
+    audioGuideUrl?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type BreathingExerciseCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    technique?: true
+    difficulty?: true
+    inhaleSeconds?: true
+    holdSeconds?: true
+    exhaleSeconds?: true
+    pauseSeconds?: true
+    cyclesRecommended?: true
+    instructions?: true
+    visualGuideUrl?: true
+    audioGuideUrl?: true
+    benefits?: true
+    bestFor?: true
+    contraindications?: true
+    isActive?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BreathingExerciseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BreathingExercise to aggregate.
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingExercises to fetch.
+     */
+    orderBy?: BreathingExerciseOrderByWithRelationInput | BreathingExerciseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BreathingExerciseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingExercises from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingExercises.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BreathingExercises
+    **/
+    _count?: true | BreathingExerciseCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BreathingExerciseAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BreathingExerciseSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BreathingExerciseMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BreathingExerciseMaxAggregateInputType
+  }
+
+  export type GetBreathingExerciseAggregateType<T extends BreathingExerciseAggregateArgs> = {
+        [P in keyof T & keyof AggregateBreathingExercise]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBreathingExercise[P]>
+      : GetScalarType<T[P], AggregateBreathingExercise[P]>
+  }
+
+
+
+
+  export type BreathingExerciseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreathingExerciseWhereInput
+    orderBy?: BreathingExerciseOrderByWithAggregationInput | BreathingExerciseOrderByWithAggregationInput[]
+    by: BreathingExerciseScalarFieldEnum[] | BreathingExerciseScalarFieldEnum
+    having?: BreathingExerciseScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BreathingExerciseCountAggregateInputType | true
+    _avg?: BreathingExerciseAvgAggregateInputType
+    _sum?: BreathingExerciseSumAggregateInputType
+    _min?: BreathingExerciseMinAggregateInputType
+    _max?: BreathingExerciseMaxAggregateInputType
+  }
+
+  export type BreathingExerciseGroupByOutputType = {
+    id: string
+    name: string
+    description: string
+    technique: $Enums.BreathingTechnique
+    difficulty: $Enums.ExerciseDifficulty
+    inhaleSeconds: number
+    holdSeconds: number | null
+    exhaleSeconds: number
+    pauseSeconds: number | null
+    cyclesRecommended: number
+    instructions: JsonValue
+    visualGuideUrl: string | null
+    audioGuideUrl: string | null
+    benefits: JsonValue
+    bestFor: JsonValue
+    contraindications: JsonValue | null
+    isActive: boolean
+    createdAt: Date
+    _count: BreathingExerciseCountAggregateOutputType | null
+    _avg: BreathingExerciseAvgAggregateOutputType | null
+    _sum: BreathingExerciseSumAggregateOutputType | null
+    _min: BreathingExerciseMinAggregateOutputType | null
+    _max: BreathingExerciseMaxAggregateOutputType | null
+  }
+
+  type GetBreathingExerciseGroupByPayload<T extends BreathingExerciseGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BreathingExerciseGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BreathingExerciseGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BreathingExerciseGroupByOutputType[P]>
+            : GetScalarType<T[P], BreathingExerciseGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BreathingExerciseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    technique?: boolean
+    difficulty?: boolean
+    inhaleSeconds?: boolean
+    holdSeconds?: boolean
+    exhaleSeconds?: boolean
+    pauseSeconds?: boolean
+    cyclesRecommended?: boolean
+    instructions?: boolean
+    visualGuideUrl?: boolean
+    audioGuideUrl?: boolean
+    benefits?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    sessions?: boolean | BreathingExercise$sessionsArgs<ExtArgs>
+    _count?: boolean | BreathingExerciseCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breathingExercise"]>
+
+  export type BreathingExerciseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    technique?: boolean
+    difficulty?: boolean
+    inhaleSeconds?: boolean
+    holdSeconds?: boolean
+    exhaleSeconds?: boolean
+    pauseSeconds?: boolean
+    cyclesRecommended?: boolean
+    instructions?: boolean
+    visualGuideUrl?: boolean
+    audioGuideUrl?: boolean
+    benefits?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["breathingExercise"]>
+
+  export type BreathingExerciseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    technique?: boolean
+    difficulty?: boolean
+    inhaleSeconds?: boolean
+    holdSeconds?: boolean
+    exhaleSeconds?: boolean
+    pauseSeconds?: boolean
+    cyclesRecommended?: boolean
+    instructions?: boolean
+    visualGuideUrl?: boolean
+    audioGuideUrl?: boolean
+    benefits?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["breathingExercise"]>
+
+  export type BreathingExerciseSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    technique?: boolean
+    difficulty?: boolean
+    inhaleSeconds?: boolean
+    holdSeconds?: boolean
+    exhaleSeconds?: boolean
+    pauseSeconds?: boolean
+    cyclesRecommended?: boolean
+    instructions?: boolean
+    visualGuideUrl?: boolean
+    audioGuideUrl?: boolean
+    benefits?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }
+
+  export type BreathingExerciseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "technique" | "difficulty" | "inhaleSeconds" | "holdSeconds" | "exhaleSeconds" | "pauseSeconds" | "cyclesRecommended" | "instructions" | "visualGuideUrl" | "audioGuideUrl" | "benefits" | "bestFor" | "contraindications" | "isActive" | "createdAt", ExtArgs["result"]["breathingExercise"]>
+  export type BreathingExerciseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sessions?: boolean | BreathingExercise$sessionsArgs<ExtArgs>
+    _count?: boolean | BreathingExerciseCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BreathingExerciseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BreathingExerciseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $BreathingExercisePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BreathingExercise"
+    objects: {
+      sessions: Prisma.$BreathingSessionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string
+      technique: $Enums.BreathingTechnique
+      difficulty: $Enums.ExerciseDifficulty
+      inhaleSeconds: number
+      holdSeconds: number | null
+      exhaleSeconds: number
+      pauseSeconds: number | null
+      cyclesRecommended: number
+      instructions: Prisma.JsonValue
+      visualGuideUrl: string | null
+      audioGuideUrl: string | null
+      benefits: Prisma.JsonValue
+      bestFor: Prisma.JsonValue
+      contraindications: Prisma.JsonValue | null
+      isActive: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["breathingExercise"]>
+    composites: {}
+  }
+
+  type BreathingExerciseGetPayload<S extends boolean | null | undefined | BreathingExerciseDefaultArgs> = $Result.GetResult<Prisma.$BreathingExercisePayload, S>
+
+  type BreathingExerciseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BreathingExerciseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: BreathingExerciseCountAggregateInputType | true
+    }
+
+  export interface BreathingExerciseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BreathingExercise'], meta: { name: 'BreathingExercise' } }
+    /**
+     * Find zero or one BreathingExercise that matches the filter.
+     * @param {BreathingExerciseFindUniqueArgs} args - Arguments to find a BreathingExercise
+     * @example
+     * // Get one BreathingExercise
+     * const breathingExercise = await prisma.breathingExercise.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BreathingExerciseFindUniqueArgs>(args: SelectSubset<T, BreathingExerciseFindUniqueArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BreathingExercise that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BreathingExerciseFindUniqueOrThrowArgs} args - Arguments to find a BreathingExercise
+     * @example
+     * // Get one BreathingExercise
+     * const breathingExercise = await prisma.breathingExercise.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BreathingExerciseFindUniqueOrThrowArgs>(args: SelectSubset<T, BreathingExerciseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BreathingExercise that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseFindFirstArgs} args - Arguments to find a BreathingExercise
+     * @example
+     * // Get one BreathingExercise
+     * const breathingExercise = await prisma.breathingExercise.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BreathingExerciseFindFirstArgs>(args?: SelectSubset<T, BreathingExerciseFindFirstArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BreathingExercise that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseFindFirstOrThrowArgs} args - Arguments to find a BreathingExercise
+     * @example
+     * // Get one BreathingExercise
+     * const breathingExercise = await prisma.breathingExercise.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BreathingExerciseFindFirstOrThrowArgs>(args?: SelectSubset<T, BreathingExerciseFindFirstOrThrowArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BreathingExercises that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BreathingExercises
+     * const breathingExercises = await prisma.breathingExercise.findMany()
+     * 
+     * // Get first 10 BreathingExercises
+     * const breathingExercises = await prisma.breathingExercise.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const breathingExerciseWithIdOnly = await prisma.breathingExercise.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BreathingExerciseFindManyArgs>(args?: SelectSubset<T, BreathingExerciseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BreathingExercise.
+     * @param {BreathingExerciseCreateArgs} args - Arguments to create a BreathingExercise.
+     * @example
+     * // Create one BreathingExercise
+     * const BreathingExercise = await prisma.breathingExercise.create({
+     *   data: {
+     *     // ... data to create a BreathingExercise
+     *   }
+     * })
+     * 
+     */
+    create<T extends BreathingExerciseCreateArgs>(args: SelectSubset<T, BreathingExerciseCreateArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BreathingExercises.
+     * @param {BreathingExerciseCreateManyArgs} args - Arguments to create many BreathingExercises.
+     * @example
+     * // Create many BreathingExercises
+     * const breathingExercise = await prisma.breathingExercise.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BreathingExerciseCreateManyArgs>(args?: SelectSubset<T, BreathingExerciseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BreathingExercises and returns the data saved in the database.
+     * @param {BreathingExerciseCreateManyAndReturnArgs} args - Arguments to create many BreathingExercises.
+     * @example
+     * // Create many BreathingExercises
+     * const breathingExercise = await prisma.breathingExercise.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BreathingExercises and only return the `id`
+     * const breathingExerciseWithIdOnly = await prisma.breathingExercise.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BreathingExerciseCreateManyAndReturnArgs>(args?: SelectSubset<T, BreathingExerciseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BreathingExercise.
+     * @param {BreathingExerciseDeleteArgs} args - Arguments to delete one BreathingExercise.
+     * @example
+     * // Delete one BreathingExercise
+     * const BreathingExercise = await prisma.breathingExercise.delete({
+     *   where: {
+     *     // ... filter to delete one BreathingExercise
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BreathingExerciseDeleteArgs>(args: SelectSubset<T, BreathingExerciseDeleteArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BreathingExercise.
+     * @param {BreathingExerciseUpdateArgs} args - Arguments to update one BreathingExercise.
+     * @example
+     * // Update one BreathingExercise
+     * const breathingExercise = await prisma.breathingExercise.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BreathingExerciseUpdateArgs>(args: SelectSubset<T, BreathingExerciseUpdateArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BreathingExercises.
+     * @param {BreathingExerciseDeleteManyArgs} args - Arguments to filter BreathingExercises to delete.
+     * @example
+     * // Delete a few BreathingExercises
+     * const { count } = await prisma.breathingExercise.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BreathingExerciseDeleteManyArgs>(args?: SelectSubset<T, BreathingExerciseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BreathingExercises.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BreathingExercises
+     * const breathingExercise = await prisma.breathingExercise.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BreathingExerciseUpdateManyArgs>(args: SelectSubset<T, BreathingExerciseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BreathingExercises and returns the data updated in the database.
+     * @param {BreathingExerciseUpdateManyAndReturnArgs} args - Arguments to update many BreathingExercises.
+     * @example
+     * // Update many BreathingExercises
+     * const breathingExercise = await prisma.breathingExercise.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BreathingExercises and only return the `id`
+     * const breathingExerciseWithIdOnly = await prisma.breathingExercise.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BreathingExerciseUpdateManyAndReturnArgs>(args: SelectSubset<T, BreathingExerciseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BreathingExercise.
+     * @param {BreathingExerciseUpsertArgs} args - Arguments to update or create a BreathingExercise.
+     * @example
+     * // Update or create a BreathingExercise
+     * const breathingExercise = await prisma.breathingExercise.upsert({
+     *   create: {
+     *     // ... data to create a BreathingExercise
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BreathingExercise we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BreathingExerciseUpsertArgs>(args: SelectSubset<T, BreathingExerciseUpsertArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BreathingExercises.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseCountArgs} args - Arguments to filter BreathingExercises to count.
+     * @example
+     * // Count the number of BreathingExercises
+     * const count = await prisma.breathingExercise.count({
+     *   where: {
+     *     // ... the filter for the BreathingExercises we want to count
+     *   }
+     * })
+    **/
+    count<T extends BreathingExerciseCountArgs>(
+      args?: Subset<T, BreathingExerciseCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BreathingExerciseCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BreathingExercise.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BreathingExerciseAggregateArgs>(args: Subset<T, BreathingExerciseAggregateArgs>): Prisma.PrismaPromise<GetBreathingExerciseAggregateType<T>>
+
+    /**
+     * Group by BreathingExercise.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingExerciseGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BreathingExerciseGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BreathingExerciseGroupByArgs['orderBy'] }
+        : { orderBy?: BreathingExerciseGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BreathingExerciseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBreathingExerciseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BreathingExercise model
+   */
+  readonly fields: BreathingExerciseFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BreathingExercise.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BreathingExerciseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sessions<T extends BreathingExercise$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, BreathingExercise$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BreathingExercise model
+   */
+  interface BreathingExerciseFieldRefs {
+    readonly id: FieldRef<"BreathingExercise", 'String'>
+    readonly name: FieldRef<"BreathingExercise", 'String'>
+    readonly description: FieldRef<"BreathingExercise", 'String'>
+    readonly technique: FieldRef<"BreathingExercise", 'BreathingTechnique'>
+    readonly difficulty: FieldRef<"BreathingExercise", 'ExerciseDifficulty'>
+    readonly inhaleSeconds: FieldRef<"BreathingExercise", 'Int'>
+    readonly holdSeconds: FieldRef<"BreathingExercise", 'Int'>
+    readonly exhaleSeconds: FieldRef<"BreathingExercise", 'Int'>
+    readonly pauseSeconds: FieldRef<"BreathingExercise", 'Int'>
+    readonly cyclesRecommended: FieldRef<"BreathingExercise", 'Int'>
+    readonly instructions: FieldRef<"BreathingExercise", 'Json'>
+    readonly visualGuideUrl: FieldRef<"BreathingExercise", 'String'>
+    readonly audioGuideUrl: FieldRef<"BreathingExercise", 'String'>
+    readonly benefits: FieldRef<"BreathingExercise", 'Json'>
+    readonly bestFor: FieldRef<"BreathingExercise", 'Json'>
+    readonly contraindications: FieldRef<"BreathingExercise", 'Json'>
+    readonly isActive: FieldRef<"BreathingExercise", 'Boolean'>
+    readonly createdAt: FieldRef<"BreathingExercise", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BreathingExercise findUnique
+   */
+  export type BreathingExerciseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingExercise to fetch.
+     */
+    where: BreathingExerciseWhereUniqueInput
+  }
+
+  /**
+   * BreathingExercise findUniqueOrThrow
+   */
+  export type BreathingExerciseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingExercise to fetch.
+     */
+    where: BreathingExerciseWhereUniqueInput
+  }
+
+  /**
+   * BreathingExercise findFirst
+   */
+  export type BreathingExerciseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingExercise to fetch.
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingExercises to fetch.
+     */
+    orderBy?: BreathingExerciseOrderByWithRelationInput | BreathingExerciseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BreathingExercises.
+     */
+    cursor?: BreathingExerciseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingExercises from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingExercises.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BreathingExercises.
+     */
+    distinct?: BreathingExerciseScalarFieldEnum | BreathingExerciseScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingExercise findFirstOrThrow
+   */
+  export type BreathingExerciseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingExercise to fetch.
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingExercises to fetch.
+     */
+    orderBy?: BreathingExerciseOrderByWithRelationInput | BreathingExerciseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BreathingExercises.
+     */
+    cursor?: BreathingExerciseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingExercises from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingExercises.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BreathingExercises.
+     */
+    distinct?: BreathingExerciseScalarFieldEnum | BreathingExerciseScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingExercise findMany
+   */
+  export type BreathingExerciseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingExercises to fetch.
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingExercises to fetch.
+     */
+    orderBy?: BreathingExerciseOrderByWithRelationInput | BreathingExerciseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BreathingExercises.
+     */
+    cursor?: BreathingExerciseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingExercises from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingExercises.
+     */
+    skip?: number
+    distinct?: BreathingExerciseScalarFieldEnum | BreathingExerciseScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingExercise create
+   */
+  export type BreathingExerciseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BreathingExercise.
+     */
+    data: XOR<BreathingExerciseCreateInput, BreathingExerciseUncheckedCreateInput>
+  }
+
+  /**
+   * BreathingExercise createMany
+   */
+  export type BreathingExerciseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BreathingExercises.
+     */
+    data: BreathingExerciseCreateManyInput | BreathingExerciseCreateManyInput[]
+  }
+
+  /**
+   * BreathingExercise createManyAndReturn
+   */
+  export type BreathingExerciseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * The data used to create many BreathingExercises.
+     */
+    data: BreathingExerciseCreateManyInput | BreathingExerciseCreateManyInput[]
+  }
+
+  /**
+   * BreathingExercise update
+   */
+  export type BreathingExerciseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BreathingExercise.
+     */
+    data: XOR<BreathingExerciseUpdateInput, BreathingExerciseUncheckedUpdateInput>
+    /**
+     * Choose, which BreathingExercise to update.
+     */
+    where: BreathingExerciseWhereUniqueInput
+  }
+
+  /**
+   * BreathingExercise updateMany
+   */
+  export type BreathingExerciseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BreathingExercises.
+     */
+    data: XOR<BreathingExerciseUpdateManyMutationInput, BreathingExerciseUncheckedUpdateManyInput>
+    /**
+     * Filter which BreathingExercises to update
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * Limit how many BreathingExercises to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreathingExercise updateManyAndReturn
+   */
+  export type BreathingExerciseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * The data used to update BreathingExercises.
+     */
+    data: XOR<BreathingExerciseUpdateManyMutationInput, BreathingExerciseUncheckedUpdateManyInput>
+    /**
+     * Filter which BreathingExercises to update
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * Limit how many BreathingExercises to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreathingExercise upsert
+   */
+  export type BreathingExerciseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BreathingExercise to update in case it exists.
+     */
+    where: BreathingExerciseWhereUniqueInput
+    /**
+     * In case the BreathingExercise found by the `where` argument doesn't exist, create a new BreathingExercise with this data.
+     */
+    create: XOR<BreathingExerciseCreateInput, BreathingExerciseUncheckedCreateInput>
+    /**
+     * In case the BreathingExercise was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BreathingExerciseUpdateInput, BreathingExerciseUncheckedUpdateInput>
+  }
+
+  /**
+   * BreathingExercise delete
+   */
+  export type BreathingExerciseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+    /**
+     * Filter which BreathingExercise to delete.
+     */
+    where: BreathingExerciseWhereUniqueInput
+  }
+
+  /**
+   * BreathingExercise deleteMany
+   */
+  export type BreathingExerciseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BreathingExercises to delete
+     */
+    where?: BreathingExerciseWhereInput
+    /**
+     * Limit how many BreathingExercises to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreathingExercise.sessions
+   */
+  export type BreathingExercise$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    where?: BreathingSessionWhereInput
+    orderBy?: BreathingSessionOrderByWithRelationInput | BreathingSessionOrderByWithRelationInput[]
+    cursor?: BreathingSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BreathingSessionScalarFieldEnum | BreathingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingExercise without action
+   */
+  export type BreathingExerciseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingExercise
+     */
+    select?: BreathingExerciseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingExercise
+     */
+    omit?: BreathingExerciseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingExerciseInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BreathingSession
+   */
+
+  export type AggregateBreathingSession = {
+    _count: BreathingSessionCountAggregateOutputType | null
+    _avg: BreathingSessionAvgAggregateOutputType | null
+    _sum: BreathingSessionSumAggregateOutputType | null
+    _min: BreathingSessionMinAggregateOutputType | null
+    _max: BreathingSessionMaxAggregateOutputType | null
+  }
+
+  export type BreathingSessionAvgAggregateOutputType = {
+    duration: number | null
+    cyclesCompleted: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    averageBreathRate: number | null
+    heartRateBefore: number | null
+    heartRateAfter: number | null
+    rating: number | null
+  }
+
+  export type BreathingSessionSumAggregateOutputType = {
+    duration: number | null
+    cyclesCompleted: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    averageBreathRate: number | null
+    heartRateBefore: number | null
+    heartRateAfter: number | null
+    rating: number | null
+  }
+
+  export type BreathingSessionMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    exerciseId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    duration: number | null
+    cyclesCompleted: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    averageBreathRate: number | null
+    heartRateBefore: number | null
+    heartRateAfter: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+  }
+
+  export type BreathingSessionMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    exerciseId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    duration: number | null
+    cyclesCompleted: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    averageBreathRate: number | null
+    heartRateBefore: number | null
+    heartRateAfter: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+  }
+
+  export type BreathingSessionCountAggregateOutputType = {
+    id: number
+    userId: number
+    exerciseId: number
+    startedAt: number
+    completedAt: number
+    duration: number
+    cyclesCompleted: number
+    moodBefore: number
+    moodAfter: number
+    anxietyBefore: number
+    anxietyAfter: number
+    averageBreathRate: number
+    heartRateBefore: number
+    heartRateAfter: number
+    wasHelpful: number
+    rating: number
+    notes: number
+    _all: number
+  }
+
+
+  export type BreathingSessionAvgAggregateInputType = {
+    duration?: true
+    cyclesCompleted?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    averageBreathRate?: true
+    heartRateBefore?: true
+    heartRateAfter?: true
+    rating?: true
+  }
+
+  export type BreathingSessionSumAggregateInputType = {
+    duration?: true
+    cyclesCompleted?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    averageBreathRate?: true
+    heartRateBefore?: true
+    heartRateAfter?: true
+    rating?: true
+  }
+
+  export type BreathingSessionMinAggregateInputType = {
+    id?: true
+    userId?: true
+    exerciseId?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    cyclesCompleted?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    averageBreathRate?: true
+    heartRateBefore?: true
+    heartRateAfter?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+  }
+
+  export type BreathingSessionMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    exerciseId?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    cyclesCompleted?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    averageBreathRate?: true
+    heartRateBefore?: true
+    heartRateAfter?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+  }
+
+  export type BreathingSessionCountAggregateInputType = {
+    id?: true
+    userId?: true
+    exerciseId?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    cyclesCompleted?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    averageBreathRate?: true
+    heartRateBefore?: true
+    heartRateAfter?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    _all?: true
+  }
+
+  export type BreathingSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BreathingSession to aggregate.
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingSessions to fetch.
+     */
+    orderBy?: BreathingSessionOrderByWithRelationInput | BreathingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BreathingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BreathingSessions
+    **/
+    _count?: true | BreathingSessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BreathingSessionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BreathingSessionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BreathingSessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BreathingSessionMaxAggregateInputType
+  }
+
+  export type GetBreathingSessionAggregateType<T extends BreathingSessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateBreathingSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBreathingSession[P]>
+      : GetScalarType<T[P], AggregateBreathingSession[P]>
+  }
+
+
+
+
+  export type BreathingSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BreathingSessionWhereInput
+    orderBy?: BreathingSessionOrderByWithAggregationInput | BreathingSessionOrderByWithAggregationInput[]
+    by: BreathingSessionScalarFieldEnum[] | BreathingSessionScalarFieldEnum
+    having?: BreathingSessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BreathingSessionCountAggregateInputType | true
+    _avg?: BreathingSessionAvgAggregateInputType
+    _sum?: BreathingSessionSumAggregateInputType
+    _min?: BreathingSessionMinAggregateInputType
+    _max?: BreathingSessionMaxAggregateInputType
+  }
+
+  export type BreathingSessionGroupByOutputType = {
+    id: string
+    userId: string
+    exerciseId: string
+    startedAt: Date
+    completedAt: Date | null
+    duration: number | null
+    cyclesCompleted: number
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    averageBreathRate: number | null
+    heartRateBefore: number | null
+    heartRateAfter: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    _count: BreathingSessionCountAggregateOutputType | null
+    _avg: BreathingSessionAvgAggregateOutputType | null
+    _sum: BreathingSessionSumAggregateOutputType | null
+    _min: BreathingSessionMinAggregateOutputType | null
+    _max: BreathingSessionMaxAggregateOutputType | null
+  }
+
+  type GetBreathingSessionGroupByPayload<T extends BreathingSessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BreathingSessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BreathingSessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BreathingSessionGroupByOutputType[P]>
+            : GetScalarType<T[P], BreathingSessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BreathingSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    exerciseId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    cyclesCompleted?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    averageBreathRate?: boolean
+    heartRateBefore?: boolean
+    heartRateAfter?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    exercise?: boolean | BreathingExerciseDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breathingSession"]>
+
+  export type BreathingSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    exerciseId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    cyclesCompleted?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    averageBreathRate?: boolean
+    heartRateBefore?: boolean
+    heartRateAfter?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    exercise?: boolean | BreathingExerciseDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breathingSession"]>
+
+  export type BreathingSessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    exerciseId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    cyclesCompleted?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    averageBreathRate?: boolean
+    heartRateBefore?: boolean
+    heartRateAfter?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    exercise?: boolean | BreathingExerciseDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["breathingSession"]>
+
+  export type BreathingSessionSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    exerciseId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    cyclesCompleted?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    averageBreathRate?: boolean
+    heartRateBefore?: boolean
+    heartRateAfter?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+  }
+
+  export type BreathingSessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "exerciseId" | "startedAt" | "completedAt" | "duration" | "cyclesCompleted" | "moodBefore" | "moodAfter" | "anxietyBefore" | "anxietyAfter" | "averageBreathRate" | "heartRateBefore" | "heartRateAfter" | "wasHelpful" | "rating" | "notes", ExtArgs["result"]["breathingSession"]>
+  export type BreathingSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    exercise?: boolean | BreathingExerciseDefaultArgs<ExtArgs>
+  }
+  export type BreathingSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    exercise?: boolean | BreathingExerciseDefaultArgs<ExtArgs>
+  }
+  export type BreathingSessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    exercise?: boolean | BreathingExerciseDefaultArgs<ExtArgs>
+  }
+
+  export type $BreathingSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BreathingSession"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      exercise: Prisma.$BreathingExercisePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      exerciseId: string
+      startedAt: Date
+      completedAt: Date | null
+      duration: number | null
+      cyclesCompleted: number
+      moodBefore: number | null
+      moodAfter: number | null
+      anxietyBefore: number | null
+      anxietyAfter: number | null
+      averageBreathRate: number | null
+      heartRateBefore: number | null
+      heartRateAfter: number | null
+      wasHelpful: boolean | null
+      rating: number | null
+      notes: string | null
+    }, ExtArgs["result"]["breathingSession"]>
+    composites: {}
+  }
+
+  type BreathingSessionGetPayload<S extends boolean | null | undefined | BreathingSessionDefaultArgs> = $Result.GetResult<Prisma.$BreathingSessionPayload, S>
+
+  type BreathingSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BreathingSessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: BreathingSessionCountAggregateInputType | true
+    }
+
+  export interface BreathingSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BreathingSession'], meta: { name: 'BreathingSession' } }
+    /**
+     * Find zero or one BreathingSession that matches the filter.
+     * @param {BreathingSessionFindUniqueArgs} args - Arguments to find a BreathingSession
+     * @example
+     * // Get one BreathingSession
+     * const breathingSession = await prisma.breathingSession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BreathingSessionFindUniqueArgs>(args: SelectSubset<T, BreathingSessionFindUniqueArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BreathingSession that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BreathingSessionFindUniqueOrThrowArgs} args - Arguments to find a BreathingSession
+     * @example
+     * // Get one BreathingSession
+     * const breathingSession = await prisma.breathingSession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BreathingSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, BreathingSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BreathingSession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionFindFirstArgs} args - Arguments to find a BreathingSession
+     * @example
+     * // Get one BreathingSession
+     * const breathingSession = await prisma.breathingSession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BreathingSessionFindFirstArgs>(args?: SelectSubset<T, BreathingSessionFindFirstArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BreathingSession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionFindFirstOrThrowArgs} args - Arguments to find a BreathingSession
+     * @example
+     * // Get one BreathingSession
+     * const breathingSession = await prisma.breathingSession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BreathingSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, BreathingSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BreathingSessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BreathingSessions
+     * const breathingSessions = await prisma.breathingSession.findMany()
+     * 
+     * // Get first 10 BreathingSessions
+     * const breathingSessions = await prisma.breathingSession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const breathingSessionWithIdOnly = await prisma.breathingSession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BreathingSessionFindManyArgs>(args?: SelectSubset<T, BreathingSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BreathingSession.
+     * @param {BreathingSessionCreateArgs} args - Arguments to create a BreathingSession.
+     * @example
+     * // Create one BreathingSession
+     * const BreathingSession = await prisma.breathingSession.create({
+     *   data: {
+     *     // ... data to create a BreathingSession
+     *   }
+     * })
+     * 
+     */
+    create<T extends BreathingSessionCreateArgs>(args: SelectSubset<T, BreathingSessionCreateArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BreathingSessions.
+     * @param {BreathingSessionCreateManyArgs} args - Arguments to create many BreathingSessions.
+     * @example
+     * // Create many BreathingSessions
+     * const breathingSession = await prisma.breathingSession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BreathingSessionCreateManyArgs>(args?: SelectSubset<T, BreathingSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BreathingSessions and returns the data saved in the database.
+     * @param {BreathingSessionCreateManyAndReturnArgs} args - Arguments to create many BreathingSessions.
+     * @example
+     * // Create many BreathingSessions
+     * const breathingSession = await prisma.breathingSession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BreathingSessions and only return the `id`
+     * const breathingSessionWithIdOnly = await prisma.breathingSession.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BreathingSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, BreathingSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BreathingSession.
+     * @param {BreathingSessionDeleteArgs} args - Arguments to delete one BreathingSession.
+     * @example
+     * // Delete one BreathingSession
+     * const BreathingSession = await prisma.breathingSession.delete({
+     *   where: {
+     *     // ... filter to delete one BreathingSession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BreathingSessionDeleteArgs>(args: SelectSubset<T, BreathingSessionDeleteArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BreathingSession.
+     * @param {BreathingSessionUpdateArgs} args - Arguments to update one BreathingSession.
+     * @example
+     * // Update one BreathingSession
+     * const breathingSession = await prisma.breathingSession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BreathingSessionUpdateArgs>(args: SelectSubset<T, BreathingSessionUpdateArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BreathingSessions.
+     * @param {BreathingSessionDeleteManyArgs} args - Arguments to filter BreathingSessions to delete.
+     * @example
+     * // Delete a few BreathingSessions
+     * const { count } = await prisma.breathingSession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BreathingSessionDeleteManyArgs>(args?: SelectSubset<T, BreathingSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BreathingSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BreathingSessions
+     * const breathingSession = await prisma.breathingSession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BreathingSessionUpdateManyArgs>(args: SelectSubset<T, BreathingSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BreathingSessions and returns the data updated in the database.
+     * @param {BreathingSessionUpdateManyAndReturnArgs} args - Arguments to update many BreathingSessions.
+     * @example
+     * // Update many BreathingSessions
+     * const breathingSession = await prisma.breathingSession.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BreathingSessions and only return the `id`
+     * const breathingSessionWithIdOnly = await prisma.breathingSession.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BreathingSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, BreathingSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BreathingSession.
+     * @param {BreathingSessionUpsertArgs} args - Arguments to update or create a BreathingSession.
+     * @example
+     * // Update or create a BreathingSession
+     * const breathingSession = await prisma.breathingSession.upsert({
+     *   create: {
+     *     // ... data to create a BreathingSession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BreathingSession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BreathingSessionUpsertArgs>(args: SelectSubset<T, BreathingSessionUpsertArgs<ExtArgs>>): Prisma__BreathingSessionClient<$Result.GetResult<Prisma.$BreathingSessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BreathingSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionCountArgs} args - Arguments to filter BreathingSessions to count.
+     * @example
+     * // Count the number of BreathingSessions
+     * const count = await prisma.breathingSession.count({
+     *   where: {
+     *     // ... the filter for the BreathingSessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends BreathingSessionCountArgs>(
+      args?: Subset<T, BreathingSessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BreathingSessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BreathingSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BreathingSessionAggregateArgs>(args: Subset<T, BreathingSessionAggregateArgs>): Prisma.PrismaPromise<GetBreathingSessionAggregateType<T>>
+
+    /**
+     * Group by BreathingSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BreathingSessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BreathingSessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BreathingSessionGroupByArgs['orderBy'] }
+        : { orderBy?: BreathingSessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BreathingSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBreathingSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BreathingSession model
+   */
+  readonly fields: BreathingSessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BreathingSession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BreathingSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    exercise<T extends BreathingExerciseDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BreathingExerciseDefaultArgs<ExtArgs>>): Prisma__BreathingExerciseClient<$Result.GetResult<Prisma.$BreathingExercisePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BreathingSession model
+   */
+  interface BreathingSessionFieldRefs {
+    readonly id: FieldRef<"BreathingSession", 'String'>
+    readonly userId: FieldRef<"BreathingSession", 'String'>
+    readonly exerciseId: FieldRef<"BreathingSession", 'String'>
+    readonly startedAt: FieldRef<"BreathingSession", 'DateTime'>
+    readonly completedAt: FieldRef<"BreathingSession", 'DateTime'>
+    readonly duration: FieldRef<"BreathingSession", 'Int'>
+    readonly cyclesCompleted: FieldRef<"BreathingSession", 'Int'>
+    readonly moodBefore: FieldRef<"BreathingSession", 'Int'>
+    readonly moodAfter: FieldRef<"BreathingSession", 'Int'>
+    readonly anxietyBefore: FieldRef<"BreathingSession", 'Int'>
+    readonly anxietyAfter: FieldRef<"BreathingSession", 'Int'>
+    readonly averageBreathRate: FieldRef<"BreathingSession", 'Float'>
+    readonly heartRateBefore: FieldRef<"BreathingSession", 'Int'>
+    readonly heartRateAfter: FieldRef<"BreathingSession", 'Int'>
+    readonly wasHelpful: FieldRef<"BreathingSession", 'Boolean'>
+    readonly rating: FieldRef<"BreathingSession", 'Int'>
+    readonly notes: FieldRef<"BreathingSession", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BreathingSession findUnique
+   */
+  export type BreathingSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingSession to fetch.
+     */
+    where: BreathingSessionWhereUniqueInput
+  }
+
+  /**
+   * BreathingSession findUniqueOrThrow
+   */
+  export type BreathingSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingSession to fetch.
+     */
+    where: BreathingSessionWhereUniqueInput
+  }
+
+  /**
+   * BreathingSession findFirst
+   */
+  export type BreathingSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingSession to fetch.
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingSessions to fetch.
+     */
+    orderBy?: BreathingSessionOrderByWithRelationInput | BreathingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BreathingSessions.
+     */
+    cursor?: BreathingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BreathingSessions.
+     */
+    distinct?: BreathingSessionScalarFieldEnum | BreathingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingSession findFirstOrThrow
+   */
+  export type BreathingSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingSession to fetch.
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingSessions to fetch.
+     */
+    orderBy?: BreathingSessionOrderByWithRelationInput | BreathingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BreathingSessions.
+     */
+    cursor?: BreathingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BreathingSessions.
+     */
+    distinct?: BreathingSessionScalarFieldEnum | BreathingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingSession findMany
+   */
+  export type BreathingSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which BreathingSessions to fetch.
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BreathingSessions to fetch.
+     */
+    orderBy?: BreathingSessionOrderByWithRelationInput | BreathingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BreathingSessions.
+     */
+    cursor?: BreathingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BreathingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BreathingSessions.
+     */
+    skip?: number
+    distinct?: BreathingSessionScalarFieldEnum | BreathingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * BreathingSession create
+   */
+  export type BreathingSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BreathingSession.
+     */
+    data: XOR<BreathingSessionCreateInput, BreathingSessionUncheckedCreateInput>
+  }
+
+  /**
+   * BreathingSession createMany
+   */
+  export type BreathingSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BreathingSessions.
+     */
+    data: BreathingSessionCreateManyInput | BreathingSessionCreateManyInput[]
+  }
+
+  /**
+   * BreathingSession createManyAndReturn
+   */
+  export type BreathingSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many BreathingSessions.
+     */
+    data: BreathingSessionCreateManyInput | BreathingSessionCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BreathingSession update
+   */
+  export type BreathingSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BreathingSession.
+     */
+    data: XOR<BreathingSessionUpdateInput, BreathingSessionUncheckedUpdateInput>
+    /**
+     * Choose, which BreathingSession to update.
+     */
+    where: BreathingSessionWhereUniqueInput
+  }
+
+  /**
+   * BreathingSession updateMany
+   */
+  export type BreathingSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BreathingSessions.
+     */
+    data: XOR<BreathingSessionUpdateManyMutationInput, BreathingSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which BreathingSessions to update
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * Limit how many BreathingSessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreathingSession updateManyAndReturn
+   */
+  export type BreathingSessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * The data used to update BreathingSessions.
+     */
+    data: XOR<BreathingSessionUpdateManyMutationInput, BreathingSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which BreathingSessions to update
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * Limit how many BreathingSessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BreathingSession upsert
+   */
+  export type BreathingSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BreathingSession to update in case it exists.
+     */
+    where: BreathingSessionWhereUniqueInput
+    /**
+     * In case the BreathingSession found by the `where` argument doesn't exist, create a new BreathingSession with this data.
+     */
+    create: XOR<BreathingSessionCreateInput, BreathingSessionUncheckedCreateInput>
+    /**
+     * In case the BreathingSession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BreathingSessionUpdateInput, BreathingSessionUncheckedUpdateInput>
+  }
+
+  /**
+   * BreathingSession delete
+   */
+  export type BreathingSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+    /**
+     * Filter which BreathingSession to delete.
+     */
+    where: BreathingSessionWhereUniqueInput
+  }
+
+  /**
+   * BreathingSession deleteMany
+   */
+  export type BreathingSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BreathingSessions to delete
+     */
+    where?: BreathingSessionWhereInput
+    /**
+     * Limit how many BreathingSessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BreathingSession without action
+   */
+  export type BreathingSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BreathingSession
+     */
+    select?: BreathingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BreathingSession
+     */
+    omit?: BreathingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BreathingSessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GroundingTechnique
+   */
+
+  export type AggregateGroundingTechnique = {
+    _count: GroundingTechniqueCountAggregateOutputType | null
+    _avg: GroundingTechniqueAvgAggregateOutputType | null
+    _sum: GroundingTechniqueSumAggregateOutputType | null
+    _min: GroundingTechniqueMinAggregateOutputType | null
+    _max: GroundingTechniqueMaxAggregateOutputType | null
+  }
+
+  export type GroundingTechniqueAvgAggregateOutputType = {
+    duration: number | null
+  }
+
+  export type GroundingTechniqueSumAggregateOutputType = {
+    duration: number | null
+  }
+
+  export type GroundingTechniqueMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    type: $Enums.GroundingType | null
+    category: $Enums.GroundingCategory | null
+    duration: number | null
+    audioGuideUrl: string | null
+    videoGuideUrl: string | null
+    evidenceLevel: $Enums.EvidenceLevel | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type GroundingTechniqueMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    type: $Enums.GroundingType | null
+    category: $Enums.GroundingCategory | null
+    duration: number | null
+    audioGuideUrl: string | null
+    videoGuideUrl: string | null
+    evidenceLevel: $Enums.EvidenceLevel | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type GroundingTechniqueCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    type: number
+    category: number
+    instructions: number
+    duration: number
+    materials: number
+    audioGuideUrl: number
+    videoGuideUrl: number
+    imageGuides: number
+    evidenceLevel: number
+    bestFor: number
+    contraindications: number
+    isActive: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type GroundingTechniqueAvgAggregateInputType = {
+    duration?: true
+  }
+
+  export type GroundingTechniqueSumAggregateInputType = {
+    duration?: true
+  }
+
+  export type GroundingTechniqueMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    type?: true
+    category?: true
+    duration?: true
+    audioGuideUrl?: true
+    videoGuideUrl?: true
+    evidenceLevel?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type GroundingTechniqueMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    type?: true
+    category?: true
+    duration?: true
+    audioGuideUrl?: true
+    videoGuideUrl?: true
+    evidenceLevel?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type GroundingTechniqueCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    type?: true
+    category?: true
+    instructions?: true
+    duration?: true
+    materials?: true
+    audioGuideUrl?: true
+    videoGuideUrl?: true
+    imageGuides?: true
+    evidenceLevel?: true
+    bestFor?: true
+    contraindications?: true
+    isActive?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type GroundingTechniqueAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GroundingTechnique to aggregate.
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingTechniques to fetch.
+     */
+    orderBy?: GroundingTechniqueOrderByWithRelationInput | GroundingTechniqueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GroundingTechniqueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingTechniques from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingTechniques.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GroundingTechniques
+    **/
+    _count?: true | GroundingTechniqueCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GroundingTechniqueAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GroundingTechniqueSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GroundingTechniqueMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GroundingTechniqueMaxAggregateInputType
+  }
+
+  export type GetGroundingTechniqueAggregateType<T extends GroundingTechniqueAggregateArgs> = {
+        [P in keyof T & keyof AggregateGroundingTechnique]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGroundingTechnique[P]>
+      : GetScalarType<T[P], AggregateGroundingTechnique[P]>
+  }
+
+
+
+
+  export type GroundingTechniqueGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GroundingTechniqueWhereInput
+    orderBy?: GroundingTechniqueOrderByWithAggregationInput | GroundingTechniqueOrderByWithAggregationInput[]
+    by: GroundingTechniqueScalarFieldEnum[] | GroundingTechniqueScalarFieldEnum
+    having?: GroundingTechniqueScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GroundingTechniqueCountAggregateInputType | true
+    _avg?: GroundingTechniqueAvgAggregateInputType
+    _sum?: GroundingTechniqueSumAggregateInputType
+    _min?: GroundingTechniqueMinAggregateInputType
+    _max?: GroundingTechniqueMaxAggregateInputType
+  }
+
+  export type GroundingTechniqueGroupByOutputType = {
+    id: string
+    name: string
+    description: string
+    type: $Enums.GroundingType
+    category: $Enums.GroundingCategory
+    instructions: JsonValue
+    duration: number
+    materials: JsonValue | null
+    audioGuideUrl: string | null
+    videoGuideUrl: string | null
+    imageGuides: JsonValue | null
+    evidenceLevel: $Enums.EvidenceLevel
+    bestFor: JsonValue
+    contraindications: JsonValue | null
+    isActive: boolean
+    createdAt: Date
+    _count: GroundingTechniqueCountAggregateOutputType | null
+    _avg: GroundingTechniqueAvgAggregateOutputType | null
+    _sum: GroundingTechniqueSumAggregateOutputType | null
+    _min: GroundingTechniqueMinAggregateOutputType | null
+    _max: GroundingTechniqueMaxAggregateOutputType | null
+  }
+
+  type GetGroundingTechniqueGroupByPayload<T extends GroundingTechniqueGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GroundingTechniqueGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GroundingTechniqueGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GroundingTechniqueGroupByOutputType[P]>
+            : GetScalarType<T[P], GroundingTechniqueGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GroundingTechniqueSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    type?: boolean
+    category?: boolean
+    instructions?: boolean
+    duration?: boolean
+    materials?: boolean
+    audioGuideUrl?: boolean
+    videoGuideUrl?: boolean
+    imageGuides?: boolean
+    evidenceLevel?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    sessions?: boolean | GroundingTechnique$sessionsArgs<ExtArgs>
+    _count?: boolean | GroundingTechniqueCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["groundingTechnique"]>
+
+  export type GroundingTechniqueSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    type?: boolean
+    category?: boolean
+    instructions?: boolean
+    duration?: boolean
+    materials?: boolean
+    audioGuideUrl?: boolean
+    videoGuideUrl?: boolean
+    imageGuides?: boolean
+    evidenceLevel?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["groundingTechnique"]>
+
+  export type GroundingTechniqueSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    type?: boolean
+    category?: boolean
+    instructions?: boolean
+    duration?: boolean
+    materials?: boolean
+    audioGuideUrl?: boolean
+    videoGuideUrl?: boolean
+    imageGuides?: boolean
+    evidenceLevel?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["groundingTechnique"]>
+
+  export type GroundingTechniqueSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    type?: boolean
+    category?: boolean
+    instructions?: boolean
+    duration?: boolean
+    materials?: boolean
+    audioGuideUrl?: boolean
+    videoGuideUrl?: boolean
+    imageGuides?: boolean
+    evidenceLevel?: boolean
+    bestFor?: boolean
+    contraindications?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }
+
+  export type GroundingTechniqueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "type" | "category" | "instructions" | "duration" | "materials" | "audioGuideUrl" | "videoGuideUrl" | "imageGuides" | "evidenceLevel" | "bestFor" | "contraindications" | "isActive" | "createdAt", ExtArgs["result"]["groundingTechnique"]>
+  export type GroundingTechniqueInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sessions?: boolean | GroundingTechnique$sessionsArgs<ExtArgs>
+    _count?: boolean | GroundingTechniqueCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type GroundingTechniqueIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type GroundingTechniqueIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $GroundingTechniquePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GroundingTechnique"
+    objects: {
+      sessions: Prisma.$GroundingSessionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string
+      type: $Enums.GroundingType
+      category: $Enums.GroundingCategory
+      instructions: Prisma.JsonValue
+      duration: number
+      materials: Prisma.JsonValue | null
+      audioGuideUrl: string | null
+      videoGuideUrl: string | null
+      imageGuides: Prisma.JsonValue | null
+      evidenceLevel: $Enums.EvidenceLevel
+      bestFor: Prisma.JsonValue
+      contraindications: Prisma.JsonValue | null
+      isActive: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["groundingTechnique"]>
+    composites: {}
+  }
+
+  type GroundingTechniqueGetPayload<S extends boolean | null | undefined | GroundingTechniqueDefaultArgs> = $Result.GetResult<Prisma.$GroundingTechniquePayload, S>
+
+  type GroundingTechniqueCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GroundingTechniqueFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: GroundingTechniqueCountAggregateInputType | true
+    }
+
+  export interface GroundingTechniqueDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GroundingTechnique'], meta: { name: 'GroundingTechnique' } }
+    /**
+     * Find zero or one GroundingTechnique that matches the filter.
+     * @param {GroundingTechniqueFindUniqueArgs} args - Arguments to find a GroundingTechnique
+     * @example
+     * // Get one GroundingTechnique
+     * const groundingTechnique = await prisma.groundingTechnique.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GroundingTechniqueFindUniqueArgs>(args: SelectSubset<T, GroundingTechniqueFindUniqueArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GroundingTechnique that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GroundingTechniqueFindUniqueOrThrowArgs} args - Arguments to find a GroundingTechnique
+     * @example
+     * // Get one GroundingTechnique
+     * const groundingTechnique = await prisma.groundingTechnique.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GroundingTechniqueFindUniqueOrThrowArgs>(args: SelectSubset<T, GroundingTechniqueFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GroundingTechnique that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueFindFirstArgs} args - Arguments to find a GroundingTechnique
+     * @example
+     * // Get one GroundingTechnique
+     * const groundingTechnique = await prisma.groundingTechnique.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GroundingTechniqueFindFirstArgs>(args?: SelectSubset<T, GroundingTechniqueFindFirstArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GroundingTechnique that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueFindFirstOrThrowArgs} args - Arguments to find a GroundingTechnique
+     * @example
+     * // Get one GroundingTechnique
+     * const groundingTechnique = await prisma.groundingTechnique.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GroundingTechniqueFindFirstOrThrowArgs>(args?: SelectSubset<T, GroundingTechniqueFindFirstOrThrowArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GroundingTechniques that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GroundingTechniques
+     * const groundingTechniques = await prisma.groundingTechnique.findMany()
+     * 
+     * // Get first 10 GroundingTechniques
+     * const groundingTechniques = await prisma.groundingTechnique.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const groundingTechniqueWithIdOnly = await prisma.groundingTechnique.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GroundingTechniqueFindManyArgs>(args?: SelectSubset<T, GroundingTechniqueFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GroundingTechnique.
+     * @param {GroundingTechniqueCreateArgs} args - Arguments to create a GroundingTechnique.
+     * @example
+     * // Create one GroundingTechnique
+     * const GroundingTechnique = await prisma.groundingTechnique.create({
+     *   data: {
+     *     // ... data to create a GroundingTechnique
+     *   }
+     * })
+     * 
+     */
+    create<T extends GroundingTechniqueCreateArgs>(args: SelectSubset<T, GroundingTechniqueCreateArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GroundingTechniques.
+     * @param {GroundingTechniqueCreateManyArgs} args - Arguments to create many GroundingTechniques.
+     * @example
+     * // Create many GroundingTechniques
+     * const groundingTechnique = await prisma.groundingTechnique.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GroundingTechniqueCreateManyArgs>(args?: SelectSubset<T, GroundingTechniqueCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many GroundingTechniques and returns the data saved in the database.
+     * @param {GroundingTechniqueCreateManyAndReturnArgs} args - Arguments to create many GroundingTechniques.
+     * @example
+     * // Create many GroundingTechniques
+     * const groundingTechnique = await prisma.groundingTechnique.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many GroundingTechniques and only return the `id`
+     * const groundingTechniqueWithIdOnly = await prisma.groundingTechnique.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends GroundingTechniqueCreateManyAndReturnArgs>(args?: SelectSubset<T, GroundingTechniqueCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a GroundingTechnique.
+     * @param {GroundingTechniqueDeleteArgs} args - Arguments to delete one GroundingTechnique.
+     * @example
+     * // Delete one GroundingTechnique
+     * const GroundingTechnique = await prisma.groundingTechnique.delete({
+     *   where: {
+     *     // ... filter to delete one GroundingTechnique
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GroundingTechniqueDeleteArgs>(args: SelectSubset<T, GroundingTechniqueDeleteArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GroundingTechnique.
+     * @param {GroundingTechniqueUpdateArgs} args - Arguments to update one GroundingTechnique.
+     * @example
+     * // Update one GroundingTechnique
+     * const groundingTechnique = await prisma.groundingTechnique.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GroundingTechniqueUpdateArgs>(args: SelectSubset<T, GroundingTechniqueUpdateArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GroundingTechniques.
+     * @param {GroundingTechniqueDeleteManyArgs} args - Arguments to filter GroundingTechniques to delete.
+     * @example
+     * // Delete a few GroundingTechniques
+     * const { count } = await prisma.groundingTechnique.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GroundingTechniqueDeleteManyArgs>(args?: SelectSubset<T, GroundingTechniqueDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GroundingTechniques.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GroundingTechniques
+     * const groundingTechnique = await prisma.groundingTechnique.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GroundingTechniqueUpdateManyArgs>(args: SelectSubset<T, GroundingTechniqueUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GroundingTechniques and returns the data updated in the database.
+     * @param {GroundingTechniqueUpdateManyAndReturnArgs} args - Arguments to update many GroundingTechniques.
+     * @example
+     * // Update many GroundingTechniques
+     * const groundingTechnique = await prisma.groundingTechnique.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more GroundingTechniques and only return the `id`
+     * const groundingTechniqueWithIdOnly = await prisma.groundingTechnique.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends GroundingTechniqueUpdateManyAndReturnArgs>(args: SelectSubset<T, GroundingTechniqueUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one GroundingTechnique.
+     * @param {GroundingTechniqueUpsertArgs} args - Arguments to update or create a GroundingTechnique.
+     * @example
+     * // Update or create a GroundingTechnique
+     * const groundingTechnique = await prisma.groundingTechnique.upsert({
+     *   create: {
+     *     // ... data to create a GroundingTechnique
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GroundingTechnique we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GroundingTechniqueUpsertArgs>(args: SelectSubset<T, GroundingTechniqueUpsertArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GroundingTechniques.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueCountArgs} args - Arguments to filter GroundingTechniques to count.
+     * @example
+     * // Count the number of GroundingTechniques
+     * const count = await prisma.groundingTechnique.count({
+     *   where: {
+     *     // ... the filter for the GroundingTechniques we want to count
+     *   }
+     * })
+    **/
+    count<T extends GroundingTechniqueCountArgs>(
+      args?: Subset<T, GroundingTechniqueCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GroundingTechniqueCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GroundingTechnique.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GroundingTechniqueAggregateArgs>(args: Subset<T, GroundingTechniqueAggregateArgs>): Prisma.PrismaPromise<GetGroundingTechniqueAggregateType<T>>
+
+    /**
+     * Group by GroundingTechnique.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingTechniqueGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GroundingTechniqueGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GroundingTechniqueGroupByArgs['orderBy'] }
+        : { orderBy?: GroundingTechniqueGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GroundingTechniqueGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGroundingTechniqueGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GroundingTechnique model
+   */
+  readonly fields: GroundingTechniqueFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GroundingTechnique.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GroundingTechniqueClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sessions<T extends GroundingTechnique$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, GroundingTechnique$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GroundingTechnique model
+   */
+  interface GroundingTechniqueFieldRefs {
+    readonly id: FieldRef<"GroundingTechnique", 'String'>
+    readonly name: FieldRef<"GroundingTechnique", 'String'>
+    readonly description: FieldRef<"GroundingTechnique", 'String'>
+    readonly type: FieldRef<"GroundingTechnique", 'GroundingType'>
+    readonly category: FieldRef<"GroundingTechnique", 'GroundingCategory'>
+    readonly instructions: FieldRef<"GroundingTechnique", 'Json'>
+    readonly duration: FieldRef<"GroundingTechnique", 'Int'>
+    readonly materials: FieldRef<"GroundingTechnique", 'Json'>
+    readonly audioGuideUrl: FieldRef<"GroundingTechnique", 'String'>
+    readonly videoGuideUrl: FieldRef<"GroundingTechnique", 'String'>
+    readonly imageGuides: FieldRef<"GroundingTechnique", 'Json'>
+    readonly evidenceLevel: FieldRef<"GroundingTechnique", 'EvidenceLevel'>
+    readonly bestFor: FieldRef<"GroundingTechnique", 'Json'>
+    readonly contraindications: FieldRef<"GroundingTechnique", 'Json'>
+    readonly isActive: FieldRef<"GroundingTechnique", 'Boolean'>
+    readonly createdAt: FieldRef<"GroundingTechnique", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GroundingTechnique findUnique
+   */
+  export type GroundingTechniqueFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingTechnique to fetch.
+     */
+    where: GroundingTechniqueWhereUniqueInput
+  }
+
+  /**
+   * GroundingTechnique findUniqueOrThrow
+   */
+  export type GroundingTechniqueFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingTechnique to fetch.
+     */
+    where: GroundingTechniqueWhereUniqueInput
+  }
+
+  /**
+   * GroundingTechnique findFirst
+   */
+  export type GroundingTechniqueFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingTechnique to fetch.
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingTechniques to fetch.
+     */
+    orderBy?: GroundingTechniqueOrderByWithRelationInput | GroundingTechniqueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GroundingTechniques.
+     */
+    cursor?: GroundingTechniqueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingTechniques from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingTechniques.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GroundingTechniques.
+     */
+    distinct?: GroundingTechniqueScalarFieldEnum | GroundingTechniqueScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingTechnique findFirstOrThrow
+   */
+  export type GroundingTechniqueFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingTechnique to fetch.
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingTechniques to fetch.
+     */
+    orderBy?: GroundingTechniqueOrderByWithRelationInput | GroundingTechniqueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GroundingTechniques.
+     */
+    cursor?: GroundingTechniqueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingTechniques from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingTechniques.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GroundingTechniques.
+     */
+    distinct?: GroundingTechniqueScalarFieldEnum | GroundingTechniqueScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingTechnique findMany
+   */
+  export type GroundingTechniqueFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingTechniques to fetch.
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingTechniques to fetch.
+     */
+    orderBy?: GroundingTechniqueOrderByWithRelationInput | GroundingTechniqueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GroundingTechniques.
+     */
+    cursor?: GroundingTechniqueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingTechniques from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingTechniques.
+     */
+    skip?: number
+    distinct?: GroundingTechniqueScalarFieldEnum | GroundingTechniqueScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingTechnique create
+   */
+  export type GroundingTechniqueCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GroundingTechnique.
+     */
+    data: XOR<GroundingTechniqueCreateInput, GroundingTechniqueUncheckedCreateInput>
+  }
+
+  /**
+   * GroundingTechnique createMany
+   */
+  export type GroundingTechniqueCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GroundingTechniques.
+     */
+    data: GroundingTechniqueCreateManyInput | GroundingTechniqueCreateManyInput[]
+  }
+
+  /**
+   * GroundingTechnique createManyAndReturn
+   */
+  export type GroundingTechniqueCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * The data used to create many GroundingTechniques.
+     */
+    data: GroundingTechniqueCreateManyInput | GroundingTechniqueCreateManyInput[]
+  }
+
+  /**
+   * GroundingTechnique update
+   */
+  export type GroundingTechniqueUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GroundingTechnique.
+     */
+    data: XOR<GroundingTechniqueUpdateInput, GroundingTechniqueUncheckedUpdateInput>
+    /**
+     * Choose, which GroundingTechnique to update.
+     */
+    where: GroundingTechniqueWhereUniqueInput
+  }
+
+  /**
+   * GroundingTechnique updateMany
+   */
+  export type GroundingTechniqueUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GroundingTechniques.
+     */
+    data: XOR<GroundingTechniqueUpdateManyMutationInput, GroundingTechniqueUncheckedUpdateManyInput>
+    /**
+     * Filter which GroundingTechniques to update
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * Limit how many GroundingTechniques to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GroundingTechnique updateManyAndReturn
+   */
+  export type GroundingTechniqueUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * The data used to update GroundingTechniques.
+     */
+    data: XOR<GroundingTechniqueUpdateManyMutationInput, GroundingTechniqueUncheckedUpdateManyInput>
+    /**
+     * Filter which GroundingTechniques to update
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * Limit how many GroundingTechniques to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GroundingTechnique upsert
+   */
+  export type GroundingTechniqueUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GroundingTechnique to update in case it exists.
+     */
+    where: GroundingTechniqueWhereUniqueInput
+    /**
+     * In case the GroundingTechnique found by the `where` argument doesn't exist, create a new GroundingTechnique with this data.
+     */
+    create: XOR<GroundingTechniqueCreateInput, GroundingTechniqueUncheckedCreateInput>
+    /**
+     * In case the GroundingTechnique was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GroundingTechniqueUpdateInput, GroundingTechniqueUncheckedUpdateInput>
+  }
+
+  /**
+   * GroundingTechnique delete
+   */
+  export type GroundingTechniqueDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+    /**
+     * Filter which GroundingTechnique to delete.
+     */
+    where: GroundingTechniqueWhereUniqueInput
+  }
+
+  /**
+   * GroundingTechnique deleteMany
+   */
+  export type GroundingTechniqueDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GroundingTechniques to delete
+     */
+    where?: GroundingTechniqueWhereInput
+    /**
+     * Limit how many GroundingTechniques to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GroundingTechnique.sessions
+   */
+  export type GroundingTechnique$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    where?: GroundingSessionWhereInput
+    orderBy?: GroundingSessionOrderByWithRelationInput | GroundingSessionOrderByWithRelationInput[]
+    cursor?: GroundingSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GroundingSessionScalarFieldEnum | GroundingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingTechnique without action
+   */
+  export type GroundingTechniqueDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingTechnique
+     */
+    select?: GroundingTechniqueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingTechnique
+     */
+    omit?: GroundingTechniqueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingTechniqueInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GroundingSession
+   */
+
+  export type AggregateGroundingSession = {
+    _count: GroundingSessionCountAggregateOutputType | null
+    _avg: GroundingSessionAvgAggregateOutputType | null
+    _sum: GroundingSessionSumAggregateOutputType | null
+    _min: GroundingSessionMinAggregateOutputType | null
+    _max: GroundingSessionMaxAggregateOutputType | null
+  }
+
+  export type GroundingSessionAvgAggregateOutputType = {
+    duration: number | null
+    severityBefore: number | null
+    severityAfter: number | null
+    panicBefore: number | null
+    panicAfter: number | null
+    dissociationBefore: number | null
+    dissociationAfter: number | null
+    completionRate: number | null
+    rating: number | null
+  }
+
+  export type GroundingSessionSumAggregateOutputType = {
+    duration: number | null
+    severityBefore: number | null
+    severityAfter: number | null
+    panicBefore: number | null
+    panicAfter: number | null
+    dissociationBefore: number | null
+    dissociationAfter: number | null
+    completionRate: number | null
+    rating: number | null
+  }
+
+  export type GroundingSessionMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    techniqueId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    duration: number | null
+    triggerType: string | null
+    severityBefore: number | null
+    severityAfter: number | null
+    panicBefore: number | null
+    panicAfter: number | null
+    dissociationBefore: number | null
+    dissociationAfter: number | null
+    completionRate: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    wouldUseAgain: boolean | null
+  }
+
+  export type GroundingSessionMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    techniqueId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    duration: number | null
+    triggerType: string | null
+    severityBefore: number | null
+    severityAfter: number | null
+    panicBefore: number | null
+    panicAfter: number | null
+    dissociationBefore: number | null
+    dissociationAfter: number | null
+    completionRate: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    wouldUseAgain: boolean | null
+  }
+
+  export type GroundingSessionCountAggregateOutputType = {
+    id: number
+    userId: number
+    techniqueId: number
+    startedAt: number
+    completedAt: number
+    duration: number
+    triggerType: number
+    severityBefore: number
+    severityAfter: number
+    panicBefore: number
+    panicAfter: number
+    dissociationBefore: number
+    dissociationAfter: number
+    stepsCompleted: number
+    completionRate: number
+    wasHelpful: number
+    rating: number
+    notes: number
+    wouldUseAgain: number
+    _all: number
+  }
+
+
+  export type GroundingSessionAvgAggregateInputType = {
+    duration?: true
+    severityBefore?: true
+    severityAfter?: true
+    panicBefore?: true
+    panicAfter?: true
+    dissociationBefore?: true
+    dissociationAfter?: true
+    completionRate?: true
+    rating?: true
+  }
+
+  export type GroundingSessionSumAggregateInputType = {
+    duration?: true
+    severityBefore?: true
+    severityAfter?: true
+    panicBefore?: true
+    panicAfter?: true
+    dissociationBefore?: true
+    dissociationAfter?: true
+    completionRate?: true
+    rating?: true
+  }
+
+  export type GroundingSessionMinAggregateInputType = {
+    id?: true
+    userId?: true
+    techniqueId?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    triggerType?: true
+    severityBefore?: true
+    severityAfter?: true
+    panicBefore?: true
+    panicAfter?: true
+    dissociationBefore?: true
+    dissociationAfter?: true
+    completionRate?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    wouldUseAgain?: true
+  }
+
+  export type GroundingSessionMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    techniqueId?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    triggerType?: true
+    severityBefore?: true
+    severityAfter?: true
+    panicBefore?: true
+    panicAfter?: true
+    dissociationBefore?: true
+    dissociationAfter?: true
+    completionRate?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    wouldUseAgain?: true
+  }
+
+  export type GroundingSessionCountAggregateInputType = {
+    id?: true
+    userId?: true
+    techniqueId?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    triggerType?: true
+    severityBefore?: true
+    severityAfter?: true
+    panicBefore?: true
+    panicAfter?: true
+    dissociationBefore?: true
+    dissociationAfter?: true
+    stepsCompleted?: true
+    completionRate?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    wouldUseAgain?: true
+    _all?: true
+  }
+
+  export type GroundingSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GroundingSession to aggregate.
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingSessions to fetch.
+     */
+    orderBy?: GroundingSessionOrderByWithRelationInput | GroundingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GroundingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GroundingSessions
+    **/
+    _count?: true | GroundingSessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GroundingSessionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GroundingSessionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GroundingSessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GroundingSessionMaxAggregateInputType
+  }
+
+  export type GetGroundingSessionAggregateType<T extends GroundingSessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateGroundingSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGroundingSession[P]>
+      : GetScalarType<T[P], AggregateGroundingSession[P]>
+  }
+
+
+
+
+  export type GroundingSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GroundingSessionWhereInput
+    orderBy?: GroundingSessionOrderByWithAggregationInput | GroundingSessionOrderByWithAggregationInput[]
+    by: GroundingSessionScalarFieldEnum[] | GroundingSessionScalarFieldEnum
+    having?: GroundingSessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GroundingSessionCountAggregateInputType | true
+    _avg?: GroundingSessionAvgAggregateInputType
+    _sum?: GroundingSessionSumAggregateInputType
+    _min?: GroundingSessionMinAggregateInputType
+    _max?: GroundingSessionMaxAggregateInputType
+  }
+
+  export type GroundingSessionGroupByOutputType = {
+    id: string
+    userId: string
+    techniqueId: string
+    startedAt: Date
+    completedAt: Date | null
+    duration: number | null
+    triggerType: string | null
+    severityBefore: number | null
+    severityAfter: number | null
+    panicBefore: number | null
+    panicAfter: number | null
+    dissociationBefore: number | null
+    dissociationAfter: number | null
+    stepsCompleted: JsonValue | null
+    completionRate: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    wouldUseAgain: boolean | null
+    _count: GroundingSessionCountAggregateOutputType | null
+    _avg: GroundingSessionAvgAggregateOutputType | null
+    _sum: GroundingSessionSumAggregateOutputType | null
+    _min: GroundingSessionMinAggregateOutputType | null
+    _max: GroundingSessionMaxAggregateOutputType | null
+  }
+
+  type GetGroundingSessionGroupByPayload<T extends GroundingSessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GroundingSessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GroundingSessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GroundingSessionGroupByOutputType[P]>
+            : GetScalarType<T[P], GroundingSessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GroundingSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    techniqueId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    triggerType?: boolean
+    severityBefore?: boolean
+    severityAfter?: boolean
+    panicBefore?: boolean
+    panicAfter?: boolean
+    dissociationBefore?: boolean
+    dissociationAfter?: boolean
+    stepsCompleted?: boolean
+    completionRate?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    wouldUseAgain?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    technique?: boolean | GroundingTechniqueDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["groundingSession"]>
+
+  export type GroundingSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    techniqueId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    triggerType?: boolean
+    severityBefore?: boolean
+    severityAfter?: boolean
+    panicBefore?: boolean
+    panicAfter?: boolean
+    dissociationBefore?: boolean
+    dissociationAfter?: boolean
+    stepsCompleted?: boolean
+    completionRate?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    wouldUseAgain?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    technique?: boolean | GroundingTechniqueDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["groundingSession"]>
+
+  export type GroundingSessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    techniqueId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    triggerType?: boolean
+    severityBefore?: boolean
+    severityAfter?: boolean
+    panicBefore?: boolean
+    panicAfter?: boolean
+    dissociationBefore?: boolean
+    dissociationAfter?: boolean
+    stepsCompleted?: boolean
+    completionRate?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    wouldUseAgain?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    technique?: boolean | GroundingTechniqueDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["groundingSession"]>
+
+  export type GroundingSessionSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    techniqueId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    triggerType?: boolean
+    severityBefore?: boolean
+    severityAfter?: boolean
+    panicBefore?: boolean
+    panicAfter?: boolean
+    dissociationBefore?: boolean
+    dissociationAfter?: boolean
+    stepsCompleted?: boolean
+    completionRate?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    wouldUseAgain?: boolean
+  }
+
+  export type GroundingSessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "techniqueId" | "startedAt" | "completedAt" | "duration" | "triggerType" | "severityBefore" | "severityAfter" | "panicBefore" | "panicAfter" | "dissociationBefore" | "dissociationAfter" | "stepsCompleted" | "completionRate" | "wasHelpful" | "rating" | "notes" | "wouldUseAgain", ExtArgs["result"]["groundingSession"]>
+  export type GroundingSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    technique?: boolean | GroundingTechniqueDefaultArgs<ExtArgs>
+  }
+  export type GroundingSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    technique?: boolean | GroundingTechniqueDefaultArgs<ExtArgs>
+  }
+  export type GroundingSessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    technique?: boolean | GroundingTechniqueDefaultArgs<ExtArgs>
+  }
+
+  export type $GroundingSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GroundingSession"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      technique: Prisma.$GroundingTechniquePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      techniqueId: string
+      startedAt: Date
+      completedAt: Date | null
+      duration: number | null
+      triggerType: string | null
+      severityBefore: number | null
+      severityAfter: number | null
+      panicBefore: number | null
+      panicAfter: number | null
+      dissociationBefore: number | null
+      dissociationAfter: number | null
+      stepsCompleted: Prisma.JsonValue | null
+      completionRate: number | null
+      wasHelpful: boolean | null
+      rating: number | null
+      notes: string | null
+      wouldUseAgain: boolean | null
+    }, ExtArgs["result"]["groundingSession"]>
+    composites: {}
+  }
+
+  type GroundingSessionGetPayload<S extends boolean | null | undefined | GroundingSessionDefaultArgs> = $Result.GetResult<Prisma.$GroundingSessionPayload, S>
+
+  type GroundingSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GroundingSessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: GroundingSessionCountAggregateInputType | true
+    }
+
+  export interface GroundingSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GroundingSession'], meta: { name: 'GroundingSession' } }
+    /**
+     * Find zero or one GroundingSession that matches the filter.
+     * @param {GroundingSessionFindUniqueArgs} args - Arguments to find a GroundingSession
+     * @example
+     * // Get one GroundingSession
+     * const groundingSession = await prisma.groundingSession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GroundingSessionFindUniqueArgs>(args: SelectSubset<T, GroundingSessionFindUniqueArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GroundingSession that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GroundingSessionFindUniqueOrThrowArgs} args - Arguments to find a GroundingSession
+     * @example
+     * // Get one GroundingSession
+     * const groundingSession = await prisma.groundingSession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GroundingSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, GroundingSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GroundingSession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionFindFirstArgs} args - Arguments to find a GroundingSession
+     * @example
+     * // Get one GroundingSession
+     * const groundingSession = await prisma.groundingSession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GroundingSessionFindFirstArgs>(args?: SelectSubset<T, GroundingSessionFindFirstArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GroundingSession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionFindFirstOrThrowArgs} args - Arguments to find a GroundingSession
+     * @example
+     * // Get one GroundingSession
+     * const groundingSession = await prisma.groundingSession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GroundingSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, GroundingSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GroundingSessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GroundingSessions
+     * const groundingSessions = await prisma.groundingSession.findMany()
+     * 
+     * // Get first 10 GroundingSessions
+     * const groundingSessions = await prisma.groundingSession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const groundingSessionWithIdOnly = await prisma.groundingSession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GroundingSessionFindManyArgs>(args?: SelectSubset<T, GroundingSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GroundingSession.
+     * @param {GroundingSessionCreateArgs} args - Arguments to create a GroundingSession.
+     * @example
+     * // Create one GroundingSession
+     * const GroundingSession = await prisma.groundingSession.create({
+     *   data: {
+     *     // ... data to create a GroundingSession
+     *   }
+     * })
+     * 
+     */
+    create<T extends GroundingSessionCreateArgs>(args: SelectSubset<T, GroundingSessionCreateArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GroundingSessions.
+     * @param {GroundingSessionCreateManyArgs} args - Arguments to create many GroundingSessions.
+     * @example
+     * // Create many GroundingSessions
+     * const groundingSession = await prisma.groundingSession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GroundingSessionCreateManyArgs>(args?: SelectSubset<T, GroundingSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many GroundingSessions and returns the data saved in the database.
+     * @param {GroundingSessionCreateManyAndReturnArgs} args - Arguments to create many GroundingSessions.
+     * @example
+     * // Create many GroundingSessions
+     * const groundingSession = await prisma.groundingSession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many GroundingSessions and only return the `id`
+     * const groundingSessionWithIdOnly = await prisma.groundingSession.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends GroundingSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, GroundingSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a GroundingSession.
+     * @param {GroundingSessionDeleteArgs} args - Arguments to delete one GroundingSession.
+     * @example
+     * // Delete one GroundingSession
+     * const GroundingSession = await prisma.groundingSession.delete({
+     *   where: {
+     *     // ... filter to delete one GroundingSession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GroundingSessionDeleteArgs>(args: SelectSubset<T, GroundingSessionDeleteArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GroundingSession.
+     * @param {GroundingSessionUpdateArgs} args - Arguments to update one GroundingSession.
+     * @example
+     * // Update one GroundingSession
+     * const groundingSession = await prisma.groundingSession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GroundingSessionUpdateArgs>(args: SelectSubset<T, GroundingSessionUpdateArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GroundingSessions.
+     * @param {GroundingSessionDeleteManyArgs} args - Arguments to filter GroundingSessions to delete.
+     * @example
+     * // Delete a few GroundingSessions
+     * const { count } = await prisma.groundingSession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GroundingSessionDeleteManyArgs>(args?: SelectSubset<T, GroundingSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GroundingSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GroundingSessions
+     * const groundingSession = await prisma.groundingSession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GroundingSessionUpdateManyArgs>(args: SelectSubset<T, GroundingSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GroundingSessions and returns the data updated in the database.
+     * @param {GroundingSessionUpdateManyAndReturnArgs} args - Arguments to update many GroundingSessions.
+     * @example
+     * // Update many GroundingSessions
+     * const groundingSession = await prisma.groundingSession.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more GroundingSessions and only return the `id`
+     * const groundingSessionWithIdOnly = await prisma.groundingSession.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends GroundingSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, GroundingSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one GroundingSession.
+     * @param {GroundingSessionUpsertArgs} args - Arguments to update or create a GroundingSession.
+     * @example
+     * // Update or create a GroundingSession
+     * const groundingSession = await prisma.groundingSession.upsert({
+     *   create: {
+     *     // ... data to create a GroundingSession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GroundingSession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GroundingSessionUpsertArgs>(args: SelectSubset<T, GroundingSessionUpsertArgs<ExtArgs>>): Prisma__GroundingSessionClient<$Result.GetResult<Prisma.$GroundingSessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GroundingSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionCountArgs} args - Arguments to filter GroundingSessions to count.
+     * @example
+     * // Count the number of GroundingSessions
+     * const count = await prisma.groundingSession.count({
+     *   where: {
+     *     // ... the filter for the GroundingSessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends GroundingSessionCountArgs>(
+      args?: Subset<T, GroundingSessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GroundingSessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GroundingSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GroundingSessionAggregateArgs>(args: Subset<T, GroundingSessionAggregateArgs>): Prisma.PrismaPromise<GetGroundingSessionAggregateType<T>>
+
+    /**
+     * Group by GroundingSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GroundingSessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GroundingSessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GroundingSessionGroupByArgs['orderBy'] }
+        : { orderBy?: GroundingSessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GroundingSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGroundingSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GroundingSession model
+   */
+  readonly fields: GroundingSessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GroundingSession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GroundingSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    technique<T extends GroundingTechniqueDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GroundingTechniqueDefaultArgs<ExtArgs>>): Prisma__GroundingTechniqueClient<$Result.GetResult<Prisma.$GroundingTechniquePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GroundingSession model
+   */
+  interface GroundingSessionFieldRefs {
+    readonly id: FieldRef<"GroundingSession", 'String'>
+    readonly userId: FieldRef<"GroundingSession", 'String'>
+    readonly techniqueId: FieldRef<"GroundingSession", 'String'>
+    readonly startedAt: FieldRef<"GroundingSession", 'DateTime'>
+    readonly completedAt: FieldRef<"GroundingSession", 'DateTime'>
+    readonly duration: FieldRef<"GroundingSession", 'Int'>
+    readonly triggerType: FieldRef<"GroundingSession", 'String'>
+    readonly severityBefore: FieldRef<"GroundingSession", 'Int'>
+    readonly severityAfter: FieldRef<"GroundingSession", 'Int'>
+    readonly panicBefore: FieldRef<"GroundingSession", 'Int'>
+    readonly panicAfter: FieldRef<"GroundingSession", 'Int'>
+    readonly dissociationBefore: FieldRef<"GroundingSession", 'Int'>
+    readonly dissociationAfter: FieldRef<"GroundingSession", 'Int'>
+    readonly stepsCompleted: FieldRef<"GroundingSession", 'Json'>
+    readonly completionRate: FieldRef<"GroundingSession", 'Float'>
+    readonly wasHelpful: FieldRef<"GroundingSession", 'Boolean'>
+    readonly rating: FieldRef<"GroundingSession", 'Int'>
+    readonly notes: FieldRef<"GroundingSession", 'String'>
+    readonly wouldUseAgain: FieldRef<"GroundingSession", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GroundingSession findUnique
+   */
+  export type GroundingSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingSession to fetch.
+     */
+    where: GroundingSessionWhereUniqueInput
+  }
+
+  /**
+   * GroundingSession findUniqueOrThrow
+   */
+  export type GroundingSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingSession to fetch.
+     */
+    where: GroundingSessionWhereUniqueInput
+  }
+
+  /**
+   * GroundingSession findFirst
+   */
+  export type GroundingSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingSession to fetch.
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingSessions to fetch.
+     */
+    orderBy?: GroundingSessionOrderByWithRelationInput | GroundingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GroundingSessions.
+     */
+    cursor?: GroundingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GroundingSessions.
+     */
+    distinct?: GroundingSessionScalarFieldEnum | GroundingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingSession findFirstOrThrow
+   */
+  export type GroundingSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingSession to fetch.
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingSessions to fetch.
+     */
+    orderBy?: GroundingSessionOrderByWithRelationInput | GroundingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GroundingSessions.
+     */
+    cursor?: GroundingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GroundingSessions.
+     */
+    distinct?: GroundingSessionScalarFieldEnum | GroundingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingSession findMany
+   */
+  export type GroundingSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which GroundingSessions to fetch.
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GroundingSessions to fetch.
+     */
+    orderBy?: GroundingSessionOrderByWithRelationInput | GroundingSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GroundingSessions.
+     */
+    cursor?: GroundingSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GroundingSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GroundingSessions.
+     */
+    skip?: number
+    distinct?: GroundingSessionScalarFieldEnum | GroundingSessionScalarFieldEnum[]
+  }
+
+  /**
+   * GroundingSession create
+   */
+  export type GroundingSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GroundingSession.
+     */
+    data: XOR<GroundingSessionCreateInput, GroundingSessionUncheckedCreateInput>
+  }
+
+  /**
+   * GroundingSession createMany
+   */
+  export type GroundingSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GroundingSessions.
+     */
+    data: GroundingSessionCreateManyInput | GroundingSessionCreateManyInput[]
+  }
+
+  /**
+   * GroundingSession createManyAndReturn
+   */
+  export type GroundingSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many GroundingSessions.
+     */
+    data: GroundingSessionCreateManyInput | GroundingSessionCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * GroundingSession update
+   */
+  export type GroundingSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GroundingSession.
+     */
+    data: XOR<GroundingSessionUpdateInput, GroundingSessionUncheckedUpdateInput>
+    /**
+     * Choose, which GroundingSession to update.
+     */
+    where: GroundingSessionWhereUniqueInput
+  }
+
+  /**
+   * GroundingSession updateMany
+   */
+  export type GroundingSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GroundingSessions.
+     */
+    data: XOR<GroundingSessionUpdateManyMutationInput, GroundingSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which GroundingSessions to update
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * Limit how many GroundingSessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GroundingSession updateManyAndReturn
+   */
+  export type GroundingSessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * The data used to update GroundingSessions.
+     */
+    data: XOR<GroundingSessionUpdateManyMutationInput, GroundingSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which GroundingSessions to update
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * Limit how many GroundingSessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * GroundingSession upsert
+   */
+  export type GroundingSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GroundingSession to update in case it exists.
+     */
+    where: GroundingSessionWhereUniqueInput
+    /**
+     * In case the GroundingSession found by the `where` argument doesn't exist, create a new GroundingSession with this data.
+     */
+    create: XOR<GroundingSessionCreateInput, GroundingSessionUncheckedCreateInput>
+    /**
+     * In case the GroundingSession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GroundingSessionUpdateInput, GroundingSessionUncheckedUpdateInput>
+  }
+
+  /**
+   * GroundingSession delete
+   */
+  export type GroundingSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+    /**
+     * Filter which GroundingSession to delete.
+     */
+    where: GroundingSessionWhereUniqueInput
+  }
+
+  /**
+   * GroundingSession deleteMany
+   */
+  export type GroundingSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GroundingSessions to delete
+     */
+    where?: GroundingSessionWhereInput
+    /**
+     * Limit how many GroundingSessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GroundingSession without action
+   */
+  export type GroundingSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GroundingSession
+     */
+    select?: GroundingSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GroundingSession
+     */
+    omit?: GroundingSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GroundingSessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SelfHelpResource
+   */
+
+  export type AggregateSelfHelpResource = {
+    _count: SelfHelpResourceCountAggregateOutputType | null
+    _avg: SelfHelpResourceAvgAggregateOutputType | null
+    _sum: SelfHelpResourceSumAggregateOutputType | null
+    _min: SelfHelpResourceMinAggregateOutputType | null
+    _max: SelfHelpResourceMaxAggregateOutputType | null
+  }
+
+  export type SelfHelpResourceAvgAggregateOutputType = {
+    duration: number | null
+    viewCount: number | null
+    helpfulCount: number | null
+    averageRating: number | null
+  }
+
+  export type SelfHelpResourceSumAggregateOutputType = {
+    duration: number | null
+    viewCount: number | null
+    helpfulCount: number | null
+    averageRating: number | null
+  }
+
+  export type SelfHelpResourceMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    category: $Enums.SelfHelpCategory | null
+    type: $Enums.ResourceType | null
+    content: string | null
+    url: string | null
+    mediaUrl: string | null
+    thumbnailUrl: string | null
+    duration: number | null
+    difficulty: $Enums.ExerciseDifficulty | null
+    evidenceLevel: $Enums.EvidenceLevel | null
+    viewCount: number | null
+    helpfulCount: number | null
+    averageRating: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SelfHelpResourceMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    category: $Enums.SelfHelpCategory | null
+    type: $Enums.ResourceType | null
+    content: string | null
+    url: string | null
+    mediaUrl: string | null
+    thumbnailUrl: string | null
+    duration: number | null
+    difficulty: $Enums.ExerciseDifficulty | null
+    evidenceLevel: $Enums.EvidenceLevel | null
+    viewCount: number | null
+    helpfulCount: number | null
+    averageRating: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SelfHelpResourceCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    category: number
+    type: number
+    content: number
+    url: number
+    mediaUrl: number
+    thumbnailUrl: number
+    duration: number
+    difficulty: number
+    evidenceLevel: number
+    tags: number
+    conditions: number
+    symptoms: number
+    viewCount: number
+    helpfulCount: number
+    averageRating: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SelfHelpResourceAvgAggregateInputType = {
+    duration?: true
+    viewCount?: true
+    helpfulCount?: true
+    averageRating?: true
+  }
+
+  export type SelfHelpResourceSumAggregateInputType = {
+    duration?: true
+    viewCount?: true
+    helpfulCount?: true
+    averageRating?: true
+  }
+
+  export type SelfHelpResourceMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    category?: true
+    type?: true
+    content?: true
+    url?: true
+    mediaUrl?: true
+    thumbnailUrl?: true
+    duration?: true
+    difficulty?: true
+    evidenceLevel?: true
+    viewCount?: true
+    helpfulCount?: true
+    averageRating?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SelfHelpResourceMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    category?: true
+    type?: true
+    content?: true
+    url?: true
+    mediaUrl?: true
+    thumbnailUrl?: true
+    duration?: true
+    difficulty?: true
+    evidenceLevel?: true
+    viewCount?: true
+    helpfulCount?: true
+    averageRating?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SelfHelpResourceCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    category?: true
+    type?: true
+    content?: true
+    url?: true
+    mediaUrl?: true
+    thumbnailUrl?: true
+    duration?: true
+    difficulty?: true
+    evidenceLevel?: true
+    tags?: true
+    conditions?: true
+    symptoms?: true
+    viewCount?: true
+    helpfulCount?: true
+    averageRating?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SelfHelpResourceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SelfHelpResource to aggregate.
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpResources to fetch.
+     */
+    orderBy?: SelfHelpResourceOrderByWithRelationInput | SelfHelpResourceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SelfHelpResourceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpResources from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpResources.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SelfHelpResources
+    **/
+    _count?: true | SelfHelpResourceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SelfHelpResourceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SelfHelpResourceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SelfHelpResourceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SelfHelpResourceMaxAggregateInputType
+  }
+
+  export type GetSelfHelpResourceAggregateType<T extends SelfHelpResourceAggregateArgs> = {
+        [P in keyof T & keyof AggregateSelfHelpResource]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSelfHelpResource[P]>
+      : GetScalarType<T[P], AggregateSelfHelpResource[P]>
+  }
+
+
+
+
+  export type SelfHelpResourceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SelfHelpResourceWhereInput
+    orderBy?: SelfHelpResourceOrderByWithAggregationInput | SelfHelpResourceOrderByWithAggregationInput[]
+    by: SelfHelpResourceScalarFieldEnum[] | SelfHelpResourceScalarFieldEnum
+    having?: SelfHelpResourceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SelfHelpResourceCountAggregateInputType | true
+    _avg?: SelfHelpResourceAvgAggregateInputType
+    _sum?: SelfHelpResourceSumAggregateInputType
+    _min?: SelfHelpResourceMinAggregateInputType
+    _max?: SelfHelpResourceMaxAggregateInputType
+  }
+
+  export type SelfHelpResourceGroupByOutputType = {
+    id: string
+    title: string
+    description: string
+    category: $Enums.SelfHelpCategory
+    type: $Enums.ResourceType
+    content: string | null
+    url: string | null
+    mediaUrl: string | null
+    thumbnailUrl: string | null
+    duration: number | null
+    difficulty: $Enums.ExerciseDifficulty
+    evidenceLevel: $Enums.EvidenceLevel
+    tags: JsonValue
+    conditions: JsonValue | null
+    symptoms: JsonValue | null
+    viewCount: number
+    helpfulCount: number
+    averageRating: number | null
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: SelfHelpResourceCountAggregateOutputType | null
+    _avg: SelfHelpResourceAvgAggregateOutputType | null
+    _sum: SelfHelpResourceSumAggregateOutputType | null
+    _min: SelfHelpResourceMinAggregateOutputType | null
+    _max: SelfHelpResourceMaxAggregateOutputType | null
+  }
+
+  type GetSelfHelpResourceGroupByPayload<T extends SelfHelpResourceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SelfHelpResourceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SelfHelpResourceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SelfHelpResourceGroupByOutputType[P]>
+            : GetScalarType<T[P], SelfHelpResourceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SelfHelpResourceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    type?: boolean
+    content?: boolean
+    url?: boolean
+    mediaUrl?: boolean
+    thumbnailUrl?: boolean
+    duration?: boolean
+    difficulty?: boolean
+    evidenceLevel?: boolean
+    tags?: boolean
+    conditions?: boolean
+    symptoms?: boolean
+    viewCount?: boolean
+    helpfulCount?: boolean
+    averageRating?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    interactions?: boolean | SelfHelpResource$interactionsArgs<ExtArgs>
+    _count?: boolean | SelfHelpResourceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["selfHelpResource"]>
+
+  export type SelfHelpResourceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    type?: boolean
+    content?: boolean
+    url?: boolean
+    mediaUrl?: boolean
+    thumbnailUrl?: boolean
+    duration?: boolean
+    difficulty?: boolean
+    evidenceLevel?: boolean
+    tags?: boolean
+    conditions?: boolean
+    symptoms?: boolean
+    viewCount?: boolean
+    helpfulCount?: boolean
+    averageRating?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["selfHelpResource"]>
+
+  export type SelfHelpResourceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    type?: boolean
+    content?: boolean
+    url?: boolean
+    mediaUrl?: boolean
+    thumbnailUrl?: boolean
+    duration?: boolean
+    difficulty?: boolean
+    evidenceLevel?: boolean
+    tags?: boolean
+    conditions?: boolean
+    symptoms?: boolean
+    viewCount?: boolean
+    helpfulCount?: boolean
+    averageRating?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["selfHelpResource"]>
+
+  export type SelfHelpResourceSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    type?: boolean
+    content?: boolean
+    url?: boolean
+    mediaUrl?: boolean
+    thumbnailUrl?: boolean
+    duration?: boolean
+    difficulty?: boolean
+    evidenceLevel?: boolean
+    tags?: boolean
+    conditions?: boolean
+    symptoms?: boolean
+    viewCount?: boolean
+    helpfulCount?: boolean
+    averageRating?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SelfHelpResourceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "category" | "type" | "content" | "url" | "mediaUrl" | "thumbnailUrl" | "duration" | "difficulty" | "evidenceLevel" | "tags" | "conditions" | "symptoms" | "viewCount" | "helpfulCount" | "averageRating" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["selfHelpResource"]>
+  export type SelfHelpResourceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    interactions?: boolean | SelfHelpResource$interactionsArgs<ExtArgs>
+    _count?: boolean | SelfHelpResourceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SelfHelpResourceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type SelfHelpResourceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $SelfHelpResourcePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SelfHelpResource"
+    objects: {
+      interactions: Prisma.$SelfHelpInteractionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      description: string
+      category: $Enums.SelfHelpCategory
+      type: $Enums.ResourceType
+      content: string | null
+      url: string | null
+      mediaUrl: string | null
+      thumbnailUrl: string | null
+      duration: number | null
+      difficulty: $Enums.ExerciseDifficulty
+      evidenceLevel: $Enums.EvidenceLevel
+      tags: Prisma.JsonValue
+      conditions: Prisma.JsonValue | null
+      symptoms: Prisma.JsonValue | null
+      viewCount: number
+      helpfulCount: number
+      averageRating: number | null
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["selfHelpResource"]>
+    composites: {}
+  }
+
+  type SelfHelpResourceGetPayload<S extends boolean | null | undefined | SelfHelpResourceDefaultArgs> = $Result.GetResult<Prisma.$SelfHelpResourcePayload, S>
+
+  type SelfHelpResourceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SelfHelpResourceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: SelfHelpResourceCountAggregateInputType | true
+    }
+
+  export interface SelfHelpResourceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SelfHelpResource'], meta: { name: 'SelfHelpResource' } }
+    /**
+     * Find zero or one SelfHelpResource that matches the filter.
+     * @param {SelfHelpResourceFindUniqueArgs} args - Arguments to find a SelfHelpResource
+     * @example
+     * // Get one SelfHelpResource
+     * const selfHelpResource = await prisma.selfHelpResource.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SelfHelpResourceFindUniqueArgs>(args: SelectSubset<T, SelfHelpResourceFindUniqueArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SelfHelpResource that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SelfHelpResourceFindUniqueOrThrowArgs} args - Arguments to find a SelfHelpResource
+     * @example
+     * // Get one SelfHelpResource
+     * const selfHelpResource = await prisma.selfHelpResource.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SelfHelpResourceFindUniqueOrThrowArgs>(args: SelectSubset<T, SelfHelpResourceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SelfHelpResource that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceFindFirstArgs} args - Arguments to find a SelfHelpResource
+     * @example
+     * // Get one SelfHelpResource
+     * const selfHelpResource = await prisma.selfHelpResource.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SelfHelpResourceFindFirstArgs>(args?: SelectSubset<T, SelfHelpResourceFindFirstArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SelfHelpResource that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceFindFirstOrThrowArgs} args - Arguments to find a SelfHelpResource
+     * @example
+     * // Get one SelfHelpResource
+     * const selfHelpResource = await prisma.selfHelpResource.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SelfHelpResourceFindFirstOrThrowArgs>(args?: SelectSubset<T, SelfHelpResourceFindFirstOrThrowArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SelfHelpResources that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SelfHelpResources
+     * const selfHelpResources = await prisma.selfHelpResource.findMany()
+     * 
+     * // Get first 10 SelfHelpResources
+     * const selfHelpResources = await prisma.selfHelpResource.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const selfHelpResourceWithIdOnly = await prisma.selfHelpResource.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SelfHelpResourceFindManyArgs>(args?: SelectSubset<T, SelfHelpResourceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SelfHelpResource.
+     * @param {SelfHelpResourceCreateArgs} args - Arguments to create a SelfHelpResource.
+     * @example
+     * // Create one SelfHelpResource
+     * const SelfHelpResource = await prisma.selfHelpResource.create({
+     *   data: {
+     *     // ... data to create a SelfHelpResource
+     *   }
+     * })
+     * 
+     */
+    create<T extends SelfHelpResourceCreateArgs>(args: SelectSubset<T, SelfHelpResourceCreateArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SelfHelpResources.
+     * @param {SelfHelpResourceCreateManyArgs} args - Arguments to create many SelfHelpResources.
+     * @example
+     * // Create many SelfHelpResources
+     * const selfHelpResource = await prisma.selfHelpResource.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SelfHelpResourceCreateManyArgs>(args?: SelectSubset<T, SelfHelpResourceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SelfHelpResources and returns the data saved in the database.
+     * @param {SelfHelpResourceCreateManyAndReturnArgs} args - Arguments to create many SelfHelpResources.
+     * @example
+     * // Create many SelfHelpResources
+     * const selfHelpResource = await prisma.selfHelpResource.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SelfHelpResources and only return the `id`
+     * const selfHelpResourceWithIdOnly = await prisma.selfHelpResource.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SelfHelpResourceCreateManyAndReturnArgs>(args?: SelectSubset<T, SelfHelpResourceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SelfHelpResource.
+     * @param {SelfHelpResourceDeleteArgs} args - Arguments to delete one SelfHelpResource.
+     * @example
+     * // Delete one SelfHelpResource
+     * const SelfHelpResource = await prisma.selfHelpResource.delete({
+     *   where: {
+     *     // ... filter to delete one SelfHelpResource
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SelfHelpResourceDeleteArgs>(args: SelectSubset<T, SelfHelpResourceDeleteArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SelfHelpResource.
+     * @param {SelfHelpResourceUpdateArgs} args - Arguments to update one SelfHelpResource.
+     * @example
+     * // Update one SelfHelpResource
+     * const selfHelpResource = await prisma.selfHelpResource.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SelfHelpResourceUpdateArgs>(args: SelectSubset<T, SelfHelpResourceUpdateArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SelfHelpResources.
+     * @param {SelfHelpResourceDeleteManyArgs} args - Arguments to filter SelfHelpResources to delete.
+     * @example
+     * // Delete a few SelfHelpResources
+     * const { count } = await prisma.selfHelpResource.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SelfHelpResourceDeleteManyArgs>(args?: SelectSubset<T, SelfHelpResourceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SelfHelpResources.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SelfHelpResources
+     * const selfHelpResource = await prisma.selfHelpResource.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SelfHelpResourceUpdateManyArgs>(args: SelectSubset<T, SelfHelpResourceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SelfHelpResources and returns the data updated in the database.
+     * @param {SelfHelpResourceUpdateManyAndReturnArgs} args - Arguments to update many SelfHelpResources.
+     * @example
+     * // Update many SelfHelpResources
+     * const selfHelpResource = await prisma.selfHelpResource.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SelfHelpResources and only return the `id`
+     * const selfHelpResourceWithIdOnly = await prisma.selfHelpResource.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SelfHelpResourceUpdateManyAndReturnArgs>(args: SelectSubset<T, SelfHelpResourceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SelfHelpResource.
+     * @param {SelfHelpResourceUpsertArgs} args - Arguments to update or create a SelfHelpResource.
+     * @example
+     * // Update or create a SelfHelpResource
+     * const selfHelpResource = await prisma.selfHelpResource.upsert({
+     *   create: {
+     *     // ... data to create a SelfHelpResource
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SelfHelpResource we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SelfHelpResourceUpsertArgs>(args: SelectSubset<T, SelfHelpResourceUpsertArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SelfHelpResources.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceCountArgs} args - Arguments to filter SelfHelpResources to count.
+     * @example
+     * // Count the number of SelfHelpResources
+     * const count = await prisma.selfHelpResource.count({
+     *   where: {
+     *     // ... the filter for the SelfHelpResources we want to count
+     *   }
+     * })
+    **/
+    count<T extends SelfHelpResourceCountArgs>(
+      args?: Subset<T, SelfHelpResourceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SelfHelpResourceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SelfHelpResource.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SelfHelpResourceAggregateArgs>(args: Subset<T, SelfHelpResourceAggregateArgs>): Prisma.PrismaPromise<GetSelfHelpResourceAggregateType<T>>
+
+    /**
+     * Group by SelfHelpResource.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpResourceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SelfHelpResourceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SelfHelpResourceGroupByArgs['orderBy'] }
+        : { orderBy?: SelfHelpResourceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SelfHelpResourceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSelfHelpResourceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SelfHelpResource model
+   */
+  readonly fields: SelfHelpResourceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SelfHelpResource.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SelfHelpResourceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    interactions<T extends SelfHelpResource$interactionsArgs<ExtArgs> = {}>(args?: Subset<T, SelfHelpResource$interactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SelfHelpResource model
+   */
+  interface SelfHelpResourceFieldRefs {
+    readonly id: FieldRef<"SelfHelpResource", 'String'>
+    readonly title: FieldRef<"SelfHelpResource", 'String'>
+    readonly description: FieldRef<"SelfHelpResource", 'String'>
+    readonly category: FieldRef<"SelfHelpResource", 'SelfHelpCategory'>
+    readonly type: FieldRef<"SelfHelpResource", 'ResourceType'>
+    readonly content: FieldRef<"SelfHelpResource", 'String'>
+    readonly url: FieldRef<"SelfHelpResource", 'String'>
+    readonly mediaUrl: FieldRef<"SelfHelpResource", 'String'>
+    readonly thumbnailUrl: FieldRef<"SelfHelpResource", 'String'>
+    readonly duration: FieldRef<"SelfHelpResource", 'Int'>
+    readonly difficulty: FieldRef<"SelfHelpResource", 'ExerciseDifficulty'>
+    readonly evidenceLevel: FieldRef<"SelfHelpResource", 'EvidenceLevel'>
+    readonly tags: FieldRef<"SelfHelpResource", 'Json'>
+    readonly conditions: FieldRef<"SelfHelpResource", 'Json'>
+    readonly symptoms: FieldRef<"SelfHelpResource", 'Json'>
+    readonly viewCount: FieldRef<"SelfHelpResource", 'Int'>
+    readonly helpfulCount: FieldRef<"SelfHelpResource", 'Int'>
+    readonly averageRating: FieldRef<"SelfHelpResource", 'Float'>
+    readonly isActive: FieldRef<"SelfHelpResource", 'Boolean'>
+    readonly createdAt: FieldRef<"SelfHelpResource", 'DateTime'>
+    readonly updatedAt: FieldRef<"SelfHelpResource", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SelfHelpResource findUnique
+   */
+  export type SelfHelpResourceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpResource to fetch.
+     */
+    where: SelfHelpResourceWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpResource findUniqueOrThrow
+   */
+  export type SelfHelpResourceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpResource to fetch.
+     */
+    where: SelfHelpResourceWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpResource findFirst
+   */
+  export type SelfHelpResourceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpResource to fetch.
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpResources to fetch.
+     */
+    orderBy?: SelfHelpResourceOrderByWithRelationInput | SelfHelpResourceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SelfHelpResources.
+     */
+    cursor?: SelfHelpResourceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpResources from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpResources.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SelfHelpResources.
+     */
+    distinct?: SelfHelpResourceScalarFieldEnum | SelfHelpResourceScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpResource findFirstOrThrow
+   */
+  export type SelfHelpResourceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpResource to fetch.
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpResources to fetch.
+     */
+    orderBy?: SelfHelpResourceOrderByWithRelationInput | SelfHelpResourceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SelfHelpResources.
+     */
+    cursor?: SelfHelpResourceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpResources from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpResources.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SelfHelpResources.
+     */
+    distinct?: SelfHelpResourceScalarFieldEnum | SelfHelpResourceScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpResource findMany
+   */
+  export type SelfHelpResourceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpResources to fetch.
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpResources to fetch.
+     */
+    orderBy?: SelfHelpResourceOrderByWithRelationInput | SelfHelpResourceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SelfHelpResources.
+     */
+    cursor?: SelfHelpResourceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpResources from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpResources.
+     */
+    skip?: number
+    distinct?: SelfHelpResourceScalarFieldEnum | SelfHelpResourceScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpResource create
+   */
+  export type SelfHelpResourceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SelfHelpResource.
+     */
+    data: XOR<SelfHelpResourceCreateInput, SelfHelpResourceUncheckedCreateInput>
+  }
+
+  /**
+   * SelfHelpResource createMany
+   */
+  export type SelfHelpResourceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SelfHelpResources.
+     */
+    data: SelfHelpResourceCreateManyInput | SelfHelpResourceCreateManyInput[]
+  }
+
+  /**
+   * SelfHelpResource createManyAndReturn
+   */
+  export type SelfHelpResourceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * The data used to create many SelfHelpResources.
+     */
+    data: SelfHelpResourceCreateManyInput | SelfHelpResourceCreateManyInput[]
+  }
+
+  /**
+   * SelfHelpResource update
+   */
+  export type SelfHelpResourceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SelfHelpResource.
+     */
+    data: XOR<SelfHelpResourceUpdateInput, SelfHelpResourceUncheckedUpdateInput>
+    /**
+     * Choose, which SelfHelpResource to update.
+     */
+    where: SelfHelpResourceWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpResource updateMany
+   */
+  export type SelfHelpResourceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SelfHelpResources.
+     */
+    data: XOR<SelfHelpResourceUpdateManyMutationInput, SelfHelpResourceUncheckedUpdateManyInput>
+    /**
+     * Filter which SelfHelpResources to update
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * Limit how many SelfHelpResources to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SelfHelpResource updateManyAndReturn
+   */
+  export type SelfHelpResourceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * The data used to update SelfHelpResources.
+     */
+    data: XOR<SelfHelpResourceUpdateManyMutationInput, SelfHelpResourceUncheckedUpdateManyInput>
+    /**
+     * Filter which SelfHelpResources to update
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * Limit how many SelfHelpResources to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SelfHelpResource upsert
+   */
+  export type SelfHelpResourceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SelfHelpResource to update in case it exists.
+     */
+    where: SelfHelpResourceWhereUniqueInput
+    /**
+     * In case the SelfHelpResource found by the `where` argument doesn't exist, create a new SelfHelpResource with this data.
+     */
+    create: XOR<SelfHelpResourceCreateInput, SelfHelpResourceUncheckedCreateInput>
+    /**
+     * In case the SelfHelpResource was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SelfHelpResourceUpdateInput, SelfHelpResourceUncheckedUpdateInput>
+  }
+
+  /**
+   * SelfHelpResource delete
+   */
+  export type SelfHelpResourceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+    /**
+     * Filter which SelfHelpResource to delete.
+     */
+    where: SelfHelpResourceWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpResource deleteMany
+   */
+  export type SelfHelpResourceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SelfHelpResources to delete
+     */
+    where?: SelfHelpResourceWhereInput
+    /**
+     * Limit how many SelfHelpResources to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SelfHelpResource.interactions
+   */
+  export type SelfHelpResource$interactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    where?: SelfHelpInteractionWhereInput
+    orderBy?: SelfHelpInteractionOrderByWithRelationInput | SelfHelpInteractionOrderByWithRelationInput[]
+    cursor?: SelfHelpInteractionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SelfHelpInteractionScalarFieldEnum | SelfHelpInteractionScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpResource without action
+   */
+  export type SelfHelpResourceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpResource
+     */
+    select?: SelfHelpResourceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpResource
+     */
+    omit?: SelfHelpResourceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpResourceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SelfHelpInteraction
+   */
+
+  export type AggregateSelfHelpInteraction = {
+    _count: SelfHelpInteractionCountAggregateOutputType | null
+    _avg: SelfHelpInteractionAvgAggregateOutputType | null
+    _sum: SelfHelpInteractionSumAggregateOutputType | null
+    _min: SelfHelpInteractionMinAggregateOutputType | null
+    _max: SelfHelpInteractionMaxAggregateOutputType | null
+  }
+
+  export type SelfHelpInteractionAvgAggregateOutputType = {
+    duration: number | null
+    rating: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type SelfHelpInteractionSumAggregateOutputType = {
+    duration: number | null
+    rating: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type SelfHelpInteractionMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    resourceId: string | null
+    interactionType: $Enums.InteractionType | null
+    startedAt: Date | null
+    completedAt: Date | null
+    duration: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type SelfHelpInteractionMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    resourceId: string | null
+    interactionType: $Enums.InteractionType | null
+    startedAt: Date | null
+    completedAt: Date | null
+    duration: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type SelfHelpInteractionCountAggregateOutputType = {
+    id: number
+    userId: number
+    resourceId: number
+    interactionType: number
+    startedAt: number
+    completedAt: number
+    duration: number
+    wasHelpful: number
+    rating: number
+    notes: number
+    moodBefore: number
+    moodAfter: number
+    _all: number
+  }
+
+
+  export type SelfHelpInteractionAvgAggregateInputType = {
+    duration?: true
+    rating?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type SelfHelpInteractionSumAggregateInputType = {
+    duration?: true
+    rating?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type SelfHelpInteractionMinAggregateInputType = {
+    id?: true
+    userId?: true
+    resourceId?: true
+    interactionType?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type SelfHelpInteractionMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    resourceId?: true
+    interactionType?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type SelfHelpInteractionCountAggregateInputType = {
+    id?: true
+    userId?: true
+    resourceId?: true
+    interactionType?: true
+    startedAt?: true
+    completedAt?: true
+    duration?: true
+    wasHelpful?: true
+    rating?: true
+    notes?: true
+    moodBefore?: true
+    moodAfter?: true
+    _all?: true
+  }
+
+  export type SelfHelpInteractionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SelfHelpInteraction to aggregate.
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpInteractions to fetch.
+     */
+    orderBy?: SelfHelpInteractionOrderByWithRelationInput | SelfHelpInteractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SelfHelpInteractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpInteractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpInteractions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SelfHelpInteractions
+    **/
+    _count?: true | SelfHelpInteractionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SelfHelpInteractionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SelfHelpInteractionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SelfHelpInteractionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SelfHelpInteractionMaxAggregateInputType
+  }
+
+  export type GetSelfHelpInteractionAggregateType<T extends SelfHelpInteractionAggregateArgs> = {
+        [P in keyof T & keyof AggregateSelfHelpInteraction]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSelfHelpInteraction[P]>
+      : GetScalarType<T[P], AggregateSelfHelpInteraction[P]>
+  }
+
+
+
+
+  export type SelfHelpInteractionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SelfHelpInteractionWhereInput
+    orderBy?: SelfHelpInteractionOrderByWithAggregationInput | SelfHelpInteractionOrderByWithAggregationInput[]
+    by: SelfHelpInteractionScalarFieldEnum[] | SelfHelpInteractionScalarFieldEnum
+    having?: SelfHelpInteractionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SelfHelpInteractionCountAggregateInputType | true
+    _avg?: SelfHelpInteractionAvgAggregateInputType
+    _sum?: SelfHelpInteractionSumAggregateInputType
+    _min?: SelfHelpInteractionMinAggregateInputType
+    _max?: SelfHelpInteractionMaxAggregateInputType
+  }
+
+  export type SelfHelpInteractionGroupByOutputType = {
+    id: string
+    userId: string
+    resourceId: string
+    interactionType: $Enums.InteractionType
+    startedAt: Date
+    completedAt: Date | null
+    duration: number | null
+    wasHelpful: boolean | null
+    rating: number | null
+    notes: string | null
+    moodBefore: number | null
+    moodAfter: number | null
+    _count: SelfHelpInteractionCountAggregateOutputType | null
+    _avg: SelfHelpInteractionAvgAggregateOutputType | null
+    _sum: SelfHelpInteractionSumAggregateOutputType | null
+    _min: SelfHelpInteractionMinAggregateOutputType | null
+    _max: SelfHelpInteractionMaxAggregateOutputType | null
+  }
+
+  type GetSelfHelpInteractionGroupByPayload<T extends SelfHelpInteractionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SelfHelpInteractionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SelfHelpInteractionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SelfHelpInteractionGroupByOutputType[P]>
+            : GetScalarType<T[P], SelfHelpInteractionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SelfHelpInteractionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    resourceId?: boolean
+    interactionType?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    resource?: boolean | SelfHelpResourceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["selfHelpInteraction"]>
+
+  export type SelfHelpInteractionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    resourceId?: boolean
+    interactionType?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    resource?: boolean | SelfHelpResourceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["selfHelpInteraction"]>
+
+  export type SelfHelpInteractionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    resourceId?: boolean
+    interactionType?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    resource?: boolean | SelfHelpResourceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["selfHelpInteraction"]>
+
+  export type SelfHelpInteractionSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    resourceId?: boolean
+    interactionType?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    duration?: boolean
+    wasHelpful?: boolean
+    rating?: boolean
+    notes?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+  }
+
+  export type SelfHelpInteractionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "resourceId" | "interactionType" | "startedAt" | "completedAt" | "duration" | "wasHelpful" | "rating" | "notes" | "moodBefore" | "moodAfter", ExtArgs["result"]["selfHelpInteraction"]>
+  export type SelfHelpInteractionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    resource?: boolean | SelfHelpResourceDefaultArgs<ExtArgs>
+  }
+  export type SelfHelpInteractionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    resource?: boolean | SelfHelpResourceDefaultArgs<ExtArgs>
+  }
+  export type SelfHelpInteractionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    resource?: boolean | SelfHelpResourceDefaultArgs<ExtArgs>
+  }
+
+  export type $SelfHelpInteractionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SelfHelpInteraction"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      resource: Prisma.$SelfHelpResourcePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      resourceId: string
+      interactionType: $Enums.InteractionType
+      startedAt: Date
+      completedAt: Date | null
+      duration: number | null
+      wasHelpful: boolean | null
+      rating: number | null
+      notes: string | null
+      moodBefore: number | null
+      moodAfter: number | null
+    }, ExtArgs["result"]["selfHelpInteraction"]>
+    composites: {}
+  }
+
+  type SelfHelpInteractionGetPayload<S extends boolean | null | undefined | SelfHelpInteractionDefaultArgs> = $Result.GetResult<Prisma.$SelfHelpInteractionPayload, S>
+
+  type SelfHelpInteractionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SelfHelpInteractionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: SelfHelpInteractionCountAggregateInputType | true
+    }
+
+  export interface SelfHelpInteractionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SelfHelpInteraction'], meta: { name: 'SelfHelpInteraction' } }
+    /**
+     * Find zero or one SelfHelpInteraction that matches the filter.
+     * @param {SelfHelpInteractionFindUniqueArgs} args - Arguments to find a SelfHelpInteraction
+     * @example
+     * // Get one SelfHelpInteraction
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SelfHelpInteractionFindUniqueArgs>(args: SelectSubset<T, SelfHelpInteractionFindUniqueArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SelfHelpInteraction that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SelfHelpInteractionFindUniqueOrThrowArgs} args - Arguments to find a SelfHelpInteraction
+     * @example
+     * // Get one SelfHelpInteraction
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SelfHelpInteractionFindUniqueOrThrowArgs>(args: SelectSubset<T, SelfHelpInteractionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SelfHelpInteraction that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionFindFirstArgs} args - Arguments to find a SelfHelpInteraction
+     * @example
+     * // Get one SelfHelpInteraction
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SelfHelpInteractionFindFirstArgs>(args?: SelectSubset<T, SelfHelpInteractionFindFirstArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SelfHelpInteraction that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionFindFirstOrThrowArgs} args - Arguments to find a SelfHelpInteraction
+     * @example
+     * // Get one SelfHelpInteraction
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SelfHelpInteractionFindFirstOrThrowArgs>(args?: SelectSubset<T, SelfHelpInteractionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SelfHelpInteractions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SelfHelpInteractions
+     * const selfHelpInteractions = await prisma.selfHelpInteraction.findMany()
+     * 
+     * // Get first 10 SelfHelpInteractions
+     * const selfHelpInteractions = await prisma.selfHelpInteraction.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const selfHelpInteractionWithIdOnly = await prisma.selfHelpInteraction.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SelfHelpInteractionFindManyArgs>(args?: SelectSubset<T, SelfHelpInteractionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SelfHelpInteraction.
+     * @param {SelfHelpInteractionCreateArgs} args - Arguments to create a SelfHelpInteraction.
+     * @example
+     * // Create one SelfHelpInteraction
+     * const SelfHelpInteraction = await prisma.selfHelpInteraction.create({
+     *   data: {
+     *     // ... data to create a SelfHelpInteraction
+     *   }
+     * })
+     * 
+     */
+    create<T extends SelfHelpInteractionCreateArgs>(args: SelectSubset<T, SelfHelpInteractionCreateArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SelfHelpInteractions.
+     * @param {SelfHelpInteractionCreateManyArgs} args - Arguments to create many SelfHelpInteractions.
+     * @example
+     * // Create many SelfHelpInteractions
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SelfHelpInteractionCreateManyArgs>(args?: SelectSubset<T, SelfHelpInteractionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SelfHelpInteractions and returns the data saved in the database.
+     * @param {SelfHelpInteractionCreateManyAndReturnArgs} args - Arguments to create many SelfHelpInteractions.
+     * @example
+     * // Create many SelfHelpInteractions
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SelfHelpInteractions and only return the `id`
+     * const selfHelpInteractionWithIdOnly = await prisma.selfHelpInteraction.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SelfHelpInteractionCreateManyAndReturnArgs>(args?: SelectSubset<T, SelfHelpInteractionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SelfHelpInteraction.
+     * @param {SelfHelpInteractionDeleteArgs} args - Arguments to delete one SelfHelpInteraction.
+     * @example
+     * // Delete one SelfHelpInteraction
+     * const SelfHelpInteraction = await prisma.selfHelpInteraction.delete({
+     *   where: {
+     *     // ... filter to delete one SelfHelpInteraction
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SelfHelpInteractionDeleteArgs>(args: SelectSubset<T, SelfHelpInteractionDeleteArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SelfHelpInteraction.
+     * @param {SelfHelpInteractionUpdateArgs} args - Arguments to update one SelfHelpInteraction.
+     * @example
+     * // Update one SelfHelpInteraction
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SelfHelpInteractionUpdateArgs>(args: SelectSubset<T, SelfHelpInteractionUpdateArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SelfHelpInteractions.
+     * @param {SelfHelpInteractionDeleteManyArgs} args - Arguments to filter SelfHelpInteractions to delete.
+     * @example
+     * // Delete a few SelfHelpInteractions
+     * const { count } = await prisma.selfHelpInteraction.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SelfHelpInteractionDeleteManyArgs>(args?: SelectSubset<T, SelfHelpInteractionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SelfHelpInteractions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SelfHelpInteractions
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SelfHelpInteractionUpdateManyArgs>(args: SelectSubset<T, SelfHelpInteractionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SelfHelpInteractions and returns the data updated in the database.
+     * @param {SelfHelpInteractionUpdateManyAndReturnArgs} args - Arguments to update many SelfHelpInteractions.
+     * @example
+     * // Update many SelfHelpInteractions
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SelfHelpInteractions and only return the `id`
+     * const selfHelpInteractionWithIdOnly = await prisma.selfHelpInteraction.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SelfHelpInteractionUpdateManyAndReturnArgs>(args: SelectSubset<T, SelfHelpInteractionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SelfHelpInteraction.
+     * @param {SelfHelpInteractionUpsertArgs} args - Arguments to update or create a SelfHelpInteraction.
+     * @example
+     * // Update or create a SelfHelpInteraction
+     * const selfHelpInteraction = await prisma.selfHelpInteraction.upsert({
+     *   create: {
+     *     // ... data to create a SelfHelpInteraction
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SelfHelpInteraction we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SelfHelpInteractionUpsertArgs>(args: SelectSubset<T, SelfHelpInteractionUpsertArgs<ExtArgs>>): Prisma__SelfHelpInteractionClient<$Result.GetResult<Prisma.$SelfHelpInteractionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SelfHelpInteractions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionCountArgs} args - Arguments to filter SelfHelpInteractions to count.
+     * @example
+     * // Count the number of SelfHelpInteractions
+     * const count = await prisma.selfHelpInteraction.count({
+     *   where: {
+     *     // ... the filter for the SelfHelpInteractions we want to count
+     *   }
+     * })
+    **/
+    count<T extends SelfHelpInteractionCountArgs>(
+      args?: Subset<T, SelfHelpInteractionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SelfHelpInteractionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SelfHelpInteraction.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SelfHelpInteractionAggregateArgs>(args: Subset<T, SelfHelpInteractionAggregateArgs>): Prisma.PrismaPromise<GetSelfHelpInteractionAggregateType<T>>
+
+    /**
+     * Group by SelfHelpInteraction.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SelfHelpInteractionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SelfHelpInteractionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SelfHelpInteractionGroupByArgs['orderBy'] }
+        : { orderBy?: SelfHelpInteractionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SelfHelpInteractionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSelfHelpInteractionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SelfHelpInteraction model
+   */
+  readonly fields: SelfHelpInteractionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SelfHelpInteraction.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SelfHelpInteractionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    resource<T extends SelfHelpResourceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SelfHelpResourceDefaultArgs<ExtArgs>>): Prisma__SelfHelpResourceClient<$Result.GetResult<Prisma.$SelfHelpResourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SelfHelpInteraction model
+   */
+  interface SelfHelpInteractionFieldRefs {
+    readonly id: FieldRef<"SelfHelpInteraction", 'String'>
+    readonly userId: FieldRef<"SelfHelpInteraction", 'String'>
+    readonly resourceId: FieldRef<"SelfHelpInteraction", 'String'>
+    readonly interactionType: FieldRef<"SelfHelpInteraction", 'InteractionType'>
+    readonly startedAt: FieldRef<"SelfHelpInteraction", 'DateTime'>
+    readonly completedAt: FieldRef<"SelfHelpInteraction", 'DateTime'>
+    readonly duration: FieldRef<"SelfHelpInteraction", 'Int'>
+    readonly wasHelpful: FieldRef<"SelfHelpInteraction", 'Boolean'>
+    readonly rating: FieldRef<"SelfHelpInteraction", 'Int'>
+    readonly notes: FieldRef<"SelfHelpInteraction", 'String'>
+    readonly moodBefore: FieldRef<"SelfHelpInteraction", 'Int'>
+    readonly moodAfter: FieldRef<"SelfHelpInteraction", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SelfHelpInteraction findUnique
+   */
+  export type SelfHelpInteractionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpInteraction to fetch.
+     */
+    where: SelfHelpInteractionWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpInteraction findUniqueOrThrow
+   */
+  export type SelfHelpInteractionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpInteraction to fetch.
+     */
+    where: SelfHelpInteractionWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpInteraction findFirst
+   */
+  export type SelfHelpInteractionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpInteraction to fetch.
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpInteractions to fetch.
+     */
+    orderBy?: SelfHelpInteractionOrderByWithRelationInput | SelfHelpInteractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SelfHelpInteractions.
+     */
+    cursor?: SelfHelpInteractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpInteractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpInteractions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SelfHelpInteractions.
+     */
+    distinct?: SelfHelpInteractionScalarFieldEnum | SelfHelpInteractionScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpInteraction findFirstOrThrow
+   */
+  export type SelfHelpInteractionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpInteraction to fetch.
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpInteractions to fetch.
+     */
+    orderBy?: SelfHelpInteractionOrderByWithRelationInput | SelfHelpInteractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SelfHelpInteractions.
+     */
+    cursor?: SelfHelpInteractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpInteractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpInteractions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SelfHelpInteractions.
+     */
+    distinct?: SelfHelpInteractionScalarFieldEnum | SelfHelpInteractionScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpInteraction findMany
+   */
+  export type SelfHelpInteractionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * Filter, which SelfHelpInteractions to fetch.
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SelfHelpInteractions to fetch.
+     */
+    orderBy?: SelfHelpInteractionOrderByWithRelationInput | SelfHelpInteractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SelfHelpInteractions.
+     */
+    cursor?: SelfHelpInteractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SelfHelpInteractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SelfHelpInteractions.
+     */
+    skip?: number
+    distinct?: SelfHelpInteractionScalarFieldEnum | SelfHelpInteractionScalarFieldEnum[]
+  }
+
+  /**
+   * SelfHelpInteraction create
+   */
+  export type SelfHelpInteractionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SelfHelpInteraction.
+     */
+    data: XOR<SelfHelpInteractionCreateInput, SelfHelpInteractionUncheckedCreateInput>
+  }
+
+  /**
+   * SelfHelpInteraction createMany
+   */
+  export type SelfHelpInteractionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SelfHelpInteractions.
+     */
+    data: SelfHelpInteractionCreateManyInput | SelfHelpInteractionCreateManyInput[]
+  }
+
+  /**
+   * SelfHelpInteraction createManyAndReturn
+   */
+  export type SelfHelpInteractionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * The data used to create many SelfHelpInteractions.
+     */
+    data: SelfHelpInteractionCreateManyInput | SelfHelpInteractionCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SelfHelpInteraction update
+   */
+  export type SelfHelpInteractionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SelfHelpInteraction.
+     */
+    data: XOR<SelfHelpInteractionUpdateInput, SelfHelpInteractionUncheckedUpdateInput>
+    /**
+     * Choose, which SelfHelpInteraction to update.
+     */
+    where: SelfHelpInteractionWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpInteraction updateMany
+   */
+  export type SelfHelpInteractionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SelfHelpInteractions.
+     */
+    data: XOR<SelfHelpInteractionUpdateManyMutationInput, SelfHelpInteractionUncheckedUpdateManyInput>
+    /**
+     * Filter which SelfHelpInteractions to update
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * Limit how many SelfHelpInteractions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SelfHelpInteraction updateManyAndReturn
+   */
+  export type SelfHelpInteractionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * The data used to update SelfHelpInteractions.
+     */
+    data: XOR<SelfHelpInteractionUpdateManyMutationInput, SelfHelpInteractionUncheckedUpdateManyInput>
+    /**
+     * Filter which SelfHelpInteractions to update
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * Limit how many SelfHelpInteractions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SelfHelpInteraction upsert
+   */
+  export type SelfHelpInteractionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SelfHelpInteraction to update in case it exists.
+     */
+    where: SelfHelpInteractionWhereUniqueInput
+    /**
+     * In case the SelfHelpInteraction found by the `where` argument doesn't exist, create a new SelfHelpInteraction with this data.
+     */
+    create: XOR<SelfHelpInteractionCreateInput, SelfHelpInteractionUncheckedCreateInput>
+    /**
+     * In case the SelfHelpInteraction was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SelfHelpInteractionUpdateInput, SelfHelpInteractionUncheckedUpdateInput>
+  }
+
+  /**
+   * SelfHelpInteraction delete
+   */
+  export type SelfHelpInteractionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+    /**
+     * Filter which SelfHelpInteraction to delete.
+     */
+    where: SelfHelpInteractionWhereUniqueInput
+  }
+
+  /**
+   * SelfHelpInteraction deleteMany
+   */
+  export type SelfHelpInteractionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SelfHelpInteractions to delete
+     */
+    where?: SelfHelpInteractionWhereInput
+    /**
+     * Limit how many SelfHelpInteractions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SelfHelpInteraction without action
+   */
+  export type SelfHelpInteractionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SelfHelpInteraction
+     */
+    select?: SelfHelpInteractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SelfHelpInteraction
+     */
+    omit?: SelfHelpInteractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SelfHelpInteractionInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -42115,6 +52009,169 @@ export namespace Prisma {
   export type UserActivityScalarFieldEnum = (typeof UserActivityScalarFieldEnum)[keyof typeof UserActivityScalarFieldEnum]
 
 
+  export const JournalEntryScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    title: 'title',
+    promptId: 'promptId',
+    promptText: 'promptText',
+    entryType: 'entryType',
+    encryptedContent: 'encryptedContent',
+    contentHash: 'contentHash',
+    keyDerivationSalt: 'keyDerivationSalt',
+    mood: 'mood',
+    sentimentScore: 'sentimentScore',
+    emotions: 'emotions',
+    tags: 'tags',
+    isPrivate: 'isPrivate',
+    shareWithTherapist: 'shareWithTherapist',
+    wordCount: 'wordCount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type JournalEntryScalarFieldEnum = (typeof JournalEntryScalarFieldEnum)[keyof typeof JournalEntryScalarFieldEnum]
+
+
+  export const BreathingExerciseScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    technique: 'technique',
+    difficulty: 'difficulty',
+    inhaleSeconds: 'inhaleSeconds',
+    holdSeconds: 'holdSeconds',
+    exhaleSeconds: 'exhaleSeconds',
+    pauseSeconds: 'pauseSeconds',
+    cyclesRecommended: 'cyclesRecommended',
+    instructions: 'instructions',
+    visualGuideUrl: 'visualGuideUrl',
+    audioGuideUrl: 'audioGuideUrl',
+    benefits: 'benefits',
+    bestFor: 'bestFor',
+    contraindications: 'contraindications',
+    isActive: 'isActive',
+    createdAt: 'createdAt'
+  };
+
+  export type BreathingExerciseScalarFieldEnum = (typeof BreathingExerciseScalarFieldEnum)[keyof typeof BreathingExerciseScalarFieldEnum]
+
+
+  export const BreathingSessionScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    exerciseId: 'exerciseId',
+    startedAt: 'startedAt',
+    completedAt: 'completedAt',
+    duration: 'duration',
+    cyclesCompleted: 'cyclesCompleted',
+    moodBefore: 'moodBefore',
+    moodAfter: 'moodAfter',
+    anxietyBefore: 'anxietyBefore',
+    anxietyAfter: 'anxietyAfter',
+    averageBreathRate: 'averageBreathRate',
+    heartRateBefore: 'heartRateBefore',
+    heartRateAfter: 'heartRateAfter',
+    wasHelpful: 'wasHelpful',
+    rating: 'rating',
+    notes: 'notes'
+  };
+
+  export type BreathingSessionScalarFieldEnum = (typeof BreathingSessionScalarFieldEnum)[keyof typeof BreathingSessionScalarFieldEnum]
+
+
+  export const GroundingTechniqueScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    type: 'type',
+    category: 'category',
+    instructions: 'instructions',
+    duration: 'duration',
+    materials: 'materials',
+    audioGuideUrl: 'audioGuideUrl',
+    videoGuideUrl: 'videoGuideUrl',
+    imageGuides: 'imageGuides',
+    evidenceLevel: 'evidenceLevel',
+    bestFor: 'bestFor',
+    contraindications: 'contraindications',
+    isActive: 'isActive',
+    createdAt: 'createdAt'
+  };
+
+  export type GroundingTechniqueScalarFieldEnum = (typeof GroundingTechniqueScalarFieldEnum)[keyof typeof GroundingTechniqueScalarFieldEnum]
+
+
+  export const GroundingSessionScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    techniqueId: 'techniqueId',
+    startedAt: 'startedAt',
+    completedAt: 'completedAt',
+    duration: 'duration',
+    triggerType: 'triggerType',
+    severityBefore: 'severityBefore',
+    severityAfter: 'severityAfter',
+    panicBefore: 'panicBefore',
+    panicAfter: 'panicAfter',
+    dissociationBefore: 'dissociationBefore',
+    dissociationAfter: 'dissociationAfter',
+    stepsCompleted: 'stepsCompleted',
+    completionRate: 'completionRate',
+    wasHelpful: 'wasHelpful',
+    rating: 'rating',
+    notes: 'notes',
+    wouldUseAgain: 'wouldUseAgain'
+  };
+
+  export type GroundingSessionScalarFieldEnum = (typeof GroundingSessionScalarFieldEnum)[keyof typeof GroundingSessionScalarFieldEnum]
+
+
+  export const SelfHelpResourceScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    category: 'category',
+    type: 'type',
+    content: 'content',
+    url: 'url',
+    mediaUrl: 'mediaUrl',
+    thumbnailUrl: 'thumbnailUrl',
+    duration: 'duration',
+    difficulty: 'difficulty',
+    evidenceLevel: 'evidenceLevel',
+    tags: 'tags',
+    conditions: 'conditions',
+    symptoms: 'symptoms',
+    viewCount: 'viewCount',
+    helpfulCount: 'helpfulCount',
+    averageRating: 'averageRating',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SelfHelpResourceScalarFieldEnum = (typeof SelfHelpResourceScalarFieldEnum)[keyof typeof SelfHelpResourceScalarFieldEnum]
+
+
+  export const SelfHelpInteractionScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    resourceId: 'resourceId',
+    interactionType: 'interactionType',
+    startedAt: 'startedAt',
+    completedAt: 'completedAt',
+    duration: 'duration',
+    wasHelpful: 'wasHelpful',
+    rating: 'rating',
+    notes: 'notes',
+    moodBefore: 'moodBefore',
+    moodAfter: 'moodAfter'
+  };
+
+  export type SelfHelpInteractionScalarFieldEnum = (typeof SelfHelpInteractionScalarFieldEnum)[keyof typeof SelfHelpInteractionScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -42480,6 +52537,69 @@ export namespace Prisma {
    * Reference to a field of type 'ActivityType'
    */
   export type EnumActivityTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActivityType'>
+    
+
+
+  /**
+   * Reference to a field of type 'JournalType'
+   */
+  export type EnumJournalTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JournalType'>
+    
+
+
+  /**
+   * Reference to a field of type 'BreathingTechnique'
+   */
+  export type EnumBreathingTechniqueFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BreathingTechnique'>
+    
+
+
+  /**
+   * Reference to a field of type 'ExerciseDifficulty'
+   */
+  export type EnumExerciseDifficultyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExerciseDifficulty'>
+    
+
+
+  /**
+   * Reference to a field of type 'GroundingType'
+   */
+  export type EnumGroundingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GroundingType'>
+    
+
+
+  /**
+   * Reference to a field of type 'GroundingCategory'
+   */
+  export type EnumGroundingCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GroundingCategory'>
+    
+
+
+  /**
+   * Reference to a field of type 'EvidenceLevel'
+   */
+  export type EnumEvidenceLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EvidenceLevel'>
+    
+
+
+  /**
+   * Reference to a field of type 'SelfHelpCategory'
+   */
+  export type EnumSelfHelpCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SelfHelpCategory'>
+    
+
+
+  /**
+   * Reference to a field of type 'ResourceType'
+   */
+  export type EnumResourceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ResourceType'>
+    
+
+
+  /**
+   * Reference to a field of type 'InteractionType'
+   */
+  export type EnumInteractionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InteractionType'>
     
   /**
    * Deep Input Types
@@ -44687,6 +54807,10 @@ export namespace Prisma {
     challenges?: UserChallengeListRelationFilter
     activities?: UserActivityListRelationFilter
     emergencyContacts?: EmergencyContactListRelationFilter
+    journalEntries?: JournalEntryListRelationFilter
+    breathingSessions?: BreathingSessionListRelationFilter
+    groundingSessions?: GroundingSessionListRelationFilter
+    selfHelpInteractions?: SelfHelpInteractionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -44713,6 +54837,10 @@ export namespace Prisma {
     challenges?: UserChallengeOrderByRelationAggregateInput
     activities?: UserActivityOrderByRelationAggregateInput
     emergencyContacts?: EmergencyContactOrderByRelationAggregateInput
+    journalEntries?: JournalEntryOrderByRelationAggregateInput
+    breathingSessions?: BreathingSessionOrderByRelationAggregateInput
+    groundingSessions?: GroundingSessionOrderByRelationAggregateInput
+    selfHelpInteractions?: SelfHelpInteractionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -44742,6 +54870,10 @@ export namespace Prisma {
     challenges?: UserChallengeListRelationFilter
     activities?: UserActivityListRelationFilter
     emergencyContacts?: EmergencyContactListRelationFilter
+    journalEntries?: JournalEntryListRelationFilter
+    breathingSessions?: BreathingSessionListRelationFilter
+    groundingSessions?: GroundingSessionListRelationFilter
+    selfHelpInteractions?: SelfHelpInteractionListRelationFilter
   }, "id" | "anonymousId" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
@@ -45518,6 +55650,844 @@ export namespace Prisma {
     pointsEarned?: IntWithAggregatesFilter<"UserActivity"> | number
     metadata?: JsonNullableWithAggregatesFilter<"UserActivity">
     timestamp?: DateTimeWithAggregatesFilter<"UserActivity"> | Date | string
+  }
+
+  export type JournalEntryWhereInput = {
+    AND?: JournalEntryWhereInput | JournalEntryWhereInput[]
+    OR?: JournalEntryWhereInput[]
+    NOT?: JournalEntryWhereInput | JournalEntryWhereInput[]
+    id?: StringFilter<"JournalEntry"> | string
+    userId?: StringFilter<"JournalEntry"> | string
+    title?: StringNullableFilter<"JournalEntry"> | string | null
+    promptId?: StringNullableFilter<"JournalEntry"> | string | null
+    promptText?: StringNullableFilter<"JournalEntry"> | string | null
+    entryType?: EnumJournalTypeFilter<"JournalEntry"> | $Enums.JournalType
+    encryptedContent?: BytesFilter<"JournalEntry"> | Uint8Array
+    contentHash?: StringFilter<"JournalEntry"> | string
+    keyDerivationSalt?: BytesFilter<"JournalEntry"> | Uint8Array
+    mood?: IntNullableFilter<"JournalEntry"> | number | null
+    sentimentScore?: FloatNullableFilter<"JournalEntry"> | number | null
+    emotions?: JsonNullableFilter<"JournalEntry">
+    tags?: JsonNullableFilter<"JournalEntry">
+    isPrivate?: BoolFilter<"JournalEntry"> | boolean
+    shareWithTherapist?: BoolFilter<"JournalEntry"> | boolean
+    wordCount?: IntNullableFilter<"JournalEntry"> | number | null
+    createdAt?: DateTimeFilter<"JournalEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"JournalEntry"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type JournalEntryOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrderInput | SortOrder
+    promptId?: SortOrderInput | SortOrder
+    promptText?: SortOrderInput | SortOrder
+    entryType?: SortOrder
+    encryptedContent?: SortOrder
+    contentHash?: SortOrder
+    keyDerivationSalt?: SortOrder
+    mood?: SortOrderInput | SortOrder
+    sentimentScore?: SortOrderInput | SortOrder
+    emotions?: SortOrderInput | SortOrder
+    tags?: SortOrderInput | SortOrder
+    isPrivate?: SortOrder
+    shareWithTherapist?: SortOrder
+    wordCount?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type JournalEntryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JournalEntryWhereInput | JournalEntryWhereInput[]
+    OR?: JournalEntryWhereInput[]
+    NOT?: JournalEntryWhereInput | JournalEntryWhereInput[]
+    userId?: StringFilter<"JournalEntry"> | string
+    title?: StringNullableFilter<"JournalEntry"> | string | null
+    promptId?: StringNullableFilter<"JournalEntry"> | string | null
+    promptText?: StringNullableFilter<"JournalEntry"> | string | null
+    entryType?: EnumJournalTypeFilter<"JournalEntry"> | $Enums.JournalType
+    encryptedContent?: BytesFilter<"JournalEntry"> | Uint8Array
+    contentHash?: StringFilter<"JournalEntry"> | string
+    keyDerivationSalt?: BytesFilter<"JournalEntry"> | Uint8Array
+    mood?: IntNullableFilter<"JournalEntry"> | number | null
+    sentimentScore?: FloatNullableFilter<"JournalEntry"> | number | null
+    emotions?: JsonNullableFilter<"JournalEntry">
+    tags?: JsonNullableFilter<"JournalEntry">
+    isPrivate?: BoolFilter<"JournalEntry"> | boolean
+    shareWithTherapist?: BoolFilter<"JournalEntry"> | boolean
+    wordCount?: IntNullableFilter<"JournalEntry"> | number | null
+    createdAt?: DateTimeFilter<"JournalEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"JournalEntry"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type JournalEntryOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrderInput | SortOrder
+    promptId?: SortOrderInput | SortOrder
+    promptText?: SortOrderInput | SortOrder
+    entryType?: SortOrder
+    encryptedContent?: SortOrder
+    contentHash?: SortOrder
+    keyDerivationSalt?: SortOrder
+    mood?: SortOrderInput | SortOrder
+    sentimentScore?: SortOrderInput | SortOrder
+    emotions?: SortOrderInput | SortOrder
+    tags?: SortOrderInput | SortOrder
+    isPrivate?: SortOrder
+    shareWithTherapist?: SortOrder
+    wordCount?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: JournalEntryCountOrderByAggregateInput
+    _avg?: JournalEntryAvgOrderByAggregateInput
+    _max?: JournalEntryMaxOrderByAggregateInput
+    _min?: JournalEntryMinOrderByAggregateInput
+    _sum?: JournalEntrySumOrderByAggregateInput
+  }
+
+  export type JournalEntryScalarWhereWithAggregatesInput = {
+    AND?: JournalEntryScalarWhereWithAggregatesInput | JournalEntryScalarWhereWithAggregatesInput[]
+    OR?: JournalEntryScalarWhereWithAggregatesInput[]
+    NOT?: JournalEntryScalarWhereWithAggregatesInput | JournalEntryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JournalEntry"> | string
+    userId?: StringWithAggregatesFilter<"JournalEntry"> | string
+    title?: StringNullableWithAggregatesFilter<"JournalEntry"> | string | null
+    promptId?: StringNullableWithAggregatesFilter<"JournalEntry"> | string | null
+    promptText?: StringNullableWithAggregatesFilter<"JournalEntry"> | string | null
+    entryType?: EnumJournalTypeWithAggregatesFilter<"JournalEntry"> | $Enums.JournalType
+    encryptedContent?: BytesWithAggregatesFilter<"JournalEntry"> | Uint8Array
+    contentHash?: StringWithAggregatesFilter<"JournalEntry"> | string
+    keyDerivationSalt?: BytesWithAggregatesFilter<"JournalEntry"> | Uint8Array
+    mood?: IntNullableWithAggregatesFilter<"JournalEntry"> | number | null
+    sentimentScore?: FloatNullableWithAggregatesFilter<"JournalEntry"> | number | null
+    emotions?: JsonNullableWithAggregatesFilter<"JournalEntry">
+    tags?: JsonNullableWithAggregatesFilter<"JournalEntry">
+    isPrivate?: BoolWithAggregatesFilter<"JournalEntry"> | boolean
+    shareWithTherapist?: BoolWithAggregatesFilter<"JournalEntry"> | boolean
+    wordCount?: IntNullableWithAggregatesFilter<"JournalEntry"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"JournalEntry"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"JournalEntry"> | Date | string
+  }
+
+  export type BreathingExerciseWhereInput = {
+    AND?: BreathingExerciseWhereInput | BreathingExerciseWhereInput[]
+    OR?: BreathingExerciseWhereInput[]
+    NOT?: BreathingExerciseWhereInput | BreathingExerciseWhereInput[]
+    id?: StringFilter<"BreathingExercise"> | string
+    name?: StringFilter<"BreathingExercise"> | string
+    description?: StringFilter<"BreathingExercise"> | string
+    technique?: EnumBreathingTechniqueFilter<"BreathingExercise"> | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFilter<"BreathingExercise"> | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFilter<"BreathingExercise"> | number
+    holdSeconds?: IntNullableFilter<"BreathingExercise"> | number | null
+    exhaleSeconds?: IntFilter<"BreathingExercise"> | number
+    pauseSeconds?: IntNullableFilter<"BreathingExercise"> | number | null
+    cyclesRecommended?: IntFilter<"BreathingExercise"> | number
+    instructions?: JsonFilter<"BreathingExercise">
+    visualGuideUrl?: StringNullableFilter<"BreathingExercise"> | string | null
+    audioGuideUrl?: StringNullableFilter<"BreathingExercise"> | string | null
+    benefits?: JsonFilter<"BreathingExercise">
+    bestFor?: JsonFilter<"BreathingExercise">
+    contraindications?: JsonNullableFilter<"BreathingExercise">
+    isActive?: BoolFilter<"BreathingExercise"> | boolean
+    createdAt?: DateTimeFilter<"BreathingExercise"> | Date | string
+    sessions?: BreathingSessionListRelationFilter
+  }
+
+  export type BreathingExerciseOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    technique?: SortOrder
+    difficulty?: SortOrder
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrderInput | SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrderInput | SortOrder
+    cyclesRecommended?: SortOrder
+    instructions?: SortOrder
+    visualGuideUrl?: SortOrderInput | SortOrder
+    audioGuideUrl?: SortOrderInput | SortOrder
+    benefits?: SortOrder
+    bestFor?: SortOrder
+    contraindications?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    sessions?: BreathingSessionOrderByRelationAggregateInput
+  }
+
+  export type BreathingExerciseWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: BreathingExerciseWhereInput | BreathingExerciseWhereInput[]
+    OR?: BreathingExerciseWhereInput[]
+    NOT?: BreathingExerciseWhereInput | BreathingExerciseWhereInput[]
+    description?: StringFilter<"BreathingExercise"> | string
+    technique?: EnumBreathingTechniqueFilter<"BreathingExercise"> | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFilter<"BreathingExercise"> | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFilter<"BreathingExercise"> | number
+    holdSeconds?: IntNullableFilter<"BreathingExercise"> | number | null
+    exhaleSeconds?: IntFilter<"BreathingExercise"> | number
+    pauseSeconds?: IntNullableFilter<"BreathingExercise"> | number | null
+    cyclesRecommended?: IntFilter<"BreathingExercise"> | number
+    instructions?: JsonFilter<"BreathingExercise">
+    visualGuideUrl?: StringNullableFilter<"BreathingExercise"> | string | null
+    audioGuideUrl?: StringNullableFilter<"BreathingExercise"> | string | null
+    benefits?: JsonFilter<"BreathingExercise">
+    bestFor?: JsonFilter<"BreathingExercise">
+    contraindications?: JsonNullableFilter<"BreathingExercise">
+    isActive?: BoolFilter<"BreathingExercise"> | boolean
+    createdAt?: DateTimeFilter<"BreathingExercise"> | Date | string
+    sessions?: BreathingSessionListRelationFilter
+  }, "id" | "name">
+
+  export type BreathingExerciseOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    technique?: SortOrder
+    difficulty?: SortOrder
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrderInput | SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrderInput | SortOrder
+    cyclesRecommended?: SortOrder
+    instructions?: SortOrder
+    visualGuideUrl?: SortOrderInput | SortOrder
+    audioGuideUrl?: SortOrderInput | SortOrder
+    benefits?: SortOrder
+    bestFor?: SortOrder
+    contraindications?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    _count?: BreathingExerciseCountOrderByAggregateInput
+    _avg?: BreathingExerciseAvgOrderByAggregateInput
+    _max?: BreathingExerciseMaxOrderByAggregateInput
+    _min?: BreathingExerciseMinOrderByAggregateInput
+    _sum?: BreathingExerciseSumOrderByAggregateInput
+  }
+
+  export type BreathingExerciseScalarWhereWithAggregatesInput = {
+    AND?: BreathingExerciseScalarWhereWithAggregatesInput | BreathingExerciseScalarWhereWithAggregatesInput[]
+    OR?: BreathingExerciseScalarWhereWithAggregatesInput[]
+    NOT?: BreathingExerciseScalarWhereWithAggregatesInput | BreathingExerciseScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BreathingExercise"> | string
+    name?: StringWithAggregatesFilter<"BreathingExercise"> | string
+    description?: StringWithAggregatesFilter<"BreathingExercise"> | string
+    technique?: EnumBreathingTechniqueWithAggregatesFilter<"BreathingExercise"> | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyWithAggregatesFilter<"BreathingExercise"> | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntWithAggregatesFilter<"BreathingExercise"> | number
+    holdSeconds?: IntNullableWithAggregatesFilter<"BreathingExercise"> | number | null
+    exhaleSeconds?: IntWithAggregatesFilter<"BreathingExercise"> | number
+    pauseSeconds?: IntNullableWithAggregatesFilter<"BreathingExercise"> | number | null
+    cyclesRecommended?: IntWithAggregatesFilter<"BreathingExercise"> | number
+    instructions?: JsonWithAggregatesFilter<"BreathingExercise">
+    visualGuideUrl?: StringNullableWithAggregatesFilter<"BreathingExercise"> | string | null
+    audioGuideUrl?: StringNullableWithAggregatesFilter<"BreathingExercise"> | string | null
+    benefits?: JsonWithAggregatesFilter<"BreathingExercise">
+    bestFor?: JsonWithAggregatesFilter<"BreathingExercise">
+    contraindications?: JsonNullableWithAggregatesFilter<"BreathingExercise">
+    isActive?: BoolWithAggregatesFilter<"BreathingExercise"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"BreathingExercise"> | Date | string
+  }
+
+  export type BreathingSessionWhereInput = {
+    AND?: BreathingSessionWhereInput | BreathingSessionWhereInput[]
+    OR?: BreathingSessionWhereInput[]
+    NOT?: BreathingSessionWhereInput | BreathingSessionWhereInput[]
+    id?: StringFilter<"BreathingSession"> | string
+    userId?: StringFilter<"BreathingSession"> | string
+    exerciseId?: StringFilter<"BreathingSession"> | string
+    startedAt?: DateTimeFilter<"BreathingSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"BreathingSession"> | Date | string | null
+    duration?: IntNullableFilter<"BreathingSession"> | number | null
+    cyclesCompleted?: IntFilter<"BreathingSession"> | number
+    moodBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    moodAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    anxietyBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    anxietyAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    averageBreathRate?: FloatNullableFilter<"BreathingSession"> | number | null
+    heartRateBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    heartRateAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    wasHelpful?: BoolNullableFilter<"BreathingSession"> | boolean | null
+    rating?: IntNullableFilter<"BreathingSession"> | number | null
+    notes?: StringNullableFilter<"BreathingSession"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    exercise?: XOR<BreathingExerciseScalarRelationFilter, BreathingExerciseWhereInput>
+  }
+
+  export type BreathingSessionOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    exerciseId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    anxietyBefore?: SortOrderInput | SortOrder
+    anxietyAfter?: SortOrderInput | SortOrder
+    averageBreathRate?: SortOrderInput | SortOrder
+    heartRateBefore?: SortOrderInput | SortOrder
+    heartRateAfter?: SortOrderInput | SortOrder
+    wasHelpful?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    exercise?: BreathingExerciseOrderByWithRelationInput
+  }
+
+  export type BreathingSessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BreathingSessionWhereInput | BreathingSessionWhereInput[]
+    OR?: BreathingSessionWhereInput[]
+    NOT?: BreathingSessionWhereInput | BreathingSessionWhereInput[]
+    userId?: StringFilter<"BreathingSession"> | string
+    exerciseId?: StringFilter<"BreathingSession"> | string
+    startedAt?: DateTimeFilter<"BreathingSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"BreathingSession"> | Date | string | null
+    duration?: IntNullableFilter<"BreathingSession"> | number | null
+    cyclesCompleted?: IntFilter<"BreathingSession"> | number
+    moodBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    moodAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    anxietyBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    anxietyAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    averageBreathRate?: FloatNullableFilter<"BreathingSession"> | number | null
+    heartRateBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    heartRateAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    wasHelpful?: BoolNullableFilter<"BreathingSession"> | boolean | null
+    rating?: IntNullableFilter<"BreathingSession"> | number | null
+    notes?: StringNullableFilter<"BreathingSession"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    exercise?: XOR<BreathingExerciseScalarRelationFilter, BreathingExerciseWhereInput>
+  }, "id">
+
+  export type BreathingSessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    exerciseId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    anxietyBefore?: SortOrderInput | SortOrder
+    anxietyAfter?: SortOrderInput | SortOrder
+    averageBreathRate?: SortOrderInput | SortOrder
+    heartRateBefore?: SortOrderInput | SortOrder
+    heartRateAfter?: SortOrderInput | SortOrder
+    wasHelpful?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    _count?: BreathingSessionCountOrderByAggregateInput
+    _avg?: BreathingSessionAvgOrderByAggregateInput
+    _max?: BreathingSessionMaxOrderByAggregateInput
+    _min?: BreathingSessionMinOrderByAggregateInput
+    _sum?: BreathingSessionSumOrderByAggregateInput
+  }
+
+  export type BreathingSessionScalarWhereWithAggregatesInput = {
+    AND?: BreathingSessionScalarWhereWithAggregatesInput | BreathingSessionScalarWhereWithAggregatesInput[]
+    OR?: BreathingSessionScalarWhereWithAggregatesInput[]
+    NOT?: BreathingSessionScalarWhereWithAggregatesInput | BreathingSessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BreathingSession"> | string
+    userId?: StringWithAggregatesFilter<"BreathingSession"> | string
+    exerciseId?: StringWithAggregatesFilter<"BreathingSession"> | string
+    startedAt?: DateTimeWithAggregatesFilter<"BreathingSession"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"BreathingSession"> | Date | string | null
+    duration?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    cyclesCompleted?: IntWithAggregatesFilter<"BreathingSession"> | number
+    moodBefore?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    moodAfter?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    anxietyBefore?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    anxietyAfter?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    averageBreathRate?: FloatNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    heartRateBefore?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    heartRateAfter?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    wasHelpful?: BoolNullableWithAggregatesFilter<"BreathingSession"> | boolean | null
+    rating?: IntNullableWithAggregatesFilter<"BreathingSession"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"BreathingSession"> | string | null
+  }
+
+  export type GroundingTechniqueWhereInput = {
+    AND?: GroundingTechniqueWhereInput | GroundingTechniqueWhereInput[]
+    OR?: GroundingTechniqueWhereInput[]
+    NOT?: GroundingTechniqueWhereInput | GroundingTechniqueWhereInput[]
+    id?: StringFilter<"GroundingTechnique"> | string
+    name?: StringFilter<"GroundingTechnique"> | string
+    description?: StringFilter<"GroundingTechnique"> | string
+    type?: EnumGroundingTypeFilter<"GroundingTechnique"> | $Enums.GroundingType
+    category?: EnumGroundingCategoryFilter<"GroundingTechnique"> | $Enums.GroundingCategory
+    instructions?: JsonFilter<"GroundingTechnique">
+    duration?: IntFilter<"GroundingTechnique"> | number
+    materials?: JsonNullableFilter<"GroundingTechnique">
+    audioGuideUrl?: StringNullableFilter<"GroundingTechnique"> | string | null
+    videoGuideUrl?: StringNullableFilter<"GroundingTechnique"> | string | null
+    imageGuides?: JsonNullableFilter<"GroundingTechnique">
+    evidenceLevel?: EnumEvidenceLevelFilter<"GroundingTechnique"> | $Enums.EvidenceLevel
+    bestFor?: JsonFilter<"GroundingTechnique">
+    contraindications?: JsonNullableFilter<"GroundingTechnique">
+    isActive?: BoolFilter<"GroundingTechnique"> | boolean
+    createdAt?: DateTimeFilter<"GroundingTechnique"> | Date | string
+    sessions?: GroundingSessionListRelationFilter
+  }
+
+  export type GroundingTechniqueOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    instructions?: SortOrder
+    duration?: SortOrder
+    materials?: SortOrderInput | SortOrder
+    audioGuideUrl?: SortOrderInput | SortOrder
+    videoGuideUrl?: SortOrderInput | SortOrder
+    imageGuides?: SortOrderInput | SortOrder
+    evidenceLevel?: SortOrder
+    bestFor?: SortOrder
+    contraindications?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    sessions?: GroundingSessionOrderByRelationAggregateInput
+  }
+
+  export type GroundingTechniqueWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: GroundingTechniqueWhereInput | GroundingTechniqueWhereInput[]
+    OR?: GroundingTechniqueWhereInput[]
+    NOT?: GroundingTechniqueWhereInput | GroundingTechniqueWhereInput[]
+    description?: StringFilter<"GroundingTechnique"> | string
+    type?: EnumGroundingTypeFilter<"GroundingTechnique"> | $Enums.GroundingType
+    category?: EnumGroundingCategoryFilter<"GroundingTechnique"> | $Enums.GroundingCategory
+    instructions?: JsonFilter<"GroundingTechnique">
+    duration?: IntFilter<"GroundingTechnique"> | number
+    materials?: JsonNullableFilter<"GroundingTechnique">
+    audioGuideUrl?: StringNullableFilter<"GroundingTechnique"> | string | null
+    videoGuideUrl?: StringNullableFilter<"GroundingTechnique"> | string | null
+    imageGuides?: JsonNullableFilter<"GroundingTechnique">
+    evidenceLevel?: EnumEvidenceLevelFilter<"GroundingTechnique"> | $Enums.EvidenceLevel
+    bestFor?: JsonFilter<"GroundingTechnique">
+    contraindications?: JsonNullableFilter<"GroundingTechnique">
+    isActive?: BoolFilter<"GroundingTechnique"> | boolean
+    createdAt?: DateTimeFilter<"GroundingTechnique"> | Date | string
+    sessions?: GroundingSessionListRelationFilter
+  }, "id" | "name">
+
+  export type GroundingTechniqueOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    instructions?: SortOrder
+    duration?: SortOrder
+    materials?: SortOrderInput | SortOrder
+    audioGuideUrl?: SortOrderInput | SortOrder
+    videoGuideUrl?: SortOrderInput | SortOrder
+    imageGuides?: SortOrderInput | SortOrder
+    evidenceLevel?: SortOrder
+    bestFor?: SortOrder
+    contraindications?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    _count?: GroundingTechniqueCountOrderByAggregateInput
+    _avg?: GroundingTechniqueAvgOrderByAggregateInput
+    _max?: GroundingTechniqueMaxOrderByAggregateInput
+    _min?: GroundingTechniqueMinOrderByAggregateInput
+    _sum?: GroundingTechniqueSumOrderByAggregateInput
+  }
+
+  export type GroundingTechniqueScalarWhereWithAggregatesInput = {
+    AND?: GroundingTechniqueScalarWhereWithAggregatesInput | GroundingTechniqueScalarWhereWithAggregatesInput[]
+    OR?: GroundingTechniqueScalarWhereWithAggregatesInput[]
+    NOT?: GroundingTechniqueScalarWhereWithAggregatesInput | GroundingTechniqueScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"GroundingTechnique"> | string
+    name?: StringWithAggregatesFilter<"GroundingTechnique"> | string
+    description?: StringWithAggregatesFilter<"GroundingTechnique"> | string
+    type?: EnumGroundingTypeWithAggregatesFilter<"GroundingTechnique"> | $Enums.GroundingType
+    category?: EnumGroundingCategoryWithAggregatesFilter<"GroundingTechnique"> | $Enums.GroundingCategory
+    instructions?: JsonWithAggregatesFilter<"GroundingTechnique">
+    duration?: IntWithAggregatesFilter<"GroundingTechnique"> | number
+    materials?: JsonNullableWithAggregatesFilter<"GroundingTechnique">
+    audioGuideUrl?: StringNullableWithAggregatesFilter<"GroundingTechnique"> | string | null
+    videoGuideUrl?: StringNullableWithAggregatesFilter<"GroundingTechnique"> | string | null
+    imageGuides?: JsonNullableWithAggregatesFilter<"GroundingTechnique">
+    evidenceLevel?: EnumEvidenceLevelWithAggregatesFilter<"GroundingTechnique"> | $Enums.EvidenceLevel
+    bestFor?: JsonWithAggregatesFilter<"GroundingTechnique">
+    contraindications?: JsonNullableWithAggregatesFilter<"GroundingTechnique">
+    isActive?: BoolWithAggregatesFilter<"GroundingTechnique"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"GroundingTechnique"> | Date | string
+  }
+
+  export type GroundingSessionWhereInput = {
+    AND?: GroundingSessionWhereInput | GroundingSessionWhereInput[]
+    OR?: GroundingSessionWhereInput[]
+    NOT?: GroundingSessionWhereInput | GroundingSessionWhereInput[]
+    id?: StringFilter<"GroundingSession"> | string
+    userId?: StringFilter<"GroundingSession"> | string
+    techniqueId?: StringFilter<"GroundingSession"> | string
+    startedAt?: DateTimeFilter<"GroundingSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"GroundingSession"> | Date | string | null
+    duration?: IntNullableFilter<"GroundingSession"> | number | null
+    triggerType?: StringNullableFilter<"GroundingSession"> | string | null
+    severityBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    severityAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    panicBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    panicAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    dissociationBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    dissociationAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    stepsCompleted?: JsonNullableFilter<"GroundingSession">
+    completionRate?: FloatNullableFilter<"GroundingSession"> | number | null
+    wasHelpful?: BoolNullableFilter<"GroundingSession"> | boolean | null
+    rating?: IntNullableFilter<"GroundingSession"> | number | null
+    notes?: StringNullableFilter<"GroundingSession"> | string | null
+    wouldUseAgain?: BoolNullableFilter<"GroundingSession"> | boolean | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    technique?: XOR<GroundingTechniqueScalarRelationFilter, GroundingTechniqueWhereInput>
+  }
+
+  export type GroundingSessionOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    techniqueId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    triggerType?: SortOrderInput | SortOrder
+    severityBefore?: SortOrderInput | SortOrder
+    severityAfter?: SortOrderInput | SortOrder
+    panicBefore?: SortOrderInput | SortOrder
+    panicAfter?: SortOrderInput | SortOrder
+    dissociationBefore?: SortOrderInput | SortOrder
+    dissociationAfter?: SortOrderInput | SortOrder
+    stepsCompleted?: SortOrderInput | SortOrder
+    completionRate?: SortOrderInput | SortOrder
+    wasHelpful?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    wouldUseAgain?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    technique?: GroundingTechniqueOrderByWithRelationInput
+  }
+
+  export type GroundingSessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: GroundingSessionWhereInput | GroundingSessionWhereInput[]
+    OR?: GroundingSessionWhereInput[]
+    NOT?: GroundingSessionWhereInput | GroundingSessionWhereInput[]
+    userId?: StringFilter<"GroundingSession"> | string
+    techniqueId?: StringFilter<"GroundingSession"> | string
+    startedAt?: DateTimeFilter<"GroundingSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"GroundingSession"> | Date | string | null
+    duration?: IntNullableFilter<"GroundingSession"> | number | null
+    triggerType?: StringNullableFilter<"GroundingSession"> | string | null
+    severityBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    severityAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    panicBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    panicAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    dissociationBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    dissociationAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    stepsCompleted?: JsonNullableFilter<"GroundingSession">
+    completionRate?: FloatNullableFilter<"GroundingSession"> | number | null
+    wasHelpful?: BoolNullableFilter<"GroundingSession"> | boolean | null
+    rating?: IntNullableFilter<"GroundingSession"> | number | null
+    notes?: StringNullableFilter<"GroundingSession"> | string | null
+    wouldUseAgain?: BoolNullableFilter<"GroundingSession"> | boolean | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    technique?: XOR<GroundingTechniqueScalarRelationFilter, GroundingTechniqueWhereInput>
+  }, "id">
+
+  export type GroundingSessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    techniqueId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    triggerType?: SortOrderInput | SortOrder
+    severityBefore?: SortOrderInput | SortOrder
+    severityAfter?: SortOrderInput | SortOrder
+    panicBefore?: SortOrderInput | SortOrder
+    panicAfter?: SortOrderInput | SortOrder
+    dissociationBefore?: SortOrderInput | SortOrder
+    dissociationAfter?: SortOrderInput | SortOrder
+    stepsCompleted?: SortOrderInput | SortOrder
+    completionRate?: SortOrderInput | SortOrder
+    wasHelpful?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    wouldUseAgain?: SortOrderInput | SortOrder
+    _count?: GroundingSessionCountOrderByAggregateInput
+    _avg?: GroundingSessionAvgOrderByAggregateInput
+    _max?: GroundingSessionMaxOrderByAggregateInput
+    _min?: GroundingSessionMinOrderByAggregateInput
+    _sum?: GroundingSessionSumOrderByAggregateInput
+  }
+
+  export type GroundingSessionScalarWhereWithAggregatesInput = {
+    AND?: GroundingSessionScalarWhereWithAggregatesInput | GroundingSessionScalarWhereWithAggregatesInput[]
+    OR?: GroundingSessionScalarWhereWithAggregatesInput[]
+    NOT?: GroundingSessionScalarWhereWithAggregatesInput | GroundingSessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"GroundingSession"> | string
+    userId?: StringWithAggregatesFilter<"GroundingSession"> | string
+    techniqueId?: StringWithAggregatesFilter<"GroundingSession"> | string
+    startedAt?: DateTimeWithAggregatesFilter<"GroundingSession"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"GroundingSession"> | Date | string | null
+    duration?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    triggerType?: StringNullableWithAggregatesFilter<"GroundingSession"> | string | null
+    severityBefore?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    severityAfter?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    panicBefore?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    panicAfter?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    dissociationBefore?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    dissociationAfter?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    stepsCompleted?: JsonNullableWithAggregatesFilter<"GroundingSession">
+    completionRate?: FloatNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    wasHelpful?: BoolNullableWithAggregatesFilter<"GroundingSession"> | boolean | null
+    rating?: IntNullableWithAggregatesFilter<"GroundingSession"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"GroundingSession"> | string | null
+    wouldUseAgain?: BoolNullableWithAggregatesFilter<"GroundingSession"> | boolean | null
+  }
+
+  export type SelfHelpResourceWhereInput = {
+    AND?: SelfHelpResourceWhereInput | SelfHelpResourceWhereInput[]
+    OR?: SelfHelpResourceWhereInput[]
+    NOT?: SelfHelpResourceWhereInput | SelfHelpResourceWhereInput[]
+    id?: StringFilter<"SelfHelpResource"> | string
+    title?: StringFilter<"SelfHelpResource"> | string
+    description?: StringFilter<"SelfHelpResource"> | string
+    category?: EnumSelfHelpCategoryFilter<"SelfHelpResource"> | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFilter<"SelfHelpResource"> | $Enums.ResourceType
+    content?: StringNullableFilter<"SelfHelpResource"> | string | null
+    url?: StringNullableFilter<"SelfHelpResource"> | string | null
+    mediaUrl?: StringNullableFilter<"SelfHelpResource"> | string | null
+    thumbnailUrl?: StringNullableFilter<"SelfHelpResource"> | string | null
+    duration?: IntNullableFilter<"SelfHelpResource"> | number | null
+    difficulty?: EnumExerciseDifficultyFilter<"SelfHelpResource"> | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFilter<"SelfHelpResource"> | $Enums.EvidenceLevel
+    tags?: JsonFilter<"SelfHelpResource">
+    conditions?: JsonNullableFilter<"SelfHelpResource">
+    symptoms?: JsonNullableFilter<"SelfHelpResource">
+    viewCount?: IntFilter<"SelfHelpResource"> | number
+    helpfulCount?: IntFilter<"SelfHelpResource"> | number
+    averageRating?: FloatNullableFilter<"SelfHelpResource"> | number | null
+    isActive?: BoolFilter<"SelfHelpResource"> | boolean
+    createdAt?: DateTimeFilter<"SelfHelpResource"> | Date | string
+    updatedAt?: DateTimeFilter<"SelfHelpResource"> | Date | string
+    interactions?: SelfHelpInteractionListRelationFilter
+  }
+
+  export type SelfHelpResourceOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    content?: SortOrderInput | SortOrder
+    url?: SortOrderInput | SortOrder
+    mediaUrl?: SortOrderInput | SortOrder
+    thumbnailUrl?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    difficulty?: SortOrder
+    evidenceLevel?: SortOrder
+    tags?: SortOrder
+    conditions?: SortOrderInput | SortOrder
+    symptoms?: SortOrderInput | SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    interactions?: SelfHelpInteractionOrderByRelationAggregateInput
+  }
+
+  export type SelfHelpResourceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SelfHelpResourceWhereInput | SelfHelpResourceWhereInput[]
+    OR?: SelfHelpResourceWhereInput[]
+    NOT?: SelfHelpResourceWhereInput | SelfHelpResourceWhereInput[]
+    title?: StringFilter<"SelfHelpResource"> | string
+    description?: StringFilter<"SelfHelpResource"> | string
+    category?: EnumSelfHelpCategoryFilter<"SelfHelpResource"> | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFilter<"SelfHelpResource"> | $Enums.ResourceType
+    content?: StringNullableFilter<"SelfHelpResource"> | string | null
+    url?: StringNullableFilter<"SelfHelpResource"> | string | null
+    mediaUrl?: StringNullableFilter<"SelfHelpResource"> | string | null
+    thumbnailUrl?: StringNullableFilter<"SelfHelpResource"> | string | null
+    duration?: IntNullableFilter<"SelfHelpResource"> | number | null
+    difficulty?: EnumExerciseDifficultyFilter<"SelfHelpResource"> | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFilter<"SelfHelpResource"> | $Enums.EvidenceLevel
+    tags?: JsonFilter<"SelfHelpResource">
+    conditions?: JsonNullableFilter<"SelfHelpResource">
+    symptoms?: JsonNullableFilter<"SelfHelpResource">
+    viewCount?: IntFilter<"SelfHelpResource"> | number
+    helpfulCount?: IntFilter<"SelfHelpResource"> | number
+    averageRating?: FloatNullableFilter<"SelfHelpResource"> | number | null
+    isActive?: BoolFilter<"SelfHelpResource"> | boolean
+    createdAt?: DateTimeFilter<"SelfHelpResource"> | Date | string
+    updatedAt?: DateTimeFilter<"SelfHelpResource"> | Date | string
+    interactions?: SelfHelpInteractionListRelationFilter
+  }, "id">
+
+  export type SelfHelpResourceOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    content?: SortOrderInput | SortOrder
+    url?: SortOrderInput | SortOrder
+    mediaUrl?: SortOrderInput | SortOrder
+    thumbnailUrl?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    difficulty?: SortOrder
+    evidenceLevel?: SortOrder
+    tags?: SortOrder
+    conditions?: SortOrderInput | SortOrder
+    symptoms?: SortOrderInput | SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SelfHelpResourceCountOrderByAggregateInput
+    _avg?: SelfHelpResourceAvgOrderByAggregateInput
+    _max?: SelfHelpResourceMaxOrderByAggregateInput
+    _min?: SelfHelpResourceMinOrderByAggregateInput
+    _sum?: SelfHelpResourceSumOrderByAggregateInput
+  }
+
+  export type SelfHelpResourceScalarWhereWithAggregatesInput = {
+    AND?: SelfHelpResourceScalarWhereWithAggregatesInput | SelfHelpResourceScalarWhereWithAggregatesInput[]
+    OR?: SelfHelpResourceScalarWhereWithAggregatesInput[]
+    NOT?: SelfHelpResourceScalarWhereWithAggregatesInput | SelfHelpResourceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SelfHelpResource"> | string
+    title?: StringWithAggregatesFilter<"SelfHelpResource"> | string
+    description?: StringWithAggregatesFilter<"SelfHelpResource"> | string
+    category?: EnumSelfHelpCategoryWithAggregatesFilter<"SelfHelpResource"> | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeWithAggregatesFilter<"SelfHelpResource"> | $Enums.ResourceType
+    content?: StringNullableWithAggregatesFilter<"SelfHelpResource"> | string | null
+    url?: StringNullableWithAggregatesFilter<"SelfHelpResource"> | string | null
+    mediaUrl?: StringNullableWithAggregatesFilter<"SelfHelpResource"> | string | null
+    thumbnailUrl?: StringNullableWithAggregatesFilter<"SelfHelpResource"> | string | null
+    duration?: IntNullableWithAggregatesFilter<"SelfHelpResource"> | number | null
+    difficulty?: EnumExerciseDifficultyWithAggregatesFilter<"SelfHelpResource"> | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelWithAggregatesFilter<"SelfHelpResource"> | $Enums.EvidenceLevel
+    tags?: JsonWithAggregatesFilter<"SelfHelpResource">
+    conditions?: JsonNullableWithAggregatesFilter<"SelfHelpResource">
+    symptoms?: JsonNullableWithAggregatesFilter<"SelfHelpResource">
+    viewCount?: IntWithAggregatesFilter<"SelfHelpResource"> | number
+    helpfulCount?: IntWithAggregatesFilter<"SelfHelpResource"> | number
+    averageRating?: FloatNullableWithAggregatesFilter<"SelfHelpResource"> | number | null
+    isActive?: BoolWithAggregatesFilter<"SelfHelpResource"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"SelfHelpResource"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SelfHelpResource"> | Date | string
+  }
+
+  export type SelfHelpInteractionWhereInput = {
+    AND?: SelfHelpInteractionWhereInput | SelfHelpInteractionWhereInput[]
+    OR?: SelfHelpInteractionWhereInput[]
+    NOT?: SelfHelpInteractionWhereInput | SelfHelpInteractionWhereInput[]
+    id?: StringFilter<"SelfHelpInteraction"> | string
+    userId?: StringFilter<"SelfHelpInteraction"> | string
+    resourceId?: StringFilter<"SelfHelpInteraction"> | string
+    interactionType?: EnumInteractionTypeFilter<"SelfHelpInteraction"> | $Enums.InteractionType
+    startedAt?: DateTimeFilter<"SelfHelpInteraction"> | Date | string
+    completedAt?: DateTimeNullableFilter<"SelfHelpInteraction"> | Date | string | null
+    duration?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    wasHelpful?: BoolNullableFilter<"SelfHelpInteraction"> | boolean | null
+    rating?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    notes?: StringNullableFilter<"SelfHelpInteraction"> | string | null
+    moodBefore?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    moodAfter?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    resource?: XOR<SelfHelpResourceScalarRelationFilter, SelfHelpResourceWhereInput>
+  }
+
+  export type SelfHelpInteractionOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resourceId?: SortOrder
+    interactionType?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    wasHelpful?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    resource?: SelfHelpResourceOrderByWithRelationInput
+  }
+
+  export type SelfHelpInteractionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SelfHelpInteractionWhereInput | SelfHelpInteractionWhereInput[]
+    OR?: SelfHelpInteractionWhereInput[]
+    NOT?: SelfHelpInteractionWhereInput | SelfHelpInteractionWhereInput[]
+    userId?: StringFilter<"SelfHelpInteraction"> | string
+    resourceId?: StringFilter<"SelfHelpInteraction"> | string
+    interactionType?: EnumInteractionTypeFilter<"SelfHelpInteraction"> | $Enums.InteractionType
+    startedAt?: DateTimeFilter<"SelfHelpInteraction"> | Date | string
+    completedAt?: DateTimeNullableFilter<"SelfHelpInteraction"> | Date | string | null
+    duration?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    wasHelpful?: BoolNullableFilter<"SelfHelpInteraction"> | boolean | null
+    rating?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    notes?: StringNullableFilter<"SelfHelpInteraction"> | string | null
+    moodBefore?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    moodAfter?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    resource?: XOR<SelfHelpResourceScalarRelationFilter, SelfHelpResourceWhereInput>
+  }, "id">
+
+  export type SelfHelpInteractionOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resourceId?: SortOrder
+    interactionType?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    wasHelpful?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    _count?: SelfHelpInteractionCountOrderByAggregateInput
+    _avg?: SelfHelpInteractionAvgOrderByAggregateInput
+    _max?: SelfHelpInteractionMaxOrderByAggregateInput
+    _min?: SelfHelpInteractionMinOrderByAggregateInput
+    _sum?: SelfHelpInteractionSumOrderByAggregateInput
+  }
+
+  export type SelfHelpInteractionScalarWhereWithAggregatesInput = {
+    AND?: SelfHelpInteractionScalarWhereWithAggregatesInput | SelfHelpInteractionScalarWhereWithAggregatesInput[]
+    OR?: SelfHelpInteractionScalarWhereWithAggregatesInput[]
+    NOT?: SelfHelpInteractionScalarWhereWithAggregatesInput | SelfHelpInteractionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SelfHelpInteraction"> | string
+    userId?: StringWithAggregatesFilter<"SelfHelpInteraction"> | string
+    resourceId?: StringWithAggregatesFilter<"SelfHelpInteraction"> | string
+    interactionType?: EnumInteractionTypeWithAggregatesFilter<"SelfHelpInteraction"> | $Enums.InteractionType
+    startedAt?: DateTimeWithAggregatesFilter<"SelfHelpInteraction"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"SelfHelpInteraction"> | Date | string | null
+    duration?: IntNullableWithAggregatesFilter<"SelfHelpInteraction"> | number | null
+    wasHelpful?: BoolNullableWithAggregatesFilter<"SelfHelpInteraction"> | boolean | null
+    rating?: IntNullableWithAggregatesFilter<"SelfHelpInteraction"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"SelfHelpInteraction"> | string | null
+    moodBefore?: IntNullableWithAggregatesFilter<"SelfHelpInteraction"> | number | null
+    moodAfter?: IntNullableWithAggregatesFilter<"SelfHelpInteraction"> | number | null
   }
 
   export type CrisisSessionCreateInput = {
@@ -48125,6 +59095,10 @@ export namespace Prisma {
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -48151,6 +59125,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -48177,6 +59155,10 @@ export namespace Prisma {
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -48203,6 +59185,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -49054,6 +60040,1005 @@ export namespace Prisma {
     pointsEarned?: IntFieldUpdateOperationsInput | number
     metadata?: NullableJsonNullValueInput | InputJsonValue
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JournalEntryCreateInput = {
+    id?: string
+    title?: string | null
+    promptId?: string | null
+    promptText?: string | null
+    entryType?: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood?: number | null
+    sentimentScore?: number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJournalEntriesInput
+  }
+
+  export type JournalEntryUncheckedCreateInput = {
+    id?: string
+    userId: string
+    title?: string | null
+    promptId?: string | null
+    promptText?: string | null
+    entryType?: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood?: number | null
+    sentimentScore?: number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JournalEntryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJournalEntriesNestedInput
+  }
+
+  export type JournalEntryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JournalEntryCreateManyInput = {
+    id?: string
+    userId: string
+    title?: string | null
+    promptId?: string | null
+    promptText?: string | null
+    entryType?: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood?: number | null
+    sentimentScore?: number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JournalEntryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JournalEntryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreathingExerciseCreateInput = {
+    id?: string
+    name: string
+    description: string
+    technique: $Enums.BreathingTechnique
+    difficulty?: $Enums.ExerciseDifficulty
+    inhaleSeconds: number
+    holdSeconds?: number | null
+    exhaleSeconds: number
+    pauseSeconds?: number | null
+    cyclesRecommended?: number
+    instructions: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: string | null
+    audioGuideUrl?: string | null
+    benefits: JsonNullValueInput | InputJsonValue
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+    sessions?: BreathingSessionCreateNestedManyWithoutExerciseInput
+  }
+
+  export type BreathingExerciseUncheckedCreateInput = {
+    id?: string
+    name: string
+    description: string
+    technique: $Enums.BreathingTechnique
+    difficulty?: $Enums.ExerciseDifficulty
+    inhaleSeconds: number
+    holdSeconds?: number | null
+    exhaleSeconds: number
+    pauseSeconds?: number | null
+    cyclesRecommended?: number
+    instructions: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: string | null
+    audioGuideUrl?: string | null
+    benefits: JsonNullValueInput | InputJsonValue
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+    sessions?: BreathingSessionUncheckedCreateNestedManyWithoutExerciseInput
+  }
+
+  export type BreathingExerciseUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    technique?: EnumBreathingTechniqueFieldUpdateOperationsInput | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFieldUpdateOperationsInput | number
+    holdSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    exhaleSeconds?: IntFieldUpdateOperationsInput | number
+    pauseSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesRecommended?: IntFieldUpdateOperationsInput | number
+    instructions?: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: JsonNullValueInput | InputJsonValue
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: BreathingSessionUpdateManyWithoutExerciseNestedInput
+  }
+
+  export type BreathingExerciseUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    technique?: EnumBreathingTechniqueFieldUpdateOperationsInput | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFieldUpdateOperationsInput | number
+    holdSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    exhaleSeconds?: IntFieldUpdateOperationsInput | number
+    pauseSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesRecommended?: IntFieldUpdateOperationsInput | number
+    instructions?: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: JsonNullValueInput | InputJsonValue
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: BreathingSessionUncheckedUpdateManyWithoutExerciseNestedInput
+  }
+
+  export type BreathingExerciseCreateManyInput = {
+    id?: string
+    name: string
+    description: string
+    technique: $Enums.BreathingTechnique
+    difficulty?: $Enums.ExerciseDifficulty
+    inhaleSeconds: number
+    holdSeconds?: number | null
+    exhaleSeconds: number
+    pauseSeconds?: number | null
+    cyclesRecommended?: number
+    instructions: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: string | null
+    audioGuideUrl?: string | null
+    benefits: JsonNullValueInput | InputJsonValue
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type BreathingExerciseUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    technique?: EnumBreathingTechniqueFieldUpdateOperationsInput | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFieldUpdateOperationsInput | number
+    holdSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    exhaleSeconds?: IntFieldUpdateOperationsInput | number
+    pauseSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesRecommended?: IntFieldUpdateOperationsInput | number
+    instructions?: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: JsonNullValueInput | InputJsonValue
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreathingExerciseUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    technique?: EnumBreathingTechniqueFieldUpdateOperationsInput | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFieldUpdateOperationsInput | number
+    holdSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    exhaleSeconds?: IntFieldUpdateOperationsInput | number
+    pauseSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesRecommended?: IntFieldUpdateOperationsInput | number
+    instructions?: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: JsonNullValueInput | InputJsonValue
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreathingSessionCreateInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    user: UserCreateNestedOneWithoutBreathingSessionsInput
+    exercise: BreathingExerciseCreateNestedOneWithoutSessionsInput
+  }
+
+  export type BreathingSessionUncheckedCreateInput = {
+    id?: string
+    userId: string
+    exerciseId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+  }
+
+  export type BreathingSessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutBreathingSessionsNestedInput
+    exercise?: BreathingExerciseUpdateOneRequiredWithoutSessionsNestedInput
+  }
+
+  export type BreathingSessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BreathingSessionCreateManyInput = {
+    id?: string
+    userId: string
+    exerciseId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+  }
+
+  export type BreathingSessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BreathingSessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type GroundingTechniqueCreateInput = {
+    id?: string
+    name: string
+    description: string
+    type: $Enums.GroundingType
+    category: $Enums.GroundingCategory
+    instructions: JsonNullValueInput | InputJsonValue
+    duration: number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: string | null
+    videoGuideUrl?: string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: $Enums.EvidenceLevel
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+    sessions?: GroundingSessionCreateNestedManyWithoutTechniqueInput
+  }
+
+  export type GroundingTechniqueUncheckedCreateInput = {
+    id?: string
+    name: string
+    description: string
+    type: $Enums.GroundingType
+    category: $Enums.GroundingCategory
+    instructions: JsonNullValueInput | InputJsonValue
+    duration: number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: string | null
+    videoGuideUrl?: string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: $Enums.EvidenceLevel
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+    sessions?: GroundingSessionUncheckedCreateNestedManyWithoutTechniqueInput
+  }
+
+  export type GroundingTechniqueUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    type?: EnumGroundingTypeFieldUpdateOperationsInput | $Enums.GroundingType
+    category?: EnumGroundingCategoryFieldUpdateOperationsInput | $Enums.GroundingCategory
+    instructions?: JsonNullValueInput | InputJsonValue
+    duration?: IntFieldUpdateOperationsInput | number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: GroundingSessionUpdateManyWithoutTechniqueNestedInput
+  }
+
+  export type GroundingTechniqueUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    type?: EnumGroundingTypeFieldUpdateOperationsInput | $Enums.GroundingType
+    category?: EnumGroundingCategoryFieldUpdateOperationsInput | $Enums.GroundingCategory
+    instructions?: JsonNullValueInput | InputJsonValue
+    duration?: IntFieldUpdateOperationsInput | number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: GroundingSessionUncheckedUpdateManyWithoutTechniqueNestedInput
+  }
+
+  export type GroundingTechniqueCreateManyInput = {
+    id?: string
+    name: string
+    description: string
+    type: $Enums.GroundingType
+    category: $Enums.GroundingCategory
+    instructions: JsonNullValueInput | InputJsonValue
+    duration: number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: string | null
+    videoGuideUrl?: string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: $Enums.EvidenceLevel
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type GroundingTechniqueUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    type?: EnumGroundingTypeFieldUpdateOperationsInput | $Enums.GroundingType
+    category?: EnumGroundingCategoryFieldUpdateOperationsInput | $Enums.GroundingCategory
+    instructions?: JsonNullValueInput | InputJsonValue
+    duration?: IntFieldUpdateOperationsInput | number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GroundingTechniqueUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    type?: EnumGroundingTypeFieldUpdateOperationsInput | $Enums.GroundingType
+    category?: EnumGroundingCategoryFieldUpdateOperationsInput | $Enums.GroundingCategory
+    instructions?: JsonNullValueInput | InputJsonValue
+    duration?: IntFieldUpdateOperationsInput | number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GroundingSessionCreateInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+    user: UserCreateNestedOneWithoutGroundingSessionsInput
+    technique: GroundingTechniqueCreateNestedOneWithoutSessionsInput
+  }
+
+  export type GroundingSessionUncheckedCreateInput = {
+    id?: string
+    userId: string
+    techniqueId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+  }
+
+  export type GroundingSessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    user?: UserUpdateOneRequiredWithoutGroundingSessionsNestedInput
+    technique?: GroundingTechniqueUpdateOneRequiredWithoutSessionsNestedInput
+  }
+
+  export type GroundingSessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    techniqueId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type GroundingSessionCreateManyInput = {
+    id?: string
+    userId: string
+    techniqueId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+  }
+
+  export type GroundingSessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type GroundingSessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    techniqueId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type SelfHelpResourceCreateInput = {
+    id?: string
+    title: string
+    description: string
+    category: $Enums.SelfHelpCategory
+    type: $Enums.ResourceType
+    content?: string | null
+    url?: string | null
+    mediaUrl?: string | null
+    thumbnailUrl?: string | null
+    duration?: number | null
+    difficulty?: $Enums.ExerciseDifficulty
+    evidenceLevel?: $Enums.EvidenceLevel
+    tags: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: number
+    helpfulCount?: number
+    averageRating?: number | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    interactions?: SelfHelpInteractionCreateNestedManyWithoutResourceInput
+  }
+
+  export type SelfHelpResourceUncheckedCreateInput = {
+    id?: string
+    title: string
+    description: string
+    category: $Enums.SelfHelpCategory
+    type: $Enums.ResourceType
+    content?: string | null
+    url?: string | null
+    mediaUrl?: string | null
+    thumbnailUrl?: string | null
+    duration?: number | null
+    difficulty?: $Enums.ExerciseDifficulty
+    evidenceLevel?: $Enums.EvidenceLevel
+    tags: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: number
+    helpfulCount?: number
+    averageRating?: number | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    interactions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutResourceInput
+  }
+
+  export type SelfHelpResourceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: EnumSelfHelpCategoryFieldUpdateOperationsInput | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFieldUpdateOperationsInput | $Enums.ResourceType
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    tags?: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: IntFieldUpdateOperationsInput | number
+    helpfulCount?: IntFieldUpdateOperationsInput | number
+    averageRating?: NullableFloatFieldUpdateOperationsInput | number | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    interactions?: SelfHelpInteractionUpdateManyWithoutResourceNestedInput
+  }
+
+  export type SelfHelpResourceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: EnumSelfHelpCategoryFieldUpdateOperationsInput | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFieldUpdateOperationsInput | $Enums.ResourceType
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    tags?: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: IntFieldUpdateOperationsInput | number
+    helpfulCount?: IntFieldUpdateOperationsInput | number
+    averageRating?: NullableFloatFieldUpdateOperationsInput | number | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    interactions?: SelfHelpInteractionUncheckedUpdateManyWithoutResourceNestedInput
+  }
+
+  export type SelfHelpResourceCreateManyInput = {
+    id?: string
+    title: string
+    description: string
+    category: $Enums.SelfHelpCategory
+    type: $Enums.ResourceType
+    content?: string | null
+    url?: string | null
+    mediaUrl?: string | null
+    thumbnailUrl?: string | null
+    duration?: number | null
+    difficulty?: $Enums.ExerciseDifficulty
+    evidenceLevel?: $Enums.EvidenceLevel
+    tags: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: number
+    helpfulCount?: number
+    averageRating?: number | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SelfHelpResourceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: EnumSelfHelpCategoryFieldUpdateOperationsInput | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFieldUpdateOperationsInput | $Enums.ResourceType
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    tags?: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: IntFieldUpdateOperationsInput | number
+    helpfulCount?: IntFieldUpdateOperationsInput | number
+    averageRating?: NullableFloatFieldUpdateOperationsInput | number | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SelfHelpResourceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: EnumSelfHelpCategoryFieldUpdateOperationsInput | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFieldUpdateOperationsInput | $Enums.ResourceType
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    tags?: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: IntFieldUpdateOperationsInput | number
+    helpfulCount?: IntFieldUpdateOperationsInput | number
+    averageRating?: NullableFloatFieldUpdateOperationsInput | number | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SelfHelpInteractionCreateInput = {
+    id?: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+    user: UserCreateNestedOneWithoutSelfHelpInteractionsInput
+    resource: SelfHelpResourceCreateNestedOneWithoutInteractionsInput
+  }
+
+  export type SelfHelpInteractionUncheckedCreateInput = {
+    id?: string
+    userId: string
+    resourceId: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type SelfHelpInteractionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    user?: UserUpdateOneRequiredWithoutSelfHelpInteractionsNestedInput
+    resource?: SelfHelpResourceUpdateOneRequiredWithoutInteractionsNestedInput
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SelfHelpInteractionCreateManyInput = {
+    id?: string
+    userId: string
+    resourceId: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type SelfHelpInteractionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -51437,6 +63422,30 @@ export namespace Prisma {
     none?: EmergencyContactWhereInput
   }
 
+  export type JournalEntryListRelationFilter = {
+    every?: JournalEntryWhereInput
+    some?: JournalEntryWhereInput
+    none?: JournalEntryWhereInput
+  }
+
+  export type BreathingSessionListRelationFilter = {
+    every?: BreathingSessionWhereInput
+    some?: BreathingSessionWhereInput
+    none?: BreathingSessionWhereInput
+  }
+
+  export type GroundingSessionListRelationFilter = {
+    every?: GroundingSessionWhereInput
+    some?: GroundingSessionWhereInput
+    none?: GroundingSessionWhereInput
+  }
+
+  export type SelfHelpInteractionListRelationFilter = {
+    every?: SelfHelpInteractionWhereInput
+    some?: SelfHelpInteractionWhereInput
+    none?: SelfHelpInteractionWhereInput
+  }
+
   export type MoodEntryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -51458,6 +63467,22 @@ export namespace Prisma {
   }
 
   export type EmergencyContactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JournalEntryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BreathingSessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type GroundingSessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SelfHelpInteractionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -52064,6 +64089,684 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumActivityTypeFilter<$PrismaModel>
     _max?: NestedEnumActivityTypeFilter<$PrismaModel>
+  }
+
+  export type EnumJournalTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.JournalType | EnumJournalTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.JournalType[]
+    notIn?: $Enums.JournalType[]
+    not?: NestedEnumJournalTypeFilter<$PrismaModel> | $Enums.JournalType
+  }
+
+  export type JournalEntryCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    promptId?: SortOrder
+    promptText?: SortOrder
+    entryType?: SortOrder
+    encryptedContent?: SortOrder
+    contentHash?: SortOrder
+    keyDerivationSalt?: SortOrder
+    mood?: SortOrder
+    sentimentScore?: SortOrder
+    emotions?: SortOrder
+    tags?: SortOrder
+    isPrivate?: SortOrder
+    shareWithTherapist?: SortOrder
+    wordCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JournalEntryAvgOrderByAggregateInput = {
+    mood?: SortOrder
+    sentimentScore?: SortOrder
+    wordCount?: SortOrder
+  }
+
+  export type JournalEntryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    promptId?: SortOrder
+    promptText?: SortOrder
+    entryType?: SortOrder
+    encryptedContent?: SortOrder
+    contentHash?: SortOrder
+    keyDerivationSalt?: SortOrder
+    mood?: SortOrder
+    sentimentScore?: SortOrder
+    isPrivate?: SortOrder
+    shareWithTherapist?: SortOrder
+    wordCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JournalEntryMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    promptId?: SortOrder
+    promptText?: SortOrder
+    entryType?: SortOrder
+    encryptedContent?: SortOrder
+    contentHash?: SortOrder
+    keyDerivationSalt?: SortOrder
+    mood?: SortOrder
+    sentimentScore?: SortOrder
+    isPrivate?: SortOrder
+    shareWithTherapist?: SortOrder
+    wordCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JournalEntrySumOrderByAggregateInput = {
+    mood?: SortOrder
+    sentimentScore?: SortOrder
+    wordCount?: SortOrder
+  }
+
+  export type EnumJournalTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.JournalType | EnumJournalTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.JournalType[]
+    notIn?: $Enums.JournalType[]
+    not?: NestedEnumJournalTypeWithAggregatesFilter<$PrismaModel> | $Enums.JournalType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumJournalTypeFilter<$PrismaModel>
+    _max?: NestedEnumJournalTypeFilter<$PrismaModel>
+  }
+
+  export type EnumBreathingTechniqueFilter<$PrismaModel = never> = {
+    equals?: $Enums.BreathingTechnique | EnumBreathingTechniqueFieldRefInput<$PrismaModel>
+    in?: $Enums.BreathingTechnique[]
+    notIn?: $Enums.BreathingTechnique[]
+    not?: NestedEnumBreathingTechniqueFilter<$PrismaModel> | $Enums.BreathingTechnique
+  }
+
+  export type EnumExerciseDifficultyFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExerciseDifficulty | EnumExerciseDifficultyFieldRefInput<$PrismaModel>
+    in?: $Enums.ExerciseDifficulty[]
+    notIn?: $Enums.ExerciseDifficulty[]
+    not?: NestedEnumExerciseDifficultyFilter<$PrismaModel> | $Enums.ExerciseDifficulty
+  }
+
+  export type BreathingExerciseCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    technique?: SortOrder
+    difficulty?: SortOrder
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrder
+    cyclesRecommended?: SortOrder
+    instructions?: SortOrder
+    visualGuideUrl?: SortOrder
+    audioGuideUrl?: SortOrder
+    benefits?: SortOrder
+    bestFor?: SortOrder
+    contraindications?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BreathingExerciseAvgOrderByAggregateInput = {
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrder
+    cyclesRecommended?: SortOrder
+  }
+
+  export type BreathingExerciseMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    technique?: SortOrder
+    difficulty?: SortOrder
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrder
+    cyclesRecommended?: SortOrder
+    visualGuideUrl?: SortOrder
+    audioGuideUrl?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BreathingExerciseMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    technique?: SortOrder
+    difficulty?: SortOrder
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrder
+    cyclesRecommended?: SortOrder
+    visualGuideUrl?: SortOrder
+    audioGuideUrl?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BreathingExerciseSumOrderByAggregateInput = {
+    inhaleSeconds?: SortOrder
+    holdSeconds?: SortOrder
+    exhaleSeconds?: SortOrder
+    pauseSeconds?: SortOrder
+    cyclesRecommended?: SortOrder
+  }
+
+  export type EnumBreathingTechniqueWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BreathingTechnique | EnumBreathingTechniqueFieldRefInput<$PrismaModel>
+    in?: $Enums.BreathingTechnique[]
+    notIn?: $Enums.BreathingTechnique[]
+    not?: NestedEnumBreathingTechniqueWithAggregatesFilter<$PrismaModel> | $Enums.BreathingTechnique
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBreathingTechniqueFilter<$PrismaModel>
+    _max?: NestedEnumBreathingTechniqueFilter<$PrismaModel>
+  }
+
+  export type EnumExerciseDifficultyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExerciseDifficulty | EnumExerciseDifficultyFieldRefInput<$PrismaModel>
+    in?: $Enums.ExerciseDifficulty[]
+    notIn?: $Enums.ExerciseDifficulty[]
+    not?: NestedEnumExerciseDifficultyWithAggregatesFilter<$PrismaModel> | $Enums.ExerciseDifficulty
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumExerciseDifficultyFilter<$PrismaModel>
+    _max?: NestedEnumExerciseDifficultyFilter<$PrismaModel>
+  }
+
+  export type BreathingExerciseScalarRelationFilter = {
+    is?: BreathingExerciseWhereInput
+    isNot?: BreathingExerciseWhereInput
+  }
+
+  export type BreathingSessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    exerciseId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    averageBreathRate?: SortOrder
+    heartRateBefore?: SortOrder
+    heartRateAfter?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+  }
+
+  export type BreathingSessionAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    averageBreathRate?: SortOrder
+    heartRateBefore?: SortOrder
+    heartRateAfter?: SortOrder
+    rating?: SortOrder
+  }
+
+  export type BreathingSessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    exerciseId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    averageBreathRate?: SortOrder
+    heartRateBefore?: SortOrder
+    heartRateAfter?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+  }
+
+  export type BreathingSessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    exerciseId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    averageBreathRate?: SortOrder
+    heartRateBefore?: SortOrder
+    heartRateAfter?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+  }
+
+  export type BreathingSessionSumOrderByAggregateInput = {
+    duration?: SortOrder
+    cyclesCompleted?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    averageBreathRate?: SortOrder
+    heartRateBefore?: SortOrder
+    heartRateAfter?: SortOrder
+    rating?: SortOrder
+  }
+
+  export type EnumGroundingTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingType | EnumGroundingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingType[]
+    notIn?: $Enums.GroundingType[]
+    not?: NestedEnumGroundingTypeFilter<$PrismaModel> | $Enums.GroundingType
+  }
+
+  export type EnumGroundingCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingCategory | EnumGroundingCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingCategory[]
+    notIn?: $Enums.GroundingCategory[]
+    not?: NestedEnumGroundingCategoryFilter<$PrismaModel> | $Enums.GroundingCategory
+  }
+
+  export type EnumEvidenceLevelFilter<$PrismaModel = never> = {
+    equals?: $Enums.EvidenceLevel | EnumEvidenceLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.EvidenceLevel[]
+    notIn?: $Enums.EvidenceLevel[]
+    not?: NestedEnumEvidenceLevelFilter<$PrismaModel> | $Enums.EvidenceLevel
+  }
+
+  export type GroundingTechniqueCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    instructions?: SortOrder
+    duration?: SortOrder
+    materials?: SortOrder
+    audioGuideUrl?: SortOrder
+    videoGuideUrl?: SortOrder
+    imageGuides?: SortOrder
+    evidenceLevel?: SortOrder
+    bestFor?: SortOrder
+    contraindications?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type GroundingTechniqueAvgOrderByAggregateInput = {
+    duration?: SortOrder
+  }
+
+  export type GroundingTechniqueMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    duration?: SortOrder
+    audioGuideUrl?: SortOrder
+    videoGuideUrl?: SortOrder
+    evidenceLevel?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type GroundingTechniqueMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    duration?: SortOrder
+    audioGuideUrl?: SortOrder
+    videoGuideUrl?: SortOrder
+    evidenceLevel?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type GroundingTechniqueSumOrderByAggregateInput = {
+    duration?: SortOrder
+  }
+
+  export type EnumGroundingTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingType | EnumGroundingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingType[]
+    notIn?: $Enums.GroundingType[]
+    not?: NestedEnumGroundingTypeWithAggregatesFilter<$PrismaModel> | $Enums.GroundingType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumGroundingTypeFilter<$PrismaModel>
+    _max?: NestedEnumGroundingTypeFilter<$PrismaModel>
+  }
+
+  export type EnumGroundingCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingCategory | EnumGroundingCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingCategory[]
+    notIn?: $Enums.GroundingCategory[]
+    not?: NestedEnumGroundingCategoryWithAggregatesFilter<$PrismaModel> | $Enums.GroundingCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumGroundingCategoryFilter<$PrismaModel>
+    _max?: NestedEnumGroundingCategoryFilter<$PrismaModel>
+  }
+
+  export type EnumEvidenceLevelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EvidenceLevel | EnumEvidenceLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.EvidenceLevel[]
+    notIn?: $Enums.EvidenceLevel[]
+    not?: NestedEnumEvidenceLevelWithAggregatesFilter<$PrismaModel> | $Enums.EvidenceLevel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEvidenceLevelFilter<$PrismaModel>
+    _max?: NestedEnumEvidenceLevelFilter<$PrismaModel>
+  }
+
+  export type GroundingTechniqueScalarRelationFilter = {
+    is?: GroundingTechniqueWhereInput
+    isNot?: GroundingTechniqueWhereInput
+  }
+
+  export type GroundingSessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    techniqueId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    triggerType?: SortOrder
+    severityBefore?: SortOrder
+    severityAfter?: SortOrder
+    panicBefore?: SortOrder
+    panicAfter?: SortOrder
+    dissociationBefore?: SortOrder
+    dissociationAfter?: SortOrder
+    stepsCompleted?: SortOrder
+    completionRate?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+    wouldUseAgain?: SortOrder
+  }
+
+  export type GroundingSessionAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    severityBefore?: SortOrder
+    severityAfter?: SortOrder
+    panicBefore?: SortOrder
+    panicAfter?: SortOrder
+    dissociationBefore?: SortOrder
+    dissociationAfter?: SortOrder
+    completionRate?: SortOrder
+    rating?: SortOrder
+  }
+
+  export type GroundingSessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    techniqueId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    triggerType?: SortOrder
+    severityBefore?: SortOrder
+    severityAfter?: SortOrder
+    panicBefore?: SortOrder
+    panicAfter?: SortOrder
+    dissociationBefore?: SortOrder
+    dissociationAfter?: SortOrder
+    completionRate?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+    wouldUseAgain?: SortOrder
+  }
+
+  export type GroundingSessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    techniqueId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    triggerType?: SortOrder
+    severityBefore?: SortOrder
+    severityAfter?: SortOrder
+    panicBefore?: SortOrder
+    panicAfter?: SortOrder
+    dissociationBefore?: SortOrder
+    dissociationAfter?: SortOrder
+    completionRate?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+    wouldUseAgain?: SortOrder
+  }
+
+  export type GroundingSessionSumOrderByAggregateInput = {
+    duration?: SortOrder
+    severityBefore?: SortOrder
+    severityAfter?: SortOrder
+    panicBefore?: SortOrder
+    panicAfter?: SortOrder
+    dissociationBefore?: SortOrder
+    dissociationAfter?: SortOrder
+    completionRate?: SortOrder
+    rating?: SortOrder
+  }
+
+  export type EnumSelfHelpCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.SelfHelpCategory | EnumSelfHelpCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SelfHelpCategory[]
+    notIn?: $Enums.SelfHelpCategory[]
+    not?: NestedEnumSelfHelpCategoryFilter<$PrismaModel> | $Enums.SelfHelpCategory
+  }
+
+  export type EnumResourceTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.ResourceType | EnumResourceTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ResourceType[]
+    notIn?: $Enums.ResourceType[]
+    not?: NestedEnumResourceTypeFilter<$PrismaModel> | $Enums.ResourceType
+  }
+
+  export type SelfHelpResourceCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    content?: SortOrder
+    url?: SortOrder
+    mediaUrl?: SortOrder
+    thumbnailUrl?: SortOrder
+    duration?: SortOrder
+    difficulty?: SortOrder
+    evidenceLevel?: SortOrder
+    tags?: SortOrder
+    conditions?: SortOrder
+    symptoms?: SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SelfHelpResourceAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrder
+  }
+
+  export type SelfHelpResourceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    content?: SortOrder
+    url?: SortOrder
+    mediaUrl?: SortOrder
+    thumbnailUrl?: SortOrder
+    duration?: SortOrder
+    difficulty?: SortOrder
+    evidenceLevel?: SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SelfHelpResourceMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    type?: SortOrder
+    content?: SortOrder
+    url?: SortOrder
+    mediaUrl?: SortOrder
+    thumbnailUrl?: SortOrder
+    duration?: SortOrder
+    difficulty?: SortOrder
+    evidenceLevel?: SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SelfHelpResourceSumOrderByAggregateInput = {
+    duration?: SortOrder
+    viewCount?: SortOrder
+    helpfulCount?: SortOrder
+    averageRating?: SortOrder
+  }
+
+  export type EnumSelfHelpCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SelfHelpCategory | EnumSelfHelpCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SelfHelpCategory[]
+    notIn?: $Enums.SelfHelpCategory[]
+    not?: NestedEnumSelfHelpCategoryWithAggregatesFilter<$PrismaModel> | $Enums.SelfHelpCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSelfHelpCategoryFilter<$PrismaModel>
+    _max?: NestedEnumSelfHelpCategoryFilter<$PrismaModel>
+  }
+
+  export type EnumResourceTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ResourceType | EnumResourceTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ResourceType[]
+    notIn?: $Enums.ResourceType[]
+    not?: NestedEnumResourceTypeWithAggregatesFilter<$PrismaModel> | $Enums.ResourceType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumResourceTypeFilter<$PrismaModel>
+    _max?: NestedEnumResourceTypeFilter<$PrismaModel>
+  }
+
+  export type EnumInteractionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.InteractionType | EnumInteractionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InteractionType[]
+    notIn?: $Enums.InteractionType[]
+    not?: NestedEnumInteractionTypeFilter<$PrismaModel> | $Enums.InteractionType
+  }
+
+  export type SelfHelpResourceScalarRelationFilter = {
+    is?: SelfHelpResourceWhereInput
+    isNot?: SelfHelpResourceWhereInput
+  }
+
+  export type SelfHelpInteractionCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resourceId?: SortOrder
+    interactionType?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type SelfHelpInteractionAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    rating?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type SelfHelpInteractionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resourceId?: SortOrder
+    interactionType?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type SelfHelpInteractionMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resourceId?: SortOrder
+    interactionType?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    duration?: SortOrder
+    wasHelpful?: SortOrder
+    rating?: SortOrder
+    notes?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type SelfHelpInteractionSumOrderByAggregateInput = {
+    duration?: SortOrder
+    rating?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type EnumInteractionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InteractionType | EnumInteractionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InteractionType[]
+    notIn?: $Enums.InteractionType[]
+    not?: NestedEnumInteractionTypeWithAggregatesFilter<$PrismaModel> | $Enums.InteractionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInteractionTypeFilter<$PrismaModel>
+    _max?: NestedEnumInteractionTypeFilter<$PrismaModel>
   }
 
   export type CrisisMessageCreateNestedManyWithoutSessionInput = {
@@ -52824,6 +65527,34 @@ export namespace Prisma {
     connect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
   }
 
+  export type JournalEntryCreateNestedManyWithoutUserInput = {
+    create?: XOR<JournalEntryCreateWithoutUserInput, JournalEntryUncheckedCreateWithoutUserInput> | JournalEntryCreateWithoutUserInput[] | JournalEntryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JournalEntryCreateOrConnectWithoutUserInput | JournalEntryCreateOrConnectWithoutUserInput[]
+    createMany?: JournalEntryCreateManyUserInputEnvelope
+    connect?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+  }
+
+  export type BreathingSessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<BreathingSessionCreateWithoutUserInput, BreathingSessionUncheckedCreateWithoutUserInput> | BreathingSessionCreateWithoutUserInput[] | BreathingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutUserInput | BreathingSessionCreateOrConnectWithoutUserInput[]
+    createMany?: BreathingSessionCreateManyUserInputEnvelope
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+  }
+
+  export type GroundingSessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<GroundingSessionCreateWithoutUserInput, GroundingSessionUncheckedCreateWithoutUserInput> | GroundingSessionCreateWithoutUserInput[] | GroundingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutUserInput | GroundingSessionCreateOrConnectWithoutUserInput[]
+    createMany?: GroundingSessionCreateManyUserInputEnvelope
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+  }
+
+  export type SelfHelpInteractionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutUserInput, SelfHelpInteractionUncheckedCreateWithoutUserInput> | SelfHelpInteractionCreateWithoutUserInput[] | SelfHelpInteractionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutUserInput | SelfHelpInteractionCreateOrConnectWithoutUserInput[]
+    createMany?: SelfHelpInteractionCreateManyUserInputEnvelope
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+  }
+
   export type MoodEntryUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<MoodEntryCreateWithoutUserInput, MoodEntryUncheckedCreateWithoutUserInput> | MoodEntryCreateWithoutUserInput[] | MoodEntryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MoodEntryCreateOrConnectWithoutUserInput | MoodEntryCreateOrConnectWithoutUserInput[]
@@ -52870,6 +65601,34 @@ export namespace Prisma {
     connectOrCreate?: EmergencyContactCreateOrConnectWithoutUserInput | EmergencyContactCreateOrConnectWithoutUserInput[]
     createMany?: EmergencyContactCreateManyUserInputEnvelope
     connect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+  }
+
+  export type JournalEntryUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<JournalEntryCreateWithoutUserInput, JournalEntryUncheckedCreateWithoutUserInput> | JournalEntryCreateWithoutUserInput[] | JournalEntryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JournalEntryCreateOrConnectWithoutUserInput | JournalEntryCreateOrConnectWithoutUserInput[]
+    createMany?: JournalEntryCreateManyUserInputEnvelope
+    connect?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+  }
+
+  export type BreathingSessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<BreathingSessionCreateWithoutUserInput, BreathingSessionUncheckedCreateWithoutUserInput> | BreathingSessionCreateWithoutUserInput[] | BreathingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutUserInput | BreathingSessionCreateOrConnectWithoutUserInput[]
+    createMany?: BreathingSessionCreateManyUserInputEnvelope
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+  }
+
+  export type GroundingSessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<GroundingSessionCreateWithoutUserInput, GroundingSessionUncheckedCreateWithoutUserInput> | GroundingSessionCreateWithoutUserInput[] | GroundingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutUserInput | GroundingSessionCreateOrConnectWithoutUserInput[]
+    createMany?: GroundingSessionCreateManyUserInputEnvelope
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+  }
+
+  export type SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutUserInput, SelfHelpInteractionUncheckedCreateWithoutUserInput> | SelfHelpInteractionCreateWithoutUserInput[] | SelfHelpInteractionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutUserInput | SelfHelpInteractionCreateOrConnectWithoutUserInput[]
+    createMany?: SelfHelpInteractionCreateManyUserInputEnvelope
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
   }
 
   export type EnumUserDataSharingFieldUpdateOperationsInput = {
@@ -52970,6 +65729,62 @@ export namespace Prisma {
     deleteMany?: EmergencyContactScalarWhereInput | EmergencyContactScalarWhereInput[]
   }
 
+  export type JournalEntryUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JournalEntryCreateWithoutUserInput, JournalEntryUncheckedCreateWithoutUserInput> | JournalEntryCreateWithoutUserInput[] | JournalEntryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JournalEntryCreateOrConnectWithoutUserInput | JournalEntryCreateOrConnectWithoutUserInput[]
+    upsert?: JournalEntryUpsertWithWhereUniqueWithoutUserInput | JournalEntryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JournalEntryCreateManyUserInputEnvelope
+    set?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    disconnect?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    delete?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    connect?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    update?: JournalEntryUpdateWithWhereUniqueWithoutUserInput | JournalEntryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JournalEntryUpdateManyWithWhereWithoutUserInput | JournalEntryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JournalEntryScalarWhereInput | JournalEntryScalarWhereInput[]
+  }
+
+  export type BreathingSessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BreathingSessionCreateWithoutUserInput, BreathingSessionUncheckedCreateWithoutUserInput> | BreathingSessionCreateWithoutUserInput[] | BreathingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutUserInput | BreathingSessionCreateOrConnectWithoutUserInput[]
+    upsert?: BreathingSessionUpsertWithWhereUniqueWithoutUserInput | BreathingSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BreathingSessionCreateManyUserInputEnvelope
+    set?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    disconnect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    delete?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    update?: BreathingSessionUpdateWithWhereUniqueWithoutUserInput | BreathingSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BreathingSessionUpdateManyWithWhereWithoutUserInput | BreathingSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BreathingSessionScalarWhereInput | BreathingSessionScalarWhereInput[]
+  }
+
+  export type GroundingSessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<GroundingSessionCreateWithoutUserInput, GroundingSessionUncheckedCreateWithoutUserInput> | GroundingSessionCreateWithoutUserInput[] | GroundingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutUserInput | GroundingSessionCreateOrConnectWithoutUserInput[]
+    upsert?: GroundingSessionUpsertWithWhereUniqueWithoutUserInput | GroundingSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: GroundingSessionCreateManyUserInputEnvelope
+    set?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    disconnect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    delete?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    update?: GroundingSessionUpdateWithWhereUniqueWithoutUserInput | GroundingSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: GroundingSessionUpdateManyWithWhereWithoutUserInput | GroundingSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: GroundingSessionScalarWhereInput | GroundingSessionScalarWhereInput[]
+  }
+
+  export type SelfHelpInteractionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutUserInput, SelfHelpInteractionUncheckedCreateWithoutUserInput> | SelfHelpInteractionCreateWithoutUserInput[] | SelfHelpInteractionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutUserInput | SelfHelpInteractionCreateOrConnectWithoutUserInput[]
+    upsert?: SelfHelpInteractionUpsertWithWhereUniqueWithoutUserInput | SelfHelpInteractionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SelfHelpInteractionCreateManyUserInputEnvelope
+    set?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    disconnect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    delete?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    update?: SelfHelpInteractionUpdateWithWhereUniqueWithoutUserInput | SelfHelpInteractionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SelfHelpInteractionUpdateManyWithWhereWithoutUserInput | SelfHelpInteractionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SelfHelpInteractionScalarWhereInput | SelfHelpInteractionScalarWhereInput[]
+  }
+
   export type MoodEntryUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<MoodEntryCreateWithoutUserInput, MoodEntryUncheckedCreateWithoutUserInput> | MoodEntryCreateWithoutUserInput[] | MoodEntryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MoodEntryCreateOrConnectWithoutUserInput | MoodEntryCreateOrConnectWithoutUserInput[]
@@ -53062,6 +65877,62 @@ export namespace Prisma {
     update?: EmergencyContactUpdateWithWhereUniqueWithoutUserInput | EmergencyContactUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: EmergencyContactUpdateManyWithWhereWithoutUserInput | EmergencyContactUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: EmergencyContactScalarWhereInput | EmergencyContactScalarWhereInput[]
+  }
+
+  export type JournalEntryUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JournalEntryCreateWithoutUserInput, JournalEntryUncheckedCreateWithoutUserInput> | JournalEntryCreateWithoutUserInput[] | JournalEntryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JournalEntryCreateOrConnectWithoutUserInput | JournalEntryCreateOrConnectWithoutUserInput[]
+    upsert?: JournalEntryUpsertWithWhereUniqueWithoutUserInput | JournalEntryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JournalEntryCreateManyUserInputEnvelope
+    set?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    disconnect?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    delete?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    connect?: JournalEntryWhereUniqueInput | JournalEntryWhereUniqueInput[]
+    update?: JournalEntryUpdateWithWhereUniqueWithoutUserInput | JournalEntryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JournalEntryUpdateManyWithWhereWithoutUserInput | JournalEntryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JournalEntryScalarWhereInput | JournalEntryScalarWhereInput[]
+  }
+
+  export type BreathingSessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BreathingSessionCreateWithoutUserInput, BreathingSessionUncheckedCreateWithoutUserInput> | BreathingSessionCreateWithoutUserInput[] | BreathingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutUserInput | BreathingSessionCreateOrConnectWithoutUserInput[]
+    upsert?: BreathingSessionUpsertWithWhereUniqueWithoutUserInput | BreathingSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BreathingSessionCreateManyUserInputEnvelope
+    set?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    disconnect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    delete?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    update?: BreathingSessionUpdateWithWhereUniqueWithoutUserInput | BreathingSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BreathingSessionUpdateManyWithWhereWithoutUserInput | BreathingSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BreathingSessionScalarWhereInput | BreathingSessionScalarWhereInput[]
+  }
+
+  export type GroundingSessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<GroundingSessionCreateWithoutUserInput, GroundingSessionUncheckedCreateWithoutUserInput> | GroundingSessionCreateWithoutUserInput[] | GroundingSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutUserInput | GroundingSessionCreateOrConnectWithoutUserInput[]
+    upsert?: GroundingSessionUpsertWithWhereUniqueWithoutUserInput | GroundingSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: GroundingSessionCreateManyUserInputEnvelope
+    set?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    disconnect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    delete?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    update?: GroundingSessionUpdateWithWhereUniqueWithoutUserInput | GroundingSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: GroundingSessionUpdateManyWithWhereWithoutUserInput | GroundingSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: GroundingSessionScalarWhereInput | GroundingSessionScalarWhereInput[]
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutUserInput, SelfHelpInteractionUncheckedCreateWithoutUserInput> | SelfHelpInteractionCreateWithoutUserInput[] | SelfHelpInteractionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutUserInput | SelfHelpInteractionCreateOrConnectWithoutUserInput[]
+    upsert?: SelfHelpInteractionUpsertWithWhereUniqueWithoutUserInput | SelfHelpInteractionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SelfHelpInteractionCreateManyUserInputEnvelope
+    set?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    disconnect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    delete?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    update?: SelfHelpInteractionUpdateWithWhereUniqueWithoutUserInput | SelfHelpInteractionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SelfHelpInteractionUpdateManyWithWhereWithoutUserInput | SelfHelpInteractionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SelfHelpInteractionScalarWhereInput | SelfHelpInteractionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutMoodEntriesInput = {
@@ -53334,6 +66205,266 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutActivitiesInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutActivitiesInput, UserUpdateWithoutActivitiesInput>, UserUncheckedUpdateWithoutActivitiesInput>
+  }
+
+  export type UserCreateNestedOneWithoutJournalEntriesInput = {
+    create?: XOR<UserCreateWithoutJournalEntriesInput, UserUncheckedCreateWithoutJournalEntriesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutJournalEntriesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumJournalTypeFieldUpdateOperationsInput = {
+    set?: $Enums.JournalType
+  }
+
+  export type UserUpdateOneRequiredWithoutJournalEntriesNestedInput = {
+    create?: XOR<UserCreateWithoutJournalEntriesInput, UserUncheckedCreateWithoutJournalEntriesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutJournalEntriesInput
+    upsert?: UserUpsertWithoutJournalEntriesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutJournalEntriesInput, UserUpdateWithoutJournalEntriesInput>, UserUncheckedUpdateWithoutJournalEntriesInput>
+  }
+
+  export type BreathingSessionCreateNestedManyWithoutExerciseInput = {
+    create?: XOR<BreathingSessionCreateWithoutExerciseInput, BreathingSessionUncheckedCreateWithoutExerciseInput> | BreathingSessionCreateWithoutExerciseInput[] | BreathingSessionUncheckedCreateWithoutExerciseInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutExerciseInput | BreathingSessionCreateOrConnectWithoutExerciseInput[]
+    createMany?: BreathingSessionCreateManyExerciseInputEnvelope
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+  }
+
+  export type BreathingSessionUncheckedCreateNestedManyWithoutExerciseInput = {
+    create?: XOR<BreathingSessionCreateWithoutExerciseInput, BreathingSessionUncheckedCreateWithoutExerciseInput> | BreathingSessionCreateWithoutExerciseInput[] | BreathingSessionUncheckedCreateWithoutExerciseInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutExerciseInput | BreathingSessionCreateOrConnectWithoutExerciseInput[]
+    createMany?: BreathingSessionCreateManyExerciseInputEnvelope
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+  }
+
+  export type EnumBreathingTechniqueFieldUpdateOperationsInput = {
+    set?: $Enums.BreathingTechnique
+  }
+
+  export type EnumExerciseDifficultyFieldUpdateOperationsInput = {
+    set?: $Enums.ExerciseDifficulty
+  }
+
+  export type BreathingSessionUpdateManyWithoutExerciseNestedInput = {
+    create?: XOR<BreathingSessionCreateWithoutExerciseInput, BreathingSessionUncheckedCreateWithoutExerciseInput> | BreathingSessionCreateWithoutExerciseInput[] | BreathingSessionUncheckedCreateWithoutExerciseInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutExerciseInput | BreathingSessionCreateOrConnectWithoutExerciseInput[]
+    upsert?: BreathingSessionUpsertWithWhereUniqueWithoutExerciseInput | BreathingSessionUpsertWithWhereUniqueWithoutExerciseInput[]
+    createMany?: BreathingSessionCreateManyExerciseInputEnvelope
+    set?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    disconnect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    delete?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    update?: BreathingSessionUpdateWithWhereUniqueWithoutExerciseInput | BreathingSessionUpdateWithWhereUniqueWithoutExerciseInput[]
+    updateMany?: BreathingSessionUpdateManyWithWhereWithoutExerciseInput | BreathingSessionUpdateManyWithWhereWithoutExerciseInput[]
+    deleteMany?: BreathingSessionScalarWhereInput | BreathingSessionScalarWhereInput[]
+  }
+
+  export type BreathingSessionUncheckedUpdateManyWithoutExerciseNestedInput = {
+    create?: XOR<BreathingSessionCreateWithoutExerciseInput, BreathingSessionUncheckedCreateWithoutExerciseInput> | BreathingSessionCreateWithoutExerciseInput[] | BreathingSessionUncheckedCreateWithoutExerciseInput[]
+    connectOrCreate?: BreathingSessionCreateOrConnectWithoutExerciseInput | BreathingSessionCreateOrConnectWithoutExerciseInput[]
+    upsert?: BreathingSessionUpsertWithWhereUniqueWithoutExerciseInput | BreathingSessionUpsertWithWhereUniqueWithoutExerciseInput[]
+    createMany?: BreathingSessionCreateManyExerciseInputEnvelope
+    set?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    disconnect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    delete?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    connect?: BreathingSessionWhereUniqueInput | BreathingSessionWhereUniqueInput[]
+    update?: BreathingSessionUpdateWithWhereUniqueWithoutExerciseInput | BreathingSessionUpdateWithWhereUniqueWithoutExerciseInput[]
+    updateMany?: BreathingSessionUpdateManyWithWhereWithoutExerciseInput | BreathingSessionUpdateManyWithWhereWithoutExerciseInput[]
+    deleteMany?: BreathingSessionScalarWhereInput | BreathingSessionScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutBreathingSessionsInput = {
+    create?: XOR<UserCreateWithoutBreathingSessionsInput, UserUncheckedCreateWithoutBreathingSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBreathingSessionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type BreathingExerciseCreateNestedOneWithoutSessionsInput = {
+    create?: XOR<BreathingExerciseCreateWithoutSessionsInput, BreathingExerciseUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: BreathingExerciseCreateOrConnectWithoutSessionsInput
+    connect?: BreathingExerciseWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutBreathingSessionsNestedInput = {
+    create?: XOR<UserCreateWithoutBreathingSessionsInput, UserUncheckedCreateWithoutBreathingSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBreathingSessionsInput
+    upsert?: UserUpsertWithoutBreathingSessionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBreathingSessionsInput, UserUpdateWithoutBreathingSessionsInput>, UserUncheckedUpdateWithoutBreathingSessionsInput>
+  }
+
+  export type BreathingExerciseUpdateOneRequiredWithoutSessionsNestedInput = {
+    create?: XOR<BreathingExerciseCreateWithoutSessionsInput, BreathingExerciseUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: BreathingExerciseCreateOrConnectWithoutSessionsInput
+    upsert?: BreathingExerciseUpsertWithoutSessionsInput
+    connect?: BreathingExerciseWhereUniqueInput
+    update?: XOR<XOR<BreathingExerciseUpdateToOneWithWhereWithoutSessionsInput, BreathingExerciseUpdateWithoutSessionsInput>, BreathingExerciseUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type GroundingSessionCreateNestedManyWithoutTechniqueInput = {
+    create?: XOR<GroundingSessionCreateWithoutTechniqueInput, GroundingSessionUncheckedCreateWithoutTechniqueInput> | GroundingSessionCreateWithoutTechniqueInput[] | GroundingSessionUncheckedCreateWithoutTechniqueInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutTechniqueInput | GroundingSessionCreateOrConnectWithoutTechniqueInput[]
+    createMany?: GroundingSessionCreateManyTechniqueInputEnvelope
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+  }
+
+  export type GroundingSessionUncheckedCreateNestedManyWithoutTechniqueInput = {
+    create?: XOR<GroundingSessionCreateWithoutTechniqueInput, GroundingSessionUncheckedCreateWithoutTechniqueInput> | GroundingSessionCreateWithoutTechniqueInput[] | GroundingSessionUncheckedCreateWithoutTechniqueInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutTechniqueInput | GroundingSessionCreateOrConnectWithoutTechniqueInput[]
+    createMany?: GroundingSessionCreateManyTechniqueInputEnvelope
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+  }
+
+  export type EnumGroundingTypeFieldUpdateOperationsInput = {
+    set?: $Enums.GroundingType
+  }
+
+  export type EnumGroundingCategoryFieldUpdateOperationsInput = {
+    set?: $Enums.GroundingCategory
+  }
+
+  export type EnumEvidenceLevelFieldUpdateOperationsInput = {
+    set?: $Enums.EvidenceLevel
+  }
+
+  export type GroundingSessionUpdateManyWithoutTechniqueNestedInput = {
+    create?: XOR<GroundingSessionCreateWithoutTechniqueInput, GroundingSessionUncheckedCreateWithoutTechniqueInput> | GroundingSessionCreateWithoutTechniqueInput[] | GroundingSessionUncheckedCreateWithoutTechniqueInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutTechniqueInput | GroundingSessionCreateOrConnectWithoutTechniqueInput[]
+    upsert?: GroundingSessionUpsertWithWhereUniqueWithoutTechniqueInput | GroundingSessionUpsertWithWhereUniqueWithoutTechniqueInput[]
+    createMany?: GroundingSessionCreateManyTechniqueInputEnvelope
+    set?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    disconnect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    delete?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    update?: GroundingSessionUpdateWithWhereUniqueWithoutTechniqueInput | GroundingSessionUpdateWithWhereUniqueWithoutTechniqueInput[]
+    updateMany?: GroundingSessionUpdateManyWithWhereWithoutTechniqueInput | GroundingSessionUpdateManyWithWhereWithoutTechniqueInput[]
+    deleteMany?: GroundingSessionScalarWhereInput | GroundingSessionScalarWhereInput[]
+  }
+
+  export type GroundingSessionUncheckedUpdateManyWithoutTechniqueNestedInput = {
+    create?: XOR<GroundingSessionCreateWithoutTechniqueInput, GroundingSessionUncheckedCreateWithoutTechniqueInput> | GroundingSessionCreateWithoutTechniqueInput[] | GroundingSessionUncheckedCreateWithoutTechniqueInput[]
+    connectOrCreate?: GroundingSessionCreateOrConnectWithoutTechniqueInput | GroundingSessionCreateOrConnectWithoutTechniqueInput[]
+    upsert?: GroundingSessionUpsertWithWhereUniqueWithoutTechniqueInput | GroundingSessionUpsertWithWhereUniqueWithoutTechniqueInput[]
+    createMany?: GroundingSessionCreateManyTechniqueInputEnvelope
+    set?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    disconnect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    delete?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    connect?: GroundingSessionWhereUniqueInput | GroundingSessionWhereUniqueInput[]
+    update?: GroundingSessionUpdateWithWhereUniqueWithoutTechniqueInput | GroundingSessionUpdateWithWhereUniqueWithoutTechniqueInput[]
+    updateMany?: GroundingSessionUpdateManyWithWhereWithoutTechniqueInput | GroundingSessionUpdateManyWithWhereWithoutTechniqueInput[]
+    deleteMany?: GroundingSessionScalarWhereInput | GroundingSessionScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutGroundingSessionsInput = {
+    create?: XOR<UserCreateWithoutGroundingSessionsInput, UserUncheckedCreateWithoutGroundingSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutGroundingSessionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type GroundingTechniqueCreateNestedOneWithoutSessionsInput = {
+    create?: XOR<GroundingTechniqueCreateWithoutSessionsInput, GroundingTechniqueUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: GroundingTechniqueCreateOrConnectWithoutSessionsInput
+    connect?: GroundingTechniqueWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutGroundingSessionsNestedInput = {
+    create?: XOR<UserCreateWithoutGroundingSessionsInput, UserUncheckedCreateWithoutGroundingSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutGroundingSessionsInput
+    upsert?: UserUpsertWithoutGroundingSessionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutGroundingSessionsInput, UserUpdateWithoutGroundingSessionsInput>, UserUncheckedUpdateWithoutGroundingSessionsInput>
+  }
+
+  export type GroundingTechniqueUpdateOneRequiredWithoutSessionsNestedInput = {
+    create?: XOR<GroundingTechniqueCreateWithoutSessionsInput, GroundingTechniqueUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: GroundingTechniqueCreateOrConnectWithoutSessionsInput
+    upsert?: GroundingTechniqueUpsertWithoutSessionsInput
+    connect?: GroundingTechniqueWhereUniqueInput
+    update?: XOR<XOR<GroundingTechniqueUpdateToOneWithWhereWithoutSessionsInput, GroundingTechniqueUpdateWithoutSessionsInput>, GroundingTechniqueUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type SelfHelpInteractionCreateNestedManyWithoutResourceInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutResourceInput, SelfHelpInteractionUncheckedCreateWithoutResourceInput> | SelfHelpInteractionCreateWithoutResourceInput[] | SelfHelpInteractionUncheckedCreateWithoutResourceInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutResourceInput | SelfHelpInteractionCreateOrConnectWithoutResourceInput[]
+    createMany?: SelfHelpInteractionCreateManyResourceInputEnvelope
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+  }
+
+  export type SelfHelpInteractionUncheckedCreateNestedManyWithoutResourceInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutResourceInput, SelfHelpInteractionUncheckedCreateWithoutResourceInput> | SelfHelpInteractionCreateWithoutResourceInput[] | SelfHelpInteractionUncheckedCreateWithoutResourceInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutResourceInput | SelfHelpInteractionCreateOrConnectWithoutResourceInput[]
+    createMany?: SelfHelpInteractionCreateManyResourceInputEnvelope
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+  }
+
+  export type EnumSelfHelpCategoryFieldUpdateOperationsInput = {
+    set?: $Enums.SelfHelpCategory
+  }
+
+  export type EnumResourceTypeFieldUpdateOperationsInput = {
+    set?: $Enums.ResourceType
+  }
+
+  export type SelfHelpInteractionUpdateManyWithoutResourceNestedInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutResourceInput, SelfHelpInteractionUncheckedCreateWithoutResourceInput> | SelfHelpInteractionCreateWithoutResourceInput[] | SelfHelpInteractionUncheckedCreateWithoutResourceInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutResourceInput | SelfHelpInteractionCreateOrConnectWithoutResourceInput[]
+    upsert?: SelfHelpInteractionUpsertWithWhereUniqueWithoutResourceInput | SelfHelpInteractionUpsertWithWhereUniqueWithoutResourceInput[]
+    createMany?: SelfHelpInteractionCreateManyResourceInputEnvelope
+    set?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    disconnect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    delete?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    update?: SelfHelpInteractionUpdateWithWhereUniqueWithoutResourceInput | SelfHelpInteractionUpdateWithWhereUniqueWithoutResourceInput[]
+    updateMany?: SelfHelpInteractionUpdateManyWithWhereWithoutResourceInput | SelfHelpInteractionUpdateManyWithWhereWithoutResourceInput[]
+    deleteMany?: SelfHelpInteractionScalarWhereInput | SelfHelpInteractionScalarWhereInput[]
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateManyWithoutResourceNestedInput = {
+    create?: XOR<SelfHelpInteractionCreateWithoutResourceInput, SelfHelpInteractionUncheckedCreateWithoutResourceInput> | SelfHelpInteractionCreateWithoutResourceInput[] | SelfHelpInteractionUncheckedCreateWithoutResourceInput[]
+    connectOrCreate?: SelfHelpInteractionCreateOrConnectWithoutResourceInput | SelfHelpInteractionCreateOrConnectWithoutResourceInput[]
+    upsert?: SelfHelpInteractionUpsertWithWhereUniqueWithoutResourceInput | SelfHelpInteractionUpsertWithWhereUniqueWithoutResourceInput[]
+    createMany?: SelfHelpInteractionCreateManyResourceInputEnvelope
+    set?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    disconnect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    delete?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    connect?: SelfHelpInteractionWhereUniqueInput | SelfHelpInteractionWhereUniqueInput[]
+    update?: SelfHelpInteractionUpdateWithWhereUniqueWithoutResourceInput | SelfHelpInteractionUpdateWithWhereUniqueWithoutResourceInput[]
+    updateMany?: SelfHelpInteractionUpdateManyWithWhereWithoutResourceInput | SelfHelpInteractionUpdateManyWithWhereWithoutResourceInput[]
+    deleteMany?: SelfHelpInteractionScalarWhereInput | SelfHelpInteractionScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutSelfHelpInteractionsInput = {
+    create?: XOR<UserCreateWithoutSelfHelpInteractionsInput, UserUncheckedCreateWithoutSelfHelpInteractionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSelfHelpInteractionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type SelfHelpResourceCreateNestedOneWithoutInteractionsInput = {
+    create?: XOR<SelfHelpResourceCreateWithoutInteractionsInput, SelfHelpResourceUncheckedCreateWithoutInteractionsInput>
+    connectOrCreate?: SelfHelpResourceCreateOrConnectWithoutInteractionsInput
+    connect?: SelfHelpResourceWhereUniqueInput
+  }
+
+  export type EnumInteractionTypeFieldUpdateOperationsInput = {
+    set?: $Enums.InteractionType
+  }
+
+  export type UserUpdateOneRequiredWithoutSelfHelpInteractionsNestedInput = {
+    create?: XOR<UserCreateWithoutSelfHelpInteractionsInput, UserUncheckedCreateWithoutSelfHelpInteractionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSelfHelpInteractionsInput
+    upsert?: UserUpsertWithoutSelfHelpInteractionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSelfHelpInteractionsInput, UserUpdateWithoutSelfHelpInteractionsInput>, UserUncheckedUpdateWithoutSelfHelpInteractionsInput>
+  }
+
+  export type SelfHelpResourceUpdateOneRequiredWithoutInteractionsNestedInput = {
+    create?: XOR<SelfHelpResourceCreateWithoutInteractionsInput, SelfHelpResourceUncheckedCreateWithoutInteractionsInput>
+    connectOrCreate?: SelfHelpResourceCreateOrConnectWithoutInteractionsInput
+    upsert?: SelfHelpResourceUpsertWithoutInteractionsInput
+    connect?: SelfHelpResourceWhereUniqueInput
+    update?: XOR<XOR<SelfHelpResourceUpdateToOneWithWhereWithoutInteractionsInput, SelfHelpResourceUpdateWithoutInteractionsInput>, SelfHelpResourceUncheckedUpdateWithoutInteractionsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -54296,6 +67427,159 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumActivityTypeFilter<$PrismaModel>
     _max?: NestedEnumActivityTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumJournalTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.JournalType | EnumJournalTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.JournalType[]
+    notIn?: $Enums.JournalType[]
+    not?: NestedEnumJournalTypeFilter<$PrismaModel> | $Enums.JournalType
+  }
+
+  export type NestedEnumJournalTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.JournalType | EnumJournalTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.JournalType[]
+    notIn?: $Enums.JournalType[]
+    not?: NestedEnumJournalTypeWithAggregatesFilter<$PrismaModel> | $Enums.JournalType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumJournalTypeFilter<$PrismaModel>
+    _max?: NestedEnumJournalTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBreathingTechniqueFilter<$PrismaModel = never> = {
+    equals?: $Enums.BreathingTechnique | EnumBreathingTechniqueFieldRefInput<$PrismaModel>
+    in?: $Enums.BreathingTechnique[]
+    notIn?: $Enums.BreathingTechnique[]
+    not?: NestedEnumBreathingTechniqueFilter<$PrismaModel> | $Enums.BreathingTechnique
+  }
+
+  export type NestedEnumExerciseDifficultyFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExerciseDifficulty | EnumExerciseDifficultyFieldRefInput<$PrismaModel>
+    in?: $Enums.ExerciseDifficulty[]
+    notIn?: $Enums.ExerciseDifficulty[]
+    not?: NestedEnumExerciseDifficultyFilter<$PrismaModel> | $Enums.ExerciseDifficulty
+  }
+
+  export type NestedEnumBreathingTechniqueWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BreathingTechnique | EnumBreathingTechniqueFieldRefInput<$PrismaModel>
+    in?: $Enums.BreathingTechnique[]
+    notIn?: $Enums.BreathingTechnique[]
+    not?: NestedEnumBreathingTechniqueWithAggregatesFilter<$PrismaModel> | $Enums.BreathingTechnique
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBreathingTechniqueFilter<$PrismaModel>
+    _max?: NestedEnumBreathingTechniqueFilter<$PrismaModel>
+  }
+
+  export type NestedEnumExerciseDifficultyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExerciseDifficulty | EnumExerciseDifficultyFieldRefInput<$PrismaModel>
+    in?: $Enums.ExerciseDifficulty[]
+    notIn?: $Enums.ExerciseDifficulty[]
+    not?: NestedEnumExerciseDifficultyWithAggregatesFilter<$PrismaModel> | $Enums.ExerciseDifficulty
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumExerciseDifficultyFilter<$PrismaModel>
+    _max?: NestedEnumExerciseDifficultyFilter<$PrismaModel>
+  }
+
+  export type NestedEnumGroundingTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingType | EnumGroundingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingType[]
+    notIn?: $Enums.GroundingType[]
+    not?: NestedEnumGroundingTypeFilter<$PrismaModel> | $Enums.GroundingType
+  }
+
+  export type NestedEnumGroundingCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingCategory | EnumGroundingCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingCategory[]
+    notIn?: $Enums.GroundingCategory[]
+    not?: NestedEnumGroundingCategoryFilter<$PrismaModel> | $Enums.GroundingCategory
+  }
+
+  export type NestedEnumEvidenceLevelFilter<$PrismaModel = never> = {
+    equals?: $Enums.EvidenceLevel | EnumEvidenceLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.EvidenceLevel[]
+    notIn?: $Enums.EvidenceLevel[]
+    not?: NestedEnumEvidenceLevelFilter<$PrismaModel> | $Enums.EvidenceLevel
+  }
+
+  export type NestedEnumGroundingTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingType | EnumGroundingTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingType[]
+    notIn?: $Enums.GroundingType[]
+    not?: NestedEnumGroundingTypeWithAggregatesFilter<$PrismaModel> | $Enums.GroundingType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumGroundingTypeFilter<$PrismaModel>
+    _max?: NestedEnumGroundingTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumGroundingCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.GroundingCategory | EnumGroundingCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.GroundingCategory[]
+    notIn?: $Enums.GroundingCategory[]
+    not?: NestedEnumGroundingCategoryWithAggregatesFilter<$PrismaModel> | $Enums.GroundingCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumGroundingCategoryFilter<$PrismaModel>
+    _max?: NestedEnumGroundingCategoryFilter<$PrismaModel>
+  }
+
+  export type NestedEnumEvidenceLevelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EvidenceLevel | EnumEvidenceLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.EvidenceLevel[]
+    notIn?: $Enums.EvidenceLevel[]
+    not?: NestedEnumEvidenceLevelWithAggregatesFilter<$PrismaModel> | $Enums.EvidenceLevel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEvidenceLevelFilter<$PrismaModel>
+    _max?: NestedEnumEvidenceLevelFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSelfHelpCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.SelfHelpCategory | EnumSelfHelpCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SelfHelpCategory[]
+    notIn?: $Enums.SelfHelpCategory[]
+    not?: NestedEnumSelfHelpCategoryFilter<$PrismaModel> | $Enums.SelfHelpCategory
+  }
+
+  export type NestedEnumResourceTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.ResourceType | EnumResourceTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ResourceType[]
+    notIn?: $Enums.ResourceType[]
+    not?: NestedEnumResourceTypeFilter<$PrismaModel> | $Enums.ResourceType
+  }
+
+  export type NestedEnumSelfHelpCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SelfHelpCategory | EnumSelfHelpCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SelfHelpCategory[]
+    notIn?: $Enums.SelfHelpCategory[]
+    not?: NestedEnumSelfHelpCategoryWithAggregatesFilter<$PrismaModel> | $Enums.SelfHelpCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSelfHelpCategoryFilter<$PrismaModel>
+    _max?: NestedEnumSelfHelpCategoryFilter<$PrismaModel>
+  }
+
+  export type NestedEnumResourceTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ResourceType | EnumResourceTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ResourceType[]
+    notIn?: $Enums.ResourceType[]
+    not?: NestedEnumResourceTypeWithAggregatesFilter<$PrismaModel> | $Enums.ResourceType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumResourceTypeFilter<$PrismaModel>
+    _max?: NestedEnumResourceTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumInteractionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.InteractionType | EnumInteractionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InteractionType[]
+    notIn?: $Enums.InteractionType[]
+    not?: NestedEnumInteractionTypeFilter<$PrismaModel> | $Enums.InteractionType
+  }
+
+  export type NestedEnumInteractionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InteractionType | EnumInteractionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InteractionType[]
+    notIn?: $Enums.InteractionType[]
+    not?: NestedEnumInteractionTypeWithAggregatesFilter<$PrismaModel> | $Enums.InteractionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInteractionTypeFilter<$PrismaModel>
+    _max?: NestedEnumInteractionTypeFilter<$PrismaModel>
   }
 
   export type CrisisMessageCreateWithoutSessionInput = {
@@ -55814,6 +69098,10 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutEmergencyContactsInput = {
@@ -55839,6 +69127,10 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutEmergencyContactsInput = {
@@ -55929,6 +69221,10 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEmergencyContactsInput = {
@@ -55954,6 +69250,10 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type EmergencyNotificationUpsertWithWhereUniqueWithoutEmergencyContactInput = {
@@ -56357,6 +69657,190 @@ export namespace Prisma {
     data: EmergencyContactCreateManyUserInput | EmergencyContactCreateManyUserInput[]
   }
 
+  export type JournalEntryCreateWithoutUserInput = {
+    id?: string
+    title?: string | null
+    promptId?: string | null
+    promptText?: string | null
+    entryType?: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood?: number | null
+    sentimentScore?: number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JournalEntryUncheckedCreateWithoutUserInput = {
+    id?: string
+    title?: string | null
+    promptId?: string | null
+    promptText?: string | null
+    entryType?: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood?: number | null
+    sentimentScore?: number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JournalEntryCreateOrConnectWithoutUserInput = {
+    where: JournalEntryWhereUniqueInput
+    create: XOR<JournalEntryCreateWithoutUserInput, JournalEntryUncheckedCreateWithoutUserInput>
+  }
+
+  export type JournalEntryCreateManyUserInputEnvelope = {
+    data: JournalEntryCreateManyUserInput | JournalEntryCreateManyUserInput[]
+  }
+
+  export type BreathingSessionCreateWithoutUserInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    exercise: BreathingExerciseCreateNestedOneWithoutSessionsInput
+  }
+
+  export type BreathingSessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    exerciseId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+  }
+
+  export type BreathingSessionCreateOrConnectWithoutUserInput = {
+    where: BreathingSessionWhereUniqueInput
+    create: XOR<BreathingSessionCreateWithoutUserInput, BreathingSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type BreathingSessionCreateManyUserInputEnvelope = {
+    data: BreathingSessionCreateManyUserInput | BreathingSessionCreateManyUserInput[]
+  }
+
+  export type GroundingSessionCreateWithoutUserInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+    technique: GroundingTechniqueCreateNestedOneWithoutSessionsInput
+  }
+
+  export type GroundingSessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    techniqueId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+  }
+
+  export type GroundingSessionCreateOrConnectWithoutUserInput = {
+    where: GroundingSessionWhereUniqueInput
+    create: XOR<GroundingSessionCreateWithoutUserInput, GroundingSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type GroundingSessionCreateManyUserInputEnvelope = {
+    data: GroundingSessionCreateManyUserInput | GroundingSessionCreateManyUserInput[]
+  }
+
+  export type SelfHelpInteractionCreateWithoutUserInput = {
+    id?: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+    resource: SelfHelpResourceCreateNestedOneWithoutInteractionsInput
+  }
+
+  export type SelfHelpInteractionUncheckedCreateWithoutUserInput = {
+    id?: string
+    resourceId: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type SelfHelpInteractionCreateOrConnectWithoutUserInput = {
+    where: SelfHelpInteractionWhereUniqueInput
+    create: XOR<SelfHelpInteractionCreateWithoutUserInput, SelfHelpInteractionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SelfHelpInteractionCreateManyUserInputEnvelope = {
+    data: SelfHelpInteractionCreateManyUserInput | SelfHelpInteractionCreateManyUserInput[]
+  }
+
   export type MoodEntryUpsertWithWhereUniqueWithoutUserInput = {
     where: MoodEntryWhereUniqueInput
     update: XOR<MoodEntryUpdateWithoutUserInput, MoodEntryUncheckedUpdateWithoutUserInput>
@@ -56590,6 +70074,160 @@ export namespace Prisma {
     lastContacted?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
   }
 
+  export type JournalEntryUpsertWithWhereUniqueWithoutUserInput = {
+    where: JournalEntryWhereUniqueInput
+    update: XOR<JournalEntryUpdateWithoutUserInput, JournalEntryUncheckedUpdateWithoutUserInput>
+    create: XOR<JournalEntryCreateWithoutUserInput, JournalEntryUncheckedCreateWithoutUserInput>
+  }
+
+  export type JournalEntryUpdateWithWhereUniqueWithoutUserInput = {
+    where: JournalEntryWhereUniqueInput
+    data: XOR<JournalEntryUpdateWithoutUserInput, JournalEntryUncheckedUpdateWithoutUserInput>
+  }
+
+  export type JournalEntryUpdateManyWithWhereWithoutUserInput = {
+    where: JournalEntryScalarWhereInput
+    data: XOR<JournalEntryUpdateManyMutationInput, JournalEntryUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type JournalEntryScalarWhereInput = {
+    AND?: JournalEntryScalarWhereInput | JournalEntryScalarWhereInput[]
+    OR?: JournalEntryScalarWhereInput[]
+    NOT?: JournalEntryScalarWhereInput | JournalEntryScalarWhereInput[]
+    id?: StringFilter<"JournalEntry"> | string
+    userId?: StringFilter<"JournalEntry"> | string
+    title?: StringNullableFilter<"JournalEntry"> | string | null
+    promptId?: StringNullableFilter<"JournalEntry"> | string | null
+    promptText?: StringNullableFilter<"JournalEntry"> | string | null
+    entryType?: EnumJournalTypeFilter<"JournalEntry"> | $Enums.JournalType
+    encryptedContent?: BytesFilter<"JournalEntry"> | Uint8Array
+    contentHash?: StringFilter<"JournalEntry"> | string
+    keyDerivationSalt?: BytesFilter<"JournalEntry"> | Uint8Array
+    mood?: IntNullableFilter<"JournalEntry"> | number | null
+    sentimentScore?: FloatNullableFilter<"JournalEntry"> | number | null
+    emotions?: JsonNullableFilter<"JournalEntry">
+    tags?: JsonNullableFilter<"JournalEntry">
+    isPrivate?: BoolFilter<"JournalEntry"> | boolean
+    shareWithTherapist?: BoolFilter<"JournalEntry"> | boolean
+    wordCount?: IntNullableFilter<"JournalEntry"> | number | null
+    createdAt?: DateTimeFilter<"JournalEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"JournalEntry"> | Date | string
+  }
+
+  export type BreathingSessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: BreathingSessionWhereUniqueInput
+    update: XOR<BreathingSessionUpdateWithoutUserInput, BreathingSessionUncheckedUpdateWithoutUserInput>
+    create: XOR<BreathingSessionCreateWithoutUserInput, BreathingSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type BreathingSessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: BreathingSessionWhereUniqueInput
+    data: XOR<BreathingSessionUpdateWithoutUserInput, BreathingSessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BreathingSessionUpdateManyWithWhereWithoutUserInput = {
+    where: BreathingSessionScalarWhereInput
+    data: XOR<BreathingSessionUpdateManyMutationInput, BreathingSessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type BreathingSessionScalarWhereInput = {
+    AND?: BreathingSessionScalarWhereInput | BreathingSessionScalarWhereInput[]
+    OR?: BreathingSessionScalarWhereInput[]
+    NOT?: BreathingSessionScalarWhereInput | BreathingSessionScalarWhereInput[]
+    id?: StringFilter<"BreathingSession"> | string
+    userId?: StringFilter<"BreathingSession"> | string
+    exerciseId?: StringFilter<"BreathingSession"> | string
+    startedAt?: DateTimeFilter<"BreathingSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"BreathingSession"> | Date | string | null
+    duration?: IntNullableFilter<"BreathingSession"> | number | null
+    cyclesCompleted?: IntFilter<"BreathingSession"> | number
+    moodBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    moodAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    anxietyBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    anxietyAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    averageBreathRate?: FloatNullableFilter<"BreathingSession"> | number | null
+    heartRateBefore?: IntNullableFilter<"BreathingSession"> | number | null
+    heartRateAfter?: IntNullableFilter<"BreathingSession"> | number | null
+    wasHelpful?: BoolNullableFilter<"BreathingSession"> | boolean | null
+    rating?: IntNullableFilter<"BreathingSession"> | number | null
+    notes?: StringNullableFilter<"BreathingSession"> | string | null
+  }
+
+  export type GroundingSessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: GroundingSessionWhereUniqueInput
+    update: XOR<GroundingSessionUpdateWithoutUserInput, GroundingSessionUncheckedUpdateWithoutUserInput>
+    create: XOR<GroundingSessionCreateWithoutUserInput, GroundingSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type GroundingSessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: GroundingSessionWhereUniqueInput
+    data: XOR<GroundingSessionUpdateWithoutUserInput, GroundingSessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type GroundingSessionUpdateManyWithWhereWithoutUserInput = {
+    where: GroundingSessionScalarWhereInput
+    data: XOR<GroundingSessionUpdateManyMutationInput, GroundingSessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type GroundingSessionScalarWhereInput = {
+    AND?: GroundingSessionScalarWhereInput | GroundingSessionScalarWhereInput[]
+    OR?: GroundingSessionScalarWhereInput[]
+    NOT?: GroundingSessionScalarWhereInput | GroundingSessionScalarWhereInput[]
+    id?: StringFilter<"GroundingSession"> | string
+    userId?: StringFilter<"GroundingSession"> | string
+    techniqueId?: StringFilter<"GroundingSession"> | string
+    startedAt?: DateTimeFilter<"GroundingSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"GroundingSession"> | Date | string | null
+    duration?: IntNullableFilter<"GroundingSession"> | number | null
+    triggerType?: StringNullableFilter<"GroundingSession"> | string | null
+    severityBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    severityAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    panicBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    panicAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    dissociationBefore?: IntNullableFilter<"GroundingSession"> | number | null
+    dissociationAfter?: IntNullableFilter<"GroundingSession"> | number | null
+    stepsCompleted?: JsonNullableFilter<"GroundingSession">
+    completionRate?: FloatNullableFilter<"GroundingSession"> | number | null
+    wasHelpful?: BoolNullableFilter<"GroundingSession"> | boolean | null
+    rating?: IntNullableFilter<"GroundingSession"> | number | null
+    notes?: StringNullableFilter<"GroundingSession"> | string | null
+    wouldUseAgain?: BoolNullableFilter<"GroundingSession"> | boolean | null
+  }
+
+  export type SelfHelpInteractionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SelfHelpInteractionWhereUniqueInput
+    update: XOR<SelfHelpInteractionUpdateWithoutUserInput, SelfHelpInteractionUncheckedUpdateWithoutUserInput>
+    create: XOR<SelfHelpInteractionCreateWithoutUserInput, SelfHelpInteractionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SelfHelpInteractionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SelfHelpInteractionWhereUniqueInput
+    data: XOR<SelfHelpInteractionUpdateWithoutUserInput, SelfHelpInteractionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SelfHelpInteractionUpdateManyWithWhereWithoutUserInput = {
+    where: SelfHelpInteractionScalarWhereInput
+    data: XOR<SelfHelpInteractionUpdateManyMutationInput, SelfHelpInteractionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SelfHelpInteractionScalarWhereInput = {
+    AND?: SelfHelpInteractionScalarWhereInput | SelfHelpInteractionScalarWhereInput[]
+    OR?: SelfHelpInteractionScalarWhereInput[]
+    NOT?: SelfHelpInteractionScalarWhereInput | SelfHelpInteractionScalarWhereInput[]
+    id?: StringFilter<"SelfHelpInteraction"> | string
+    userId?: StringFilter<"SelfHelpInteraction"> | string
+    resourceId?: StringFilter<"SelfHelpInteraction"> | string
+    interactionType?: EnumInteractionTypeFilter<"SelfHelpInteraction"> | $Enums.InteractionType
+    startedAt?: DateTimeFilter<"SelfHelpInteraction"> | Date | string
+    completedAt?: DateTimeNullableFilter<"SelfHelpInteraction"> | Date | string | null
+    duration?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    wasHelpful?: BoolNullableFilter<"SelfHelpInteraction"> | boolean | null
+    rating?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    notes?: StringNullableFilter<"SelfHelpInteraction"> | string | null
+    moodBefore?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+    moodAfter?: IntNullableFilter<"SelfHelpInteraction"> | number | null
+  }
+
   export type UserCreateWithoutMoodEntriesInput = {
     id?: string
     anonymousId?: string | null
@@ -56613,6 +70251,10 @@ export namespace Prisma {
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutMoodEntriesInput = {
@@ -56638,6 +70280,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutMoodEntriesInput = {
@@ -56679,6 +70325,10 @@ export namespace Prisma {
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMoodEntriesInput = {
@@ -56704,6 +70354,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSafetyPlansInput = {
@@ -56729,6 +70383,10 @@ export namespace Prisma {
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSafetyPlansInput = {
@@ -56754,6 +70412,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSafetyPlansInput = {
@@ -56824,6 +70486,10 @@ export namespace Prisma {
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSafetyPlansInput = {
@@ -56849,6 +70515,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type SafetyPlanVersionUpsertWithWhereUniqueWithoutSafetyPlanInput = {
@@ -56976,6 +70646,10 @@ export namespace Prisma {
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutUserProfileInput = {
@@ -57001,6 +70675,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutUserProfileInput = {
@@ -57042,6 +70720,10 @@ export namespace Prisma {
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserProfileInput = {
@@ -57067,6 +70749,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserAchievementCreateWithoutAchievementInput = {
@@ -57135,6 +70821,10 @@ export namespace Prisma {
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAchievementsInput = {
@@ -57160,6 +70850,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAchievementsInput = {
@@ -57234,6 +70928,10 @@ export namespace Prisma {
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAchievementsInput = {
@@ -57259,6 +70957,10 @@ export namespace Prisma {
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type AchievementUpsertWithoutUserAchievementsInput = {
@@ -57368,6 +71070,10 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutChallengesInput = {
@@ -57393,6 +71099,10 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutChallengesInput = {
@@ -57469,6 +71179,10 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutChallengesInput = {
@@ -57494,6 +71208,10 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ChallengeUpsertWithoutUserChallengesInput = {
@@ -57560,6 +71278,10 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutActivitiesInput = {
@@ -57585,6 +71307,10 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutActivitiesInput = {
@@ -57626,6 +71352,10 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivitiesInput = {
@@ -57651,6 +71381,1025 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutJournalEntriesInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeCreateNestedManyWithoutUserInput
+    activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutJournalEntriesInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryUncheckedCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanUncheckedCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
+    activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutJournalEntriesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutJournalEntriesInput, UserUncheckedCreateWithoutJournalEntriesInput>
+  }
+
+  export type UserUpsertWithoutJournalEntriesInput = {
+    update: XOR<UserUpdateWithoutJournalEntriesInput, UserUncheckedUpdateWithoutJournalEntriesInput>
+    create: XOR<UserCreateWithoutJournalEntriesInput, UserUncheckedCreateWithoutJournalEntriesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutJournalEntriesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutJournalEntriesInput, UserUncheckedUpdateWithoutJournalEntriesInput>
+  }
+
+  export type UserUpdateWithoutJournalEntriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutJournalEntriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUncheckedUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUncheckedUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type BreathingSessionCreateWithoutExerciseInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    user: UserCreateNestedOneWithoutBreathingSessionsInput
+  }
+
+  export type BreathingSessionUncheckedCreateWithoutExerciseInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+  }
+
+  export type BreathingSessionCreateOrConnectWithoutExerciseInput = {
+    where: BreathingSessionWhereUniqueInput
+    create: XOR<BreathingSessionCreateWithoutExerciseInput, BreathingSessionUncheckedCreateWithoutExerciseInput>
+  }
+
+  export type BreathingSessionCreateManyExerciseInputEnvelope = {
+    data: BreathingSessionCreateManyExerciseInput | BreathingSessionCreateManyExerciseInput[]
+  }
+
+  export type BreathingSessionUpsertWithWhereUniqueWithoutExerciseInput = {
+    where: BreathingSessionWhereUniqueInput
+    update: XOR<BreathingSessionUpdateWithoutExerciseInput, BreathingSessionUncheckedUpdateWithoutExerciseInput>
+    create: XOR<BreathingSessionCreateWithoutExerciseInput, BreathingSessionUncheckedCreateWithoutExerciseInput>
+  }
+
+  export type BreathingSessionUpdateWithWhereUniqueWithoutExerciseInput = {
+    where: BreathingSessionWhereUniqueInput
+    data: XOR<BreathingSessionUpdateWithoutExerciseInput, BreathingSessionUncheckedUpdateWithoutExerciseInput>
+  }
+
+  export type BreathingSessionUpdateManyWithWhereWithoutExerciseInput = {
+    where: BreathingSessionScalarWhereInput
+    data: XOR<BreathingSessionUpdateManyMutationInput, BreathingSessionUncheckedUpdateManyWithoutExerciseInput>
+  }
+
+  export type UserCreateWithoutBreathingSessionsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeCreateNestedManyWithoutUserInput
+    activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutBreathingSessionsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryUncheckedCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanUncheckedCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
+    activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutBreathingSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBreathingSessionsInput, UserUncheckedCreateWithoutBreathingSessionsInput>
+  }
+
+  export type BreathingExerciseCreateWithoutSessionsInput = {
+    id?: string
+    name: string
+    description: string
+    technique: $Enums.BreathingTechnique
+    difficulty?: $Enums.ExerciseDifficulty
+    inhaleSeconds: number
+    holdSeconds?: number | null
+    exhaleSeconds: number
+    pauseSeconds?: number | null
+    cyclesRecommended?: number
+    instructions: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: string | null
+    audioGuideUrl?: string | null
+    benefits: JsonNullValueInput | InputJsonValue
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type BreathingExerciseUncheckedCreateWithoutSessionsInput = {
+    id?: string
+    name: string
+    description: string
+    technique: $Enums.BreathingTechnique
+    difficulty?: $Enums.ExerciseDifficulty
+    inhaleSeconds: number
+    holdSeconds?: number | null
+    exhaleSeconds: number
+    pauseSeconds?: number | null
+    cyclesRecommended?: number
+    instructions: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: string | null
+    audioGuideUrl?: string | null
+    benefits: JsonNullValueInput | InputJsonValue
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type BreathingExerciseCreateOrConnectWithoutSessionsInput = {
+    where: BreathingExerciseWhereUniqueInput
+    create: XOR<BreathingExerciseCreateWithoutSessionsInput, BreathingExerciseUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type UserUpsertWithoutBreathingSessionsInput = {
+    update: XOR<UserUpdateWithoutBreathingSessionsInput, UserUncheckedUpdateWithoutBreathingSessionsInput>
+    create: XOR<UserCreateWithoutBreathingSessionsInput, UserUncheckedCreateWithoutBreathingSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBreathingSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBreathingSessionsInput, UserUncheckedUpdateWithoutBreathingSessionsInput>
+  }
+
+  export type UserUpdateWithoutBreathingSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBreathingSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUncheckedUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUncheckedUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type BreathingExerciseUpsertWithoutSessionsInput = {
+    update: XOR<BreathingExerciseUpdateWithoutSessionsInput, BreathingExerciseUncheckedUpdateWithoutSessionsInput>
+    create: XOR<BreathingExerciseCreateWithoutSessionsInput, BreathingExerciseUncheckedCreateWithoutSessionsInput>
+    where?: BreathingExerciseWhereInput
+  }
+
+  export type BreathingExerciseUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: BreathingExerciseWhereInput
+    data: XOR<BreathingExerciseUpdateWithoutSessionsInput, BreathingExerciseUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type BreathingExerciseUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    technique?: EnumBreathingTechniqueFieldUpdateOperationsInput | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFieldUpdateOperationsInput | number
+    holdSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    exhaleSeconds?: IntFieldUpdateOperationsInput | number
+    pauseSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesRecommended?: IntFieldUpdateOperationsInput | number
+    instructions?: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: JsonNullValueInput | InputJsonValue
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreathingExerciseUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    technique?: EnumBreathingTechniqueFieldUpdateOperationsInput | $Enums.BreathingTechnique
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    inhaleSeconds?: IntFieldUpdateOperationsInput | number
+    holdSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    exhaleSeconds?: IntFieldUpdateOperationsInput | number
+    pauseSeconds?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesRecommended?: IntFieldUpdateOperationsInput | number
+    instructions?: JsonNullValueInput | InputJsonValue
+    visualGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: JsonNullValueInput | InputJsonValue
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GroundingSessionCreateWithoutTechniqueInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+    user: UserCreateNestedOneWithoutGroundingSessionsInput
+  }
+
+  export type GroundingSessionUncheckedCreateWithoutTechniqueInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+  }
+
+  export type GroundingSessionCreateOrConnectWithoutTechniqueInput = {
+    where: GroundingSessionWhereUniqueInput
+    create: XOR<GroundingSessionCreateWithoutTechniqueInput, GroundingSessionUncheckedCreateWithoutTechniqueInput>
+  }
+
+  export type GroundingSessionCreateManyTechniqueInputEnvelope = {
+    data: GroundingSessionCreateManyTechniqueInput | GroundingSessionCreateManyTechniqueInput[]
+  }
+
+  export type GroundingSessionUpsertWithWhereUniqueWithoutTechniqueInput = {
+    where: GroundingSessionWhereUniqueInput
+    update: XOR<GroundingSessionUpdateWithoutTechniqueInput, GroundingSessionUncheckedUpdateWithoutTechniqueInput>
+    create: XOR<GroundingSessionCreateWithoutTechniqueInput, GroundingSessionUncheckedCreateWithoutTechniqueInput>
+  }
+
+  export type GroundingSessionUpdateWithWhereUniqueWithoutTechniqueInput = {
+    where: GroundingSessionWhereUniqueInput
+    data: XOR<GroundingSessionUpdateWithoutTechniqueInput, GroundingSessionUncheckedUpdateWithoutTechniqueInput>
+  }
+
+  export type GroundingSessionUpdateManyWithWhereWithoutTechniqueInput = {
+    where: GroundingSessionScalarWhereInput
+    data: XOR<GroundingSessionUpdateManyMutationInput, GroundingSessionUncheckedUpdateManyWithoutTechniqueInput>
+  }
+
+  export type UserCreateWithoutGroundingSessionsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeCreateNestedManyWithoutUserInput
+    activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutGroundingSessionsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryUncheckedCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanUncheckedCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
+    activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutGroundingSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutGroundingSessionsInput, UserUncheckedCreateWithoutGroundingSessionsInput>
+  }
+
+  export type GroundingTechniqueCreateWithoutSessionsInput = {
+    id?: string
+    name: string
+    description: string
+    type: $Enums.GroundingType
+    category: $Enums.GroundingCategory
+    instructions: JsonNullValueInput | InputJsonValue
+    duration: number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: string | null
+    videoGuideUrl?: string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: $Enums.EvidenceLevel
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type GroundingTechniqueUncheckedCreateWithoutSessionsInput = {
+    id?: string
+    name: string
+    description: string
+    type: $Enums.GroundingType
+    category: $Enums.GroundingCategory
+    instructions: JsonNullValueInput | InputJsonValue
+    duration: number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: string | null
+    videoGuideUrl?: string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: $Enums.EvidenceLevel
+    bestFor: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type GroundingTechniqueCreateOrConnectWithoutSessionsInput = {
+    where: GroundingTechniqueWhereUniqueInput
+    create: XOR<GroundingTechniqueCreateWithoutSessionsInput, GroundingTechniqueUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type UserUpsertWithoutGroundingSessionsInput = {
+    update: XOR<UserUpdateWithoutGroundingSessionsInput, UserUncheckedUpdateWithoutGroundingSessionsInput>
+    create: XOR<UserCreateWithoutGroundingSessionsInput, UserUncheckedCreateWithoutGroundingSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutGroundingSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutGroundingSessionsInput, UserUncheckedUpdateWithoutGroundingSessionsInput>
+  }
+
+  export type UserUpdateWithoutGroundingSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutGroundingSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUncheckedUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUncheckedUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    selfHelpInteractions?: SelfHelpInteractionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type GroundingTechniqueUpsertWithoutSessionsInput = {
+    update: XOR<GroundingTechniqueUpdateWithoutSessionsInput, GroundingTechniqueUncheckedUpdateWithoutSessionsInput>
+    create: XOR<GroundingTechniqueCreateWithoutSessionsInput, GroundingTechniqueUncheckedCreateWithoutSessionsInput>
+    where?: GroundingTechniqueWhereInput
+  }
+
+  export type GroundingTechniqueUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: GroundingTechniqueWhereInput
+    data: XOR<GroundingTechniqueUpdateWithoutSessionsInput, GroundingTechniqueUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type GroundingTechniqueUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    type?: EnumGroundingTypeFieldUpdateOperationsInput | $Enums.GroundingType
+    category?: EnumGroundingCategoryFieldUpdateOperationsInput | $Enums.GroundingCategory
+    instructions?: JsonNullValueInput | InputJsonValue
+    duration?: IntFieldUpdateOperationsInput | number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GroundingTechniqueUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    type?: EnumGroundingTypeFieldUpdateOperationsInput | $Enums.GroundingType
+    category?: EnumGroundingCategoryFieldUpdateOperationsInput | $Enums.GroundingCategory
+    instructions?: JsonNullValueInput | InputJsonValue
+    duration?: IntFieldUpdateOperationsInput | number
+    materials?: NullableJsonNullValueInput | InputJsonValue
+    audioGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoGuideUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    imageGuides?: NullableJsonNullValueInput | InputJsonValue
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    bestFor?: JsonNullValueInput | InputJsonValue
+    contraindications?: NullableJsonNullValueInput | InputJsonValue
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SelfHelpInteractionCreateWithoutResourceInput = {
+    id?: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+    user: UserCreateNestedOneWithoutSelfHelpInteractionsInput
+  }
+
+  export type SelfHelpInteractionUncheckedCreateWithoutResourceInput = {
+    id?: string
+    userId: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type SelfHelpInteractionCreateOrConnectWithoutResourceInput = {
+    where: SelfHelpInteractionWhereUniqueInput
+    create: XOR<SelfHelpInteractionCreateWithoutResourceInput, SelfHelpInteractionUncheckedCreateWithoutResourceInput>
+  }
+
+  export type SelfHelpInteractionCreateManyResourceInputEnvelope = {
+    data: SelfHelpInteractionCreateManyResourceInput | SelfHelpInteractionCreateManyResourceInput[]
+  }
+
+  export type SelfHelpInteractionUpsertWithWhereUniqueWithoutResourceInput = {
+    where: SelfHelpInteractionWhereUniqueInput
+    update: XOR<SelfHelpInteractionUpdateWithoutResourceInput, SelfHelpInteractionUncheckedUpdateWithoutResourceInput>
+    create: XOR<SelfHelpInteractionCreateWithoutResourceInput, SelfHelpInteractionUncheckedCreateWithoutResourceInput>
+  }
+
+  export type SelfHelpInteractionUpdateWithWhereUniqueWithoutResourceInput = {
+    where: SelfHelpInteractionWhereUniqueInput
+    data: XOR<SelfHelpInteractionUpdateWithoutResourceInput, SelfHelpInteractionUncheckedUpdateWithoutResourceInput>
+  }
+
+  export type SelfHelpInteractionUpdateManyWithWhereWithoutResourceInput = {
+    where: SelfHelpInteractionScalarWhereInput
+    data: XOR<SelfHelpInteractionUpdateManyMutationInput, SelfHelpInteractionUncheckedUpdateManyWithoutResourceInput>
+  }
+
+  export type UserCreateWithoutSelfHelpInteractionsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeCreateNestedManyWithoutUserInput
+    activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSelfHelpInteractionsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryUncheckedCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanUncheckedCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
+    activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
+    journalEntries?: JournalEntryUncheckedCreateNestedManyWithoutUserInput
+    breathingSessions?: BreathingSessionUncheckedCreateNestedManyWithoutUserInput
+    groundingSessions?: GroundingSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSelfHelpInteractionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSelfHelpInteractionsInput, UserUncheckedCreateWithoutSelfHelpInteractionsInput>
+  }
+
+  export type SelfHelpResourceCreateWithoutInteractionsInput = {
+    id?: string
+    title: string
+    description: string
+    category: $Enums.SelfHelpCategory
+    type: $Enums.ResourceType
+    content?: string | null
+    url?: string | null
+    mediaUrl?: string | null
+    thumbnailUrl?: string | null
+    duration?: number | null
+    difficulty?: $Enums.ExerciseDifficulty
+    evidenceLevel?: $Enums.EvidenceLevel
+    tags: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: number
+    helpfulCount?: number
+    averageRating?: number | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SelfHelpResourceUncheckedCreateWithoutInteractionsInput = {
+    id?: string
+    title: string
+    description: string
+    category: $Enums.SelfHelpCategory
+    type: $Enums.ResourceType
+    content?: string | null
+    url?: string | null
+    mediaUrl?: string | null
+    thumbnailUrl?: string | null
+    duration?: number | null
+    difficulty?: $Enums.ExerciseDifficulty
+    evidenceLevel?: $Enums.EvidenceLevel
+    tags: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: number
+    helpfulCount?: number
+    averageRating?: number | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SelfHelpResourceCreateOrConnectWithoutInteractionsInput = {
+    where: SelfHelpResourceWhereUniqueInput
+    create: XOR<SelfHelpResourceCreateWithoutInteractionsInput, SelfHelpResourceUncheckedCreateWithoutInteractionsInput>
+  }
+
+  export type UserUpsertWithoutSelfHelpInteractionsInput = {
+    update: XOR<UserUpdateWithoutSelfHelpInteractionsInput, UserUncheckedUpdateWithoutSelfHelpInteractionsInput>
+    create: XOR<UserCreateWithoutSelfHelpInteractionsInput, UserUncheckedCreateWithoutSelfHelpInteractionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSelfHelpInteractionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSelfHelpInteractionsInput, UserUncheckedUpdateWithoutSelfHelpInteractionsInput>
+  }
+
+  export type UserUpdateWithoutSelfHelpInteractionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSelfHelpInteractionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUncheckedUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUncheckedUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
+    journalEntries?: JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+    breathingSessions?: BreathingSessionUncheckedUpdateManyWithoutUserNestedInput
+    groundingSessions?: GroundingSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type SelfHelpResourceUpsertWithoutInteractionsInput = {
+    update: XOR<SelfHelpResourceUpdateWithoutInteractionsInput, SelfHelpResourceUncheckedUpdateWithoutInteractionsInput>
+    create: XOR<SelfHelpResourceCreateWithoutInteractionsInput, SelfHelpResourceUncheckedCreateWithoutInteractionsInput>
+    where?: SelfHelpResourceWhereInput
+  }
+
+  export type SelfHelpResourceUpdateToOneWithWhereWithoutInteractionsInput = {
+    where?: SelfHelpResourceWhereInput
+    data: XOR<SelfHelpResourceUpdateWithoutInteractionsInput, SelfHelpResourceUncheckedUpdateWithoutInteractionsInput>
+  }
+
+  export type SelfHelpResourceUpdateWithoutInteractionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: EnumSelfHelpCategoryFieldUpdateOperationsInput | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFieldUpdateOperationsInput | $Enums.ResourceType
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    tags?: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: IntFieldUpdateOperationsInput | number
+    helpfulCount?: IntFieldUpdateOperationsInput | number
+    averageRating?: NullableFloatFieldUpdateOperationsInput | number | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SelfHelpResourceUncheckedUpdateWithoutInteractionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: EnumSelfHelpCategoryFieldUpdateOperationsInput | $Enums.SelfHelpCategory
+    type?: EnumResourceTypeFieldUpdateOperationsInput | $Enums.ResourceType
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    difficulty?: EnumExerciseDifficultyFieldUpdateOperationsInput | $Enums.ExerciseDifficulty
+    evidenceLevel?: EnumEvidenceLevelFieldUpdateOperationsInput | $Enums.EvidenceLevel
+    tags?: JsonNullValueInput | InputJsonValue
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    symptoms?: NullableJsonNullValueInput | InputJsonValue
+    viewCount?: IntFieldUpdateOperationsInput | number
+    helpfulCount?: IntFieldUpdateOperationsInput | number
+    averageRating?: NullableFloatFieldUpdateOperationsInput | number | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CrisisMessageCreateManySessionInput = {
@@ -58273,6 +73022,80 @@ export namespace Prisma {
     lastContacted?: Date | string | null
   }
 
+  export type JournalEntryCreateManyUserInput = {
+    id?: string
+    title?: string | null
+    promptId?: string | null
+    promptText?: string | null
+    entryType?: $Enums.JournalType
+    encryptedContent: Uint8Array
+    contentHash: string
+    keyDerivationSalt: Uint8Array
+    mood?: number | null
+    sentimentScore?: number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: boolean
+    shareWithTherapist?: boolean
+    wordCount?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BreathingSessionCreateManyUserInput = {
+    id?: string
+    exerciseId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+  }
+
+  export type GroundingSessionCreateManyUserInput = {
+    id?: string
+    techniqueId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+  }
+
+  export type SelfHelpInteractionCreateManyUserInput = {
+    id?: string
+    resourceId: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
   export type MoodEntryUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     mood?: IntFieldUpdateOperationsInput | number
@@ -58517,6 +73340,228 @@ export namespace Prisma {
     lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type JournalEntryUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JournalEntryUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JournalEntryUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    promptId?: NullableStringFieldUpdateOperationsInput | string | null
+    promptText?: NullableStringFieldUpdateOperationsInput | string | null
+    entryType?: EnumJournalTypeFieldUpdateOperationsInput | $Enums.JournalType
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    contentHash?: StringFieldUpdateOperationsInput | string
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    mood?: NullableIntFieldUpdateOperationsInput | number | null
+    sentimentScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotions?: NullableJsonNullValueInput | InputJsonValue
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    isPrivate?: BoolFieldUpdateOperationsInput | boolean
+    shareWithTherapist?: BoolFieldUpdateOperationsInput | boolean
+    wordCount?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BreathingSessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    exercise?: BreathingExerciseUpdateOneRequiredWithoutSessionsNestedInput
+  }
+
+  export type BreathingSessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    exerciseId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BreathingSessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    exerciseId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type GroundingSessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    technique?: GroundingTechniqueUpdateOneRequiredWithoutSessionsNestedInput
+  }
+
+  export type GroundingSessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    techniqueId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type GroundingSessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    techniqueId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type SelfHelpInteractionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    resource?: SelfHelpResourceUpdateOneRequiredWithoutInteractionsNestedInput
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type SafetyPlanVersionCreateManySafetyPlanInput = {
     id?: string
     version: number
@@ -58631,6 +73676,222 @@ export namespace Prisma {
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     data?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type BreathingSessionCreateManyExerciseInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    cyclesCompleted?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    averageBreathRate?: number | null
+    heartRateBefore?: number | null
+    heartRateAfter?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+  }
+
+  export type BreathingSessionUpdateWithoutExerciseInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutBreathingSessionsNestedInput
+  }
+
+  export type BreathingSessionUncheckedUpdateWithoutExerciseInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BreathingSessionUncheckedUpdateManyWithoutExerciseInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    cyclesCompleted?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    averageBreathRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    heartRateBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    heartRateAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type GroundingSessionCreateManyTechniqueInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    triggerType?: string | null
+    severityBefore?: number | null
+    severityAfter?: number | null
+    panicBefore?: number | null
+    panicAfter?: number | null
+    dissociationBefore?: number | null
+    dissociationAfter?: number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    wouldUseAgain?: boolean | null
+  }
+
+  export type GroundingSessionUpdateWithoutTechniqueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    user?: UserUpdateOneRequiredWithoutGroundingSessionsNestedInput
+  }
+
+  export type GroundingSessionUncheckedUpdateWithoutTechniqueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type GroundingSessionUncheckedUpdateManyWithoutTechniqueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    triggerType?: NullableStringFieldUpdateOperationsInput | string | null
+    severityBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    severityAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    panicBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    panicAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    dissociationAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    stepsCompleted?: NullableJsonNullValueInput | InputJsonValue
+    completionRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    wouldUseAgain?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type SelfHelpInteractionCreateManyResourceInput = {
+    id?: string
+    userId: string
+    interactionType: $Enums.InteractionType
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    duration?: number | null
+    wasHelpful?: boolean | null
+    rating?: number | null
+    notes?: string | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type SelfHelpInteractionUpdateWithoutResourceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    user?: UserUpdateOneRequiredWithoutSelfHelpInteractionsNestedInput
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateWithoutResourceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SelfHelpInteractionUncheckedUpdateManyWithoutResourceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    interactionType?: EnumInteractionTypeFieldUpdateOperationsInput | $Enums.InteractionType
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

@@ -20,6 +20,11 @@
     "test:phase6": "jest tests/phase-6-security-performance.test.ts --verbose",
     "test:security": "jest tests/phase-6-security-performance.test.ts --testNamePattern='Security' --verbose",
     "test:performance": "jest tests/phase-6-security-performance.test.ts --testNamePattern='Performance' --verbose",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:phase10": "node scripts/run-phase10-tests.js",
+    "test:phase10:report": "node scripts/run-phase10-tests.js && echo 'Phase 10 Report generated in test-results/'",
     "perf:test": "lighthouse-ci autorun"
   },
   "dependencies": {
@@ -55,6 +60,7 @@
   "devDependencies": {
     "@axe-core/react": "^4.10.2",
     "@lhci/cli": "^0.13.0",
+    "@playwright/test": "^1.41.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
@@ -76,6 +82,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "loadtest": "^8.0.9",
+    "playwright": "^1.41.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "socket.io-client": "^4.8.1",
