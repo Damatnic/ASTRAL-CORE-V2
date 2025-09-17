@@ -62,7 +62,7 @@ export async function PATCH(
 
     // Simulate different response based on alert severity
     let followUpRequired = false
-    let urgentActions = []
+    let urgentActions: string[] = []
 
     // In a real system, these would be determined by alert type and severity
     if (alertId.includes('critical')) {
