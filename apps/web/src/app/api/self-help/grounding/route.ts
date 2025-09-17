@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient, ActivityType, GroundingType, GroundingCategory } from '@astralcore/database'
+import { PrismaClient, ActivityType, GroundingType, GroundingCategory, EvidenceLevel } from '@astralcore/database'
 
 const prisma = new PrismaClient()
 
@@ -260,7 +260,7 @@ export async function PUT(request: NextRequest) {
           { step: 5, instruction: 'Notice 1 thing you can taste' }
         ],
         duration: 5,
-        evidenceLevel: 'HIGH',
+        evidenceLevel: EvidenceLevel.HIGH,
         bestFor: ['Panic attacks', 'Dissociation', 'Overwhelming anxiety'],
         contraindications: []
       },
@@ -276,7 +276,7 @@ export async function PUT(request: NextRequest) {
           { step: 4, instruction: 'Tense and relax muscle groups progressively', duration: 180 }
         ],
         duration: 10,
-        evidenceLevel: 'HIGH',
+        evidenceLevel: EvidenceLevel.HIGH,
         bestFor: ['Crisis situations', 'Self-harm urges', 'Intense emotional distress'],
         contraindications: ['Heart conditions', 'Eating disorders (cold water)']
       },
@@ -293,7 +293,7 @@ export async function PUT(request: NextRequest) {
           { step: 5, instruction: 'Notice tension in jaw, eyes, forehead' }
         ],
         duration: 15,
-        evidenceLevel: 'HIGH',
+        evidenceLevel: EvidenceLevel.HIGH,
         bestFor: ['General anxiety', 'Stress relief', 'Mindfulness practice'],
         contraindications: []
       },
@@ -310,7 +310,7 @@ export async function PUT(request: NextRequest) {
           { step: 5, instruction: 'Remember movies you\'ve enjoyed' }
         ],
         duration: 8,
-        evidenceLevel: 'MODERATE',
+        evidenceLevel: EvidenceLevel.MODERATE,
         bestFor: ['Racing thoughts', 'Overwhelm', 'Rumination'],
         contraindications: []
       },
@@ -327,7 +327,7 @@ export async function PUT(request: NextRequest) {
           { step: 5, instruction: 'Snap a rubber band on your wrist gently' }
         ],
         duration: 5,
-        evidenceLevel: 'MODERATE',
+        evidenceLevel: EvidenceLevel.MODERATE,
         bestFor: ['Dissociation', 'Depersonalization', 'Feeling disconnected'],
         contraindications: []
       },
@@ -343,7 +343,7 @@ export async function PUT(request: NextRequest) {
           { step: 4, instruction: 'Repeat while saying "I am safe in this moment"' }
         ],
         duration: 6,
-        evidenceLevel: 'HIGH',
+        evidenceLevel: EvidenceLevel.HIGH,
         bestFor: ['Flashbacks', 'Trauma responses', 'Building safety'],
         contraindications: []
       }
