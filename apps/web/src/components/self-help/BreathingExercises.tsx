@@ -38,7 +38,8 @@ const BREATHING_EXERCISES = {
       'Hold your breath for 7 seconds',
       'Exhale through your mouth for 8 seconds',
       'Repeat for 4 cycles'
-    ]
+    ],
+    contraindications: []
   },
   boxBreathing: {
     name: 'Box Breathing',
@@ -57,7 +58,8 @@ const BREATHING_EXERCISES = {
       'Exhale for 4 seconds',
       'Hold empty for 4 seconds',
       'Visualize drawing a box with each phase'
-    ]
+    ],
+    contraindications: []
   },
   coherent: {
     name: 'Coherent Breathing',
@@ -74,7 +76,8 @@ const BREATHING_EXERCISES = {
       'Breathe out slowly for 5 seconds',
       'Maintain a smooth, continuous flow',
       'Focus on your heart center'
-    ]
+    ],
+    contraindications: []
   },
   bellyBreathing: {
     name: 'Belly Breathing',
@@ -92,7 +95,8 @@ const BREATHING_EXERCISES = {
       'Hold briefly',
       'Exhale slowly, letting your belly fall',
       'Chest should remain relatively still'
-    ]
+    ],
+    contraindications: []
   },
   alternateNostril: {
     name: 'Alternate Nostril',
@@ -111,7 +115,8 @@ const BREATHING_EXERCISES = {
       'Release right nostril and exhale',
       'Inhale through right nostril',
       'Switch and continue alternating'
-    ]
+    ],
+    contraindications: []
   },
   fireBreath: {
     name: 'Fire Breath',
