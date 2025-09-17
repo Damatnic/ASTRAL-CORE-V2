@@ -40,7 +40,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       ]
     })
 
-    let userSessions = []
+    let userSessions: any[] = []
     if (includeSessions) {
       // Get user's recent sessions
       userSessions = await prisma.groundingSession.findMany({

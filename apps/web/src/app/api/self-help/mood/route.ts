@@ -236,8 +236,8 @@ async function analyzeMoodPatterns(entries: any[]) {
   const volatility = Math.sqrt(variance)
 
   let type = 'stable'
-  let insights = []
-  let recommendations = []
+  let insights: any[] = []
+  let recommendations: any[] = []
 
   if (volatility > 2.5) {
     type = 'volatile'
