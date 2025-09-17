@@ -11,7 +11,9 @@ export declare class CrisisInterventionEngine {
     private readonly assessment;
     private readonly escalation;
     private readonly matcher;
+    private readonly optimizedMatcher;
     private readonly websocket;
+    private readonly emergencyOverride;
     private readonly responseTimesMs;
     private constructor();
     static getInstance(): CrisisInterventionEngine;
@@ -38,14 +40,23 @@ export declare class CrisisInterventionEngine {
      * Get real-time crisis statistics
      */
     getCrisisStats(): Promise<{
-        activeSessions: any;
-        totalToday: any;
-        averageResponseTimeMs: any;
+        activeSessions: number;
+        totalToday: number;
+        averageResponseTimeMs: number;
         targetMet: boolean;
         volunteersOnline: number;
     }>;
     private assignVolunteerAsync;
+    /**
+     * Extract relevant specializations from crisis keywords
+     */
+    private extractSpecializationsFromKeywords;
     private triggerEmergencyProtocolAsync;
+    /**
+     * Trigger emergency override protocol for immediate intervention
+     * Used when situation requires bypassing normal procedures
+     */
+    private triggerEmergencyOverrideAsync;
     private getImmediateResources;
     private getEmergencyResources;
     private trackResponseTime;

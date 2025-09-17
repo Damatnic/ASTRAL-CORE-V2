@@ -150,7 +150,7 @@ export class ZeroKnowledgeEncryption {
         catch (error) {
             console.error('🔴 DECRYPTION FAILED:', error);
             // Check if this is expected (keys destroyed for security)
-            if (error.message.includes('ZERO-KNOWLEDGE ACHIEVED')) {
+            if (error instanceof Error && error.message.includes('ZERO-KNOWLEDGE ACHIEVED')) {
                 throw error;
             }
             throw new Error('SECURITY ERROR: Failed to decrypt crisis message');

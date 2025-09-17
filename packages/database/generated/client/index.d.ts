@@ -104,6 +104,16 @@ export type CrisisResource = $Result.DefaultSelection<Prisma.$CrisisResourcePayl
  */
 export type PublicMetrics = $Result.DefaultSelection<Prisma.$PublicMetricsPayload>
 /**
+ * Model EmergencyContact
+ * 
+ */
+export type EmergencyContact = $Result.DefaultSelection<Prisma.$EmergencyContactPayload>
+/**
+ * Model EmergencyNotification
+ * 
+ */
+export type EmergencyNotification = $Result.DefaultSelection<Prisma.$EmergencyNotificationPayload>
+/**
  * Model WebSocketConnection
  * 
  */
@@ -565,6 +575,35 @@ export const ActivityType: {
 
 export type ActivityType = (typeof ActivityType)[keyof typeof ActivityType]
 
+
+export const EmergencyNotificationType: {
+  CRISIS_ESCALATION: 'CRISIS_ESCALATION',
+  SAFETY_PLAN_ACTIVATION: 'SAFETY_PLAN_ACTIVATION',
+  EMERGENCY_ALERT: 'EMERGENCY_ALERT',
+  WELLNESS_CHECK: 'WELLNESS_CHECK',
+  MEDICAL_EMERGENCY: 'MEDICAL_EMERGENCY',
+  SELF_HARM_DETECTED: 'SELF_HARM_DETECTED',
+  SUICIDE_RISK: 'SUICIDE_RISK',
+  PANIC_ATTACK: 'PANIC_ATTACK',
+  CUSTOM_ALERT: 'CUSTOM_ALERT'
+};
+
+export type EmergencyNotificationType = (typeof EmergencyNotificationType)[keyof typeof EmergencyNotificationType]
+
+
+export const NotificationStatus: {
+  PENDING: 'PENDING',
+  SENT: 'SENT',
+  DELIVERED: 'DELIVERED',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  FAILED: 'FAILED',
+  RETRYING: 'RETRYING',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+};
+
+export type NotificationStatus = (typeof NotificationStatus)[keyof typeof NotificationStatus]
+
 }
 
 export type CrisisStatus = $Enums.CrisisStatus
@@ -706,6 +745,14 @@ export const ChallengeDifficulty: typeof $Enums.ChallengeDifficulty
 export type ActivityType = $Enums.ActivityType
 
 export const ActivityType: typeof $Enums.ActivityType
+
+export type EmergencyNotificationType = $Enums.EmergencyNotificationType
+
+export const EmergencyNotificationType: typeof $Enums.EmergencyNotificationType
+
+export type NotificationStatus = $Enums.NotificationStatus
+
+export const NotificationStatus: typeof $Enums.NotificationStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -1004,6 +1051,26 @@ export class PrismaClient<
     * ```
     */
   get publicMetrics(): Prisma.PublicMetricsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.emergencyContact`: Exposes CRUD operations for the **EmergencyContact** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmergencyContacts
+    * const emergencyContacts = await prisma.emergencyContact.findMany()
+    * ```
+    */
+  get emergencyContact(): Prisma.EmergencyContactDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.emergencyNotification`: Exposes CRUD operations for the **EmergencyNotification** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmergencyNotifications
+    * const emergencyNotifications = await prisma.emergencyNotification.findMany()
+    * ```
+    */
+  get emergencyNotification(): Prisma.EmergencyNotificationDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.webSocketConnection`: Exposes CRUD operations for the **WebSocketConnection** model.
@@ -1572,6 +1639,8 @@ export namespace Prisma {
     SystemHealth: 'SystemHealth',
     CrisisResource: 'CrisisResource',
     PublicMetrics: 'PublicMetrics',
+    EmergencyContact: 'EmergencyContact',
+    EmergencyNotification: 'EmergencyNotification',
     WebSocketConnection: 'WebSocketConnection',
     User: 'User',
     MoodEntry: 'MoodEntry',
@@ -1601,7 +1670,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "crisisSession" | "crisisMessage" | "crisisEscalation" | "tetherLink" | "tetherPulse" | "tetherEmergency" | "volunteer" | "volunteerTraining" | "volunteerSession" | "volunteerFeedback" | "crisisResourceUsage" | "safetyReport" | "auditLog" | "analyticsEvent" | "performanceMetric" | "systemHealth" | "crisisResource" | "publicMetrics" | "webSocketConnection" | "user" | "moodEntry" | "safetyPlan" | "safetyPlanVersion" | "userProfile" | "achievement" | "userAchievement" | "challenge" | "userChallenge" | "userActivity"
+      modelProps: "crisisSession" | "crisisMessage" | "crisisEscalation" | "tetherLink" | "tetherPulse" | "tetherEmergency" | "volunteer" | "volunteerTraining" | "volunteerSession" | "volunteerFeedback" | "crisisResourceUsage" | "safetyReport" | "auditLog" | "analyticsEvent" | "performanceMetric" | "systemHealth" | "crisisResource" | "publicMetrics" | "emergencyContact" | "emergencyNotification" | "webSocketConnection" | "user" | "moodEntry" | "safetyPlan" | "safetyPlanVersion" | "userProfile" | "achievement" | "userAchievement" | "challenge" | "userChallenge" | "userActivity"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2937,6 +3006,154 @@ export namespace Prisma {
           }
         }
       }
+      EmergencyContact: {
+        payload: Prisma.$EmergencyContactPayload<ExtArgs>
+        fields: Prisma.EmergencyContactFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmergencyContactFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmergencyContactFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>
+          }
+          findFirst: {
+            args: Prisma.EmergencyContactFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmergencyContactFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>
+          }
+          findMany: {
+            args: Prisma.EmergencyContactFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>[]
+          }
+          create: {
+            args: Prisma.EmergencyContactCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>
+          }
+          createMany: {
+            args: Prisma.EmergencyContactCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmergencyContactCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>[]
+          }
+          delete: {
+            args: Prisma.EmergencyContactDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>
+          }
+          update: {
+            args: Prisma.EmergencyContactUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmergencyContactDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmergencyContactUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmergencyContactUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmergencyContactUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyContactPayload>
+          }
+          aggregate: {
+            args: Prisma.EmergencyContactAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmergencyContact>
+          }
+          groupBy: {
+            args: Prisma.EmergencyContactGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmergencyContactGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmergencyContactCountArgs<ExtArgs>
+            result: $Utils.Optional<EmergencyContactCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmergencyNotification: {
+        payload: Prisma.$EmergencyNotificationPayload<ExtArgs>
+        fields: Prisma.EmergencyNotificationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmergencyNotificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmergencyNotificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>
+          }
+          findFirst: {
+            args: Prisma.EmergencyNotificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmergencyNotificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>
+          }
+          findMany: {
+            args: Prisma.EmergencyNotificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>[]
+          }
+          create: {
+            args: Prisma.EmergencyNotificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>
+          }
+          createMany: {
+            args: Prisma.EmergencyNotificationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmergencyNotificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>[]
+          }
+          delete: {
+            args: Prisma.EmergencyNotificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>
+          }
+          update: {
+            args: Prisma.EmergencyNotificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmergencyNotificationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmergencyNotificationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmergencyNotificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmergencyNotificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmergencyNotificationPayload>
+          }
+          aggregate: {
+            args: Prisma.EmergencyNotificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmergencyNotification>
+          }
+          groupBy: {
+            args: Prisma.EmergencyNotificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmergencyNotificationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmergencyNotificationCountArgs<ExtArgs>
+            result: $Utils.Optional<EmergencyNotificationCountAggregateOutputType> | number
+          }
+        }
+      }
       WebSocketConnection: {
         payload: Prisma.$WebSocketConnectionPayload<ExtArgs>
         fields: Prisma.WebSocketConnectionFieldRefs
@@ -3865,6 +4082,8 @@ export namespace Prisma {
     systemHealth?: SystemHealthOmit
     crisisResource?: CrisisResourceOmit
     publicMetrics?: PublicMetricsOmit
+    emergencyContact?: EmergencyContactOmit
+    emergencyNotification?: EmergencyNotificationOmit
     webSocketConnection?: WebSocketConnectionOmit
     user?: UserOmit
     moodEntry?: MoodEntryOmit
@@ -4090,6 +4309,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type EmergencyContactCountOutputType
+   */
+
+  export type EmergencyContactCountOutputType = {
+    notifications: number
+  }
+
+  export type EmergencyContactCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    notifications?: boolean | EmergencyContactCountOutputTypeCountNotificationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EmergencyContactCountOutputType without action
+   */
+  export type EmergencyContactCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContactCountOutputType
+     */
+    select?: EmergencyContactCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EmergencyContactCountOutputType without action
+   */
+  export type EmergencyContactCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmergencyNotificationWhereInput
+  }
+
+
+  /**
    * Count Type UserCountOutputType
    */
 
@@ -4099,6 +4349,7 @@ export namespace Prisma {
     achievements: number
     challenges: number
     activities: number
+    emergencyContacts: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4107,6 +4358,7 @@ export namespace Prisma {
     achievements?: boolean | UserCountOutputTypeCountAchievementsArgs
     challenges?: boolean | UserCountOutputTypeCountChallengesArgs
     activities?: boolean | UserCountOutputTypeCountActivitiesArgs
+    emergencyContacts?: boolean | UserCountOutputTypeCountEmergencyContactsArgs
   }
 
   // Custom InputTypes
@@ -4153,6 +4405,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountActivitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserActivityWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountEmergencyContactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmergencyContactWhereInput
   }
 
 
@@ -25785,6 +26044,2610 @@ export namespace Prisma {
 
 
   /**
+   * Model EmergencyContact
+   */
+
+  export type AggregateEmergencyContact = {
+    _count: EmergencyContactCountAggregateOutputType | null
+    _avg: EmergencyContactAvgAggregateOutputType | null
+    _sum: EmergencyContactSumAggregateOutputType | null
+    _min: EmergencyContactMinAggregateOutputType | null
+    _max: EmergencyContactMaxAggregateOutputType | null
+  }
+
+  export type EmergencyContactAvgAggregateOutputType = {
+    priority: number | null
+  }
+
+  export type EmergencyContactSumAggregateOutputType = {
+    priority: number | null
+  }
+
+  export type EmergencyContactMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    encryptedName: Uint8Array | null
+    encryptedPhone: Uint8Array | null
+    encryptedEmail: Uint8Array | null
+    relationship: string | null
+    priority: number | null
+    contactMethod: string | null
+    timezone: string | null
+    preferredMethod: string | null
+    autoNotify: boolean | null
+    crisisOnly: boolean | null
+    hasConsent: boolean | null
+    consentDate: Date | null
+    keyDerivationSalt: Uint8Array | null
+    isVerified: boolean | null
+    verifiedAt: Date | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    lastContacted: Date | null
+  }
+
+  export type EmergencyContactMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    encryptedName: Uint8Array | null
+    encryptedPhone: Uint8Array | null
+    encryptedEmail: Uint8Array | null
+    relationship: string | null
+    priority: number | null
+    contactMethod: string | null
+    timezone: string | null
+    preferredMethod: string | null
+    autoNotify: boolean | null
+    crisisOnly: boolean | null
+    hasConsent: boolean | null
+    consentDate: Date | null
+    keyDerivationSalt: Uint8Array | null
+    isVerified: boolean | null
+    verifiedAt: Date | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    lastContacted: Date | null
+  }
+
+  export type EmergencyContactCountAggregateOutputType = {
+    id: number
+    userId: number
+    encryptedName: number
+    encryptedPhone: number
+    encryptedEmail: number
+    relationship: number
+    priority: number
+    contactMethod: number
+    timezone: number
+    availableHours: number
+    preferredMethod: number
+    autoNotify: number
+    crisisOnly: number
+    hasConsent: number
+    consentDate: number
+    keyDerivationSalt: number
+    isVerified: number
+    verifiedAt: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    lastContacted: number
+    _all: number
+  }
+
+
+  export type EmergencyContactAvgAggregateInputType = {
+    priority?: true
+  }
+
+  export type EmergencyContactSumAggregateInputType = {
+    priority?: true
+  }
+
+  export type EmergencyContactMinAggregateInputType = {
+    id?: true
+    userId?: true
+    encryptedName?: true
+    encryptedPhone?: true
+    encryptedEmail?: true
+    relationship?: true
+    priority?: true
+    contactMethod?: true
+    timezone?: true
+    preferredMethod?: true
+    autoNotify?: true
+    crisisOnly?: true
+    hasConsent?: true
+    consentDate?: true
+    keyDerivationSalt?: true
+    isVerified?: true
+    verifiedAt?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    lastContacted?: true
+  }
+
+  export type EmergencyContactMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    encryptedName?: true
+    encryptedPhone?: true
+    encryptedEmail?: true
+    relationship?: true
+    priority?: true
+    contactMethod?: true
+    timezone?: true
+    preferredMethod?: true
+    autoNotify?: true
+    crisisOnly?: true
+    hasConsent?: true
+    consentDate?: true
+    keyDerivationSalt?: true
+    isVerified?: true
+    verifiedAt?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    lastContacted?: true
+  }
+
+  export type EmergencyContactCountAggregateInputType = {
+    id?: true
+    userId?: true
+    encryptedName?: true
+    encryptedPhone?: true
+    encryptedEmail?: true
+    relationship?: true
+    priority?: true
+    contactMethod?: true
+    timezone?: true
+    availableHours?: true
+    preferredMethod?: true
+    autoNotify?: true
+    crisisOnly?: true
+    hasConsent?: true
+    consentDate?: true
+    keyDerivationSalt?: true
+    isVerified?: true
+    verifiedAt?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    lastContacted?: true
+    _all?: true
+  }
+
+  export type EmergencyContactAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmergencyContact to aggregate.
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyContacts to fetch.
+     */
+    orderBy?: EmergencyContactOrderByWithRelationInput | EmergencyContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmergencyContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyContacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmergencyContacts
+    **/
+    _count?: true | EmergencyContactCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmergencyContactAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmergencyContactSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmergencyContactMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmergencyContactMaxAggregateInputType
+  }
+
+  export type GetEmergencyContactAggregateType<T extends EmergencyContactAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmergencyContact]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmergencyContact[P]>
+      : GetScalarType<T[P], AggregateEmergencyContact[P]>
+  }
+
+
+
+
+  export type EmergencyContactGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmergencyContactWhereInput
+    orderBy?: EmergencyContactOrderByWithAggregationInput | EmergencyContactOrderByWithAggregationInput[]
+    by: EmergencyContactScalarFieldEnum[] | EmergencyContactScalarFieldEnum
+    having?: EmergencyContactScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmergencyContactCountAggregateInputType | true
+    _avg?: EmergencyContactAvgAggregateInputType
+    _sum?: EmergencyContactSumAggregateInputType
+    _min?: EmergencyContactMinAggregateInputType
+    _max?: EmergencyContactMaxAggregateInputType
+  }
+
+  export type EmergencyContactGroupByOutputType = {
+    id: string
+    userId: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail: Uint8Array | null
+    relationship: string
+    priority: number
+    contactMethod: string
+    timezone: string | null
+    availableHours: JsonValue | null
+    preferredMethod: string | null
+    autoNotify: boolean
+    crisisOnly: boolean
+    hasConsent: boolean
+    consentDate: Date | null
+    keyDerivationSalt: Uint8Array
+    isVerified: boolean
+    verifiedAt: Date | null
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    lastContacted: Date | null
+    _count: EmergencyContactCountAggregateOutputType | null
+    _avg: EmergencyContactAvgAggregateOutputType | null
+    _sum: EmergencyContactSumAggregateOutputType | null
+    _min: EmergencyContactMinAggregateOutputType | null
+    _max: EmergencyContactMaxAggregateOutputType | null
+  }
+
+  type GetEmergencyContactGroupByPayload<T extends EmergencyContactGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmergencyContactGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmergencyContactGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmergencyContactGroupByOutputType[P]>
+            : GetScalarType<T[P], EmergencyContactGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmergencyContactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    encryptedName?: boolean
+    encryptedPhone?: boolean
+    encryptedEmail?: boolean
+    relationship?: boolean
+    priority?: boolean
+    contactMethod?: boolean
+    timezone?: boolean
+    availableHours?: boolean
+    preferredMethod?: boolean
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: boolean
+    keyDerivationSalt?: boolean
+    isVerified?: boolean
+    verifiedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContacted?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    notifications?: boolean | EmergencyContact$notificationsArgs<ExtArgs>
+    _count?: boolean | EmergencyContactCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emergencyContact"]>
+
+  export type EmergencyContactSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    encryptedName?: boolean
+    encryptedPhone?: boolean
+    encryptedEmail?: boolean
+    relationship?: boolean
+    priority?: boolean
+    contactMethod?: boolean
+    timezone?: boolean
+    availableHours?: boolean
+    preferredMethod?: boolean
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: boolean
+    keyDerivationSalt?: boolean
+    isVerified?: boolean
+    verifiedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContacted?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emergencyContact"]>
+
+  export type EmergencyContactSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    encryptedName?: boolean
+    encryptedPhone?: boolean
+    encryptedEmail?: boolean
+    relationship?: boolean
+    priority?: boolean
+    contactMethod?: boolean
+    timezone?: boolean
+    availableHours?: boolean
+    preferredMethod?: boolean
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: boolean
+    keyDerivationSalt?: boolean
+    isVerified?: boolean
+    verifiedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContacted?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emergencyContact"]>
+
+  export type EmergencyContactSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    encryptedName?: boolean
+    encryptedPhone?: boolean
+    encryptedEmail?: boolean
+    relationship?: boolean
+    priority?: boolean
+    contactMethod?: boolean
+    timezone?: boolean
+    availableHours?: boolean
+    preferredMethod?: boolean
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: boolean
+    keyDerivationSalt?: boolean
+    isVerified?: boolean
+    verifiedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContacted?: boolean
+  }
+
+  export type EmergencyContactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "encryptedName" | "encryptedPhone" | "encryptedEmail" | "relationship" | "priority" | "contactMethod" | "timezone" | "availableHours" | "preferredMethod" | "autoNotify" | "crisisOnly" | "hasConsent" | "consentDate" | "keyDerivationSalt" | "isVerified" | "verifiedAt" | "isActive" | "createdAt" | "updatedAt" | "lastContacted", ExtArgs["result"]["emergencyContact"]>
+  export type EmergencyContactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    notifications?: boolean | EmergencyContact$notificationsArgs<ExtArgs>
+    _count?: boolean | EmergencyContactCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type EmergencyContactIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type EmergencyContactIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $EmergencyContactPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmergencyContact"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      notifications: Prisma.$EmergencyNotificationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      encryptedName: Uint8Array
+      encryptedPhone: Uint8Array
+      encryptedEmail: Uint8Array | null
+      relationship: string
+      priority: number
+      contactMethod: string
+      timezone: string | null
+      availableHours: Prisma.JsonValue | null
+      preferredMethod: string | null
+      autoNotify: boolean
+      crisisOnly: boolean
+      hasConsent: boolean
+      consentDate: Date | null
+      keyDerivationSalt: Uint8Array
+      isVerified: boolean
+      verifiedAt: Date | null
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+      lastContacted: Date | null
+    }, ExtArgs["result"]["emergencyContact"]>
+    composites: {}
+  }
+
+  type EmergencyContactGetPayload<S extends boolean | null | undefined | EmergencyContactDefaultArgs> = $Result.GetResult<Prisma.$EmergencyContactPayload, S>
+
+  type EmergencyContactCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmergencyContactFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: EmergencyContactCountAggregateInputType | true
+    }
+
+  export interface EmergencyContactDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmergencyContact'], meta: { name: 'EmergencyContact' } }
+    /**
+     * Find zero or one EmergencyContact that matches the filter.
+     * @param {EmergencyContactFindUniqueArgs} args - Arguments to find a EmergencyContact
+     * @example
+     * // Get one EmergencyContact
+     * const emergencyContact = await prisma.emergencyContact.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmergencyContactFindUniqueArgs>(args: SelectSubset<T, EmergencyContactFindUniqueArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmergencyContact that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmergencyContactFindUniqueOrThrowArgs} args - Arguments to find a EmergencyContact
+     * @example
+     * // Get one EmergencyContact
+     * const emergencyContact = await prisma.emergencyContact.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmergencyContactFindUniqueOrThrowArgs>(args: SelectSubset<T, EmergencyContactFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmergencyContact that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactFindFirstArgs} args - Arguments to find a EmergencyContact
+     * @example
+     * // Get one EmergencyContact
+     * const emergencyContact = await prisma.emergencyContact.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmergencyContactFindFirstArgs>(args?: SelectSubset<T, EmergencyContactFindFirstArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmergencyContact that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactFindFirstOrThrowArgs} args - Arguments to find a EmergencyContact
+     * @example
+     * // Get one EmergencyContact
+     * const emergencyContact = await prisma.emergencyContact.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmergencyContactFindFirstOrThrowArgs>(args?: SelectSubset<T, EmergencyContactFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmergencyContacts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmergencyContacts
+     * const emergencyContacts = await prisma.emergencyContact.findMany()
+     * 
+     * // Get first 10 EmergencyContacts
+     * const emergencyContacts = await prisma.emergencyContact.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const emergencyContactWithIdOnly = await prisma.emergencyContact.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmergencyContactFindManyArgs>(args?: SelectSubset<T, EmergencyContactFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmergencyContact.
+     * @param {EmergencyContactCreateArgs} args - Arguments to create a EmergencyContact.
+     * @example
+     * // Create one EmergencyContact
+     * const EmergencyContact = await prisma.emergencyContact.create({
+     *   data: {
+     *     // ... data to create a EmergencyContact
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmergencyContactCreateArgs>(args: SelectSubset<T, EmergencyContactCreateArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmergencyContacts.
+     * @param {EmergencyContactCreateManyArgs} args - Arguments to create many EmergencyContacts.
+     * @example
+     * // Create many EmergencyContacts
+     * const emergencyContact = await prisma.emergencyContact.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmergencyContactCreateManyArgs>(args?: SelectSubset<T, EmergencyContactCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmergencyContacts and returns the data saved in the database.
+     * @param {EmergencyContactCreateManyAndReturnArgs} args - Arguments to create many EmergencyContacts.
+     * @example
+     * // Create many EmergencyContacts
+     * const emergencyContact = await prisma.emergencyContact.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmergencyContacts and only return the `id`
+     * const emergencyContactWithIdOnly = await prisma.emergencyContact.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmergencyContactCreateManyAndReturnArgs>(args?: SelectSubset<T, EmergencyContactCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmergencyContact.
+     * @param {EmergencyContactDeleteArgs} args - Arguments to delete one EmergencyContact.
+     * @example
+     * // Delete one EmergencyContact
+     * const EmergencyContact = await prisma.emergencyContact.delete({
+     *   where: {
+     *     // ... filter to delete one EmergencyContact
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmergencyContactDeleteArgs>(args: SelectSubset<T, EmergencyContactDeleteArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmergencyContact.
+     * @param {EmergencyContactUpdateArgs} args - Arguments to update one EmergencyContact.
+     * @example
+     * // Update one EmergencyContact
+     * const emergencyContact = await prisma.emergencyContact.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmergencyContactUpdateArgs>(args: SelectSubset<T, EmergencyContactUpdateArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmergencyContacts.
+     * @param {EmergencyContactDeleteManyArgs} args - Arguments to filter EmergencyContacts to delete.
+     * @example
+     * // Delete a few EmergencyContacts
+     * const { count } = await prisma.emergencyContact.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmergencyContactDeleteManyArgs>(args?: SelectSubset<T, EmergencyContactDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmergencyContacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmergencyContacts
+     * const emergencyContact = await prisma.emergencyContact.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmergencyContactUpdateManyArgs>(args: SelectSubset<T, EmergencyContactUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmergencyContacts and returns the data updated in the database.
+     * @param {EmergencyContactUpdateManyAndReturnArgs} args - Arguments to update many EmergencyContacts.
+     * @example
+     * // Update many EmergencyContacts
+     * const emergencyContact = await prisma.emergencyContact.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmergencyContacts and only return the `id`
+     * const emergencyContactWithIdOnly = await prisma.emergencyContact.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmergencyContactUpdateManyAndReturnArgs>(args: SelectSubset<T, EmergencyContactUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmergencyContact.
+     * @param {EmergencyContactUpsertArgs} args - Arguments to update or create a EmergencyContact.
+     * @example
+     * // Update or create a EmergencyContact
+     * const emergencyContact = await prisma.emergencyContact.upsert({
+     *   create: {
+     *     // ... data to create a EmergencyContact
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmergencyContact we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmergencyContactUpsertArgs>(args: SelectSubset<T, EmergencyContactUpsertArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmergencyContacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactCountArgs} args - Arguments to filter EmergencyContacts to count.
+     * @example
+     * // Count the number of EmergencyContacts
+     * const count = await prisma.emergencyContact.count({
+     *   where: {
+     *     // ... the filter for the EmergencyContacts we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmergencyContactCountArgs>(
+      args?: Subset<T, EmergencyContactCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmergencyContactCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmergencyContact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmergencyContactAggregateArgs>(args: Subset<T, EmergencyContactAggregateArgs>): Prisma.PrismaPromise<GetEmergencyContactAggregateType<T>>
+
+    /**
+     * Group by EmergencyContact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyContactGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmergencyContactGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmergencyContactGroupByArgs['orderBy'] }
+        : { orderBy?: EmergencyContactGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmergencyContactGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmergencyContactGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmergencyContact model
+   */
+  readonly fields: EmergencyContactFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmergencyContact.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmergencyContactClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    notifications<T extends EmergencyContact$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, EmergencyContact$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmergencyContact model
+   */
+  interface EmergencyContactFieldRefs {
+    readonly id: FieldRef<"EmergencyContact", 'String'>
+    readonly userId: FieldRef<"EmergencyContact", 'String'>
+    readonly encryptedName: FieldRef<"EmergencyContact", 'Bytes'>
+    readonly encryptedPhone: FieldRef<"EmergencyContact", 'Bytes'>
+    readonly encryptedEmail: FieldRef<"EmergencyContact", 'Bytes'>
+    readonly relationship: FieldRef<"EmergencyContact", 'String'>
+    readonly priority: FieldRef<"EmergencyContact", 'Int'>
+    readonly contactMethod: FieldRef<"EmergencyContact", 'String'>
+    readonly timezone: FieldRef<"EmergencyContact", 'String'>
+    readonly availableHours: FieldRef<"EmergencyContact", 'Json'>
+    readonly preferredMethod: FieldRef<"EmergencyContact", 'String'>
+    readonly autoNotify: FieldRef<"EmergencyContact", 'Boolean'>
+    readonly crisisOnly: FieldRef<"EmergencyContact", 'Boolean'>
+    readonly hasConsent: FieldRef<"EmergencyContact", 'Boolean'>
+    readonly consentDate: FieldRef<"EmergencyContact", 'DateTime'>
+    readonly keyDerivationSalt: FieldRef<"EmergencyContact", 'Bytes'>
+    readonly isVerified: FieldRef<"EmergencyContact", 'Boolean'>
+    readonly verifiedAt: FieldRef<"EmergencyContact", 'DateTime'>
+    readonly isActive: FieldRef<"EmergencyContact", 'Boolean'>
+    readonly createdAt: FieldRef<"EmergencyContact", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmergencyContact", 'DateTime'>
+    readonly lastContacted: FieldRef<"EmergencyContact", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmergencyContact findUnique
+   */
+  export type EmergencyContactFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyContact to fetch.
+     */
+    where: EmergencyContactWhereUniqueInput
+  }
+
+  /**
+   * EmergencyContact findUniqueOrThrow
+   */
+  export type EmergencyContactFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyContact to fetch.
+     */
+    where: EmergencyContactWhereUniqueInput
+  }
+
+  /**
+   * EmergencyContact findFirst
+   */
+  export type EmergencyContactFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyContact to fetch.
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyContacts to fetch.
+     */
+    orderBy?: EmergencyContactOrderByWithRelationInput | EmergencyContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmergencyContacts.
+     */
+    cursor?: EmergencyContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyContacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmergencyContacts.
+     */
+    distinct?: EmergencyContactScalarFieldEnum | EmergencyContactScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyContact findFirstOrThrow
+   */
+  export type EmergencyContactFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyContact to fetch.
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyContacts to fetch.
+     */
+    orderBy?: EmergencyContactOrderByWithRelationInput | EmergencyContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmergencyContacts.
+     */
+    cursor?: EmergencyContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyContacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmergencyContacts.
+     */
+    distinct?: EmergencyContactScalarFieldEnum | EmergencyContactScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyContact findMany
+   */
+  export type EmergencyContactFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyContacts to fetch.
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyContacts to fetch.
+     */
+    orderBy?: EmergencyContactOrderByWithRelationInput | EmergencyContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmergencyContacts.
+     */
+    cursor?: EmergencyContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyContacts.
+     */
+    skip?: number
+    distinct?: EmergencyContactScalarFieldEnum | EmergencyContactScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyContact create
+   */
+  export type EmergencyContactCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmergencyContact.
+     */
+    data: XOR<EmergencyContactCreateInput, EmergencyContactUncheckedCreateInput>
+  }
+
+  /**
+   * EmergencyContact createMany
+   */
+  export type EmergencyContactCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmergencyContacts.
+     */
+    data: EmergencyContactCreateManyInput | EmergencyContactCreateManyInput[]
+  }
+
+  /**
+   * EmergencyContact createManyAndReturn
+   */
+  export type EmergencyContactCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmergencyContacts.
+     */
+    data: EmergencyContactCreateManyInput | EmergencyContactCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmergencyContact update
+   */
+  export type EmergencyContactUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmergencyContact.
+     */
+    data: XOR<EmergencyContactUpdateInput, EmergencyContactUncheckedUpdateInput>
+    /**
+     * Choose, which EmergencyContact to update.
+     */
+    where: EmergencyContactWhereUniqueInput
+  }
+
+  /**
+   * EmergencyContact updateMany
+   */
+  export type EmergencyContactUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmergencyContacts.
+     */
+    data: XOR<EmergencyContactUpdateManyMutationInput, EmergencyContactUncheckedUpdateManyInput>
+    /**
+     * Filter which EmergencyContacts to update
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * Limit how many EmergencyContacts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmergencyContact updateManyAndReturn
+   */
+  export type EmergencyContactUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * The data used to update EmergencyContacts.
+     */
+    data: XOR<EmergencyContactUpdateManyMutationInput, EmergencyContactUncheckedUpdateManyInput>
+    /**
+     * Filter which EmergencyContacts to update
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * Limit how many EmergencyContacts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmergencyContact upsert
+   */
+  export type EmergencyContactUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmergencyContact to update in case it exists.
+     */
+    where: EmergencyContactWhereUniqueInput
+    /**
+     * In case the EmergencyContact found by the `where` argument doesn't exist, create a new EmergencyContact with this data.
+     */
+    create: XOR<EmergencyContactCreateInput, EmergencyContactUncheckedCreateInput>
+    /**
+     * In case the EmergencyContact was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmergencyContactUpdateInput, EmergencyContactUncheckedUpdateInput>
+  }
+
+  /**
+   * EmergencyContact delete
+   */
+  export type EmergencyContactDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    /**
+     * Filter which EmergencyContact to delete.
+     */
+    where: EmergencyContactWhereUniqueInput
+  }
+
+  /**
+   * EmergencyContact deleteMany
+   */
+  export type EmergencyContactDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmergencyContacts to delete
+     */
+    where?: EmergencyContactWhereInput
+    /**
+     * Limit how many EmergencyContacts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmergencyContact.notifications
+   */
+  export type EmergencyContact$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    where?: EmergencyNotificationWhereInput
+    orderBy?: EmergencyNotificationOrderByWithRelationInput | EmergencyNotificationOrderByWithRelationInput[]
+    cursor?: EmergencyNotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmergencyNotificationScalarFieldEnum | EmergencyNotificationScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyContact without action
+   */
+  export type EmergencyContactDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmergencyNotification
+   */
+
+  export type AggregateEmergencyNotification = {
+    _count: EmergencyNotificationCountAggregateOutputType | null
+    _avg: EmergencyNotificationAvgAggregateOutputType | null
+    _sum: EmergencyNotificationSumAggregateOutputType | null
+    _min: EmergencyNotificationMinAggregateOutputType | null
+    _max: EmergencyNotificationMaxAggregateOutputType | null
+  }
+
+  export type EmergencyNotificationAvgAggregateOutputType = {
+    responseTime: number | null
+    attempts: number | null
+    maxAttempts: number | null
+  }
+
+  export type EmergencyNotificationSumAggregateOutputType = {
+    responseTime: number | null
+    attempts: number | null
+    maxAttempts: number | null
+  }
+
+  export type EmergencyNotificationMinAggregateOutputType = {
+    id: string | null
+    emergencyContactId: string | null
+    sessionId: string | null
+    tetherEmergencyId: string | null
+    notificationType: $Enums.EmergencyNotificationType | null
+    severity: $Enums.EmergencySeverity | null
+    message: string | null
+    sentAt: Date | null
+    deliveredAt: Date | null
+    acknowledgedAt: Date | null
+    responseReceived: boolean | null
+    responseTime: number | null
+    method: string | null
+    status: $Enums.NotificationStatus | null
+    attempts: number | null
+    maxAttempts: number | null
+    errorMessage: string | null
+    nextRetryAt: Date | null
+  }
+
+  export type EmergencyNotificationMaxAggregateOutputType = {
+    id: string | null
+    emergencyContactId: string | null
+    sessionId: string | null
+    tetherEmergencyId: string | null
+    notificationType: $Enums.EmergencyNotificationType | null
+    severity: $Enums.EmergencySeverity | null
+    message: string | null
+    sentAt: Date | null
+    deliveredAt: Date | null
+    acknowledgedAt: Date | null
+    responseReceived: boolean | null
+    responseTime: number | null
+    method: string | null
+    status: $Enums.NotificationStatus | null
+    attempts: number | null
+    maxAttempts: number | null
+    errorMessage: string | null
+    nextRetryAt: Date | null
+  }
+
+  export type EmergencyNotificationCountAggregateOutputType = {
+    id: number
+    emergencyContactId: number
+    sessionId: number
+    tetherEmergencyId: number
+    notificationType: number
+    severity: number
+    message: number
+    sentAt: number
+    deliveredAt: number
+    acknowledgedAt: number
+    responseReceived: number
+    responseTime: number
+    method: number
+    status: number
+    attempts: number
+    maxAttempts: number
+    errorMessage: number
+    nextRetryAt: number
+    _all: number
+  }
+
+
+  export type EmergencyNotificationAvgAggregateInputType = {
+    responseTime?: true
+    attempts?: true
+    maxAttempts?: true
+  }
+
+  export type EmergencyNotificationSumAggregateInputType = {
+    responseTime?: true
+    attempts?: true
+    maxAttempts?: true
+  }
+
+  export type EmergencyNotificationMinAggregateInputType = {
+    id?: true
+    emergencyContactId?: true
+    sessionId?: true
+    tetherEmergencyId?: true
+    notificationType?: true
+    severity?: true
+    message?: true
+    sentAt?: true
+    deliveredAt?: true
+    acknowledgedAt?: true
+    responseReceived?: true
+    responseTime?: true
+    method?: true
+    status?: true
+    attempts?: true
+    maxAttempts?: true
+    errorMessage?: true
+    nextRetryAt?: true
+  }
+
+  export type EmergencyNotificationMaxAggregateInputType = {
+    id?: true
+    emergencyContactId?: true
+    sessionId?: true
+    tetherEmergencyId?: true
+    notificationType?: true
+    severity?: true
+    message?: true
+    sentAt?: true
+    deliveredAt?: true
+    acknowledgedAt?: true
+    responseReceived?: true
+    responseTime?: true
+    method?: true
+    status?: true
+    attempts?: true
+    maxAttempts?: true
+    errorMessage?: true
+    nextRetryAt?: true
+  }
+
+  export type EmergencyNotificationCountAggregateInputType = {
+    id?: true
+    emergencyContactId?: true
+    sessionId?: true
+    tetherEmergencyId?: true
+    notificationType?: true
+    severity?: true
+    message?: true
+    sentAt?: true
+    deliveredAt?: true
+    acknowledgedAt?: true
+    responseReceived?: true
+    responseTime?: true
+    method?: true
+    status?: true
+    attempts?: true
+    maxAttempts?: true
+    errorMessage?: true
+    nextRetryAt?: true
+    _all?: true
+  }
+
+  export type EmergencyNotificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmergencyNotification to aggregate.
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyNotifications to fetch.
+     */
+    orderBy?: EmergencyNotificationOrderByWithRelationInput | EmergencyNotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmergencyNotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyNotifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyNotifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmergencyNotifications
+    **/
+    _count?: true | EmergencyNotificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmergencyNotificationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmergencyNotificationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmergencyNotificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmergencyNotificationMaxAggregateInputType
+  }
+
+  export type GetEmergencyNotificationAggregateType<T extends EmergencyNotificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmergencyNotification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmergencyNotification[P]>
+      : GetScalarType<T[P], AggregateEmergencyNotification[P]>
+  }
+
+
+
+
+  export type EmergencyNotificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmergencyNotificationWhereInput
+    orderBy?: EmergencyNotificationOrderByWithAggregationInput | EmergencyNotificationOrderByWithAggregationInput[]
+    by: EmergencyNotificationScalarFieldEnum[] | EmergencyNotificationScalarFieldEnum
+    having?: EmergencyNotificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmergencyNotificationCountAggregateInputType | true
+    _avg?: EmergencyNotificationAvgAggregateInputType
+    _sum?: EmergencyNotificationSumAggregateInputType
+    _min?: EmergencyNotificationMinAggregateInputType
+    _max?: EmergencyNotificationMaxAggregateInputType
+  }
+
+  export type EmergencyNotificationGroupByOutputType = {
+    id: string
+    emergencyContactId: string
+    sessionId: string | null
+    tetherEmergencyId: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt: Date
+    deliveredAt: Date | null
+    acknowledgedAt: Date | null
+    responseReceived: boolean
+    responseTime: number | null
+    method: string
+    status: $Enums.NotificationStatus
+    attempts: number
+    maxAttempts: number
+    errorMessage: string | null
+    nextRetryAt: Date | null
+    _count: EmergencyNotificationCountAggregateOutputType | null
+    _avg: EmergencyNotificationAvgAggregateOutputType | null
+    _sum: EmergencyNotificationSumAggregateOutputType | null
+    _min: EmergencyNotificationMinAggregateOutputType | null
+    _max: EmergencyNotificationMaxAggregateOutputType | null
+  }
+
+  type GetEmergencyNotificationGroupByPayload<T extends EmergencyNotificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmergencyNotificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmergencyNotificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmergencyNotificationGroupByOutputType[P]>
+            : GetScalarType<T[P], EmergencyNotificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmergencyNotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emergencyContactId?: boolean
+    sessionId?: boolean
+    tetherEmergencyId?: boolean
+    notificationType?: boolean
+    severity?: boolean
+    message?: boolean
+    sentAt?: boolean
+    deliveredAt?: boolean
+    acknowledgedAt?: boolean
+    responseReceived?: boolean
+    responseTime?: boolean
+    method?: boolean
+    status?: boolean
+    attempts?: boolean
+    maxAttempts?: boolean
+    errorMessage?: boolean
+    nextRetryAt?: boolean
+    emergencyContact?: boolean | EmergencyContactDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emergencyNotification"]>
+
+  export type EmergencyNotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emergencyContactId?: boolean
+    sessionId?: boolean
+    tetherEmergencyId?: boolean
+    notificationType?: boolean
+    severity?: boolean
+    message?: boolean
+    sentAt?: boolean
+    deliveredAt?: boolean
+    acknowledgedAt?: boolean
+    responseReceived?: boolean
+    responseTime?: boolean
+    method?: boolean
+    status?: boolean
+    attempts?: boolean
+    maxAttempts?: boolean
+    errorMessage?: boolean
+    nextRetryAt?: boolean
+    emergencyContact?: boolean | EmergencyContactDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emergencyNotification"]>
+
+  export type EmergencyNotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emergencyContactId?: boolean
+    sessionId?: boolean
+    tetherEmergencyId?: boolean
+    notificationType?: boolean
+    severity?: boolean
+    message?: boolean
+    sentAt?: boolean
+    deliveredAt?: boolean
+    acknowledgedAt?: boolean
+    responseReceived?: boolean
+    responseTime?: boolean
+    method?: boolean
+    status?: boolean
+    attempts?: boolean
+    maxAttempts?: boolean
+    errorMessage?: boolean
+    nextRetryAt?: boolean
+    emergencyContact?: boolean | EmergencyContactDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emergencyNotification"]>
+
+  export type EmergencyNotificationSelectScalar = {
+    id?: boolean
+    emergencyContactId?: boolean
+    sessionId?: boolean
+    tetherEmergencyId?: boolean
+    notificationType?: boolean
+    severity?: boolean
+    message?: boolean
+    sentAt?: boolean
+    deliveredAt?: boolean
+    acknowledgedAt?: boolean
+    responseReceived?: boolean
+    responseTime?: boolean
+    method?: boolean
+    status?: boolean
+    attempts?: boolean
+    maxAttempts?: boolean
+    errorMessage?: boolean
+    nextRetryAt?: boolean
+  }
+
+  export type EmergencyNotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emergencyContactId" | "sessionId" | "tetherEmergencyId" | "notificationType" | "severity" | "message" | "sentAt" | "deliveredAt" | "acknowledgedAt" | "responseReceived" | "responseTime" | "method" | "status" | "attempts" | "maxAttempts" | "errorMessage" | "nextRetryAt", ExtArgs["result"]["emergencyNotification"]>
+  export type EmergencyNotificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emergencyContact?: boolean | EmergencyContactDefaultArgs<ExtArgs>
+  }
+  export type EmergencyNotificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emergencyContact?: boolean | EmergencyContactDefaultArgs<ExtArgs>
+  }
+  export type EmergencyNotificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emergencyContact?: boolean | EmergencyContactDefaultArgs<ExtArgs>
+  }
+
+  export type $EmergencyNotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmergencyNotification"
+    objects: {
+      emergencyContact: Prisma.$EmergencyContactPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      emergencyContactId: string
+      sessionId: string | null
+      tetherEmergencyId: string | null
+      notificationType: $Enums.EmergencyNotificationType
+      severity: $Enums.EmergencySeverity
+      message: string
+      sentAt: Date
+      deliveredAt: Date | null
+      acknowledgedAt: Date | null
+      responseReceived: boolean
+      responseTime: number | null
+      method: string
+      status: $Enums.NotificationStatus
+      attempts: number
+      maxAttempts: number
+      errorMessage: string | null
+      nextRetryAt: Date | null
+    }, ExtArgs["result"]["emergencyNotification"]>
+    composites: {}
+  }
+
+  type EmergencyNotificationGetPayload<S extends boolean | null | undefined | EmergencyNotificationDefaultArgs> = $Result.GetResult<Prisma.$EmergencyNotificationPayload, S>
+
+  type EmergencyNotificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmergencyNotificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: EmergencyNotificationCountAggregateInputType | true
+    }
+
+  export interface EmergencyNotificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmergencyNotification'], meta: { name: 'EmergencyNotification' } }
+    /**
+     * Find zero or one EmergencyNotification that matches the filter.
+     * @param {EmergencyNotificationFindUniqueArgs} args - Arguments to find a EmergencyNotification
+     * @example
+     * // Get one EmergencyNotification
+     * const emergencyNotification = await prisma.emergencyNotification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmergencyNotificationFindUniqueArgs>(args: SelectSubset<T, EmergencyNotificationFindUniqueArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmergencyNotification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmergencyNotificationFindUniqueOrThrowArgs} args - Arguments to find a EmergencyNotification
+     * @example
+     * // Get one EmergencyNotification
+     * const emergencyNotification = await prisma.emergencyNotification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmergencyNotificationFindUniqueOrThrowArgs>(args: SelectSubset<T, EmergencyNotificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmergencyNotification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationFindFirstArgs} args - Arguments to find a EmergencyNotification
+     * @example
+     * // Get one EmergencyNotification
+     * const emergencyNotification = await prisma.emergencyNotification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmergencyNotificationFindFirstArgs>(args?: SelectSubset<T, EmergencyNotificationFindFirstArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmergencyNotification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationFindFirstOrThrowArgs} args - Arguments to find a EmergencyNotification
+     * @example
+     * // Get one EmergencyNotification
+     * const emergencyNotification = await prisma.emergencyNotification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmergencyNotificationFindFirstOrThrowArgs>(args?: SelectSubset<T, EmergencyNotificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmergencyNotifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmergencyNotifications
+     * const emergencyNotifications = await prisma.emergencyNotification.findMany()
+     * 
+     * // Get first 10 EmergencyNotifications
+     * const emergencyNotifications = await prisma.emergencyNotification.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const emergencyNotificationWithIdOnly = await prisma.emergencyNotification.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmergencyNotificationFindManyArgs>(args?: SelectSubset<T, EmergencyNotificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmergencyNotification.
+     * @param {EmergencyNotificationCreateArgs} args - Arguments to create a EmergencyNotification.
+     * @example
+     * // Create one EmergencyNotification
+     * const EmergencyNotification = await prisma.emergencyNotification.create({
+     *   data: {
+     *     // ... data to create a EmergencyNotification
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmergencyNotificationCreateArgs>(args: SelectSubset<T, EmergencyNotificationCreateArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmergencyNotifications.
+     * @param {EmergencyNotificationCreateManyArgs} args - Arguments to create many EmergencyNotifications.
+     * @example
+     * // Create many EmergencyNotifications
+     * const emergencyNotification = await prisma.emergencyNotification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmergencyNotificationCreateManyArgs>(args?: SelectSubset<T, EmergencyNotificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmergencyNotifications and returns the data saved in the database.
+     * @param {EmergencyNotificationCreateManyAndReturnArgs} args - Arguments to create many EmergencyNotifications.
+     * @example
+     * // Create many EmergencyNotifications
+     * const emergencyNotification = await prisma.emergencyNotification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmergencyNotifications and only return the `id`
+     * const emergencyNotificationWithIdOnly = await prisma.emergencyNotification.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmergencyNotificationCreateManyAndReturnArgs>(args?: SelectSubset<T, EmergencyNotificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmergencyNotification.
+     * @param {EmergencyNotificationDeleteArgs} args - Arguments to delete one EmergencyNotification.
+     * @example
+     * // Delete one EmergencyNotification
+     * const EmergencyNotification = await prisma.emergencyNotification.delete({
+     *   where: {
+     *     // ... filter to delete one EmergencyNotification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmergencyNotificationDeleteArgs>(args: SelectSubset<T, EmergencyNotificationDeleteArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmergencyNotification.
+     * @param {EmergencyNotificationUpdateArgs} args - Arguments to update one EmergencyNotification.
+     * @example
+     * // Update one EmergencyNotification
+     * const emergencyNotification = await prisma.emergencyNotification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmergencyNotificationUpdateArgs>(args: SelectSubset<T, EmergencyNotificationUpdateArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmergencyNotifications.
+     * @param {EmergencyNotificationDeleteManyArgs} args - Arguments to filter EmergencyNotifications to delete.
+     * @example
+     * // Delete a few EmergencyNotifications
+     * const { count } = await prisma.emergencyNotification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmergencyNotificationDeleteManyArgs>(args?: SelectSubset<T, EmergencyNotificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmergencyNotifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmergencyNotifications
+     * const emergencyNotification = await prisma.emergencyNotification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmergencyNotificationUpdateManyArgs>(args: SelectSubset<T, EmergencyNotificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmergencyNotifications and returns the data updated in the database.
+     * @param {EmergencyNotificationUpdateManyAndReturnArgs} args - Arguments to update many EmergencyNotifications.
+     * @example
+     * // Update many EmergencyNotifications
+     * const emergencyNotification = await prisma.emergencyNotification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmergencyNotifications and only return the `id`
+     * const emergencyNotificationWithIdOnly = await prisma.emergencyNotification.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmergencyNotificationUpdateManyAndReturnArgs>(args: SelectSubset<T, EmergencyNotificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmergencyNotification.
+     * @param {EmergencyNotificationUpsertArgs} args - Arguments to update or create a EmergencyNotification.
+     * @example
+     * // Update or create a EmergencyNotification
+     * const emergencyNotification = await prisma.emergencyNotification.upsert({
+     *   create: {
+     *     // ... data to create a EmergencyNotification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmergencyNotification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmergencyNotificationUpsertArgs>(args: SelectSubset<T, EmergencyNotificationUpsertArgs<ExtArgs>>): Prisma__EmergencyNotificationClient<$Result.GetResult<Prisma.$EmergencyNotificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmergencyNotifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationCountArgs} args - Arguments to filter EmergencyNotifications to count.
+     * @example
+     * // Count the number of EmergencyNotifications
+     * const count = await prisma.emergencyNotification.count({
+     *   where: {
+     *     // ... the filter for the EmergencyNotifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmergencyNotificationCountArgs>(
+      args?: Subset<T, EmergencyNotificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmergencyNotificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmergencyNotification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmergencyNotificationAggregateArgs>(args: Subset<T, EmergencyNotificationAggregateArgs>): Prisma.PrismaPromise<GetEmergencyNotificationAggregateType<T>>
+
+    /**
+     * Group by EmergencyNotification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmergencyNotificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmergencyNotificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmergencyNotificationGroupByArgs['orderBy'] }
+        : { orderBy?: EmergencyNotificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmergencyNotificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmergencyNotificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmergencyNotification model
+   */
+  readonly fields: EmergencyNotificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmergencyNotification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmergencyNotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    emergencyContact<T extends EmergencyContactDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmergencyContactDefaultArgs<ExtArgs>>): Prisma__EmergencyContactClient<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmergencyNotification model
+   */
+  interface EmergencyNotificationFieldRefs {
+    readonly id: FieldRef<"EmergencyNotification", 'String'>
+    readonly emergencyContactId: FieldRef<"EmergencyNotification", 'String'>
+    readonly sessionId: FieldRef<"EmergencyNotification", 'String'>
+    readonly tetherEmergencyId: FieldRef<"EmergencyNotification", 'String'>
+    readonly notificationType: FieldRef<"EmergencyNotification", 'EmergencyNotificationType'>
+    readonly severity: FieldRef<"EmergencyNotification", 'EmergencySeverity'>
+    readonly message: FieldRef<"EmergencyNotification", 'String'>
+    readonly sentAt: FieldRef<"EmergencyNotification", 'DateTime'>
+    readonly deliveredAt: FieldRef<"EmergencyNotification", 'DateTime'>
+    readonly acknowledgedAt: FieldRef<"EmergencyNotification", 'DateTime'>
+    readonly responseReceived: FieldRef<"EmergencyNotification", 'Boolean'>
+    readonly responseTime: FieldRef<"EmergencyNotification", 'Int'>
+    readonly method: FieldRef<"EmergencyNotification", 'String'>
+    readonly status: FieldRef<"EmergencyNotification", 'NotificationStatus'>
+    readonly attempts: FieldRef<"EmergencyNotification", 'Int'>
+    readonly maxAttempts: FieldRef<"EmergencyNotification", 'Int'>
+    readonly errorMessage: FieldRef<"EmergencyNotification", 'String'>
+    readonly nextRetryAt: FieldRef<"EmergencyNotification", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmergencyNotification findUnique
+   */
+  export type EmergencyNotificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyNotification to fetch.
+     */
+    where: EmergencyNotificationWhereUniqueInput
+  }
+
+  /**
+   * EmergencyNotification findUniqueOrThrow
+   */
+  export type EmergencyNotificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyNotification to fetch.
+     */
+    where: EmergencyNotificationWhereUniqueInput
+  }
+
+  /**
+   * EmergencyNotification findFirst
+   */
+  export type EmergencyNotificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyNotification to fetch.
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyNotifications to fetch.
+     */
+    orderBy?: EmergencyNotificationOrderByWithRelationInput | EmergencyNotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmergencyNotifications.
+     */
+    cursor?: EmergencyNotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyNotifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyNotifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmergencyNotifications.
+     */
+    distinct?: EmergencyNotificationScalarFieldEnum | EmergencyNotificationScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyNotification findFirstOrThrow
+   */
+  export type EmergencyNotificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyNotification to fetch.
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyNotifications to fetch.
+     */
+    orderBy?: EmergencyNotificationOrderByWithRelationInput | EmergencyNotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmergencyNotifications.
+     */
+    cursor?: EmergencyNotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyNotifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyNotifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmergencyNotifications.
+     */
+    distinct?: EmergencyNotificationScalarFieldEnum | EmergencyNotificationScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyNotification findMany
+   */
+  export type EmergencyNotificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which EmergencyNotifications to fetch.
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmergencyNotifications to fetch.
+     */
+    orderBy?: EmergencyNotificationOrderByWithRelationInput | EmergencyNotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmergencyNotifications.
+     */
+    cursor?: EmergencyNotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmergencyNotifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmergencyNotifications.
+     */
+    skip?: number
+    distinct?: EmergencyNotificationScalarFieldEnum | EmergencyNotificationScalarFieldEnum[]
+  }
+
+  /**
+   * EmergencyNotification create
+   */
+  export type EmergencyNotificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmergencyNotification.
+     */
+    data: XOR<EmergencyNotificationCreateInput, EmergencyNotificationUncheckedCreateInput>
+  }
+
+  /**
+   * EmergencyNotification createMany
+   */
+  export type EmergencyNotificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmergencyNotifications.
+     */
+    data: EmergencyNotificationCreateManyInput | EmergencyNotificationCreateManyInput[]
+  }
+
+  /**
+   * EmergencyNotification createManyAndReturn
+   */
+  export type EmergencyNotificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmergencyNotifications.
+     */
+    data: EmergencyNotificationCreateManyInput | EmergencyNotificationCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmergencyNotification update
+   */
+  export type EmergencyNotificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmergencyNotification.
+     */
+    data: XOR<EmergencyNotificationUpdateInput, EmergencyNotificationUncheckedUpdateInput>
+    /**
+     * Choose, which EmergencyNotification to update.
+     */
+    where: EmergencyNotificationWhereUniqueInput
+  }
+
+  /**
+   * EmergencyNotification updateMany
+   */
+  export type EmergencyNotificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmergencyNotifications.
+     */
+    data: XOR<EmergencyNotificationUpdateManyMutationInput, EmergencyNotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which EmergencyNotifications to update
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * Limit how many EmergencyNotifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmergencyNotification updateManyAndReturn
+   */
+  export type EmergencyNotificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * The data used to update EmergencyNotifications.
+     */
+    data: XOR<EmergencyNotificationUpdateManyMutationInput, EmergencyNotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which EmergencyNotifications to update
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * Limit how many EmergencyNotifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmergencyNotification upsert
+   */
+  export type EmergencyNotificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmergencyNotification to update in case it exists.
+     */
+    where: EmergencyNotificationWhereUniqueInput
+    /**
+     * In case the EmergencyNotification found by the `where` argument doesn't exist, create a new EmergencyNotification with this data.
+     */
+    create: XOR<EmergencyNotificationCreateInput, EmergencyNotificationUncheckedCreateInput>
+    /**
+     * In case the EmergencyNotification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmergencyNotificationUpdateInput, EmergencyNotificationUncheckedUpdateInput>
+  }
+
+  /**
+   * EmergencyNotification delete
+   */
+  export type EmergencyNotificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+    /**
+     * Filter which EmergencyNotification to delete.
+     */
+    where: EmergencyNotificationWhereUniqueInput
+  }
+
+  /**
+   * EmergencyNotification deleteMany
+   */
+  export type EmergencyNotificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmergencyNotifications to delete
+     */
+    where?: EmergencyNotificationWhereInput
+    /**
+     * Limit how many EmergencyNotifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmergencyNotification without action
+   */
+  export type EmergencyNotificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyNotification
+     */
+    select?: EmergencyNotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyNotification
+     */
+    omit?: EmergencyNotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyNotificationInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model WebSocketConnection
    */
 
@@ -26848,8 +29711,18 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserAvgAggregateOutputType = {
+    dataRetentionDays: number | null
+  }
+
+  export type UserSumAggregateOutputType = {
+    dataRetentionDays: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -26860,6 +29733,12 @@ export namespace Prisma {
     isAnonymous: boolean | null
     lastLogin: Date | null
     dataSharing: $Enums.UserDataSharing | null
+    allowAnalytics: boolean | null
+    dataRetentionDays: number | null
+    verificationStatus: $Enums.VerificationStatus | null
+    professionalType: string | null
+    licenseNumber: string | null
+    verifiedAt: Date | null
     encryptedProfile: Uint8Array | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -26873,6 +29752,12 @@ export namespace Prisma {
     isAnonymous: boolean | null
     lastLogin: Date | null
     dataSharing: $Enums.UserDataSharing | null
+    allowAnalytics: boolean | null
+    dataRetentionDays: number | null
+    verificationStatus: $Enums.VerificationStatus | null
+    professionalType: string | null
+    licenseNumber: string | null
+    verifiedAt: Date | null
     encryptedProfile: Uint8Array | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -26886,12 +29771,26 @@ export namespace Prisma {
     isAnonymous: number
     lastLogin: number
     dataSharing: number
+    allowAnalytics: number
+    dataRetentionDays: number
+    verificationStatus: number
+    professionalType: number
+    licenseNumber: number
+    verifiedAt: number
     encryptedProfile: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type UserAvgAggregateInputType = {
+    dataRetentionDays?: true
+  }
+
+  export type UserSumAggregateInputType = {
+    dataRetentionDays?: true
+  }
 
   export type UserMinAggregateInputType = {
     id?: true
@@ -26901,6 +29800,12 @@ export namespace Prisma {
     isAnonymous?: true
     lastLogin?: true
     dataSharing?: true
+    allowAnalytics?: true
+    dataRetentionDays?: true
+    verificationStatus?: true
+    professionalType?: true
+    licenseNumber?: true
+    verifiedAt?: true
     encryptedProfile?: true
     createdAt?: true
     updatedAt?: true
@@ -26914,6 +29819,12 @@ export namespace Prisma {
     isAnonymous?: true
     lastLogin?: true
     dataSharing?: true
+    allowAnalytics?: true
+    dataRetentionDays?: true
+    verificationStatus?: true
+    professionalType?: true
+    licenseNumber?: true
+    verifiedAt?: true
     encryptedProfile?: true
     createdAt?: true
     updatedAt?: true
@@ -26927,6 +29838,12 @@ export namespace Prisma {
     isAnonymous?: true
     lastLogin?: true
     dataSharing?: true
+    allowAnalytics?: true
+    dataRetentionDays?: true
+    verificationStatus?: true
+    professionalType?: true
+    licenseNumber?: true
+    verifiedAt?: true
     encryptedProfile?: true
     createdAt?: true
     updatedAt?: true
@@ -26971,6 +29888,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: UserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -27001,6 +29930,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
@@ -27013,10 +29944,18 @@ export namespace Prisma {
     isAnonymous: boolean
     lastLogin: Date | null
     dataSharing: $Enums.UserDataSharing
+    allowAnalytics: boolean
+    dataRetentionDays: number | null
+    verificationStatus: $Enums.VerificationStatus
+    professionalType: string | null
+    licenseNumber: string | null
+    verifiedAt: Date | null
     encryptedProfile: Uint8Array | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -27043,6 +29982,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: boolean
     dataSharing?: boolean
+    allowAnalytics?: boolean
+    dataRetentionDays?: boolean
+    verificationStatus?: boolean
+    professionalType?: boolean
+    licenseNumber?: boolean
+    verifiedAt?: boolean
     encryptedProfile?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -27052,6 +29997,7 @@ export namespace Prisma {
     achievements?: boolean | User$achievementsArgs<ExtArgs>
     challenges?: boolean | User$challengesArgs<ExtArgs>
     activities?: boolean | User$activitiesArgs<ExtArgs>
+    emergencyContacts?: boolean | User$emergencyContactsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -27063,6 +30009,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: boolean
     dataSharing?: boolean
+    allowAnalytics?: boolean
+    dataRetentionDays?: boolean
+    verificationStatus?: boolean
+    professionalType?: boolean
+    licenseNumber?: boolean
+    verifiedAt?: boolean
     encryptedProfile?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -27076,6 +30028,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: boolean
     dataSharing?: boolean
+    allowAnalytics?: boolean
+    dataRetentionDays?: boolean
+    verificationStatus?: boolean
+    professionalType?: boolean
+    licenseNumber?: boolean
+    verifiedAt?: boolean
     encryptedProfile?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -27089,12 +30047,18 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: boolean
     dataSharing?: boolean
+    allowAnalytics?: boolean
+    dataRetentionDays?: boolean
+    verificationStatus?: boolean
+    professionalType?: boolean
+    licenseNumber?: boolean
+    verifiedAt?: boolean
     encryptedProfile?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "anonymousId" | "email" | "username" | "isAnonymous" | "lastLogin" | "dataSharing" | "encryptedProfile" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "anonymousId" | "email" | "username" | "isAnonymous" | "lastLogin" | "dataSharing" | "allowAnalytics" | "dataRetentionDays" | "verificationStatus" | "professionalType" | "licenseNumber" | "verifiedAt" | "encryptedProfile" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     moodEntries?: boolean | User$moodEntriesArgs<ExtArgs>
     safetyPlans?: boolean | User$safetyPlansArgs<ExtArgs>
@@ -27102,6 +30066,7 @@ export namespace Prisma {
     achievements?: boolean | User$achievementsArgs<ExtArgs>
     challenges?: boolean | User$challengesArgs<ExtArgs>
     activities?: boolean | User$activitiesArgs<ExtArgs>
+    emergencyContacts?: boolean | User$emergencyContactsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -27116,6 +30081,7 @@ export namespace Prisma {
       achievements: Prisma.$UserAchievementPayload<ExtArgs>[]
       challenges: Prisma.$UserChallengePayload<ExtArgs>[]
       activities: Prisma.$UserActivityPayload<ExtArgs>[]
+      emergencyContacts: Prisma.$EmergencyContactPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -27125,6 +30091,12 @@ export namespace Prisma {
       isAnonymous: boolean
       lastLogin: Date | null
       dataSharing: $Enums.UserDataSharing
+      allowAnalytics: boolean
+      dataRetentionDays: number | null
+      verificationStatus: $Enums.VerificationStatus
+      professionalType: string | null
+      licenseNumber: string | null
+      verifiedAt: Date | null
       encryptedProfile: Uint8Array | null
       createdAt: Date
       updatedAt: Date
@@ -27528,6 +30500,7 @@ export namespace Prisma {
     achievements<T extends User$achievementsArgs<ExtArgs> = {}>(args?: Subset<T, User$achievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserAchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     challenges<T extends User$challengesArgs<ExtArgs> = {}>(args?: Subset<T, User$challengesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserChallengePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     activities<T extends User$activitiesArgs<ExtArgs> = {}>(args?: Subset<T, User$activitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    emergencyContacts<T extends User$emergencyContactsArgs<ExtArgs> = {}>(args?: Subset<T, User$emergencyContactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmergencyContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -27564,6 +30537,12 @@ export namespace Prisma {
     readonly isAnonymous: FieldRef<"User", 'Boolean'>
     readonly lastLogin: FieldRef<"User", 'DateTime'>
     readonly dataSharing: FieldRef<"User", 'UserDataSharing'>
+    readonly allowAnalytics: FieldRef<"User", 'Boolean'>
+    readonly dataRetentionDays: FieldRef<"User", 'Int'>
+    readonly verificationStatus: FieldRef<"User", 'VerificationStatus'>
+    readonly professionalType: FieldRef<"User", 'String'>
+    readonly licenseNumber: FieldRef<"User", 'String'>
+    readonly verifiedAt: FieldRef<"User", 'DateTime'>
     readonly encryptedProfile: FieldRef<"User", 'Bytes'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -28089,6 +31068,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserActivityScalarFieldEnum | UserActivityScalarFieldEnum[]
+  }
+
+  /**
+   * User.emergencyContacts
+   */
+  export type User$emergencyContactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmergencyContact
+     */
+    select?: EmergencyContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmergencyContact
+     */
+    omit?: EmergencyContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmergencyContactInclude<ExtArgs> | null
+    where?: EmergencyContactWhereInput
+    orderBy?: EmergencyContactOrderByWithRelationInput | EmergencyContactOrderByWithRelationInput[]
+    cursor?: EmergencyContactWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmergencyContactScalarFieldEnum | EmergencyContactScalarFieldEnum[]
   }
 
   /**
@@ -38882,6 +41885,58 @@ export namespace Prisma {
   export type PublicMetricsScalarFieldEnum = (typeof PublicMetricsScalarFieldEnum)[keyof typeof PublicMetricsScalarFieldEnum]
 
 
+  export const EmergencyContactScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    encryptedName: 'encryptedName',
+    encryptedPhone: 'encryptedPhone',
+    encryptedEmail: 'encryptedEmail',
+    relationship: 'relationship',
+    priority: 'priority',
+    contactMethod: 'contactMethod',
+    timezone: 'timezone',
+    availableHours: 'availableHours',
+    preferredMethod: 'preferredMethod',
+    autoNotify: 'autoNotify',
+    crisisOnly: 'crisisOnly',
+    hasConsent: 'hasConsent',
+    consentDate: 'consentDate',
+    keyDerivationSalt: 'keyDerivationSalt',
+    isVerified: 'isVerified',
+    verifiedAt: 'verifiedAt',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    lastContacted: 'lastContacted'
+  };
+
+  export type EmergencyContactScalarFieldEnum = (typeof EmergencyContactScalarFieldEnum)[keyof typeof EmergencyContactScalarFieldEnum]
+
+
+  export const EmergencyNotificationScalarFieldEnum: {
+    id: 'id',
+    emergencyContactId: 'emergencyContactId',
+    sessionId: 'sessionId',
+    tetherEmergencyId: 'tetherEmergencyId',
+    notificationType: 'notificationType',
+    severity: 'severity',
+    message: 'message',
+    sentAt: 'sentAt',
+    deliveredAt: 'deliveredAt',
+    acknowledgedAt: 'acknowledgedAt',
+    responseReceived: 'responseReceived',
+    responseTime: 'responseTime',
+    method: 'method',
+    status: 'status',
+    attempts: 'attempts',
+    maxAttempts: 'maxAttempts',
+    errorMessage: 'errorMessage',
+    nextRetryAt: 'nextRetryAt'
+  };
+
+  export type EmergencyNotificationScalarFieldEnum = (typeof EmergencyNotificationScalarFieldEnum)[keyof typeof EmergencyNotificationScalarFieldEnum]
+
+
   export const WebSocketConnectionScalarFieldEnum: {
     id: 'id',
     sessionId: 'sessionId',
@@ -38906,6 +41961,12 @@ export namespace Prisma {
     isAnonymous: 'isAnonymous',
     lastLogin: 'lastLogin',
     dataSharing: 'dataSharing',
+    allowAnalytics: 'allowAnalytics',
+    dataRetentionDays: 'dataRetentionDays',
+    verificationStatus: 'verificationStatus',
+    professionalType: 'professionalType',
+    licenseNumber: 'licenseNumber',
+    verifiedAt: 'verifiedAt',
     encryptedProfile: 'encryptedProfile',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -39363,6 +42424,20 @@ export namespace Prisma {
    * Reference to a field of type 'HealthStatus'
    */
   export type EnumHealthStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HealthStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'EmergencyNotificationType'
+   */
+  export type EnumEmergencyNotificationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EmergencyNotificationType'>
+    
+
+
+  /**
+   * Reference to a field of type 'NotificationStatus'
+   */
+  export type EnumNotificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'NotificationStatus'>
     
 
 
@@ -41241,6 +44316,273 @@ export namespace Prisma {
     updateFrequency?: StringWithAggregatesFilter<"PublicMetrics"> | string
   }
 
+  export type EmergencyContactWhereInput = {
+    AND?: EmergencyContactWhereInput | EmergencyContactWhereInput[]
+    OR?: EmergencyContactWhereInput[]
+    NOT?: EmergencyContactWhereInput | EmergencyContactWhereInput[]
+    id?: StringFilter<"EmergencyContact"> | string
+    userId?: StringFilter<"EmergencyContact"> | string
+    encryptedName?: BytesFilter<"EmergencyContact"> | Uint8Array
+    encryptedPhone?: BytesFilter<"EmergencyContact"> | Uint8Array
+    encryptedEmail?: BytesNullableFilter<"EmergencyContact"> | Uint8Array | null
+    relationship?: StringFilter<"EmergencyContact"> | string
+    priority?: IntFilter<"EmergencyContact"> | number
+    contactMethod?: StringFilter<"EmergencyContact"> | string
+    timezone?: StringNullableFilter<"EmergencyContact"> | string | null
+    availableHours?: JsonNullableFilter<"EmergencyContact">
+    preferredMethod?: StringNullableFilter<"EmergencyContact"> | string | null
+    autoNotify?: BoolFilter<"EmergencyContact"> | boolean
+    crisisOnly?: BoolFilter<"EmergencyContact"> | boolean
+    hasConsent?: BoolFilter<"EmergencyContact"> | boolean
+    consentDate?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    keyDerivationSalt?: BytesFilter<"EmergencyContact"> | Uint8Array
+    isVerified?: BoolFilter<"EmergencyContact"> | boolean
+    verifiedAt?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    isActive?: BoolFilter<"EmergencyContact"> | boolean
+    createdAt?: DateTimeFilter<"EmergencyContact"> | Date | string
+    updatedAt?: DateTimeFilter<"EmergencyContact"> | Date | string
+    lastContacted?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    notifications?: EmergencyNotificationListRelationFilter
+  }
+
+  export type EmergencyContactOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    encryptedName?: SortOrder
+    encryptedPhone?: SortOrder
+    encryptedEmail?: SortOrderInput | SortOrder
+    relationship?: SortOrder
+    priority?: SortOrder
+    contactMethod?: SortOrder
+    timezone?: SortOrderInput | SortOrder
+    availableHours?: SortOrderInput | SortOrder
+    preferredMethod?: SortOrderInput | SortOrder
+    autoNotify?: SortOrder
+    crisisOnly?: SortOrder
+    hasConsent?: SortOrder
+    consentDate?: SortOrderInput | SortOrder
+    keyDerivationSalt?: SortOrder
+    isVerified?: SortOrder
+    verifiedAt?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContacted?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    notifications?: EmergencyNotificationOrderByRelationAggregateInput
+  }
+
+  export type EmergencyContactWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: EmergencyContactWhereInput | EmergencyContactWhereInput[]
+    OR?: EmergencyContactWhereInput[]
+    NOT?: EmergencyContactWhereInput | EmergencyContactWhereInput[]
+    userId?: StringFilter<"EmergencyContact"> | string
+    encryptedName?: BytesFilter<"EmergencyContact"> | Uint8Array
+    encryptedPhone?: BytesFilter<"EmergencyContact"> | Uint8Array
+    encryptedEmail?: BytesNullableFilter<"EmergencyContact"> | Uint8Array | null
+    relationship?: StringFilter<"EmergencyContact"> | string
+    priority?: IntFilter<"EmergencyContact"> | number
+    contactMethod?: StringFilter<"EmergencyContact"> | string
+    timezone?: StringNullableFilter<"EmergencyContact"> | string | null
+    availableHours?: JsonNullableFilter<"EmergencyContact">
+    preferredMethod?: StringNullableFilter<"EmergencyContact"> | string | null
+    autoNotify?: BoolFilter<"EmergencyContact"> | boolean
+    crisisOnly?: BoolFilter<"EmergencyContact"> | boolean
+    hasConsent?: BoolFilter<"EmergencyContact"> | boolean
+    consentDate?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    keyDerivationSalt?: BytesFilter<"EmergencyContact"> | Uint8Array
+    isVerified?: BoolFilter<"EmergencyContact"> | boolean
+    verifiedAt?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    isActive?: BoolFilter<"EmergencyContact"> | boolean
+    createdAt?: DateTimeFilter<"EmergencyContact"> | Date | string
+    updatedAt?: DateTimeFilter<"EmergencyContact"> | Date | string
+    lastContacted?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    notifications?: EmergencyNotificationListRelationFilter
+  }, "id">
+
+  export type EmergencyContactOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    encryptedName?: SortOrder
+    encryptedPhone?: SortOrder
+    encryptedEmail?: SortOrderInput | SortOrder
+    relationship?: SortOrder
+    priority?: SortOrder
+    contactMethod?: SortOrder
+    timezone?: SortOrderInput | SortOrder
+    availableHours?: SortOrderInput | SortOrder
+    preferredMethod?: SortOrderInput | SortOrder
+    autoNotify?: SortOrder
+    crisisOnly?: SortOrder
+    hasConsent?: SortOrder
+    consentDate?: SortOrderInput | SortOrder
+    keyDerivationSalt?: SortOrder
+    isVerified?: SortOrder
+    verifiedAt?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContacted?: SortOrderInput | SortOrder
+    _count?: EmergencyContactCountOrderByAggregateInput
+    _avg?: EmergencyContactAvgOrderByAggregateInput
+    _max?: EmergencyContactMaxOrderByAggregateInput
+    _min?: EmergencyContactMinOrderByAggregateInput
+    _sum?: EmergencyContactSumOrderByAggregateInput
+  }
+
+  export type EmergencyContactScalarWhereWithAggregatesInput = {
+    AND?: EmergencyContactScalarWhereWithAggregatesInput | EmergencyContactScalarWhereWithAggregatesInput[]
+    OR?: EmergencyContactScalarWhereWithAggregatesInput[]
+    NOT?: EmergencyContactScalarWhereWithAggregatesInput | EmergencyContactScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmergencyContact"> | string
+    userId?: StringWithAggregatesFilter<"EmergencyContact"> | string
+    encryptedName?: BytesWithAggregatesFilter<"EmergencyContact"> | Uint8Array
+    encryptedPhone?: BytesWithAggregatesFilter<"EmergencyContact"> | Uint8Array
+    encryptedEmail?: BytesNullableWithAggregatesFilter<"EmergencyContact"> | Uint8Array | null
+    relationship?: StringWithAggregatesFilter<"EmergencyContact"> | string
+    priority?: IntWithAggregatesFilter<"EmergencyContact"> | number
+    contactMethod?: StringWithAggregatesFilter<"EmergencyContact"> | string
+    timezone?: StringNullableWithAggregatesFilter<"EmergencyContact"> | string | null
+    availableHours?: JsonNullableWithAggregatesFilter<"EmergencyContact">
+    preferredMethod?: StringNullableWithAggregatesFilter<"EmergencyContact"> | string | null
+    autoNotify?: BoolWithAggregatesFilter<"EmergencyContact"> | boolean
+    crisisOnly?: BoolWithAggregatesFilter<"EmergencyContact"> | boolean
+    hasConsent?: BoolWithAggregatesFilter<"EmergencyContact"> | boolean
+    consentDate?: DateTimeNullableWithAggregatesFilter<"EmergencyContact"> | Date | string | null
+    keyDerivationSalt?: BytesWithAggregatesFilter<"EmergencyContact"> | Uint8Array
+    isVerified?: BoolWithAggregatesFilter<"EmergencyContact"> | boolean
+    verifiedAt?: DateTimeNullableWithAggregatesFilter<"EmergencyContact"> | Date | string | null
+    isActive?: BoolWithAggregatesFilter<"EmergencyContact"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"EmergencyContact"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmergencyContact"> | Date | string
+    lastContacted?: DateTimeNullableWithAggregatesFilter<"EmergencyContact"> | Date | string | null
+  }
+
+  export type EmergencyNotificationWhereInput = {
+    AND?: EmergencyNotificationWhereInput | EmergencyNotificationWhereInput[]
+    OR?: EmergencyNotificationWhereInput[]
+    NOT?: EmergencyNotificationWhereInput | EmergencyNotificationWhereInput[]
+    id?: StringFilter<"EmergencyNotification"> | string
+    emergencyContactId?: StringFilter<"EmergencyNotification"> | string
+    sessionId?: StringNullableFilter<"EmergencyNotification"> | string | null
+    tetherEmergencyId?: StringNullableFilter<"EmergencyNotification"> | string | null
+    notificationType?: EnumEmergencyNotificationTypeFilter<"EmergencyNotification"> | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFilter<"EmergencyNotification"> | $Enums.EmergencySeverity
+    message?: StringFilter<"EmergencyNotification"> | string
+    sentAt?: DateTimeFilter<"EmergencyNotification"> | Date | string
+    deliveredAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    acknowledgedAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    responseReceived?: BoolFilter<"EmergencyNotification"> | boolean
+    responseTime?: IntNullableFilter<"EmergencyNotification"> | number | null
+    method?: StringFilter<"EmergencyNotification"> | string
+    status?: EnumNotificationStatusFilter<"EmergencyNotification"> | $Enums.NotificationStatus
+    attempts?: IntFilter<"EmergencyNotification"> | number
+    maxAttempts?: IntFilter<"EmergencyNotification"> | number
+    errorMessage?: StringNullableFilter<"EmergencyNotification"> | string | null
+    nextRetryAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    emergencyContact?: XOR<EmergencyContactScalarRelationFilter, EmergencyContactWhereInput>
+  }
+
+  export type EmergencyNotificationOrderByWithRelationInput = {
+    id?: SortOrder
+    emergencyContactId?: SortOrder
+    sessionId?: SortOrderInput | SortOrder
+    tetherEmergencyId?: SortOrderInput | SortOrder
+    notificationType?: SortOrder
+    severity?: SortOrder
+    message?: SortOrder
+    sentAt?: SortOrder
+    deliveredAt?: SortOrderInput | SortOrder
+    acknowledgedAt?: SortOrderInput | SortOrder
+    responseReceived?: SortOrder
+    responseTime?: SortOrderInput | SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+    errorMessage?: SortOrderInput | SortOrder
+    nextRetryAt?: SortOrderInput | SortOrder
+    emergencyContact?: EmergencyContactOrderByWithRelationInput
+  }
+
+  export type EmergencyNotificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: EmergencyNotificationWhereInput | EmergencyNotificationWhereInput[]
+    OR?: EmergencyNotificationWhereInput[]
+    NOT?: EmergencyNotificationWhereInput | EmergencyNotificationWhereInput[]
+    emergencyContactId?: StringFilter<"EmergencyNotification"> | string
+    sessionId?: StringNullableFilter<"EmergencyNotification"> | string | null
+    tetherEmergencyId?: StringNullableFilter<"EmergencyNotification"> | string | null
+    notificationType?: EnumEmergencyNotificationTypeFilter<"EmergencyNotification"> | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFilter<"EmergencyNotification"> | $Enums.EmergencySeverity
+    message?: StringFilter<"EmergencyNotification"> | string
+    sentAt?: DateTimeFilter<"EmergencyNotification"> | Date | string
+    deliveredAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    acknowledgedAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    responseReceived?: BoolFilter<"EmergencyNotification"> | boolean
+    responseTime?: IntNullableFilter<"EmergencyNotification"> | number | null
+    method?: StringFilter<"EmergencyNotification"> | string
+    status?: EnumNotificationStatusFilter<"EmergencyNotification"> | $Enums.NotificationStatus
+    attempts?: IntFilter<"EmergencyNotification"> | number
+    maxAttempts?: IntFilter<"EmergencyNotification"> | number
+    errorMessage?: StringNullableFilter<"EmergencyNotification"> | string | null
+    nextRetryAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    emergencyContact?: XOR<EmergencyContactScalarRelationFilter, EmergencyContactWhereInput>
+  }, "id">
+
+  export type EmergencyNotificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    emergencyContactId?: SortOrder
+    sessionId?: SortOrderInput | SortOrder
+    tetherEmergencyId?: SortOrderInput | SortOrder
+    notificationType?: SortOrder
+    severity?: SortOrder
+    message?: SortOrder
+    sentAt?: SortOrder
+    deliveredAt?: SortOrderInput | SortOrder
+    acknowledgedAt?: SortOrderInput | SortOrder
+    responseReceived?: SortOrder
+    responseTime?: SortOrderInput | SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+    errorMessage?: SortOrderInput | SortOrder
+    nextRetryAt?: SortOrderInput | SortOrder
+    _count?: EmergencyNotificationCountOrderByAggregateInput
+    _avg?: EmergencyNotificationAvgOrderByAggregateInput
+    _max?: EmergencyNotificationMaxOrderByAggregateInput
+    _min?: EmergencyNotificationMinOrderByAggregateInput
+    _sum?: EmergencyNotificationSumOrderByAggregateInput
+  }
+
+  export type EmergencyNotificationScalarWhereWithAggregatesInput = {
+    AND?: EmergencyNotificationScalarWhereWithAggregatesInput | EmergencyNotificationScalarWhereWithAggregatesInput[]
+    OR?: EmergencyNotificationScalarWhereWithAggregatesInput[]
+    NOT?: EmergencyNotificationScalarWhereWithAggregatesInput | EmergencyNotificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmergencyNotification"> | string
+    emergencyContactId?: StringWithAggregatesFilter<"EmergencyNotification"> | string
+    sessionId?: StringNullableWithAggregatesFilter<"EmergencyNotification"> | string | null
+    tetherEmergencyId?: StringNullableWithAggregatesFilter<"EmergencyNotification"> | string | null
+    notificationType?: EnumEmergencyNotificationTypeWithAggregatesFilter<"EmergencyNotification"> | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityWithAggregatesFilter<"EmergencyNotification"> | $Enums.EmergencySeverity
+    message?: StringWithAggregatesFilter<"EmergencyNotification"> | string
+    sentAt?: DateTimeWithAggregatesFilter<"EmergencyNotification"> | Date | string
+    deliveredAt?: DateTimeNullableWithAggregatesFilter<"EmergencyNotification"> | Date | string | null
+    acknowledgedAt?: DateTimeNullableWithAggregatesFilter<"EmergencyNotification"> | Date | string | null
+    responseReceived?: BoolWithAggregatesFilter<"EmergencyNotification"> | boolean
+    responseTime?: IntNullableWithAggregatesFilter<"EmergencyNotification"> | number | null
+    method?: StringWithAggregatesFilter<"EmergencyNotification"> | string
+    status?: EnumNotificationStatusWithAggregatesFilter<"EmergencyNotification"> | $Enums.NotificationStatus
+    attempts?: IntWithAggregatesFilter<"EmergencyNotification"> | number
+    maxAttempts?: IntWithAggregatesFilter<"EmergencyNotification"> | number
+    errorMessage?: StringNullableWithAggregatesFilter<"EmergencyNotification"> | string | null
+    nextRetryAt?: DateTimeNullableWithAggregatesFilter<"EmergencyNotification"> | Date | string | null
+  }
+
   export type WebSocketConnectionWhereInput = {
     AND?: WebSocketConnectionWhereInput | WebSocketConnectionWhereInput[]
     OR?: WebSocketConnectionWhereInput[]
@@ -41329,6 +44671,12 @@ export namespace Prisma {
     isAnonymous?: BoolFilter<"User"> | boolean
     lastLogin?: DateTimeNullableFilter<"User"> | Date | string | null
     dataSharing?: EnumUserDataSharingFilter<"User"> | $Enums.UserDataSharing
+    allowAnalytics?: BoolFilter<"User"> | boolean
+    dataRetentionDays?: IntNullableFilter<"User"> | number | null
+    verificationStatus?: EnumVerificationStatusFilter<"User"> | $Enums.VerificationStatus
+    professionalType?: StringNullableFilter<"User"> | string | null
+    licenseNumber?: StringNullableFilter<"User"> | string | null
+    verifiedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     encryptedProfile?: BytesNullableFilter<"User"> | Uint8Array | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -41338,6 +44686,7 @@ export namespace Prisma {
     achievements?: UserAchievementListRelationFilter
     challenges?: UserChallengeListRelationFilter
     activities?: UserActivityListRelationFilter
+    emergencyContacts?: EmergencyContactListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -41348,6 +44697,12 @@ export namespace Prisma {
     isAnonymous?: SortOrder
     lastLogin?: SortOrderInput | SortOrder
     dataSharing?: SortOrder
+    allowAnalytics?: SortOrder
+    dataRetentionDays?: SortOrderInput | SortOrder
+    verificationStatus?: SortOrder
+    professionalType?: SortOrderInput | SortOrder
+    licenseNumber?: SortOrderInput | SortOrder
+    verifiedAt?: SortOrderInput | SortOrder
     encryptedProfile?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -41357,6 +44712,7 @@ export namespace Prisma {
     achievements?: UserAchievementOrderByRelationAggregateInput
     challenges?: UserChallengeOrderByRelationAggregateInput
     activities?: UserActivityOrderByRelationAggregateInput
+    emergencyContacts?: EmergencyContactOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -41370,6 +44726,12 @@ export namespace Prisma {
     isAnonymous?: BoolFilter<"User"> | boolean
     lastLogin?: DateTimeNullableFilter<"User"> | Date | string | null
     dataSharing?: EnumUserDataSharingFilter<"User"> | $Enums.UserDataSharing
+    allowAnalytics?: BoolFilter<"User"> | boolean
+    dataRetentionDays?: IntNullableFilter<"User"> | number | null
+    verificationStatus?: EnumVerificationStatusFilter<"User"> | $Enums.VerificationStatus
+    professionalType?: StringNullableFilter<"User"> | string | null
+    licenseNumber?: StringNullableFilter<"User"> | string | null
+    verifiedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     encryptedProfile?: BytesNullableFilter<"User"> | Uint8Array | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -41379,6 +44741,7 @@ export namespace Prisma {
     achievements?: UserAchievementListRelationFilter
     challenges?: UserChallengeListRelationFilter
     activities?: UserActivityListRelationFilter
+    emergencyContacts?: EmergencyContactListRelationFilter
   }, "id" | "anonymousId" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
@@ -41389,12 +44752,20 @@ export namespace Prisma {
     isAnonymous?: SortOrder
     lastLogin?: SortOrderInput | SortOrder
     dataSharing?: SortOrder
+    allowAnalytics?: SortOrder
+    dataRetentionDays?: SortOrderInput | SortOrder
+    verificationStatus?: SortOrder
+    professionalType?: SortOrderInput | SortOrder
+    licenseNumber?: SortOrderInput | SortOrder
+    verifiedAt?: SortOrderInput | SortOrder
     encryptedProfile?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
@@ -41408,6 +44779,12 @@ export namespace Prisma {
     isAnonymous?: BoolWithAggregatesFilter<"User"> | boolean
     lastLogin?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     dataSharing?: EnumUserDataSharingWithAggregatesFilter<"User"> | $Enums.UserDataSharing
+    allowAnalytics?: BoolWithAggregatesFilter<"User"> | boolean
+    dataRetentionDays?: IntNullableWithAggregatesFilter<"User"> | number | null
+    verificationStatus?: EnumVerificationStatusWithAggregatesFilter<"User"> | $Enums.VerificationStatus
+    professionalType?: StringNullableWithAggregatesFilter<"User"> | string | null
+    licenseNumber?: StringNullableWithAggregatesFilter<"User"> | string | null
+    verifiedAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     encryptedProfile?: BytesNullableWithAggregatesFilter<"User"> | Uint8Array | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -44309,6 +47686,330 @@ export namespace Prisma {
     updateFrequency?: StringFieldUpdateOperationsInput | string
   }
 
+  export type EmergencyContactCreateInput = {
+    id?: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+    user: UserCreateNestedOneWithoutEmergencyContactsInput
+    notifications?: EmergencyNotificationCreateNestedManyWithoutEmergencyContactInput
+  }
+
+  export type EmergencyContactUncheckedCreateInput = {
+    id?: string
+    userId: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+    notifications?: EmergencyNotificationUncheckedCreateNestedManyWithoutEmergencyContactInput
+  }
+
+  export type EmergencyContactUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UserUpdateOneRequiredWithoutEmergencyContactsNestedInput
+    notifications?: EmergencyNotificationUpdateManyWithoutEmergencyContactNestedInput
+  }
+
+  export type EmergencyContactUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notifications?: EmergencyNotificationUncheckedUpdateManyWithoutEmergencyContactNestedInput
+  }
+
+  export type EmergencyContactCreateManyInput = {
+    id?: string
+    userId: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+  }
+
+  export type EmergencyContactUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmergencyContactUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmergencyNotificationCreateInput = {
+    id?: string
+    sessionId?: string | null
+    tetherEmergencyId?: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt?: Date | string
+    deliveredAt?: Date | string | null
+    acknowledgedAt?: Date | string | null
+    responseReceived?: boolean
+    responseTime?: number | null
+    method: string
+    status?: $Enums.NotificationStatus
+    attempts?: number
+    maxAttempts?: number
+    errorMessage?: string | null
+    nextRetryAt?: Date | string | null
+    emergencyContact: EmergencyContactCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type EmergencyNotificationUncheckedCreateInput = {
+    id?: string
+    emergencyContactId: string
+    sessionId?: string | null
+    tetherEmergencyId?: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt?: Date | string
+    deliveredAt?: Date | string | null
+    acknowledgedAt?: Date | string | null
+    responseReceived?: boolean
+    responseTime?: number | null
+    method: string
+    status?: $Enums.NotificationStatus
+    attempts?: number
+    maxAttempts?: number
+    errorMessage?: string | null
+    nextRetryAt?: Date | string | null
+  }
+
+  export type EmergencyNotificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    emergencyContact?: EmergencyContactUpdateOneRequiredWithoutNotificationsNestedInput
+  }
+
+  export type EmergencyNotificationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emergencyContactId?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmergencyNotificationCreateManyInput = {
+    id?: string
+    emergencyContactId: string
+    sessionId?: string | null
+    tetherEmergencyId?: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt?: Date | string
+    deliveredAt?: Date | string | null
+    acknowledgedAt?: Date | string | null
+    responseReceived?: boolean
+    responseTime?: number | null
+    method: string
+    status?: $Enums.NotificationStatus
+    attempts?: number
+    maxAttempts?: number
+    errorMessage?: string | null
+    nextRetryAt?: Date | string | null
+  }
+
+  export type EmergencyNotificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmergencyNotificationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emergencyContactId?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type WebSocketConnectionCreateInput = {
     id?: string
     sessionId: string
@@ -44408,6 +48109,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -44417,6 +48124,7 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -44427,6 +48135,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -44436,6 +48150,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -44446,6 +48161,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -44455,6 +48176,7 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -44465,6 +48187,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -44474,6 +48202,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -44484,6 +48213,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -44497,6 +48232,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -44510,6 +48251,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -47393,6 +51140,216 @@ export namespace Prisma {
     displayOrder?: SortOrder
   }
 
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type EmergencyNotificationListRelationFilter = {
+    every?: EmergencyNotificationWhereInput
+    some?: EmergencyNotificationWhereInput
+    none?: EmergencyNotificationWhereInput
+  }
+
+  export type EmergencyNotificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmergencyContactCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    encryptedName?: SortOrder
+    encryptedPhone?: SortOrder
+    encryptedEmail?: SortOrder
+    relationship?: SortOrder
+    priority?: SortOrder
+    contactMethod?: SortOrder
+    timezone?: SortOrder
+    availableHours?: SortOrder
+    preferredMethod?: SortOrder
+    autoNotify?: SortOrder
+    crisisOnly?: SortOrder
+    hasConsent?: SortOrder
+    consentDate?: SortOrder
+    keyDerivationSalt?: SortOrder
+    isVerified?: SortOrder
+    verifiedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContacted?: SortOrder
+  }
+
+  export type EmergencyContactAvgOrderByAggregateInput = {
+    priority?: SortOrder
+  }
+
+  export type EmergencyContactMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    encryptedName?: SortOrder
+    encryptedPhone?: SortOrder
+    encryptedEmail?: SortOrder
+    relationship?: SortOrder
+    priority?: SortOrder
+    contactMethod?: SortOrder
+    timezone?: SortOrder
+    preferredMethod?: SortOrder
+    autoNotify?: SortOrder
+    crisisOnly?: SortOrder
+    hasConsent?: SortOrder
+    consentDate?: SortOrder
+    keyDerivationSalt?: SortOrder
+    isVerified?: SortOrder
+    verifiedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContacted?: SortOrder
+  }
+
+  export type EmergencyContactMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    encryptedName?: SortOrder
+    encryptedPhone?: SortOrder
+    encryptedEmail?: SortOrder
+    relationship?: SortOrder
+    priority?: SortOrder
+    contactMethod?: SortOrder
+    timezone?: SortOrder
+    preferredMethod?: SortOrder
+    autoNotify?: SortOrder
+    crisisOnly?: SortOrder
+    hasConsent?: SortOrder
+    consentDate?: SortOrder
+    keyDerivationSalt?: SortOrder
+    isVerified?: SortOrder
+    verifiedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContacted?: SortOrder
+  }
+
+  export type EmergencyContactSumOrderByAggregateInput = {
+    priority?: SortOrder
+  }
+
+  export type EnumEmergencyNotificationTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmergencyNotificationType | EnumEmergencyNotificationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmergencyNotificationType[]
+    notIn?: $Enums.EmergencyNotificationType[]
+    not?: NestedEnumEmergencyNotificationTypeFilter<$PrismaModel> | $Enums.EmergencyNotificationType
+  }
+
+  export type EnumNotificationStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.NotificationStatus | EnumNotificationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NotificationStatus[]
+    notIn?: $Enums.NotificationStatus[]
+    not?: NestedEnumNotificationStatusFilter<$PrismaModel> | $Enums.NotificationStatus
+  }
+
+  export type EmergencyContactScalarRelationFilter = {
+    is?: EmergencyContactWhereInput
+    isNot?: EmergencyContactWhereInput
+  }
+
+  export type EmergencyNotificationCountOrderByAggregateInput = {
+    id?: SortOrder
+    emergencyContactId?: SortOrder
+    sessionId?: SortOrder
+    tetherEmergencyId?: SortOrder
+    notificationType?: SortOrder
+    severity?: SortOrder
+    message?: SortOrder
+    sentAt?: SortOrder
+    deliveredAt?: SortOrder
+    acknowledgedAt?: SortOrder
+    responseReceived?: SortOrder
+    responseTime?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+    errorMessage?: SortOrder
+    nextRetryAt?: SortOrder
+  }
+
+  export type EmergencyNotificationAvgOrderByAggregateInput = {
+    responseTime?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+  }
+
+  export type EmergencyNotificationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    emergencyContactId?: SortOrder
+    sessionId?: SortOrder
+    tetherEmergencyId?: SortOrder
+    notificationType?: SortOrder
+    severity?: SortOrder
+    message?: SortOrder
+    sentAt?: SortOrder
+    deliveredAt?: SortOrder
+    acknowledgedAt?: SortOrder
+    responseReceived?: SortOrder
+    responseTime?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+    errorMessage?: SortOrder
+    nextRetryAt?: SortOrder
+  }
+
+  export type EmergencyNotificationMinOrderByAggregateInput = {
+    id?: SortOrder
+    emergencyContactId?: SortOrder
+    sessionId?: SortOrder
+    tetherEmergencyId?: SortOrder
+    notificationType?: SortOrder
+    severity?: SortOrder
+    message?: SortOrder
+    sentAt?: SortOrder
+    deliveredAt?: SortOrder
+    acknowledgedAt?: SortOrder
+    responseReceived?: SortOrder
+    responseTime?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+    errorMessage?: SortOrder
+    nextRetryAt?: SortOrder
+  }
+
+  export type EmergencyNotificationSumOrderByAggregateInput = {
+    responseTime?: SortOrder
+    attempts?: SortOrder
+    maxAttempts?: SortOrder
+  }
+
+  export type EnumEmergencyNotificationTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmergencyNotificationType | EnumEmergencyNotificationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmergencyNotificationType[]
+    notIn?: $Enums.EmergencyNotificationType[]
+    not?: NestedEnumEmergencyNotificationTypeWithAggregatesFilter<$PrismaModel> | $Enums.EmergencyNotificationType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEmergencyNotificationTypeFilter<$PrismaModel>
+    _max?: NestedEnumEmergencyNotificationTypeFilter<$PrismaModel>
+  }
+
+  export type EnumNotificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.NotificationStatus | EnumNotificationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NotificationStatus[]
+    notIn?: $Enums.NotificationStatus[]
+    not?: NestedEnumNotificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.NotificationStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumNotificationStatusFilter<$PrismaModel>
+    _max?: NestedEnumNotificationStatusFilter<$PrismaModel>
+  }
+
   export type WebSocketConnectionCountOrderByAggregateInput = {
     id?: SortOrder
     sessionId?: SortOrder
@@ -47474,6 +51431,12 @@ export namespace Prisma {
     none?: UserActivityWhereInput
   }
 
+  export type EmergencyContactListRelationFilter = {
+    every?: EmergencyContactWhereInput
+    some?: EmergencyContactWhereInput
+    none?: EmergencyContactWhereInput
+  }
+
   export type MoodEntryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -47494,6 +51457,10 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type EmergencyContactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     anonymousId?: SortOrder
@@ -47502,9 +51469,19 @@ export namespace Prisma {
     isAnonymous?: SortOrder
     lastLogin?: SortOrder
     dataSharing?: SortOrder
+    allowAnalytics?: SortOrder
+    dataRetentionDays?: SortOrder
+    verificationStatus?: SortOrder
+    professionalType?: SortOrder
+    licenseNumber?: SortOrder
+    verifiedAt?: SortOrder
     encryptedProfile?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type UserAvgOrderByAggregateInput = {
+    dataRetentionDays?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -47515,6 +51492,12 @@ export namespace Prisma {
     isAnonymous?: SortOrder
     lastLogin?: SortOrder
     dataSharing?: SortOrder
+    allowAnalytics?: SortOrder
+    dataRetentionDays?: SortOrder
+    verificationStatus?: SortOrder
+    professionalType?: SortOrder
+    licenseNumber?: SortOrder
+    verifiedAt?: SortOrder
     encryptedProfile?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -47528,9 +51511,19 @@ export namespace Prisma {
     isAnonymous?: SortOrder
     lastLogin?: SortOrder
     dataSharing?: SortOrder
+    allowAnalytics?: SortOrder
+    dataRetentionDays?: SortOrder
+    verificationStatus?: SortOrder
+    professionalType?: SortOrder
+    licenseNumber?: SortOrder
+    verifiedAt?: SortOrder
     encryptedProfile?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    dataRetentionDays?: SortOrder
   }
 
   export type EnumUserDataSharingWithAggregatesFilter<$PrismaModel = never> = {
@@ -47541,11 +51534,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumUserDataSharingFilter<$PrismaModel>
     _max?: NestedEnumUserDataSharingFilter<$PrismaModel>
-  }
-
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
   }
 
   export type MoodEntryCountOrderByAggregateInput = {
@@ -48710,6 +52698,84 @@ export namespace Prisma {
     set?: $Enums.HealthStatus
   }
 
+  export type UserCreateNestedOneWithoutEmergencyContactsInput = {
+    create?: XOR<UserCreateWithoutEmergencyContactsInput, UserUncheckedCreateWithoutEmergencyContactsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutEmergencyContactsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EmergencyNotificationCreateNestedManyWithoutEmergencyContactInput = {
+    create?: XOR<EmergencyNotificationCreateWithoutEmergencyContactInput, EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput> | EmergencyNotificationCreateWithoutEmergencyContactInput[] | EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput[]
+    connectOrCreate?: EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput | EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput[]
+    createMany?: EmergencyNotificationCreateManyEmergencyContactInputEnvelope
+    connect?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+  }
+
+  export type EmergencyNotificationUncheckedCreateNestedManyWithoutEmergencyContactInput = {
+    create?: XOR<EmergencyNotificationCreateWithoutEmergencyContactInput, EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput> | EmergencyNotificationCreateWithoutEmergencyContactInput[] | EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput[]
+    connectOrCreate?: EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput | EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput[]
+    createMany?: EmergencyNotificationCreateManyEmergencyContactInputEnvelope
+    connect?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutEmergencyContactsNestedInput = {
+    create?: XOR<UserCreateWithoutEmergencyContactsInput, UserUncheckedCreateWithoutEmergencyContactsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutEmergencyContactsInput
+    upsert?: UserUpsertWithoutEmergencyContactsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutEmergencyContactsInput, UserUpdateWithoutEmergencyContactsInput>, UserUncheckedUpdateWithoutEmergencyContactsInput>
+  }
+
+  export type EmergencyNotificationUpdateManyWithoutEmergencyContactNestedInput = {
+    create?: XOR<EmergencyNotificationCreateWithoutEmergencyContactInput, EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput> | EmergencyNotificationCreateWithoutEmergencyContactInput[] | EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput[]
+    connectOrCreate?: EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput | EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput[]
+    upsert?: EmergencyNotificationUpsertWithWhereUniqueWithoutEmergencyContactInput | EmergencyNotificationUpsertWithWhereUniqueWithoutEmergencyContactInput[]
+    createMany?: EmergencyNotificationCreateManyEmergencyContactInputEnvelope
+    set?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    disconnect?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    delete?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    connect?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    update?: EmergencyNotificationUpdateWithWhereUniqueWithoutEmergencyContactInput | EmergencyNotificationUpdateWithWhereUniqueWithoutEmergencyContactInput[]
+    updateMany?: EmergencyNotificationUpdateManyWithWhereWithoutEmergencyContactInput | EmergencyNotificationUpdateManyWithWhereWithoutEmergencyContactInput[]
+    deleteMany?: EmergencyNotificationScalarWhereInput | EmergencyNotificationScalarWhereInput[]
+  }
+
+  export type EmergencyNotificationUncheckedUpdateManyWithoutEmergencyContactNestedInput = {
+    create?: XOR<EmergencyNotificationCreateWithoutEmergencyContactInput, EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput> | EmergencyNotificationCreateWithoutEmergencyContactInput[] | EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput[]
+    connectOrCreate?: EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput | EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput[]
+    upsert?: EmergencyNotificationUpsertWithWhereUniqueWithoutEmergencyContactInput | EmergencyNotificationUpsertWithWhereUniqueWithoutEmergencyContactInput[]
+    createMany?: EmergencyNotificationCreateManyEmergencyContactInputEnvelope
+    set?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    disconnect?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    delete?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    connect?: EmergencyNotificationWhereUniqueInput | EmergencyNotificationWhereUniqueInput[]
+    update?: EmergencyNotificationUpdateWithWhereUniqueWithoutEmergencyContactInput | EmergencyNotificationUpdateWithWhereUniqueWithoutEmergencyContactInput[]
+    updateMany?: EmergencyNotificationUpdateManyWithWhereWithoutEmergencyContactInput | EmergencyNotificationUpdateManyWithWhereWithoutEmergencyContactInput[]
+    deleteMany?: EmergencyNotificationScalarWhereInput | EmergencyNotificationScalarWhereInput[]
+  }
+
+  export type EmergencyContactCreateNestedOneWithoutNotificationsInput = {
+    create?: XOR<EmergencyContactCreateWithoutNotificationsInput, EmergencyContactUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: EmergencyContactCreateOrConnectWithoutNotificationsInput
+    connect?: EmergencyContactWhereUniqueInput
+  }
+
+  export type EnumEmergencyNotificationTypeFieldUpdateOperationsInput = {
+    set?: $Enums.EmergencyNotificationType
+  }
+
+  export type EnumNotificationStatusFieldUpdateOperationsInput = {
+    set?: $Enums.NotificationStatus
+  }
+
+  export type EmergencyContactUpdateOneRequiredWithoutNotificationsNestedInput = {
+    create?: XOR<EmergencyContactCreateWithoutNotificationsInput, EmergencyContactUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: EmergencyContactCreateOrConnectWithoutNotificationsInput
+    upsert?: EmergencyContactUpsertWithoutNotificationsInput
+    connect?: EmergencyContactWhereUniqueInput
+    update?: XOR<XOR<EmergencyContactUpdateToOneWithWhereWithoutNotificationsInput, EmergencyContactUpdateWithoutNotificationsInput>, EmergencyContactUncheckedUpdateWithoutNotificationsInput>
+  }
+
   export type MoodEntryCreateNestedManyWithoutUserInput = {
     create?: XOR<MoodEntryCreateWithoutUserInput, MoodEntryUncheckedCreateWithoutUserInput> | MoodEntryCreateWithoutUserInput[] | MoodEntryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MoodEntryCreateOrConnectWithoutUserInput | MoodEntryCreateOrConnectWithoutUserInput[]
@@ -48751,6 +52817,13 @@ export namespace Prisma {
     connect?: UserActivityWhereUniqueInput | UserActivityWhereUniqueInput[]
   }
 
+  export type EmergencyContactCreateNestedManyWithoutUserInput = {
+    create?: XOR<EmergencyContactCreateWithoutUserInput, EmergencyContactUncheckedCreateWithoutUserInput> | EmergencyContactCreateWithoutUserInput[] | EmergencyContactUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EmergencyContactCreateOrConnectWithoutUserInput | EmergencyContactCreateOrConnectWithoutUserInput[]
+    createMany?: EmergencyContactCreateManyUserInputEnvelope
+    connect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+  }
+
   export type MoodEntryUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<MoodEntryCreateWithoutUserInput, MoodEntryUncheckedCreateWithoutUserInput> | MoodEntryCreateWithoutUserInput[] | MoodEntryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MoodEntryCreateOrConnectWithoutUserInput | MoodEntryCreateOrConnectWithoutUserInput[]
@@ -48790,6 +52863,13 @@ export namespace Prisma {
     connectOrCreate?: UserActivityCreateOrConnectWithoutUserInput | UserActivityCreateOrConnectWithoutUserInput[]
     createMany?: UserActivityCreateManyUserInputEnvelope
     connect?: UserActivityWhereUniqueInput | UserActivityWhereUniqueInput[]
+  }
+
+  export type EmergencyContactUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<EmergencyContactCreateWithoutUserInput, EmergencyContactUncheckedCreateWithoutUserInput> | EmergencyContactCreateWithoutUserInput[] | EmergencyContactUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EmergencyContactCreateOrConnectWithoutUserInput | EmergencyContactCreateOrConnectWithoutUserInput[]
+    createMany?: EmergencyContactCreateManyUserInputEnvelope
+    connect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
   }
 
   export type EnumUserDataSharingFieldUpdateOperationsInput = {
@@ -48876,6 +52956,20 @@ export namespace Prisma {
     deleteMany?: UserActivityScalarWhereInput | UserActivityScalarWhereInput[]
   }
 
+  export type EmergencyContactUpdateManyWithoutUserNestedInput = {
+    create?: XOR<EmergencyContactCreateWithoutUserInput, EmergencyContactUncheckedCreateWithoutUserInput> | EmergencyContactCreateWithoutUserInput[] | EmergencyContactUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EmergencyContactCreateOrConnectWithoutUserInput | EmergencyContactCreateOrConnectWithoutUserInput[]
+    upsert?: EmergencyContactUpsertWithWhereUniqueWithoutUserInput | EmergencyContactUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: EmergencyContactCreateManyUserInputEnvelope
+    set?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    disconnect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    delete?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    connect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    update?: EmergencyContactUpdateWithWhereUniqueWithoutUserInput | EmergencyContactUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: EmergencyContactUpdateManyWithWhereWithoutUserInput | EmergencyContactUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: EmergencyContactScalarWhereInput | EmergencyContactScalarWhereInput[]
+  }
+
   export type MoodEntryUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<MoodEntryCreateWithoutUserInput, MoodEntryUncheckedCreateWithoutUserInput> | MoodEntryCreateWithoutUserInput[] | MoodEntryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MoodEntryCreateOrConnectWithoutUserInput | MoodEntryCreateOrConnectWithoutUserInput[]
@@ -48954,6 +53048,20 @@ export namespace Prisma {
     update?: UserActivityUpdateWithWhereUniqueWithoutUserInput | UserActivityUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserActivityUpdateManyWithWhereWithoutUserInput | UserActivityUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserActivityScalarWhereInput | UserActivityScalarWhereInput[]
+  }
+
+  export type EmergencyContactUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<EmergencyContactCreateWithoutUserInput, EmergencyContactUncheckedCreateWithoutUserInput> | EmergencyContactCreateWithoutUserInput[] | EmergencyContactUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EmergencyContactCreateOrConnectWithoutUserInput | EmergencyContactCreateOrConnectWithoutUserInput[]
+    upsert?: EmergencyContactUpsertWithWhereUniqueWithoutUserInput | EmergencyContactUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: EmergencyContactCreateManyUserInputEnvelope
+    set?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    disconnect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    delete?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    connect?: EmergencyContactWhereUniqueInput | EmergencyContactWhereUniqueInput[]
+    update?: EmergencyContactUpdateWithWhereUniqueWithoutUserInput | EmergencyContactUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: EmergencyContactUpdateManyWithWhereWithoutUserInput | EmergencyContactUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: EmergencyContactScalarWhereInput | EmergencyContactScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutMoodEntriesInput = {
@@ -50052,6 +54160,40 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumHealthStatusFilter<$PrismaModel>
     _max?: NestedEnumHealthStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumEmergencyNotificationTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmergencyNotificationType | EnumEmergencyNotificationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmergencyNotificationType[]
+    notIn?: $Enums.EmergencyNotificationType[]
+    not?: NestedEnumEmergencyNotificationTypeFilter<$PrismaModel> | $Enums.EmergencyNotificationType
+  }
+
+  export type NestedEnumNotificationStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.NotificationStatus | EnumNotificationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NotificationStatus[]
+    notIn?: $Enums.NotificationStatus[]
+    not?: NestedEnumNotificationStatusFilter<$PrismaModel> | $Enums.NotificationStatus
+  }
+
+  export type NestedEnumEmergencyNotificationTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmergencyNotificationType | EnumEmergencyNotificationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmergencyNotificationType[]
+    notIn?: $Enums.EmergencyNotificationType[]
+    not?: NestedEnumEmergencyNotificationTypeWithAggregatesFilter<$PrismaModel> | $Enums.EmergencyNotificationType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEmergencyNotificationTypeFilter<$PrismaModel>
+    _max?: NestedEnumEmergencyNotificationTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumNotificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.NotificationStatus | EnumNotificationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NotificationStatus[]
+    notIn?: $Enums.NotificationStatus[]
+    not?: NestedEnumNotificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.NotificationStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumNotificationStatusFilter<$PrismaModel>
+    _max?: NestedEnumNotificationStatusFilter<$PrismaModel>
   }
 
   export type NestedEnumUserDataSharingFilter<$PrismaModel = never> = {
@@ -51649,6 +55791,327 @@ export namespace Prisma {
     escalations?: CrisisEscalationUncheckedUpdateManyWithoutSessionNestedInput
   }
 
+  export type UserCreateWithoutEmergencyContactsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeCreateNestedManyWithoutUserInput
+    activities?: UserActivityCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutEmergencyContactsInput = {
+    id?: string
+    anonymousId?: string | null
+    email?: string | null
+    username?: string | null
+    isAnonymous?: boolean
+    lastLogin?: Date | string | null
+    dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
+    encryptedProfile?: Uint8Array | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    moodEntries?: MoodEntryUncheckedCreateNestedManyWithoutUserInput
+    safetyPlans?: SafetyPlanUncheckedCreateNestedManyWithoutUserInput
+    userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
+    achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
+    challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
+    activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutEmergencyContactsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutEmergencyContactsInput, UserUncheckedCreateWithoutEmergencyContactsInput>
+  }
+
+  export type EmergencyNotificationCreateWithoutEmergencyContactInput = {
+    id?: string
+    sessionId?: string | null
+    tetherEmergencyId?: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt?: Date | string
+    deliveredAt?: Date | string | null
+    acknowledgedAt?: Date | string | null
+    responseReceived?: boolean
+    responseTime?: number | null
+    method: string
+    status?: $Enums.NotificationStatus
+    attempts?: number
+    maxAttempts?: number
+    errorMessage?: string | null
+    nextRetryAt?: Date | string | null
+  }
+
+  export type EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput = {
+    id?: string
+    sessionId?: string | null
+    tetherEmergencyId?: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt?: Date | string
+    deliveredAt?: Date | string | null
+    acknowledgedAt?: Date | string | null
+    responseReceived?: boolean
+    responseTime?: number | null
+    method: string
+    status?: $Enums.NotificationStatus
+    attempts?: number
+    maxAttempts?: number
+    errorMessage?: string | null
+    nextRetryAt?: Date | string | null
+  }
+
+  export type EmergencyNotificationCreateOrConnectWithoutEmergencyContactInput = {
+    where: EmergencyNotificationWhereUniqueInput
+    create: XOR<EmergencyNotificationCreateWithoutEmergencyContactInput, EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput>
+  }
+
+  export type EmergencyNotificationCreateManyEmergencyContactInputEnvelope = {
+    data: EmergencyNotificationCreateManyEmergencyContactInput | EmergencyNotificationCreateManyEmergencyContactInput[]
+  }
+
+  export type UserUpsertWithoutEmergencyContactsInput = {
+    update: XOR<UserUpdateWithoutEmergencyContactsInput, UserUncheckedUpdateWithoutEmergencyContactsInput>
+    create: XOR<UserCreateWithoutEmergencyContactsInput, UserUncheckedCreateWithoutEmergencyContactsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutEmergencyContactsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutEmergencyContactsInput, UserUncheckedUpdateWithoutEmergencyContactsInput>
+  }
+
+  export type UserUpdateWithoutEmergencyContactsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutEmergencyContactsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    anonymousId?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    isAnonymous?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    moodEntries?: MoodEntryUncheckedUpdateManyWithoutUserNestedInput
+    safetyPlans?: SafetyPlanUncheckedUpdateManyWithoutUserNestedInput
+    userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
+    achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
+    challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
+    activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type EmergencyNotificationUpsertWithWhereUniqueWithoutEmergencyContactInput = {
+    where: EmergencyNotificationWhereUniqueInput
+    update: XOR<EmergencyNotificationUpdateWithoutEmergencyContactInput, EmergencyNotificationUncheckedUpdateWithoutEmergencyContactInput>
+    create: XOR<EmergencyNotificationCreateWithoutEmergencyContactInput, EmergencyNotificationUncheckedCreateWithoutEmergencyContactInput>
+  }
+
+  export type EmergencyNotificationUpdateWithWhereUniqueWithoutEmergencyContactInput = {
+    where: EmergencyNotificationWhereUniqueInput
+    data: XOR<EmergencyNotificationUpdateWithoutEmergencyContactInput, EmergencyNotificationUncheckedUpdateWithoutEmergencyContactInput>
+  }
+
+  export type EmergencyNotificationUpdateManyWithWhereWithoutEmergencyContactInput = {
+    where: EmergencyNotificationScalarWhereInput
+    data: XOR<EmergencyNotificationUpdateManyMutationInput, EmergencyNotificationUncheckedUpdateManyWithoutEmergencyContactInput>
+  }
+
+  export type EmergencyNotificationScalarWhereInput = {
+    AND?: EmergencyNotificationScalarWhereInput | EmergencyNotificationScalarWhereInput[]
+    OR?: EmergencyNotificationScalarWhereInput[]
+    NOT?: EmergencyNotificationScalarWhereInput | EmergencyNotificationScalarWhereInput[]
+    id?: StringFilter<"EmergencyNotification"> | string
+    emergencyContactId?: StringFilter<"EmergencyNotification"> | string
+    sessionId?: StringNullableFilter<"EmergencyNotification"> | string | null
+    tetherEmergencyId?: StringNullableFilter<"EmergencyNotification"> | string | null
+    notificationType?: EnumEmergencyNotificationTypeFilter<"EmergencyNotification"> | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFilter<"EmergencyNotification"> | $Enums.EmergencySeverity
+    message?: StringFilter<"EmergencyNotification"> | string
+    sentAt?: DateTimeFilter<"EmergencyNotification"> | Date | string
+    deliveredAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    acknowledgedAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+    responseReceived?: BoolFilter<"EmergencyNotification"> | boolean
+    responseTime?: IntNullableFilter<"EmergencyNotification"> | number | null
+    method?: StringFilter<"EmergencyNotification"> | string
+    status?: EnumNotificationStatusFilter<"EmergencyNotification"> | $Enums.NotificationStatus
+    attempts?: IntFilter<"EmergencyNotification"> | number
+    maxAttempts?: IntFilter<"EmergencyNotification"> | number
+    errorMessage?: StringNullableFilter<"EmergencyNotification"> | string | null
+    nextRetryAt?: DateTimeNullableFilter<"EmergencyNotification"> | Date | string | null
+  }
+
+  export type EmergencyContactCreateWithoutNotificationsInput = {
+    id?: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+    user: UserCreateNestedOneWithoutEmergencyContactsInput
+  }
+
+  export type EmergencyContactUncheckedCreateWithoutNotificationsInput = {
+    id?: string
+    userId: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+  }
+
+  export type EmergencyContactCreateOrConnectWithoutNotificationsInput = {
+    where: EmergencyContactWhereUniqueInput
+    create: XOR<EmergencyContactCreateWithoutNotificationsInput, EmergencyContactUncheckedCreateWithoutNotificationsInput>
+  }
+
+  export type EmergencyContactUpsertWithoutNotificationsInput = {
+    update: XOR<EmergencyContactUpdateWithoutNotificationsInput, EmergencyContactUncheckedUpdateWithoutNotificationsInput>
+    create: XOR<EmergencyContactCreateWithoutNotificationsInput, EmergencyContactUncheckedCreateWithoutNotificationsInput>
+    where?: EmergencyContactWhereInput
+  }
+
+  export type EmergencyContactUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: EmergencyContactWhereInput
+    data: XOR<EmergencyContactUpdateWithoutNotificationsInput, EmergencyContactUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type EmergencyContactUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UserUpdateOneRequiredWithoutEmergencyContactsNestedInput
+  }
+
+  export type EmergencyContactUncheckedUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type MoodEntryCreateWithoutUserInput = {
     id?: string
     mood: number
@@ -51833,6 +56296,65 @@ export namespace Prisma {
 
   export type UserActivityCreateManyUserInputEnvelope = {
     data: UserActivityCreateManyUserInput | UserActivityCreateManyUserInput[]
+  }
+
+  export type EmergencyContactCreateWithoutUserInput = {
+    id?: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+    notifications?: EmergencyNotificationCreateNestedManyWithoutEmergencyContactInput
+  }
+
+  export type EmergencyContactUncheckedCreateWithoutUserInput = {
+    id?: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
+    notifications?: EmergencyNotificationUncheckedCreateNestedManyWithoutEmergencyContactInput
+  }
+
+  export type EmergencyContactCreateOrConnectWithoutUserInput = {
+    where: EmergencyContactWhereUniqueInput
+    create: XOR<EmergencyContactCreateWithoutUserInput, EmergencyContactUncheckedCreateWithoutUserInput>
+  }
+
+  export type EmergencyContactCreateManyUserInputEnvelope = {
+    data: EmergencyContactCreateManyUserInput | EmergencyContactCreateManyUserInput[]
   }
 
   export type MoodEntryUpsertWithWhereUniqueWithoutUserInput = {
@@ -52024,6 +56546,50 @@ export namespace Prisma {
     timestamp?: DateTimeFilter<"UserActivity"> | Date | string
   }
 
+  export type EmergencyContactUpsertWithWhereUniqueWithoutUserInput = {
+    where: EmergencyContactWhereUniqueInput
+    update: XOR<EmergencyContactUpdateWithoutUserInput, EmergencyContactUncheckedUpdateWithoutUserInput>
+    create: XOR<EmergencyContactCreateWithoutUserInput, EmergencyContactUncheckedCreateWithoutUserInput>
+  }
+
+  export type EmergencyContactUpdateWithWhereUniqueWithoutUserInput = {
+    where: EmergencyContactWhereUniqueInput
+    data: XOR<EmergencyContactUpdateWithoutUserInput, EmergencyContactUncheckedUpdateWithoutUserInput>
+  }
+
+  export type EmergencyContactUpdateManyWithWhereWithoutUserInput = {
+    where: EmergencyContactScalarWhereInput
+    data: XOR<EmergencyContactUpdateManyMutationInput, EmergencyContactUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type EmergencyContactScalarWhereInput = {
+    AND?: EmergencyContactScalarWhereInput | EmergencyContactScalarWhereInput[]
+    OR?: EmergencyContactScalarWhereInput[]
+    NOT?: EmergencyContactScalarWhereInput | EmergencyContactScalarWhereInput[]
+    id?: StringFilter<"EmergencyContact"> | string
+    userId?: StringFilter<"EmergencyContact"> | string
+    encryptedName?: BytesFilter<"EmergencyContact"> | Uint8Array
+    encryptedPhone?: BytesFilter<"EmergencyContact"> | Uint8Array
+    encryptedEmail?: BytesNullableFilter<"EmergencyContact"> | Uint8Array | null
+    relationship?: StringFilter<"EmergencyContact"> | string
+    priority?: IntFilter<"EmergencyContact"> | number
+    contactMethod?: StringFilter<"EmergencyContact"> | string
+    timezone?: StringNullableFilter<"EmergencyContact"> | string | null
+    availableHours?: JsonNullableFilter<"EmergencyContact">
+    preferredMethod?: StringNullableFilter<"EmergencyContact"> | string | null
+    autoNotify?: BoolFilter<"EmergencyContact"> | boolean
+    crisisOnly?: BoolFilter<"EmergencyContact"> | boolean
+    hasConsent?: BoolFilter<"EmergencyContact"> | boolean
+    consentDate?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    keyDerivationSalt?: BytesFilter<"EmergencyContact"> | Uint8Array
+    isVerified?: BoolFilter<"EmergencyContact"> | boolean
+    verifiedAt?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+    isActive?: BoolFilter<"EmergencyContact"> | boolean
+    createdAt?: DateTimeFilter<"EmergencyContact"> | Date | string
+    updatedAt?: DateTimeFilter<"EmergencyContact"> | Date | string
+    lastContacted?: DateTimeNullableFilter<"EmergencyContact"> | Date | string | null
+  }
+
   export type UserCreateWithoutMoodEntriesInput = {
     id?: string
     anonymousId?: string | null
@@ -52032,6 +56598,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52040,6 +56612,7 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutMoodEntriesInput = {
@@ -52050,6 +56623,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52058,6 +56637,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutMoodEntriesInput = {
@@ -52084,6 +56664,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52092,6 +56678,7 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMoodEntriesInput = {
@@ -52102,6 +56689,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52110,6 +56703,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSafetyPlansInput = {
@@ -52120,6 +56714,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52128,6 +56728,7 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSafetyPlansInput = {
@@ -52138,6 +56739,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52146,6 +56753,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSafetyPlansInput = {
@@ -52201,6 +56809,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52209,6 +56823,7 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSafetyPlansInput = {
@@ -52219,6 +56834,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52227,6 +56848,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type SafetyPlanVersionUpsertWithWhereUniqueWithoutSafetyPlanInput = {
@@ -52339,6 +56961,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52347,6 +56975,7 @@ export namespace Prisma {
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutUserProfileInput = {
@@ -52357,6 +56986,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52365,6 +57000,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutUserProfileInput = {
@@ -52391,6 +57027,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52399,6 +57041,7 @@ export namespace Prisma {
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserProfileInput = {
@@ -52409,6 +57052,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52417,6 +57066,7 @@ export namespace Prisma {
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserAchievementCreateWithoutAchievementInput = {
@@ -52470,6 +57120,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52478,6 +57134,7 @@ export namespace Prisma {
     userProfile?: UserProfileCreateNestedOneWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAchievementsInput = {
@@ -52488,6 +57145,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52496,6 +57159,7 @@ export namespace Prisma {
     userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAchievementsInput = {
@@ -52555,6 +57219,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52563,6 +57233,7 @@ export namespace Prisma {
     userProfile?: UserProfileUpdateOneWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAchievementsInput = {
@@ -52573,6 +57244,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52581,6 +57258,7 @@ export namespace Prisma {
     userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type AchievementUpsertWithoutUserAchievementsInput = {
@@ -52675,6 +57353,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52683,6 +57367,7 @@ export namespace Prisma {
     userProfile?: UserProfileCreateNestedOneWithoutUserInput
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     activities?: UserActivityCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutChallengesInput = {
@@ -52693,6 +57378,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52701,6 +57392,7 @@ export namespace Prisma {
     userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     activities?: UserActivityUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutChallengesInput = {
@@ -52762,6 +57454,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52770,6 +57468,7 @@ export namespace Prisma {
     userProfile?: UserProfileUpdateOneWithoutUserNestedInput
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     activities?: UserActivityUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutChallengesInput = {
@@ -52780,6 +57479,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52788,6 +57493,7 @@ export namespace Prisma {
     userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     activities?: UserActivityUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ChallengeUpsertWithoutUserChallengesInput = {
@@ -52839,6 +57545,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52847,6 +57559,7 @@ export namespace Prisma {
     userProfile?: UserProfileCreateNestedOneWithoutUserInput
     achievements?: UserAchievementCreateNestedManyWithoutUserInput
     challenges?: UserChallengeCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutActivitiesInput = {
@@ -52857,6 +57570,12 @@ export namespace Prisma {
     isAnonymous?: boolean
     lastLogin?: Date | string | null
     dataSharing?: $Enums.UserDataSharing
+    allowAnalytics?: boolean
+    dataRetentionDays?: number | null
+    verificationStatus?: $Enums.VerificationStatus
+    professionalType?: string | null
+    licenseNumber?: string | null
+    verifiedAt?: Date | string | null
     encryptedProfile?: Uint8Array | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52865,6 +57584,7 @@ export namespace Prisma {
     userProfile?: UserProfileUncheckedCreateNestedOneWithoutUserInput
     achievements?: UserAchievementUncheckedCreateNestedManyWithoutUserInput
     challenges?: UserChallengeUncheckedCreateNestedManyWithoutUserInput
+    emergencyContacts?: EmergencyContactUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutActivitiesInput = {
@@ -52891,6 +57611,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52899,6 +57625,7 @@ export namespace Prisma {
     userProfile?: UserProfileUpdateOneWithoutUserNestedInput
     achievements?: UserAchievementUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivitiesInput = {
@@ -52909,6 +57636,12 @@ export namespace Prisma {
     isAnonymous?: BoolFieldUpdateOperationsInput | boolean
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataSharing?: EnumUserDataSharingFieldUpdateOperationsInput | $Enums.UserDataSharing
+    allowAnalytics?: BoolFieldUpdateOperationsInput | boolean
+    dataRetentionDays?: NullableIntFieldUpdateOperationsInput | number | null
+    verificationStatus?: EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+    professionalType?: NullableStringFieldUpdateOperationsInput | string | null
+    licenseNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     encryptedProfile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52917,6 +57650,7 @@ export namespace Prisma {
     userProfile?: UserProfileUncheckedUpdateOneWithoutUserNestedInput
     achievements?: UserAchievementUncheckedUpdateManyWithoutUserNestedInput
     challenges?: UserChallengeUncheckedUpdateManyWithoutUserNestedInput
+    emergencyContacts?: EmergencyContactUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CrisisMessageCreateManySessionInput = {
@@ -53379,6 +58113,86 @@ export namespace Prisma {
     moderatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type EmergencyNotificationCreateManyEmergencyContactInput = {
+    id?: string
+    sessionId?: string | null
+    tetherEmergencyId?: string | null
+    notificationType: $Enums.EmergencyNotificationType
+    severity: $Enums.EmergencySeverity
+    message: string
+    sentAt?: Date | string
+    deliveredAt?: Date | string | null
+    acknowledgedAt?: Date | string | null
+    responseReceived?: boolean
+    responseTime?: number | null
+    method: string
+    status?: $Enums.NotificationStatus
+    attempts?: number
+    maxAttempts?: number
+    errorMessage?: string | null
+    nextRetryAt?: Date | string | null
+  }
+
+  export type EmergencyNotificationUpdateWithoutEmergencyContactInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmergencyNotificationUncheckedUpdateWithoutEmergencyContactInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmergencyNotificationUncheckedUpdateManyWithoutEmergencyContactInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tetherEmergencyId?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationType?: EnumEmergencyNotificationTypeFieldUpdateOperationsInput | $Enums.EmergencyNotificationType
+    severity?: EnumEmergencySeverityFieldUpdateOperationsInput | $Enums.EmergencySeverity
+    message?: StringFieldUpdateOperationsInput | string
+    sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acknowledgedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    responseReceived?: BoolFieldUpdateOperationsInput | boolean
+    responseTime?: NullableIntFieldUpdateOperationsInput | number | null
+    method?: StringFieldUpdateOperationsInput | string
+    status?: EnumNotificationStatusFieldUpdateOperationsInput | $Enums.NotificationStatus
+    attempts?: IntFieldUpdateOperationsInput | number
+    maxAttempts?: IntFieldUpdateOperationsInput | number
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    nextRetryAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type MoodEntryCreateManyUserInput = {
     id?: string
     mood: number
@@ -53433,6 +58247,30 @@ export namespace Prisma {
     pointsEarned?: number
     metadata?: NullableJsonNullValueInput | InputJsonValue
     timestamp?: Date | string
+  }
+
+  export type EmergencyContactCreateManyUserInput = {
+    id?: string
+    encryptedName: Uint8Array
+    encryptedPhone: Uint8Array
+    encryptedEmail?: Uint8Array | null
+    relationship: string
+    priority?: number
+    contactMethod?: string
+    timezone?: string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: string | null
+    autoNotify?: boolean
+    crisisOnly?: boolean
+    hasConsent?: boolean
+    consentDate?: Date | string | null
+    keyDerivationSalt: Uint8Array
+    isVerified?: boolean
+    verifiedAt?: Date | string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContacted?: Date | string | null
   }
 
   export type MoodEntryUpdateWithoutUserInput = {
@@ -53603,6 +58441,80 @@ export namespace Prisma {
     pointsEarned?: IntFieldUpdateOperationsInput | number
     metadata?: NullableJsonNullValueInput | InputJsonValue
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmergencyContactUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notifications?: EmergencyNotificationUpdateManyWithoutEmergencyContactNestedInput
+  }
+
+  export type EmergencyContactUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notifications?: EmergencyNotificationUncheckedUpdateManyWithoutEmergencyContactNestedInput
+  }
+
+  export type EmergencyContactUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    encryptedName?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedPhone?: BytesFieldUpdateOperationsInput | Uint8Array
+    encryptedEmail?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    relationship?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    contactMethod?: StringFieldUpdateOperationsInput | string
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    availableHours?: NullableJsonNullValueInput | InputJsonValue
+    preferredMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    autoNotify?: BoolFieldUpdateOperationsInput | boolean
+    crisisOnly?: BoolFieldUpdateOperationsInput | boolean
+    hasConsent?: BoolFieldUpdateOperationsInput | boolean
+    consentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    keyDerivationSalt?: BytesFieldUpdateOperationsInput | Uint8Array
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    verifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContacted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type SafetyPlanVersionCreateManySafetyPlanInput = {

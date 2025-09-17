@@ -15,6 +15,24 @@ export {
   testCrisisButtonAccessibility
 } from './components/CrisisHelpButton';
 
+// Enhanced Therapeutic Components
+export { TherapeuticLayout } from './components/therapeutic/TherapeuticLayout';
+export { TherapeuticChat } from './components/therapeutic/TherapeuticChat';
+export { BreathingGuide } from './components/therapeutic/BreathingGuide';
+
+// Enhanced Crisis Components
+export { EnhancedCrisisButton } from './components/crisis/EnhancedCrisisButton';
+
+// Mobile-Optimized Components  
+export { CrisisMobileInterface } from './components/mobile/CrisisMobileInterface';
+
+// Advanced Accessibility
+export { 
+  AccessibilityProvider, 
+  AccessibilityControls,
+  useAccessibility 
+} from './components/accessibility/AccessibilityProvider';
+
 // Base Components
 export {
   Button,
@@ -49,10 +67,8 @@ export {
   TouchGestures
 } from './components/mobile-crisis';
 
-// Accessibility Components
+// Accessibility Components (Legacy)
 export {
-  AccessibilityProvider,
-  useAccessibility,
   AccessibilitySettings,
   SkipLinks,
   FocusTrap,

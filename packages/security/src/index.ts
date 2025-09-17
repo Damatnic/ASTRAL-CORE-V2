@@ -103,6 +103,10 @@ export type {
 export { SecurityMonitor } from './monitoring/security-monitor';
 export type { SecurityThreat, ThreatType, MonitoringConfig } from './monitoring/security-monitor';
 
+// Crisis Security
+export { CrisisSecurityService } from './crisis/crisis-security';
+export type { CrisisSecurityConfig } from './crisis/crisis-security';
+
 // Breach Detection
 export { BreachDetectionService } from './breach-detection/breach-monitor';
 export type { BreachAlert as MonitoringBreachAlert, BreachResponse, ThreatPattern } from './breach-detection/breach-monitor';

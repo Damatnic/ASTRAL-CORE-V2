@@ -3,6 +3,7 @@
  * Optimized for <200ms response times and zero-knowledge encryption
  */
 import { prisma } from '../';
+import * as crypto from 'crypto';
 /**
  * Creates a new crisis session with optimized performance
  * Target: <50ms execution time
@@ -13,6 +14,7 @@ export async function createCrisisSession(params) {
         data: {
             anonymousId: params.anonymousId,
             severity: params.severity,
+            sessionToken: crypto.randomBytes(32).toString('hex'),
             status: 'ACTIVE',
             encryptedData: params.encryptedData,
             keyDerivationSalt: params.keyDerivationSalt,

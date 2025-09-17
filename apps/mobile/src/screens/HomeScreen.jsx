@@ -6,290 +6,334 @@
  * Every element is designed to reduce barriers to getting help.
  */
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Dimensions, AccessibilityInfo, } from 'react-native';
-const { width, height } = Dimensions.get('window');
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Dimensions, AccessibilityInfo, Platform, } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import * as Haptics from 'expo-haptics';
+import { LinearGradient } from 'expo-linear-gradient';
+// Import custom components
+import EmergencySOSButton from '../components/EmergencySOSButton';
+import ResponsiveLayout, { useResponsive, ResponsiveGrid } from '../components/ResponsiveLayout';
+// Import services
+import BiometricAuthService from '../services/BiometricAuthService';
+import OfflineStorageService from '../services/OfflineStorageService';
+import PushNotificationService from '../services/PushNotificationService';
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const HomeScreen = ({ navigation }) => {
     const [isScreenReaderEnabled, setIsScreenReaderEnabled] = useState(false);
     const [emergencyMode, setEmergencyMode] = useState(false);
+    const [userName, setUserName] = useState('');
+    const [lastCheckIn, setLastCheckIn] = useState(null);
+    const { deviceType, isTablet } = useResponsive();
     useEffect(() => {
+        initializeScreen();
+    }, []);
+    const initializeScreen = async () => {
         // Check accessibility settings
-        AccessibilityInfo.isScreenReaderEnabled().then(setIsScreenReaderEnabled);
+        const screenReaderEnabled = await AccessibilityInfo.isScreenReaderEnabled();
+        setIsScreenReaderEnabled(screenReaderEnabled);
         // Listen for accessibility changes
         const subscription = AccessibilityInfo.addEventListener('screenReaderChanged', setIsScreenReaderEnabled);
+        // Load user preferences
+        const offlineService = OfflineStorageService.getInstance();
+        const preferences = await offlineService.getUserPreferences();
+        setUserName(preferences.name || '');
+        // Check last check-in time
+        const sessions = await offlineService.getSessions();
+        if (sessions.length > 0) {
+            setLastCheckIn(new Date(sessions[sessions.length - 1].startTime));
+        }
+        // Initialize biometric auth if needed
+        const biometricService = BiometricAuthService.getInstance();
+        await biometricService.loadLastAuthTime();
         return () => subscription?.remove();
-    }, []);
-    const handleGetHelp = () => {
-        navigation.navigate('Crisis', { emergencyMode: false });
     };
-    const handleEmergency = () => {
+    const handleEmergencyActivated = async (location) => {
         setEmergencyMode(true);
-        Alert.alert('🆘 EMERGENCY MODE', 'You will be connected to a crisis specialist immediately. This is confidential and free.', [
-            {
-                text: 'Continue',
-                onPress: () => navigation.navigate('Emergency', {
-                    crisisLevel: 'critical'
-                }),
-                style: 'default',
-            },
-            {
-                text: 'Call 988 Instead',
-                onPress: () => {
-                    // In a real app, this would initiate a phone call
-                    Alert.alert('Calling 988...', 'Crisis hotline');
-                },
-                style: 'cancel',
-            },
-        ], { cancelable: false });
+        // Send emergency notification
+        const notificationService = PushNotificationService.getInstance();
+        await notificationService.sendEmergencyNotification('Emergency SOS activated. Help is on the way.', location);
+        // Navigate to emergency screen
+        navigation.navigate('Emergency', {
+            location,
+            timestamp: new Date().toISOString(),
+        });
+        // Haptic feedback
+        if (Platform.OS === 'ios') {
+            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+        }
     };
-    const handleVolunteerPortal = () => {
-        navigation.navigate('Volunteer', { mode: 'register' });
+    const handleQuickAction = async (action) => {
+        // Haptic feedback
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+        // Check if authentication is required
+        if (action.requiresAuth) {
+            const biometricService = BiometricAuthService.getInstance();
+            const authResult = await biometricService.authenticate();
+            if (!authResult.success) {
+                Alert.alert('Authentication Required', 'Please authenticate to access this feature.', [{ text: 'OK' }]);
+                return;
+            }
+        }
+        action.action();
     };
-    return (<ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      {/* Hero Section */}
-      <View style={styles.heroSection}>
-        <Text style={styles.heroTitle}>
-          You Are Not Alone
-        </Text>
-        <Text style={styles.heroSubtitle}>
-          Free, confidential crisis support available 24/7
-        </Text>
-      </View>
-
-      {/* Main Action Buttons */}
-      <View style={styles.actionSection}>
-        {/* Primary Help Button */}
-        <TouchableOpacity style={[styles.primaryButton, styles.helpButton]} onPress={handleGetHelp} accessibilityRole="button" accessibilityLabel="Get immediate crisis help - free, anonymous, available 24/7" accessibilityHint="Connects you with a trained crisis volunteer">
-          <Text style={styles.primaryButtonIcon}>💙</Text>
-          <View style={styles.buttonTextContainer}>
-            <Text style={styles.primaryButtonText}>I Need Help Right Now</Text>
-            <Text style={styles.buttonSubtext}>Anonymous • Encrypted • Free</Text>
+    const quickActions = [
+        {
+            id: 'crisis_support',
+            title: 'Crisis Support',
+            subtitle: 'Get immediate help',
+            icon: 'heart',
+            color: '#DC2626',
+            action: () => navigation.navigate('Crisis'),
+        },
+        {
+            id: 'chat',
+            title: 'Chat with Someone',
+            subtitle: 'Connect with a volunteer',
+            icon: 'chatbubbles',
+            color: '#2563EB',
+            action: () => navigation.navigate('Chat'),
+        },
+        {
+            id: 'breathing',
+            title: 'Breathing Exercise',
+            subtitle: 'Calm your mind',
+            icon: 'leaf',
+            color: '#10B981',
+            action: () => navigation.navigate('Resources', { category: 'breathing' }),
+        },
+        {
+            id: 'journal',
+            title: 'Quick Journal',
+            subtitle: 'Express your feelings',
+            icon: 'book',
+            color: '#8B5CF6',
+            action: () => navigation.navigate('Resources', { category: 'journal' }),
+            requiresAuth: true,
+        },
+        {
+            id: 'safety_plan',
+            title: 'Safety Plan',
+            subtitle: 'Your crisis plan',
+            icon: 'shield-checkmark',
+            color: '#F59E0B',
+            action: () => navigation.navigate('Resources', { category: 'safety_plan' }),
+            requiresAuth: true,
+        },
+        {
+            id: 'resources',
+            title: 'Resources',
+            subtitle: 'Self-help tools',
+            icon: 'library',
+            color: '#6B7280',
+            action: () => navigation.navigate('Resources'),
+        },
+    ];
+    const getGreeting = () => {
+        const hour = new Date().getHours();
+        if (hour < 12)
+            return 'Good morning';
+        if (hour < 18)
+            return 'Good afternoon';
+        return 'Good evening';
+    };
+    const getMotivationalMessage = () => {
+        const messages = [
+            "You're not alone in this journey",
+            "Every step forward counts",
+            "Your feelings are valid",
+            "It's okay to ask for help",
+            "You are stronger than you know",
+        ];
+        return messages[Math.floor(Math.random() * messages.length)];
+    };
+    return (<ResponsiveLayout backgroundColor="#F9FAFB" header={<LinearGradient colors={['#DC2626', '#B91C1C']} style={styles.header}>
+          <View style={styles.headerContent}>
+            <View>
+              <Text style={styles.greeting}>
+                {getGreeting()}{userName ? `, ${userName}` : ''}
+              </Text>
+              <Text style={styles.motivational}>
+                {getMotivationalMessage()}
+              </Text>
+            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={styles.settingsButton} accessibilityLabel="Settings" accessibilityRole="button">
+              <Ionicons name="settings-outline" size={24} color="#FFFFFF"/>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        </LinearGradient>}>
+      {/* Emergency Button - Always Visible */}
+      <View style={styles.emergencyContainer}>
+        <EmergencySOSButton onEmergencyActivated={handleEmergencyActivated} size={isTablet ? 'large' : 'medium'}/>
+        <Text style={styles.emergencyText}>
+          Hold for 3 seconds in case of emergency
+        </Text>
+      </View>
 
-        {/* Emergency Button */}
-        <TouchableOpacity style={[styles.primaryButton, styles.emergencyButton]} onPress={handleEmergency} accessibilityRole="button" accessibilityLabel="EMERGENCY: Get immediate crisis help - this is a mental health emergency" accessibilityHint="Activates emergency crisis intervention protocol">
-          <Text style={styles.emergencyButtonIcon}>🆘</Text>
-          <View style={styles.buttonTextContainer}>
-            <Text style={styles.emergencyButtonText}>Emergency Help</Text>
-            <Text style={styles.emergencySubtext}>Immediate Response • &lt; 30 seconds</Text>
+      {/* Quick Actions Grid */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>How can we help today?</Text>
+        <ResponsiveGrid columns={isTablet ? 3 : 2} gap={16}>
+          {quickActions.map((action) => (<TouchableOpacity key={action.id} style={[styles.actionCard, { borderLeftColor: action.color }]} onPress={() => handleQuickAction(action)} accessibilityLabel={`${action.title}. ${action.subtitle}`} accessibilityRole="button" accessibilityHint={`Tap to ${action.subtitle.toLowerCase()}`}>
+              <View style={[styles.actionIcon, { backgroundColor: `${action.color}20` }]}>
+                <Ionicons name={action.icon} size={28} color={action.color}/>
+              </View>
+              <Text style={styles.actionTitle}>{action.title}</Text>
+              <Text style={styles.actionSubtitle}>{action.subtitle}</Text>
+              {action.requiresAuth && (<Ionicons name="lock-closed" size={12} color="#9CA3AF" style={styles.lockIcon}/>)}
+            </TouchableOpacity>))}
+        </ResponsiveGrid>
+      </View>
+
+      {/* Recent Activity */}
+      {lastCheckIn && (<View style={styles.section}>
+          <Text style={styles.sectionTitle}>Your Progress</Text>
+          <View style={styles.progressCard}>
+            <Ionicons name="checkmark-circle" size={24} color="#10B981"/>
+            <View style={styles.progressContent}>
+              <Text style={styles.progressText}>
+                Last check-in: {lastCheckIn.toLocaleDateString()}
+              </Text>
+              <Text style={styles.progressSubtext}>
+                Keep up the great work!
+              </Text>
+            </View>
           </View>
-        </TouchableOpacity>
+        </View>)}
+
+      {/* Crisis Resources Footer */}
+      <View style={styles.crisisFooter}>
+        <Text style={styles.crisisTitle}>24/7 Crisis Support</Text>
+        <Text style={styles.crisisNumber}>Call 988</Text>
+        <Text style={styles.crisisText}>or text "HELLO" to 741741</Text>
       </View>
-
-      {/* Quick Access Section */}
-      <View style={styles.quickAccessSection}>
-        <Text style={styles.sectionTitle}>Quick Access</Text>
-        
-        <View style={styles.quickAccessGrid}>
-          <TouchableOpacity style={styles.quickAccessButton} onPress={() => navigation.navigate('Crisis', { sessionId: 'anonymous' })} accessibilityRole="button" accessibilityLabel="Start anonymous chat">
-            <Text style={styles.quickAccessIcon}>💬</Text>
-            <Text style={styles.quickAccessText}>Anonymous Chat</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.quickAccessButton} onPress={handleVolunteerPortal} accessibilityRole="button" accessibilityLabel="Volunteer to help others">
-            <Text style={styles.quickAccessIcon}>🤝</Text>
-            <Text style={styles.quickAccessText}>Become Volunteer</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.quickAccessButton} onPress={() => navigation.navigate('Settings')} accessibilityRole="button" accessibilityLabel="App settings and preferences">
-            <Text style={styles.quickAccessIcon}>⚙️</Text>
-            <Text style={styles.quickAccessText}>Settings</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      {/* Emergency Resources */}
-      <View style={styles.resourcesSection}>
-        <Text style={styles.sectionTitle}>Emergency Resources</Text>
-        <Text style={styles.resourcesText}>
-          If you're in immediate danger, don't wait:
-        </Text>
-        
-        <View style={styles.emergencyLinks}>
-          <TouchableOpacity style={styles.emergencyLink} onPress={() => Alert.alert('Calling 988...', 'Crisis Lifeline')} accessibilityRole="button" accessibilityLabel="Call 988 Crisis Lifeline">
-            <Text style={styles.emergencyLinkText}>📞 Call 988</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.emergencyLink} onPress={() => Alert.alert('Texting 741741...', 'Crisis Text Line')} accessibilityRole="button" accessibilityLabel="Text 741741 Crisis Text Line">
-            <Text style={styles.emergencyLinkText}>💬 Text 741741</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.emergencyLink} onPress={() => Alert.alert('Calling 911...', 'Emergency Services')} accessibilityRole="button" accessibilityLabel="Call 911 Emergency Services">
-            <Text style={styles.emergencyLinkText}>🚨 Call 911</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      {/* Privacy Notice */}
-      <View style={styles.privacySection}>
-        <Text style={styles.privacyText}>
-          🔒 Your privacy is protected with end-to-end encryption. 
-          All conversations are confidential and HIPAA compliant.
-        </Text>
-      </View>
-    </ScrollView>);
+    </ResponsiveLayout>);
 };
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f9fafb',
+    header: {
+        paddingTop: Platform.OS === 'ios' ? 50 : 30,
+        paddingBottom: 20,
+        paddingHorizontal: 20,
     },
-    content: {
-        padding: 20,
-        paddingBottom: 40,
-    },
-    heroSection: {
-        alignItems: 'center',
-        marginBottom: 40,
-        paddingTop: 20,
-    },
-    heroTitle: {
-        fontSize: 32,
-        fontWeight: 'bold',
-        color: '#1f2937',
-        textAlign: 'center',
-        marginBottom: 12,
-        lineHeight: 40,
-    },
-    heroSubtitle: {
-        fontSize: 18,
-        color: '#6b7280',
-        textAlign: 'center',
-        lineHeight: 24,
-    },
-    actionSection: {
-        marginBottom: 40,
-    },
-    primaryButton: {
+    headerContent: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 20,
-        borderRadius: 16,
-        marginBottom: 16,
-        minHeight: 80,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 3,
     },
-    helpButton: {
-        backgroundColor: '#2563eb',
-    },
-    emergencyButton: {
-        backgroundColor: '#dc2626',
-    },
-    primaryButtonIcon: {
-        fontSize: 32,
-        marginRight: 16,
-    },
-    emergencyButtonIcon: {
-        fontSize: 32,
-        marginRight: 16,
-    },
-    buttonTextContainer: {
-        flex: 1,
-    },
-    primaryButtonText: {
-        fontSize: 20,
+    greeting: {
+        fontSize: 28,
         fontWeight: 'bold',
-        color: '#ffffff',
+        color: '#FFFFFF',
         marginBottom: 4,
     },
-    emergencyButtonText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#ffffff',
-        marginBottom: 4,
+    motivational: {
+        fontSize: 16,
+        color: '#FCA5A5',
     },
-    buttonSubtext: {
+    settingsButton: {
+        padding: 8,
+    },
+    emergencyContainer: {
+        alignItems: 'center',
+        paddingVertical: 30,
+    },
+    emergencyText: {
+        marginTop: 12,
         fontSize: 14,
-        color: '#e5e7eb',
+        color: '#6B7280',
+        textAlign: 'center',
     },
-    emergencySubtext: {
-        fontSize: 14,
-        color: '#fecaca',
-        fontWeight: '600',
-    },
-    quickAccessSection: {
-        marginBottom: 40,
+    section: {
+        marginBottom: 24,
     },
     sectionTitle: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: '#1f2937',
+        fontWeight: '600',
+        color: '#111827',
         marginBottom: 16,
     },
-    quickAccessGrid: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-    },
-    quickAccessButton: {
-        width: (width - 60) / 3,
-        aspectRatio: 1,
-        backgroundColor: '#ffffff',
-        borderRadius: 12,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 12,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.05,
-        shadowRadius: 2,
-        elevation: 1,
-    },
-    quickAccessIcon: {
-        fontSize: 24,
-        marginBottom: 8,
-    },
-    quickAccessText: {
-        fontSize: 12,
-        fontWeight: '600',
-        color: '#374151',
-        textAlign: 'center',
-    },
-    resourcesSection: {
-        marginBottom: 40,
-    },
-    resourcesText: {
-        fontSize: 16,
-        color: '#dc2626',
-        fontWeight: '600',
-        marginBottom: 16,
-    },
-    emergencyLinks: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-    },
-    emergencyLink: {
-        backgroundColor: '#fef2f2',
-        borderColor: '#fecaca',
-        borderWidth: 1,
-        borderRadius: 8,
-        padding: 12,
-        marginBottom: 8,
-        minWidth: (width - 60) / 3,
-        alignItems: 'center',
-    },
-    emergencyLinkText: {
-        fontSize: 14,
-        fontWeight: '600',
-        color: '#dc2626',
-    },
-    privacySection: {
-        backgroundColor: '#f0fdf4',
-        borderColor: '#bbf7d0',
-        borderWidth: 1,
+    actionCard: {
+        backgroundColor: '#FFFFFF',
         borderRadius: 12,
         padding: 16,
+        borderLeftWidth: 4,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.05,
+        shadowRadius: 4,
+        elevation: 2,
+        position: 'relative',
     },
-    privacyText: {
+    actionIcon: {
+        width: 48,
+        height: 48,
+        borderRadius: 12,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 12,
+    },
+    actionTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#111827',
+        marginBottom: 4,
+    },
+    actionSubtitle: {
+        fontSize: 13,
+        color: '#6B7280',
+    },
+    lockIcon: {
+        position: 'absolute',
+        top: 12,
+        right: 12,
+    },
+    progressCard: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+        borderRadius: 12,
+        padding: 16,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.05,
+        shadowRadius: 4,
+        elevation: 2,
+    },
+    progressContent: {
+        marginLeft: 12,
+        flex: 1,
+    },
+    progressText: {
         fontSize: 14,
-        color: '#166534',
-        textAlign: 'center',
-        lineHeight: 20,
+        fontWeight: '500',
+        color: '#111827',
+    },
+    progressSubtext: {
+        fontSize: 12,
+        color: '#6B7280',
+        marginTop: 2,
+    },
+    crisisFooter: {
+        backgroundColor: '#FEF2F2',
+        borderRadius: 12,
+        padding: 20,
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    crisisTitle: {
+        fontSize: 14,
+        fontWeight: '600',
+        color: '#991B1B',
+        marginBottom: 8,
+    },
+    crisisNumber: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#DC2626',
+        marginBottom: 4,
+    },
+    crisisText: {
+        fontSize: 14,
+        color: '#991B1B',
     },
 });
 export default HomeScreen;

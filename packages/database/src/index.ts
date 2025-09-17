@@ -78,6 +78,11 @@ export * from './services';
 export { MoodService } from './services/mood.service';
 export { UserService } from './services/user.service';
 
+// Export new enhanced services
+export * from './services/emergency-contact.service';
+export * from './services/safety-plan.service';
+export * from './services/verification.service';
+
 // Crisis utility functions
 export async function createCrisisSession(data: {
   anonymousId: string;
@@ -128,7 +133,7 @@ export async function storeCrisisMessage(
       messageHash,
       sentimentScore: metadata?.sentimentScore,
       riskScore: metadata?.riskScore,
-      keywordsDetected: metadata?.keywordsDetected || [],
+      keywordsDetected: Array.isArray(metadata?.keywordsDetected) ? metadata.keywordsDetected.join(',') : (metadata?.keywordsDetected || ''),
     },
   });
 }
@@ -140,7 +145,7 @@ export async function escalateToEmergency(sessionId: string, reason: string) {
       triggeredBy: 'KEYWORD_DETECTION',
       severity: 'EMERGENCY',
       reason,
-      actionsTaken: ['EMERGENCY_ESCALATION_TRIGGERED'],
+      actionsTaken: 'EMERGENCY_ESCALATION_TRIGGERED',
     },
   });
 }

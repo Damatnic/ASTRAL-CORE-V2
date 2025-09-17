@@ -5,6 +5,7 @@
 
 export { CrisisWebSocketClient } from './CrisisWebSocketClient';
 export { CrisisWebSocketServer } from './CrisisWebSocketServer';
+export { OptimizedCrisisWebSocketManager } from './optimized-crisis-manager';
 export { useCrisisWebSocket } from './hooks/useCrisisWebSocket';
 
 export type {

@@ -6,7 +6,7 @@
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
-const { createWebSocketServer } = require('./dist/lib/websocket/server');
+const { createWebSocketServer } = require('./dist/lib/websocket/socket-server');
 
 const dev = process.env.NODE_ENV !== 'production';
 const hostname = process.env.HOST || 'localhost';

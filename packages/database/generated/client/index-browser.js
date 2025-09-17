@@ -423,6 +423,52 @@ exports.Prisma.PublicMetricsScalarFieldEnum = {
   updateFrequency: 'updateFrequency'
 };
 
+exports.Prisma.EmergencyContactScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  encryptedName: 'encryptedName',
+  encryptedPhone: 'encryptedPhone',
+  encryptedEmail: 'encryptedEmail',
+  relationship: 'relationship',
+  priority: 'priority',
+  contactMethod: 'contactMethod',
+  timezone: 'timezone',
+  availableHours: 'availableHours',
+  preferredMethod: 'preferredMethod',
+  autoNotify: 'autoNotify',
+  crisisOnly: 'crisisOnly',
+  hasConsent: 'hasConsent',
+  consentDate: 'consentDate',
+  keyDerivationSalt: 'keyDerivationSalt',
+  isVerified: 'isVerified',
+  verifiedAt: 'verifiedAt',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  lastContacted: 'lastContacted'
+};
+
+exports.Prisma.EmergencyNotificationScalarFieldEnum = {
+  id: 'id',
+  emergencyContactId: 'emergencyContactId',
+  sessionId: 'sessionId',
+  tetherEmergencyId: 'tetherEmergencyId',
+  notificationType: 'notificationType',
+  severity: 'severity',
+  message: 'message',
+  sentAt: 'sentAt',
+  deliveredAt: 'deliveredAt',
+  acknowledgedAt: 'acknowledgedAt',
+  responseReceived: 'responseReceived',
+  responseTime: 'responseTime',
+  method: 'method',
+  status: 'status',
+  attempts: 'attempts',
+  maxAttempts: 'maxAttempts',
+  errorMessage: 'errorMessage',
+  nextRetryAt: 'nextRetryAt'
+};
+
 exports.Prisma.WebSocketConnectionScalarFieldEnum = {
   id: 'id',
   sessionId: 'sessionId',
@@ -444,6 +490,12 @@ exports.Prisma.UserScalarFieldEnum = {
   isAnonymous: 'isAnonymous',
   lastLogin: 'lastLogin',
   dataSharing: 'dataSharing',
+  allowAnalytics: 'allowAnalytics',
+  dataRetentionDays: 'dataRetentionDays',
+  verificationStatus: 'verificationStatus',
+  professionalType: 'professionalType',
+  licenseNumber: 'licenseNumber',
+  verifiedAt: 'verifiedAt',
   encryptedProfile: 'encryptedProfile',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -837,6 +889,29 @@ exports.HealthStatus = exports.$Enums.HealthStatus = {
   DOWN: 'DOWN'
 };
 
+exports.EmergencyNotificationType = exports.$Enums.EmergencyNotificationType = {
+  CRISIS_ESCALATION: 'CRISIS_ESCALATION',
+  SAFETY_PLAN_ACTIVATION: 'SAFETY_PLAN_ACTIVATION',
+  EMERGENCY_ALERT: 'EMERGENCY_ALERT',
+  WELLNESS_CHECK: 'WELLNESS_CHECK',
+  MEDICAL_EMERGENCY: 'MEDICAL_EMERGENCY',
+  SELF_HARM_DETECTED: 'SELF_HARM_DETECTED',
+  SUICIDE_RISK: 'SUICIDE_RISK',
+  PANIC_ATTACK: 'PANIC_ATTACK',
+  CUSTOM_ALERT: 'CUSTOM_ALERT'
+};
+
+exports.NotificationStatus = exports.$Enums.NotificationStatus = {
+  PENDING: 'PENDING',
+  SENT: 'SENT',
+  DELIVERED: 'DELIVERED',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  FAILED: 'FAILED',
+  RETRYING: 'RETRYING',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+};
+
 exports.UserDataSharing = exports.$Enums.UserDataSharing = {
   MINIMAL: 'MINIMAL',
   ANONYMOUS_ANALYTICS: 'ANONYMOUS_ANALYTICS',
@@ -908,6 +983,8 @@ exports.Prisma.ModelName = {
   SystemHealth: 'SystemHealth',
   CrisisResource: 'CrisisResource',
   PublicMetrics: 'PublicMetrics',
+  EmergencyContact: 'EmergencyContact',
+  EmergencyNotification: 'EmergencyNotification',
   WebSocketConnection: 'WebSocketConnection',
   User: 'User',
   MoodEntry: 'MoodEntry',

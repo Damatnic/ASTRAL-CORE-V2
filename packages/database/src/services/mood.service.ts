@@ -211,8 +211,10 @@ export class MoodService {
     const triggerCounts: Record<string, number> = {};
     entries.forEach(entry => {
       if (Array.isArray(entry.triggers)) {
-        entry.triggers.forEach((trigger: string) => {
-          triggerCounts[trigger] = (triggerCounts[trigger] || 0) + 1;
+        entry.triggers.forEach((trigger) => {
+          if (typeof trigger === 'string') {
+            triggerCounts[trigger] = (triggerCounts[trigger] || 0) + 1;
+          }
         });
       }
     });
@@ -226,9 +228,11 @@ export class MoodService {
     const activityMoods: Record<string, number[]> = {};
     entries.forEach(entry => {
       if (Array.isArray(entry.activities)) {
-        entry.activities.forEach((activity: string) => {
-          if (!activityMoods[activity]) activityMoods[activity] = [];
-          activityMoods[activity].push(entry.mood);
+        entry.activities.forEach((activity) => {
+          if (typeof activity === 'string') {
+            if (!activityMoods[activity]) activityMoods[activity] = [];
+            activityMoods[activity].push(entry.mood);
+          }
         });
       }
     });

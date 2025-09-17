@@ -573,6 +573,91 @@ model PublicMetrics {
 }
 
 // =============================================================================
+// EMERGENCY CONTACT SCHEMA - HIPAA-Compliant Emergency System
+// =============================================================================
+
+model EmergencyContact {
+  id     String @id @default(cuid())
+  userId String
+
+  // Contact identification (encrypted)
+  encryptedName  Bytes // Contact name encrypted
+  encryptedPhone Bytes // Phone number encrypted
+  encryptedEmail Bytes? // Email encrypted (optional)
+
+  // Contact metadata
+  relationship  String // 'parent', 'spouse', 'friend', 'therapist', etc.
+  priority      Int    @default(1) // 1 = primary, 2 = secondary, etc.
+  contactMethod String @default("phone") // 'phone', 'email', 'both'
+
+  // Availability and preferences
+  timezone        String?
+  availableHours  Json? // Available hours for contact
+  preferredMethod String? // Preferred contact method
+
+  // Emergency settings
+  autoNotify  Boolean   @default(false) // Auto-notify on crisis escalation
+  crisisOnly  Boolean   @default(true) // Only contact during crisis
+  hasConsent  Boolean   @default(false) // Consent to be contacted
+  consentDate DateTime?
+
+  // Privacy and security
+  keyDerivationSalt Bytes // Salt for encryption key derivation
+  isVerified        Boolean   @default(false) // Contact verified
+  verifiedAt        DateTime?
+
+  // Metadata
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastContacted DateTime?
+
+  // Relationships
+  user          User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notifications EmergencyNotification[]
+
+  @@index([userId, priority])
+  @@index([autoNotify, crisisOnly])
+  @@map("emergency_contacts")
+}
+
+model EmergencyNotification {
+  id                 String  @id @default(cuid())
+  emergencyContactId String
+  sessionId          String? // Crisis session that triggered notification
+  tetherEmergencyId  String? // Tether emergency that triggered notification
+
+  // Notification details
+  notificationType EmergencyNotificationType
+  severity         EmergencySeverity
+  message          String // Pre-approved emergency message template
+
+  // Delivery tracking
+  sentAt           DateTime  @default(now())
+  deliveredAt      DateTime?
+  acknowledgedAt   DateTime?
+  responseReceived Boolean   @default(false)
+  responseTime     Int? // Time to acknowledgment (ms)
+
+  // Delivery method and status
+  method      String // 'sms', 'call', 'email'
+  status      NotificationStatus @default(PENDING)
+  attempts    Int                @default(0)
+  maxAttempts Int                @default(3)
+
+  // Error handling
+  errorMessage String?
+  nextRetryAt  DateTime?
+
+  // Relationships
+  emergencyContact EmergencyContact @relation(fields: [emergencyContactId], references: [id], onDelete: Cascade)
+
+  @@index([notificationType, severity])
+  @@index([status, nextRetryAt])
+  @@map("emergency_notifications")
+}
+
+// =============================================================================
 // ENUMS
 // =============================================================================
 
@@ -866,18 +951,27 @@ model User {
   lastLogin   DateTime? @default(now())
 
   // Privacy settings
-  dataSharing UserDataSharing @default(MINIMAL)
+  dataSharing       UserDataSharing @default(MINIMAL)
+  allowAnalytics    Boolean         @default(false) // Analytics consent
+  dataRetentionDays Int?            @default(365) // GDPR compliance - auto-delete after N days
+
+  // Professional verification (for volunteers/therapists)
+  verificationStatus VerificationStatus @default(PENDING)
+  professionalType   String? // 'therapist', 'counselor', 'peer_support', etc.
+  licenseNumber      String? // Encrypted professional license info
+  verifiedAt         DateTime? // When professional verification was completed
 
   // Encrypted profile data
   encryptedProfile Bytes? // All PII encrypted with user-specific keys
 
   // Relationships
-  moodEntries  MoodEntry[]
-  safetyPlans  SafetyPlan[]
-  userProfile  UserProfile?
-  achievements UserAchievement[]
-  challenges   UserChallenge[]
-  activities   UserActivity[]
+  moodEntries       MoodEntry[]
+  safetyPlans       SafetyPlan[]
+  userProfile       UserProfile?
+  achievements      UserAchievement[]
+  challenges        UserChallenge[]
+  activities        UserActivity[]
+  emergencyContacts EmergencyContact[]
 
   // Timestamps
   createdAt DateTime @default(now())
@@ -1186,4 +1280,27 @@ enum ActivityType {
   COMMUNITY_INTERACTION
   SELF_CARE_ACTIVITY
   CRISIS_RESOURCE_ACCESS
+}
+
+enum EmergencyNotificationType {
+  CRISIS_ESCALATION
+  SAFETY_PLAN_ACTIVATION
+  EMERGENCY_ALERT
+  WELLNESS_CHECK
+  MEDICAL_EMERGENCY
+  SELF_HARM_DETECTED
+  SUICIDE_RISK
+  PANIC_ATTACK
+  CUSTOM_ALERT
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+  DELIVERED
+  ACKNOWLEDGED
+  FAILED
+  RETRYING
+  CANCELLED
+  EXPIRED
 }

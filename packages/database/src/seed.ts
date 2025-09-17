@@ -155,10 +155,18 @@ This breathing pattern activates your parasympathetic nervous system and promote
   ];
 
   for (const resource of crisisResources) {
+    const resourceData = {
+      ...resource,
+      instructions: Array.isArray(resource.instructions) ? resource.instructions.join('\n') : resource.instructions,
+      languages: Array.isArray(resource.languages) ? resource.languages.join(',') : resource.languages,
+      countries: Array.isArray(resource.countries) ? resource.countries.join(',') : resource.countries,
+      tags: Array.isArray(resource.tags) ? resource.tags.join(',') : resource.tags
+    };
+    
     await prisma.crisisResource.upsert({
       where: { id: resource.id },
-      update: resource,
-      create: resource,
+      update: resourceData,
+      create: resourceData,
     });
   }
 

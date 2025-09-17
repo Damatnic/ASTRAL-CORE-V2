@@ -1,0 +1,138 @@
+/**
+ * ASTRAL CORE 2.0 - UI Package Styles
+ * Import this CSS file in your application to apply therapeutic styles
+ */
+
+/* Import Tailwind CSS base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import therapeutic animations */
+@import './styles/therapeutic-animations.css';
+
+/* Import accessibility styles */
+.high-contrast {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-primary: #ffff00;
+  --color-focus: #ff0080;
+}
+
+.reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.large-text {
+  font-size: 1.25em !important;
+}
+
+.larger-targets button,
+.larger-targets a,
+.larger-targets input,
+.larger-targets [role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px;
+}
+
+.simplified-ui {
+  /* Hide non-essential elements */
+  .decoration,
+  .ornament,
+  .animation:not(.essential) {
+    display: none;
+  }
+  
+  /* Increase contrast */
+  * {
+    border-width: 2px;
+  }
+  
+  /* Simplify layouts */
+  .complex-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Focus management */
+.focus-visible button:focus,
+.focus-visible a:focus,
+.focus-visible input:focus,
+.focus-visible [tabindex]:focus {
+  outline: 3px solid var(--color-focus, #3B82F6);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for therapeutic feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #5a67d8, #6b46c1);
+}
+
+/* Crisis mode overrides */
+.crisis-mode {
+  --duration-breathe: 3000ms;
+  --duration-gentle: 600ms;
+}
+
+.crisis-mode .animate-pulse {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Ensure ripple animation exists */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
+}
+
+/* Safe defaults for motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor;
+  }
+  
+  button,
+  input,
+  select,
+  textarea {
+    border: 2px solid currentColor;
+  }
+}

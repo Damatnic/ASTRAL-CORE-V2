@@ -7,32 +7,40 @@ declare global {
     var __prisma: typeof PrismaClient.prototype | undefined;
 }
 export declare const prisma: PrismaClient<any, any, any> | PrismaClient<{
-    log: ("query" | "warn" | "error")[];
+    log: ("error" | "query" | "warn")[];
     datasources: {
         db: {
             url: string;
         };
     } | undefined;
-}, "query" | "warn" | "error", import("packages/database/generated/client/runtime/library").DefaultArgs>;
+}, "error" | "query" | "warn", import("packages/database/generated/client/runtime/library").DefaultArgs>;
 export * from '../generated/client';
 export * from './utils/crisis';
 export * from './utils/tether';
 export * from './utils/volunteer';
 export * from './utils/analytics';
+export * from './services';
+export { MoodService } from './services/mood.service';
+export { UserService } from './services/user.service';
+export * from './services/emergency-contact.service';
+export * from './services/safety-plan.service';
+export * from './services/verification.service';
 export declare function createCrisisSession(data: {
     anonymousId: string;
     severity: number;
     encryptedData?: Buffer;
     keyDerivationSalt?: Buffer;
 }): Promise<{
-    status: import(".").$Enums.CrisisStatus;
-    severity: number;
-    responseTimeMs: number | null;
     id: string;
+    sessionToken: string;
     anonymousId: string;
+    severity: number;
+    status: import(".").$Enums.CrisisStatus;
     responderId: string | null;
     startedAt: Date;
     endedAt: Date | null;
+    responseTimeMs: number | null;
+    outcome: string | null;
     encryptedData: Uint8Array | null;
     keyDerivationSalt: Uint8Array | null;
     handoffTime: number | null;
@@ -41,14 +49,16 @@ export declare function createCrisisSession(data: {
     escalatedAt: Date | null;
     escalationType: import(".").$Enums.EscalationType | null;
 } | {
-    status: import(".").$Enums.CrisisStatus;
-    severity: number;
-    responseTimeMs: number | null;
     id: string;
+    sessionToken: string;
     anonymousId: string;
+    severity: number;
+    status: import(".").$Enums.CrisisStatus;
     responderId: string | null;
     startedAt: Date;
     endedAt: Date | null;
+    responseTimeMs: number | null;
+    outcome: string | null;
     encryptedData: Uint8Array | null;
     keyDerivationSalt: Uint8Array | null;
     handoffTime: number | null;
@@ -58,14 +68,16 @@ export declare function createCrisisSession(data: {
     escalationType: import(".").$Enums.EscalationType | null;
 }>;
 export declare function assignVolunteerToSession(sessionId: string, volunteerId: string): Promise<{
-    status: import(".").$Enums.CrisisStatus;
-    severity: number;
-    responseTimeMs: number | null;
     id: string;
+    sessionToken: string;
     anonymousId: string;
+    severity: number;
+    status: import(".").$Enums.CrisisStatus;
     responderId: string | null;
     startedAt: Date;
     endedAt: Date | null;
+    responseTimeMs: number | null;
+    outcome: string | null;
     encryptedData: Uint8Array | null;
     keyDerivationSalt: Uint8Array | null;
     handoffTime: number | null;
@@ -74,14 +86,16 @@ export declare function assignVolunteerToSession(sessionId: string, volunteerId:
     escalatedAt: Date | null;
     escalationType: import(".").$Enums.EscalationType | null;
 } | {
-    status: import(".").$Enums.CrisisStatus;
-    severity: number;
-    responseTimeMs: number | null;
     id: string;
+    sessionToken: string;
     anonymousId: string;
+    severity: number;
+    status: import(".").$Enums.CrisisStatus;
     responderId: string | null;
     startedAt: Date;
     endedAt: Date | null;
+    responseTimeMs: number | null;
+    outcome: string | null;
     encryptedData: Uint8Array | null;
     keyDerivationSalt: Uint8Array | null;
     handoffTime: number | null;
@@ -95,60 +109,62 @@ export declare function storeCrisisMessage(sessionId: string, senderType: string
     riskScore?: number;
     keywordsDetected?: string[];
 }): Promise<{
-    id: string;
     sessionId: string;
+    timestamp: Date;
+    id: string;
     senderType: import(".").$Enums.MessageSender;
     senderId: string;
     encryptedContent: Uint8Array;
     messageHash: string;
-    timestamp: Date;
     messageType: import(".").$Enums.MessageType;
     priority: import(".").$Enums.MessagePriority;
     sentimentScore: number | null;
     riskScore: number | null;
-    keywordsDetected: string[];
+    riskLevel: string | null;
+    keywordsDetected: string | null;
 } | {
-    id: string;
     sessionId: string;
+    timestamp: Date;
+    id: string;
     senderType: import(".").$Enums.MessageSender;
     senderId: string;
     encryptedContent: Uint8Array;
     messageHash: string;
-    timestamp: Date;
     messageType: import(".").$Enums.MessageType;
     priority: import(".").$Enums.MessagePriority;
     sentimentScore: number | null;
     riskScore: number | null;
-    keywordsDetected: string[];
+    riskLevel: string | null;
+    keywordsDetected: string | null;
 }>;
 export declare function escalateToEmergency(sessionId: string, reason: string): Promise<{
-    severity: import(".").$Enums.EscalationSeverity;
-    emergencyContacted: boolean;
-    lifeline988Called: boolean;
-    id: string;
     sessionId: string;
+    id: string;
+    severity: import(".").$Enums.EscalationSeverity;
+    outcome: import(".").$Enums.EscalationOutcome | null;
     triggeredBy: import(".").$Enums.EscalationTrigger;
     reason: string;
-    actionsTaken: string[];
+    actionsTaken: string | null;
+    emergencyContacted: boolean;
+    lifeline988Called: boolean;
     triggeredAt: Date;
     resolvedAt: Date | null;
     responseTime: number | null;
     handledBy: string | null;
-    outcome: import(".").$Enums.EscalationOutcome | null;
 } | {
-    severity: import(".").$Enums.EscalationSeverity;
-    emergencyContacted: boolean;
-    lifeline988Called: boolean;
-    id: string;
     sessionId: string;
+    id: string;
+    severity: import(".").$Enums.EscalationSeverity;
+    outcome: import(".").$Enums.EscalationOutcome | null;
     triggeredBy: import(".").$Enums.EscalationTrigger;
     reason: string;
-    actionsTaken: string[];
+    actionsTaken: string | null;
+    emergencyContacted: boolean;
+    lifeline988Called: boolean;
     triggeredAt: Date;
     resolvedAt: Date | null;
     responseTime: number | null;
     handledBy: string | null;
-    outcome: import(".").$Enums.EscalationOutcome | null;
 }>;
 export declare function checkDatabaseHealth(): Promise<{
     status: 'healthy' | 'unhealthy';

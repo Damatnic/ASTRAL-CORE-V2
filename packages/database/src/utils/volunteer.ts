@@ -15,8 +15,8 @@ export async function createVolunteer(data: {
     data: {
       anonymousId: data.anonymousId,
       status: 'PENDING',
-      specializations: data.specializations || [],
-      languages: data.languages || ['en'],
+      specializations: data.specializations?.join(',') || '',
+      languages: data.languages?.join(',') || 'en',
       timezone: data.timezone || 'UTC',
       isActive: false,
       currentLoad: 0,

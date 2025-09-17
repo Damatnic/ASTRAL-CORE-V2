@@ -58,14 +58,31 @@ export const colors = {
     900: '#1E3A8A',
   },
   
-  // Emotional State Colors
+  // Emotional State Colors - Therapeutic Color Psychology
   emotion: {
     distress: '#991B1B',
-    anxiety: '#7C3AED',
+    anxiety: '#7C3AED', 
     depression: '#6366F1',
     hope: '#14B8A6',
     neutral: '#6B7280',
     peaceful: '#10B981',
+    // Additional therapeutic colors
+    trust: '#0EA5E9',      // Light blue for trust-building
+    warmth: '#F59E0B',     // Warm orange for comfort
+    stability: '#059669',   // Deep green for grounding
+    clarity: '#8B5CF6',    // Purple for mental clarity
+    support: '#EC4899',    // Pink for emotional support
+    breathing: '#06B6D4',  // Cyan for breathing exercises
+  },
+  
+  // Therapeutic gradients for calming effects
+  gradients: {
+    calm: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    breathing: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    grounding: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    warmth: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    trust: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+    hope: 'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)',
   },
   
   // Neutral Colors
@@ -247,18 +264,27 @@ export const animation = {
     slow: '350ms',
     slower: '500ms',
     slowest: '1000ms',
+    // Therapeutic animation durations
+    breathe: '4000ms',      // 4-second breathing cycles
+    meditative: '6000ms',   // Slower, meditative pace
+    gentle: '800ms',        // Gentle, non-startling transitions
   },
   
-  // Easings
+  // Easings - Including therapeutic easing functions
   easing: {
     linear: 'linear',
     in: 'cubic-bezier(0.4, 0, 1, 1)',
     out: 'cubic-bezier(0, 0, 0.2, 1)',
     inOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
     elastic: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+    // Therapeutic easings for calming effects
+    breathe: 'cubic-bezier(0.37, 0, 0.63, 1)',
+    calm: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+    gentle: 'cubic-bezier(0.16, 1, 0.3, 1)',
+    organic: 'cubic-bezier(0.4, 0, 0.2, 1)',
   },
   
-  // Keyframes
+  // Keyframes - Enhanced with therapeutic animations
   keyframes: {
     pulse: {
       '0%, 100%': { opacity: 1 },
@@ -282,6 +308,70 @@ export const animation = {
       '50%': {
         transform: 'none',
         animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+      },
+    },
+    // Therapeutic breathing animation
+    breathe: {
+      '0%, 100%': { 
+        transform: 'scale(1)',
+        opacity: 0.8 
+      },
+      '50%': { 
+        transform: 'scale(1.1)',
+        opacity: 1 
+      },
+    },
+    // Gentle floating animation for calming effects
+    float: {
+      '0%, 100%': { 
+        transform: 'translateY(0px) rotate(0deg)',
+        opacity: 0.8 
+      },
+      '33%': { 
+        transform: 'translateY(-10px) rotate(1deg)',
+        opacity: 0.9 
+      },
+      '66%': { 
+        transform: 'translateY(-5px) rotate(-1deg)',
+        opacity: 1 
+      },
+    },
+    // Gentle wave for progress indicators
+    wave: {
+      '0%': { transform: 'translateX(-100%)' },
+      '50%': { transform: 'translateX(0%)' },
+      '100%': { transform: 'translateX(100%)' },
+    },
+    // Subtle glow for safe spaces
+    glow: {
+      '0%, 100%': { 
+        boxShadow: '0 0 5px rgba(16, 185, 129, 0.3)' 
+      },
+      '50%': { 
+        boxShadow: '0 0 20px rgba(16, 185, 129, 0.6)' 
+      },
+    },
+    // Heart beat for life indicators
+    heartbeat: {
+      '0%, 100%': { 
+        transform: 'scale(1)',
+        opacity: 1 
+      },
+      '14%': { 
+        transform: 'scale(1.1)',
+        opacity: 0.9 
+      },
+      '28%': { 
+        transform: 'scale(1)',
+        opacity: 1 
+      },
+      '42%': { 
+        transform: 'scale(1.1)',
+        opacity: 0.9 
+      },
+      '70%': { 
+        transform: 'scale(1)',
+        opacity: 1 
       },
     },
   },

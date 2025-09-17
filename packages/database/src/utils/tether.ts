@@ -18,8 +18,8 @@ export async function createTetherLink(data: {
       seekerId: data.seekerId,
       supporterId: data.supporterId,
       strength: data.strength || 0.5,
-      specialties: data.specialties || [],
-      languages: data.languages || ['en'],
+      specialties: data.specialties?.join(',') || '',
+      languages: data.languages?.join(',') || 'en',
       timezone: data.timezone || 'UTC',
     },
   });

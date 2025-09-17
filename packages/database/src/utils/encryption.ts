@@ -9,7 +9,7 @@
  * - Secure key derivation using PBKDF2
  */
 
-import { randomBytes, createCipher, createDecipher, pbkdf2Sync, createHash } from 'crypto';
+import { randomBytes, createCipheriv, createDecipheriv, pbkdf2Sync, createHash } from 'crypto';
 
 // Encryption configuration
 export const ENCRYPTION_CONFIG = {
@@ -52,7 +52,7 @@ export function encryptUserData(data: string, userId: string): {
     
     // Use Node.js built-in crypto for AES-GCM
     const crypto = require('crypto');
-    const cipher = crypto.createCipher(ENCRYPTION_CONFIG.algorithm, key);
+    const cipher = crypto.createCipheriv(ENCRYPTION_CONFIG.algorithm, key, iv);
     cipher.setAAD(Buffer.from(userId, 'utf8')); // Additional authenticated data
     
     let encrypted = cipher.update(data, 'utf8');
@@ -86,7 +86,7 @@ export function decryptUserData(
     const key = deriveUserKey(userId);
     
     const crypto = require('crypto');
-    const decipher = crypto.createDecipher(ENCRYPTION_CONFIG.algorithm, key);
+    const decipher = crypto.createDecipheriv(ENCRYPTION_CONFIG.algorithm, key, iv);
     decipher.setAAD(Buffer.from(userId, 'utf8'));
     decipher.setAuthTag(tag);
     
@@ -280,10 +280,12 @@ export function generateSessionToken(): string {
  */
 export function encryptForLocalStorage(data: string, key: string): string {
   try {
-    const cipher = createCipher('aes-256-cbc', key);
+    const iv = randomBytes(16);
+    const keyBuffer = createHash('sha256').update(key).digest();
+    const cipher = createCipheriv('aes-256-cbc', keyBuffer, iv);
     let encrypted = cipher.update(data, 'utf8', 'hex');
     encrypted += cipher.final('hex');
-    return encrypted;
+    return iv.toString('hex') + ':' + encrypted;
   } catch {
     // Fallback to base64 for compatibility
     return Buffer.from(data).toString('base64');
@@ -295,10 +297,18 @@ export function encryptForLocalStorage(data: string, key: string): string {
  */
 export function decryptFromLocalStorage(encryptedData: string, key: string): string {
   try {
-    const decipher = createDecipher('aes-256-cbc', key);
-    let decrypted = decipher.update(encryptedData, 'hex', 'utf8');
-    decrypted += decipher.final('utf8');
-    return decrypted;
+    if (encryptedData.includes(':')) {
+      const [ivHex, encrypted] = encryptedData.split(':');
+      const iv = Buffer.from(ivHex, 'hex');
+      const keyBuffer = createHash('sha256').update(key).digest();
+      const decipher = createDecipheriv('aes-256-cbc', keyBuffer, iv);
+      let decrypted = decipher.update(encrypted, 'hex', 'utf8');
+      decrypted += decipher.final('utf8');
+      return decrypted;
+    } else {
+      // Legacy fallback
+      return Buffer.from(encryptedData, 'base64').toString('utf8');
+    }
   } catch {
     // Fallback from base64
     try {

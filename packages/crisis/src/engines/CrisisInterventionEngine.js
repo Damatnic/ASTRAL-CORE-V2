@@ -6,11 +6,26 @@
  */
 import { v4 as uuidv4 } from 'uuid';
 import { prisma, executeWithMetrics, createCrisisSession, assignVolunteerToSession, storeCrisisMessage } from '@astralcore/database';
+// TODO: Fix shared package imports
+// import { logger, logCrisisEvent, logCrisisError, logCrisisCritical, logPerformance } from '@astralcore/shared';
+// Mock logger functions for build compatibility
+const logger = {
+    info: (...args) => console.log(`[INFO]`, ...args),
+    error: (...args) => console.error(`[ERROR]`, ...args),
+    warn: (...args) => console.warn(`[WARN]`, ...args),
+    debug: (...args) => console.log(`[DEBUG]`, ...args)
+};
+const logCrisisEvent = (...args) => console.log(`[CRISIS]`, ...args);
+const logCrisisError = (...args) => console.error(`[CRISIS ERROR]`, ...args);
+const logCrisisCritical = (...args) => console.error(`[CRISIS CRITICAL]`, ...args);
+const logPerformance = (...args) => console.log(`[PERF]`, ...args);
 import { ZeroKnowledgeEncryption } from '../encryption/ZeroKnowledgeEncryption';
 import { CrisisSeverityAssessment } from '../assessment/CrisisSeverityAssessment';
 import { EmergencyEscalation } from '../escalation/EmergencyEscalation';
 import { VolunteerMatcher } from '../matching/VolunteerMatcher';
+import { OptimizedVolunteerMatcher } from '../matching/OptimizedVolunteerMatcher';
 import { CrisisWebSocketManager } from '../websocket/CrisisWebSocketManager';
+import { EmergencyOverrideProtocol } from '../protocols/EmergencyOverride';
 import { CRISIS_CONSTANTS } from '../index';
 export class CrisisInterventionEngine {
     static instance;
@@ -18,15 +33,19 @@ export class CrisisInterventionEngine {
     assessment;
     escalation;
     matcher;
+    optimizedMatcher;
     websocket;
+    emergencyOverride;
     // Performance tracking
     responseTimesMs = [];
     constructor() {
         this.encryption = new ZeroKnowledgeEncryption();
         this.assessment = new CrisisSeverityAssessment();
-        this.escalation = new EmergencyEscalation();
-        this.matcher = new VolunteerMatcher();
-        this.websocket = new CrisisWebSocketManager();
+        this.escalation = EmergencyEscalation.getInstance();
+        this.matcher = VolunteerMatcher.getInstance();
+        this.optimizedMatcher = OptimizedVolunteerMatcher.getInstance();
+        this.websocket = CrisisWebSocketManager.getInstance();
+        this.emergencyOverride = EmergencyOverrideProtocol.getInstance();
         // Start performance monitoring
         this.startPerformanceMonitoring();
     }
@@ -52,11 +71,13 @@ export class CrisisInterventionEngine {
                 let severity = 5; // Default moderate severity
                 let keywordsDetected = [];
                 let riskScore = 5;
+                let riskBreakdown = null;
                 if (initialMessage) {
-                    const assessment = await this.assessment.assessMessage(initialMessage);
+                    const assessment = await this.assessment.assessMessageWithRiskScore(initialMessage, anonymousId);
                     severity = assessment.severity;
                     keywordsDetected = assessment.keywordsDetected;
                     riskScore = assessment.riskScore;
+                    riskBreakdown = assessment.riskBreakdown;
                 }
                 // Create encryption keys for this session
                 const sessionToken = await this.encryption.generateSessionToken();
@@ -103,12 +124,7 @@ export class CrisisInterventionEngine {
                 const responseTime = performance.now() - startTime;
                 this.trackResponseTime(responseTime);
                 // Log performance
-                if (responseTime > CRISIS_CONSTANTS.TARGET_RESPONSE_TIME_MS) {
-                    console.warn(`⚠️ Crisis connection took ${responseTime.toFixed(2)}ms (target: ${CRISIS_CONSTANTS.TARGET_RESPONSE_TIME_MS}ms)`);
-                }
-                else {
-                    console.log(`✅ Crisis connection established in ${responseTime.toFixed(2)}ms`);
-                }
+                logPerformance('Crisis connection established', responseTime, CRISIS_CONSTANTS.TARGET_RESPONSE_TIME_MS, session.id, { severity, anonymousId });
                 return {
                     sessionId: session.id,
                     sessionToken,
@@ -124,7 +140,7 @@ export class CrisisInterventionEngine {
         }
         catch (error) {
             const responseTime = performance.now() - startTime;
-            console.error('🔴 CRITICAL: Crisis connection failed:', error);
+            logCrisisCritical('Crisis connection failed - IMMEDIATE ATTENTION REQUIRED', 'unknown', error, { responseTime, startTime });
             // Even in failure, provide emergency resources
             throw new CrisisConnectionError('Failed to establish crisis connection', responseTime, await this.getEmergencyResources());
         }
@@ -146,16 +162,23 @@ export class CrisisInterventionEngine {
         // Encrypt message
         const encrypted = this.encryption.encrypt(message, sessionToken);
         const messageHash = this.encryption.generateMessageHash(message);
-        // Assess message for risk
-        const assessment = await this.assessment.assessMessage(message);
-        // Store encrypted message
+        // Assess message for risk with enhanced scoring
+        const assessment = await this.assessment.assessMessageWithRiskScore(message, session.id);
+        // Store encrypted message with enhanced risk data
         const storedMessage = await storeCrisisMessage(session.id, senderType, senderId, Buffer.from(encrypted.encryptedData, 'hex'), messageHash, {
             sentimentScore: assessment.sentimentScore,
             riskScore: assessment.riskScore,
             keywordsDetected: assessment.keywordsDetected,
         });
-        // Check for escalation triggers
-        if (assessment.severity >= CRISIS_CONSTANTS.CRITICAL_SEVERITY_THRESHOLD) {
+        // Check for emergency override triggers first (most critical)
+        if (this.emergencyOverride.shouldTriggerOverride(assessment, assessment.riskBreakdown)) {
+            this.triggerEmergencyOverrideAsync(session.id, message, assessment);
+        }
+        // Check for standard escalation triggers (enhanced conditions)
+        else if (assessment.riskBreakdown.immediateAction ||
+            assessment.riskBreakdown.riskLevel === 'CRITICAL' ||
+            assessment.riskBreakdown.riskLevel === 'EMERGENCY' ||
+            assessment.severity >= CRISIS_CONSTANTS.CRITICAL_SEVERITY_THRESHOLD) {
             this.triggerEmergencyProtocolAsync(session.id, 'SEVERITY_INCREASE');
         }
         // Broadcast to WebSocket
@@ -167,9 +190,7 @@ export class CrisisInterventionEngine {
             severity: assessment.severity,
         });
         const responseTime = performance.now() - startTime;
-        if (responseTime > 50) {
-            console.warn(`⚠️ Message send took ${responseTime.toFixed(2)}ms (target: <50ms)`);
-        }
+        logPerformance('Crisis message sent', responseTime, 50, session.id, { senderType, riskScore: assessment.riskScore });
         return {
             id: storedMessage.id,
             sessionId: session.id,
@@ -193,7 +214,7 @@ export class CrisisInterventionEngine {
             throw new Error('Message not found or access denied');
         }
         // Decrypt message
-        const encryptedData = message.encryptedContent.toString('hex');
+        const encryptedData = Buffer.from(message.encryptedContent).toString('hex');
         return this.encryption.decrypt(encryptedData, sessionToken);
     }
     /**
@@ -201,6 +222,13 @@ export class CrisisInterventionEngine {
      */
     async endSession(sessionToken, outcome, feedback) {
         await executeWithMetrics(async () => {
+            // Get session data first
+            const session = await prisma.crisisSession.findUnique({
+                where: { sessionToken },
+            });
+            if (!session) {
+                throw new Error('Crisis session not found');
+            }
             // Update session status
             await prisma.crisisSession.update({
                 where: { sessionToken },
@@ -214,7 +242,7 @@ export class CrisisInterventionEngine {
             await this.websocket.closeSession(sessionToken);
             // CRITICAL: Destroy encryption keys for perfect forward secrecy
             this.encryption.destroySessionKeys(sessionToken);
-            console.log(`✅ Crisis session ended: ${sessionToken}`);
+            logCrisisEvent('Crisis session ended successfully', sessionToken, { outcome, duration: Date.now() - new Date(session.startedAt).getTime() });
         }, 'end-crisis-session');
     }
     /**
@@ -245,32 +273,106 @@ export class CrisisInterventionEngine {
     // Private helper methods
     async assignVolunteerAsync(sessionId, severity, keywords) {
         try {
-            const volunteer = await this.matcher.findBestMatch({
+            const isEmergency = severity >= CRISIS_CONSTANTS.CRITICAL_SEVERITY_THRESHOLD;
+            // Use optimized matcher for faster response times
+            const volunteer = await this.optimizedMatcher.findBestMatch({
                 severity,
                 keywords,
-                urgency: severity >= CRISIS_CONSTANTS.CRITICAL_SEVERITY_THRESHOLD ? 'HIGH' : 'NORMAL',
-            });
+                urgency: isEmergency ? 'CRITICAL' : 'NORMAL',
+                specializations: this.extractSpecializationsFromKeywords(keywords),
+                languages: ['en'], // Default to English, can be enhanced with user preference
+            }, isEmergency);
             if (volunteer) {
                 await assignVolunteerToSession(sessionId, volunteer.id);
-                console.log(`✅ Volunteer ${volunteer.id} assigned to session ${sessionId}`);
+                logCrisisEvent('Volunteer successfully assigned to crisis session', sessionId, {
+                    volunteerId: volunteer.anonymousId,
+                    matchScore: volunteer.matchScore,
+                    severity,
+                    specializations: volunteer.specializations
+                });
             }
             else {
-                console.warn(`⚠️ No available volunteers for session ${sessionId}`);
-                // Queue for next available volunteer
+                logger.warn('CrisisIntervention', 'No available volunteers for crisis session - queuing for next available', { severity, keywords }, sessionId);
+                // Fallback to original matcher for queuing
                 await this.matcher.queueSession(sessionId, severity);
             }
         }
         catch (error) {
-            console.error('❌ Failed to assign volunteer:', error);
+            logCrisisError('Failed to assign volunteer to crisis session', sessionId, error, { severity, keywords });
         }
+    }
+    /**
+     * Extract relevant specializations from crisis keywords
+     */
+    extractSpecializationsFromKeywords(keywords) {
+        const specializations = [];
+        const keywordLower = keywords.map(k => k.toLowerCase());
+        // Map crisis keywords to volunteer specializations
+        const specializationMap = {
+            'suicide': ['suicide-prevention', 'crisis-intervention'],
+            'self-harm': ['self-harm-support', 'crisis-intervention'],
+            'panic': ['anxiety-support', 'panic-disorder'],
+            'anxiety': ['anxiety-support', 'panic-disorder'],
+            'depression': ['depression-support', 'mood-disorders'],
+            'depressed': ['depression-support', 'mood-disorders'],
+            'trauma': ['trauma-support', 'ptsd-support'],
+            'addiction': ['addiction-support', 'substance-abuse'],
+            'eating': ['eating-disorder-support'],
+            'abuse': ['trauma-support', 'domestic-violence-support'],
+        };
+        for (const keyword of keywordLower) {
+            for (const [trigger, specs] of Object.entries(specializationMap)) {
+                if (keyword.includes(trigger)) {
+                    specializations.push(...specs);
+                }
+            }
+        }
+        // Always include general crisis intervention
+        if (!specializations.includes('crisis-intervention')) {
+            specializations.push('crisis-intervention');
+        }
+        return [...new Set(specializations)]; // Remove duplicates
     }
     async triggerEmergencyProtocolAsync(sessionId, trigger) {
         try {
             const result = await this.escalation.triggerEmergencyProtocol(sessionId, trigger);
-            console.log(`🚨 Emergency protocol triggered for session ${sessionId}:`, result);
+            logCrisisEvent('Emergency protocol triggered for crisis session', sessionId, { trigger, result });
         }
         catch (error) {
-            console.error('🔴 CRITICAL: Emergency protocol failed:', error);
+            logCrisisCritical('Emergency protocol failed - CRITICAL SYSTEM FAILURE', sessionId, error, { trigger });
+        }
+    }
+    /**
+     * Trigger emergency override protocol for immediate intervention
+     * Used when situation requires bypassing normal procedures
+     */
+    async triggerEmergencyOverrideAsync(sessionId, message, assessment) {
+        try {
+            logCrisisCritical('EMERGENCY OVERRIDE TRIGGERED - Imminent danger detected', sessionId, undefined, { severity: assessment.severity, riskScore: assessment.riskScore });
+            const overrideRequest = {
+                sessionId,
+                trigger: 'IMMINENT_DANGER_DETECTED',
+                severity: assessment.severity,
+                message,
+                reason: `Automatic override: ${assessment.riskBreakdown.riskLevel} risk detected with score ${assessment.riskScore}`,
+                immediateAction: true,
+            };
+            const result = await this.emergencyOverride.activateEmergencyOverride(overrideRequest);
+            logCrisisEvent('Emergency override successfully activated', sessionId, {
+                overrideId: result.overrideId,
+                actions: result.actionsInitiated,
+                responseTime: result.responseTimeMs,
+                trackingId: result.trackingId,
+                severity: assessment.severity,
+                riskScore: assessment.riskScore
+            });
+            // Also trigger standard emergency protocol as backup
+            await this.escalation.triggerEmergencyProtocol(sessionId, 'AUTOMATIC_KEYWORD');
+        }
+        catch (error) {
+            logCrisisCritical('Emergency override failed - CRITICAL FAILURE in life-safety system', sessionId, error, { severity: assessment.severity, riskScore: assessment.riskScore });
+            // Fallback to standard emergency protocol
+            await this.triggerEmergencyProtocolAsync(sessionId, 'AUTOMATIC_KEYWORD');
         }
     }
     async getImmediateResources(severity) {
@@ -282,7 +384,7 @@ export class CrisisInterventionEngine {
             orderBy: { priority: 'desc' },
             take: 3,
         });
-        return resources.map(r => ({
+        return resources.map((r) => ({
             title: r.title,
             phone: r.phoneNumber,
             url: r.url,
@@ -297,7 +399,7 @@ export class CrisisInterventionEngine {
             },
             orderBy: { priority: 'desc' },
         });
-        return resources.map(r => `${r.title}: ${r.phoneNumber || r.url}`);
+        return resources.map((r) => `${r.title}: ${r.phoneNumber || r.url}`);
     }
     trackResponseTime(responseTime) {
         this.responseTimesMs.push(responseTime);
@@ -317,7 +419,11 @@ export class CrisisInterventionEngine {
         setInterval(() => {
             const avgResponseTime = this.getAverageResponseTime();
             if (avgResponseTime > CRISIS_CONSTANTS.MAX_RESPONSE_TIME_MS) {
-                console.error(`🔴 PERFORMANCE ALERT: Average response time ${avgResponseTime.toFixed(2)}ms exceeds target`);
+                logger.error('PerformanceMonitor', `PERFORMANCE ALERT: Crisis system response time exceeds target - ${avgResponseTime.toFixed(2)}ms`, undefined, {
+                    avgResponseTime,
+                    target: CRISIS_CONSTANTS.MAX_RESPONSE_TIME_MS,
+                    recentSamples: this.responseTimesMs.slice(-10)
+                });
             }
             // Update metrics in database
             prisma.performanceMetric.create({

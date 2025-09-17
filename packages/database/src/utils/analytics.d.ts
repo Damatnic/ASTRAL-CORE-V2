@@ -11,26 +11,26 @@ export declare function recordAnalyticsEvent(data: {
     responseTime?: number;
     success?: boolean;
 }): Promise<{
-    id: string;
     sessionId: string | null;
+    success: boolean;
     timestamp: Date;
+    id: string;
     responseTime: number | null;
     eventType: string;
     eventName: string;
     userHash: string | null;
     properties: import("packages/database/generated/client/runtime/library").JsonValue | null;
-    success: boolean;
     errorCode: string | null;
 } | {
-    id: string;
     sessionId: string | null;
+    success: boolean;
     timestamp: Date;
+    id: string;
     responseTime: number | null;
     eventType: string;
     eventName: string;
     userHash: string | null;
     properties: import("packages/database/generated/client/runtime/library").JsonValue | null;
-    success: boolean;
     errorCode: string | null;
 }>;
 export declare function recordPerformanceMetric(data: {
@@ -42,9 +42,9 @@ export declare function recordPerformanceMetric(data: {
     target?: number;
     threshold?: number;
 }): Promise<{
-    status: import("packages/database/generated/client").$Enums.MetricStatus;
-    id: string;
     timestamp: Date;
+    id: string;
+    status: import("packages/database/generated/client").$Enums.MetricStatus;
     metricType: string;
     value: number;
     unit: string;
@@ -53,9 +53,9 @@ export declare function recordPerformanceMetric(data: {
     target: number | null;
     threshold: number | null;
 } | {
-    status: import("packages/database/generated/client").$Enums.MetricStatus;
-    id: string;
     timestamp: Date;
+    id: string;
+    status: import("packages/database/generated/client").$Enums.MetricStatus;
     metricType: string;
     value: number;
     unit: string;
@@ -72,30 +72,30 @@ export declare function updateSystemHealth(data: {
     errorRate?: number;
     errorMessage?: string;
 }): Promise<{
-    status: import("packages/database/generated/client").$Enums.HealthStatus;
-    uptime: number | null;
-    id: string;
     timestamp: Date;
+    id: string;
+    status: import("packages/database/generated/client").$Enums.HealthStatus;
     responseTime: number | null;
-    memoryUsage: number | null;
-    cpuUsage: number | null;
     component: string;
+    uptime: number | null;
     errorRate: number | null;
     lastError: Date | null;
     errorMessage: string | null;
+    cpuUsage: number | null;
+    memoryUsage: number | null;
     diskUsage: number | null;
 } | {
-    status: import("packages/database/generated/client").$Enums.HealthStatus;
-    uptime: number | null;
-    id: string;
     timestamp: Date;
+    id: string;
+    status: import("packages/database/generated/client").$Enums.HealthStatus;
     responseTime: number | null;
-    memoryUsage: number | null;
-    cpuUsage: number | null;
     component: string;
+    uptime: number | null;
     errorRate: number | null;
     lastError: Date | null;
     errorMessage: string | null;
+    cpuUsage: number | null;
+    memoryUsage: number | null;
     diskUsage: number | null;
 }>;
 export declare function createAuditLog(data: {
@@ -106,11 +106,11 @@ export declare function createAuditLog(data: {
     userId?: string;
     success?: boolean;
 }): Promise<{
-    id: string;
     sessionId: string | null;
-    timestamp: Date;
-    resourceId: string | null;
     success: boolean;
+    timestamp: Date;
+    id: string;
+    resourceId: string | null;
     errorMessage: string | null;
     userId: string | null;
     action: string;
@@ -119,11 +119,11 @@ export declare function createAuditLog(data: {
     ipAddress: string | null;
     userAgent: string | null;
 } | {
-    id: string;
     sessionId: string | null;
-    timestamp: Date;
-    resourceId: string | null;
     success: boolean;
+    timestamp: Date;
+    id: string;
+    resourceId: string | null;
     errorMessage: string | null;
     userId: string | null;
     action: string;

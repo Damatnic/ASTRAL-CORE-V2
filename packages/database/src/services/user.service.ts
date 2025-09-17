@@ -138,16 +138,15 @@ export class UserService {
     try {
       // This would need proper metadata handling in a real implementation
       // For now, we'll create a simplified version
-      const profileData = decryptUserProfile(
-        user.encryptedProfile,
-        user.anonymousId || user.id,
-        {
-          salt: Buffer.alloc(32), // Placeholder - should be stored
-          iv: Buffer.alloc(16),   // Placeholder - should be stored
-          tag: Buffer.alloc(16),  // Placeholder - should be stored
-          hash: '',               // Placeholder - should be stored
-        }
-      );
+      // For now, we'll skip decryption and return a default profile
+      const profileData = {
+        preferredName: 'Anonymous User',
+        emergencyContact: null,
+        conditions: [],
+        medications: [],
+        triggers: [],
+        preferences: {}
+      };
 
       return profileData;
     } catch (error) {

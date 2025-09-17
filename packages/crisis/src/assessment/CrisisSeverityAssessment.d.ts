@@ -14,13 +14,24 @@
  * - False positive rate: <2% for emergency escalation
  */
 import type { CrisisAssessment } from '../types/assessment.types';
+import { type RiskScoreBreakdown } from './RealTimeRiskScorer';
 export declare class CrisisSeverityAssessment {
+    private readonly riskScorer;
+    constructor();
     private readonly emergencyKeywords;
     private readonly highRiskKeywords;
     private readonly moderateRiskKeywords;
     private readonly positiveKeywords;
     private readonly copingKeywords;
     /**
+     * Enhanced crisis assessment with real-time risk scoring
+     * TARGET: <25ms execution time (includes risk scoring)
+     */
+    assessMessageWithRiskScore(message: string, sessionId?: string): Promise<CrisisAssessment & {
+        riskBreakdown: RiskScoreBreakdown;
+    }>;
+    /**
+     * Original assessment method (maintained for backwards compatibility)
      * Assesses crisis severity of a message
      * TARGET: <20ms execution time
      */
@@ -36,6 +47,26 @@ export declare class CrisisSeverityAssessment {
     private analyzeKeywords;
     private analyzeSentiment;
     private analyzeContext;
+    /**
+     * Find repeated words that might indicate rumination or distress
+     */
+    private findRepeatedWords;
+    /**
+     * Calculate emotional intensity based on language patterns
+     */
+    private calculateEmotionalIntensity;
+    /**
+     * Detect rapid or racing thoughts patterns
+     */
+    private detectRapidThoughts;
+    /**
+     * Detect cognitive distortions that might indicate crisis risk
+     */
+    private detectCognitiveDistortions;
+    /**
+     * Calculate composite risk escalation score
+     */
+    private calculateRiskEscalationScore;
     private calculateBaseSeverity;
     private adjustForSentiment;
     private applyContextualAdjustments;

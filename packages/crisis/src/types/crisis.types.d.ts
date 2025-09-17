@@ -44,6 +44,9 @@ export interface CrisisMessage {
     encrypted: boolean;
     riskScore?: number;
     responseTimeMs?: number;
+    sentimentScore?: number;
+    keywordsDetected?: string[];
+    riskLevel?: number;
 }
 export interface EmergencyProtocolResult {
     escalationId: string;

@@ -4,6 +4,7 @@
  */
 import { PrismaClient } from '../generated/client';
 import { validateEnvConfig } from './config/env.validation';
+import * as crypto from 'crypto';
 // Validate environment configuration at startup
 validateEnvConfig();
 // Connection pool configuration optimized for crisis workloads
@@ -53,12 +54,21 @@ export * from './utils/crisis';
 export * from './utils/tether';
 export * from './utils/volunteer';
 export * from './utils/analytics';
+// Export services
+export * from './services';
+export { MoodService } from './services/mood.service';
+export { UserService } from './services/user.service';
+// Export new enhanced services
+export * from './services/emergency-contact.service';
+export * from './services/safety-plan.service';
+export * from './services/verification.service';
 // Crisis utility functions
 export async function createCrisisSession(data) {
     return await prisma.crisisSession.create({
         data: {
             anonymousId: data.anonymousId,
             severity: data.severity,
+            sessionToken: crypto.randomBytes(32).toString('hex'),
             encryptedData: data.encryptedData,
             keyDerivationSalt: data.keyDerivationSalt,
             status: 'ACTIVE',
