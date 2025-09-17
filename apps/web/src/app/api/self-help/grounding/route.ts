@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient, ActivityType } from '@astralcore/database'
+import { PrismaClient, ActivityType, GroundingType, GroundingCategory } from '@astralcore/database'
 
 const prisma = new PrismaClient()
 
@@ -250,8 +250,8 @@ export async function PUT(request: NextRequest) {
       {
         name: '5-4-3-2-1 Technique',
         description: 'Engage all five senses to return to the present',
-        type: 'SENSORY',
-        category: 'PANIC_ATTACK',
+        type: GroundingType.SENSORY,
+        category: GroundingCategory.PANIC_ATTACK,
         instructions: [
           { step: 1, instruction: 'Look around and name 5 things you can see' },
           { step: 2, instruction: 'Notice 4 things you can touch' },
@@ -267,8 +267,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'TIPP Technique',
         description: 'Temperature, Intense exercise, Paced breathing, Paired muscle relaxation',
-        type: 'PHYSICAL',
-        category: 'TRAUMA_RESPONSE',
+        type: GroundingType.PHYSICAL,
+        category: GroundingCategory.TRAUMA_RESPONSE,
         instructions: [
           { step: 1, instruction: 'Apply cold water to face or hold ice cubes', duration: 30 },
           { step: 2, instruction: 'Do jumping jacks or run in place', duration: 30 },
@@ -283,8 +283,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Body Scan',
         description: 'Progressive awareness of physical sensations',
-        type: 'MENTAL',
-        category: 'ANXIETY',
+        type: GroundingType.MENTAL,
+        category: GroundingCategory.ANXIETY,
         instructions: [
           { step: 1, instruction: 'Focus on your toes, notice any sensations' },
           { step: 2, instruction: 'Move attention up your legs, feeling weight and temperature' },
@@ -300,8 +300,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Category Grounding',
         description: 'Mental grounding through categorization',
-        type: 'MENTAL',
-        category: 'OVERWHELM',
+        type: GroundingType.MENTAL,
+        category: GroundingCategory.OVERWHELM,
         instructions: [
           { step: 1, instruction: 'Name animals that start with each letter of the alphabet' },
           { step: 2, instruction: 'List colors you can see around you' },
@@ -317,8 +317,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Physical Grounding',
         description: 'Use physical sensations to anchor yourself',
-        type: 'PHYSICAL',
-        category: 'DISSOCIATION',
+        type: GroundingType.PHYSICAL,
+        category: GroundingCategory.DISSOCIATION,
         instructions: [
           { step: 1, instruction: 'Hold an ice cube in your hand' },
           { step: 2, instruction: 'Feel different textures around you' },
@@ -334,8 +334,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Grounding Breath',
         description: 'Combine breathing with sensory awareness',
-        type: 'MOVEMENT',
-        category: 'FLASHBACK',
+        type: GroundingType.MOVEMENT,
+        category: GroundingCategory.FLASHBACK,
         instructions: [
           { step: 1, instruction: 'Breathe in for 4 counts while noticing your feet on the ground' },
           { step: 2, instruction: 'Hold for 4 counts while feeling your center' },
