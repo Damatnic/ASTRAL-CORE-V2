@@ -1,0 +1,28 @@
+# ASTRAL CORE Crisis Support Platform
+# Robots.txt for search engine crawlers
+
+User-agent: *
+Allow: /
+Allow: /crisis
+Allow: /volunteer
+Disallow: /admin
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Crisis support pages should be indexed immediately
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://astralcore.crisis/sitemap.xml
+
+# Important crisis resources should be prioritized
+User-agent: Googlebot
+Allow: /crisis
+Allow: /volunteer
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /crisis
+Allow: /volunteer
+Crawl-delay: 0

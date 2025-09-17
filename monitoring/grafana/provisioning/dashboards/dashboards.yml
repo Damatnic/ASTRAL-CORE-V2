@@ -1,0 +1,45 @@
+# ASTRAL CORE V2 - Grafana Dashboard Provisioning
+# Automated dashboard deployment for crisis intervention platform
+
+apiVersion: 1
+
+providers:
+  - name: 'crisis-intervention-dashboards'
+    orgId: 1
+    folder: 'Crisis Intervention'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards/crisis
+
+  - name: 'infrastructure-dashboards'
+    orgId: 1
+    folder: 'Infrastructure'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards/infrastructure
+
+  - name: 'security-dashboards'
+    orgId: 1
+    folder: 'Security'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards/security
+
+  - name: 'ai-safety-dashboards'
+    orgId: 1
+    folder: 'AI Safety'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards/ai-safety

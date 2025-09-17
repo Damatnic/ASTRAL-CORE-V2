@@ -1,0 +1,88 @@
+{
+  "name": "AstralCore",
+  "displayName": "ASTRAL CORE",
+  "expo": {
+    "name": "ASTRAL CORE",
+    "slug": "astral-core",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a1a2e"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.astralcore.crisis",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "ASTRAL CORE needs your location to connect you with nearby crisis resources and emergency services.",
+        "NSLocationAlwaysUsageDescription": "ASTRAL CORE can monitor your safety in the background and alert emergency contacts if needed.",
+        "NSFaceIDUsageDescription": "Secure access to your crisis support profile with Face ID.",
+        "NSCameraUsageDescription": "Share images with crisis counselors during support sessions.",
+        "NSMicrophoneUsageDescription": "Enable voice calls with crisis counselors.",
+        "UIBackgroundModes": ["location", "fetch", "remote-notification", "processing"]
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a1a2e"
+      },
+      "package": "com.astralcore.crisis",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "CAMERA",
+        "RECORD_AUDIO",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED",
+        "WAKE_LOCK"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ff4444",
+          "sounds": ["./assets/sounds/emergency.wav", "./assets/sounds/alert.wav"]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow ASTRAL CORE to access your location for crisis support."
+        }
+      ],
+      "expo-local-authentication"
+    ],
+    "notification": {
+      "iosDisplayInForeground": true,
+      "androidMode": "default",
+      "androidCollapsedTitle": "ASTRAL CORE Alert"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_LOAD",
+      "enabled": true
+    },
+    "scheme": "astralcore",
+    "experiments": {
+      "tsconfigPaths": true
+    }
+  }
+}

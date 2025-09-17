@@ -1,0 +1,40 @@
+{
+  "name": "@astralcore/tether",
+  "version": "2.0.0",
+  "description": "ASTRAL_CORE 2.0 Tether Connection System - Persistent Peer Support Bonds",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./src/*.ts",
+      "import": "./src/*.ts",
+      "require": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "monitor": "node scripts/tether-monitor.js"
+  },
+  "dependencies": {
+    "ioredis": "^5.3.2",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "nanoid": "^5.0.4",
+    "@astralcore/database": "workspace:*",
+    "@astralcore/crisis": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.13",
+    "jest": "^29.7.0",
+    "typescript": "^5.7.2"
+  }
+}

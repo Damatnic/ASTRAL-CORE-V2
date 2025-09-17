@@ -1,0 +1,107 @@
+{
+  "name": "ASTRAL CORE Crisis Support Platform",
+  "short_name": "ASTRAL CORE",
+  "description": "24/7 Mental Health Crisis Support - Immediate help when you need it most",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#dc2626",
+  "background_color": "#ffffff",
+  "categories": ["health", "medical", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "astral-core-crisis-support",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Crisis Chat",
+      "short_name": "Chat",
+      "description": "Start crisis chat immediately",
+      "url": "/crisis?action=chat",
+      "icons": [
+        {
+          "src": "/icons/chat-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Call 988",
+      "short_name": "Call",
+      "description": "Call crisis hotline",
+      "url": "tel:988",
+      "icons": [
+        {
+          "src": "/icons/phone-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Emergency",
+      "short_name": "911",
+      "description": "Call emergency services",
+      "url": "tel:911",
+      "icons": [
+        {
+          "src": "/icons/emergency-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

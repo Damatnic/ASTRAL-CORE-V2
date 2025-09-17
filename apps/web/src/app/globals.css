@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DEBUG: Testing if CSS is loaded */
+body {
+  background-color: #f0f0f0 !important;
+  font-family: system-ui, -apple-system, sans-serif !important;
+}
+
+/* Minimal CSS for ASTRAL CORE 2.0 Mental Health Crisis Platform */
+
+:root {
+  /* Color system for crisis platform */
+  --primary: #059669;
+  --secondary: #0f766e;
+  --accent: #dc2626;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --crisis: #dc2626;
+  --success: #059669;
+  --warning: #d97706;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Button focus improvements */
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High contrast text for crisis situations */
+.crisis-text {
+  color: var(--crisis);
+  font-weight: 600;
+}
+
+/* Animation for status indicators */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Ensure minimum touch target size for mobile */
+button, 
+a[role="button"],
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Enhanced hover states */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Transition utilities */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+.transition-colors {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Crisis-specific styles */
+.crisis-button {
+  background: linear-gradient(to right, var(--crisis), #b91c1c);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.crisis-button:hover {
+  background: linear-gradient(to right, #b91c1c, #991b1b);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.crisis-button:focus {
+  outline: none;
+  ring: 4px;
+  ring-color: rgba(220, 38, 38, 0.3);
+}
+
+/* Status indicator styles */
+.status-online {
+  background-color: var(--success);
+  border-radius: 50%;
+}
+
+.status-pulse {
+  animation: pulse 2s infinite;
+}

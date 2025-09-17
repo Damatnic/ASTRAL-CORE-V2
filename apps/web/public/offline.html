@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crisis support offline page - Important resources available offline">
+    <title>Offline - Crisis Support</title>
+    <style>
+        /* Critical inline styles for offline page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00ff00;
+        }
+
+        .status-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            fill: #ffff00;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #f0f0f0;
+        }
+
+        .emergency-numbers {
+            background: #1a1a1a;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .emergency-numbers h2 {
+            color: #ff0000;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .number-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #2a2a2a;
+            border-radius: 4px;
+            min-height: 44px; /* WCAG AAA touch target */
+        }
+
+        .number-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .number-label {
+            font-weight: bold;
+            color: #00ff00;
+        }
+
+        .number-value {
+            font-size: 1.5rem;
+            color: #ffff00;
+            text-decoration: none;
+        }
+
+        .coping-strategies {
+            background: #1a1a1a;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .coping-strategies h2 {
+            color: #00ff00;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .strategy-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .strategy-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            fill: #00ff00;
+        }
+
+        .retry-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+            background: #00ff00;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            min-height: 48px;
+            min-width: 200px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .retry-button:hover,
+        .retry-button:focus {
+            transform: scale(1.05);
+            outline: 3px solid #ffff00;
+            outline-offset: 2px;
+        }
+
+        .message {
+            background: #2a2a2a;
+            border-left: 4px solid #ffff00;
+            padding: 1rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            body {
+                background: #000;
+                color: #fff;
+            }
+            
+            .emergency-numbers,
+            .coping-strategies {
+                border-width: 3px;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .retry-button {
+                transition: none;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1.125rem;
+            }
+            
+            .number-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .number-label {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        :focus {
+            outline: 3px solid #00ff00;
+            outline-offset: 2px;
+        }
+
+        /* Screen reader only text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Offline Icon -->
+        <svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3.27 3L2 4.27l5 5V13h3v-2.73L19.73 22 21 20.73 3.27 3zM16 13h-2.17l2 2H16v-2zm-1-8l-1 2h-3.17l2 2H19v2h-2v2.17l2 2V7l-3-4h-1z"/>
+        </svg>
+
+        <h1>You're Currently Offline</h1>
+        
+        <p>Don't worry - crisis support is still available. The numbers below work without internet.</p>
+
+        <!-- Emergency Numbers Section -->
+        <div class="emergency-numbers" role="region" aria-label="Emergency contact numbers">
+            <h2>24/7 Crisis Support Numbers</h2>
+            
+            <div class="number-item">
+                <span class="number-label">Crisis Lifeline</span>
+                <a href="tel:988" class="number-value" aria-label="Call 988 Crisis Lifeline">988</a>
+            </div>
+            
+            <div class="number-item">
+                <span class="number-label">Emergency</span>
+                <a href="tel:911" class="number-value" aria-label="Call 911 Emergency">911</a>
+            </div>
+            
+            <div class="number-item">
+                <span class="number-label">Crisis Text</span>
+                <a href="sms:741741?body=HOME" class="number-value" aria-label="Text HOME to 741741">741741</a>
+            </div>
+            
+            <div class="number-item">
+                <span class="number-label">Warm Line</span>
+                <a href="tel:18779109276" class="number-value" aria-label="Call Warm Line">1-877-910-9276</a>
+            </div>
+        </div>
+
+        <!-- Important Message -->
+        <div class="message" role="alert">
+            <strong>Remember:</strong> Your messages will be sent automatically when your connection returns. You haven't lost anything - we're keeping everything safe for you.
+        </div>
+
+        <!-- Coping Strategies Section -->
+        <div class="coping-strategies" role="region" aria-label="Coping strategies">
+            <h2>While You Wait - Try These</h2>
+            
+            <div class="strategy-item">
+                <svg class="strategy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Take 5 slow, deep breaths. Count to 4 as you breathe in, hold for 4, breathe out for 4.</span>
+            </div>
+            
+            <div class="strategy-item">
+                <svg class="strategy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Ground yourself: Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste.</span>
+            </div>
+            
+            <div class="strategy-item">
+                <svg class="strategy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Place your hand on your heart. Feel it beating. You are here, you are safe, and this feeling will pass.</span>
+            </div>
+            
+            <div class="strategy-item">
+                <svg class="strategy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Think of one person who cares about you. They want you to be okay. You matter to them.</span>
+            </div>
+            
+            <div class="strategy-item">
+                <svg class="strategy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Remember: You've survived difficult moments before. You have the strength to get through this too.</span>
+            </div>
+        </div>
+
+        <!-- Retry Button -->
+        <button class="retry-button" onclick="window.location.reload()" aria-label="Try to reconnect">
+            Try to Reconnect
+        </button>
+
+        <!-- Screen Reader Announcement -->
+        <div role="status" aria-live="polite" aria-atomic="true" class="sr-only">
+            You are currently offline. Crisis support phone numbers are available on this page. Your messages will be sent when connection returns.
+        </div>
+    </div>
+
+    <script>
+        // Check connection status periodically
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }, 5000);
+
+        // Listen for online event
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+
+        // Save any draft messages to localStorage
+        if (typeof Storage !== 'undefined') {
+            const savedDraft = localStorage.getItem('crisis-chat-draft');
+            if (savedDraft) {
+                console.log('Draft message preserved:', savedDraft);
+            }
+        }
+
+        // Register service worker if not already registered
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(err => {
+                console.log('Service Worker registration failed:', err);
+            });
+        }
+    </script>
+</body>
+</html>

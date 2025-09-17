@@ -1,0 +1,95 @@
+{
+  "name": "astral-core-2.0",
+  "version": "2.0.0",
+  "description": "Life-saving peer-to-peer mental health crisis intervention platform with instant help and zero barriers",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "cd apps/web && pnpm build",
+    "start": "turbo run start",
+    "start:test": "NODE_ENV=test turbo run start",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "test:unit": "jest --testPathPattern='(test|spec)\\.(ts|tsx)$' --coverage",
+    "test:integration": "jest --testPathPattern='integration.*\\.(test|spec)\\.(ts|tsx)$' --coverage",
+    "test:e2e": "playwright test",
+    "test:load": "node tests/load/load-testing-10k-users.test.js",
+    "test:performance": "jest --testPathPattern='performance.*\\.(test|spec)\\.(ts|tsx)$'",
+    "test:security": "jest --testPathPattern='security.*\\.(test|spec)\\.(ts|tsx)$'",
+    "test:memory": "node --expose-gc tests/performance/memory-leak-detection.js",
+    "test:a11y": "pa11y-ci",
+    "coverage:merge": "nyc merge coverage coverage/merged && nyc report -t coverage/merged --report-dir coverage/final",
+    "coverage:summary": "nyc report --reporter=json-summary",
+    "coverage:e2e": "playwright test --reporter=html --coverage",
+    "analyze:load": "node scripts/analyze-load-results.js",
+    "analyze:heap": "node scripts/analyze-heap-snapshots.js",
+    "compare:performance": "node scripts/compare-performance.js",
+    "clean": "turbo run clean",
+    "db:generate": "turbo run db:generate",
+    "db:push": "turbo run db:push",
+    "db:migrate": "turbo run db:migrate",
+    "db:migrate:test": "prisma migrate dev --name test",
+    "crisis:deploy": "turbo run build --filter=web && turbo run deploy --filter=web",
+    "crisis:monitor": "turbo run monitor --filter=crisis-engine",
+    "security:audit": "npm audit --workspaces --audit-level=moderate",
+    "performance:test": "turbo run perf:test"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.1.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.5.0",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^9.35.0",
+    "husky": "^9.1.7",
+    "jest": "^30.1.3",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^16.1.6",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.2",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astral-productions/astral-core-2.0.git"
+  },
+  "keywords": [
+    "mental-health",
+    "crisis-intervention",
+    "peer-support",
+    "anonymous-chat",
+    "zero-barriers",
+    "life-saving",
+    "free-forever",
+    "hipaa-compliant"
+  ],
+  "author": "Astral Productions",
+  "license": "AGPL-3.0",
+  "funding": {
+    "type": "donation",
+    "url": "https://donate.astralcore.org"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^10.12.0",
+    "@types/ws": "^8.18.1",
+    "class-variance-authority": "^0.7.1",
+    "framer-motion": "^12.23.13",
+    "lucide-react": "^0.544.0",
+    "next": "15.5.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "uuid": "^13.0.0",
+    "ws": "^8.18.3"
+  }
+}

@@ -1,0 +1,184 @@
+# ASTRAL_CORE 2.0 - Prometheus Monitoring Configuration
+# Life-critical monitoring for crisis intervention platform
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'astral-core-production'
+    service: 'crisis-intervention'
+
+rule_files:
+  - "alert_rules.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+scrape_configs:
+  # ============================================================================
+  # ASTRAL CORE WEB APPLICATION
+  # ============================================================================
+  - job_name: 'astral-web'
+    scrape_interval: 10s
+    metrics_path: '/api/metrics'
+    static_configs:
+      - targets: ['astral-web:3000']
+    scrape_timeout: 5s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'web-app'
+
+  # ============================================================================
+  # ADMIN DASHBOARD
+  # ============================================================================
+  - job_name: 'astral-admin'
+    scrape_interval: 30s
+    metrics_path: '/api/metrics'
+    static_configs:
+      - targets: ['astral-admin:3002']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'admin-dashboard'
+
+  # ============================================================================
+  # DATABASE MONITORING
+  # ============================================================================
+  - job_name: 'postgres'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['postgres-exporter:9187']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'postgresql-db'
+
+  # ============================================================================
+  # REDIS MONITORING
+  # ============================================================================
+  - job_name: 'redis'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['redis-exporter:9121']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'redis-cache'
+
+  # ============================================================================
+  # NGINX REVERSE PROXY
+  # ============================================================================
+  - job_name: 'nginx'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['nginx-exporter:9113']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'nginx-proxy'
+
+  # ============================================================================
+  # SYSTEM METRICS
+  # ============================================================================
+  - job_name: 'node-exporter'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['node-exporter:9100']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'server-host'
+
+  # ============================================================================
+  # CONTAINER METRICS
+  # ============================================================================
+  - job_name: 'cadvisor'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['cadvisor:8080']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'docker-containers'
+
+  # ============================================================================
+  # PROMETHEUS SELF-MONITORING
+  # ============================================================================
+  - job_name: 'prometheus'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # ============================================================================
+  # BLACKBOX MONITORING - External endpoint health checks
+  # ============================================================================
+  - job_name: 'blackbox-http'
+    scrape_interval: 30s
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - https://astralcore.org
+        - https://astralcore.org/api/health
+        - https://admin.astralcore.org/api/health
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # ============================================================================
+  # CRISIS ENDPOINT MONITORING - Ultra-high frequency
+  # ============================================================================
+  - job_name: 'crisis-endpoints'
+    scrape_interval: 5s
+    metrics_path: /probe
+    params:
+      module: [http_2xx_crisis]
+    static_configs:
+      - targets:
+        - https://astralcore.org/api/crisis/health
+        - https://astralcore.org/api/emergency/status
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+      - source_labels: [__address__]
+        target_label: crisis_critical
+        replacement: 'true'
+
+  # ============================================================================
+  # CRISIS RESPONSE METRICS - Application-level crisis intervention analytics
+  # ============================================================================
+  - job_name: 'crisis-response-metrics'
+    scrape_interval: 10s
+    metrics_path: '/api/crisis/metrics'
+    static_configs:
+      - targets: ['astral-web:3000']
+    params:
+      include: ['response_times', 'intervention_success', 'volunteer_availability']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: service_type
+        replacement: 'crisis_intervention'
+
+  # ============================================================================
+  # AI SAFETY MONITORING - ML model performance and safety checks
+  # ============================================================================
+  - job_name: 'ai-safety-metrics'
+    scrape_interval: 15s
+    metrics_path: '/api/ai-safety/metrics'
+    static_configs:
+      - targets: ['astral-web:3000']
+    params:
+      safety_modules: ['content_analysis', 'risk_assessment', 'intervention_recommendations']

@@ -1,0 +1,50 @@
+# ASTRAL CORE V2 - Grafana Datasource Configuration
+# Prometheus data source for crisis intervention platform monitoring
+
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    orgId: 1
+    url: http://astral-prometheus:9090
+    isDefault: true
+    version: 1
+    editable: false
+    jsonData:
+      httpMethod: POST
+      manageAlerts: true
+      prometheusType: Prometheus
+      prometheusVersion: 2.45.0
+      cacheLevel: 'High'
+      disableRecordingRules: false
+      incrementalQueryOverlapWindow: 10m
+      customQueryParameters: ''
+    secureJsonData: {}
+
+  - name: Prometheus-AlertManager
+    type: alertmanager
+    access: proxy
+    orgId: 1
+    url: http://alertmanager:9093
+    jsonData:
+      implementation: prometheus
+    version: 1
+    editable: false
+
+  - name: Crisis-Metrics
+    type: prometheus
+    access: proxy
+    orgId: 1
+    url: http://astral-prometheus:9090
+    jsonData:
+      httpMethod: POST
+      customQueryParameters: 'crisis_only=true'
+      manageAlerts: true
+      prometheusType: Prometheus
+      exemplarTraceIdDestinations:
+        - name: trace_id
+          datasourceUid: jaeger-traces
+    version: 1
+    editable: false

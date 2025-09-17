@@ -1,0 +1,322 @@
+# ASTRAL_CORE 2.0 - GitHub Actions CI/CD Pipeline
+# Production-grade deployment with security scanning, testing, and monitoring
+
+name: 🚀 Deploy ASTRAL_CORE Production
+
+on:
+  push:
+    branches: [main, production]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: astral-core
+
+jobs:
+  # ============================================================================
+  # SECURITY & CODE QUALITY SCANNING
+  # ============================================================================
+  security-scan:
+    name: 🔐 Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.13.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run security audit
+        run: |
+          pnpm audit --audit-level moderate
+          pnpm run security:audit
+
+      - name: CodeQL Analysis
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript, typescript
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+      - name: Run SAST with Semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets
+            p/owasp-top-ten
+
+  # ============================================================================
+  # COMPREHENSIVE TESTING SUITE
+  # ============================================================================
+  test:
+    name: 🧪 Test Suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-type: [unit, integration, e2e]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.13.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Setup test database
+        run: |
+          docker run -d \
+            --name test-postgres \
+            -e POSTGRES_PASSWORD=test \
+            -e POSTGRES_USER=test \
+            -e POSTGRES_DB=astral_test \
+            -p 5432:5432 \
+            postgres:16-alpine
+
+      - name: Run database migrations
+        run: pnpm run db:migrate:test
+
+      - name: Run tests
+        run: |
+          case "${{ matrix.test-type }}" in
+            unit)
+              pnpm run test:unit
+              ;;
+            integration)
+              pnpm run test:integration
+              ;;
+            e2e)
+              pnpm run test:e2e
+              ;;
+          esac
+
+      - name: Upload coverage reports
+        if: matrix.test-type == 'unit'
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+
+  # ============================================================================
+  # PERFORMANCE & LOAD TESTING
+  # ============================================================================
+  performance-test:
+    name: ⚡ Performance Testing
+    runs-on: ubuntu-latest
+    needs: [test]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.13.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        run: pnpm run build
+
+      - name: Run performance tests
+        run: |
+          pnpm run test:performance
+          pnpm run test:load
+          pnpm run test:memory
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: './lighthouserc.js'
+          uploadArtifacts: true
+
+  # ============================================================================
+  # DOCKER BUILD & SECURITY SCAN
+  # ============================================================================
+  docker-build:
+    name: 🐳 Docker Build & Scan
+    runs-on: ubuntu-latest
+    needs: [security-scan, test]
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:latest
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # ============================================================================
+  # PRODUCTION DEPLOYMENT
+  # ============================================================================
+  deploy-production:
+    name: 🚀 Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [security-scan, test, performance-test, docker-build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to production server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          port: ${{ secrets.PROD_PORT }}
+          script: |
+            # Navigate to application directory
+            cd /opt/astral-core
+
+            # Pull latest images
+            docker-compose -f docker-compose.prod.yml pull
+
+            # Update application with zero-downtime deployment
+            docker-compose -f docker-compose.prod.yml up -d --remove-orphans
+
+            # Health check
+            timeout 60 bash -c 'until curl -f http://localhost/health; do sleep 2; done'
+
+            # Clean up old images
+            docker image prune -af --filter "until=24h"
+
+      - name: Verify deployment
+        run: |
+          # Wait for deployment to stabilize
+          sleep 30
+          
+          # Health check
+          curl -f https://astralcore.org/api/health
+          
+          # Performance check
+          curl -f https://astralcore.org/api/crisis/test
+
+      - name: Notify deployment status
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          channel: '#deployments'
+          webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()
+
+  # ============================================================================
+  # POST-DEPLOYMENT MONITORING
+  # ============================================================================
+  post-deployment-tests:
+    name: 📊 Post-Deployment Monitoring
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Smoke tests
+        run: |
+          # Test critical endpoints
+          curl -f https://astralcore.org/api/health
+          curl -f https://astralcore.org/api/crisis/test
+          curl -f https://admin.astralcore.org/api/health
+
+      - name: Performance monitoring
+        run: |
+          # Run synthetic performance tests
+          npx lighthouse https://astralcore.org --quiet --chrome-flags="--headless"
+
+      - name: Security checks
+        run: |
+          # Test security headers
+          curl -I https://astralcore.org | grep -i "strict-transport-security"
+          curl -I https://astralcore.org | grep -i "x-frame-options"
+
+      - name: Update monitoring dashboards
+        run: |
+          # Trigger dashboard refresh
+          curl -X POST "${{ secrets.GRAFANA_WEBHOOK }}" \
+            -H "Authorization: Bearer ${{ secrets.GRAFANA_TOKEN }}" \
+            -d '{"refresh": true}'

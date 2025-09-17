@@ -1,0 +1,122 @@
+# ============================================================================
+# ASTRAL CORE V1 - VERCEL DEPLOYMENT ENVIRONMENT TEMPLATE
+# Complete configuration template for production deployment
+# ============================================================================
+
+# INSTRUCTIONS:
+# 1. Copy this template
+# 2. Replace all placeholder values with your actual secrets
+# 3. Add to Vercel dashboard (never commit actual secrets)
+# 4. Use VERCEL_ENV_CONFIG_SECURE.txt for ready-to-use generated values
+
+# ============================================================================
+# APPLICATION CONFIGURATION
+# ============================================================================
+NODE_ENV=production
+NEXT_TELEMETRY_DISABLED=1
+VERCEL=1
+
+# ============================================================================
+# AUTHENTICATION & SECURITY
+# ============================================================================
+NEXTAUTH_SECRET=your_32_byte_base64_secret_here
+NEXTAUTH_URL=https://astral-core-v1-admin.vercel.app
+CRISIS_ENCRYPTION_KEY=your_64_byte_base64_crisis_encryption_key_here
+ADMIN_SECRET=your_32_byte_admin_secret_here
+SESSION_SECRET=your_32_byte_session_secret_here
+JWT_SECRET=your_32_byte_jwt_secret_here
+CSRF_SECRET=your_32_byte_csrf_secret_here
+RATE_LIMIT_SECRET=your_32_byte_rate_limit_secret_here
+WEBSOCKET_SECRET=your_32_byte_websocket_secret_here
+
+# ============================================================================
+# DATABASE CONFIGURATION
+# ============================================================================
+DATABASE_URL=postgresql://username:password@host:5432/database
+POSTGRES_PRISMA_URL=your_postgres_prisma_url_here
+POSTGRES_URL_NON_POOLING=your_postgres_non_pooling_url_here
+
+# ============================================================================
+# REDIS CONFIGURATION
+# ============================================================================
+REDIS_URL=redis://default:password@host:6379
+KV_REST_API_URL=your_vercel_kv_rest_api_url
+KV_REST_API_TOKEN=your_vercel_kv_token
+UPSTASH_REDIS_REST_URL=your_upstash_redis_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_token
+
+# ============================================================================
+# EXTERNAL SERVICES
+# ============================================================================
+SENTRY_DSN=https://your_sentry_dsn@sentry.io/project_id
+SENTRY_AUTH_TOKEN=your_sentry_auth_token
+TWILIO_ACCOUNT_SID=your_twilio_account_sid
+TWILIO_AUTH_TOKEN=your_twilio_auth_token
+TWILIO_PHONE_NUMBER=your_twilio_phone_number
+CRISIS_TEXT_LINE_API_KEY=your_crisis_text_line_api_key
+LIFELINE_API_KEY=your_lifeline_api_key
+OPENAI_API_KEY=your_openai_api_key
+MODERATION_API_KEY=your_moderation_api_key
+
+# ============================================================================
+# NOTIFICATION SERVICES
+# ============================================================================
+SLACK_CRISIS_WEBHOOK=your_slack_webhook_url
+RESEND_API_KEY=your_resend_api_key
+EMERGENCY_EMAIL_FROM=alerts@yourdomain.com
+EMERGENCY_EMAIL_TO=crisis-team@yourdomain.com
+
+# ============================================================================
+# DOMAIN CONFIGURATION
+# ============================================================================
+NEXT_PUBLIC_APP_URL=https://astral-core-v1-admin.vercel.app
+NEXT_PUBLIC_API_URL=https://astral-core-v1-admin.vercel.app/api
+NEXT_PUBLIC_WS_URL=wss://astral-core-v1-admin.vercel.app
+NEXT_PUBLIC_ADMIN_URL=https://astral-core-v1-admin.vercel.app
+
+# ============================================================================
+# FEATURE FLAGS
+# ============================================================================
+ENABLE_CRISIS_CHAT=true
+ENABLE_EMERGENCY_OVERRIDE=true
+ENABLE_VOLUNTEER_MATCHING=true
+ENABLE_AI_RISK_ASSESSMENT=true
+ENABLE_REAL_TIME_MONITORING=true
+ENABLE_ANONYMOUS_MODE=true
+ENABLE_CRISIS_ANALYTICS=false
+ENABLE_BETA_FEATURES=false
+
+# ============================================================================
+# PERFORMANCE & SCALING
+# ============================================================================
+MAX_CRISIS_CONNECTIONS=1000
+WEBSOCKET_TIMEOUT=86400000
+CONNECTION_POOL_SIZE=20
+CRISIS_RESPONSE_TIMEOUT=5000
+VOLUNTEER_MATCH_TIMEOUT=10000
+NODE_OPTIONS=--max-old-space-size=1024
+
+# ============================================================================
+# LEGAL & COMPLIANCE
+# ============================================================================
+HIPAA_COMPLIANT_MODE=true
+AUDIT_ALL_ACTIONS=true
+ENCRYPTION_AT_REST=true
+DATA_RETENTION_DAYS=365
+NEXT_PUBLIC_TERMS_URL=https://astral-core-v1-admin.vercel.app/terms
+NEXT_PUBLIC_PRIVACY_URL=https://astral-core-v1-admin.vercel.app/privacy
+
+# ============================================================================
+# AUDIT & BACKUP
+# ============================================================================
+AUDIT_LOG_WEBHOOK=your_audit_service_webhook
+AUDIT_API_KEY=your_audit_api_key
+CRISIS_BACKUP_ENABLED=false
+CRISIS_BACKUP_ENCRYPTION_KEY=your_backup_encryption_key
+
+# ============================================================================
+# GENERATED SECRETS AVAILABLE IN: VERCEL_ENV_CONFIG_SECURE.txt
+# ============================================================================
+# The secure file contains all the above values pre-generated with
+# cryptographically secure random keys ready for production use.
+# Use that file to copy-paste actual values to your Vercel dashboard.

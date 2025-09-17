@@ -1,0 +1,50 @@
+{
+  "name": "@astralcore/database",
+  "version": "2.0.0",
+  "description": "ASTRAL_CORE 2.0 Database Schema with Zero-Knowledge Encryption",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./services/*": {
+      "types": "./dist/services/*.d.ts",
+      "import": "./dist/services/*.js",
+      "require": "./dist/services/*.js",
+      "default": "./dist/services/*.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "require": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "generate": "prisma generate",
+    "push": "prisma db push",
+    "migrate": "prisma migrate deploy",
+    "migrate:dev": "prisma migrate dev",
+    "seed": "tsx src/seed.ts",
+    "studio": "prisma studio",
+    "reset": "prisma migrate reset",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.1",
+    "@prisma/engines": "^6.16.1",
+    "bcryptjs": "^3.0.2",
+    "nanoid": "^5.0.4",
+    "prisma": "^6.16.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "tsx": "^4.7.0",
+    "typescript": "^5.7.2"
+  }
+}

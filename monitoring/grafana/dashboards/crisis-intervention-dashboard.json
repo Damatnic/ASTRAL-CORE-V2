@@ -1,0 +1,481 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "ASTRAL CORE V2 - Crisis Intervention Operations",
+    "tags": ["astral", "crisis", "intervention", "production"],
+    "style": "dark",
+    "timezone": "browser",
+    "refresh": "5s",
+    "schemaVersion": 30,
+    "version": 1,
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m", "30m", "1h", "2h", "1d"]
+    },
+    "templating": {
+      "list": [
+        {
+          "name": "instance",
+          "type": "query",
+          "query": "label_values(up{job=\"crisis-endpoints\"}, instance)",
+          "refresh": 1,
+          "includeAll": true,
+          "allValue": ".*"
+        }
+      ]
+    },
+    "annotations": {
+      "list": [
+        {
+          "name": "Crisis Alerts",
+          "datasource": "Prometheus",
+          "enable": true,
+          "expr": "ALERTS{alertname=~\"Crisis.*\"}",
+          "iconColor": "red",
+          "titleFormat": "{{ alertname }}",
+          "textFormat": "{{ summary }}"
+        }
+      ]
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Crisis System Status",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up{job=\"crisis-endpoints\"}",
+            "legendFormat": "Crisis Endpoint Status",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "text": "DOWN",
+                    "color": "red"
+                  },
+                  "1": {
+                    "text": "OPERATIONAL",
+                    "color": "green"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "red",
+                  "value": 0
+                },
+                {
+                  "color": "green", 
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Available Crisis Volunteers",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "available_crisis_volunteers",
+            "legendFormat": "Available Volunteers",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "red",
+                  "value": 0
+                },
+                {
+                  "color": "yellow",
+                  "value": 3
+                },
+                {
+                  "color": "green",
+                  "value": 10
+                }
+              ]
+            },
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Crisis Queue Length",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "crisis_queue_length",
+            "legendFormat": "Queue Length",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "yellow",
+                  "value": 5
+                },
+                {
+                  "color": "red",
+                  "value": 15
+                }
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 4,
+        "title": "Crisis Response Time (95th Percentile)",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(crisis_response_time_seconds_bucket[5m]))",
+            "legendFormat": "Response Time (95th %ile)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "yellow",
+                  "value": 15
+                },
+                {
+                  "color": "red",
+                  "value": 30
+                }
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        }
+      },
+      {
+        "id": 5,
+        "title": "Crisis Intervention Activity",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "rate(crisis_interventions_total[5m])",
+            "legendFormat": "Interventions/sec",
+            "refId": "A"
+          },
+          {
+            "expr": "rate(emergency_requests_total[5m])",
+            "legendFormat": "Emergency Requests/sec",
+            "refId": "B"
+          },
+          {
+            "expr": "rate(volunteer_connections_total[5m])",
+            "legendFormat": "Volunteer Connections/sec",
+            "refId": "C"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth",
+              "pointSize": 3,
+              "fillOpacity": 20
+            },
+            "color": {
+              "mode": "palette-classic"
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Emergency Requests/sec"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "fixed",
+                    "fixedColor": "red"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 4
+        }
+      },
+      {
+        "id": 6,
+        "title": "Crisis Response Times Distribution",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(crisis_response_time_seconds_bucket[5m]))",
+            "legendFormat": "50th percentile",
+            "refId": "A"
+          },
+          {
+            "expr": "histogram_quantile(0.95, rate(crisis_response_time_seconds_bucket[5m]))",
+            "legendFormat": "95th percentile",
+            "refId": "B"
+          },
+          {
+            "expr": "histogram_quantile(0.99, rate(crisis_response_time_seconds_bucket[5m]))",
+            "legendFormat": "99th percentile",
+            "refId": "C"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 4
+        }
+      },
+      {
+        "id": 7,
+        "title": "Volunteer Availability by Type",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "volunteers_available_by_specialty",
+            "legendFormat": "{{ specialty }}",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "displayMode": "table"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 8,
+          "x": 0,
+          "y": 12
+        }
+      },
+      {
+        "id": 8,
+        "title": "Crisis Severity Distribution",
+        "type": "bargauge",
+        "targets": [
+          {
+            "expr": "crisis_requests_by_severity",
+            "legendFormat": "{{ severity }}",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "orientation": "horizontal",
+              "displayMode": "gradient"
+            },
+            "color": {
+              "mode": "continuous-GrYlRd"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 8,
+          "x": 8,
+          "y": 12
+        }
+      },
+      {
+        "id": 9,
+        "title": "AI Safety Monitoring",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "ai_safety_checks_passed_rate",
+            "legendFormat": "Safety Check Pass Rate",
+            "refId": "A"
+          },
+          {
+            "expr": "increase(ai_safety_check_failures_total[5m])",
+            "legendFormat": "Recent Failures",
+            "refId": "B"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "displayMode": "table"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 8,
+          "x": 16,
+          "y": 12
+        }
+      },
+      {
+        "id": 10,
+        "title": "Crisis Platform Error Rate",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total{job=\"astral-web\",status=~\"5..\"}[5m]) / rate(http_requests_total{job=\"astral-web\"}[5m]) * 100",
+            "legendFormat": "Error Rate %",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 30
+            },
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "yellow",
+                  "value": 1
+                },
+                {
+                  "color": "red",
+                  "value": 5
+                }
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 0,
+          "y": 18
+        }
+      },
+      {
+        "id": 11,
+        "title": "Crisis Success Metrics",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "crisis_intervention_success_rate",
+            "legendFormat": "Success Rate",
+            "refId": "A",
+            "format": "table"
+          },
+          {
+            "expr": "avg_crisis_resolution_time_minutes",
+            "legendFormat": "Avg Resolution Time (min)",
+            "refId": "B",
+            "format": "table"
+          },
+          {
+            "expr": "volunteer_satisfaction_rating",
+            "legendFormat": "Volunteer Satisfaction",
+            "refId": "C",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "displayMode": "color-background",
+              "align": "center"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 12,
+          "y": 18
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["jest", "@jest/globals", "node"],
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "dist",
+    "build",
+    ".next",
+    "coverage",
+    "**/dist",
+    "**/build"
+  ],
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./packages/database" },
+    { "path": "./packages/crisis" },
+    { "path": "./packages/security" },
+    { "path": "./packages/performance" },
+    { "path": "./packages/ai-safety" },
+    { "path": "./packages/volunteer" },
+    { "path": "./packages/tether" },
+    { "path": "./packages/analytics" },
+    { "path": "./packages/websocket" },
+    { "path": "./packages/ui" },
+    { "path": "./packages/config" },
+    { "path": "./packages/emergency" },
+    { "path": "./packages/training" },
+    { "path": "./apps/web" },
+    { "path": "./apps/admin" },
+    { "path": "./apps/mobile" }
+  ]
+}

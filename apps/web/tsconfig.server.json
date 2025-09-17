@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist",
+    "target": "es2020",
+    "lib": ["es2020"],
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "composite": false,
+    "noEmit": false
+  },
+  "include": [
+    "src/lib/websocket/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "dist"
+  ]
+}

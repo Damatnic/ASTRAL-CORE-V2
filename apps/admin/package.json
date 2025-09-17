@@ -1,0 +1,36 @@
+{
+  "name": "@astral-core/admin",
+  "version": "1.0.0",
+  "description": "Admin Dashboard for ASTRAL CORE Crisis Intervention Platform",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3002",
+    "build": "next build",
+    "start": "next start --port 3002",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zustand": "^4.4.7",
+    "typescript": "^5.9.2",
+    "lucide-react": "^0.544.0",
+    "@astralcore/database": "workspace:*",
+    "@astralcore/config": "workspace:*",
+    "@astralcore/crisis": "workspace:*",
+    "@astralcore/analytics": "workspace:*",
+    "@astralcore/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.14",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^9.35.0",
+    "eslint-config-next": "^14.0.4",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  }
+}

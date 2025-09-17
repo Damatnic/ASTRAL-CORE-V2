@@ -1,0 +1,1189 @@
+// ASTRAL_CORE 2.0 Database Schema
+// Life-Saving Crisis Intervention Platform
+// Zero-Knowledge Encryption | HIPAA Compliant | Privacy-First
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+  binaryTargets   = ["native", "rhel-openssl-1.0.x", "debian-openssl-3.0.x", "linux-musl"]
+  engineType      = "library"
+  output          = "./generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// =============================================================================
+// CRISIS INTERVENTION SCHEMA - High-Performance, Zero-Knowledge
+// =============================================================================
+
+model CrisisSession {
+  id             String       @id @default(cuid())
+  sessionToken   String       @unique // Session token for encryption and access
+  anonymousId    String       @unique
+  severity       Int // 1-10 scale
+  status         CrisisStatus @default(ACTIVE)
+  responderId    String?
+  startedAt      DateTime     @default(now())
+  endedAt        DateTime?
+  responseTimeMs Int?
+  outcome        String? // Session outcome/resolution summary
+
+  // Zero-knowledge encrypted fields
+  encryptedData     Bytes? // All conversation data encrypted with per-session keys
+  keyDerivationSalt Bytes? // Salt for key derivation (keys never stored)
+
+  // Performance tracking
+  handoffTime    Int? // Time to first responder (ms)
+  resolutionTime Int? // Total session duration (ms)
+
+  // Emergency escalation
+  emergencyTriggered Boolean         @default(false)
+  escalatedAt        DateTime?
+  escalationType     EscalationType?
+
+  // Relationships
+  messages    CrisisMessage[]
+  escalations CrisisEscalation[]
+  resources   CrisisResourceUsage[]
+
+  @@index([status, severity])
+  @@index([anonymousId])
+  @@index([sessionToken])
+  @@index([responseTimeMs])
+  @@index([emergencyTriggered])
+  @@map("crisis_sessions")
+}
+
+model CrisisMessage {
+  id         String        @id @default(cuid())
+  sessionId  String
+  senderType MessageSender
+  senderId   String // anonymous ID or responder ID
+
+  // Zero-knowledge encryption
+  encryptedContent Bytes // Message encrypted with session key
+  messageHash      String // For integrity verification
+
+  // Metadata (never encrypted)
+  timestamp   DateTime        @default(now())
+  messageType MessageType     @default(TEXT)
+  priority    MessagePriority @default(NORMAL)
+
+  // AI analysis (on encrypted data)
+  sentimentScore   Float? // -1.0 to 1.0
+  riskScore        Int? // 1-10
+  riskLevel        String? // CRITICAL, HIGH, MEDIUM, LOW - for crisis engine compatibility
+  keywordsDetected String? // JSON array string
+
+  session CrisisSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, timestamp])
+  @@index([senderType, senderId])
+  @@index([riskScore])
+  @@map("crisis_messages")
+}
+
+model CrisisEscalation {
+  id          String             @id @default(cuid())
+  sessionId   String
+  triggeredBy EscalationTrigger
+  severity    EscalationSeverity
+
+  // Escalation details
+  reason             String
+  actionsTaken       String? // JSON array string
+  emergencyContacted Boolean @default(false)
+  lifeline988Called  Boolean @default(false)
+
+  // Timing
+  triggeredAt  DateTime  @default(now())
+  resolvedAt   DateTime?
+  responseTime Int? // Time to response (ms)
+
+  // Responder info
+  handledBy String?
+  outcome   EscalationOutcome?
+
+  session CrisisSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([severity, triggeredAt])
+  @@index([triggeredBy])
+  @@map("crisis_escalations")
+}
+
+// =============================================================================
+// TETHER CONNECTION SCHEMA - Persistent Peer Support
+// =============================================================================
+
+model TetherLink {
+  id          String @id @default(cuid())
+  seekerId    String
+  supporterId String
+
+  // Connection strength (0.0 - 1.0)
+  strength   Float @default(0.5)
+  trustScore Float @default(0.0) // Built over time
+
+  // Connection health monitoring
+  established   DateTime @default(now())
+  lastActivity  DateTime @updatedAt
+  pulseInterval Int      @default(30) // seconds
+  lastPulse     DateTime @default(now())
+  missedPulses  Int      @default(0)
+
+  // Emergency system
+  emergencyActive Boolean        @default(false)
+  emergencyType   EmergencyType?
+  lastEmergency   DateTime?
+
+  // Connection metadata
+  matchingScore Float? // AI compatibility score
+  specialties   String? // JSON array string - Areas of shared experience
+  languages     String? // JSON array string
+  timezone      String?
+
+  // Privacy and consent
+  dataSharing      TetherDataSharing @default(MINIMAL)
+  locationSharing  Boolean           @default(false)
+  emergencyContact Boolean           @default(true)
+
+  // Encrypted connection data
+  encryptedMeta Bytes? // Shared notes, preferences (encrypted)
+
+  // Relationships
+  pulses      TetherPulse[]
+  emergencies TetherEmergency[]
+
+  @@unique([seekerId, supporterId])
+  @@index([emergencyActive, lastPulse])
+  @@index([strength])
+  @@index([lastActivity])
+  @@map("tether_links")
+}
+
+model TetherPulse {
+  id        String    @id @default(cuid())
+  tetherId  String
+  pulseType PulseType @default(HEARTBEAT)
+
+  // Pulse data
+  strength Float // Current connection strength
+  mood     Int? // 1-10 scale
+  status   UserStatus @default(NORMAL)
+  message  String? // Optional check-in message
+
+  // Emergency indicators
+  emergencySignal Boolean      @default(false)
+  urgencyLevel    UrgencyLevel @default(LOW)
+
+  // Metadata
+  timestamp      DateTime  @default(now())
+  acknowledged   Boolean   @default(false)
+  acknowledgedAt DateTime?
+
+  tether TetherLink @relation(fields: [tetherId], references: [id], onDelete: Cascade)
+
+  @@index([tetherId, timestamp])
+  @@index([emergencySignal, urgencyLevel])
+  @@map("tether_pulses")
+}
+
+model TetherEmergency {
+  id            String @id @default(cuid())
+  tetherId      String
+  triggerUserId String
+
+  // Emergency details
+  emergencyType EmergencyType
+  severity      EmergencySeverity
+  description   String
+  location      Json? // Encrypted location data if consented
+
+  // Response tracking
+  triggeredAt    DateTime  @default(now())
+  acknowledgedAt DateTime?
+  respondedAt    DateTime?
+  resolvedAt     DateTime?
+
+  // Response details
+  responseTime Int? // Time to acknowledgment (ms)
+  actionsTaken String? // JSON array string
+  outcome      EmergencyOutcome?
+
+  // Helper coordination
+  helpersNotified   String? // JSON array string - List of helper IDs notified
+  emergencyContacts String? // JSON array string - Emergency services contacted
+
+  tether TetherLink @relation(fields: [tetherId], references: [id], onDelete: Cascade)
+
+  @@index([severity, triggeredAt])
+  @@index([triggerUserId])
+  @@map("tether_emergencies")
+}
+
+// =============================================================================
+// VOLUNTEER SCHEMA - Peer Support Platform
+// =============================================================================
+
+model Volunteer {
+  id          String          @id @default(cuid())
+  anonymousId String          @unique
+  status      VolunteerStatus @default(PENDING)
+
+  // Training & Verification
+  trainingHours   Float              @default(0)
+  certifications  String? // JSON string - Training certificates
+  specializations String? // JSON array string - Crisis types they handle
+  languages       String? // JSON array string
+  backgroundCheck VerificationStatus @default(PENDING)
+
+  // Performance metrics
+  sessionsCount    Int    @default(0)
+  hoursVolunteered Float  @default(0)
+  averageRating    Float?
+  responseRate     Float  @default(0) // % of sessions responded to
+
+  // Availability
+  isActive      Boolean @default(false)
+  currentLoad   Int     @default(0) // Active sessions
+  maxConcurrent Int     @default(3)
+  schedule      Json? // Availability schedule
+  timezone      String?
+
+  // Wellness tracking
+  lastActive   DateTime @default(now())
+  burnoutScore Float    @default(0) // 0-1, higher = more burnout risk
+  needsSupport Boolean  @default(false)
+
+  // Emergency response
+  emergencyResponder Boolean @default(false)
+  emergencyAvailable Boolean @default(false)
+
+  // Relationships
+  training VolunteerTraining[]
+  sessions VolunteerSession[]
+  feedback VolunteerFeedback[]
+
+  @@index([status, isActive])
+  @@index([currentLoad, maxConcurrent])
+  @@index([emergencyAvailable])
+  @@map("volunteers")
+}
+
+model VolunteerTraining {
+  id          String @id @default(cuid())
+  volunteerId String
+  moduleId    String
+
+  // Training progress
+  status       TrainingStatus @default(NOT_STARTED)
+  startedAt    DateTime?
+  completedAt  DateTime?
+  score        Float? // 0-100
+  passingScore Float          @default(80)
+  attempts     Int            @default(0)
+
+  // Module details
+  moduleTitle String
+  moduleType  TrainingType
+  duration    Int // minutes
+  content     Json // Training materials
+
+  volunteer Volunteer @relation(fields: [volunteerId], references: [id], onDelete: Cascade)
+
+  @@unique([volunteerId, moduleId])
+  @@index([status, completedAt])
+  @@map("volunteer_training")
+}
+
+model VolunteerSession {
+  id          String               @id @default(cuid())
+  volunteerId String
+  sessionType VolunteerSessionType
+
+  // Session details
+  startedAt DateTime  @default(now())
+  endedAt   DateTime?
+  duration  Int? // seconds
+
+  // Crisis session reference (if applicable)
+  crisisSessionId String?
+
+  // Performance metrics
+  responseTime     Int? // Time to first response (ms)
+  userSatisfaction Float? // 1-5 rating
+  outcome          SessionOutcome?
+
+  volunteer Volunteer @relation(fields: [volunteerId], references: [id], onDelete: Cascade)
+
+  @@index([volunteerId, startedAt])
+  @@index([sessionType])
+  @@map("volunteer_sessions")
+}
+
+model VolunteerFeedback {
+  id          String  @id @default(cuid())
+  volunteerId String
+  sessionId   String? // Optional reference to specific session
+
+  // Feedback details
+  feedbackType FeedbackType
+  rating       Int // 1-5 rating
+  comment      String?
+
+  // Feedback source
+  submittedBy String? // Anonymous user or system
+  sourceType  FeedbackSource @default(USER)
+
+  // Metadata
+  submittedAt DateTime @default(now())
+  isAnonymous Boolean  @default(true)
+
+  // Moderation
+  isApproved  Boolean   @default(false)
+  moderatedAt DateTime?
+  moderatedBy String?
+
+  volunteer Volunteer @relation(fields: [volunteerId], references: [id], onDelete: Cascade)
+
+  @@index([volunteerId, rating])
+  @@index([submittedAt])
+  @@map("volunteer_feedback")
+}
+
+model CrisisResourceUsage {
+  id         String @id @default(cuid())
+  sessionId  String
+  resourceId String
+
+  // Usage details
+  accessedAt    DateTime @default(now())
+  timeSpent     Int? // seconds
+  wasHelpful    Boolean?
+  helpfulRating Int? // 1-5 rating
+
+  // Resource details at time of access
+  resourceTitle String
+  resourceType  ResourceCategory
+
+  session CrisisSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, accessedAt])
+  @@index([resourceId])
+  @@map("crisis_resource_usage")
+}
+
+model SafetyReport {
+  id        String  @id @default(cuid())
+  sessionId String?
+  messageId String?
+
+  // Report details
+  reportType ReportType
+  severity   ReportSeverity
+  status     ReportStatus   @default(PENDING)
+
+  // Content analysis
+  content    String? // Flagged content (encrypted)
+  reason     String // Why it was flagged
+  confidence Float // Confidence score 0-1
+
+  // AI Analysis
+  aiAnalysis      Json? // AI analysis results
+  keywordsMatched String? // JSON array string - Keywords that triggered
+  riskScore       Int // 1-10
+
+  // Human review
+  reviewedBy  String? // Reviewer ID
+  reviewedAt  DateTime?
+  reviewNotes String?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([reportType, severity])
+  @@index([status])
+  @@index([createdAt])
+  @@map("safety_reports")
+}
+
+model AuditLog {
+  id         String  @id @default(cuid())
+  userId     String? // User who performed action
+  action     String // Action performed
+  resource   String // Resource affected
+  resourceId String? // ID of affected resource
+
+  // Context
+  details   Json? // Additional details
+  ipAddress String? // IP address
+  userAgent String? // User agent
+
+  // Outcome
+  success      Boolean @default(true)
+  errorMessage String?
+
+  // Metadata
+  timestamp DateTime @default(now())
+  sessionId String? // Session context
+
+  @@index([userId, timestamp])
+  @@index([action, resource])
+  @@index([timestamp])
+  @@map("audit_logs")
+}
+
+// =============================================================================
+// ANALYTICS SCHEMA - Privacy-First Metrics
+// =============================================================================
+
+model AnalyticsEvent {
+  id        String @id @default(cuid())
+  eventType String // 'crisis_session', 'tether_pulse', etc.
+  eventName String // Specific event name
+
+  // Privacy-first user identification
+  userHash  String? // One-way hash, cannot identify user
+  sessionId String? // Session identifier (not user)
+
+  // Event metadata (no PII)
+  properties Json? // Event-specific data
+  timestamp  DateTime @default(now())
+
+  // Performance tracking
+  responseTime Int? // Response time for crisis events
+  success      Boolean @default(true)
+  errorCode    String?
+
+  @@index([eventType, timestamp])
+  @@index([userHash])
+  @@map("analytics_events")
+}
+
+model PerformanceMetric {
+  id         String @id @default(cuid())
+  metricType String // 'response_time', 'uptime', 'throughput'
+  value      Float
+  unit       String // 'ms', 'seconds', 'requests/sec'
+
+  // Context
+  endpoint  String? // API endpoint measured
+  region    String? // Geographic region
+  timestamp DateTime @default(now())
+
+  // Thresholds
+  target    Float? // Target value (e.g., 200ms)
+  threshold Float? // Alert threshold
+  status    MetricStatus @default(NORMAL)
+
+  @@index([metricType, timestamp])
+  @@index([status])
+  @@map("performance_metrics")
+}
+
+model SystemHealth {
+  id           String       @id @default(cuid())
+  component    String // 'database', 'websocket', 'crisis-api'
+  status       HealthStatus
+  responseTime Float? // Response time in ms
+
+  // Health details
+  uptime       Float? // Uptime percentage
+  errorRate    Float? // Error rate percentage
+  lastError    DateTime?
+  errorMessage String?
+
+  // Resource usage
+  cpuUsage    Float? // CPU usage percentage
+  memoryUsage Float? // Memory usage percentage
+  diskUsage   Float? // Disk usage percentage
+
+  timestamp DateTime @default(now())
+
+  @@index([component, status])
+  @@index([timestamp])
+  @@map("system_health")
+}
+
+// =============================================================================
+// PUBLIC SCHEMA - Non-sensitive data
+// =============================================================================
+
+model CrisisResource {
+  id          String           @id @default(cuid())
+  title       String
+  description String
+  category    ResourceCategory
+
+  // Contact information
+  phoneNumber String?
+  url         String?
+  email       String?
+  textNumber  String?
+
+  // Content
+  content      String? // Text-based resource content
+  instructions String? // JSON array string - Step-by-step instructions
+
+  // Availability
+  available24_7 Boolean @default(false)
+  languages     String? // JSON array string
+  countries     String? // JSON array string
+  regions       String? // JSON array string
+
+  // Priority and targeting
+  priority    Int     @default(0) // Higher number = higher priority
+  isEmergency Boolean @default(false)
+  severityMin Int     @default(1) // Minimum severity to show (1-10)
+  tags        String? // JSON array string
+
+  // Management
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category, priority])
+  @@index([isEmergency, isActive])
+  @@map("crisis_resources")
+}
+
+model PublicMetrics {
+  id           String @id @default(cuid())
+  metricName   String @unique
+  value        Float
+  displayValue String // Human-readable value
+  description  String
+
+  // Display properties
+  isPublic     Boolean @default(true)
+  displayOrder Int     @default(0)
+  icon         String?
+  color        String? // For dashboard display
+
+  // Update tracking
+  lastUpdated     DateTime @default(now())
+  updateFrequency String   @default("realtime") // realtime, hourly, daily
+
+  @@index([isPublic, displayOrder])
+  @@map("public_metrics")
+}
+
+// =============================================================================
+// ENUMS
+// =============================================================================
+
+enum CrisisStatus {
+  ACTIVE
+  ASSIGNED
+  RESOLVED
+  ESCALATED
+  ABANDONED
+}
+
+enum EscalationType {
+  AUTOMATIC_KEYWORD
+  MANUAL_VOLUNTEER
+  USER_REQUEST
+  SYSTEM_TIMEOUT
+  EMERGENCY_SERVICES
+}
+
+enum MessageSender {
+  ANONYMOUS_USER
+  VOLUNTEER
+  SYSTEM
+  AI_ASSISTANT
+}
+
+enum MessageType {
+  TEXT
+  VOICE_NOTE
+  IMAGE
+  SYSTEM_MESSAGE
+  RESOURCE_SHARE
+}
+
+enum MessagePriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+  EMERGENCY
+}
+
+enum EscalationTrigger {
+  KEYWORD_DETECTION
+  SEVERITY_INCREASE
+  VOLUNTEER_REQUEST
+  USER_REQUEST
+  TIMEOUT
+  AI_ASSESSMENT
+}
+
+enum EscalationSeverity {
+  MODERATE
+  HIGH
+  CRITICAL
+  EMERGENCY
+}
+
+enum EscalationOutcome {
+  RESOLVED_INTERNALLY
+  REFERRED_TO_PROFESSIONAL
+  EMERGENCY_SERVICES_CONTACTED
+  USER_DISCONNECTED
+  ONGOING
+}
+
+enum TetherDataSharing {
+  MINIMAL
+  MODERATE
+  FULL
+}
+
+enum PulseType {
+  HEARTBEAT
+  CHECK_IN
+  MOOD_UPDATE
+  EMERGENCY
+  CUSTOM
+}
+
+enum UserStatus {
+  NORMAL
+  STRUGGLING
+  CRISIS
+  EMERGENCY
+  OFFLINE
+}
+
+enum UrgencyLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum EmergencyType {
+  MENTAL_HEALTH_CRISIS
+  SELF_HARM_RISK
+  SUICIDAL_IDEATION
+  PANIC_ATTACK
+  MEDICAL_EMERGENCY
+  SAFETY_CONCERN
+}
+
+enum EmergencySeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+  LIFE_THREATENING
+}
+
+enum EmergencyOutcome {
+  RESOLVED
+  ESCALATED
+  EMERGENCY_SERVICES
+  ONGOING
+  USER_SAFE
+}
+
+enum VolunteerStatus {
+  PENDING
+  TRAINING
+  BACKGROUND_CHECK
+  VERIFIED
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum VerificationStatus {
+  PENDING
+  IN_PROGRESS
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum TrainingStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+  EXPIRED
+}
+
+enum TrainingType {
+  CRISIS_INTERVENTION
+  ACTIVE_LISTENING
+  DE_ESCALATION
+  PLATFORM_TRAINING
+  SPECIALIZED_TOPIC
+  ONGOING_EDUCATION
+}
+
+enum VolunteerSessionType {
+  CRISIS_RESPONSE
+  PEER_SUPPORT
+  GROUP_MODERATION
+  TRAINING_SESSION
+  SUPERVISION
+}
+
+enum SessionOutcome {
+  SUCCESSFUL_RESOLUTION
+  REFERRED_TO_PROFESSIONAL
+  USER_DISCONNECTED
+  ESCALATED_TO_EMERGENCY
+  ONGOING
+}
+
+enum ResourceCategory {
+  CRISIS_HOTLINE
+  EMERGENCY_SERVICE
+  SELF_HELP_TOOL
+  BREATHING_EXERCISE
+  GROUNDING_TECHNIQUE
+  SAFETY_PLANNING
+  PROFESSIONAL_HELP
+  PEER_SUPPORT
+}
+
+enum MetricStatus {
+  NORMAL
+  WARNING
+  CRITICAL
+  UNKNOWN
+}
+
+enum HealthStatus {
+  HEALTHY
+  DEGRADED
+  UNHEALTHY
+  DOWN
+}
+
+enum FeedbackType {
+  GENERAL
+  SESSION_QUALITY
+  RESPONSE_TIME
+  PROFESSIONALISM
+  EMPATHY
+  EFFECTIVENESS
+  TECHNICAL_ISSUES
+  COMMUNICATION
+  COMPLAINT
+  SUGGESTION
+  APPRECIATION
+  OTHER
+
+  @@map("feedback_type")
+}
+
+enum FeedbackSource {
+  USER
+  SYSTEM
+  PEER_REVIEW
+  SUPERVISOR
+  AUTOMATED
+  ANONYMOUS
+  OTHER
+
+  @@map("feedback_source")
+}
+
+enum ReportType {
+  CONTENT_VIOLATION
+  HARASSMENT
+  SPAM
+  SELF_HARM_CONTENT
+  INAPPROPRIATE_BEHAVIOR
+  TECHNICAL_ISSUE
+  PRIVACY_CONCERN
+  OTHER
+}
+
+enum ReportSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+  EMERGENCY
+}
+
+enum ReportStatus {
+  PENDING
+  UNDER_REVIEW
+  RESOLVED
+  DISMISSED
+  ESCALATED
+}
+
+// =============================================================================
+// WEBSOCKET CONNECTION SCHEMA - Real-time Communication
+// =============================================================================
+
+model WebSocketConnection {
+  id        String  @id @default(cuid())
+  sessionId String
+  userType  String // 'user', 'volunteer', 'admin'
+  userId    String?
+
+  // Connection details
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  lastActivity DateTime @default(now())
+  expiresAt    DateTime
+
+  // Connection metadata
+  ipAddress String?
+  userAgent String?
+
+  @@index([sessionId, isActive])
+  @@index([expiresAt])
+  @@map("websocket_connections")
+}
+
+// =============================================================================
+// USER MANAGEMENT SCHEMA - Anonymous & Registered Users
+// =============================================================================
+
+model User {
+  id          String  @id @default(cuid())
+  anonymousId String? @unique // For anonymous users
+  email       String? @unique // For registered users (optional)
+  username    String? @unique // Display username
+
+  // Authentication
+  isAnonymous Boolean   @default(true)
+  lastLogin   DateTime? @default(now())
+
+  // Privacy settings
+  dataSharing UserDataSharing @default(MINIMAL)
+
+  // Encrypted profile data
+  encryptedProfile Bytes? // All PII encrypted with user-specific keys
+
+  // Relationships
+  moodEntries  MoodEntry[]
+  safetyPlans  SafetyPlan[]
+  userProfile  UserProfile?
+  achievements UserAchievement[]
+  challenges   UserChallenge[]
+  activities   UserActivity[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([anonymousId])
+  @@index([isAnonymous])
+  @@map("users")
+}
+
+// =============================================================================
+// MOOD TRACKING SCHEMA - Comprehensive Mental Health Tracking
+// =============================================================================
+
+model MoodEntry {
+  id     String @id @default(cuid())
+  userId String
+
+  // Mood data
+  mood       Int // 1-10 scale
+  emotions   Json // Detailed emotion tracking
+  triggers   Json // Array of trigger strings
+  activities Json // Array of activity strings
+
+  // Additional tracking
+  sleepHours        Float?
+  notes             String?
+  weather           String?
+  medication        Boolean?
+  socialInteraction Int? // 1-10 scale
+
+  // Metadata
+  timestamp DateTime @default(now())
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, timestamp])
+  @@index([mood, timestamp])
+  @@map("mood_entries")
+}
+
+// =============================================================================
+// SAFETY PLANNING SCHEMA - Crisis Prevention & Response
+// =============================================================================
+
+model SafetyPlan {
+  id     String @id @default(cuid())
+  userId String
+
+  // Plan metadata
+  title    String
+  version  Int     @default(1)
+  isActive Boolean @default(true)
+
+  // Encrypted plan data
+  encryptedContent Bytes // All safety plan data encrypted
+  contentHash      String // For integrity verification
+
+  // Sharing settings
+  sharedWith     Json? // Array of contact IDs who can access
+  emergencyShare Boolean @default(false) // Allow emergency access
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  user     User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  versions SafetyPlanVersion[]
+
+  @@index([userId, isActive])
+  @@index([updatedAt])
+  @@map("safety_plans")
+}
+
+model SafetyPlanVersion {
+  id           String @id @default(cuid())
+  safetyPlanId String
+
+  // Version data
+  version   Int
+  changeLog String?
+
+  // Encrypted content snapshot
+  encryptedContent Bytes
+  contentHash      String
+
+  // Metadata
+  createdAt DateTime @default(now())
+  createdBy String // User ID who made the change
+
+  // Relationships
+  safetyPlan SafetyPlan @relation(fields: [safetyPlanId], references: [id], onDelete: Cascade)
+
+  @@unique([safetyPlanId, version])
+  @@index([safetyPlanId, createdAt])
+  @@map("safety_plan_versions")
+}
+
+// =============================================================================
+// GAMIFICATION SCHEMA - Mental Health Appropriate Gaming
+// =============================================================================
+
+model UserProfile {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  // Profile data
+  displayName String
+  level       Int    @default(1)
+  totalXP     Int    @default(0)
+
+  // Preferences
+  preferences Json // UI preferences, privacy settings
+
+  // Statistics
+  stats Json // Achievement stats, streaks, etc.
+
+  // Timestamps
+  joinDate       DateTime @default(now())
+  lastActiveDate DateTime @default(now())
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([level])
+  @@index([lastActiveDate])
+  @@map("user_profiles")
+}
+
+model Achievement {
+  id String @id @default(cuid())
+
+  // Achievement metadata
+  name        String
+  description String
+  category    AchievementCategory
+  rarity      AchievementRarity   @default(COMMON)
+
+  // Requirements
+  requirements Json // Criteria for unlocking
+  xpReward     Int  @default(0)
+  pointReward  Int  @default(0)
+
+  // Display
+  icon  String?
+  color String?
+
+  // Status
+  isActive Boolean @default(true)
+
+  // Relationships
+  userAchievements UserAchievement[]
+
+  @@index([category, rarity])
+  @@map("achievements")
+}
+
+model UserAchievement {
+  id            String @id @default(cuid())
+  userId        String
+  achievementId String
+
+  // Progress
+  progress   Float     @default(0) // 0.0 to 1.0
+  isUnlocked Boolean   @default(false)
+  unlockedAt DateTime?
+
+  // Metadata
+  createdAt DateTime @default(now())
+
+  // Relationships
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+  @@index([userId, isUnlocked])
+  @@map("user_achievements")
+}
+
+model Challenge {
+  id String @id @default(cuid())
+
+  // Challenge metadata
+  name        String
+  description String
+  type        ChallengeType
+  difficulty  ChallengeDifficulty @default(EASY)
+
+  // Requirements
+  requirements Json // What needs to be done
+  duration     Int // Duration in days
+  xpReward     Int  @default(0)
+  pointReward  Int  @default(0)
+
+  // Availability
+  startDate DateTime?
+  endDate   DateTime?
+  isActive  Boolean   @default(true)
+
+  // Relationships
+  userChallenges UserChallenge[]
+
+  @@index([type, isActive])
+  @@index([startDate, endDate])
+  @@map("challenges")
+}
+
+model UserChallenge {
+  id          String @id @default(cuid())
+  userId      String
+  challengeId String
+
+  // Progress
+  progress    Float     @default(0) // 0.0 to 1.0
+  isCompleted Boolean   @default(false)
+  completedAt DateTime?
+
+  // Tracking
+  startedAt DateTime @default(now())
+  data      Json? // Challenge-specific tracking data
+
+  // Relationships
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challenge Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, challengeId])
+  @@index([userId, isCompleted])
+  @@map("user_challenges")
+}
+
+model UserActivity {
+  id     String @id @default(cuid())
+  userId String
+
+  // Activity data
+  type         ActivityType
+  description  String
+  xpEarned     Int          @default(0)
+  pointsEarned Int          @default(0)
+
+  // Metadata
+  metadata  Json?
+  timestamp DateTime @default(now())
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, timestamp])
+  @@index([type, timestamp])
+  @@map("user_activities")
+}
+
+// =============================================================================
+// ADDITIONAL ENUMS
+// =============================================================================
+
+enum UserDataSharing {
+  MINIMAL
+  ANONYMOUS_ANALYTICS
+  COMMUNITY_FEATURES
+  FULL_RESEARCH
+}
+
+enum AchievementCategory {
+  MOOD_TRACKING
+  CONSISTENCY
+  SELF_CARE
+  CRISIS_MANAGEMENT
+  COMMUNITY
+  PERSONAL_GROWTH
+  WELLNESS_MILESTONES
+}
+
+enum AchievementRarity {
+  COMMON
+  UNCOMMON
+  RARE
+  EPIC
+  LEGENDARY
+}
+
+enum ChallengeType {
+  DAILY
+  WEEKLY
+  MONTHLY
+  MILESTONE
+  COMMUNITY
+  SEASONAL
+}
+
+enum ChallengeDifficulty {
+  EASY
+  MEDIUM
+  HARD
+  EXPERT
+}
+
+enum ActivityType {
+  MOOD_LOG
+  SAFETY_PLAN_UPDATE
+  ACHIEVEMENT_UNLOCK
+  CHALLENGE_COMPLETE
+  LEVEL_UP
+  COMMUNITY_INTERACTION
+  SELF_CARE_ACTIVITY
+  CRISIS_RESOURCE_ACCESS
+}
