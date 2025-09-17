@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient } from '@astralcore/database'
+import { PrismaClient, BreathingTechnique, ExerciseDifficulty } from '@astralcore/database'
 
 const prisma = new PrismaClient()
 
@@ -226,8 +226,8 @@ export async function PUT(request: NextRequest) {
       {
         name: '4-7-8 Breathing',
         description: 'Reduces anxiety and helps with sleep',
-        technique: 'FOUR_SEVEN_EIGHT',
-        difficulty: 'BEGINNER',
+        technique: BreathingTechnique.FOUR_SEVEN_EIGHT,
+        difficulty: ExerciseDifficulty.BEGINNER,
         inhaleSeconds: 4,
         holdSeconds: 7,
         exhaleSeconds: 8,
@@ -247,8 +247,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Box Breathing',
         description: 'Used by Navy SEALs for focus and calm',
-        technique: 'BOX_BREATHING',
-        difficulty: 'BEGINNER',
+        technique: BreathingTechnique.BOX_BREATHING,
+        difficulty: ExerciseDifficulty.BEGINNER,
         inhaleSeconds: 4,
         holdSeconds: 4,
         exhaleSeconds: 4,
@@ -269,8 +269,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Coherent Breathing',
         description: 'Balances the nervous system',
-        technique: 'COHERENT',
-        difficulty: 'BEGINNER',
+        technique: BreathingTechnique.COHERENT,
+        difficulty: ExerciseDifficulty.BEGINNER,
         inhaleSeconds: 5,
         holdSeconds: 0,
         exhaleSeconds: 5,
@@ -289,8 +289,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Belly Breathing',
         description: 'Activates the relaxation response',
-        technique: 'BELLY_BREATHING',
-        difficulty: 'BEGINNER',
+        technique: BreathingTechnique.BELLY_BREATHING,
+        difficulty: ExerciseDifficulty.BEGINNER,
         inhaleSeconds: 4,
         holdSeconds: 2,
         exhaleSeconds: 6,
@@ -310,8 +310,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Alternate Nostril',
         description: 'Balances left and right brain hemispheres',
-        technique: 'ALTERNATE_NOSTRIL',
-        difficulty: 'INTERMEDIATE',
+        technique: BreathingTechnique.ALTERNATE_NOSTRIL,
+        difficulty: ExerciseDifficulty.INTERMEDIATE,
         inhaleSeconds: 4,
         holdSeconds: 4,
         exhaleSeconds: 4,
@@ -332,8 +332,8 @@ export async function PUT(request: NextRequest) {
       {
         name: 'Fire Breath',
         description: 'Energizing and cleansing',
-        technique: 'FIRE_BREATH',
-        difficulty: 'ADVANCED',
+        technique: BreathingTechnique.FIRE_BREATH,
+        difficulty: ExerciseDifficulty.ADVANCED,
         inhaleSeconds: 1,
         holdSeconds: 0,
         exhaleSeconds: 1,
