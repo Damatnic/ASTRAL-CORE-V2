@@ -269,8 +269,8 @@ export default function GroundingTechniques() {
       techniqueId: selectedTechnique,
       duration: sessionTime,
       completionRate: completedSteps.length / getTotalSteps(),
-      severityBefore,
-      severityAfter,
+      severityBefore: severityBefore ?? undefined,
+      severityAfter: severityAfter ?? undefined,
       stepsCompleted: completedSteps,
       timestamp: new Date()
     }
