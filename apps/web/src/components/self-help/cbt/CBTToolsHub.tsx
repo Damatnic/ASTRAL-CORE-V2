@@ -385,7 +385,15 @@ function ThoughtRecordInterface({ records, onSave, onClose }: ThoughtRecordInter
     const record: ThoughtRecord = {
       id: Date.now().toString(),
       date: new Date(),
-      ...currentRecord as ThoughtRecord
+      situation: currentRecord.situation || '',
+      automaticThought: currentRecord.automaticThought || '',
+      emotion: currentRecord.emotion || '',
+      emotionIntensity: currentRecord.emotionIntensity || 5,
+      evidence: currentRecord.evidence || '',
+      alternativeThought: currentRecord.alternativeThought || '',
+      newEmotion: currentRecord.newEmotion || '',
+      newEmotionIntensity: currentRecord.newEmotionIntensity || 5,
+      cognitiveDistortions: currentRecord.cognitiveDistortions || []
     }
 
     try {
