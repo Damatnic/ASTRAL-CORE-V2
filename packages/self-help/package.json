@@ -1,5 +1,5 @@
 {
-  "name": "@astral/self-help",
+  "name": "@astralcore/self-help",
   "version": "1.0.0",
   "description": "Self-help resources module for ASTRAL Core V2 mental health platform",
   "main": "./src/index.ts",
@@ -14,11 +14,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@astral/core": "workspace:*",
-    "@astral/database": "workspace:*",
-    "@astral/security": "workspace:*",
-    "@astral/ai-therapy": "workspace:*",
-    "@astral/crisis": "workspace:*",
+    "@astralcore/database": "workspace:*",
+    "@astralcore/security": "workspace:*",
+    "@astralcore/ai-therapy": "workspace:*",
+    "@astralcore/crisis": "workspace:*",
     "@apollo/client": "^3.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
