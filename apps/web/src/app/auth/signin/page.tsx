@@ -374,6 +374,43 @@ function SignInForm() {
               </div>
             )}
 
+            {/* Demo Login Section */}
+            <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <div className="text-center mb-3">
+                <h3 className="font-semibold text-amber-800">🎯 Demo Access</h3>
+                <p className="text-sm text-amber-700">Try the platform with pre-configured demo accounts</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <button
+                  onClick={() => {
+                    setAuthType('volunteer');
+                    setCredentials({ id: 'demo-volunteer', passcode: 'volunteer123' });
+                  }}
+                  className="px-3 py-2 bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200 transition-colors text-sm font-medium"
+                >
+                  Demo Volunteer
+                </button>
+                <button
+                  onClick={() => {
+                    setAuthType('therapist');
+                    setCredentials({ id: 'demo-therapist', passcode: 'therapist123' });
+                  }}
+                  className="px-3 py-2 bg-green-100 text-green-700 rounded-md hover:bg-green-200 transition-colors text-sm font-medium"
+                >
+                  Demo Therapist
+                </button>
+                <button
+                  onClick={() => {
+                    setAuthType('email');
+                    setFormData({ email: 'admin@astralcore.org', password: 'demo123' });
+                  }}
+                  className="px-3 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors text-sm font-medium"
+                >
+                  Demo Admin
+                </button>
+              </div>
+            </div>
+
             {/* Sign In Button */}
             <button
               onClick={handleSignIn}

@@ -60,16 +60,16 @@ export default function CrisisPage() {
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-purple-50">
       {/* Emergency Banner */}
       <div className="bg-red-600 text-white py-3 px-4 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center space-x-2 mb-2 sm:mb-0">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             <span className="font-semibold">24/7 Crisis Support Available</span>
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-row items-center space-x-2 sm:space-x-4">
             <button
               onClick={() => window.location.href = 'tel:988'}
-              className="bg-white text-red-600 px-4 py-2 rounded-full font-semibold hover:bg-red-50 transition-colors flex items-center"
+              className="bg-white text-red-600 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base font-semibold hover:bg-red-50 transition-colors flex items-center"
             >
               <Phone className="w-4 h-4 mr-2" />
               Call 988
@@ -77,7 +77,7 @@ export default function CrisisPage() {
             
             <button
               onClick={() => window.location.href = 'sms:741741'}
-              className="bg-red-700 text-white px-4 py-2 rounded-full font-semibold hover:bg-red-800 transition-colors"
+              className="bg-red-700 text-white px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base font-semibold hover:bg-red-800 transition-colors"
             >
               Text 741741
             </button>
@@ -89,7 +89,7 @@ export default function CrisisPage() {
       {currentView !== 'home' && (
         <div className="bg-white shadow-sm border-b sticky top-12 z-40">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <button
                 onClick={() => setCurrentView('home')}
                 className="text-gray-600 hover:text-gray-900 font-medium"
@@ -97,7 +97,7 @@ export default function CrisisPage() {
                 ← Back to Crisis Hub
               </button>
               
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <button
                   onClick={() => setCurrentView('chat')}
                   className={`px-3 py-1 rounded-lg transition-colors ${
@@ -141,10 +141,10 @@ function HomeView({ onSelectView }: { onSelectView: (view: ViewType) => void }) 
     <div className="space-y-8">
       {/* Calm, Reassuring Hero Section */}
       <div className="text-center py-8 max-w-3xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           You're Safe Here
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="text-base sm:text-lg text-gray-600 mb-6">
           You've taken an important step by reaching out. We're here to support you, 
           and you can choose what feels right for you right now.
         </p>
@@ -155,7 +155,7 @@ function HomeView({ onSelectView }: { onSelectView: (view: ViewType) => void }) 
       </div>
 
       {/* Immediate vs. Non-Immediate Crisis - Clear Guidance */}
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8">
         {/* Emergency Support */}
         <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
           <div className="text-center">
@@ -213,7 +213,7 @@ function HomeView({ onSelectView }: { onSelectView: (view: ViewType) => void }) 
           More support options
           <span className="text-sm font-normal text-gray-500 ml-2">(when you're ready)</span>
         </summary>
-        <div className="grid md:grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 mt-4">
           {/* Peer Support */}
           <div className="bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 transition-all">
             <div className="flex items-center space-x-3">

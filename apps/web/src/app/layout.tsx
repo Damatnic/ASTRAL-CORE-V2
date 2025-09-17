@@ -60,12 +60,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
         }} />
       </head>
       <body className={`${inter.className} antialiased`}>
+        {/* Skip to main content link for keyboard users */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Skip to main content
+        </a>
+        
         <GlobalErrorBoundary showCrisisResources={true}>
           <SessionProvider>
             <DataPersistenceProvider>
               <OnboardingProvider autoStart={true}>
                 <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-          <header className="bg-white shadow-sm border-b border-slate-200">
+          <header className="bg-white shadow-sm border-b border-slate-200" role="banner">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16">
                 <div className="flex items-center">
@@ -152,11 +160,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </header>
           
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
             {children}
           </main>
           
-          <footer className="bg-white border-t border-slate-200 mt-auto">
+          <footer className="bg-white border-t border-slate-200 mt-auto" role="contentinfo">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
               <div className="text-center text-sm text-slate-500">
                 ASTRAL CORE 2.0 - Mental Health Crisis Intervention Platform
