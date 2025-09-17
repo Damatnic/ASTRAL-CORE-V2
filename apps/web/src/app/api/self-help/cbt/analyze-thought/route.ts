@@ -76,7 +76,7 @@ const ALTERNATIVE_GENERATORS = {
   ]
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     

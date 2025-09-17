@@ -6,7 +6,7 @@ import { PrismaClient } from '@astralcore/database'
 const prisma = new PrismaClient()
 
 // Create new mood entry
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
 }
 
 // Get mood history and patterns
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {

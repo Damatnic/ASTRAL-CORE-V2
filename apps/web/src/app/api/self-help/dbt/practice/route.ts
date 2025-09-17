@@ -14,7 +14,7 @@ const PracticeSessionSchema = z.object({
   timestamp: z.string().datetime()
 })
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     

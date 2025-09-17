@@ -15,7 +15,7 @@ const DBTProgressSchema = z.object({
   mastery: z.enum(['learning', 'practicing', 'proficient', 'teaching'])
 })
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     
@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     

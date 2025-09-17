@@ -139,7 +139,7 @@ const generateMockMetrics = (timeframe: string) => {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     

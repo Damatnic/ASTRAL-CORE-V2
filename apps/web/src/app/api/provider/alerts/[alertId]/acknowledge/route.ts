@@ -9,7 +9,7 @@ const alertAcknowledgments = new Map()
 export async function PATCH(
   request: NextRequest,
   { params }: { params: { alertId: string } }
-) {
+): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     
@@ -101,7 +101,7 @@ export async function PATCH(
 export async function GET(
   request: NextRequest,
   { params }: { params: { alertId: string } }
-) {
+): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     

@@ -7,7 +7,7 @@ import * as crypto from 'crypto'
 const prisma = new PrismaClient()
 
 // Create new journal entry
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
 }
 
 // Get journal entries (metadata only for encrypted entries)
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
