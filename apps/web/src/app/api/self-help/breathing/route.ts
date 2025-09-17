@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient, BreathingTechnique, ExerciseDifficulty } from '@astralcore/database'
+import { PrismaClient, BreathingTechnique, ExerciseDifficulty, ActivityType } from '@astralcore/database'
 
 const prisma = new PrismaClient()
 
@@ -159,7 +159,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     await prisma.userActivity.create({
       data: {
         userId: session.user.id,
-        type: 'SELF_CARE_ACTIVITY',
+        type: ActivityType.CHALLENGE_COMPLETE,
         description: `Completed ${exercise.name} breathing exercise`,
         xpEarned,
         pointsEarned,

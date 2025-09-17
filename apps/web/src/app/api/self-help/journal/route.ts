@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient } from '@astralcore/database'
+import { PrismaClient, ActivityType } from '@astralcore/database'
 import * as crypto from 'crypto'
 
 const prisma = new PrismaClient()
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     await prisma.userActivity.create({
       data: {
         userId: session.user.id,
-        type: 'MOOD_LOG',
+        type: ActivityType.MOOD_LOG,
         description: `Created journal entry: ${data.title || 'Untitled'}`,
         xpEarned: Math.min(50, Math.floor(wordCount / 10)), // XP based on word count
         pointsEarned: 25,

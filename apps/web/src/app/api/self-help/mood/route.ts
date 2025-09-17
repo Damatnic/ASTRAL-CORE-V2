@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient } from '@astralcore/database'
+import { PrismaClient, ActivityType } from '@astralcore/database'
 
 const prisma = new PrismaClient()
 
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     await prisma.userActivity.create({
       data: {
         userId: session.user.id,
-        type: 'MOOD_LOG',
+        type: ActivityType.MOOD_LOG,
         description: `Logged mood: ${data.mood}/10`,
         xpEarned: 5,
         pointsEarned: 10,
