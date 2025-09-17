@@ -25,7 +25,10 @@ import {
   CheckCircle,
   User,
   Calendar,
-  Tag
+  Tag,
+  Volume2,
+  Target,
+  Eye
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 

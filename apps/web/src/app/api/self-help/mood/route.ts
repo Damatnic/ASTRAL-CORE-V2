@@ -291,7 +291,7 @@ function getCommonTriggers(entries: any[]) {
   }, {} as Record<string, number>)
   
   return Object.entries(triggerCounts)
-    .sort(([, a], [, b]) => b - a)
+    .sort(([, a], [, b]) => (b as number) - (a as number))
     .slice(0, 5)
     .map(([trigger, count]) => ({ trigger, count }))
 }
@@ -306,7 +306,7 @@ function getHelpfulActivities(entries: any[]) {
   }, {} as Record<string, number>)
   
   return Object.entries(activityCounts)
-    .sort(([, a], [, b]) => b - a)
+    .sort(([, a], [, b]) => (b as number) - (a as number))
     .slice(0, 5)
     .map(([activity, count]) => ({ activity, count }))
 }
