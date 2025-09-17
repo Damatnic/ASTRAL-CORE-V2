@@ -240,14 +240,16 @@ export default function GroundingTechniques() {
     }
 
     if (selectedTechnique === 'fiveForOne') {
-      if (currentStep < technique.steps!.length - 1) {
+      const steps = (technique as any).steps
+      if (steps && currentStep < steps.length - 1) {
         setCurrentStep(prev => prev + 1)
         setStepProgress(0)
       } else {
         endSession()
       }
     } else if (selectedTechnique === 'tipp') {
-      if (currentStep < technique.steps!.length - 1) {
+      const steps = (technique as any).steps
+      if (steps && currentStep < steps.length - 1) {
         setCurrentStep(prev => prev + 1)
         setStepProgress(0)
       } else {
@@ -284,9 +286,9 @@ export default function GroundingTechniques() {
   // Get current step ID for tracking
   const getCurrentStepId = () => {
     if (selectedTechnique === 'fiveForOne') {
-      return technique.steps?.[currentStep]?.sense
+      return (technique as any).steps?.[currentStep]?.sense
     } else if (selectedTechnique === 'tipp') {
-      return technique.steps?.[currentStep]?.phase
+      return (technique as any).steps?.[currentStep]?.phase
     }
     return selectedTechnique
   }
@@ -294,9 +296,9 @@ export default function GroundingTechniques() {
   // Get total steps for completion calculation
   const getTotalSteps = () => {
     if (selectedTechnique === 'fiveForOne') {
-      return technique.steps?.length || 1
+      return (technique as any).steps?.length || 1
     } else if (selectedTechnique === 'tipp') {
-      return technique.steps?.length || 1
+      return (technique as any).steps?.length || 1
     }
     return 1
   }
@@ -304,8 +306,9 @@ export default function GroundingTechniques() {
   // Render current step content
   const renderCurrentStep = () => {
     if (selectedTechnique === 'fiveForOne') {
-      const step = technique.steps![currentStep]
-      const IconComponent = step.icon as React.ComponentType<{ className?: string }>
+      const steps = (technique as any).steps
+      const step = steps?.[currentStep]
+      const IconComponent = step?.icon as React.ComponentType<{ className?: string }>
       
       return (
         <div className="text-center space-y-6">
@@ -363,8 +366,9 @@ export default function GroundingTechniques() {
     }
 
     if (selectedTechnique === 'tipp') {
-      const step = technique.steps![currentStep]
-      const IconComponent = step.icon as React.ComponentType<{ className?: string }>
+      const steps = (technique as any).steps
+      const step = steps?.[currentStep]
+      const IconComponent = step?.icon as React.ComponentType<{ className?: string }>
       
       return (
         <div className="text-center space-y-6">
@@ -659,7 +663,7 @@ export default function GroundingTechniques() {
                   <div 
                     className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
                     style={{ 
-                      width: `${((currentStep + (stepProgress / (selectedTechnique === 'fiveForOne' ? technique.steps![currentStep].count : 1))) / getTotalSteps()) * 100}%` 
+                      width: `${((currentStep + (stepProgress / (selectedTechnique === 'fiveForOne' ? (technique as any).steps?.[currentStep]?.count || 1 : 1))) / getTotalSteps()) * 100}%` 
                     }}
                   />
                 </div>
