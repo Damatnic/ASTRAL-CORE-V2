@@ -21,8 +21,18 @@ export default withAuth(
       '/auth/error',
       '/auth/verify-request',
       '/wellness',
+      '/demo',
+      '/self-help',
+      '/ai-therapy',
+      '/dashboard',
+      '/mood',
+      '/mood-gamified',
+      '/gamification-demo',
       '/api/auth',
       '/api/health',
+      '/api/self-help',
+      '/api/ai-therapy',
+      '/api/mood',
       '/api/crisis/anonymous' // Allow anonymous crisis access
     ];
 
@@ -123,8 +133,18 @@ export default withAuth(
           '/auth/error',
           '/auth/verify-request',
           '/wellness',
+          '/demo',
+          '/self-help',
+          '/ai-therapy',
+          '/dashboard',
+          '/mood',
+          '/mood-gamified',
+          '/gamification-demo',
           '/api/auth',
           '/api/health',
+          '/api/self-help',
+          '/api/ai-therapy',
+          '/api/mood',
           '/api/crisis/anonymous'
         ];
 
