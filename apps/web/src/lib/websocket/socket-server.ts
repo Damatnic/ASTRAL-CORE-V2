@@ -12,8 +12,8 @@ import { Server as HTTPServer } from 'http';
 import { Server as SocketIOServer, Socket } from 'socket.io';
 import { createAdapter } from '@socket.io/redis-adapter';
 import Redis from 'ioredis';
-import { OptimizedCrisisWebSocketManager } from '../../../../../packages/websocket/src/optimized-crisis-manager';
-import { CrisisInterventionEngine } from '../../../../../packages/crisis/src/engines/CrisisInterventionEngine';
+import { OptimizedCrisisWebSocketManager } from '@astralcore/websocket/src/optimized-crisis-manager';
+import { CrisisInterventionEngine } from '@astralcore/crisis/src/engines/CrisisInterventionEngine';
 import { randomUUID } from 'crypto';
 
 // Production logging utility
