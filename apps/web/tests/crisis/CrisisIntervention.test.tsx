@@ -53,10 +53,10 @@ describe('Crisis Intervention System', () => {
       render(<CrisisDetectionEngine onCrisisDetected={onCrisisDetected} />);
       
       const subtleIndicators = [
-        'I can\\'t do this anymore',
+        "I can't do this anymore",
         'Everyone would be better off without me',
-        'I\\'m a burden to everyone',
-        'There\\'s no point in going on'
+        "I'm a burden to everyone",
+        "There's no point in going on"
       ];
       
       for (const indicator of subtleIndicators) {
@@ -85,10 +85,10 @@ describe('Crisis Intervention System', () => {
       );
       
       const messages = [
-        'I\\'m feeling really down',
+        "I'm feeling really down",
         'Nothing seems to help',
-        'I don\\'t want to be here anymore',
-        'I\\'m thinking about ending it all'
+        "I don't want to be here anymore",
+        "I'm thinking about ending it all"
       ];
       
       for (const message of messages) {
@@ -210,7 +210,7 @@ describe('Crisis Intervention System', () => {
       );
       
       const input = screen.getByRole('textbox');
-      await userEvent.type(input, 'I have pills and I\\'m going to take them all right now');
+      await userEvent.type(input, "I have pills and I'm going to take them all right now");
       
       await waitFor(() => {
         expect(onEmergencyEscalation).toHaveBeenCalledWith(

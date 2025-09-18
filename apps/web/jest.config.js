@@ -16,8 +16,7 @@ const customJestConfig = {
   
   // Setup files
   setupFilesAfterEnv: [
-    '<rootDir>/jest.setup.js',
-    '<rootDir>/src/test-utils/crisis-test-setup.ts'
+    '<rootDir>/jest.setup.js'
   ],
   
   // Test match patterns
@@ -72,7 +71,7 @@ const customJestConfig = {
   },
   
   // Module name mapping for monorepo packages
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@astral/(.*)$': '<rootDir>/../../packages/$1/src',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
@@ -166,9 +165,9 @@ const customJestConfig = {
     },
   ],
   
-  // Global setup and teardown
-  globalSetup: '<rootDir>/tests/setup/global-setup.ts',
-  globalTeardown: '<rootDir>/tests/setup/global-teardown.ts',
+  // Global setup and teardown (disabled until files exist)
+  // globalSetup: '<rootDir>/tests/setup/global-setup.ts',
+  // globalTeardown: '<rootDir>/tests/setup/global-teardown.ts',
   
   // Verbose output for debugging
   verbose: true,
