@@ -6,6 +6,6 @@
     }
   },
   "buildCommand": "cd apps/web && npm run build",
-  "installCommand": "cd apps/web && npm ci --legacy-peer-deps",
+  "installCommand": "cd apps/web && npm install --legacy-peer-deps",
   "outputDirectory": "apps/web/.next"
 }
