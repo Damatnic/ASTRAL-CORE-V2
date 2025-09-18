@@ -6,6 +6,11 @@ import { DataPersistenceProvider } from '@/contexts/DataPersistenceContext';
 import { GlobalErrorBoundary } from '@/components/error-boundaries/GlobalErrorBoundary';
 import { OnboardingProvider } from '@/contexts/OnboardingContext';
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow';
+import EnhancedNavigation from '@/components/navigation/EnhancedNavigation';
+import { PersonalizationProvider, AdaptiveThemeProvider } from '@/components/personalization/AdaptiveUI';
+import { AccessibilityProvider, AccessibilityPanel, SkipNavigation, KeyboardNavigationHelper } from '@/components/accessibility/AccessibilityEnhancer';
+import { PerformanceDashboard, ResourceHints, registerServiceWorker } from '@/components/performance/PerformanceOptimizer';
+import { TestDashboard } from '@/components/testing/TestingUtils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -71,113 +76,105 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <GlobalErrorBoundary showCrisisResources={true}>
           <SessionProvider>
             <DataPersistenceProvider>
-              <OnboardingProvider autoStart={true}>
-                <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-          <header className="bg-white shadow-sm border-b border-slate-200" role="banner">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
-                <div className="flex items-center">
-                  <a href="/" className="flex items-center space-x-2 text-slate-900 hover:text-slate-700 transition-colors">
-                    <h1 className="text-xl font-semibold">
-                      ASTRAL CORE
-                    </h1>
-                    <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
-                      Safe Space
-                    </span>
-                  </a>
-                </div>
-                
-                {/* Simplified, Mental Health-Appropriate Navigation */}
-                <nav className="flex items-center space-x-2" role="navigation" aria-label="Main navigation">
-                  {/* Primary Crisis Action - Always Visible */}
-                  <a 
-                    href="tel:988" 
-                    className="inline-flex items-center bg-red-600 text-white hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" 
-                    aria-label="Call 988 Crisis Hotline - Available 24/7"
-                  >
-                    <span className="mr-2">📞</span>
-                    Call 988
-                  </a>
+              <AccessibilityProvider>
+                <PersonalizationProvider>
+                  <AdaptiveThemeProvider>
+                    <OnboardingProvider autoStart={true}>
+                    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+                      {/* Enhanced Navigation */}
+                      <EnhancedNavigation />
+                      
+                      {/* Main Content */}
+                      <main id="main-content" className="pt-16" role="main">
+                        {children}
+                      </main>
                   
-                  {/* Essential Navigation - Reduced Cognitive Load */}
-                  <div className="hidden md:flex items-center space-x-1">
-                    <a 
-                      href="/crisis" 
-                      className="text-slate-600 hover:text-slate-900 hover:bg-slate-50 px-3 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                      Get Help
-                    </a>
-                    <a 
-                      href="/mood-gamified" 
-                      className="text-slate-600 hover:text-slate-900 hover:bg-slate-50 px-3 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                      Check In
-                    </a>
-                    <a 
-                      href="/safety" 
-                      className="text-slate-600 hover:text-slate-900 hover:bg-slate-50 px-3 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                      Safety Plan
-                    </a>
-                  </div>
-                  
-                  {/* More Tools - Progressive Disclosure */}
-                  <details className="relative">
-                    <summary className="cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-50 px-3 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 list-none">
-                      More
-                      <span className="ml-1">⋯</span>
-                    </summary>
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
-                      <a 
-                        href="/wellness" 
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
-                      >
-                        Wellness Tools
-                      </a>
-                      <a 
-                        href="/volunteer" 
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
-                      >
-                        Volunteer
-                      </a>
-                      <a 
-                        href="/therapist" 
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
-                      >
-                        Professional
-                      </a>
-                      <hr className="my-2 border-slate-200" />
-                      <a 
-                        href="/admin" 
-                        className="block px-4 py-2 text-xs text-slate-500 hover:bg-slate-50 transition-colors"
-                      >
-                        Admin
-                      </a>
+                  {/* Enhanced Footer */}
+                  <footer className="bg-white border-t border-slate-200 mt-auto" role="contentinfo">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        {/* Brand */}
+                        <div className="col-span-1">
+                          <h3 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                            ASTRAL CORE
+                          </h3>
+                          <p className="text-sm text-gray-600 mt-2">
+                            Life-saving mental health crisis intervention platform. Always free, always here.
+                          </p>
+                          <div className="mt-4">
+                            <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                              <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                              24/7 Support Available
+                            </span>
+                          </div>
+                        </div>
+                        
+                        {/* Quick Links */}
+                        <div className="col-span-1">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-4">Get Help</h4>
+                          <ul className="space-y-2 text-sm">
+                            <li><a href="/crisis" className="text-gray-600 hover:text-purple-600 transition-colors">Crisis Support</a></li>
+                            <li><a href="/crisis/chat" className="text-gray-600 hover:text-purple-600 transition-colors">Anonymous Chat</a></li>
+                            <li><a href="/safety" className="text-gray-600 hover:text-purple-600 transition-colors">Safety Planning</a></li>
+                            <li><a href="/self-help" className="text-gray-600 hover:text-purple-600 transition-colors">Self-Help Tools</a></li>
+                          </ul>
+                        </div>
+                        
+                        {/* Resources */}
+                        <div className="col-span-1">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-4">Resources</h4>
+                          <ul className="space-y-2 text-sm">
+                            <li><a href="/wellness" className="text-gray-600 hover:text-purple-600 transition-colors">Wellness Hub</a></li>
+                            <li><a href="/education" className="text-gray-600 hover:text-purple-600 transition-colors">Learn</a></li>
+                            <li><a href="/community" className="text-gray-600 hover:text-purple-600 transition-colors">Community</a></li>
+                            <li><a href="/volunteer" className="text-gray-600 hover:text-purple-600 transition-colors">Volunteer</a></li>
+                          </ul>
+                        </div>
+                        
+                        {/* Emergency */}
+                        <div className="col-span-1">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-4">Emergency</h4>
+                          <div className="space-y-3">
+                            <a href="tel:988" className="flex items-center px-3 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition-colors">
+                              <span className="mr-2">📞</span>
+                              Call 988
+                            </a>
+                            <a href="sms:741741" className="flex items-center px-3 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                              <span className="mr-2">💬</span>
+                              Text 741741
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
+                        <p>© 2025 ASTRAL CORE. Built with love to save lives. 💙</p>
+                        <p className="mt-2">
+                          If you or someone you know is in immediate danger, please contact emergency services (911) or the 988 Suicide & Crisis Lifeline.
+                        </p>
+                      </div>
                     </div>
-                  </details>
-                </nav>
-              </div>
-            </div>
-          </header>
-          
-          <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
-            {children}
-          </main>
-          
-          <footer className="bg-white border-t border-slate-200 mt-auto" role="contentinfo">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-              <div className="text-center text-sm text-slate-500">
-                ASTRAL CORE 2.0 - Mental Health Crisis Intervention Platform
-                <div className="mt-1">
-                  <span className="text-emerald-600 font-medium">24/7 Crisis Support Available</span>
-                </div>
-              </div>
-            </div>
-          </footer>
-                  {/* Onboarding Flow - Rendered when active */}
-                  <OnboardingFlow />
-                </div>
-              </OnboardingProvider>
+                  </footer>
+                  
+                      {/* Accessibility Panel */}
+                      <AccessibilityPanel />
+                      
+                      {/* Keyboard Navigation Helper */}
+                      <KeyboardNavigationHelper />
+                      
+                      {/* Performance Dashboard (development only) */}
+                      <PerformanceDashboard />
+                      
+                      {/* Test Dashboard (development only) */}
+                      <TestDashboard />
+                      
+                      {/* Onboarding Flow - Rendered when active */}
+                      <OnboardingFlow />
+                    </div>
+                    </OnboardingProvider>
+                  </AdaptiveThemeProvider>
+                </PersonalizationProvider>
+              </AccessibilityProvider>
             </DataPersistenceProvider>
           </SessionProvider>
         </GlobalErrorBoundary>

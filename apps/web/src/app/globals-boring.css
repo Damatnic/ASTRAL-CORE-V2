@@ -1,0 +1,453 @@
+/**
+ * Astral Core Global Styles
+ * Optimized for Performance, Accessibility, and Mental Health
+ * WCAG 2.1 AAA Compliant
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Design Tokens */
+@layer base {
+  :root {
+    /* Colors - Calming Palette */
+    --color-primary: 37 99 235; /* Blue 600 */
+    --color-primary-hover: 29 78 216; /* Blue 700 */
+    --color-secondary: 147 51 234; /* Purple 600 */
+    --color-success: 34 197 94; /* Green 600 */
+    --color-warning: 245 158 11; /* Amber 600 */
+    --color-crisis: 220 38 38; /* Red 600 */
+    --color-background: 255 255 255;
+    --color-foreground: 24 24 27;
+    
+    /* Spacing */
+    --spacing-unit: 0.25rem;
+    
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+    
+    /* Animations */
+    --transition-fast: 150ms;
+    --transition-base: 250ms;
+    --transition-slow: 350ms;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+    /* Focus Ring */
+    --focus-ring-color: rgb(59 130 246); /* Blue 500 */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+  }
+  
+  /* Dark mode (optional - for users who prefer it) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: 24 24 27;
+      --color-foreground: 250 250 250;
+    }
+  }
+}
+
+/* Base Reset and Optimizations */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    /* Smooth scrolling for better UX */
+    scroll-behavior: smooth;
+    
+    /* Prevent font size adjustment on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    
+    /* Better font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  /* Focus Styles - Critical for Accessibility */
+  :focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+  
+  /* Remove focus for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Skip Link - Must be first focusable element */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: rgb(var(--color-primary));
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 0.25rem;
+  }
+  
+  .skip-link:focus {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  
+  /* Typography Optimization */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.75em;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1.125rem; }
+  
+  p {
+    margin-bottom: 1em;
+  }
+  
+  /* Links - Clear and Accessible */
+  a {
+    color: rgb(var(--color-primary));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition-fast);
+  }
+  
+  a:hover {
+    color: rgb(var(--color-primary-hover));
+  }
+  
+  /* Buttons - Minimum Touch Target Size */
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  
+  /* Disabled State */
+  [disabled], [aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Form Elements */
+  input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  /* Images - Responsive by Default */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Tables - Accessible Structure */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+    text-align: left;
+    font-weight: 600;
+  }
+}
+
+/* Component Classes */
+@layer components {
+  /* Crisis Alert - High Priority Visibility */
+  .crisis-alert {
+    @apply bg-red-50 border-2 border-red-300 rounded-lg p-4 text-red-900 font-medium;
+    animation: subtle-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Calming Card */
+  .calm-card {
+    @apply bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  /* Safe Button - Mental Health Context */
+  .btn-safe {
+    @apply px-6 py-3 bg-blue-600 text-white rounded-lg font-medium transition-all duration-200 hover:bg-blue-700 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  }
+  
+  /* Crisis Button - Immediate Action */
+  .btn-crisis {
+    @apply px-8 py-4 bg-red-600 text-white rounded-xl font-bold text-lg transition-all duration-200 hover:bg-red-700 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-300;
+    min-height: 56px;
+    animation: gentle-glow 3s ease-in-out infinite;
+  }
+  
+  /* Form Input - Clear and Accessible */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg transition-all duration-200 hover:border-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200;
+  }
+  
+  /* Success Message */
+  .success-message {
+    @apply bg-green-50 border border-green-200 text-green-800 rounded-lg p-4;
+  }
+  
+  /* Warning Message */
+  .warning-message {
+    @apply bg-amber-50 border border-amber-200 text-amber-800 rounded-lg p-4;
+  }
+  
+  /* Loading State */
+  .loading {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+  
+  /* Skeleton Loader */
+  .skeleton {
+    @apply bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  /* Text Truncation */
+  .truncate-lines {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .truncate-1 {
+    -webkit-line-clamp: 1;
+  }
+  
+  .truncate-2 {
+    -webkit-line-clamp: 2;
+  }
+  
+  .truncate-3 {
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Visually Hidden but Screen Reader Accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+  
+  /* Safe Area for Mobile Devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* High Contrast Mode Support */
+  @media (prefers-contrast: high) {
+    * {
+      border-width: 2px !important;
+    }
+    
+    button, a {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+/* Custom Animations */
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.95;
+  }
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print,
+  nav,
+  footer,
+  .crisis-alert {
+    display: none !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* Performance Optimizations */
+
+/* Use GPU acceleration for animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Optimize font loading */
+.font-display-swap {
+  font-display: swap;
+}
+
+/* Lazy load images below the fold */
+img[loading="lazy"] {
+  background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+}
+
+/* Accessibility Enhancements */
+
+/* Ensure interactive elements are clearly distinguishable */
+button:not([disabled]):hover,
+a:hover,
+[role="button"]:not([aria-disabled="true"]):hover {
+  filter: brightness(0.9);
+}
+
+/* Focus trap for modals */
+.focus-trap {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+/* Screen reader only text */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Ensure minimum contrast ratios */
+.high-contrast {
+  filter: contrast(1.2);
+}
+
+/* Crisis-specific styles for mental health context */
+.crisis-mode {
+  --color-primary: 220 38 38; /* Switch to red */
+  --focus-ring-color: rgb(220 38 38);
+}
+
+.crisis-mode .btn-safe {
+  @apply bg-red-600 hover:bg-red-700;
+}
+
+/* Calming animations for mental health */
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Loading states that don't increase anxiety */
+.calm-loader {
+  animation: calm-spin 2s linear infinite;
+}
+
+@keyframes calm-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

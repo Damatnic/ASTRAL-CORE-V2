@@ -83,62 +83,34 @@ interface Alert {
   acknowledged: boolean;
 }
 
-// Mock data generator
-const generateMockSessions = (): CrisisSession[] => {
-  const statuses: CrisisSession['status'][] = ['active', 'waiting', 'escalated', 'resolved', 'abandoned'];
-  const severities: CrisisSession['severity'][] = ['low', 'medium', 'high', 'critical'];
-  const locations = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia'];
-  const riskFactors = [
-    'Suicidal ideation', 'Self-harm history', 'Recent loss', 'Isolation',
-    'Substance abuse', 'Previous attempts', 'Mental health diagnosis', 'Trauma'
-  ];
-  
-  return Array.from({ length: 25 }, (_, i) => ({
-    id: `session_${i}`,
-    userId: `user_${Math.floor(Math.random() * 1000)}`,
-    userName: Math.random() > 0.7 ? `Anonymous User ${i}` : undefined,
-    startTime: new Date(Date.now() - Math.random() * 7200000), // Last 2 hours
-    endTime: Math.random() > 0.5 ? new Date() : undefined,
-    status: statuses[Math.floor(Math.random() * statuses.length)],
-    severity: severities[Math.floor(Math.random() * severities.length)],
-    volunteerId: Math.random() > 0.3 ? `vol_${Math.floor(Math.random() * 10)}` : undefined,
-    volunteerName: Math.random() > 0.3 ? `Counselor ${Math.floor(Math.random() * 10)}` : undefined,
-    messages: Math.floor(Math.random() * 50) + 5,
-    location: Math.random() > 0.6 ? locations[Math.floor(Math.random() * locations.length)] : undefined,
-    riskFactors: Array.from({ length: Math.floor(Math.random() * 4) + 1 }, () => 
-      riskFactors[Math.floor(Math.random() * riskFactors.length)]
-    ),
-    interventions: [],
-    outcome: Math.random() > 0.5 ? {
-      resolved: Math.random() > 0.3,
-      referralMade: Math.random() > 0.6,
-      emergencyContacted: Math.random() > 0.9,
-      followUpScheduled: Math.random() > 0.5,
-      riskLevel: ['reduced', 'unchanged', 'increased'][Math.floor(Math.random() * 3)] as any
-    } : undefined
-  }));
+// Data loading functions
+const loadCrisisSessions = async (): Promise<CrisisSession[]> => {
+  try {
+    // In a real app, this would fetch from an API
+    // For now, return empty array - real sessions would come from WebSocket or API
+    const response = await fetch('/api/crisis/sessions');
+    if (!response.ok) {
+      return [];
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error loading crisis sessions:', error);
+    return [];
+  }
 };
 
-const generateMockVolunteers = (): Volunteer[] => {
-  const specializations = ['anxiety', 'depression', 'trauma', 'lgbtq+', 'youth', 'veterans'];
-  const languages = ['English', 'Spanish', 'Mandarin', 'French', 'Arabic', 'Hindi'];
-  
-  return Array.from({ length: 15 }, (_, i) => ({
-    id: `vol_${i}`,
-    name: `Counselor ${i + 1}`,
-    status: ['available', 'busy', 'break', 'offline'][Math.floor(Math.random() * 4)] as any,
-    currentSessions: Math.floor(Math.random() * 3),
-    maxSessions: 3,
-    specializations: Array.from({ length: Math.floor(Math.random() * 3) + 1 }, () =>
-      specializations[Math.floor(Math.random() * specializations.length)]
-    ),
-    languages: Array.from({ length: Math.floor(Math.random() * 2) + 1 }, () =>
-      languages[Math.floor(Math.random() * languages.length)]
-    ),
-    rating: 4 + Math.random(),
-    sessionsToday: Math.floor(Math.random() * 20),
-    averageResponseTime: Math.floor(Math.random() * 60) + 10
-  }));
+const loadVolunteers = async (): Promise<Volunteer[]> => {
+  try {
+    // In a real app, this would fetch from an API
+    const response = await fetch('/api/volunteers/status');
+    if (!response.ok) {
+      return [];
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error loading volunteers:', error);
+    return [];
+  }
 };
 
 export default function CrisisInterventionDashboard() {
@@ -171,56 +143,94 @@ export default function CrisisInterventionDashboard() {
     };
   }, [autoRefresh, refreshInterval]);
 
-  const loadDashboardData = () => {
-    // Load mock data
-    const mockSessions = generateMockSessions();
-    const mockVolunteers = generateMockVolunteers();
-    
-    setSessions(mockSessions);
-    setVolunteers(mockVolunteers);
-    
-    // Calculate metrics
-    const activeSessions = mockSessions.filter(s => s.status === 'active').length;
-    const waitingQueue = mockSessions.filter(s => s.status === 'waiting').length;
-    const criticalCases = mockSessions.filter(s => s.severity === 'critical').length;
-    const highRiskCases = mockSessions.filter(s => s.severity === 'high').length;
-    const mediumRiskCases = mockSessions.filter(s => s.severity === 'medium').length;
-    const lowRiskCases = mockSessions.filter(s => s.severity === 'low').length;
-    const resolvedSessions = mockSessions.filter(s => s.status === 'resolved').length;
-    const escalatedSessions = mockSessions.filter(s => s.status === 'escalated').length;
-    const volunteersOnline = mockVolunteers.filter(v => v.status !== 'offline').length;
-    const volunteersAvailable = mockVolunteers.filter(v => v.status === 'available').length;
-    
-    setMetrics({
-      activeSessions,
-      waitingQueue,
-      averageWaitTime: Math.floor(Math.random() * 300) + 60, // 1-6 minutes
-      criticalCases,
-      highRiskCases,
-      mediumRiskCases,
-      lowRiskCases,
-      resolutionRate: resolvedSessions / Math.max(mockSessions.length, 1),
-      escalationRate: escalatedSessions / Math.max(mockSessions.length, 1),
-      averageSessionDuration: Math.floor(Math.random() * 1800) + 600, // 10-40 minutes
-      volunteersOnline,
-      volunteersAvailable
-    });
-    
-    // Generate alerts for critical cases
-    const newAlerts: Alert[] = mockSessions
-      .filter(s => s.severity === 'critical' || s.status === 'escalated')
-      .slice(0, 5)
-      .map(s => ({
-        id: `alert_${s.id}`,
-        type: s.severity === 'critical' ? 'critical' : 'high',
-        title: s.severity === 'critical' ? 'Critical Risk Detected' : 'Session Escalated',
-        description: `Session ${s.id} requires immediate attention`,
-        timestamp: new Date(),
-        sessionId: s.id,
-        acknowledged: false
-      }));
-    
-    setAlerts(newAlerts);
+  const loadDashboardData = async () => {
+    try {
+      // Load real data from APIs
+      const [sessionsData, volunteersData] = await Promise.all([
+        loadCrisisSessions(),
+        loadVolunteers()
+      ]);
+      
+      setSessions(sessionsData);
+      setVolunteers(volunteersData);
+      
+      // Calculate metrics from real data
+      const activeSessions = sessionsData.filter(s => s.status === 'active').length;
+      const waitingQueue = sessionsData.filter(s => s.status === 'waiting').length;
+      const criticalCases = sessionsData.filter(s => s.severity === 'critical').length;
+      const highRiskCases = sessionsData.filter(s => s.severity === 'high').length;
+      const mediumRiskCases = sessionsData.filter(s => s.severity === 'medium').length;
+      const lowRiskCases = sessionsData.filter(s => s.severity === 'low').length;
+      const resolvedSessions = sessionsData.filter(s => s.status === 'resolved').length;
+      const escalatedSessions = sessionsData.filter(s => s.status === 'escalated').length;
+      const volunteersOnline = volunteersData.filter(v => v.status !== 'offline').length;
+      const volunteersAvailable = volunteersData.filter(v => v.status === 'available').length;
+      
+      // Calculate average wait time from actual waiting sessions
+      const waitingSessions = sessionsData.filter(s => s.status === 'waiting');
+      const averageWaitTime = waitingSessions.length > 0 
+        ? waitingSessions.reduce((sum, session) => 
+            sum + (Date.now() - session.startTime.getTime()), 0) / waitingSessions.length / 60000 // Convert to minutes
+        : 0;
+      
+      // Calculate average session duration from completed sessions
+      const completedSessions = sessionsData.filter(s => s.endTime);
+      const averageSessionDuration = completedSessions.length > 0
+        ? completedSessions.reduce((sum, session) => 
+            sum + (session.endTime!.getTime() - session.startTime.getTime()), 0) / completedSessions.length / 60000 // Convert to minutes
+        : 0;
+      
+      setMetrics({
+        activeSessions,
+        waitingQueue,
+        averageWaitTime,
+        criticalCases,
+        highRiskCases,
+        mediumRiskCases,
+        lowRiskCases,
+        resolutionRate: sessionsData.length > 0 ? resolvedSessions / sessionsData.length : 0,
+        escalationRate: sessionsData.length > 0 ? escalatedSessions / sessionsData.length : 0,
+        averageSessionDuration,
+        volunteersOnline,
+        volunteersAvailable
+      });
+      
+      // Generate alerts for critical cases
+      const newAlerts: Alert[] = sessionsData
+        .filter(s => s.severity === 'critical' || s.status === 'escalated')
+        .slice(0, 5)
+        .map(s => ({
+          id: `alert_${s.id}`,
+          type: s.severity === 'critical' ? 'critical' : 'high' as const,
+          title: s.severity === 'critical' ? 'Critical Risk Detected' : 'Session Escalated',
+          description: `Session ${s.id} requires immediate attention`,
+          timestamp: new Date(),
+          sessionId: s.id,
+          acknowledged: false
+        }));
+      
+      setAlerts(newAlerts);
+    } catch (error) {
+      console.error('Error loading dashboard data:', error);
+      // Set empty state on error
+      setSessions([]);
+      setVolunteers([]);
+      setMetrics({
+        activeSessions: 0,
+        waitingQueue: 0,
+        averageWaitTime: 0,
+        criticalCases: 0,
+        highRiskCases: 0,
+        mediumRiskCases: 0,
+        lowRiskCases: 0,
+        resolutionRate: 0,
+        escalationRate: 0,
+        averageSessionDuration: 0,
+        volunteersOnline: 0,
+        volunteersAvailable: 0
+      });
+      setAlerts([]);
+    }
   };
 
   // Filter sessions

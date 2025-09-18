@@ -99,69 +99,100 @@ export default function MoodTracker() {
   ];
 
   useEffect(() => {
-    loadMockData();
-    analyzePatterns();
+    loadMoodData();
   }, []);
 
-  const loadMockData = () => {
-    // Generate mock mood data for the past 30 days
-    const mockData: MoodEntry[] = [];
-    for (let i = 29; i >= 0; i--) {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      
-      // Create realistic mood patterns
-      const baseMood = 5 + Math.sin(i * 0.2) * 2 + Math.random() * 2;
-      const mood = Math.max(1, Math.min(10, Math.round(baseMood)));
-      
-      mockData.push({
-        id: `mood_${i}`,
-        date,
-        mood,
-        emotions: {
-          happy: Math.round(mood * 0.8 + Math.random() * 2),
-          sad: Math.round((10 - mood) * 0.6 + Math.random() * 2),
-          anxious: Math.round(Math.random() * 8 + 1),
-          angry: Math.round(Math.random() * 5 + 1),
-          calm: Math.round(mood * 0.7 + Math.random() * 3),
-          energetic: Math.round(mood * 0.6 + Math.random() * 4),
-        },
-        triggers: i % 3 === 0 ? ['work', 'sleep'] : [],
-        activities: i % 2 === 0 ? ['exercise', 'meditation'] : ['social'],
-        sleepHours: 5 + Math.random() * 4,
-        notes: '',
-        weather: ['sunny', 'cloudy', 'rainy'][i % 3],
-        medication: i % 4 !== 0,
-        socialInteraction: Math.round(Math.random() * 10),
-      });
+  useEffect(() => {
+    analyzePatterns();
+  }, [moodEntries]);
+
+  const loadMoodData = async () => {
+    try {
+      // Load mood data from localStorage
+      const storedEntries = localStorage.getItem('astral_mood_entries');
+      if (storedEntries) {
+        const entries = JSON.parse(storedEntries);
+        setMoodEntries(entries.map((entry: any) => ({
+          ...entry,
+          date: new Date(entry.date)
+        })));
+      }
+    } catch (error) {
+      console.error('Error loading mood data:', error);
+      setMoodEntries([]);
     }
-    
-    setMoodEntries(mockData);
+  };
+
+  const saveMoodData = (entries: MoodEntry[]) => {
+    try {
+      localStorage.setItem('astral_mood_entries', JSON.stringify(entries));
+    } catch (error) {
+      console.error('Error saving mood data:', error);
+    }
   };
 
   const analyzePatterns = () => {
-    const detectedPatterns: MoodPattern[] = [
-      {
-        pattern: 'Weekly Improvement',
-        description: 'Your mood has been steadily improving over the past week',
-        recommendation: 'Keep up your current routine and activities',
-        severity: 'positive',
-      },
-      {
-        pattern: 'Morning Low Point',
-        description: 'Your mood tends to be lower in the mornings',
-        recommendation: 'Try morning exercise or meditation to boost mood',
-        severity: 'neutral',
-      },
-      {
-        pattern: 'Work Stress Impact',
-        description: 'Work-related triggers significantly affect your mood',
-        recommendation: 'Consider stress management techniques or discussing workload',
-        severity: 'concerning',
-      },
-    ];
+    if (moodEntries.length === 0) {
+      setPatterns([]);
+      return;
+    }
+
+    const patterns: MoodPattern[] = [];
     
-    setPatterns(detectedPatterns);
+    // Analyze mood trends over time
+    if (moodEntries.length >= 7) {
+      const recentMoods = moodEntries.slice(-7).map(entry => entry.mood);
+      const trend = recentMoods[recentMoods.length - 1] - recentMoods[0];
+      
+      if (trend > 2) {
+        patterns.push({
+          pattern: 'Weekly Improvement',
+          description: 'Your mood has been improving over the past week',
+          recommendation: 'Keep up the positive momentum with current activities',
+          severity: 'positive'
+        });
+      } else if (trend < -2) {
+        patterns.push({
+          pattern: 'Declining Trend',
+          description: 'Your mood has been declining recently',
+          recommendation: 'Consider reaching out for support or trying new coping strategies',
+          severity: 'concerning'
+        });
+      }
+    }
+
+    // Analyze activity correlations
+    const activitiesWithMood = moodEntries.filter(entry => entry.activities.length > 0);
+    if (activitiesWithMood.length >= 3) {
+      const activityMoodMap: Record<string, number[]> = {};
+      
+      activitiesWithMood.forEach(entry => {
+        entry.activities.forEach(activityId => {
+          if (!activityMoodMap[activityId]) {
+            activityMoodMap[activityId] = [];
+          }
+          activityMoodMap[activityId].push(entry.mood);
+        });
+      });
+
+      Object.entries(activityMoodMap).forEach(([activityId, moods]) => {
+        if (moods.length >= 2) {
+          const avgMood = moods.reduce((a, b) => a + b, 0) / moods.length;
+          const activity = activities.find(a => a.id === activityId);
+          
+          if (activity && avgMood >= 7) {
+            patterns.push({
+              pattern: 'Activity Correlation',
+              description: `${activity.label} sessions are associated with better mood`,
+              recommendation: `Consider incorporating more ${activity.label.toLowerCase()} into your routine`,
+              severity: 'positive'
+            });
+          }
+        }
+      });
+    }
+
+    setPatterns(patterns);
   };
 
   const getMoodIcon = (mood: number) => {
@@ -182,11 +213,21 @@ export default function MoodTracker() {
       notes: '',
     };
     
-    setMoodEntries([...moodEntries, newEntry]);
+    const updatedEntries = [...moodEntries, newEntry];
+    setMoodEntries(updatedEntries);
+    saveMoodData(updatedEntries);
     setShowNewEntry(false);
     
     // Reset form
     setCurrentMood(5);
+    setCurrentEmotions({
+      happy: 5,
+      sad: 3,
+      anxious: 4,
+      angry: 2,
+      calm: 6,
+      energetic: 5,
+    });
     setSelectedTriggers([]);
     setSelectedActivities([]);
   };
