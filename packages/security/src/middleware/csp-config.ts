@@ -40,7 +40,7 @@ export class CSPConfig {
     // Add nonces for inline scripts in production
     if (this.environment === 'production') {
       baseDirectives.scriptSrc.push("'strict-dynamic'");
-      baseDirectives.styleSrc.push("'unsafe-inline'"); // Required for styled-components
+      baseDirectives.styleSrc.push("'nonce-{nonce}'"); // Use nonce instead of unsafe-inline
     }
 
     return baseDirectives;
@@ -78,8 +78,8 @@ export class CSPConfig {
   private getStyleSources(): string[] {
     const sources = ["'self'"];
 
-    // Required for Material-UI and styled-components
-    sources.push("'unsafe-inline'");
+    // Use nonce for styled-components instead of unsafe-inline
+    sources.push("'nonce-{nonce}'");
 
     // Trusted CDNs
     if (this.environment === 'production') {

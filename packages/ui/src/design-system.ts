@@ -34,7 +34,12 @@ export const designTokens = {
       600: '#dc2626', // Main crisis red
       700: '#b91c1c',
       800: '#991b1b',
-      900: '#7f1d1d'
+      900: '#7f1d1d',
+      // Semantic crisis colors
+      low: '#f87171',     // 400
+      medium: '#ef4444',  // 500
+      high: '#dc2626',    // 600
+      critical: '#b91c1c' // 700
     },
     
     // Success and safety colors

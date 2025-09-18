@@ -22,11 +22,13 @@
   ],
   "references": [
     { "path": "./packages/shared" },
+    { "path": "./packages/core" },
     { "path": "./packages/database" },
     { "path": "./packages/crisis" },
     { "path": "./packages/security" },
     { "path": "./packages/performance" },
     { "path": "./packages/ai-safety" },
+    { "path": "./packages/ai-therapy" },
     { "path": "./packages/volunteer" },
     { "path": "./packages/tether" },
     { "path": "./packages/analytics" },
@@ -35,6 +37,8 @@
     { "path": "./packages/config" },
     { "path": "./packages/emergency" },
     { "path": "./packages/training" },
+    { "path": "./packages/testing" },
+    { "path": "./packages/self-help" },
     { "path": "./apps/web" },
     { "path": "./apps/admin" },
     { "path": "./apps/mobile" }

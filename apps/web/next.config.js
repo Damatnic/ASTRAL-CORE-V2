@@ -49,8 +49,8 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.sentry-cdn.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "script-src 'self' 'nonce-{nonce}' https://js.sentry-cdn.com",
+              "style-src 'self' 'nonce-{nonce}' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com https://r2cdn.perplexity.ai",
               "img-src 'self' data: https:",
               "connect-src 'self' wss: https: https://api.astralcore.org https://socket.astralcore.org https://o4505801209782272.ingest.sentry.io",

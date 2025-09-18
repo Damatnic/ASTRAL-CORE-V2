@@ -262,8 +262,8 @@ class SecurityHardening {
 
     const cspDirectives = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com",
+      "script-src 'self' 'nonce-{nonce}' https://cdn.jsdelivr.net https://fonts.googleapis.com",
+      "style-src 'self' 'nonce-{nonce}' https://fonts.googleapis.com https://fonts.gstatic.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https:",
       "connect-src 'self' wss: https:",
@@ -291,7 +291,7 @@ class SecurityHardening {
     }
 
     const iv = crypto.randomBytes(16);
-    const cipher = crypto.createCipherGCM(this.config.encryptionAlgorithm, key.key, iv);
+    const cipher = crypto.createCipher('aes-256-gcm', key.key);
     
     let encrypted = cipher.update(data, 'utf8', 'hex');
     encrypted += cipher.final('hex');
@@ -312,7 +312,7 @@ class SecurityHardening {
       throw new Error(`Decryption key ${keyId} not found`);
     }
 
-    const decipher = crypto.createDecipherGCM(this.config.encryptionAlgorithm, key.key, Buffer.from(iv, 'hex'));
+    const decipher = crypto.createDecipher('aes-256-gcm', key.key);
     
     let decrypted = decipher.update(encryptedData, 'hex', 'utf8');
     decrypted += decipher.final('utf8');
@@ -350,13 +350,13 @@ class SecurityHardening {
 
     // Log based on severity and config
     if (event.severity === 'critical') {
-      logger.error(`[CRITICAL] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
+      this.logger.error(`[CRITICAL] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
     } else if (event.severity === 'high') {
-      logger.error(`[ERROR] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
+      this.logger.error(`[ERROR] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
     } else if (event.severity === 'medium') {
-      logger.warn(`[WARN] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
+      this.logger.warn(`[WARN] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
     } else if (this.config.auditLogLevel === 'detailed' || this.config.auditLogLevel === 'paranoid') {
-      logger.info(`[INFO] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
+      this.logger.info(`[INFO] SecurityAudit: ${event.description}`, event.metadata, event.sessionId);
     }
 
     // Keep only recent events in memory
@@ -450,7 +450,7 @@ class SecurityHardening {
     
     this.currentKeyId = keyId;
     
-    logger.info(`[INFO] SecurityHardening: New encryption key generated`, { keyId });
+    this.logger.info(`[INFO] SecurityHardening: New encryption key generated`, { keyId });
   }
 
   private startKeyRotation(): void {
@@ -465,7 +465,7 @@ class SecurityHardening {
         const keysToRemove = sortedKeys.slice(3);
         keysToRemove.forEach(([keyId]) => {
           this.encryptionKeys.delete(keyId);
-          logger.info(`[INFO] SecurityHardening: Old encryption key removed`, { keyId });
+          this.logger.info(`[INFO] SecurityHardening: Old encryption key removed`, { keyId });
         });
       }
     }, this.config.keyRotationIntervalMs);

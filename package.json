@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "cd apps/web && pnpm build",
+    "build": "turbo run build",
     "start": "turbo run start",
     "start:test": "NODE_ENV=test turbo run start",
     "lint": "turbo run lint",
