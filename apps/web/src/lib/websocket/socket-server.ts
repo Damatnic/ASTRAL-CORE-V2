@@ -342,7 +342,7 @@ export class EnhancedCrisisSocketServer {
       // });
       
       // Temporary mock result for deployment
-      const result = { messageId: randomUUID() };
+      const result = { messageId: randomUUID(), deliveryTime: performance.now() - startTime };
       
       // Broadcast to session room
       this.io.to(`session:${connection.sessionId}`).emit('crisis:message', {
