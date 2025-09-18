@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "name": "astral-core-v2",
   "git": {
     "deploymentEnabled": {
       "master": true
     }
   },
-  "root": "apps/web"
+  "buildCommand": "cd apps/web && npm run build",
+  "installCommand": "cd apps/web && npm ci --legacy-peer-deps",
+  "outputDirectory": "apps/web/.next"
 }
