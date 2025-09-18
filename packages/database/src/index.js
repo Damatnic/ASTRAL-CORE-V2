@@ -94,7 +94,7 @@ export async function storeCrisisMessage(sessionId, senderType, senderId, encryp
             messageHash,
             sentimentScore: metadata?.sentimentScore,
             riskScore: metadata?.riskScore,
-            keywordsDetected: metadata?.keywordsDetected || [],
+            keywordsDetected: Array.isArray(metadata?.keywordsDetected) ? metadata.keywordsDetected.join(',') : (metadata?.keywordsDetected || ''),
         },
     });
 }
@@ -105,7 +105,7 @@ export async function escalateToEmergency(sessionId, reason) {
             triggeredBy: 'KEYWORD_DETECTION',
             severity: 'EMERGENCY',
             reason,
-            actionsTaken: ['EMERGENCY_ESCALATION_TRIGGERED'],
+            actionsTaken: 'EMERGENCY_ESCALATION_TRIGGERED',
         },
     });
 }

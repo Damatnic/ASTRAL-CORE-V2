@@ -1,0 +1,101 @@
+# ASTRAL CORE V2 - Vercel Production Environment Variables
+# Copy these variables to your Vercel project dashboard
+
+# ============================================================================
+# CORE APPLICATION SETTINGS
+# ============================================================================
+NODE_ENV=production
+SKIP_ENV_VALIDATION=true
+NEXT_TELEMETRY_DISABLED=1
+VERCEL=1
+
+# ============================================================================
+# DATABASE CONFIGURATION (Required)
+# ============================================================================
+# For production, use a hosted PostgreSQL service like:
+# - Vercel Postgres: postgresql://default:password@host-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb
+# - Supabase: postgresql://postgres.reference:[password]@aws-0-us-east-1.pooler.supabase.com:6543/postgres
+# - Railway: postgresql://postgres:password@containers-us-west-1.railway.app:6543/railway
+DATABASE_URL=postgresql://postgres:secure_password@localhost:5432/astralcore_production
+
+# ============================================================================
+# AUTHENTICATION & SECURITY (Required)
+# ============================================================================
+# Generate with: openssl rand -base64 32
+NEXTAUTH_SECRET=crisis-platform-secure-jwt-secret-production-2025
+NEXTAUTH_URL=https://your-domain.vercel.app
+
+# JWT fallback secret
+JWT_SECRET=crisis-platform-secure-jwt-secret-production-2025
+
+# Crisis data encryption key (generate with: openssl rand -base64 64)
+CRISIS_ENCRYPTION_KEY=crisis-secure-encryption-key-64-chars-production-2025
+
+# ============================================================================
+# API ENDPOINTS
+# ============================================================================
+NEXT_PUBLIC_API_URL=https://your-domain.vercel.app/api
+NEXT_PUBLIC_WS_URL=wss://your-domain.vercel.app
+
+# ============================================================================
+# CRISIS INTERVENTION SERVICES (Optional for MVP)
+# ============================================================================
+# 988 Crisis Lifeline API (when available)
+CRISIS_988_API_KEY=
+CRISIS_TEXT_API_KEY=
+
+# Twilio for emergency communications
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_PHONE_NUMBER=
+
+# ============================================================================
+# MONITORING & ANALYTICS (Optional)
+# ============================================================================
+# Sentry for error tracking
+SENTRY_DSN=
+SENTRY_ORG=
+SENTRY_PROJECT=astral-core-v2
+SENTRY_ENVIRONMENT=production
+
+# ============================================================================
+# OAUTH PROVIDERS (Optional)
+# ============================================================================
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+# ============================================================================
+# FEATURE FLAGS
+# ============================================================================
+# Core crisis features (enable for production)
+FEATURE_CRISIS_CHAT=true
+FEATURE_EMERGENCY_ESCALATION=true
+FEATURE_SAFETY_PLANNING=true
+FEATURE_MOOD_TRACKING=true
+FEATURE_SELF_HELP_RESOURCES=true
+
+# Advanced features (can be disabled initially)
+FEATURE_AI_RISK_ASSESSMENT=false
+FEATURE_VOLUNTEER_MATCHING=false
+FEATURE_OFFLINE_MODE=false
+
+# Emergency settings
+NEXT_PUBLIC_EMERGENCY_MODE=false
+ENABLE_TEST_MODE=false
+
+# ============================================================================
+# REDIS CONFIGURATION (Optional for caching)
+# ============================================================================
+REDIS_URL=
+REDIS_PASSWORD=
+
+# ============================================================================
+# EMAIL SERVICE (Optional)
+# ============================================================================
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_USER=
+SMTP_PASSWORD=
+FROM_EMAIL=support@astralcore.org

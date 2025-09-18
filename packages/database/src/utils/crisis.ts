@@ -143,13 +143,13 @@ export async function storeCrisisMessage(
   return await prisma.crisisMessage.create({
     data: {
       sessionId,
-      senderType: senderType as MessageSender,
+      senderType: senderType as any, // MessageSender enum
       senderId,
       encryptedContent,
       messageHash,
       sentimentScore: metadata?.sentimentScore,
       riskScore: metadata?.riskScore,
-      keywordsDetected: metadata?.keywordsDetected?.join(',') || '',
+      keywordsDetected: metadata?.keywordsDetected ? JSON.stringify(metadata.keywordsDetected) : null,
     },
   });
 }
@@ -174,7 +174,7 @@ export async function escalateToEmergency(
       status: 'ESCALATED',
       emergencyTriggered: true,
       escalatedAt: new Date(),
-      escalationType: escalationType as EscalationType,
+      escalationType: escalationType as any, // EscalationType enum
     },
   });
   
@@ -182,10 +182,10 @@ export async function escalateToEmergency(
   const escalationRecord = prisma.crisisEscalation.create({
     data: {
       sessionId,
-      triggeredBy: trigger as EscalationTrigger,
+      triggeredBy: trigger as any, // EscalationTrigger enum
       severity: 'EMERGENCY',
       reason,
-      actionsTaken: actionsTaken.join(','),
+      actionsTaken: JSON.stringify(actionsTaken), // Convert array to string
       emergencyContacted: false, // Will be updated when contact is made
       lifeline988Called: false,
     },

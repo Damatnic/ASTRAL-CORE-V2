@@ -11,8 +11,29 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+interface NavigationChild {
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+interface NavigationItem {
+  id?: string;
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  priority?: 'critical' | 'high' | 'medium' | 'low';
+  description?: string;
+  badge?: string;
+  children?: NavigationChild[];
+}
+
 // Navigation structure with clear information architecture
-const navigationStructure = {
+const navigationStructure: {
+  primary: NavigationItem[];
+  secondary: NavigationItem[];
+  utility: NavigationItem[];
+} = {
   primary: [
     {
       id: 'crisis',
@@ -160,7 +181,7 @@ export default function EnhancedNavigation() {
               <div key={item.id} className="relative">
                 {item.children ? (
                   <button
-                    onClick={() => setActiveDropdown(activeDropdown === item.id ? null : item.id)}
+                    onClick={() => setActiveDropdown(activeDropdown === item.id ? null : (item.id || null))}
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       pathname.startsWith(item.href)
                         ? 'bg-purple-100 text-purple-700'

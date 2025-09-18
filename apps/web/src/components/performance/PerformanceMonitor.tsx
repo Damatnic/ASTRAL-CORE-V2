@@ -226,6 +226,7 @@ const PerformanceMonitor: React.FC = () => {
       const interval = setInterval(collectMetrics, 5000);
       return () => clearInterval(interval);
     }
+    return undefined;
   }, [isMonitoring, collectMetrics]);
   
   // Auto-start in development

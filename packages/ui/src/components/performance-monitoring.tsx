@@ -689,7 +689,7 @@ export const ResponseTimeAnalytics: React.FC<ResponseTimeAnalyticsProps> = ({
               data={chartData}
               xKey="time"
               yKey="responseTime"
-              color={designTokens.colors.primary.main}
+              color={designTokens.colors.main}
               height={200}
             />
           </div>
@@ -959,9 +959,7 @@ export const PerformanceMonitoringDashboard: React.FC<PerformanceMonitoringDashb
         <h1>Performance Monitoring Dashboard</h1>
       </ScreenReaderOnly>
       
-      <LiveRegion>
-        Performance dashboard loaded with real-time system metrics
-      </LiveRegion>
+      <LiveRegion message="Performance dashboard loaded with real-time system metrics" />
 
       {/* Header */}
       <div className="flex justify-between items-center">

@@ -76,7 +76,7 @@ export const LineChart: React.FC<ChartProps & {
   data, 
   xKey, 
   yKey, 
-  color = designTokens.colors.primary.main, 
+  color = designTokens.colors.main, 
   width = 400, 
   height = 200,
   showGrid = true,
@@ -176,7 +176,7 @@ export const BarChart: React.FC<ChartProps & {
           const barHeight = (d[yKey] / maxValue) * height;
           const x = i * (barWidth + barSpacing) + barSpacing / 2;
           const y = height - barHeight;
-          const color = colorKey && d[colorKey] ? d[colorKey] : designTokens.colors.primary.main;
+          const color = colorKey && d[colorKey] ? d[colorKey] : designTokens.colors.main;
           
           return (
             <g key={i}>
@@ -341,7 +341,7 @@ export const CrisisTrendsChart: React.FC<CrisisTrendsChartProps> = ({
       case 'crises': return designTokens.colors.crisis.high;
       case 'resolved': return designTokens.colors.status.success;
       case 'responseTime': return designTokens.colors.status.info;
-      default: return designTokens.colors.primary.main;
+      default: return designTokens.colors.main;
     }
   };
 
@@ -701,9 +701,7 @@ export const DataVisualizationDashboard: React.FC<DataVisualizationDashboardProp
         <h1>Crisis Intervention Analytics Dashboard</h1>
       </ScreenReaderOnly>
       
-      <LiveRegion>
-        Dashboard updated with latest crisis intervention data
-      </LiveRegion>
+      <LiveRegion message="Dashboard updated with latest crisis intervention data" />
 
       {/* Header */}
       <div className="flex justify-between items-center">

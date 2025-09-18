@@ -633,9 +633,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
             <h2 className="text-lg font-semibold text-gray-900">
               Search Results ({results.length})
             </h2>
-            <LiveRegion>
-              Found {results.length} results
-            </LiveRegion>
+            <LiveRegion message={`Found ${results.length} results`} />
           </div>
           
           <div className="flex items-center space-x-4">

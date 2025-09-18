@@ -262,8 +262,8 @@ class SecurityHardening {
 
     const cspDirectives = [
       "default-src 'self'",
-      "script-src 'self' 'nonce-{nonce}' https://cdn.jsdelivr.net https://fonts.googleapis.com",
-      "style-src 'self' 'nonce-{nonce}' https://fonts.googleapis.com https://fonts.gstatic.com",
+      "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https:",
       "connect-src 'self' wss: https:",
@@ -291,7 +291,7 @@ class SecurityHardening {
     }
 
     const iv = crypto.randomBytes(16);
-    const cipher = crypto.createCipher('aes-256-gcm', key.key);
+    const cipher = crypto.createCipher(this.config.encryptionAlgorithm, key.key);
     
     let encrypted = cipher.update(data, 'utf8', 'hex');
     encrypted += cipher.final('hex');
@@ -312,7 +312,7 @@ class SecurityHardening {
       throw new Error(`Decryption key ${keyId} not found`);
     }
 
-    const decipher = crypto.createDecipher('aes-256-gcm', key.key);
+    const decipher = crypto.createDecipher(this.config.encryptionAlgorithm, key.key);
     
     let decrypted = decipher.update(encryptedData, 'hex', 'utf8');
     decrypted += decipher.final('utf8');

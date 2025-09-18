@@ -118,9 +118,11 @@ export const EmotionDetector: React.FC<EmotionDetectorProps> = ({
     const confidence = totalScore > 0 ? emotionScores[primaryEmotion] / totalScore : 0.5;
 
     // Find secondary emotion if exists
-    const secondaryEmotion = Object.entries(emotionScores)
-      .filter(([emotion]) => emotion !== primaryEmotion)
-      .reduce((a, b) => emotionScores[a[0] as EmotionType] > emotionScores[b[0] as EmotionType] ? a : b, null);
+    const filteredEmotions = Object.entries(emotionScores)
+      .filter(([emotion]) => emotion !== primaryEmotion);
+    const secondaryEmotion = filteredEmotions.length > 0 
+      ? filteredEmotions.reduce((a, b) => emotionScores[a[0] as EmotionType] > emotionScores[b[0] as EmotionType] ? a : b)
+      : null;
 
     return {
       primary: primaryEmotion,

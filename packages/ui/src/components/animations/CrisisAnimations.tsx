@@ -102,6 +102,7 @@ export const SuccessCelebration: React.FC<{
       }, 3000);
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [isVisible, onComplete]);
 
   return (
@@ -166,12 +167,12 @@ export const SuccessCelebration: React.FC<{
                   initial={{
                     x: Math.random() * window.innerWidth,
                     y: -50,
-                    rotation: 0,
+                    rotate: 0,
                     scale: 0
                   }}
                   animate={{
                     y: window.innerHeight + 50,
-                    rotation: 360,
+                    rotate: 360,
                     scale: [0, 1, 0]
                   }}
                   transition={{

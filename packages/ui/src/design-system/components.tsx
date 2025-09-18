@@ -6,7 +6,7 @@
 
 import React, { forwardRef, ButtonHTMLAttributes, InputHTMLAttributes } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 // Button Component Variants
 const buttonVariants = cva(
@@ -81,7 +81,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading ? (
           <span className="flex items-center gap-2">
-            <LoadingSpinner size={size} />
+            <LoadingSpinner size={size || undefined} />
             <span>Loading...</span>
           </span>
         ) : (

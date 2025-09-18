@@ -2,10 +2,10 @@
 pnpm-lock.yaml
 pnpm-workspace.yaml
 
-# Packages directory (except database schema)
-packages/
-!packages/database/
-!packages/database/schema.prisma
+# Include database package for Prisma generation
+# packages/
+# !packages/database/
+# !packages/database/schema.prisma
 
 # Other apps
 apps/mobile/

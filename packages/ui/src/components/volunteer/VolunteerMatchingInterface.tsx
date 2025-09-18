@@ -347,7 +347,7 @@ const VolunteerCard: React.FC<VolunteerCardProps> = ({
             <div className="flex items-center space-x-2">
               <h3 className="font-semibold text-gray-900">{volunteer.name}</h3>
               {volunteer.certifications.length > 0 && (
-                <Award className="w-4 h-4 text-blue-500" title="Certified" />
+                <Award className="w-4 h-4 text-blue-500" />
               )}
             </div>
 

@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, Button, Badge, Input } from './base';
 import { ScreenReaderOnly, LiveRegion } from './accessibility';
-import { ToastNotification } from './notifications';
+import { NotificationToast } from './notifications';
 import { designTokens } from '../design-system';
 
 // Security Types
@@ -840,9 +840,7 @@ export const SecurityDashboard: React.FC<SecurityDashboardProps> = ({
         <h1>Security and Privacy Management Dashboard</h1>
       </ScreenReaderOnly>
       
-      <LiveRegion>
-        Security dashboard loaded with current encryption and privacy status
-      </LiveRegion>
+      <LiveRegion message="Security dashboard loaded with current encryption and privacy status" />
 
       {/* Header */}
       <div className="flex justify-between items-center">

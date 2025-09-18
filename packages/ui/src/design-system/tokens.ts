@@ -24,6 +24,7 @@ export const designTokens = {
       700: '#1D4ED8',  // Active primary
       800: '#1E40AF',  // Dark mode primary
       900: '#1E3A8A',  // Text on light
+      main: '#3B82F6', // Main color alias for compatibility
     },
     
     // Secondary - Soft purples (creativity, wisdom)
@@ -80,6 +81,7 @@ export const designTokens = {
       700: '#B91C1C',
       800: '#991B1B',
       900: '#7F1D1D',
+      critical: '#DC2626', // Critical state color
     },
     
     // Neutral - Soft grays
@@ -94,6 +96,9 @@ export const designTokens = {
       700: '#3F3F46',
       800: '#27272A',
       900: '#18181B',
+      light: '#F4F4F5',
+      medium: '#71717A',
+      dark: '#18181B',
     },
     
     // Semantic colors
@@ -110,6 +115,33 @@ export const designTokens = {
       tertiary: '#71717A',
       disabled: '#A1A1AA',
       inverse: '#FFFFFF',
+    },
+    
+    // Status colors for system states
+    status: {
+      success: '#22C55E',
+      warning: '#F59E0B',
+      error: '#EF4444',
+      info: '#3B82F6',
+    },
+    
+    // Chart colors for data visualization
+    chart: [
+      '#3B82F6', // Blue
+      '#EF4444', // Red
+      '#22C55E', // Green
+      '#F59E0B', // Orange
+      '#A855F7', // Purple
+      '#06B6D4', // Cyan
+      '#EC4899', // Pink
+      '#84CC16', // Lime
+    ],
+    
+    // Semantic colors with aliases
+    semantic: {
+      destructive: '#EF4444',
+      secondary: '#71717A',
+      outline: '#D4D4D8',
     },
   },
   

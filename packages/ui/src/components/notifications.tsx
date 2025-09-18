@@ -64,6 +64,12 @@ export const useNotifications = () => {
 };
 
 // Push Notification API Integration
+interface NotificationAction {
+  action: string;
+  title: string;
+  icon?: string;
+}
+
 interface PushNotificationOptions {
   title: string;
   body: string;
@@ -112,8 +118,8 @@ export const usePushNotifications = () => {
         tag: options.tag,
         requireInteraction: options.requireInteraction || false,
         silent: options.silent || false,
-        vibrate: options.vibrate || [200, 100, 200],
-        actions: options.actions || []
+        ...(options.vibrate && { vibrate: options.vibrate }),
+        ...(options.actions && { actions: options.actions })
       });
       return true;
     } catch (error) {
@@ -457,6 +463,7 @@ export const NotificationToast: React.FC<NotificationToastProps> = ({
 
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [notification.id, notification.priority, autoHide, hideDelay, onDismiss]);
 
   const getPriorityColor = (priority: string) => {
@@ -548,9 +555,9 @@ export const NotificationToastContainer: React.FC<NotificationToastContainerProp
 
   return (
     <div className={`fixed ${getPositionClasses(position)} z-50 w-96 max-w-full`}>
-      <LiveRegion>
-        {visibleToasts.length > 0 && `${visibleToasts.length} new high priority notifications`}
-      </LiveRegion>
+      <LiveRegion 
+        message={visibleToasts.length > 0 ? `${visibleToasts.length} new high priority notifications` : ""}
+      />
       
       <div className="space-y-2">
         {visibleToasts.map((notification) => (

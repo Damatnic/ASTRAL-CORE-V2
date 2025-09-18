@@ -10,6 +10,7 @@ export interface SafetyCheckResult {
   score: number;
   threshold: number;
   passed: boolean;
+  safe: boolean;
   confidence: number;
   reasons: string[];
   timestamp: Date;
@@ -85,6 +86,65 @@ export interface SafetyAction {
   triggered: boolean;
   reason: string;
   confidence: number;
+  timestamp: Date;
+  metadata?: Record<string, any>;
+}
+
+export interface ModerationAction {
+  type: 'BLOCK' | 'ESCALATE' | 'WARN' | 'LOG' | 'HUMAN_REVIEW' | 'AUTO_RESPOND';
+  severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  automated: boolean;
+  reason: string;
+  timestamp: Date;
+}
+
+export interface SafetyAlert {
+  id: string;
+  userId?: string;
+  sessionId?: string;
+  alertType: 'CONTENT_VIOLATION' | 'BEHAVIOR_ANOMALY' | 'SYSTEM_FAILURE' | 'THRESHOLD_BREACH';
+  severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  message: string;
+  details: Record<string, any>;
+  timestamp: Date;
+  resolved: boolean;
+}
+
+export interface SafetyStats {
+  totalMessages: number;
+  flaggedMessages: number;
+  falsePositives: number;
+  falseNegatives: number;
+  averageProcessingTime: number;
+  systemUptime: number;
+  alertsTriggered: number;
+  humanInterventions: number;
+}
+
+export interface ContentAnalysisResult {
+  id: string;
+  content: string;
+  riskScore: number;
+  categories: {
+    toxicity: number;
+    selfHarm: number;
+    abuse: number;
+    spam: number;
+  };
+  flags: string[];
+  confidence: number;
+  processing: {
+    timeMs: number;
+    model: string;
+    version: string;
+  };
+}
+
+export interface DetectionContext {
+  userId?: string;
+  sessionId?: string;
+  messageType: 'crisis' | 'volunteer' | 'general';
+  isAnonymous?: boolean;
   timestamp: Date;
   metadata?: Record<string, any>;
 }

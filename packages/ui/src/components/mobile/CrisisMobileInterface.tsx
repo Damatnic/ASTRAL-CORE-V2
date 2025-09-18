@@ -94,7 +94,7 @@ export const CrisisMobileInterface: React.FC<CrisisMobileInterfaceProps> = ({
 
   // Emergency shake detection
   useEffect(() => {
-    if (!enableGestures || !emergencyMode) return;
+    if (!enableGestures || !emergencyMode) return undefined;
 
     let shakeCount = 0;
     let lastShake = 0;
@@ -130,6 +130,7 @@ export const CrisisMobileInterface: React.FC<CrisisMobileInterfaceProps> = ({
       window.addEventListener('devicemotion', handleDeviceMotion);
       return () => window.removeEventListener('devicemotion', handleDeviceMotion);
     }
+    return undefined;
   }, [enableGestures, emergencyMode, onEmergencyCall]);
 
   const CrisisAction = ({ 

@@ -594,9 +594,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         <h1>Crisis Management Admin Dashboard</h1>
       </ScreenReaderOnly>
       
-      <LiveRegion>
-        Last updated: {lastUpdate.toLocaleTimeString()}
-      </LiveRegion>
+      <LiveRegion message={`Last updated: ${lastUpdate.toLocaleTimeString()}`} />
 
       {/* Header */}
       <div className="flex justify-between items-center">

@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   Activity, Zap, Clock, TrendingUp, TrendingDown, AlertCircle,
   Cpu, HardDrive, Wifi, Battery, Gauge, CheckCircle,
-  XCircle, RefreshCw, Download, Upload, Database, Server
+  XCircle, RefreshCw, Download, Upload, Database, Server,
+  Heart, MessageSquare, Users
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
@@ -225,11 +226,12 @@ export const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({
     
     PERFORMANCE_THRESHOLDS.forEach(threshold => {
       const value = metrics[threshold.metric];
-      if (value > threshold.poor) {
+      const numValue = typeof value === 'number' ? value : 0;
+      if (numValue > threshold.poor) {
         score -= 15;
-      } else if (value > threshold.needsImprovement) {
+      } else if (numValue > threshold.needsImprovement) {
         score -= 10;
-      } else if (value > threshold.good) {
+      } else if (numValue > threshold.good) {
         score -= 5;
       }
     });
@@ -239,8 +241,9 @@ export const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({
     // Check for threshold violations
     PERFORMANCE_THRESHOLDS.forEach(threshold => {
       const value = metrics[threshold.metric];
-      if (value > threshold.poor && onThresholdExceeded) {
-        onThresholdExceeded(threshold.metric, value);
+      const numValue = typeof value === 'number' ? value : 0;
+      if (numValue > threshold.poor && onThresholdExceeded) {
+        onThresholdExceeded(threshold.metric, numValue);
       }
     });
   }, [metrics, onThresholdExceeded]);
@@ -338,7 +341,8 @@ export const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({
             { metric: 'ttfb', label: 'TTFB', icon: Server, unit: 'ms' },
           ].map(({ metric, label, icon: Icon, unit }) => {
             const value = metrics[metric as keyof PerformanceMetrics];
-            const status = getMetricStatus(metric as keyof PerformanceMetrics, value);
+            const numValue = typeof value === 'number' ? value : 0;
+            const status = getMetricStatus(metric as keyof PerformanceMetrics, numValue);
             
             return (
               <div key={metric} className="text-center">
@@ -391,7 +395,8 @@ export const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({
             },
           ].map(({ metric, label, target, icon: Icon }) => {
             const value = metrics[metric as keyof PerformanceMetrics];
-            const status = getMetricStatus(metric as keyof PerformanceMetrics, value);
+            const numValue = typeof value === 'number' ? value : 0;
+            const status = getMetricStatus(metric as keyof PerformanceMetrics, numValue);
             
             return (
               <div key={metric} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">

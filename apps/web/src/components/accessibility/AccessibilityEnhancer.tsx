@@ -494,6 +494,9 @@ export function KeyboardNavigationHelper() {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
+    
+    // Explicit return for the case where keyboardNavigation is false
+    return undefined;
   }, [settings.keyboardNavigation, showHelp]);
 
   if (!settings.keyboardNavigation) return null;

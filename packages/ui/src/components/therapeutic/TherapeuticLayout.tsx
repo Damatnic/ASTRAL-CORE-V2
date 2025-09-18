@@ -37,6 +37,7 @@ export const TherapeuticLayout: React.FC<TherapeuticLayoutProps> = ({
       }, 4000); // 4-second cycles
       return () => clearInterval(interval);
     }
+    return undefined;
   }, [showBreathing]);
 
   // Mode-specific styling

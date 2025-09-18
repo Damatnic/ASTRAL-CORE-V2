@@ -220,6 +220,7 @@ export const CrisisBar: React.FC<CrisisBarProps> = ({
       window.addEventListener('scroll', handleScroll, { passive: true });
       return () => window.removeEventListener('scroll', handleScroll);
     }
+    return undefined;
   }, [alwaysVisible, lastScrollY]);
 
   return (

@@ -146,7 +146,9 @@ export class MoodService {
         entries.forEach(entry => {
             if (Array.isArray(entry.triggers)) {
                 entry.triggers.forEach((trigger) => {
-                    triggerCounts[trigger] = (triggerCounts[trigger] || 0) + 1;
+                    if (typeof trigger === 'string') {
+                        triggerCounts[trigger] = (triggerCounts[trigger] || 0) + 1;
+                    }
                 });
             }
         });
@@ -159,9 +161,11 @@ export class MoodService {
         entries.forEach(entry => {
             if (Array.isArray(entry.activities)) {
                 entry.activities.forEach((activity) => {
-                    if (!activityMoods[activity])
-                        activityMoods[activity] = [];
-                    activityMoods[activity].push(entry.mood);
+                    if (typeof activity === 'string') {
+                        if (!activityMoods[activity])
+                            activityMoods[activity] = [];
+                        activityMoods[activity].push(entry.mood);
+                    }
                 });
             }
         });

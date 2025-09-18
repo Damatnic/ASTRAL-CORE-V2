@@ -56,9 +56,11 @@ interface NotificationPreferences {
     crisis: boolean;
     support: boolean;
     checkIn: boolean;
+    'check-in': boolean;
     reminder: boolean;
     success: boolean;
     info: boolean;
+    escalation: boolean;
   };
   urgencyThreshold: 'all' | 'high' | 'urgent';
 }
@@ -129,9 +131,11 @@ export const NotificationSystem: React.FC<NotificationSystemProps> = ({
       crisis: true,
       support: true,
       checkIn: true,
+      'check-in': true,
       reminder: true,
       success: true,
       info: true,
+      escalation: true,
     },
     urgencyThreshold: 'all',
   });
@@ -343,6 +347,7 @@ export const NotificationSystem: React.FC<NotificationSystemProps> = ({
       }, 5000);
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [urgencyLevel, addNotification]);
 
   return (

@@ -213,6 +213,7 @@ export const ProgressiveInterventionFlow: React.FC<ProgressiveInterventionFlowPr
         if (timer) clearTimeout(timer);
       };
     }
+    return undefined;
   }, [autoEscalate, userEngagement]);
 
   // Monitor urgency changes

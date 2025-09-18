@@ -371,6 +371,7 @@ export function NotificationToast({
       }, duration);
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [isVisible, duration, onClose]);
 
   return (

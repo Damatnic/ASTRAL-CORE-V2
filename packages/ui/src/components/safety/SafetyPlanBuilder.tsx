@@ -224,23 +224,33 @@ export const SafetyPlanBuilder: React.FC<SafetyPlanBuilderProps> = ({
   };
 
   const addItem = (section: string, subsection: string, item: any) => {
-    setPlan(prev => ({
-      ...prev,
-      [section]: {
-        ...prev[section as keyof SafetyPlanData],
-        [subsection]: [...(prev[section as keyof SafetyPlanData] as any)[subsection], item],
-      },
-    }));
+    setPlan(prev => {
+      const currentSection = prev[section as keyof SafetyPlanData] as any;
+      const currentSubsection = currentSection?.[subsection] || [];
+      
+      return {
+        ...prev,
+        [section]: {
+          ...currentSection,
+          [subsection]: [...currentSubsection, item],
+        },
+      };
+    });
   };
 
   const removeItem = (section: string, subsection: string, index: number) => {
-    setPlan(prev => ({
-      ...prev,
-      [section]: {
-        ...prev[section as keyof SafetyPlanData],
-        [subsection]: (prev[section as keyof SafetyPlanData] as any)[subsection].filter((_: any, i: number) => i !== index),
-      },
-    }));
+    setPlan(prev => {
+      const currentSection = prev[section as keyof SafetyPlanData] as any;
+      const currentSubsection = currentSection?.[subsection] || [];
+      
+      return {
+        ...prev,
+        [section]: {
+          ...currentSection,
+          [subsection]: currentSubsection.filter((_: any, i: number) => i !== index),
+        },
+      };
+    });
   };
 
   return (

@@ -92,7 +92,37 @@ export const designTokens = {
       'text-muted': '#64748b',
       border: '#e2e8f0',
       'focus-ring': '#3b82f6'
-    }
+    },
+    
+    // Status colors (semantic aliases)
+    status: {
+      success: '#22c55e',  // success.500
+      warning: '#f59e0b',  // warning.500
+      error: '#ef4444',    // crisis.500
+      info: '#3b82f6'      // blue.500
+    },
+    
+    // Chart colors for data visualization
+    chart: [
+      '#10b981', // primary.500
+      '#3b82f6', // blue.500
+      '#f59e0b', // warning.500
+      '#ef4444', // crisis.500
+      '#8b5cf6', // purple.500
+      '#06b6d4', // cyan.500
+      '#84cc16', // lime.500
+      '#f97316'  // orange.500
+    ],
+    
+    // Neutral color aliases
+    neutral: {
+      light: '#f1f5f9',   // gray.100
+      medium: '#94a3b8',  // gray.400
+      dark: '#475569'     // gray.600
+    },
+    
+    // Main brand color alias
+    main: '#10b981' // primary.500
   },
 
   // Typography Scale
@@ -262,7 +292,8 @@ export const componentPatterns = {
       crisis: 'bg-crisis-600 hover:bg-crisis-700 text-white shadow-crisis-glow',
       success: 'bg-success-600 hover:bg-success-700 text-white',
       outline: 'border border-gray-300 bg-white hover:bg-gray-50 text-gray-700',
-      ghost: 'hover:bg-gray-100 text-gray-700'
+      ghost: 'hover:bg-gray-100 text-gray-700',
+      default: 'bg-gray-600 hover:bg-gray-700 text-white'
     }
   },
 
@@ -305,7 +336,11 @@ export const componentPatterns = {
       primary: 'bg-primary-100 text-primary-800',
       crisis: 'bg-crisis-100 text-crisis-800',
       success: 'bg-success-100 text-success-800',
-      warning: 'bg-warning-100 text-warning-800'
+      warning: 'bg-warning-100 text-warning-800',
+      secondary: 'bg-gray-200 text-gray-900',
+      destructive: 'bg-red-100 text-red-800',
+      outline: 'border border-gray-300 bg-white text-gray-700',
+      custom: 'bg-purple-100 text-purple-800'
     }
   }
 };

@@ -176,9 +176,14 @@ export const useCrisisGestures = (config: GestureConfig) => {
     const handleMotion = (event: DeviceMotionEvent) => {
       const { x = 0, y = 0, z = 0 } = event.acceleration || {};
       
-      const deltaX = Math.abs(x - lastX);
-      const deltaY = Math.abs(y - lastY);
-      const deltaZ = Math.abs(z - lastZ);
+      // Convert to numbers to ensure type safety
+      const xNum = typeof x === 'number' ? x : 0;
+      const yNum = typeof y === 'number' ? y : 0;
+      const zNum = typeof z === 'number' ? z : 0;
+      
+      const deltaX = Math.abs(xNum - lastX);
+      const deltaY = Math.abs(yNum - lastY);
+      const deltaZ = Math.abs(zNum - lastZ);
 
       const threshold = 15; // Sensitivity threshold
       const now = Date.now();
@@ -195,9 +200,9 @@ export const useCrisisGestures = (config: GestureConfig) => {
         }
       }
 
-      lastX = x;
-      lastY = y;
-      lastZ = z;
+      lastX = xNum;
+      lastY = yNum;
+      lastZ = zNum;
     };
 
     // Request permission for iOS 13+

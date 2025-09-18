@@ -3,7 +3,6 @@
   "compilerOptions": {
     "composite": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "tsBuildInfoFile": "./dist/.tsbuildinfo"
   },
   "include": [
@@ -17,5 +16,13 @@
     "**/*.spec.ts",
     "**/*.test.tsx",
     "**/*.spec.tsx"
+  ],
+  "references": [
+    { "path": "../shared" },
+    { "path": "../database" },
+    { "path": "../crisis" },
+    { "path": "../volunteer" },
+    { "path": "../security" },
+    { "path": "../performance" }
   ]
 }

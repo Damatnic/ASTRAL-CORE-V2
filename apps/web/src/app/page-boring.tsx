@@ -154,8 +154,19 @@ function FloatingCrisisButton() {
   );
 }
 
+// Action type for ActionCard component
+interface ActionType {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: any;
+  href: string;
+  gradient: string;
+  priority: number;
+}
+
 // Simplified Action Card - Less Overwhelming
-function ActionCard({ action, delay = 0 }) {
+function ActionCard({ action, delay = 0 }: { action: ActionType; delay?: number }) {
   return (
     <motion.a
       href={action.href}
@@ -215,7 +226,7 @@ export default function RedesignedHomePage() {
   }, []);
   
   const getGreeting = () => {
-    const greetings = {
+    const greetings: Record<string, string> = {
       morning: 'Good morning',
       afternoon: 'Good afternoon',
       evening: 'Good evening'
