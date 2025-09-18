@@ -98,9 +98,12 @@ export const TherapeuticChat: React.FC<TherapeuticChatProps> = ({
         <div className="flex items-center space-x-3">
           <div className="relative">
             <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-              <Brain className="w-5 h-5 text-white" />
+              <Brain className="w-5 h-5 text-white" aria-hidden="true" />
             </div>
-            <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
+            <span 
+              className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 border-2 border-white rounded-full"
+              aria-label="Online status indicator"
+            ></span>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900">{therapistName}</h3>
@@ -137,7 +140,13 @@ export const TherapeuticChat: React.FC<TherapeuticChatProps> = ({
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div 
+        className="flex-1 overflow-y-auto p-4 space-y-4"
+        role="log"
+        aria-label="Chat conversation"
+        aria-live="polite"
+        aria-atomic="false"
+      >
         {messages.map((message) => (
           <div key={message.id} className="space-y-2">
             {/* Message Bubble */}
@@ -282,11 +291,16 @@ export const TherapeuticChat: React.FC<TherapeuticChatProps> = ({
               placeholder="Share what's on your mind..."
               className="w-full px-4 py-3 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[44px] max-h-32"
               rows={1}
+              aria-label="Type your message to the therapist"
+              aria-describedby="message-input-help"
               style={{ 
                 fontSize: '16px', // Prevents zoom on iOS
                 lineHeight: '1.5',
               }}
             />
+            <div id="message-input-help" className="sr-only">
+              Type your message and press Enter to send, or Shift+Enter for a new line
+            </div>
           </div>
           <button
             onClick={handleSendMessage}

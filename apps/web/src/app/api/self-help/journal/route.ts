@@ -193,9 +193,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     // Calculate stats
     const stats = {
       totalEntries: totalCount,
-      totalWords: entries.reduce((sum, e) => sum + (e.wordCount || 0), 0),
-      averageMood: entries.filter(e => e.mood).length > 0
-        ? entries.filter(e => e.mood).reduce((sum, e) => sum + (e.mood || 0), 0) / entries.filter(e => e.mood).length
+      totalWords: entries.reduce((sum: number, e: any) => sum + (e.wordCount || 0), 0),
+      averageMood: entries.filter((e: any) => e.mood).length > 0
+        ? entries.filter((e: any) => e.mood).reduce((sum: number, e: any) => sum + (e.mood || 0), 0) / entries.filter((e: any) => e.mood).length
         : null,
       entryTypes: getEntryTypeDistribution(entries),
       commonTags: getCommonTags(entries),

@@ -24,8 +24,26 @@ import MoodTrackerEnhanced from '@/components/self-help/MoodTrackerEnhanced'
 import JournalModule from '@/components/self-help/JournalModule'
 import BreathingExercises from '@/components/self-help/BreathingExercises'
 import GroundingTechniques from '@/components/self-help/GroundingTechniques'
+import CrisisRapidRelief from '@/components/self-help/CrisisRapidRelief'
+import MindfulnessHub from '@/components/self-help/MindfulnessHub'
+import CBTToolsHub from '@/components/self-help/cbt/CBTToolsHub'
+import DBTSkillsHub from '@/components/self-help/dbt/DBTSkillsHub'
 
 const SELF_HELP_TOOLS = [
+  {
+    id: 'crisis-relief',
+    name: 'Crisis Rapid Relief',
+    description: 'Emergency techniques for immediate emotional crisis support',
+    icon: Sparkles,
+    color: 'from-red-500 to-orange-500',
+    bgColor: 'bg-red-50',
+    textColor: 'text-red-700',
+    borderColor: 'border-red-200',
+    benefits: ['Immediate relief', 'Crisis intervention', 'Safety techniques'],
+    timeEstimate: '1-5 minutes',
+    evidenceLevel: 'High',
+    category: 'crisis'
+  },
   {
     id: 'mood',
     name: 'Mood Tracking',
@@ -81,6 +99,48 @@ const SELF_HELP_TOOLS = [
     timeEstimate: '3-10 minutes',
     evidenceLevel: 'High',
     category: 'crisis'
+  },
+  {
+    id: 'mindfulness',
+    name: 'Mindfulness & Meditation',
+    description: 'Guided meditation sessions for peace and clarity',
+    icon: Target,
+    color: 'from-purple-500 to-indigo-500',
+    bgColor: 'bg-purple-50',
+    textColor: 'text-purple-700',
+    borderColor: 'border-purple-200',
+    benefits: ['Reduces stress', 'Improves focus', 'Emotional balance'],
+    timeEstimate: '5-20 minutes',
+    evidenceLevel: 'High',
+    category: 'mindfulness'
+  },
+  {
+    id: 'cbt-tools',
+    name: 'CBT Tools',
+    description: 'Cognitive Behavioral Therapy techniques for thought patterns',
+    icon: TrendingUp,
+    color: 'from-green-500 to-blue-500',
+    bgColor: 'bg-green-50',
+    textColor: 'text-green-700',
+    borderColor: 'border-green-200',
+    benefits: ['Changes negative thoughts', 'Improves mood', 'Builds coping skills'],
+    timeEstimate: '10-30 minutes',
+    evidenceLevel: 'High',
+    category: 'therapy'
+  },
+  {
+    id: 'dbt-skills',
+    name: 'DBT Skills',
+    description: 'Dialectical Behavior Therapy skills for emotional regulation',
+    icon: Activity,
+    color: 'from-orange-500 to-red-500',
+    bgColor: 'bg-orange-50',
+    textColor: 'text-orange-700',
+    borderColor: 'border-orange-200',
+    benefits: ['Distress tolerance', 'Emotion regulation', 'Interpersonal skills'],
+    timeEstimate: '15-45 minutes',
+    evidenceLevel: 'High',
+    category: 'therapy'
   }
 ]
 
@@ -206,6 +266,8 @@ export default function SelfHelpPage() {
   // Render active tool component
   const renderActiveComponent = () => {
     switch (activeTab) {
+      case 'crisis-relief':
+        return <CrisisRapidRelief />
       case 'mood':
         return <MoodTrackerEnhanced />
       case 'journal':
@@ -214,6 +276,12 @@ export default function SelfHelpPage() {
         return <BreathingExercises />
       case 'grounding':
         return <GroundingTechniques />
+      case 'mindfulness':
+        return <MindfulnessHub />
+      case 'cbt-tools':
+        return <CBTToolsHub />
+      case 'dbt-skills':
+        return <DBTSkillsHub />
       default:
         return null
     }

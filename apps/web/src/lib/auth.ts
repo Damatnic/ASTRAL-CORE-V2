@@ -152,14 +152,19 @@ export const authOptions: NextAuthOptions = {
             licenseId: undefined
           };
         } catch (error) {
-          console.error('Authentication error:', error);
+          // Use structured logging instead of console.error
+          const { log } = await import('./logger');
+          log.error('Authentication error during credentials login', error as Error, {
+            component: 'auth',
+            provider: 'credentials'
+          });
           return null;
         }
       }
     })
   ],
   session: {
-    strategy: 'database', // Use database sessions for better security
+    strategy: 'jwt', // Use JWT sessions for better compatibility until Prisma models are fixed
     maxAge: 24 * 60 * 60, // 24 hours
     updateAge: 60 * 60, // Update session every hour
   },
@@ -193,7 +198,13 @@ export const authOptions: NextAuthOptions = {
           }
           return true;
         } catch (error) {
-          console.error('OAuth sign in error:', error);
+          // Use structured logging instead of console.error
+          const { log } = await import('./logger');
+          log.error('OAuth sign in error', error as Error, {
+            component: 'auth',
+            provider: account.provider,
+            email: user.email
+          });
           return false;
         }
       }
@@ -201,17 +212,30 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
 
-    async session({ session, user }) {
+    async jwt({ token, user }) {
+      // If this is the initial sign in, save the user info to the token
       if (user) {
-        // For now, simplify without database lookup until Prisma types are properly configured
-        // The user object from NextAuth already contains the necessary information
-        session.user.id = user.id;
-        session.user.isAnonymous = false;
-        session.user.isVolunteer = false; // Will be fetched from DB when properly configured
-        session.user.isTherapist = false; // Will be fetched from DB when properly configured
-        session.user.role = 'USER'; // Default role
-        session.user.volunteerId = undefined;
-        session.user.licenseId = undefined;
+        token.id = user.id;
+        token.isAnonymous = user.isAnonymous || false;
+        token.isVolunteer = user.isVolunteer || false;
+        token.isTherapist = user.isTherapist || false;
+        token.role = user.role || 'USER';
+        token.volunteerId = user.volunteerId;
+        token.licenseId = user.licenseId;
+      }
+      return token;
+    },
+
+    async session({ session, token }) {
+      // Include the user ID and other properties in the session
+      if (token) {
+        session.user.id = token.id as string;
+        session.user.isAnonymous = token.isAnonymous as boolean;
+        session.user.isVolunteer = token.isVolunteer as boolean;
+        session.user.isTherapist = token.isTherapist as boolean;
+        session.user.role = token.role as string;
+        session.user.volunteerId = token.volunteerId as string;
+        session.user.licenseId = token.licenseId as string;
       }
       return session;
     },
@@ -248,7 +272,13 @@ export const authOptions: NextAuthOptions = {
           }
         }).catch(() => {});
       } catch (error) {
-        console.error('Failed to log signin event:', error);
+        // Use structured logging instead of console.error
+        const { log } = await import('./logger');
+        log.error('Failed to log signin event', error as Error, {
+          component: 'auth',
+          event: 'signin',
+          userId: user.id
+        });
       }
     },
     
@@ -266,7 +296,13 @@ export const authOptions: NextAuthOptions = {
           }
         }).catch(() => {});
       } catch (error) {
-        console.error('Failed to log signout event:', error);
+        // Use structured logging instead of console.error
+        const { log } = await import('./logger');
+        log.error('Failed to log signout event', error as Error, {
+          component: 'auth',
+          event: 'signout',
+          userId: session?.user?.id || 'unknown'
+        });
       }
     },
     
@@ -286,7 +322,14 @@ export const authOptions: NextAuthOptions = {
           }
         }).catch(() => {});
       } catch (error) {
-        console.error('Failed to log user creation:', error);
+        // Use structured logging instead of console.error
+        const { log } = await import('./logger');
+        log.error('Failed to log user creation', error as Error, {
+          component: 'auth',
+          event: 'createUser',
+          userId: user.id,
+          email: user.email
+        });
       }
     }
   },

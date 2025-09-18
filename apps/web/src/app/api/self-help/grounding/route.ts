@@ -441,7 +441,7 @@ async function getGroundingStats(userId: string) {
     }
   })
 
-  const effectiveness = recentSessions.map(session => ({
+  const effectiveness = recentSessions.map((session: any) => ({
     date: session.startedAt,
     severityImprovement: (session.severityBefore || 0) - (session.severityAfter || 0),
     panicImprovement: (session.panicBefore || 0) - (session.panicAfter || 0),
@@ -456,13 +456,13 @@ async function getGroundingStats(userId: string) {
     averageCompletionRate: Math.round((stats._avg.completionRate || 0) * 100),
     averageRating: stats._avg.rating || 0,
     averageSeverityImprovement: recentSessions.length > 0
-      ? effectiveness.reduce((sum, e) => sum + e.severityImprovement, 0) / effectiveness.length
+      ? effectiveness.reduce((sum: number, e: any) => sum + e.severityImprovement, 0) / effectiveness.length
       : 0,
     averagePanicImprovement: recentSessions.length > 0
-      ? effectiveness.reduce((sum, e) => sum + e.panicImprovement, 0) / effectiveness.length
+      ? effectiveness.reduce((sum: number, e: any) => sum + e.panicImprovement, 0) / effectiveness.length
       : 0,
     averageDissociationImprovement: recentSessions.length > 0
-      ? effectiveness.reduce((sum, e) => sum + e.dissociationImprovement, 0) / effectiveness.length
+      ? effectiveness.reduce((sum: number, e: any) => sum + e.dissociationImprovement, 0) / effectiveness.length
       : 0,
     favoriteTechniques: categoryUsage,
     commonTriggers: triggerCounts,

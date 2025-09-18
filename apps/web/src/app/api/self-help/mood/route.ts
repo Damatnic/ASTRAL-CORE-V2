@@ -121,7 +121,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const stats = {
       totalEntries: entries.length,
       averageMood: entries.length > 0 
-        ? entries.reduce((sum, e) => sum + e.mood, 0) / entries.length 
+        ? entries.reduce((sum: number, e: any) => sum + e.mood, 0) / entries.length 
         : 0,
       moodTrend: calculateMoodTrend(entries),
       commonTriggers: getCommonTriggers(entries),
@@ -173,11 +173,11 @@ async function checkCrisisIndicators(userId: string, moodData: any): Promise<boo
   })
 
   if (recentEntries.length >= 3) {
-    const averageMood = recentEntries.reduce((sum, e) => sum + e.mood, 0) / recentEntries.length
-    const recentMoods = recentEntries.slice(0, 3).map(e => e.mood)
+    const averageMood = recentEntries.reduce((sum: number, e: any) => sum + e.mood, 0) / recentEntries.length
+    const recentMoods = recentEntries.slice(0, 3).map((e: any) => e.mood)
     
     // Trigger if average mood is very low or consistent decline
-    if (averageMood <= 4 || (recentMoods.every((mood, i) => i === 0 || mood <= recentMoods[i - 1]))) {
+    if (averageMood <= 4 || (recentMoods.every((mood: any, i: number) => i === 0 || mood <= recentMoods[i - 1]))) {
       return true
     }
   }

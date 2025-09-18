@@ -380,7 +380,7 @@ function SignInForm() {
                 <h3 className="font-semibold text-amber-800">🎯 Demo Access</h3>
                 <p className="text-sm text-amber-700">Try the platform with pre-configured demo accounts</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
                 <button
                   onClick={() => {
                     setAuthType('volunteer');
@@ -407,6 +407,14 @@ function SignInForm() {
                   className="px-3 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors text-sm font-medium"
                 >
                   Demo Admin
+                </button>
+              </div>
+              <div className="text-center">
+                <button
+                  onClick={() => router.push('/demo')}
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 font-medium text-sm shadow-lg"
+                >
+                  🌟 Full Demo Experience - All User Types
                 </button>
               </div>
             </div>

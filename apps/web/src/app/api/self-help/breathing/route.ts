@@ -421,7 +421,7 @@ async function getBreathingStats(userId: string) {
     }
   })
 
-  const improvements = recentSessions.map(session => ({
+  const improvements = recentSessions.map((session: any) => ({
     date: session.startedAt,
     moodImprovement: (session.moodAfter || 0) - (session.moodBefore || 0),
     anxietyImprovement: (session.anxietyBefore || 0) - (session.anxietyAfter || 0)
@@ -433,10 +433,10 @@ async function getBreathingStats(userId: string) {
     totalCycles: stats._sum.cyclesCompleted || 0,
     averageRating: stats._avg.rating || 0,
     averageMoodImprovement: recentSessions.length > 0
-      ? improvements.reduce((sum, i) => sum + i.moodImprovement, 0) / improvements.length
+      ? improvements.reduce((sum: number, i: any) => sum + i.moodImprovement, 0) / improvements.length
       : 0,
     averageAnxietyImprovement: recentSessions.length > 0
-      ? improvements.reduce((sum, i) => sum + i.anxietyImprovement, 0) / improvements.length
+      ? improvements.reduce((sum: number, i: any) => sum + i.anxietyImprovement, 0) / improvements.length
       : 0,
     favoriteExercises: techniqueCounts,
     recentImprovements: improvements
@@ -492,10 +492,21 @@ function getRecommendations(moodBefore?: number, anxietyBefore?: number, moodImp
 // Create wellness alert (non-crisis support)
 async function createWellnessAlert(userId: string, alertData: any) {
   try {
-    console.log('Wellness alert triggered for user:', userId, alertData)
+    // Log wellness alert using structured logging
+    const { log } = await import('@/lib/logger')
+    log.info('Wellness alert triggered', {
+      userId: userId.substring(0, 8) + '***', // Partial ID for privacy
+      component: 'wellness',
+      alertType: alertData.trigger,
+      severity: alertData.severity
+    })
     // Implementation would provide personalized recommendations and resources
     // Could trigger gentle check-ins or suggest additional self-help tools
   } catch (error) {
-    console.error('Failed to create wellness alert:', error)
+    const { log } = await import('@/lib/logger')
+    log.error('Failed to create wellness alert', error as Error, {
+      component: 'wellness',
+      userId: userId.substring(0, 8) + '***'
+    })
   }
 }
