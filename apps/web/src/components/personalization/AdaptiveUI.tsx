@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, Heart, Shield, Users, Clock, Star, Zap, Target } from 'lucide-react';
+import { Brain, Heart, Shield, Users, Clock, Star, Zap, Target, Moon } from 'lucide-react';
 
 // Personalization Context
 interface PersonalizationData {

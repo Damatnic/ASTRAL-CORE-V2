@@ -115,7 +115,7 @@ export default function EnhancedDashboard({ userRole, userId }: DashboardProps) 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4 sm:p-6">
-      <div className="max-w-7xl mx-auto">
+      <AdaptiveDashboardLayout>
         {/* Dashboard Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-4">
           <div>

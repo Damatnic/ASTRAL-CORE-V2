@@ -240,7 +240,7 @@ export function OptimizedImage({
 // Code splitting utility
 export function loadComponentAsync<T extends React.ComponentType<any>>(
   importFunc: () => Promise<{ default: T }>
-): React.ComponentType<React.ComponentProps<T>> {
+): React.LazyExoticComponent<T> {
   return React.lazy(importFunc);
 }
 

@@ -358,7 +358,7 @@ export const functionalityTests: TestCase[] = [
             // Network errors are acceptable in testing
           }
         }
-      });
+      }
       
       if (brokenLinks.length > 0) {
         throw new Error(`${brokenLinks.length} navigation links appear broken`);
@@ -549,5 +549,4 @@ function calculateContrast(color1: string, color2: string): number {
   return Math.random() * 10; // Placeholder for demo
 }
 
-// Export test runner for external use
-export { TestRunner };
+// TestRunner is already exported above
