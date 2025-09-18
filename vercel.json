@@ -1,8 +1,8 @@
 {
   "version": 2,
   "name": "astral-core-v2",
-  "installCommand": "npm install",
-  "buildCommand": "cd apps/web && npm install && npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "cd apps/web && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
   "devCommand": "pnpm dev",
