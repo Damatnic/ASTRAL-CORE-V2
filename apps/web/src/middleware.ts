@@ -28,6 +28,7 @@ export default withAuth(
       '/mood',
       '/mood-gamified',
       '/gamification-demo',
+      '/testing', // Zero-Defect Testing Dashboard
       '/api/auth',
       '/api/health',
       '/api/self-help',
@@ -140,6 +141,7 @@ export default withAuth(
           '/mood',
           '/mood-gamified',
           '/gamification-demo',
+          '/testing', // Zero-Defect Testing Dashboard
           '/api/auth',
           '/api/health',
           '/api/self-help',
