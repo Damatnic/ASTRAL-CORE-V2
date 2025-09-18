@@ -5,7 +5,7 @@
  */
 
 import { randomBytes, createCipher, createDecipher } from 'crypto';
-import type { UserProfile } from '@astralcore/shared/types/gamification';
+import type { UserProfile } from '@/lib/db';
 
 // Re-export UserProfile for backward compatibility
 export type { UserProfile };
@@ -37,7 +37,7 @@ export interface MoodEntry {
   socialInteraction?: number;
 }
 
-// UserProfile type is now imported from @astralcore/shared/types/gamification
+// UserProfile type is now imported from @/lib/db
 
 const DEFAULT_CONFIG: DataPersistenceConfig = {
   encrypted: true,

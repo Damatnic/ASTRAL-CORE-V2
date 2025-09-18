@@ -26,7 +26,7 @@ import {
   GamificationConfig,
   AchievementRarity,
   ChallengeType,
-} from '@astralcore/shared/types/gamification';
+} from '@/lib/db';
 import { UserProfileStorage, storeData, retrieveData } from '../lib/data-persistence';
 
 // Xbox/PlayStation-inspired theme configuration

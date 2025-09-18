@@ -25,7 +25,7 @@ import AchievementBadge from './AchievementBadge';
 import ProgressBar from './ProgressBar';
 import LevelBadge from './LevelBadge';
 import ChallengeCard from './ChallengeCard';
-import { Achievement, Challenge } from '@astralcore/shared/types/gamification';
+import { Achievement, Challenge } from '@/lib/db';
 
 interface DemoSectionProps {
   title: string;

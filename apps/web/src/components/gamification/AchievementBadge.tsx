@@ -31,7 +31,7 @@ import {
   Brain,
   Sunrise,
 } from 'lucide-react';
-import { Achievement, AchievementRarity, AchievementCategory } from '@astralcore/shared/types/gamification';
+import { Achievement, AchievementRarity, AchievementCategory } from '@/lib/db';
 import { useGamification } from '../../contexts/GamificationContext';
 
 interface AchievementBadgeProps {

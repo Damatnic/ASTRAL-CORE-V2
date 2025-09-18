@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient, ActivityType, GroundingType, GroundingCategory, EvidenceLevel } from '@astralcore/database'
+import { PrismaClient, ActivityType, GroundingType, GroundingCategory, EvidenceLevel } from '@/lib/db'
 
 const prisma = new PrismaClient()
 

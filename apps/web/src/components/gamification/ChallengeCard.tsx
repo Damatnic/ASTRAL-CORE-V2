@@ -33,7 +33,7 @@ import {
   Timer,
   Flame,
 } from 'lucide-react';
-import { Challenge, ChallengeDifficulty, ChallengeStatus, ChallengeType } from '@astralcore/shared/types/gamification';
+import { Challenge, ChallengeDifficulty, ChallengeStatus, ChallengeType } from '@/lib/db';
 import ProgressBar from './ProgressBar';
 
 interface ChallengeCardProps {

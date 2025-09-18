@@ -5,8 +5,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { prisma } from '@astralcore/database';
-import { MoodService, UserService } from '@astralcore/database';
+import { prisma } from '@/lib/db';
+import { MoodService, UserService } from '@/lib/db';
 import { rateLimit } from '@/lib/rate-limit';
 import { auditLog } from '@/lib/audit-logger';
 

@@ -34,7 +34,7 @@ const mockPrismaAdapter = {
 };
 
 // Mock Prisma
-jest.mock('@astralcore/database', () => ({
+jest.mock('@/lib/db', () => ({
   prisma: {
     user: {
       findUnique: jest.fn(),
@@ -186,7 +186,7 @@ describe('Demo Authentication Integration Tests', () => {
   describe('Demo Admin Authentication (Email/Password)', () => {
     test('should authenticate when database user exists for demo admin', async () => {
       const bcrypt = require('bcryptjs');
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
 
       // Mock successful database lookup
       const mockUser = {
@@ -223,7 +223,7 @@ describe('Demo Authentication Integration Tests', () => {
 
     test('should reject invalid admin credentials', async () => {
       const bcrypt = require('bcryptjs');
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
 
       // Mock failed password comparison
       prisma.user.findUnique.mockResolvedValue({
@@ -245,7 +245,7 @@ describe('Demo Authentication Integration Tests', () => {
 
     test('should reject unverified email addresses', async () => {
       const bcrypt = require('bcryptjs');
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
 
       // Mock unverified user
       prisma.user.findUnique.mockResolvedValue({
@@ -322,7 +322,7 @@ describe('Demo Authentication Integration Tests', () => {
     });
 
     test('should handle signIn callback for OAuth users', async () => {
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
       const signInCallback = authOptions.callbacks?.signIn;
 
       if (signInCallback) {
@@ -422,7 +422,7 @@ describe('Demo Authentication Integration Tests', () => {
 
   describe('Security and Audit Logging', () => {
     test('should log successful sign-in events', async () => {
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
       const signInEvent = authOptions.events?.signIn;
 
       if (signInEvent) {
@@ -455,7 +455,7 @@ describe('Demo Authentication Integration Tests', () => {
     });
 
     test('should log sign-out events', async () => {
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
       const signOutEvent = authOptions.events?.signOut;
 
       if (signOutEvent) {
@@ -482,7 +482,7 @@ describe('Demo Authentication Integration Tests', () => {
     });
 
     test('should handle audit logging failures gracefully', async () => {
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
       const signInEvent = authOptions.events?.signIn;
 
       if (signInEvent) {
@@ -518,7 +518,7 @@ describe('Demo Authentication Integration Tests', () => {
 
     test('should prevent access to real user data for demo accounts', async () => {
       // Demo accounts should not trigger database lookups for real users
-      const { prisma } = require('@astralcore/database');
+      const { prisma } = require('@/lib/db');
 
       await volunteerProvider.authorize({
         id: 'demo-volunteer',

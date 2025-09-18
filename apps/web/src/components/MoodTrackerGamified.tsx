@@ -34,7 +34,7 @@ import { useMoodEntries } from '../contexts/DataPersistenceContext';
 import LevelBadge from './gamification/LevelBadge';
 import ProgressBar from './gamification/ProgressBar';
 import AchievementBadge from './gamification/AchievementBadge';
-import { calculateActivityXP } from '@astralcore/shared/utils/gamification';
+import { calculateActivityXP } from '@/lib/db';
 import { type MoodEntry as StoredMoodEntry } from '../lib/data-persistence';
 
 // Use the MoodEntry type from data-persistence

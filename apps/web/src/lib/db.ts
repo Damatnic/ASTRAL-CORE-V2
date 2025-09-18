@@ -1,0 +1,176 @@
+import { PrismaClient } from '@prisma/client'
+
+// Create a singleton PrismaClient instance
+const globalForPrisma = global as unknown as { prisma: PrismaClient }
+
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+  })
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+// Export commonly used enums (stubbed for now)
+export enum ActivityType {
+  MOOD_LOG = 'MOOD_LOG',
+  SAFETY_PLAN_UPDATE = 'SAFETY_PLAN_UPDATE',
+  ACHIEVEMENT_UNLOCK = 'ACHIEVEMENT_UNLOCK',
+  CHALLENGE_COMPLETE = 'CHALLENGE_COMPLETE',
+  LEVEL_UP = 'LEVEL_UP',
+  COMMUNITY_INTERACTION = 'COMMUNITY_INTERACTION',
+  SELF_CARE_ACTIVITY = 'SELF_CARE_ACTIVITY',
+  CRISIS_RESOURCE_ACCESS = 'CRISIS_RESOURCE_ACCESS'
+}
+
+export enum BreathingTechnique {
+  FOUR_SEVEN_EIGHT = 'FOUR_SEVEN_EIGHT',
+  BOX_BREATHING = 'BOX_BREATHING',
+  BELLY_BREATHING = 'BELLY_BREATHING',
+  ALTERNATE_NOSTRIL = 'ALTERNATE_NOSTRIL',
+  COHERENT = 'COHERENT',
+  LION_BREATH = 'LION_BREATH',
+  COOLING_BREATH = 'COOLING_BREATH',
+  FIRE_BREATH = 'FIRE_BREATH'
+}
+
+export enum ExerciseDifficulty {
+  BEGINNER = 'BEGINNER',
+  INTERMEDIATE = 'INTERMEDIATE',
+  ADVANCED = 'ADVANCED',
+  EXPERT = 'EXPERT'
+}
+
+export enum GroundingType {
+  SENSORY = 'SENSORY',
+  PHYSICAL = 'PHYSICAL',
+  MENTAL = 'MENTAL',
+  SPIRITUAL = 'SPIRITUAL',
+  CREATIVE = 'CREATIVE',
+  MOVEMENT = 'MOVEMENT'
+}
+
+export enum GroundingCategory {
+  PANIC_ATTACK = 'PANIC_ATTACK',
+  DISSOCIATION = 'DISSOCIATION',
+  FLASHBACK = 'FLASHBACK',
+  ANXIETY = 'ANXIETY',
+  ANGER = 'ANGER',
+  OVERWHELM = 'OVERWHELM',
+  TRAUMA_RESPONSE = 'TRAUMA_RESPONSE'
+}
+
+export enum EvidenceLevel {
+  HIGH = 'HIGH',
+  MODERATE = 'MODERATE',
+  LOW = 'LOW',
+  EMERGING = 'EMERGING'
+}
+
+// Export PrismaClient type for consistency
+export { PrismaClient }
+
+// Stub services for compatibility
+export const MoodService = {
+  async createMoodEntry(data: any) {
+    // Stub implementation
+    return { success: true, data }
+  },
+  async getMoodHistory(userId: string) {
+    // Stub implementation
+    return []
+  }
+}
+
+export const UserService = {
+  async getOrCreateUser(id: string) {
+    // Stub implementation
+    return { id, createdAt: new Date() }
+  }
+}
+
+// Gamification types
+export interface Achievement {
+  id: string
+  name: string
+  description: string
+  xpReward: number
+  pointReward: number
+  icon?: string
+}
+
+export interface Challenge {
+  id: string
+  name: string
+  description: string
+  xpReward: number
+  pointReward: number
+}
+
+export enum AchievementRarity {
+  COMMON = 'COMMON',
+  UNCOMMON = 'UNCOMMON',
+  RARE = 'RARE',
+  EPIC = 'EPIC',
+  LEGENDARY = 'LEGENDARY'
+}
+
+export enum AchievementCategory {
+  MOOD_TRACKING = 'MOOD_TRACKING',
+  CONSISTENCY = 'CONSISTENCY',
+  SELF_CARE = 'SELF_CARE',
+  CRISIS_MANAGEMENT = 'CRISIS_MANAGEMENT',
+  COMMUNITY = 'COMMUNITY',
+  PERSONAL_GROWTH = 'PERSONAL_GROWTH',
+  WELLNESS_MILESTONES = 'WELLNESS_MILESTONES'
+}
+
+export enum ChallengeType {
+  DAILY = 'DAILY',
+  WEEKLY = 'WEEKLY',
+  MONTHLY = 'MONTHLY',
+  MILESTONE = 'MILESTONE',
+  COMMUNITY = 'COMMUNITY',
+  SEASONAL = 'SEASONAL'
+}
+
+export enum ChallengeDifficulty {
+  EASY = 'EASY',
+  MEDIUM = 'MEDIUM',
+  HARD = 'HARD',
+  EXPERT = 'EXPERT'
+}
+
+// Gamification utilities
+export function calculateActivityXP(type: ActivityType): number {
+  const xpMap: Record<ActivityType, number> = {
+    [ActivityType.MOOD_LOG]: 10,
+    [ActivityType.SAFETY_PLAN_UPDATE]: 50,
+    [ActivityType.ACHIEVEMENT_UNLOCK]: 25,
+    [ActivityType.CHALLENGE_COMPLETE]: 30,
+    [ActivityType.LEVEL_UP]: 100,
+    [ActivityType.COMMUNITY_INTERACTION]: 15,
+    [ActivityType.SELF_CARE_ACTIVITY]: 20,
+    [ActivityType.CRISIS_RESOURCE_ACCESS]: 35
+  }
+  return xpMap[type] || 10
+}
+
+export function getRarityColor(rarity: AchievementRarity): string {
+  const colorMap: Record<AchievementRarity, string> = {
+    [AchievementRarity.COMMON]: '#6B7280',
+    [AchievementRarity.UNCOMMON]: '#10B981',
+    [AchievementRarity.RARE]: '#3B82F6',
+    [AchievementRarity.EPIC]: '#8B5CF6',
+    [AchievementRarity.LEGENDARY]: '#F59E0B'
+  }
+  return colorMap[rarity]
+}
+
+export function formatXP(xp: number): string {
+  if (xp >= 1000000) return `${(xp / 1000000).toFixed(1)}M`
+  if (xp >= 1000) return `${(xp / 1000).toFixed(1)}K`
+  return xp.toString()
+}
+
+export default prisma

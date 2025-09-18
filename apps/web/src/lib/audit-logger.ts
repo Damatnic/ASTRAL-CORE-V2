@@ -4,7 +4,7 @@
  * Ensures no sensitive data exposure in logs
  */
 
-import { prisma } from '@astralcore/database';
+import { prisma } from '@/lib/db';
 
 /**
  * PHI (Protected Health Information) patterns to filter
