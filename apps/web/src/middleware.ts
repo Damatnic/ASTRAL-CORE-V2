@@ -1,50 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Production-ready middleware with proper public route handling
+// Completely disabled middleware for Vercel deployment debugging
+// This ensures ALL routes are accessible to resolve 401 errors
 export default function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
-  
-  // Always allow these critical routes for mental health platform
-  const publicRoutes = [
-    '/',
-    '/api/health',
-    '/crisis',
-    '/safety', 
-    '/auth',
-    '/wellness',
-    '/demo',
-    '/self-help',
-    '/ai-therapy',
-    '/dashboard',
-    '/mood',
-    '/testing',
-    '/gamification-demo',
-    '/mood-gamified',
-    '/api/auth',
-    '/api/self-help',
-    '/api/ai-therapy', 
-    '/api/mood',
-    '/api/crisis',
-    '/api/testing',
-    '/_next',
-    '/favicon.ico',
-    '/public',
-    '/sounds',
-    '/fonts'
-  ];
-
-  // Check if the path starts with any of the public routes
-  const isPublicRoute = publicRoutes.some(route => 
-    pathname === route || pathname.startsWith(route)
-  );
-
-  if (isPublicRoute) {
-    return NextResponse.next();
-  }
-
-  // For now, allow all other routes until authentication is properly configured
-  // This ensures the deployment is accessible while maintaining crisis route access
+  // Allow all requests through - no authentication blocking
   return NextResponse.next();
 }
 
@@ -211,16 +171,12 @@ const disabledMiddleware = withAuth(
 );
 */
 
-// Configure which routes this middleware should run on
+// Configure which routes this middleware should run on - minimal configuration
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public (public files)
+     * Match only specific routes to avoid blocking static files
      */
-    '/((?!_next/static|_next/image|favicon.ico|public|sounds|fonts).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
