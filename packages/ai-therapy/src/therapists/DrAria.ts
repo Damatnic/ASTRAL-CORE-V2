@@ -16,19 +16,16 @@ import {
 
 import {
   SessionContext,
-  EmotionalState,
-  SentimentAnalysis
+  EmotionalState
 } from '../types/session.types';
 
 export class DrAria {
   private profile: TherapistProfile;
   private cbtTechniques: Map<string, TherapeuticIntervention>;
-  private thoughtRecordTemplates: Map<string, any>;
   
   constructor() {
     this.profile = this.initializeProfile();
     this.cbtTechniques = this.loadCBTTechniques();
-    this.thoughtRecordTemplates = this.loadThoughtRecordTemplates();
   }
 
   private initializeProfile(): TherapistProfile {
@@ -175,7 +172,7 @@ export class DrAria {
   private selectCBTIntervention(
     distortions: string[],
     emotionalState: EmotionalState,
-    context?: SessionContext
+    _context?: SessionContext
   ): TherapeuticIntervention {
     // Priority: Address most prominent distortion
     if (distortions.includes('catastrophizing')) {
@@ -208,7 +205,7 @@ export class DrAria {
    * Craft CBT-specific therapeutic response
    */
   private async craftCBTResponse(
-    clientMessage: string,
+    _clientMessage: string,
     distortions: string[],
     intervention: TherapeuticIntervention
   ): Promise<string> {
@@ -333,7 +330,7 @@ export class DrAria {
    */
   private selectCBTResources(
     distortions: string[],
-    intervention: TherapeuticIntervention
+    _intervention: TherapeuticIntervention
   ): Resource[] {
     const resources: Resource[] = [
       {
@@ -467,39 +464,7 @@ What's one small activity you could do today?`
     return techniques;
   }
 
-  /**
-   * Load thought record templates
-   */
-  private loadThoughtRecordTemplates(): Map<string, any> {
-    const templates = new Map();
-    
-    templates.set('basic', {
-      situation: '',
-      thoughts: '',
-      emotions: {},
-      evidence_for: '',
-      evidence_against: '',
-      balanced_thought: '',
-      emotions_after: {}
-    });
-    
-    templates.set('advanced', {
-      date_time: '',
-      situation: '',
-      automatic_thoughts: [],
-      emotions: {},
-      body_sensations: '',
-      behaviors: '',
-      thinking_errors: [],
-      evidence_for: [],
-      evidence_against: [],
-      balanced_thought: '',
-      action_plan: '',
-      outcome: ''
-    });
-    
-    return templates;
-  }
+  // Thought record templates removed - not currently used
 
   /**
    * Explain specific cognitive distortion
@@ -549,7 +514,7 @@ What's one small activity you could do today?`
       return 'encouraging';
     }
     
-    return 'collaborative';
+    return 'empathetic';
   }
 
   /**

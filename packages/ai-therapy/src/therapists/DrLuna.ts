@@ -11,8 +11,7 @@ import {
   TherapeuticResponse,
   HomeworkAssignment,
   Resource,
-  EmotionalTone,
-  SafetyPlan
+  EmotionalTone
 } from '../types/therapy.types';
 
 import {
@@ -58,7 +57,7 @@ export class DrLuna {
   public async provideTreatment(
     context: SessionContext,
     emotionalState: EmotionalState,
-    sentiment: SentimentAnalysis,
+    _sentiment: SentimentAnalysis,
     messageText?: string
   ): Promise<TherapeuticResponse> {
     const indicators = this.analyzeTraumaIndicators(messageText || '');
@@ -144,7 +143,7 @@ export class DrLuna {
     return this.somaticTechniques.get('orientation')!;
   }
 
-  private selectPhaseIntervention(phase: number, indicators: any): TherapeuticIntervention {
+  private selectPhaseIntervention(phase: number, _indicators: any): TherapeuticIntervention {
     return this.emdrPhases.get(phase) || this.emdrPhases.get(2)!;
   }
 
@@ -181,7 +180,7 @@ export class DrLuna {
     return response;
   }
 
-  private generateHomework(indicators: any, toleranceWindow: string): HomeworkAssignment[] {
+  private generateHomework(_indicators: any, _toleranceWindow: string): HomeworkAssignment[] {
     const assignments: HomeworkAssignment[] = [];
 
     // Safe place practice
@@ -326,21 +325,7 @@ export class DrLuna {
     }
   }
 
-  private generateSafetyPlan(indicators: any): SafetyPlan | undefined {
-    return undefined; // Implement based on needs
-  }
-
-  private planNextSteps(toleranceWindow: string, indicators: any): string[] {
-    return ['Continue building safety and resources', 'Practice grounding techniques daily'];
-  }
-
-  private calculateFollowUpTime(toleranceWindow: string): number {
-    return toleranceWindow === 'hyperarousal' ? 24 : 72; // Hours
-  }
-
-  private generateSessionNotes(intervention: TherapeuticIntervention, toleranceWindow: string): string {
-    return `Session focused on ${intervention.technique}. Client window of tolerance: ${toleranceWindow}.`;
-  }
+  // Unused helper methods removed - can be implemented when needed
 
   /**
    * Get therapist profile

@@ -50,7 +50,7 @@ export interface AssessmentItem {
 }
 
 // PHQ-9 Specific
-export interface PHQ9Assessment extends Assessment {
+export interface PHQ9Assessment extends Omit<Assessment, 'interpretation'> {
   type: 'PHQ-9';
   suicidalIdeation: boolean;
   functionalImpairment?: 'not_difficult' | 'somewhat_difficult' | 'very_difficult' | 'extremely_difficult';
@@ -68,7 +68,7 @@ export interface PHQ9Interpretation {
 }
 
 // GAD-7 Specific
-export interface GAD7Assessment extends Assessment {
+export interface GAD7Assessment extends Omit<Assessment, 'interpretation'> {
   type: 'GAD-7';
   functionalImpairment?: 'not_difficult' | 'somewhat_difficult' | 'very_difficult' | 'extremely_difficult';
   panicSymptoms?: boolean;
@@ -85,7 +85,7 @@ export interface GAD7Interpretation {
 }
 
 // PCL-5 Specific
-export interface PCL5Assessment extends Assessment {
+export interface PCL5Assessment extends Omit<Assessment, 'interpretation'> {
   type: 'PCL-5';
   traumaExposure: string;
   traumaDate?: Date;
@@ -250,6 +250,15 @@ export interface AssessmentReport {
   recommendations: string[];
   clinicianNotes?: string;
   nextSteps: string[];
+}
+
+export interface SymptomProgress {
+  symptom: string;
+  baseline: number;
+  current: number;
+  change: number;
+  trend: 'improving' | 'stable' | 'worsening';
+  clinicallySignificant: boolean;
 }
 
 export interface ProgressSummary {

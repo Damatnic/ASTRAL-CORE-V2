@@ -6,7 +6,7 @@
  */
 
 import { PerformanceMonitor } from '../monitoring/performance-monitor';
-import { logger } from '../utils/logger';
+import logger from '../utils/logger';
 
 export interface QueryProfile {
   query: string;

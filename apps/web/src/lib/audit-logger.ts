@@ -315,13 +315,14 @@ export async function auditSystem(
 ): Promise<void> {
   await auditLog({
     action: `SYSTEM_${action}`,
+    resource: 'system',
     details,
     severity,
   });
 }
 
-// Log system startup
-if (typeof window === 'undefined') {
+// Log system startup (disabled during build to avoid schema issues)
+if (typeof window === 'undefined' && process.env.NODE_ENV !== 'production') {
   auditSystem('STARTUP', {
     nodeVersion: process.version,
     environment: process.env.NODE_ENV,

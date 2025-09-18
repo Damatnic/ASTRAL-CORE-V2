@@ -9,20 +9,34 @@
 
 // Core module exports
 export * from './types';
-export * from './services';
-export * from './components';
-export * from './hooks';
-export * from './utils';
+// Services, components, hooks, and utils are not yet implemented
 
 // Main module interface
-import { 
-  TherapeuticToolsEngine,
-  ProgressTracker,
-  EducationalLibrary,
-  PreventionSystem,
-  PlatformConnector,
-  InsightsEngine
-} from './services';
+// Services will be imported when implemented
+class TherapeuticToolsEngine {
+  constructor(private config: any) {}
+  async initialize() {}
+}
+class ProgressTracker {
+  constructor(private config: any) {}
+  async initialize() {}
+}
+class EducationalLibrary {
+  constructor(private config: any) {}
+  async initialize() {}
+}
+class PreventionSystem {
+  constructor(private config: any) {}
+  async initialize() {}
+}
+class PlatformConnector {
+  constructor(private config: any) {}
+  async initialize() {}
+}
+class InsightsEngine {
+  constructor(private config: any) {}
+  async initialize() {}
+}
 
 export interface SelfHelpModule {
   tools: TherapeuticToolsEngine;

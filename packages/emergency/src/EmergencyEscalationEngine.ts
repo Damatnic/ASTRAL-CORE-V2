@@ -116,12 +116,14 @@ export class EmergencyEscalationEngine extends EventEmitter {
       const specialists = await this.prisma.volunteer.findMany({
         where: {
           status: 'ACTIVE',
-          specializations: {
-            hasSome: ['suicide-prevention', 'crisis-intervention', 'emergency-response']
-          },
-          certifications: {
-            hasSome: ['CRISIS_INTERVENTION', 'SUICIDE_PREVENTION', 'EMERGENCY_RESPONSE']
-          }
+          OR: [
+            { specializations: { contains: 'suicide-prevention' } },
+            { specializations: { contains: 'crisis-intervention' } },
+            { specializations: { contains: 'emergency-response' } },
+            { certifications: { contains: 'CRISIS_INTERVENTION' } },
+            { certifications: { contains: 'SUICIDE_PREVENTION' } },
+            { certifications: { contains: 'EMERGENCY_RESPONSE' } }
+          ]
         },
         orderBy: [
           { averageRating: 'desc' },

@@ -7,7 +7,7 @@
 
 import NodeCache from 'node-cache';
 import { createClient, RedisClientType } from 'redis';
-import { logger } from '../utils/logger';
+import logger from '../utils/logger';
 import { PerformanceMonitor } from '../monitoring/performance-monitor';
 
 export interface CacheOptions {

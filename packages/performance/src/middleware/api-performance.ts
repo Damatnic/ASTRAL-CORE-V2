@@ -10,7 +10,7 @@ import compression from 'compression';
 import responseTime from 'response-time';
 import { PerformanceMonitor } from '../monitoring/performance-monitor';
 import { CacheManager } from '../optimization/cache-manager';
-import { logger } from '../utils/logger';
+import logger from '../utils/logger';
 
 export interface PerformanceMiddlewareOptions {
   enableCompression?: boolean;

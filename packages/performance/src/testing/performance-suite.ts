@@ -8,7 +8,7 @@
 import autocannon from 'autocannon';
 import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
-import { logger } from '../utils/logger';
+import logger from '../utils/logger';
 
 export interface PerformanceTestConfig {
   baseUrl: string;

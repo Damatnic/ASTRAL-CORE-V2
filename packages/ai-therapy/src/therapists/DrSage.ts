@@ -16,21 +16,16 @@ import {
 
 import {
   SessionContext,
-  EmotionalState,
-  SentimentAnalysis
+  EmotionalState
 } from '../types/session.types';
 
 export class DrSage {
   private profile: TherapistProfile;
   private dbtModules: Map<string, TherapeuticIntervention>;
-  private distressToleranceSkills: Map<string, any>;
-  private emotionRegulationSkills: Map<string, any>;
   
   constructor() {
     this.profile = this.initializeProfile();
     this.dbtModules = this.loadDBTModules();
-    this.distressToleranceSkills = this.loadDistressToleranceSkills();
-    this.emotionRegulationSkills = this.loadEmotionRegulationSkills();
   }
 
   private initializeProfile(): TherapistProfile {
@@ -147,7 +142,7 @@ export class DrSage {
    */
   private identifyDBTTarget(
     message: string,
-    emotionalState: EmotionalState,
+    _emotionalState: EmotionalState,
     dysregulationLevel: string
   ): 'distress_tolerance' | 'emotion_regulation' | 'interpersonal' | 'mindfulness' {
     const lowerMessage = message.toLowerCase();
@@ -185,7 +180,7 @@ export class DrSage {
   private selectDBTIntervention(
     target: string,
     dysregulationLevel: string,
-    context?: SessionContext
+    _context?: SessionContext
   ): TherapeuticIntervention {
     switch (target) {
       case 'distress_tolerance':
@@ -210,8 +205,8 @@ export class DrSage {
    * Craft DBT-specific therapeutic response
    */
   private async craftDBTResponse(
-    clientMessage: string,
-    target: string,
+    _clientMessage: string,
+    _target: string,
     intervention: TherapeuticIntervention,
     dysregulationLevel: string
   ): Promise<string> {
@@ -256,7 +251,7 @@ export class DrSage {
    */
   private generateDBTQuestions(
     target: string,
-    intervention: TherapeuticIntervention
+    _intervention: TherapeuticIntervention
   ): string[] {
     const questions: string[] = [];
     
@@ -294,7 +289,7 @@ export class DrSage {
    */
   private createDBTHomework(
     target: string,
-    intervention: TherapeuticIntervention
+    _intervention: TherapeuticIntervention
   ): HomeworkAssignment {
     const homeworkOptions: Record<string, HomeworkAssignment> = {
       distress_tolerance: {
@@ -617,55 +612,7 @@ Right now, what are you observing in your body? Can you describe it without judg
     return modules;
   }
 
-  /**
-   * Load distress tolerance skills
-   */
-  private loadDistressToleranceSkills(): Map<string, any> {
-    const skills = new Map();
-    
-    skills.set('crisis_survival', [
-      'TIPP',
-      'ACCEPTS',
-      'IMPROVE',
-      'Self-Soothe with 5 Senses',
-      'STOP Skill',
-      'Pros and Cons',
-      'Radical Acceptance'
-    ]);
-    
-    skills.set('reality_acceptance', [
-      'Radical Acceptance',
-      'Turning the Mind',
-      'Willingness vs Willfulness',
-      'Half-Smile and Willing Hands'
-    ]);
-    
-    return skills;
-  }
-
-  /**
-   * Load emotion regulation skills
-   */
-  private loadEmotionRegulationSkills(): Map<string, any> {
-    const skills = new Map();
-    
-    skills.set('understanding_emotions', [
-      'Emotion Wheel',
-      'Primary vs Secondary Emotions',
-      'Emotions as Information',
-      'Check the Facts'
-    ]);
-    
-    skills.set('changing_emotions', [
-      'Opposite Action',
-      'PLEASE Skills',
-      'Accumulate Positive Emotions',
-      'Build Mastery',
-      'Cope Ahead'
-    ]);
-    
-    return skills;
-  }
+  // Skill libraries removed - not currently used
 
   /**
    * Select appropriate DBT emotional tone

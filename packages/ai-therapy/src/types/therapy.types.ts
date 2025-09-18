@@ -38,7 +38,9 @@ export type InterventionType =
   | 'values_clarification'
   | 'exposure_therapy'
   | 'grounding_technique'
-  | 'breathing_exercise';
+  | 'breathing_exercise'
+  | 'interpersonal'
+  | 'mindfulness';
 
 export interface HomeworkAssignment {
   id: string;

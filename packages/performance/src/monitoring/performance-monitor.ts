@@ -10,7 +10,7 @@ import * as promClient from 'prom-client';
 import { performance, PerformanceObserver } from 'perf_hooks';
 import * as os from 'os';
 import * as v8 from 'v8';
-import { logger } from '../utils/logger';
+import logger from '../utils/logger';
 import { AlertManager } from '../alerts/alert-manager';
 
 export interface PerformanceMetrics {

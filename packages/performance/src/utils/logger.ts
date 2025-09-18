@@ -1,4 +1,3 @@
-/// <reference path="./logger.d.ts" />
 /**
  * Logger utility for performance monitoring
  */
@@ -76,7 +75,7 @@ export const logger = winston.createLogger({
 });
 
 // Add critical level for crisis situations
-logger.critical = function(message: string, meta?: any) {
+(logger as any).critical = function(message: string, meta?: any) {
   return this.log({
     level: 'error',
     message: `[CRITICAL] ${message}`,
@@ -84,6 +83,11 @@ logger.critical = function(message: string, meta?: any) {
     ...meta
   });
 };
+
+// Extend Logger type to include critical method
+export interface ExtendedLogger extends winston.Logger {
+  critical: (message: string, meta?: any) => void;
+}
 
 // Production optimizations
 if (process.env.NODE_ENV === 'production') {
@@ -96,4 +100,4 @@ if (process.env.NODE_ENV === 'development') {
   logger.debug('Logger initialized in development mode');
 }
 
-export default logger;
+export default logger as ExtendedLogger;

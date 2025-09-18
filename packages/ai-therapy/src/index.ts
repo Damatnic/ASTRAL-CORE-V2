@@ -30,48 +30,77 @@
 
 // Core AI Therapy Engine
 export { AITherapyEngine } from './engines/AITherapyEngine';
-export { TherapeuticSession } from './sessions/TherapeuticSession';
-export { TherapistPersonality } from './personalities/TherapistPersonality';
+// export { TherapeuticSession } from './sessions/TherapeuticSession';
+// export { TherapistPersonality } from './personalities/TherapistPersonality';
 
 // Specialized AI Therapists
 export { DrAria } from './therapists/DrAria';
 export { DrSage } from './therapists/DrSage';
 export { DrLuna } from './therapists/DrLuna';
-export { DrRiver } from './therapists/DrRiver';
+// export { DrRiver } from './therapists/DrRiver';
 
-// Therapeutic Approaches
-export { CBTModule } from './approaches/CBTModule';
-export { DBTModule } from './approaches/DBTModule';
-export { EMDRModule } from './approaches/EMDRModule';
-export { ACTModule } from './approaches/ACTModule';
+// Therapeutic Approaches - TO BE IMPLEMENTED
+// export { CBTModule } from './approaches/CBTModule';
+// export { DBTModule } from './approaches/DBTModule';
+// export { EMDRModule } from './approaches/EMDRModule';
+// export { ACTModule } from './approaches/ACTModule';
 
-// Clinical Tools
-export { ThoughtRecordAnalyzer } from './tools/ThoughtRecordAnalyzer';
-export { DistressToleranceCoach } from './tools/DistressToleranceCoach';
-export { MindfulnessGuide } from './tools/MindfulnessGuide';
-export { TraumaProcessor } from './tools/TraumaProcessor';
+// Clinical Tools - TO BE IMPLEMENTED
+// export { ThoughtRecordAnalyzer } from './tools/ThoughtRecordAnalyzer';
+// export { DistressToleranceCoach } from './tools/DistressToleranceCoach';
+// export { MindfulnessGuide } from './tools/MindfulnessGuide';
+// export { TraumaProcessor } from './tools/TraumaProcessor';
 
-// Assessment Tools
-export { PHQ9Assessment } from './assessments/PHQ9Assessment';
-export { GAD7Assessment } from './assessments/GAD7Assessment';
-export { PCL5Assessment } from './assessments/PCL5Assessment';
-export { MDIAssessment } from './assessments/MDIAssessment';
+// Assessment Tools - TO BE IMPLEMENTED
+// export { PHQ9Assessment } from './assessments/PHQ9Assessment';
+// export { GAD7Assessment } from './assessments/GAD7Assessment';
+// export { PCL5Assessment } from './assessments/PCL5Assessment';
+// export { MDIAssessment } from './assessments/MDIAssessment';
 
-// Session Management
-export { SessionManager } from './sessions/SessionManager';
-export { ProgressTracker } from './tracking/ProgressTracker';
-export { TreatmentPlanner } from './planning/TreatmentPlanner';
-export { HomeworkGenerator } from './homework/HomeworkGenerator';
+// Session Management - TO BE IMPLEMENTED
+// export { SessionManager } from './sessions/SessionManager';
+// export { ProgressTracker } from './tracking/ProgressTracker';
+// export { TreatmentPlanner } from './planning/TreatmentPlanner';
+// export { HomeworkGenerator } from './homework/HomeworkGenerator';
 
-// Integration Systems
-export { CrisisDetectionIntegration } from './integrations/CrisisDetectionIntegration';
-export { HumanTherapistHandoff } from './integrations/HumanTherapistHandoff';
-export { MetricsCollector } from './metrics/MetricsCollector';
+// Integration Systems - TO BE IMPLEMENTED
+// export { CrisisDetectionIntegration } from './integrations/CrisisDetectionIntegration';
+// export { HumanTherapistHandoff } from './integrations/HumanTherapistHandoff';
+// export { MetricsCollector } from './metrics/MetricsCollector';
 
 // Types
 export * from './types/therapy.types';
 export * from './types/session.types';
-export * from './types/assessment.types';
+export { 
+  type Assessment,
+  type AssessmentType as AssessmentTypeFromAssessment,
+  type SeverityLevel,
+  type AssessmentItem,
+  type PHQ9Assessment,
+  type PHQ9Interpretation,
+  type GAD7Assessment,
+  type GAD7Interpretation,
+  type PCL5Assessment,
+  type PCL5Interpretation,
+  type PCL5ClusterScores,
+  type CustomAssessmentTemplate,
+  type CustomQuestion,
+  type QuestionOption,
+  type ScoringMethod,
+  type InterpretationGuide,
+  type NormativeData,
+  type AssessmentBattery,
+  type BatteryPurpose,
+  type AssessmentProgress,
+  type AssessmentScore,
+  type ClinicalCutoffs,
+  type CutoffScore,
+  type AssessmentAlert,
+  type AlertType,
+  type AssessmentReport,
+  type ProgressSummary,
+  type SymptomProgress
+} from './types/assessment.types';
 
 // Constants
 export const AI_THERAPY_CONSTANTS = {

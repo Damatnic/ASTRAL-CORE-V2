@@ -104,9 +104,9 @@ export async function GET(request: NextRequest): Promise<NextResponse<DashboardM
             })
         ]);
         // Calculate performance metrics
-        const completedSessions = recentPerformance.filter((s) => s.status === 'completed');
+        const completedSessions = recentPerformance.filter((s: any) => s.status === 'completed');
         const avgResponseTime = completedSessions.length > 0
-            ? completedSessions.reduce((sum, s) => sum + (s.responseTimeMs || 0), 0) / completedSessions.length
+            ? completedSessions.reduce((sum: number, s: any) => sum + (s.responseTimeMs || 0), 0) / completedSessions.length
             : 0;
         const sessionCompletionRate = recentPerformance.length > 0
             ? (completedSessions.length / recentPerformance.length) * 100
@@ -126,8 +126,8 @@ export async function GET(request: NextRequest): Promise<NextResponse<DashboardM
         // Process trend data
         const sessionTrends = Array.from({ length: 7 }, (_, i) => {
             const date = new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000);
-            const dayData = trendData.filter((session) => session.createdAt.toDateString() === date.toDateString());
-            const urgencyBreakdown = dayData.reduce((acc, session) => {
+            const dayData = trendData.filter((session: any) => session.createdAt.toDateString() === date.toDateString());
+            const urgencyBreakdown = dayData.reduce((acc: any, session: any) => {
                 acc[session.urgencyLevel] = (acc[session.urgencyLevel] || 0) + 1;
                 return acc;
             }, {});

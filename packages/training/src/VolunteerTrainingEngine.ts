@@ -596,7 +596,9 @@ export class VolunteerTrainingEngine extends EventEmitter {
       where: { id: volunteerId }
     });
 
-    const existingCertifications = (volunteer?.certifications as any[]) || [];
+    const existingCertifications = volunteer?.certifications 
+      ? (JSON.parse(volunteer.certifications) as any[])
+      : [];
     const newCertification = {
       certificationId,
       earnedAt,
@@ -609,7 +611,7 @@ export class VolunteerTrainingEngine extends EventEmitter {
     await this.prisma.volunteer.update({
       where: { id: volunteerId },
       data: {
-        certifications: [...existingCertifications, newCertification]
+        certifications: JSON.stringify([...existingCertifications, newCertification])
       }
     });
 
@@ -643,10 +645,12 @@ export class VolunteerTrainingEngine extends EventEmitter {
 
     if (!volunteer?.certifications) return null;
 
-    const certifications = volunteer.certifications as any[];
+    const certifications = volunteer.certifications 
+      ? (JSON.parse(volunteer.certifications) as any[])
+      : [];
     return certifications
-      .filter(cert => cert.certificationId === certificationId)
-      .sort((a, b) => new Date(b.earnedAt).getTime() - new Date(a.earnedAt).getTime())[0] || null;
+      .filter((cert: any) => cert.certificationId === certificationId)
+      .sort((a: any, b: any) => new Date(b.earnedAt).getTime() - new Date(a.earnedAt).getTime())[0] || null;
   }
 
   private async updateModuleProgress(volunteerId: string, moduleId: string, updates: any): Promise<void> {
@@ -706,7 +710,9 @@ export class VolunteerTrainingEngine extends EventEmitter {
     for (const volunteer of volunteers) {
       if (!volunteer.certifications) continue;
       
-      const certifications = volunteer.certifications as any[];
+      const certifications = volunteer.certifications 
+      ? (JSON.parse(volunteer.certifications) as any[])
+      : [];
       for (const cert of certifications) {
         if (cert.status === 'ACTIVE' && new Date(cert.expiresAt) <= thirtyDaysFromNow) {
           console.log(`⏰ Certification ${cert.certificationId} for volunteer ${volunteer.id} expires soon`);
@@ -726,12 +732,14 @@ export class VolunteerTrainingEngine extends EventEmitter {
       select: { certifications: true }
     });
 
-    const certifications = (volunteer?.certifications as any[]) || [];
+    const certifications = volunteer?.certifications 
+      ? (JSON.parse(volunteer.certifications) as any[])
+      : [];
 
     return {
       totalModulesEnrolled: progress.length,
       completedModules: progress.filter((p: any) => p.status === 'COMPLETED').length,
-      activeCertifications: certifications.filter(c => c.status === 'ACTIVE').length,
+      activeCertifications: certifications.filter((c: any) => c.status === 'ACTIVE').length,
       overallScore: this.calculateOverallScore(progress),
       nextRecommendedModules: await this.getRecommendedModules(volunteerId),
       certificationProgress: await this.getCertificationProgress(volunteerId),

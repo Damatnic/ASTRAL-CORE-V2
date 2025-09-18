@@ -44,6 +44,7 @@ expect.extend({
 });
 
 // Type definitions for custom matchers
+export {};
 declare global {
   namespace jest {
     interface Matchers<R> {

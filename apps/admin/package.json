@@ -21,7 +21,8 @@
     "@astralcore/config": "workspace:*",
     "@astralcore/crisis": "workspace:*",
     "@astralcore/analytics": "workspace:*",
-    "@astralcore/ui": "workspace:*"
+    "@astralcore/ui": "workspace:*",
+    "@astralcore/shared": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.19.14",

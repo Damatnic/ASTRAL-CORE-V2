@@ -10,18 +10,13 @@ import {
   TherapyApproach,
   TherapeuticResponse,
   TherapeuticIntervention,
-  TreatmentPlan,
   RiskAssessment,
   RiskLevel,
-  ClientInsight,
-  TherapeuticAlliance,
   EmotionalTone
 } from '../types/therapy.types';
 
 import {
   TherapySession,
-  SessionStatus,
-  SessionTranscript,
   EmotionalState,
   SessionContext,
   SessionRequest,
@@ -33,13 +28,11 @@ import {
 export class AITherapyEngine {
   private static instance: AITherapyEngine;
   private activeSessions: Map<string, TherapySession>;
-  private therapistPool: Map<string, TherapistProfile>;
   private interventionLibrary: Map<string, TherapeuticIntervention>;
   private crisisProtocols: Map<RiskLevel, Function>;
   
   private constructor() {
     this.activeSessions = new Map();
-    this.therapistPool = new Map();
     this.interventionLibrary = new Map();
     this.crisisProtocols = new Map();
     this.initializeEngine();
@@ -352,7 +345,7 @@ export class AITherapyEngine {
    */
   public async endSession(
     sessionId: string,
-    reason?: string
+    _reason?: string
   ): Promise<SessionAnalytics> {
     const session = this.activeSessions.get(sessionId);
     
@@ -576,7 +569,7 @@ export class AITherapyEngine {
     return Math.min(confidence, 1.0);
   }
 
-  private generateCrisisResponse(riskAssessment: RiskAssessment): string {
+  private generateCrisisResponse(_riskAssessment: RiskAssessment): string {
     return `I'm very concerned about what you're sharing. Your safety is my top priority right now. 
 
 I want you to know that you don't have to go through this alone. There are people who care about you and want to help.
@@ -613,201 +606,201 @@ Can you tell me if you're safe right now? And is there someone nearby who can be
     // Start safety monitoring
   }
 
-  private async handleCrisisRequest(request: SessionRequest): Promise<SessionResponse> {
+  private async handleCrisisRequest(_request: SessionRequest): Promise<SessionResponse> {
     // Handle crisis request
     return {} as SessionResponse;
   }
 
   private async matchTherapist(
-    approach?: TherapyApproach,
-    requestedId?: string
+    _approach?: TherapyApproach,
+    _requestedId?: string
   ): Promise<TherapistProfile | null> {
     // Match therapist
     return null;
   }
 
-  private provideAlternativeOptions(request: SessionRequest): SessionResponse {
+  private provideAlternativeOptions(_request: SessionRequest): SessionResponse {
     // Provide alternatives
     return {} as SessionResponse;
   }
 
   private async createSession(
-    request: SessionRequest,
-    therapist: TherapistProfile
+    _request: SessionRequest,
+    _therapist: TherapistProfile
   ): Promise<TherapySession> {
     // Create session
     return {} as TherapySession;
   }
 
-  private getPreparationTips(specialization: TherapyApproach): string[] {
+  private getPreparationTips(_specialization: TherapyApproach): string[] {
     // Get preparation tips
     return [];
   }
 
-  private async analyzeSentiment(message: string): Promise<SentimentAnalysis> {
+  private async analyzeSentiment(_message: string): Promise<SentimentAnalysis> {
     // Analyze sentiment
     return {} as SentimentAnalysis;
   }
 
   private async detectEmotionalState(
-    message: string,
-    context?: SessionContext
+    _message: string,
+    _context?: SessionContext
   ): Promise<EmotionalState> {
     // Detect emotional state
     return {} as EmotionalState;
   }
 
-  private async extractThemes(message: string): Promise<string[]> {
+  private async extractThemes(_message: string): Promise<string[]> {
     // Extract themes
     return [];
   }
 
-  private async identifyCognitiveDistortions(message: string): Promise<string[]> {
+  private async identifyCognitiveDistortions(_message: string): Promise<string[]> {
     // Identify cognitive distortions
     return [];
   }
 
-  private async identifyCopingMechanisms(message: string): Promise<string[]> {
+  private async identifyCopingMechanisms(_message: string): Promise<string[]> {
     // Identify coping mechanisms
     return [];
   }
 
   private async identifyProtectiveFactors(
-    message: string,
-    session: TherapySession
+    _message: string,
+    _session: TherapySession
   ): Promise<string[]> {
     // Identify protective factors
     return [];
   }
 
   private async identifyRiskFactors(
-    message: string,
-    analysis: any,
-    session: TherapySession
+    _message: string,
+    _analysis: any,
+    _session: TherapySession
   ): Promise<string[]> {
     // Identify risk factors
     return [];
   }
 
   private async generateSafetyPlan(
-    session: TherapySession,
-    indicators: any
+    _session: TherapySession,
+    _indicators: any
   ): Promise<any> {
     // Generate safety plan
     return {};
   }
 
   private matchInterventionToNeeds(
-    analysis: any,
-    approach: TherapyApproach,
-    context?: SessionContext
+    _analysis: any,
+    _approach: TherapyApproach,
+    _context?: SessionContext
   ): string {
     // Match intervention to needs
     return 'cognitive_restructuring';
   }
 
-  private getDefaultIntervention(approach: TherapyApproach): TherapeuticIntervention {
+  private getDefaultIntervention(_approach: TherapyApproach): TherapeuticIntervention {
     // Get default intervention
     return {} as TherapeuticIntervention;
   }
 
   private customizeIntervention(
     intervention: TherapeuticIntervention,
-    session: TherapySession,
-    analysis: any
+    _session: TherapySession,
+    _analysis: any
   ): TherapeuticIntervention {
     // Customize intervention
     return intervention;
   }
 
   private async generateTherapeuticMessage(
-    profile: TherapistProfile,
-    message: string,
-    intervention: TherapeuticIntervention,
-    tone: EmotionalTone
+    _profile: TherapistProfile,
+    _message: string,
+    _intervention: TherapeuticIntervention,
+    _tone: EmotionalTone
   ): Promise<string> {
     // Generate therapeutic message
     return '';
   }
 
   private async generateFollowUpQuestions(
-    intervention: TherapeuticIntervention,
-    analysis: any,
-    session: TherapySession
+    _intervention: TherapeuticIntervention,
+    _analysis: any,
+    _session: TherapySession
   ): Promise<string[]> {
     // Generate follow-up questions
     return [];
   }
 
   private async selectResources(
-    intervention: TherapeuticIntervention,
-    themes: string[]
+    _intervention: TherapeuticIntervention,
+    _themes: string[]
   ): Promise<any[]> {
     // Select resources
     return [];
   }
 
   private shouldAssignHomework(
-    session: TherapySession,
-    intervention: TherapeuticIntervention
+    _session: TherapySession,
+    _intervention: TherapeuticIntervention
   ): boolean {
     // Determine if homework should be assigned
     return false;
   }
 
   private async generateHomework(
-    intervention: TherapeuticIntervention,
-    session: TherapySession
+    _intervention: TherapeuticIntervention,
+    _session: TherapySession
   ): Promise<any> {
     // Generate homework
     return {};
   }
 
   private shouldRecommendHandoff(
-    analysis: any,
-    session: TherapySession
+    _analysis: any,
+    _session: TherapySession
   ): boolean {
     // Determine if handoff is recommended
     return false;
   }
 
   private updateSessionTranscript(
-    session: TherapySession,
-    message: string,
-    response: TherapeuticResponse
+    _session: TherapySession,
+    _message: string,
+    _response: TherapeuticResponse
   ): void {
     // Update session transcript
   }
 
   private async updateTherapeuticAlliance(
-    session: TherapySession,
-    response: TherapeuticResponse
+    _session: TherapySession,
+    _response: TherapeuticResponse
   ): Promise<void> {
     // Update therapeutic alliance
   }
 
-  private calculateDuration(session: TherapySession): number {
+  private calculateDuration(_session: TherapySession): number {
     // Calculate session duration
     return 0;
   }
 
   private async generateSessionAnalytics(
-    session: TherapySession
+    _session: TherapySession
   ): Promise<SessionAnalytics> {
     // Generate session analytics
     return {} as SessionAnalytics;
   }
 
   private async createSessionNote(
-    session: TherapySession,
-    analytics: SessionAnalytics
+    _session: TherapySession,
+    _analytics: SessionAnalytics
   ): Promise<void> {
     // Create session note
   }
 
   private async scheduleFollowUp(
-    session: TherapySession,
-    analytics: SessionAnalytics
+    _session: TherapySession,
+    _analytics: SessionAnalytics
   ): Promise<void> {
     // Schedule follow-up
   }
