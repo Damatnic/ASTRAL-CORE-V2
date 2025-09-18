@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd apps/web && npx prisma generate && npm run build",
+  "buildCommand": "npx prisma generate --schema=packages/database/schema.prisma && cd apps/web && npm run build",
   "outputDirectory": "apps/web/.next",
   "installCommand": "npm install --legacy-peer-deps && cd apps/web && npm install --legacy-peer-deps",
   "env": {
