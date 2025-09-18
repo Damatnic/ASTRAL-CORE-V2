@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "npx turbo run build --filter=web",
+  "buildCommand": "npx turbo run build --filter=astral-core-web",
   "outputDirectory": "apps/web/.next",
   "installCommand": "npm install --legacy-peer-deps",
   "env": {
