@@ -1,6 +1,17 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
     "composite": false,
     "tsBuildInfoFile": "./.next/.tsbuildinfo",
     "plugins": [
@@ -9,14 +20,22 @@
       }
     ],
     "noEmit": true,
-    "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"],
       "@/lib/*": ["./lib/*"],
       "@/components/*": ["./components/*"],
       "@/app/*": ["./app/*"]
-    }
+    },
+    "types": ["node"],
+    "exactOptionalPropertyTypes": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true
   },
   "include": [
     "next-env.d.ts",
