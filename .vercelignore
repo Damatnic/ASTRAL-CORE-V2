@@ -2,8 +2,10 @@
 pnpm-lock.yaml
 pnpm-workspace.yaml
 
-# Packages directory (not needed for web app)
+# Packages directory (except database schema)
 packages/
+!packages/database/
+!packages/database/schema.prisma
 
 # Other apps
 apps/mobile/
