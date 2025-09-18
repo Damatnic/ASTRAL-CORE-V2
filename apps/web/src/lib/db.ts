@@ -97,6 +97,12 @@ export interface Achievement {
   xpReward: number
   pointReward: number
   icon?: string
+  rarity: AchievementRarity
+  category: AchievementCategory
+  completed?: boolean
+  isHidden?: boolean
+  progress?: number
+  unlockedAt?: Date
 }
 
 export interface Challenge {
@@ -139,6 +145,111 @@ export enum ChallengeDifficulty {
   MEDIUM = 'MEDIUM',
   HARD = 'HARD',
   EXPERT = 'EXPERT'
+}
+
+export enum ChallengeStatus {
+  ACTIVE = 'ACTIVE',
+  COMPLETED = 'COMPLETED',
+  EXPIRED = 'EXPIRED',
+  LOCKED = 'LOCKED'
+}
+
+// Gamification context types
+export interface GamificationState {
+  user: UserProfile | null;
+  achievements: Achievement[];
+  challenges: Challenge[];
+  theme: GamificationTheme;
+  isLoading: boolean;
+  error: string | null;
+}
+
+export interface GamificationActions {
+  unlockAchievement: (achievementId: string) => Promise<void>;
+  completeChallenge: (challengeId: string) => Promise<void>;
+  addXP: (amount: number, source: string) => Promise<void>;
+  awardXP: (amount: number, source: string, metadata?: any) => Promise<void>;
+  logActivity: (activity: any) => Promise<void>;
+  setTheme: (theme: GamificationTheme) => void;
+}
+
+export interface UserProfile {
+  id: string;
+  name?: string;
+  level: number;
+  totalXP: number;
+  currentStreak: number;
+  currentLevelXP?: number;
+  nextLevelXP?: number;
+  stats?: {
+    achievementsUnlocked: number;
+    challengesCompleted: number;
+    currentStreak: number;
+    pointsEarned?: number;
+  };
+}
+
+export interface GamificationTheme {
+  colors: {
+    primary: string;
+    secondary: string;
+    accent: string;
+    background: string;
+    surface: string;
+    success: string;
+    warning: string;
+    error: string;
+    text: string;
+    textSecondary: string;
+    border: string;
+    rarities: Record<string, string>;
+    levels: string[];
+  };
+  gradients: Record<string, string>;
+  typography: {
+    fontFamily: string;
+    fontSizes: Record<string, string>;
+    fontWeights: Record<string, number>;
+  };
+  spacing: Record<string, string>;
+  borderRadius: Record<string, string>;
+  shadows: Record<string, string>;
+  effects: Record<string, string>;
+  animations: Record<string, Record<string, any>>;
+}
+
+// Additional interfaces for gamification context
+export interface ActivityEntry {
+  id: string;
+  userId: string;
+  type: ActivityType;
+  xpEarned: number;
+  timestamp: Date;
+  metadata?: any;
+}
+
+export interface LevelInfo {
+  level: number;
+  minXP: number;
+  maxXP: number;
+  title: string;
+  rewards: string[];
+}
+
+export interface Notification {
+  id: string;
+  type: 'achievement' | 'level_up' | 'challenge' | 'streak';
+  title: string;
+  message: string;
+  timestamp: Date;
+  read?: boolean;
+}
+
+export interface GamificationConfig {
+  xpMultiplier: number;
+  streakBonus: number;
+  achievementPoints: Record<AchievementRarity, number>;
+  levelThresholds: LevelInfo[];
 }
 
 // Gamification utilities

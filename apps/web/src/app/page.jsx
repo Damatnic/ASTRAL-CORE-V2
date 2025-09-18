@@ -11,11 +11,11 @@ import {
   Settings, Bell, PlusCircle, CheckCircle, AlertCircle
 } from 'lucide-react';
 
-// Lazy load heavy components for performance
-const GamificationDashboard = React.lazy(() => import('../components/gamification/GamificationDashboard'));
+// Lazy load heavy components for performance  
+const GamificationDashboard = React.lazy(() => import('../components/gamification/Stub').then(m => ({ default: m.GamificationDashboard })));
 const MoodTrackerGamified = React.lazy(() => import('../components/MoodTrackerGamified'));
 const SafetyPlanner = React.lazy(() => import('../components/SafetyPlanner'));
-const GamificationProvider = React.lazy(() => import('../contexts/GamificationContext').then(module => ({ default: module.GamificationProvider })));
+const GamificationProvider = React.lazy(() => import('../contexts/GamificationContextStub').then(module => ({ default: module.GamificationProvider })));
 
 // Quick action cards for the dashboard
 const getQuickActions = (userRole) => {

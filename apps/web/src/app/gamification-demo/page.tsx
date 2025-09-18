@@ -12,8 +12,8 @@
  */
 
 import React from 'react';
-import { GamificationProvider } from '../../contexts/GamificationContext';
-import GamificationDemo from '../../components/gamification/GamificationDemo';
+import { GamificationProvider } from '../../contexts/GamificationContextStub';
+import { GamificationDemo } from '../../components/gamification/Stub';
 
 export default function GamificationDemoPage() {
   return (

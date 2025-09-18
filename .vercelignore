@@ -1,0 +1,46 @@
+# Workspace files that cause deployment issues
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# Packages directory (not needed for web app)
+packages/
+
+# Other apps
+apps/mobile/
+apps/admin/
+
+# Development files
+.turbo/
+node_modules/
+.env.local
+.env.production
+
+# Test files
+tests/
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Documentation
+*.md
+!README.md
+
+# Build artifacts
+dist/
+.next/
+coverage/
+
+# IDE files
+.vscode/
+.claude/
+.qodo/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Cache
+.cache/
+*.tsbuildinfo

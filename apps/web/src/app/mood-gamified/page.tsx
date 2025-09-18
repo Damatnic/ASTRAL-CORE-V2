@@ -12,7 +12,7 @@
  */
 
 import React from 'react';
-import { GamificationProvider } from '../../contexts/GamificationContext';
+import { GamificationProvider } from '../../contexts/GamificationContextStub';
 import MoodTrackerGamified from '../../components/MoodTrackerGamified';
 
 export default function MoodGamifiedPage() {

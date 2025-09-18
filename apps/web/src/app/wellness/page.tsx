@@ -13,8 +13,8 @@
 
 import React from 'react';
 import { useSession } from 'next-auth/react';
-import { GamificationProvider } from '../../contexts/GamificationContext';
-import GamificationDashboard from '../../components/gamification/GamificationDashboard';
+import { GamificationProvider } from '../../contexts/GamificationContextStub';
+import { GamificationDashboard } from '../../components/gamification/Stub';
 
 export default function WellnessPage() {
   const { data: session, status } = useSession();

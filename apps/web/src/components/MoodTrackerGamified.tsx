@@ -29,11 +29,9 @@ import {
 } from 'lucide-react';
 
 // Import gamification components
-import { useGamification } from '../contexts/GamificationContext';
+import { useGamification } from '../contexts/GamificationContextStub';
 import { useMoodEntries } from '../contexts/DataPersistenceContext';
-import LevelBadge from './gamification/LevelBadge';
-import ProgressBar from './gamification/ProgressBar';
-import AchievementBadge from './gamification/AchievementBadge';
+import { LevelBadge, ProgressBar, AchievementBadge } from './gamification/Stub';
 import { calculateActivityXP } from '@/lib/db';
 import { type MoodEntry as StoredMoodEntry } from '../lib/data-persistence';
 
@@ -511,7 +509,7 @@ export default function MoodTrackerGamified() {
                 <div className="p-4 bg-green-50 rounded-lg">
                   <h3 className="text-sm font-semibold text-gray-700 mb-2">Streak</h3>
                   <div className="text-2xl font-bold text-green-600">
-                    {state.user.stats.currentStreak}
+                    {state.user.stats?.currentStreak || 0}
                   </div>
                   <p className="text-sm text-gray-600">days in a row</p>
                 </div>
@@ -535,7 +533,7 @@ export default function MoodTrackerGamified() {
                     />
                     <div className="flex items-center space-x-4 text-sm text-gray-600">
                       <span>{state.user.totalXP.toLocaleString()} XP total</span>
-                      <span>{state.user.stats.pointsEarned.toLocaleString()} points</span>
+                      <span>{(state.user.stats?.pointsEarned || 0).toLocaleString()} points</span>
                     </div>
                   </div>
                 </div>

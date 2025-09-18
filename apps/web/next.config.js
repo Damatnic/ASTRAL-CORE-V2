@@ -142,14 +142,7 @@ const nextConfig = {
   // Output configuration for deployment
   output: 'standalone',
   
-  // Fix workspace root detection
-  outputFileTracingRoot: require('path').join(__dirname, '../../'),
-  
-  // Transpile packages from monorepo
-  transpilePackages: [
-    '@astralcore/database', 
-    '@astralcore/crisis'
-  ],
+  // Remove workspace dependencies for standalone deployment
 };
 
 module.exports = nextConfig;

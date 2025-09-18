@@ -83,7 +83,7 @@ export class SecurityManager {
     
     // Log if potentially malicious content was removed
     if (sanitized !== message) {
-      logger.security('Potentially malicious content sanitized from crisis message', {
+      logger.warn('Potentially malicious content sanitized from crisis message', {
         originalLength: message.length,
         sanitizedLength: sanitized.length,
         component: 'crisis-chat'
@@ -165,7 +165,7 @@ export class SecurityManager {
     }
 
     if (existing.count >= maxAttempts) {
-      logger.security('Rate limit exceeded', {
+      logger.warn('Rate limit exceeded', {
         identifier: identifier.substring(0, 8) + '***', // Partial identifier for privacy
         attempts: existing.count,
         component: 'security'
@@ -189,7 +189,7 @@ export class SecurityManager {
 
     for (const header of requiredHeaders) {
       if (!headers.get(header)) {
-        logger.security('Missing required security header', {
+        logger.warn('Missing required security header', {
           missingHeader: header,
           component: 'security'
         });
@@ -207,7 +207,7 @@ export class SecurityManager {
     ];
 
     if (suspiciousPatterns.some(pattern => pattern.test(userAgent))) {
-      logger.security('Suspicious user agent detected', {
+      logger.warn('Suspicious user agent detected', {
         userAgent: userAgent.substring(0, 50),
         component: 'security'
       });
@@ -229,7 +229,7 @@ export class SecurityManager {
     const requiredFields = ['id', 'isAnonymous'];
     for (const field of requiredFields) {
       if (!(field in sessionData)) {
-        logger.security('Invalid anonymous session structure', {
+        logger.warn('Invalid anonymous session structure', {
           missingField: field,
           component: 'security'
         });

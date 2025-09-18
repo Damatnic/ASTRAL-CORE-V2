@@ -7,6 +7,7 @@
     "dev:ws": "node server.js",
     "build": "next build",
     "build:next": "next build && tsc --project tsconfig.server.json",
+    "vercel-build": "node scripts/vercel-build.js",
     "start": "next start",
     "start:ws": "NODE_ENV=production node server.js",
     "lint": "next lint",
