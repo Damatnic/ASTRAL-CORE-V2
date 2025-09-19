@@ -203,7 +203,7 @@ export default function EnhancedCrisisInterface() {
                       : 'bg-red-600 text-white'
                     : highContrast
                       ? 'text-white hover:bg-gray-800'
-                      : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-red-50'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -227,7 +227,7 @@ export default function EnhancedCrisisInterface() {
                 <h2 className={`text-3xl font-bold mb-4 ${highContrast ? 'text-white' : 'text-gray-900'}`}>
                   You're Not Alone - Help is Here
                 </h2>
-                <p className={`text-xl ${highContrast ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+                <p className={`text-xl ${highContrast ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto`}>
                   Choose the type of support that feels right for you. All options are free, confidential, and available 24/7.
                 </p>
               </div>
@@ -263,7 +263,7 @@ export default function EnhancedCrisisInterface() {
                     <h3 className={`text-xl font-bold mb-2 ${highContrast ? 'text-white' : 'text-gray-900'}`}>
                       {option.title}
                     </h3>
-                    <p className={`${highContrast ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                    <p className={`${highContrast ? 'text-gray-300' : 'text-gray-700'} mb-4`}>
                       {option.subtitle}
                     </p>
 
@@ -271,13 +271,13 @@ export default function EnhancedCrisisInterface() {
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
                           <Clock className="w-4 h-4 text-green-600" />
-                          <span className={highContrast ? 'text-gray-300' : 'text-gray-600'}>
+                          <span className={highContrast ? 'text-gray-300' : 'text-gray-700'}>
                             {option.available}
                           </span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Activity className="w-4 h-4 text-blue-600" />
-                          <span className={highContrast ? 'text-gray-300' : 'text-gray-600'}>
+                          <span className={highContrast ? 'text-gray-300' : 'text-gray-700'}>
                             {option.waitTime}
                           </span>
                         </div>
@@ -307,7 +307,7 @@ export default function EnhancedCrisisInterface() {
                     <h3 className={`font-semibold mb-2 ${highContrast ? 'text-white' : 'text-gray-900'}`}>
                       Your Privacy is Protected
                     </h3>
-                    <p className={`${highContrast ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
+                    <p className={`${highContrast ? 'text-gray-300' : 'text-gray-700'} mb-3`}>
                       All conversations are confidential and secure. You can remain anonymous if you choose.
                     </p>
                     <div className="flex items-center space-x-4 text-sm">
@@ -343,7 +343,7 @@ export default function EnhancedCrisisInterface() {
                 <h2 className={`text-3xl font-bold mb-4 ${highContrast ? 'text-white' : 'text-gray-900'}`}>
                   Self-Help Crisis Tools
                 </h2>
-                <p className={`text-xl ${highContrast ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+                <p className={`text-xl ${highContrast ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto`}>
                   Evidence-based tools to help you cope with crisis moments and build resilience.
                 </p>
               </div>
@@ -367,7 +367,7 @@ export default function EnhancedCrisisInterface() {
                       <div className="p-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl">
                         <resource.icon className="w-6 h-6" />
                       </div>
-                      <span className={`text-xs ${highContrast ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <span className={`text-xs ${highContrast ? 'text-gray-300' : 'text-gray-700'}`}>
                         {resource.estimatedTime}
                       </span>
                     </div>
@@ -375,7 +375,7 @@ export default function EnhancedCrisisInterface() {
                     <h3 className={`text-xl font-bold mb-2 ${highContrast ? 'text-white' : 'text-gray-900'}`}>
                       {resource.title}
                     </h3>
-                    <p className={`${highContrast ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                    <p className={`${highContrast ? 'text-gray-300' : 'text-gray-700'} mb-4`}>
                       {resource.description}
                     </p>
 
@@ -416,7 +416,7 @@ export default function EnhancedCrisisInterface() {
                   <h3 className={`text-xl font-bold mb-2 ${highContrast ? 'text-white' : 'text-gray-900'}`}>
                     Connecting you to support...
                   </h3>
-                  <p className={`${highContrast ? 'text-gray-300' : 'text-gray-600'} mb-6`}>
+                  <p className={`${highContrast ? 'text-gray-300' : 'text-gray-700'} mb-6`}>
                     Please wait while we find an available counselor for you.
                   </p>
                   <div className="flex justify-center space-x-1 mb-6">
@@ -438,7 +438,7 @@ export default function EnhancedCrisisInterface() {
                   </div>
                   <button
                     onClick={() => setIsConnecting(false)}
-                    className={`px-4 py-2 ${highContrast ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+                    className={`px-4 py-2 ${highContrast ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900'} transition-colors`}
                   >
                     Cancel
                   </button>

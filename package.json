@@ -2,6 +2,7 @@
   "name": "astral-core-2.0",
   "version": "2.0.0",
   "description": "Life-saving peer-to-peer mental health crisis intervention platform with instant help and zero barriers",
+  "type": "module",
   "private": true,
   "workspaces": [
     "apps/*",

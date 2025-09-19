@@ -59,6 +59,21 @@ const navigationStructure: {
       ],
     },
     {
+      id: 'ai-therapy',
+      label: 'AI Therapy',
+      href: '/ai-therapy',
+      icon: Brain,
+      priority: 'high',
+      description: '24/7 AI therapists with specialized expertise',
+      badge: 'AI',
+      children: [
+        { label: 'Dr. Aria - CBT & Crisis', href: '/ai-therapy/chat?therapist=aria', icon: Brain },
+        { label: 'Dr. Sage - Trauma & PTSD', href: '/ai-therapy/chat?therapist=sage', icon: Heart },
+        { label: 'Dr. Luna - Sleep & Wellness', href: '/ai-therapy/chat?therapist=luna', icon: Star },
+        { label: 'Choose Your Therapist', href: '/ai-therapy', icon: Users },
+      ],
+    },
+    {
       id: 'support',
       label: 'Get Support',
       href: '/support',
@@ -66,7 +81,7 @@ const navigationStructure: {
       priority: 'high',
       description: 'Connect with trained volunteers and professionals',
       children: [
-        { label: 'Chat Support', href: '/crisis/chat', icon: MessageCircle },
+        { label: 'Crisis Chat', href: '/crisis/chat', icon: MessageCircle },
         { label: 'Peer Support', href: '/peer-support', icon: Users },
         { label: 'Professional Help', href: '/therapist', icon: Star },
         { label: 'Group Sessions', href: '/groups', icon: Users },
@@ -136,13 +151,13 @@ export default function EnhancedNavigation() {
   const navBackground = useTransform(
     scrollY,
     [0, 50],
-    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.95)']
+    ['rgba(255, 255, 255, 0.85)', 'rgba(255, 255, 255, 0.98)']
   );
 
   const navShadow = useTransform(
     scrollY,
     [0, 50],
-    ['0px 0px 0px rgba(0, 0, 0, 0)', '0px 4px 20px rgba(0, 0, 0, 0.1)']
+    ['0px 2px 12px rgba(0, 0, 0, 0.08)', '0px 4px 20px rgba(0, 0, 0, 0.15)']
   );
 
   return (
@@ -151,7 +166,7 @@ export default function EnhancedNavigation() {
         backgroundColor: navBackground,
         boxShadow: navShadow,
       }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/20"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-gray-200/30"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -184,8 +199,8 @@ export default function EnhancedNavigation() {
                     onClick={() => setActiveDropdown(activeDropdown === item.id ? null : (item.id || null))}
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       pathname.startsWith(item.href)
-                        ? 'bg-purple-100 text-purple-700'
-                        : 'text-gray-700 hover:text-purple-600 hover:bg-purple-50'
+                        ? 'bg-purple-100 text-purple-800 shadow-sm'
+                        : 'text-gray-900 hover:text-purple-700 hover:bg-purple-50/80 font-semibold'
                     }`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -204,10 +219,10 @@ export default function EnhancedNavigation() {
                     href={item.href}
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       pathname === item.href
-                        ? 'bg-purple-100 text-purple-700'
+                        ? 'bg-purple-100 text-purple-800 shadow-sm'
                         : item.priority === 'critical'
-                        ? 'bg-red-500 text-white hover:bg-red-600'
-                        : 'text-gray-700 hover:text-purple-600 hover:bg-purple-50'
+                        ? 'bg-red-500 text-white hover:bg-red-600 shadow-md'
+                        : 'text-gray-900 hover:text-purple-700 hover:bg-purple-50/80 font-semibold'
                     }`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -232,15 +247,15 @@ export default function EnhancedNavigation() {
                     >
                       <div className="px-4 py-2 border-b border-gray-100">
                         <p className="text-sm font-semibold text-gray-900">{item.label}</p>
-                        <p className="text-xs text-gray-500">{item.description}</p>
+                        <p className="text-xs text-gray-700">{item.description}</p>
                       </div>
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors"
+                          className="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-purple-50/80 hover:text-purple-700 transition-colors font-medium"
                         >
-                          <child.icon className="w-4 h-4 mr-3 text-gray-400" />
+                          <child.icon className="w-4 h-4 mr-3 text-gray-600" />
                           {child.label}
                         </Link>
                       ))}
@@ -254,9 +269,9 @@ export default function EnhancedNavigation() {
           {/* Right side actions */}
           <div className="hidden lg:flex items-center space-x-3">
             {/* Search */}
-            <button className="p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
+            <Link href="/search" className="p-2 text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors shadow-sm">
               <Search className="w-5 h-5" />
-            </button>
+            </Link>
 
             {/* Emergency Crisis Button */}
             <motion.a
@@ -274,7 +289,7 @@ export default function EnhancedNavigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+            className="lg:hidden p-2 text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors shadow-sm"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -309,8 +324,8 @@ export default function EnhancedNavigation() {
                     href={item.href}
                     className={`flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       pathname === item.href
-                        ? 'bg-purple-100 text-purple-700'
-                        : 'text-gray-700 hover:bg-purple-50'
+                        ? 'bg-purple-100 text-purple-800 shadow-sm'
+                        : 'text-gray-900 hover:bg-purple-50/80 font-semibold'
                     }`}
                   >
                     <item.icon className="w-5 h-5 mr-3" />
@@ -329,7 +344,7 @@ export default function EnhancedNavigation() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                          className="flex items-center px-4 py-2 text-sm text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors font-medium"
                         >
                           <child.icon className="w-4 h-4 mr-3" />
                           {child.label}
@@ -346,7 +361,7 @@ export default function EnhancedNavigation() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center w-full px-4 py-3 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                    className="flex items-center w-full px-4 py-3 text-sm text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors font-medium"
                   >
                     <item.icon className="w-4 h-4 mr-3" />
                     {item.label}

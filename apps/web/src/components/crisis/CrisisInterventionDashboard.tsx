@@ -300,7 +300,7 @@ export default function CrisisInterventionDashboard() {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">Crisis Intervention Dashboard</h1>
-                  <p className="text-sm text-gray-500">Real-time crisis monitoring and response coordination</p>
+                  <p className="text-sm text-gray-700">Real-time crisis monitoring and response coordination</p>
                 </div>
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function CrisisInterventionDashboard() {
               {/* Connection status */}
               <div className="flex items-center space-x-2">
                 <Wifi className="w-4 h-4 text-green-600" />
-                <span className="text-sm text-gray-600">Live</span>
+                <span className="text-sm text-gray-700">Live</span>
               </div>
               
               {/* Auto-refresh toggle */}
@@ -351,7 +351,7 @@ export default function CrisisInterventionDashboard() {
                   <span className="text-sm text-gray-900">{alert.title}</span>
                   <button
                     onClick={() => acknowledgeAlert(alert.id)}
-                    className="text-gray-400 hover:text-gray-600"
+                    className="text-gray-700 hover:text-gray-900"
                   >
                     <XCircle className="w-4 h-4" />
                   </button>
@@ -368,39 +368,39 @@ export default function CrisisInterventionDashboard() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
             <div className="text-center">
               <p className="text-2xl font-bold text-gray-900">{metrics.activeSessions}</p>
-              <p className="text-sm text-gray-500">Active</p>
+              <p className="text-sm text-gray-700">Active</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-yellow-600">{metrics.waitingQueue}</p>
-              <p className="text-sm text-gray-500">Waiting</p>
+              <p className="text-sm text-gray-700">Waiting</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-red-600">{metrics.criticalCases}</p>
-              <p className="text-sm text-gray-500">Critical</p>
+              <p className="text-sm text-gray-700">Critical</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-orange-600">{metrics.highRiskCases}</p>
-              <p className="text-sm text-gray-500">High Risk</p>
+              <p className="text-sm text-gray-700">High Risk</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-green-600">
                 {(metrics.resolutionRate * 100).toFixed(0)}%
               </p>
-              <p className="text-sm text-gray-500">Resolved</p>
+              <p className="text-sm text-gray-700">Resolved</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-purple-600">
                 {Math.floor(metrics.averageWaitTime / 60)}m
               </p>
-              <p className="text-sm text-gray-500">Avg Wait</p>
+              <p className="text-sm text-gray-700">Avg Wait</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-blue-600">{metrics.volunteersAvailable}</p>
-              <p className="text-sm text-gray-500">Available</p>
+              <p className="text-sm text-gray-700">Available</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-gray-900">{metrics.volunteersOnline}</p>
-              <p className="text-sm text-gray-500">Online</p>
+              <p className="text-sm text-gray-700">Online</p>
             </div>
           </div>
         </div>
@@ -414,7 +414,7 @@ export default function CrisisInterventionDashboard() {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-700" />
                   <input
                     type="text"
                     value={searchQuery}
@@ -512,7 +512,7 @@ export default function CrisisInterventionDashboard() {
                         </span>
                       </div>
                       
-                      <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
+                      <div className="flex items-center space-x-4 mt-2 text-sm text-gray-700">
                         <span className="flex items-center">
                           <Clock className="w-3 h-3 mr-1" />
                           {Math.floor((Date.now() - session.startTime.getTime()) / 60000)}m
@@ -538,12 +538,12 @@ export default function CrisisInterventionDashboard() {
                       {session.riskFactors.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-2">
                           {session.riskFactors.slice(0, 3).map((factor, idx) => (
-                            <span key={idx} className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
+                            <span key={idx} className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs">
                               {factor}
                             </span>
                           ))}
                           {session.riskFactors.length > 3 && (
-                            <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
+                            <span className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs">
                               +{session.riskFactors.length - 3} more
                             </span>
                           )}
@@ -552,7 +552,7 @@ export default function CrisisInterventionDashboard() {
                     </div>
                     
                     <button className="p-1 hover:bg-gray-100 rounded">
-                      <MoreVertical className="w-4 h-4 text-gray-400" />
+                      <MoreVertical className="w-4 h-4 text-gray-700" />
                     </button>
                   </div>
                 </div>
@@ -571,7 +571,7 @@ export default function CrisisInterventionDashboard() {
                   <h2 className="text-lg font-bold text-gray-900">Session Details</h2>
                   <button
                     onClick={() => setSelectedSession(null)}
-                    className="text-gray-400 hover:text-gray-600"
+                    className="text-gray-700 hover:text-gray-900"
                   >
                     <XCircle className="w-5 h-5" />
                   </button>
@@ -579,17 +579,17 @@ export default function CrisisInterventionDashboard() {
                 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Session ID</span>
+                    <span className="text-sm text-gray-700">Session ID</span>
                     <span className="text-sm font-medium">{selectedSession.id}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Duration</span>
+                    <span className="text-sm text-gray-700">Duration</span>
                     <span className="text-sm font-medium">
                       {Math.floor((Date.now() - selectedSession.startTime.getTime()) / 60000)} minutes
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Messages</span>
+                    <span className="text-sm text-gray-700">Messages</span>
                     <span className="text-sm font-medium">{selectedSession.messages}</span>
                   </div>
                 </div>
@@ -625,7 +625,7 @@ export default function CrisisInterventionDashboard() {
                         {selectedSession.riskFactors.map((factor, idx) => (
                           <div key={idx} className="flex items-center space-x-2">
                             <AlertTriangle className="w-3 h-3 text-orange-500" />
-                            <span className="text-sm text-gray-600">{factor}</span>
+                            <span className="text-sm text-gray-700">{factor}</span>
                           </div>
                         ))}
                       </div>
@@ -678,7 +678,7 @@ export default function CrisisInterventionDashboard() {
                           <div className="flex items-center justify-between">
                             <div>
                               <p className="font-medium text-gray-900">{volunteer.name}</p>
-                              <p className="text-xs text-gray-500">
+                              <p className="text-xs text-gray-700">
                                 {volunteer.specializations.join(', ')}
                               </p>
                             </div>
@@ -695,7 +695,7 @@ export default function CrisisInterventionDashboard() {
                                   />
                                 ))}
                               </div>
-                              <p className="text-xs text-gray-500 mt-1">
+                              <p className="text-xs text-gray-700 mt-1">
                                 {volunteer.sessionsToday} sessions
                               </p>
                             </div>
@@ -712,7 +712,7 @@ export default function CrisisInterventionDashboard() {
                   <h3 className="font-medium text-gray-900 mb-3">Session Outcome</h3>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">Resolution</span>
+                      <span className="text-sm text-gray-700">Resolution</span>
                       <span className={`text-sm font-medium ${
                         selectedSession.outcome.resolved ? 'text-green-600' : 'text-red-600'
                       }`}>
@@ -721,18 +721,18 @@ export default function CrisisInterventionDashboard() {
                     </div>
                     {selectedSession.outcome.referralMade && (
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">Referral</span>
+                        <span className="text-sm text-gray-700">Referral</span>
                         <CheckCircle className="w-4 h-4 text-green-600" />
                       </div>
                     )}
                     {selectedSession.outcome.followUpScheduled && (
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">Follow-up</span>
+                        <span className="text-sm text-gray-700">Follow-up</span>
                         <CheckCircle className="w-4 h-4 text-green-600" />
                       </div>
                     )}
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">Risk Level</span>
+                      <span className="text-sm text-gray-700">Risk Level</span>
                       <span className={`text-sm font-medium ${
                         selectedSession.outcome.riskLevel === 'reduced' ? 'text-green-600' :
                         selectedSession.outcome.riskLevel === 'increased' ? 'text-red-600' :
@@ -746,7 +746,7 @@ export default function CrisisInterventionDashboard() {
               )}
             </>
           ) : (
-            <div className="flex-1 flex items-center justify-center text-gray-400">
+            <div className="flex-1 flex items-center justify-center text-gray-700">
               <div className="text-center">
                 <Users className="w-12 h-12 mx-auto mb-3 opacity-50" />
                 <p>Select a session to view details</p>
@@ -764,7 +764,7 @@ export default function CrisisInterventionDashboard() {
             <span>Response Time: <span className="text-yellow-400">1.2s</span></span>
             <span>Server Load: <span className="text-green-400">42%</span></span>
           </div>
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-gray-700">
             Last updated: {new Date().toLocaleTimeString()}
           </div>
         </div>

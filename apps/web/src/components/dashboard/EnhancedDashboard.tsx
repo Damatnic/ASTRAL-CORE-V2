@@ -350,7 +350,7 @@ function StatsCard({ title, value, suffix, trend, change, icon: Icon, color }: a
       <h3 className="text-sm font-medium text-gray-600 mb-1">{title}</h3>
       <div className="text-2xl font-bold text-gray-900">
         {value}
-        <span className="text-sm text-gray-500 font-normal">{suffix}</span>
+        <span className="text-sm text-gray-700 font-normal">{suffix}</span>
       </div>
     </motion.div>
   );
@@ -369,8 +369,8 @@ function DashboardSection({ title, icon: Icon, isExpanded, onToggle, children }:
           <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
         </div>
         {isExpanded ? 
-          <ChevronDown className="w-5 h-5 text-gray-400" /> : 
-          <ChevronRight className="w-5 h-5 text-gray-400" />
+          <ChevronDown className="w-5 h-5 text-gray-700" /> : 
+          <ChevronRight className="w-5 h-5 text-gray-700" />
         }
       </button>
       
@@ -405,9 +405,9 @@ function QuickActionButton({ href, icon: Icon, label, description, color }: any)
       </div>
       <div className="ml-3 flex-1">
         <p className="font-medium text-gray-900">{label}</p>
-        <p className="text-sm text-gray-500">{description}</p>
+        <p className="text-sm text-gray-700">{description}</p>
       </div>
-      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-gray-600" />
+      <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-gray-900" />
     </a>
   );
 }
@@ -416,7 +416,7 @@ function QuickActionButton({ href, icon: Icon, label, description, color }: any)
 function WellnessChart({ data, timeframe, showPrivate }: any) {
   if (showPrivate) {
     return (
-      <div className="h-64 flex items-center justify-center text-gray-500">
+      <div className="h-64 flex items-center justify-center text-gray-700">
         <div className="text-center">
           <EyeOff className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p>Private mode enabled</p>
@@ -427,7 +427,7 @@ function WellnessChart({ data, timeframe, showPrivate }: any) {
 
   return (
     <div className="h-64 flex items-center justify-center">
-      <div className="text-center text-gray-500">
+      <div className="text-center text-gray-700">
         <LineChart className="w-12 h-12 mx-auto mb-4 opacity-50" />
         <p>Wellness chart visualization</p>
         <p className="text-sm">Score: {data?.currentScore || 0}/100</p>
@@ -446,7 +446,7 @@ function RecentActivities({ userId, showPrivate }: any) {
 
   if (showPrivate) {
     return (
-      <div className="text-center text-gray-500 py-8">
+      <div className="text-center text-gray-700 py-8">
         <EyeOff className="w-8 h-8 mx-auto mb-2 opacity-50" />
         <p>Activities hidden in private mode</p>
       </div>
@@ -460,7 +460,7 @@ function RecentActivities({ userId, showPrivate }: any) {
           <div className="w-2 h-2 bg-blue-500 rounded-full mr-3" />
           <div className="flex-1">
             <p className="font-medium text-gray-900">{activity.name}</p>
-            <p className="text-sm text-gray-500">{activity.time}</p>
+            <p className="text-sm text-gray-700">{activity.time}</p>
           </div>
         </div>
       ))}
@@ -472,7 +472,7 @@ function RecentActivities({ userId, showPrivate }: any) {
 function ProgressTracking({ progress, showPrivate }: any) {
   if (showPrivate) {
     return (
-      <div className="text-center text-gray-500 py-8">
+      <div className="text-center text-gray-700 py-8">
         <EyeOff className="w-8 h-8 mx-auto mb-2 opacity-50" />
         <p>Progress hidden in private mode</p>
       </div>
@@ -501,7 +501,7 @@ function ProgressTracking({ progress, showPrivate }: any) {
 function UpcomingEvents({ nextAppointment, showPrivate }: any) {
   if (showPrivate) {
     return (
-      <div className="text-center text-gray-500 py-4">
+      <div className="text-center text-gray-700 py-4">
         <EyeOff className="w-6 h-6 mx-auto mb-2 opacity-50" />
         <p className="text-sm">Events hidden</p>
       </div>
@@ -510,7 +510,7 @@ function UpcomingEvents({ nextAppointment, showPrivate }: any) {
 
   if (!nextAppointment) {
     return (
-      <div className="text-center text-gray-500 py-4">
+      <div className="text-center text-gray-700 py-4">
         <Calendar className="w-8 h-8 mx-auto mb-2 opacity-50" />
         <p>No upcoming appointments</p>
       </div>
@@ -523,7 +523,7 @@ function UpcomingEvents({ nextAppointment, showPrivate }: any) {
         <Clock className="w-5 h-5 text-blue-500 mr-3" />
         <div>
           <p className="font-medium text-gray-900">Therapy Session</p>
-          <p className="text-sm text-gray-500">Tomorrow at 2:00 PM</p>
+          <p className="text-sm text-gray-700">Tomorrow at 2:00 PM</p>
         </div>
       </div>
     </div>
@@ -534,7 +534,7 @@ function UpcomingEvents({ nextAppointment, showPrivate }: any) {
 function AchievementsList({ badges, showPrivate }: any) {
   if (showPrivate) {
     return (
-      <div className="text-center text-gray-500 py-4">
+      <div className="text-center text-gray-700 py-4">
         <EyeOff className="w-6 h-6 mx-auto mb-2 opacity-50" />
         <p className="text-sm">Achievements hidden</p>
       </div>
@@ -547,10 +547,10 @@ function AchievementsList({ badges, showPrivate }: any) {
         <Award className="w-5 h-5 text-yellow-500 mr-3" />
         <div>
           <p className="font-medium text-gray-900">7-Day Streak</p>
-          <p className="text-sm text-gray-500">Completed daily check-ins</p>
+          <p className="text-sm text-gray-700">Completed daily check-ins</p>
         </div>
       </div>
-      <div className="text-center text-gray-500 py-2">
+      <div className="text-center text-gray-700 py-2">
         <p className="text-sm">{badges} total badges earned</p>
       </div>
     </div>

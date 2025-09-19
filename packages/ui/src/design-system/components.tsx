@@ -135,7 +135,7 @@ const LoadingSpinner: React.FC<{ size?: string }> = ({ size = 'md' }) => {
 
 // Input Component Variants
 const inputVariants = cva(
-  'flex w-full rounded-lg border bg-white px-3 py-2 text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex w-full rounded-lg border bg-white px-3 py-2 text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -184,7 +184,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         
         <div className="relative">
           {icon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-700">
               {icon}
             </div>
           )}
@@ -210,7 +210,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-1.5 text-sm text-gray-500">
+          <p id={`${inputId}-hint`} className="mt-1.5 text-sm text-gray-700">
             {hint}
           </p>
         )}

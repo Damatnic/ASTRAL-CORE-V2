@@ -801,7 +801,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
                   </div>
                 </div>
               </div>
-              <ChevronRight className="w-6 h-6 text-gray-400 ml-4" />
+              <ChevronRight className="w-6 h-6 text-gray-700 ml-4" />
             </div>
           </div>
         ))}
@@ -970,7 +970,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
           {currentPlan?.sections.groundingExercises.map((exercise, index) => (
             <div key={index} className="p-4 bg-white border rounded-lg">
               <h4 className="font-semibold">{exercise.name}</h4>
-              <p className="text-sm text-gray-500 mb-2">{exercise.duration} minutes</p>
+              <p className="text-sm text-gray-700 mb-2">{exercise.duration} minutes</p>
               <ol className="text-sm text-gray-600 space-y-1">
                 {exercise.instructions.map((instruction, idx) => (
                   <li key={idx}>{idx + 1}. {instruction}</li>
@@ -1036,7 +1036,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
                   )}
                 </div>
                 {contact.availability && (
-                  <p className="text-sm text-gray-500 mt-1">Available: {contact.availability}</p>
+                  <p className="text-sm text-gray-700 mt-1">Available: {contact.availability}</p>
                 )}
               </div>
               {isEditing && (
@@ -1090,7 +1090,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
                   )}
                 </div>
                 {contact.availability && (
-                  <p className="text-sm text-gray-500 mt-1">Available: {contact.availability}</p>
+                  <p className="text-sm text-gray-700 mt-1">Available: {contact.availability}</p>
                 )}
               </div>
               {isEditing && (
@@ -1298,7 +1298,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
                   {share.relationship} - {share.permissions.join(', ')}
                 </p>
               </div>
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-700">
                 Shared {new Date(share.sharedAt).toLocaleDateString()}
               </span>
             </div>
@@ -1396,7 +1396,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
                 Evidence-based, clinically-informed safety planning with professional templates
               </p>
               {currentPlan && (
-                <div className="flex items-center space-x-4 mt-3 text-sm text-gray-500">
+                <div className="flex items-center space-x-4 mt-3 text-sm text-gray-700">
                   <span>Version {currentPlan.version}</span>
                   <span>•</span>
                   <span>Last updated: {currentPlan.lastUpdated.toLocaleString()}</span>
@@ -1454,7 +1454,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
           <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold">Safety Plan Progress</h2>
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-700">
                 Step {currentStep + 1} of {steps.length}
               </span>
             </div>
@@ -1474,7 +1474,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
                       ? `${step.bgColor} ${step.color} ring-2 ring-offset-2 ring-current`
                       : index < currentStep
                       ? 'bg-green-100 text-green-700'
-                      : 'bg-gray-100 text-gray-400'
+                      : 'bg-gray-100 text-gray-700'
                   }`}>
                     <step.icon className="w-5 h-5" />
                   </div>
@@ -1497,7 +1497,7 @@ If you are in immediate danger, call 911 or go to your nearest emergency room.
             <div className="mt-4 p-3 bg-gray-50 rounded-lg">
               <h3 className="font-semibold text-gray-900">{steps[currentStep].title}</h3>
               <p className="text-sm text-gray-600 mt-1">{steps[currentStep].description}</p>
-              <p className="text-xs text-gray-500 mt-2 italic">
+              <p className="text-xs text-gray-700 mt-2 italic">
                 <Info className="w-3 h-3 inline mr-1" />
                 {steps[currentStep].clinicalNote}
               </p>

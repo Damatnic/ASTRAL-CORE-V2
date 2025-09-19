@@ -258,7 +258,7 @@ export default function SelfHelpWidget() {
     return (
       <div className="bg-white rounded-xl shadow-sm p-6">
         <div className="text-center py-8">
-          <Activity className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+          <Activity className="w-12 h-12 text-gray-700 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">Self-Help Tools</h3>
           <p className="text-gray-600 mb-4">Start your wellness journey today</p>
           <Link 
@@ -393,7 +393,7 @@ export default function SelfHelpWidget() {
                         <div className="text-sm text-gray-600">{action.description}</div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2 text-sm text-gray-700">
                       <Clock className="w-4 h-4" />
                       {action.estimatedTime}
                     </div>
@@ -421,7 +421,7 @@ export default function SelfHelpWidget() {
                     {activity.improvement !== undefined && activity.improvement > 0 && (
                       <TrendingUp className="w-4 h-4 text-green-500" />
                     )}
-                    <span className="text-gray-500">
+                    <span className="text-gray-700">
                       {new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(
                         Math.floor((activity.timestamp.getTime() - Date.now()) / (1000 * 60 * 60 * 24)),
                         'day'

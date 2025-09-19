@@ -366,7 +366,7 @@ export default function BreathingExercises() {
             {soundEnabled ? (
               <Volume2 className="w-5 h-5 text-gray-600" />
             ) : (
-              <VolumeX className="w-5 h-5 text-gray-400" />
+              <VolumeX className="w-5 h-5 text-gray-700" />
             )}
           </button>
         </div>
@@ -408,7 +408,7 @@ export default function BreathingExercises() {
                         )}>
                           {ex.difficulty}
                         </span>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-gray-700">
                           {ex.cycles} cycles
                         </span>
                       </div>
@@ -631,7 +631,7 @@ export default function BreathingExercises() {
             <div className="mt-8 p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-gray-700">Breathing Pattern</span>
-                <span className="text-xs text-gray-500">
+                <span className="text-xs text-gray-700">
                   {exercise.inhale}s in • {exercise.hold > 0 && `${exercise.hold}s hold • `}
                   {exercise.exhale}s out {exercise.pause > 0 && `• ${exercise.pause}s pause`}
                 </span>
@@ -674,7 +674,7 @@ export default function BreathingExercises() {
               Recent Sessions
             </h3>
             {sessions.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">
+              <p className="text-gray-700 text-center py-8">
                 Complete your first breathing exercise to see your progress
               </p>
             ) : (

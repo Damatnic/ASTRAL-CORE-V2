@@ -1,6 +1,7 @@
 /**
- * Simple Health Check Endpoint
- * Basic system health without database dependencies
+ * Public Health Check Endpoint
+ * Zero dependencies - pure system health check
+ * No authentication, no database, no middleware
  */
 
 import { NextResponse } from 'next/server';

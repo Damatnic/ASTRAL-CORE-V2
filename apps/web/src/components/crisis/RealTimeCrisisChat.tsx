@@ -500,7 +500,7 @@ export default function RealTimeCrisisChat({
               <User size={16} className={
                 volunteer.status === 'CONNECTED' ? 'text-green-500' :
                 volunteer.status === 'MATCHING' ? 'text-yellow-500' :
-                'text-gray-400'
+                'text-gray-700'
               } />
               <span className="text-sm">
                 {volunteer.status === 'CONNECTED' ? volunteer.name :
@@ -576,7 +576,7 @@ export default function RealTimeCrisisChat({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2 text-gray-500 text-sm ml-4"
+            className="flex items-center gap-2 text-gray-700 text-sm ml-4"
           >
             <div className="flex gap-1">
               <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
@@ -637,7 +637,7 @@ export default function RealTimeCrisisChat({
         <div className="flex justify-center mt-3">
           <button
             onClick={handleEndChat}
-            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            className="text-sm text-gray-700 hover:text-gray-900 transition-colors"
           >
             End Chat Session
           </button>

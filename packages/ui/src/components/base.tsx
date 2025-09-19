@@ -98,7 +98,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
         {helperText && !error && (
-          <p id={`${inputId}-help`} className="text-sm text-gray-500">
+          <p id={`${inputId}-help`} className="text-sm text-gray-700">
             {helperText}
           </p>
         )}
@@ -182,7 +182,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     };
 
     const iconStyles = {
-      default: 'text-gray-400',
+      default: 'text-gray-700',
       crisis: 'text-crisis-400',
       success: 'text-success-400',
       warning: 'text-warning-400',

@@ -1,24 +1,31 @@
 import { NextAuthOptions } from 'next-auth';
+import Auth0Provider from 'next-auth/providers/auth0';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import GoogleProvider from 'next-auth/providers/google';
-import GitHubProvider from 'next-auth/providers/github';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { prisma } from '@/lib/db';
-import bcrypt from 'bcryptjs';
 import { randomBytes } from 'crypto';
 
+// Simple Auth0 configuration for Astral Core mental health platform
 export const authOptions: NextAuthOptions = {
-  // Temporarily disable Prisma adapter for Vercel deployment
-  // adapter: PrismaAdapter(prisma as any),
+  session: { 
+    strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
   providers: [
+    // Auth0 Provider - primary authentication
+    Auth0Provider({
+      clientId: process.env.AUTH0_CLIENT_ID || 'uGv7ns4HVxnKn5ofBdnaKqCKue1JUvZG',
+      clientSecret: process.env.AUTH0_CLIENT_SECRET || 'fJh0Y-Mtc4AYqZxN8hdm6vJf4PGWVBCDipTwLWcHF8L_c9lalReWgzqj9OSUTZpa',
+      issuer: process.env.AUTH0_ISSUER_BASE_URL || 'https://dev-ac3ajs327vs5vzhk.us.auth0.com',
+    }),
+    
+    // Anonymous access for crisis situations
     CredentialsProvider({
       id: 'anonymous',
-      name: 'Anonymous Access',
+      name: 'Anonymous Crisis Access',
       credentials: {
-        type: { label: 'Type', type: 'text' }
+        type: { label: 'Access Type', type: 'text', value: 'crisis' }
       },
       async authorize(credentials) {
-        // Anonymous user access - create temporary session
+        // Always allow anonymous access for mental health emergencies
         const anonymousId = randomBytes(16).toString('hex');
         
         return {
@@ -27,198 +34,32 @@ export const authOptions: NextAuthOptions = {
           email: null,
           image: null,
           isAnonymous: true,
-          sessionToken: randomBytes(32).toString('hex')
+          accessType: 'crisis'
         };
       }
     }),
-    CredentialsProvider({
-      id: 'volunteer',
-      name: 'Volunteer Login',
-      credentials: {
-        id: { label: 'Volunteer ID', type: 'text' },
-        passcode: { label: 'Passcode', type: 'password' }
-      },
-      async authorize(credentials) {
-        if (!credentials?.id || !credentials?.passcode) {
-          return null;
-        }
-
-        // In a real implementation, you would verify the volunteer credentials
-        // For demo purposes, we'll accept any ID with passcode 'volunteer123'
-        if (credentials.passcode === 'volunteer123') {
-          return {
-            id: credentials.id,
-            name: `Volunteer ${credentials.id}`,
-            email: `volunteer${credentials.id}@astralcore.demo`,
-            image: null,
-            isVolunteer: true,
-            volunteerId: credentials.id
-          };
-        }
-
-        return null;
-      }
-    }),
-    CredentialsProvider({
-      id: 'therapist',
-      name: 'Therapist Portal',
-      credentials: {
-        licenseId: { label: 'License ID', type: 'text' },
-        passcode: { label: 'Passcode', type: 'password' }
-      },
-      async authorize(credentials) {
-        if (!credentials?.licenseId || !credentials?.passcode) {
-          return null;
-        }
-
-        // Demo therapist login - passcode 'therapist123'
-        if (credentials.passcode === 'therapist123') {
-          return {
-            id: credentials.licenseId,
-            name: `Dr. ${credentials.licenseId}`,
-            email: `therapist${credentials.licenseId}@astralcore.demo`,
-            image: null,
-            isTherapist: true,
-            licenseId: credentials.licenseId
-          };
-        }
-
-        return null;
-      }
-    }),
-    
-    // OAuth Providers for Volunteers and Therapists
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      authorization: {
-        params: {
-          prompt: 'consent',
-          access_type: 'offline',
-          response_type: 'code'
-        }
-      }
-    }),
-    
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    }),
-    
-    // Email/Password Provider for Volunteers and Therapists
-    CredentialsProvider({
-      id: 'credentials',
-      name: 'Email and Password',
-      credentials: {
-        email: { label: 'Email', type: 'email' },
-        password: { label: 'Password', type: 'password' }
-      },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          return null;
-        }
-
-        // Database authentication disabled for Vercel deployment
-        // For demo purposes, use simplified credentials
-        if (credentials.email === 'demo@astralcore.app' && credentials.password === 'demo123') {
-          return {
-            id: 'demo-user',
-            name: 'Demo User',
-            email: credentials.email,
-            image: null,
-            isVolunteer: false,
-            isTherapist: false,
-            role: 'USER',
-            volunteerId: undefined,
-            licenseId: undefined
-          };
-        }
-        
-        return null;
-      }
-    })
   ],
-  session: {
-    strategy: 'jwt', // Use JWT sessions for Vercel Edge compatibility
-    maxAge: 24 * 60 * 60, // 24 hours
-    updateAge: 60 * 60, // Update session every hour
+  
+  pages: {
+    signIn: '/auth/signin',
+    error: '/auth/error',
   },
-  jwt: {
-    secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET,
-  },
+  
   callbacks: {
-    async signIn({ user, account, profile }) {
-      // Allow anonymous access always
-      if (user.isAnonymous) {
-        return true;
-      }
-
-      // For OAuth providers, allow sign in (database operations disabled for Vercel deployment)
-      if (account?.provider === 'google' || account?.provider === 'github') {
-        return true;
-      }
-
-      return true;
-    },
-
-    async jwt({ token, user }) {
-      // If this is the initial sign in, save the user info to the token
+    async jwt({ token, user, account }) {
       if (user) {
-        token.id = user.id;
-        token.isAnonymous = user.isAnonymous || false;
-        token.isVolunteer = user.isVolunteer || false;
-        token.isTherapist = user.isTherapist || false;
-        token.role = user.role || 'USER';
-        token.volunteerId = user.volunteerId;
-        token.licenseId = user.licenseId;
+        token.isAnonymous = (user as any).isAnonymous || false;
+        token.accessType = (user as any).accessType || 'authenticated';
       }
       return token;
     },
-
+    
     async session({ session, token }) {
-      // Include the user ID and other properties in the session
-      if (token) {
-        session.user.id = token.id as string;
-        session.user.isAnonymous = token.isAnonymous as boolean;
-        session.user.isVolunteer = token.isVolunteer as boolean;
-        session.user.isTherapist = token.isTherapist as boolean;
-        session.user.role = token.role as string;
-        session.user.volunteerId = token.volunteerId as string;
-        session.user.licenseId = token.licenseId as string;
-      }
+      (session.user as any).isAnonymous = token.isAnonymous || false;
+      (session.user as any).accessType = token.accessType || 'authenticated';
       return session;
     },
-
-    async redirect({ url, baseUrl }) {
-      // Ensure redirects stay within our domain
-      if (url.startsWith('/')) return `${baseUrl}${url}`;
-      if (new URL(url).origin === baseUrl) return url;
-      return baseUrl;
-    }
   },
-  pages: {
-    signIn: '/auth/signin',
-    // signUp is handled by custom page, not a NextAuth page
-    error: '/auth/error',
-    verifyRequest: '/auth/verify-request',
-    newUser: '/auth/new-user'
-  },
-  events: {
-    async signIn({ user, account, profile, isNewUser }) {
-      // Audit logging disabled for Vercel deployment - will be re-enabled with proper database
-      console.log('User signed in:', user.id, account?.provider || 'anonymous');
-    },
-    
-    async signOut({ session }) {
-      // Audit logging disabled for Vercel deployment
-      console.log('User signed out:', session?.user?.id || 'unknown');
-    },
-    
-    async createUser({ user }) {
-      // Audit logging disabled for Vercel deployment
-      console.log('User created:', user.id, user.email);
-    }
-  },
-  secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET,
-  debug: false, // Always disable debug for production security
+  
+  secret: process.env.NEXTAUTH_SECRET || 'hghiZ5zPEHgH+kMGKVLpp5BUiWhbWVv2E4xuJn3D46E=',
 };

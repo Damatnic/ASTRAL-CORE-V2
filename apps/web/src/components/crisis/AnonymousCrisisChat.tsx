@@ -477,7 +477,7 @@ export default function AnonymousCrisisChat() {
               </div>
               <div>
                 <h1 className="text-lg font-bold text-gray-900">Anonymous Crisis Chat</h1>
-                <p className="text-xs text-gray-500">Zero-knowledge encryption • Complete privacy</p>
+                <p className="text-xs text-gray-700">Zero-knowledge encryption • Complete privacy</p>
               </div>
             </div>
             
@@ -485,14 +485,14 @@ export default function AnonymousCrisisChat() {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setShowEncryption(!showEncryption)}
-                  className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg"
+                  className="p-2 text-gray-700 hover:bg-gray-100 rounded-lg"
                   title="Encryption status"
                 >
                   <ShieldCheck className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setSoundEnabled(!soundEnabled)}
-                  className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg"
+                  className="p-2 text-gray-700 hover:bg-gray-100 rounded-lg"
                   title="Toggle sound"
                 >
                   {soundEnabled ? <Bell className="w-5 h-5" /> : <Bell className="w-5 h-5 opacity-50" />}
@@ -551,21 +551,21 @@ export default function AnonymousCrisisChat() {
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-start space-x-3">
-                  <UserX className="w-5 h-5 text-gray-400 mt-0.5" />
+                  <UserX className="w-5 h-5 text-gray-700 mt-0.5" />
                   <div>
                     <p className="font-medium text-gray-900">100% Anonymous</p>
                     <p className="text-sm text-gray-600">No registration or personal info required</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Lock className="w-5 h-5 text-gray-400 mt-0.5" />
+                  <Lock className="w-5 h-5 text-gray-700 mt-0.5" />
                   <div>
                     <p className="font-medium text-gray-900">Zero-Knowledge Encryption</p>
                     <p className="text-sm text-gray-600">Your messages are encrypted end-to-end</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Clock className="w-5 h-5 text-gray-400 mt-0.5" />
+                  <Clock className="w-5 h-5 text-gray-700 mt-0.5" />
                   <div>
                     <p className="font-medium text-gray-900">Available 24/7</p>
                     <p className="text-sm text-gray-600">Crisis counselors are always here</p>
@@ -636,7 +636,7 @@ export default function AnonymousCrisisChat() {
                           className={`w-4 h-4 ${
                             i < Math.floor(volunteerInfo.rating)
                               ? 'text-yellow-500 fill-current'
-                              : 'text-gray-300'
+                              : 'text-gray-700'
                           }`}
                         />
                       ))}
@@ -715,7 +715,7 @@ export default function AnonymousCrisisChat() {
                           <Lock className="w-3 h-3 mt-1 opacity-50" />
                         )}
                       </div>
-                      <p className={`text-xs text-gray-500 mt-1 px-1 ${
+                      <p className={`text-xs text-gray-700 mt-1 px-1 ${
                         message.sender === 'user' ? 'text-right' : 'text-left'
                       }`}>
                         {message.timestamp.toLocaleTimeString()}
@@ -771,18 +771,18 @@ export default function AnonymousCrisisChat() {
                 {/* Quick actions */}
                 <div className="flex items-center justify-between mt-3">
                   <div className="flex items-center space-x-2">
-                    <button className="text-gray-500 hover:text-gray-700 p-1">
+                    <button className="text-gray-700 hover:text-gray-900 p-1">
                       <Paperclip className="w-5 h-5" />
                     </button>
-                    <button className="text-gray-500 hover:text-gray-700 p-1">
+                    <button className="text-gray-700 hover:text-gray-900 p-1">
                       <Smile className="w-5 h-5" />
                     </button>
-                    <button className="text-gray-500 hover:text-gray-700 p-1">
+                    <button className="text-gray-700 hover:text-gray-900 p-1">
                       <Mic className="w-5 h-5" />
                     </button>
                   </div>
                   
-                  <div className="flex items-center space-x-3 text-xs text-gray-500">
+                  <div className="flex items-center space-x-3 text-xs text-gray-700">
                     <span className="flex items-center">
                       <Lock className="w-3 h-3 mr-1" />
                       Encrypted

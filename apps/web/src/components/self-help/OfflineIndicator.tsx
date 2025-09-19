@@ -153,7 +153,7 @@ export default function OfflineIndicator() {
                   className="p-1 hover:bg-white rounded-md transition-colors"
                 >
                   <RefreshCw className={cn(
-                    "w-4 h-4 text-gray-500",
+                    "w-4 h-4 text-gray-700",
                     isSyncing && "animate-spin"
                   )} />
                 </button>
@@ -209,8 +209,8 @@ export default function OfflineIndicator() {
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-gray-600">Last sync:</span>
                         <div className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-gray-400" />
-                          <span className="text-xs text-gray-500">
+                          <Clock className="w-3 h-3 text-gray-700" />
+                          <span className="text-xs text-gray-700">
                             {new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(
                               Math.floor((syncStatus.lastSync.getTime() - Date.now()) / (1000 * 60)),
                               'minute'
@@ -241,7 +241,7 @@ export default function OfflineIndicator() {
                       <div className="mt-3">
                         <div className="flex items-center justify-between mb-1">
                           <span className="text-xs text-gray-600">Sync Progress</span>
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-700">
                             {((syncStatus.synced / (syncStatus.synced + syncStatus.pending)) * 100).toFixed(0)}%
                           </span>
                         </div>

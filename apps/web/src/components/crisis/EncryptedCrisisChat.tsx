@@ -913,7 +913,7 @@ export default function EncryptedCrisisChat() {
               </div>
               <div>
                 <h1 className="text-lg font-bold text-gray-900">Encrypted Crisis Chat</h1>
-                <div className="flex items-center space-x-2 text-xs text-gray-500">
+                <div className="flex items-center space-x-2 text-xs text-gray-700">
                   <span>Zero-knowledge encryption</span>
                   {currentSession?.isAnonymous && (
                     <>
@@ -938,14 +938,14 @@ export default function EncryptedCrisisChat() {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setShowEncryptionDetails(!showEncryptionDetails)}
-                  className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg"
+                  className="p-2 text-gray-700 hover:bg-gray-100 rounded-lg"
                   title="Encryption details"
                 >
                   <ShieldCheck className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setEnableNotifications(!enableNotifications)}
-                  className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg"
+                  className="p-2 text-gray-700 hover:bg-gray-100 rounded-lg"
                   title="Toggle notifications"
                 >
                   {enableNotifications ? <Bell className="w-5 h-5" /> : <Bell className="w-5 h-5 opacity-50" />}
@@ -1002,21 +1002,21 @@ export default function EncryptedCrisisChat() {
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-start space-x-3">
-                  <UserX className="w-5 h-5 text-gray-400 mt-0.5" />
+                  <UserX className="w-5 h-5 text-gray-700 mt-0.5" />
                   <div>
                     <p className="font-medium text-gray-900">100% Anonymous</p>
                     <p className="text-sm text-gray-600">No registration or personal info required</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Lock className="w-5 h-5 text-gray-400 mt-0.5" />
+                  <Lock className="w-5 h-5 text-gray-700 mt-0.5" />
                   <div>
                     <p className="font-medium text-gray-900">Zero-Knowledge Encryption</p>
                     <p className="text-sm text-gray-600">Messages encrypted end-to-end with perfect forward secrecy</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Activity className="w-5 h-5 text-gray-400 mt-0.5" />
+                  <Activity className="w-5 h-5 text-gray-700 mt-0.5" />
                   <div>
                     <p className="font-medium text-gray-900">AI Crisis Detection</p>
                     <p className="text-sm text-gray-600">Advanced monitoring with encrypted behavioral analysis</p>
@@ -1154,7 +1154,7 @@ export default function EncryptedCrisisChat() {
                             )}
                           </div>
                         </div>
-                        <p className={`text-xs text-gray-500 mt-1 px-1 ${
+                        <p className={`text-xs text-gray-700 mt-1 px-1 ${
                           decrypted.isUser ? 'text-right' : 'text-left'
                         }`}>
                           {decrypted.timestamp.toLocaleTimeString()}
@@ -1197,12 +1197,12 @@ export default function EncryptedCrisisChat() {
                 
                 <div className="flex items-center justify-between mt-3">
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs text-gray-500 flex items-center">
+                    <span className="text-xs text-gray-700 flex items-center">
                       <Lock className="w-3 h-3 mr-1" />
                       End-to-end encrypted
                     </span>
                     {currentSession && (
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-700">
                         Session: {Math.floor((Date.now() - currentSession.startTime.getTime()) / 60000)} min
                       </span>
                     )}

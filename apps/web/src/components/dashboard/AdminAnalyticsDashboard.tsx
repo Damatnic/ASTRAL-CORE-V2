@@ -375,7 +375,7 @@ function CrisisTab({ metrics, analytics }: { metrics: any; analytics: CrisisAnal
                 <span className="font-medium">{outcome.outcome}</span>
                 <div className="text-right">
                   <div className="font-bold">{outcome.count}</div>
-                  <div className="text-sm text-gray-500">{outcome.successRate}% success</div>
+                  <div className="text-sm text-gray-700">{outcome.successRate}% success</div>
                 </div>
               </div>
             ))}
@@ -388,12 +388,12 @@ function CrisisTab({ metrics, analytics }: { metrics: any; analytics: CrisisAnal
             {analytics?.geographicData.map((region, index) => (
               <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                 <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2 text-gray-400" />
+                  <MapPin className="w-4 h-4 mr-2 text-gray-700" />
                   <span className="font-medium">{region.region}</span>
                 </div>
                 <div className="text-right">
                   <div className="font-bold">{region.sessions}</div>
-                  <div className="text-sm text-gray-500">{region.successRate}% success</div>
+                  <div className="text-sm text-gray-700">{region.successRate}% success</div>
                 </div>
               </div>
             ))}
@@ -458,7 +458,7 @@ function UsersTab({ metrics }: { metrics: any }) {
             >
               {hour}
             </span>
-          )) || <span className="text-gray-500">No data available</span>}
+          )) || <span className="text-gray-700">No data available</span>}
         </div>
       </div>
     </motion.div>
@@ -636,7 +636,7 @@ function PerformanceIndicator({ label, value, target, unit, inverse = false }: a
 function CrisisSeverityChart({ data }: { data: any[] }) {
   return (
     <div className="h-64 flex items-center justify-center">
-      <div className="text-center text-gray-500">
+      <div className="text-center text-gray-700">
         <BarChart3 className="w-12 h-12 mx-auto mb-4 opacity-50" />
         <p>Crisis severity distribution chart</p>
         <p className="text-sm">{data.length} severity levels tracked</p>
@@ -648,7 +648,7 @@ function CrisisSeverityChart({ data }: { data: any[] }) {
 function ResponseTimeChart({ data }: { data: any[] }) {
   return (
     <div className="h-64 flex items-center justify-center">
-      <div className="text-center text-gray-500">
+      <div className="text-center text-gray-700">
         <Clock className="w-12 h-12 mx-auto mb-4 opacity-50" />
         <p>Response time distribution</p>
         <p className="text-sm">{data.length} time ranges tracked</p>
