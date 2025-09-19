@@ -151,7 +151,7 @@ export default function EnhancedNavigation() {
   const navBackground = useTransform(
     scrollY,
     [0, 50],
-    ['rgba(255, 255, 255, 0.85)', 'rgba(255, 255, 255, 0.98)']
+    ['rgba(255, 255, 255, 0.98)', 'rgba(255, 255, 255, 1)']
   );
 
   const navShadow = useTransform(
@@ -186,7 +186,7 @@ export default function EnhancedNavigation() {
               <h1 className="text-xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
                 ASTRAL
               </h1>
-              <p className="text-xs text-gray-600 font-medium -mt-1">Mental Wellness</p>
+              <p className="text-xs text-purple-700 font-bold -mt-1">CORE</p>
             </div>
           </Link>
 
@@ -200,7 +200,7 @@ export default function EnhancedNavigation() {
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       pathname.startsWith(item.href)
                         ? 'bg-purple-100 text-purple-800 shadow-sm'
-                        : 'text-gray-900 hover:text-purple-700 hover:bg-purple-50/80 font-semibold'
+                        : 'text-gray-800 hover:text-purple-700 hover:bg-purple-100 font-bold'
                     }`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -222,7 +222,7 @@ export default function EnhancedNavigation() {
                         ? 'bg-purple-100 text-purple-800 shadow-sm'
                         : item.priority === 'critical'
                         ? 'bg-red-500 text-white hover:bg-red-600 shadow-md'
-                        : 'text-gray-900 hover:text-purple-700 hover:bg-purple-50/80 font-semibold'
+                        : 'text-gray-800 hover:text-purple-700 hover:bg-purple-100 font-bold'
                     }`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -246,16 +246,16 @@ export default function EnhancedNavigation() {
                       className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50"
                     >
                       <div className="px-4 py-2 border-b border-gray-100">
-                        <p className="text-sm font-semibold text-gray-900">{item.label}</p>
-                        <p className="text-xs text-gray-700">{item.description}</p>
+                        <p className="text-sm font-bold text-purple-800">{item.label}</p>
+                        <p className="text-xs text-gray-800 font-medium">{item.description}</p>
                       </div>
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-purple-50/80 hover:text-purple-700 transition-colors font-medium"
+                          className="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-800 transition-colors font-semibold"
                         >
-                          <child.icon className="w-4 h-4 mr-3 text-gray-600" />
+                          <child.icon className="w-4 h-4 mr-3 text-purple-600" />
                           {child.label}
                         </Link>
                       ))}
