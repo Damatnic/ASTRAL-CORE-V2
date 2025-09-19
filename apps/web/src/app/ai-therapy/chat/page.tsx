@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import TherapyChat from '@/components/ai-therapy/TherapyChat';
+import EnhancedTherapyChat from '@/components/ai-therapy/EnhancedTherapyChat';
 import { Glass } from '@/components/design-system/ProductionGlassSystem';
 import { Brain, Shield } from 'lucide-react';
 
@@ -32,14 +32,23 @@ export default function AITherapyChatPage() {
           </p>
         </Glass>
 
-        {/* Therapy Chat Component */}
-        <TherapyChat 
+        {/* Enhanced Therapy Chat Component */}
+        <EnhancedTherapyChat 
           therapistId="aria"
           userId="demo-user"
           sessionType="check-in"
+          initialMood={6}
+          sessionGoals={['Reduce anxiety', 'Improve mood']}
+          preferences={{
+            communicationStyle: 'empathetic',
+            preferredTechniques: ['CBT', 'Mindfulness'],
+            reminderFrequency: 'moderate'
+          }}
           onSessionEnd={(session) => {
-            console.log('Session ended:', session);
-            // Handle session end - maybe redirect to summary
+            console.log('Enhanced session ended:', session);
+            // Handle comprehensive session end with analytics and insights
+            // Redirect to session summary page
+            window.location.href = `/ai-therapy/session-summary?sessionId=${session.id}`;
           }}
         />
 
