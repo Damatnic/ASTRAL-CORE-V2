@@ -1,8 +1,11 @@
 'use client';
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Shield, Users, Star } from 'lucide-react';
+
 import { Glass } from '@/components/design-system/ProductionGlassSystem';
 import Link from 'next/link';
 

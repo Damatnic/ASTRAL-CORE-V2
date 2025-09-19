@@ -156,6 +156,7 @@ const nextConfig = {
   // Output configuration for deployment
   output: 'standalone',
   
+  
   // Remove workspace dependencies for standalone deployment
 };
 

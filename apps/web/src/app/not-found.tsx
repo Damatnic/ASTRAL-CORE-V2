@@ -8,6 +8,10 @@
  * @version 2.0.0
  */
 
+'use client';
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 import React from 'react';
 import { Search, Phone, Heart, Home, MessageCircle, Shield, ArrowRight } from 'lucide-react';
 import Link from 'next/link';

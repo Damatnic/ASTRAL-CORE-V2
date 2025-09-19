@@ -1,4 +1,7 @@
 'use client';
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { signIn, getSession, getProviders } from 'next-auth/react';

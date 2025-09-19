@@ -1,8 +1,10 @@
 'use client';
+import dynamicImport from 'next/dynamic';
 
-import dynamic from 'next/dynamic';
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
 
-const TherapistPortal = dynamic(() => import('@/components/TherapistPortal'), {
+const TherapistPortal = dynamicImport(() => import('@/components/TherapistPortal'), {
   ssr: false,
   loading: () => (
     <div className="min-h-screen bg-gray-50 p-6">

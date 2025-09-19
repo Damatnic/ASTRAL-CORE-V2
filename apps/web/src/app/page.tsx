@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
   Phone, MessageCircle, Heart, Shield, Brain, Sparkles,

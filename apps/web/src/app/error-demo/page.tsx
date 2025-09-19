@@ -9,6 +9,8 @@
  */
 
 'use client';
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
 
 import React, { useState } from 'react';
 import { AlertTriangle, Bug, Phone, Shield, TestTube, CheckCircle, XCircle } from 'lucide-react';

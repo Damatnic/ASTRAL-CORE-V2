@@ -691,7 +691,7 @@ export class AccessibilityTester {
     const hasVisualIndicator = field.parentElement?.textContent?.includes('*') ||
                              field.parentElement?.querySelector('.required');
     
-    return ariaRequired === 'true' || hasVisualIndicator;
+    return ariaRequired === 'true' || !!hasVisualIndicator;
   }
 
   private addResult(result: AccessibilityTestResult): void {

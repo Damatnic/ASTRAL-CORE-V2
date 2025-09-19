@@ -194,7 +194,7 @@ export function AccessibilityDashboard({
                     onClick={(e) => {
                       e.stopPropagation();
                       result.element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      result.element?.focus();
+                      (result.element as HTMLElement)?.focus();
                     }}
                   >
                     Scroll to element

@@ -15,6 +15,9 @@ import React from 'react';
 import { GamificationProvider } from '../../contexts/GamificationContextStub';
 import MoodTrackerGamified from '../../components/MoodTrackerGamified';
 
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 export default function MoodGamifiedPage() {
   return (
     <GamificationProvider>

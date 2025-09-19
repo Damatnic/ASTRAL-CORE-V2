@@ -1,8 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 
-const MoodTracker = dynamic(() => import('@/components/MoodTracker'), {
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
+const MoodTracker = dynamicImport(() => import('@/components/MoodTracker'), {
   ssr: false,
   loading: () => (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6">

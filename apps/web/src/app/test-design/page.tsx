@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 export default function TestDesignPage() {
   return (
     <div className="min-h-screen bg-black p-8 relative overflow-hidden">

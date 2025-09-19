@@ -15,6 +15,9 @@ import React from 'react';
 import { GamificationProvider } from '../../contexts/GamificationContextStub';
 import { GamificationDemo } from '../../components/gamification/Stub';
 
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 export default function GamificationDemoPage() {
   return (
     <GamificationProvider>

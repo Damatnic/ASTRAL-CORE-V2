@@ -5,6 +5,9 @@ import TherapyChat from '@/components/ai-therapy/TherapyChat';
 import { Glass } from '@/components/design-system/ProductionGlassSystem';
 import { Brain, Shield } from 'lucide-react';
 
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 export default function AITherapyChatPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">

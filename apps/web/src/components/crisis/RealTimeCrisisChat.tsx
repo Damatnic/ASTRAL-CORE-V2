@@ -21,8 +21,8 @@ import {
 } from 'lucide-react';
 import { getCrisisDetectionEngine } from '@/lib/ai/crisis-detection-engine';
 import { format } from 'date-fns';
-import { useSmartScroll, useNewMessageIndicator } from '@/hooks/useSmartScroll';
-import { NewMessagesIndicator, ChatNavigationHelper } from '@/components/chat/NewMessagesIndicator';
+import { useSmartScroll } from '@/hooks/useSmartScroll';
+import { NewMessagesIndicator } from '@/components/chat/NewMessagesIndicator';
 import { useAccessibility } from '@/components/accessibility/AccessibilityEnhancer';
 
 // Types
@@ -100,27 +100,22 @@ export default function RealTimeCrisisChat({
 
   // Smart scrolling with crisis message priority
   const {
-    containerRef,
-    scrollTargetRef,
+    scrollRef,
     isAtBottom,
+    hasNewMessages,
+    userHasScrolled,
     scrollToBottom,
-    forceScrollToBottom
+    forceScrollToBottom,
+    scrollToTop,
+    markMessagesRead
   } = useSmartScroll(messages, {
     forceScrollOnCrisis: true,
-    respectReducedMotion: true,
-    bottomThreshold: 100
+    respectReducedMotion: true
   });
 
-  // New message indicator
-  const {
-    unreadCount,
-    showIndicator,
-    clearIndicator
-  } = useNewMessageIndicator(isAtBottom, messages);
-
-  // Check for crisis messages in unread
-  const hasCrisisMessages = messages
-    .slice(-unreadCount)
+  // Check for crisis messages in recent messages
+  const hasCrisisMessages = hasNewMessages && messages
+    .slice(-5) // Check last 5 messages
     .some(msg => msg.riskLevel === 'CRITICAL' || msg.riskLevel === 'HIGH');
   
   // Initialize Socket.io and AI engine
@@ -598,7 +593,7 @@ export default function RealTimeCrisisChat({
       
       {/* Messages Container */}
       <div 
-        ref={containerRef}
+        ref={scrollRef}
         className="flex-1 overflow-y-auto p-4"
         data-chat-container
         role="log"
@@ -632,23 +627,20 @@ export default function RealTimeCrisisChat({
           </motion.div>
         )}
         
-        <div ref={scrollTargetRef} aria-hidden="true" />
+        <div aria-hidden="true" />
       </div>
       
       {/* New Messages Indicator */}
       <NewMessagesIndicator
-        show={showIndicator}
-        unreadCount={unreadCount}
-        onScrollToBottom={() => {
+        show={hasNewMessages && !isAtBottom}
+        hasCrisisMessage={hasCrisisMessages}
+        messageCount={hasNewMessages ? 1 : 0}
+        onClick={() => {
           scrollToBottom();
-          clearIndicator();
+          markMessagesRead();
         }}
-        hasCrisisMessages={hasCrisisMessages}
-        bottomOffset={140}
       />
 
-      {/* Chat Navigation Helper */}
-      <ChatNavigationHelper />
       
       {/* Input Area */}
       <div className="bg-white border-t p-4">

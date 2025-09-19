@@ -1,5 +1,8 @@
 'use client';
 
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   Send, Phone, AlertTriangle, Heart, Shield, 

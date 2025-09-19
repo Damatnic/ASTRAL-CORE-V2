@@ -1,4 +1,6 @@
 'use client';
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
 
 import SafetyPlanner from '@/components/SafetyPlanner';
 

@@ -142,7 +142,7 @@ export default function TherapyChat({
   // Check for crisis messages in new messages
   const hasCrisisMessages = hasNewMessages && session.messages
     .slice(-5) // Check last 5 messages for crisis content
-    .some(msg => msg.type === 'intervention' || msg.metadata?.crisis_level >= 8)
+    .some(msg => msg.type === 'intervention' || (msg.metadata?.crisis_level && msg.metadata.crisis_level >= 8))
 
   useEffect(() => {
     // Initialize with therapist greeting

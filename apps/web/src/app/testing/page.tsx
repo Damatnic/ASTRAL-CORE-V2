@@ -1,4 +1,7 @@
 /**
+// Force dynamic rendering to avoid prerender issues
+export const dynamic = 'force-dynamic';
+
  * 🏗️ ZERO-DEFECT TESTING DASHBOARD
  * Military-Grade Quality Assurance Interface
  * 
