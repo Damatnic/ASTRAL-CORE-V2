@@ -127,6 +127,7 @@ export default function EnhancedOnboardingFlow({ className = '' }: OnboardingFlo
   useEffect(() => {
     if (isActive && !isClosing) {
       setIsVisible(true);
+      return undefined;
     } else if (!isActive) {
       setIsClosing(true);
       const timer = setTimeout(() => {
@@ -135,6 +136,7 @@ export default function EnhancedOnboardingFlow({ className = '' }: OnboardingFlo
       }, 300);
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [isActive, isClosing]);
 
   // Handle keyboard navigation
