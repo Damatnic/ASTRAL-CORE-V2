@@ -2,20 +2,7 @@
 const nextConfig = {
   // Enable experimental features for performance
   experimental: {
-    // Moved to serverExternalPackages for Next.js 15
-  },
-
-  // External packages for server components
-  serverExternalPackages: ['@prisma/client', 'bcryptjs'],
-
-  // Turbopack configuration
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
-      },
-    },
+    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
   },
 
   // Optimize for crisis response speed
