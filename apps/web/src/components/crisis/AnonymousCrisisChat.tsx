@@ -588,7 +588,7 @@ export default function AnonymousCrisisChat() {
                 )}
               </button>
               
-              <p className="text-xs text-center text-gray-500 mt-4">
+              <p className="text-xs text-center text-gray-700 mt-4">
                 If you're in immediate danger, please call 911 or 988
               </p>
             </div>

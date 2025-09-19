@@ -350,7 +350,7 @@ export function SmartRecommendations() {
                   <h4 className="font-medium text-gray-900 dark:text-white">
                     {rec.title}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-600 mt-1">
                     {rec.description}
                   </p>
                   <button className={`mt-2 text-sm font-medium ${
@@ -366,7 +366,7 @@ export function SmartRecommendations() {
               </div>
               <button
                 onClick={() => dismissRecommendation(rec.id)}
-                className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                className="text-gray-600 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-600"
               >
                 ×
               </button>
@@ -449,14 +449,14 @@ export function PersonalizedContentFeed() {
                 <h4 className="font-medium text-gray-900 dark:text-white">
                   {item.title}
                 </h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                <p className="text-sm text-gray-600 dark:text-gray-600 mt-1">
                   {item.description}
                 </p>
                 <div className="flex items-center mt-2 space-x-2">
                   <span className="text-xs bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 px-2 py-1 rounded-full">
                     {item.category}
                   </span>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-700">
                     {item.readTime} min read
                   </span>
                 </div>

@@ -273,7 +273,7 @@ export default function VolunteerDashboard() {
                           <span className={`px-2 py-1 rounded-full text-xs font-medium ${getUrgencyColor(session.urgencyLevel)}`}>
                             {session.urgencyLevel.toUpperCase()}
                           </span>
-                          <span className="flex items-center space-x-1 text-gray-500 text-sm">
+                          <span className="flex items-center space-x-1 text-gray-700 text-sm">
                             {getStatusIcon(session.status)}
                             <span>{session.status}</span>
                           </span>
@@ -282,7 +282,7 @@ export default function VolunteerDashboard() {
                         <p className="text-gray-600 text-sm mb-2 line-clamp-2">{session.lastMessage}</p>
                         
                         <div className="flex items-center justify-between">
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-700">
                             {session.duration} minutes ago
                           </span>
                           
@@ -306,9 +306,9 @@ export default function VolunteerDashboard() {
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                   {isAvailable ? (
-                    <MessageCircle className="w-8 h-8 text-gray-400" />
+                    <MessageCircle className="w-8 h-8 text-gray-600" />
                   ) : (
-                    <XCircle className="w-8 h-8 text-gray-400" />
+                    <XCircle className="w-8 h-8 text-gray-600" />
                   )}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">

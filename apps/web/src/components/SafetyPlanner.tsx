@@ -525,7 +525,7 @@ This is a confidential safety plan. If you are in immediate danger, call 911.
               <p className="text-gray-600">
                 A personalized plan to help you stay safe during difficult times
               </p>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-gray-700 mt-2">
                 Last updated: {safetyPlan.lastUpdated.toLocaleDateString()}
               </p>
             </div>
@@ -565,7 +565,7 @@ This is a confidential safety plan. If you are in immediate danger, call 911.
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">Safety Plan Steps</h2>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-gray-700">
               Step {currentStep + 1} of {steps.length}
             </span>
           </div>
@@ -580,7 +580,7 @@ This is a confidential safety plan. If you are in immediate danger, call 911.
                     ? `${step.bgColor} ${step.color} border-2 border-current`
                     : index < currentStep
                     ? 'bg-green-100 text-green-700'
-                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 <step.icon className="w-6 h-6 mx-auto mb-1" />
@@ -698,7 +698,7 @@ function ContactList({
           {!showAddForm ? (
             <button
               onClick={() => setShowAddForm(true)}
-              className="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-gray-400 hover:text-gray-600 transition-colors flex items-center justify-center"
+              className="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg text-gray-700 hover:border-gray-400 hover:text-gray-600 transition-colors flex items-center justify-center"
             >
               <Plus className="w-5 h-5 mr-2" />
               Add Contact

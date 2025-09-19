@@ -190,7 +190,7 @@ export const ProductionButton = forwardRef<HTMLButtonElement, ProductionButtonPr
       disabled:from-gray-400 disabled:to-gray-500
     `,
     ghost: `
-      text-gray-700 dark:text-gray-300
+      text-gray-700 dark:text-gray-600
       hover:bg-gray-100 dark:hover:bg-gray-800/50
       hover:text-gray-900 dark:hover:text-white
     `

@@ -197,7 +197,7 @@ export default function ProgressDashboard() {
     return (
       <div className="max-w-7xl mx-auto p-6">
         <div className="text-center py-12">
-          <BarChart3 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+          <BarChart3 className="w-12 h-12 text-gray-600 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">No Progress Data Yet</h3>
           <p className="text-gray-600 mb-4">Start using self-help tools to see your progress</p>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
@@ -419,7 +419,7 @@ function OverviewView({ metrics }: { metrics: ProgressMetrics }) {
                   <h4 className="font-medium text-gray-900">{milestone.title}</h4>
                   <p className="text-sm text-gray-600">{milestone.description}</p>
                 </div>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-gray-700">
                   {new Date(milestone.achievedDate).toLocaleDateString()}
                 </span>
               </div>
@@ -465,7 +465,7 @@ function MetricCard({ title, value, trend, icon: IconComponent, color, subtitle 
       <div>
         <h3 className="text-sm font-medium text-gray-600 mb-1">{title}</h3>
         <p className="text-2xl font-bold text-gray-900">{value}</p>
-        {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
+        {subtitle && <p className="text-sm text-gray-700 mt-1">{subtitle}</p>}
       </div>
     </div>
   )
@@ -483,7 +483,7 @@ function MoodView({ metrics, timeframe }: { metrics: ProgressMetrics; timeframe:
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Mood Trends</h3>
         <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-          <p className="text-gray-500">Mood chart visualization would go here</p>
+          <p className="text-gray-700">Mood chart visualization would go here</p>
         </div>
       </div>
     </motion.div>
@@ -502,7 +502,7 @@ function ActivitiesView({ metrics }: { metrics: ProgressMetrics }) {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Activity Analytics</h3>
         <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-          <p className="text-gray-500">Activity analytics would go here</p>
+          <p className="text-gray-700">Activity analytics would go here</p>
         </div>
       </div>
     </motion.div>
@@ -520,7 +520,7 @@ function SkillsView({ metrics }: { metrics: ProgressMetrics }) {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Skills Progress</h3>
         <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-          <p className="text-gray-500">Skills progress visualization would go here</p>
+          <p className="text-gray-700">Skills progress visualization would go here</p>
         </div>
       </div>
     </motion.div>
@@ -565,7 +565,7 @@ function GoalsView({ metrics, onRefresh }: { metrics: ProgressMetrics; onRefresh
                 </div>
               </div>
               
-              <div className="flex items-center gap-2 text-sm text-gray-500">
+              <div className="flex items-center gap-2 text-sm text-gray-700">
                 <Calendar className="w-4 h-4" />
                 Due: {new Date(goal.deadline).toLocaleDateString()}
               </div>

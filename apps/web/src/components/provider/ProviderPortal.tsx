@@ -377,7 +377,7 @@ function PatientsView({
       <div className="bg-white rounded-xl shadow-lg p-6">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-5 h-5" />
             <input
               type="text"
               placeholder="Search patients by name or email..."
@@ -477,7 +477,7 @@ function PatientsView({
 
       {patients.length === 0 && (
         <div className="text-center py-12">
-          <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+          <Users className="w-12 h-12 text-gray-600 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">No patients found</h3>
           <p className="text-gray-600">Try adjusting your search or filters</p>
         </div>
@@ -536,7 +536,7 @@ function AlertsView({ alerts, onAcknowledge }: AlertsViewProps) {
                       </span>
                     </div>
                     <p className="text-sm text-gray-600 mb-2">{alert.description}</p>
-                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                    <div className="flex items-center gap-4 text-xs text-gray-700">
                       <span>Type: {alert.type.replace('-', ' ')}</span>
                       <span>Triggered: {new Date(alert.triggeredAt).toLocaleString()}</span>
                     </div>
@@ -573,7 +573,7 @@ function AlertsView({ alerts, onAcknowledge }: AlertsViewProps) {
                     <h4 className="font-medium text-gray-900 text-sm">{alert.patientName}</h4>
                     <p className="text-xs text-gray-600">{alert.description}</p>
                   </div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-700">
                     {alert.resolvedAt ? 'Resolved' : 'Acknowledged'}
                   </div>
                 </div>
@@ -606,8 +606,8 @@ function ReportsView({ patients, selectedReport, onGenerateReport }: any) {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Generate Progress Reports</h3>
         <div className="text-center py-8">
-          <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-500">Select a patient to generate detailed progress reports</p>
+          <FileText className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+          <p className="text-gray-700">Select a patient to generate detailed progress reports</p>
         </div>
       </div>
     </motion.div>
@@ -626,8 +626,8 @@ function CommunicationView() {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Patient Communication</h3>
         <div className="text-center py-8">
-          <MessageSquare className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-500">Secure messaging and communication tools coming soon</p>
+          <MessageSquare className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+          <p className="text-gray-700">Secure messaging and communication tools coming soon</p>
         </div>
       </div>
     </motion.div>
@@ -658,7 +658,7 @@ function PatientDetailModal({ patient, onClose, onGenerateReport }: PatientDetai
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-900">{patient.name}</h2>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+            <button onClick={onClose} className="text-gray-600 hover:text-gray-600">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -757,7 +757,7 @@ function ReportDetailModal({ report, onClose }: any) {
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-900">Progress Report</h2>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+            <button onClick={onClose} className="text-gray-600 hover:text-gray-600">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -767,8 +767,8 @@ function ReportDetailModal({ report, onClose }: any) {
 
         <div className="p-6">
           <div className="text-center py-8">
-            <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-500">Detailed progress report visualization would appear here</p>
+            <FileText className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+            <p className="text-gray-700">Detailed progress report visualization would appear here</p>
           </div>
         </div>
       </motion.div>

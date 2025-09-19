@@ -265,7 +265,7 @@ export default function ResourcesPage() {
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-lg font-bold text-gray-900 mb-2">{link.title}</h3>
-                      <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-purple-600 mx-auto transition-colors duration-300" />
+                      <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 mx-auto transition-colors duration-300" />
                     </Glass>
                   </Link>
                 </motion.div>
@@ -323,7 +323,7 @@ export default function ResourcesPage() {
                             </div>
                           </div>
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300" />
+                        <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300" />
                       </div>
 
                       <p className="text-gray-700 mb-4 leading-relaxed text-sm">

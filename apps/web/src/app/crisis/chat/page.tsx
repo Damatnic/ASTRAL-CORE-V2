@@ -78,7 +78,7 @@ const CrisisAssessment: React.FC<{ onComplete: (level: string) => void }> = ({ o
       <div className="mb-4">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-lg font-semibold text-gray-900">Quick Check-In</h3>
-          <span className="text-sm text-gray-500">Step {step + 1} of {questions.length}</span>
+          <span className="text-sm text-gray-700">Step {step + 1} of {questions.length}</span>
         </div>
         <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
           <motion.div
@@ -176,7 +176,7 @@ const MessageBubble: React.FC<{ message: Message }> = ({ message }) => {
         
         <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
           {isSystem && (
-            <div className="flex items-center gap-1 text-xs text-gray-500 mb-1">
+            <div className="flex items-center gap-1 text-xs text-gray-700 mb-1">
               <Bot className="w-3 h-3" />
               <span>System</span>
             </div>
@@ -193,16 +193,16 @@ const MessageBubble: React.FC<{ message: Message }> = ({ message }) => {
           </div>
           
           <div className="flex items-center gap-2 mt-1">
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-gray-600">
               {new Date(message.timestamp).toLocaleTimeString([], { 
                 hour: '2-digit', 
                 minute: '2-digit' 
               })}
             </span>
             {isUser && message.status && (
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-gray-600">
                 {message.status === 'read' && <CheckCircle className="w-3 h-3 text-blue-500" />}
-                {message.status === 'delivered' && <CheckCircle className="w-3 h-3 text-gray-400" />}
+                {message.status === 'delivered' && <CheckCircle className="w-3 h-3 text-gray-600" />}
                 {message.status === 'sending' && <Loader2 className="w-3 h-3 animate-spin" />}
               </span>
             )}
@@ -341,7 +341,7 @@ export default function OptimizedCrisisChat() {
               <Shield className="w-6 h-6 text-blue-600" />
               <div>
                 <h1 className="font-semibold text-gray-900">Crisis Support Chat</h1>
-                <p className="text-xs text-gray-500">Confidential & Free</p>
+                <p className="text-xs text-gray-700">Confidential & Free</p>
               </div>
             </div>
             
@@ -393,7 +393,7 @@ export default function OptimizedCrisisChat() {
               ))}
               
               {isTyping && (
-                <div className="flex items-center gap-2 text-gray-500">
+                <div className="flex items-center gap-2 text-gray-700">
                   <div className="flex gap-1">
                     <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
                     <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
@@ -414,7 +414,7 @@ export default function OptimizedCrisisChat() {
             {/* Input Area */}
             <div className="border-t bg-white p-4">
               <div className="flex gap-2">
-                <button className="p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100">
+                <button className="p-2 text-gray-700 hover:text-gray-700 rounded-lg hover:bg-gray-100">
                   <Paperclip className="w-5 h-5" />
                 </button>
                 
@@ -428,7 +428,7 @@ export default function OptimizedCrisisChat() {
                   className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 
-                <button className="p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100">
+                <button className="p-2 text-gray-700 hover:text-gray-700 rounded-lg hover:bg-gray-100">
                   <Mic className="w-5 h-5" />
                 </button>
                 
@@ -442,7 +442,7 @@ export default function OptimizedCrisisChat() {
               </div>
               
               {/* Safety Notice */}
-              <p className="text-xs text-gray-500 mt-2 text-center">
+              <p className="text-xs text-gray-700 mt-2 text-center">
                 Your safety is our priority. In immediate danger? Call 911 or 988.
               </p>
             </div>

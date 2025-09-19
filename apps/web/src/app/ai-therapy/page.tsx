@@ -26,7 +26,7 @@ export default function AITherapyPage() {
             </h1>
           </div>
           
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-600 mb-6 max-w-3xl mx-auto">
             Connect with specialized AI therapists available 24/7. Our evidence-based AI therapy combines 
             the latest in mental health research with personalized, compassionate care.
           </p>
@@ -35,7 +35,7 @@ export default function AITherapyPage() {
             <Glass variant="light" className="p-4">
               <Clock className="w-8 h-8 text-blue-600 mx-auto mb-3" />
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">24/7 Availability</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-gray-700 dark:text-gray-600">
                 Crisis support and therapy sessions available around the clock
               </p>
             </Glass>
@@ -43,7 +43,7 @@ export default function AITherapyPage() {
             <Glass variant="light" className="p-4">
               <Shield className="w-8 h-8 text-green-600 mx-auto mb-3" />
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Evidence-Based</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-gray-700 dark:text-gray-600">
                 CBT, DBT, EMDR, and other proven therapeutic approaches
               </p>
             </Glass>
@@ -51,7 +51,7 @@ export default function AITherapyPage() {
             <Glass variant="light" className="p-4">
               <MessageCircle className="w-8 h-8 text-purple-600 mx-auto mb-3" />
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Personalized Care</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-gray-700 dark:text-gray-600">
                 AI therapists that adapt to your unique needs and progress
               </p>
             </Glass>

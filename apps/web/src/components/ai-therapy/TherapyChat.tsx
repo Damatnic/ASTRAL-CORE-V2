@@ -593,7 +593,7 @@ Remember: Crisis feelings are temporary, but suicide is permanent. You deserve s
           </button>
         </div>
         
-        <div className="flex items-center justify-between mt-2 text-xs text-gray-500">
+        <div className="flex items-center justify-between mt-2 text-xs text-gray-700">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <Lock className="w-3 h-3" />

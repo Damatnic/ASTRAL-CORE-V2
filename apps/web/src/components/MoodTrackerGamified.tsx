@@ -490,7 +490,7 @@ export default function MoodTrackerGamified() {
             <details className="bg-white rounded-xl p-4 shadow-lg">
               <summary className="cursor-pointer text-lg font-semibold text-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-2">
                 View your progress & achievements
-                <span className="text-sm font-normal text-gray-500 ml-2">(optional)</span>
+                <span className="text-sm font-normal text-gray-700 ml-2">(optional)</span>
               </summary>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -685,7 +685,7 @@ export default function MoodTrackerGamified() {
                 <span>Save My Check-in</span>
               </motion.button>
               
-              <p className="text-center text-sm text-gray-500 mt-3">
+              <p className="text-center text-sm text-gray-700 mt-3">
                 You're taking care of your mental health. That's something to be proud of.
               </p>
             </motion.div>
@@ -795,9 +795,9 @@ export default function MoodTrackerGamified() {
             </div>
           ) : (
             <div className="text-center py-8">
-              <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-              <p className="text-gray-500">No mood entries yet</p>
-              <p className="text-sm text-gray-400 mt-1">Start tracking to see your history here</p>
+              <Calendar className="w-12 h-12 text-gray-600 mx-auto mb-3" />
+              <p className="text-gray-700">No mood entries yet</p>
+              <p className="text-sm text-gray-600 mt-1">Start tracking to see your history here</p>
             </div>
           )}
         </div>

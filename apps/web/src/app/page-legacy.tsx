@@ -226,7 +226,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto"
+          className="text-xl md:text-2xl text-gray-600 dark:text-gray-600 mb-12 max-w-4xl mx-auto"
         >
           Experience a comprehensive approach to mental wellness with evidence-based support, 
           crisis intervention, and a caring community.
@@ -384,7 +384,7 @@ const FeatureSection = () => {
               Everything You Need
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-gray-600 dark:text-gray-600">
             Comprehensive mental health support designed for the modern world
           </p>
         </motion.div>
@@ -416,7 +416,7 @@ const FeatureSection = () => {
                 <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-gray-600 dark:text-gray-600 mb-6">
                   {feature.description}
                 </p>
                 
@@ -571,7 +571,7 @@ const ResourcesSection = () => {
               <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
                 {resource.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-gray-600">
                 {resource.description}
               </p>
             </motion.a>
@@ -603,7 +603,7 @@ const CTASection = () => {
           <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
             Ready to Transform Your Mental Health?
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-900 mb-12 max-w-3xl mx-auto">
             Take the first step toward better mental wellness.
             Always free, always here for you.
           </p>
@@ -626,7 +626,7 @@ const CTASection = () => {
           </div>
           
           {/* Trust Badge */}
-          <div className="mt-12 inline-flex items-center space-x-4 text-white/80">
+          <div className="mt-12 inline-flex items-center space-x-4 text-gray-900">
             <Check className="w-5 h-5" />
             <span>No credit card required</span>
             <span>•</span>

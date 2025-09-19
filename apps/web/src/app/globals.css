@@ -426,6 +426,99 @@ html {
   }
 }
 
+/* Text Contrast Fixes for Readability */
+body {
+  color: #1a1a1a !important;
+  min-height: 100vh;
+}
+
+/* Ensure all text elements have proper contrast */
+h1, h2, h3, h4, h5, h6 {
+  color: #0f172a !important;
+  font-weight: 600;
+}
+
+p, span, div, li, a {
+  color: #1e293b !important;
+}
+
+/* Fix light text on white backgrounds */
+.text-gray-400, .text-gray-300, .text-gray-200 {
+  color: #475569 !important;
+}
+
+.text-gray-500 {
+  color: #334155 !important;
+}
+
+.text-gray-600 {
+  color: #1e293b !important;
+}
+
+/* Ensure links are visible */
+a {
+  color: #2563eb !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline;
+}
+
+/* Button text contrast */
+button, .btn {
+  color: white !important;
+  font-weight: 500;
+}
+
+button:disabled, .btn:disabled {
+  color: #94a3b8 !important;
+}
+
+/* Cards and glass components text */
+.glass, .glass-heavy, .card {
+  color: #0f172a !important;
+}
+
+.glass h1, .glass h2, .glass h3, .glass h4, .glass h5, .glass h6,
+.glass-heavy h1, .glass-heavy h2, .glass-heavy h3, .glass-heavy h4, .glass-heavy h5, .glass-heavy h6 {
+  color: #0f172a !important;
+}
+
+.glass p, .glass span, .glass div, .glass li,
+.glass-heavy p, .glass-heavy span, .glass-heavy div, .glass-heavy li {
+  color: #1e293b !important;
+}
+
+/* Badge text contrast */
+.badge {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Input fields */
+input, textarea, select {
+  color: #0f172a !important;
+  background-color: white !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Table text */
+table, th, td {
+  color: #1e293b !important;
+}
+
+/* Code blocks */
+code, pre {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
 /* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
   *,

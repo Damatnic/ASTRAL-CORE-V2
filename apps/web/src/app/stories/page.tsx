@@ -84,7 +84,7 @@ export default function StoriesPage() {
                   <div className="text-sm text-gray-600">
                     by {story.author}
                   </div>
-                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all duration-300" />
+                  <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-green-600 group-hover:translate-x-1 transition-all duration-300" />
                 </div>
               </Glass>
             </motion.div>

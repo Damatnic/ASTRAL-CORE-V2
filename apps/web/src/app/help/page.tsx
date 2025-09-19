@@ -125,7 +125,7 @@ export default function HelpPage() {
                   <Glass className="p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-lg font-bold text-gray-900">{topic.title}</h3>
-                      <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300" />
+                      <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                     <p className="text-gray-700 text-sm">{topic.desc}</p>
                   </Glass>

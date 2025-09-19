@@ -458,7 +458,7 @@ export default function RoleBasedDashboard({
           </div>
 
           {isSidebarOpen && (
-            <div className="mt-4 text-xs text-gray-500">
+            <div className="mt-4 text-xs text-gray-700">
               <div className="flex items-center space-x-1 mb-1">
                 <Lock className="w-3 h-3" />
                 <span>Secure Session</span>

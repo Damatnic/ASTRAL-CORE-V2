@@ -458,7 +458,7 @@ function SessionTypeCard({
       </div>
       <p className="text-sm text-gray-600 mb-3">{description}</p>
       <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-500">{duration}</span>
+        <span className="text-xs text-gray-700">{duration}</span>
         <button
           onClick={onStart}
           className="text-blue-600 hover:text-blue-700 text-sm font-medium"
@@ -510,7 +510,7 @@ function TherapistDetailModal({
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600"
+              className="text-gray-600 hover:text-gray-600"
             >
               ✕
             </button>

@@ -127,7 +127,7 @@ const MOOD_PRESETS = [
   { value: 8, emoji: '🙂', label: 'Good', color: 'text-green-400' },
   { value: 7, emoji: '😌', label: 'Peaceful', color: 'text-blue-500' },
   { value: 6, emoji: '🙃', label: 'Okay', color: 'text-blue-400' },
-  { value: 5, emoji: '😐', label: 'Neutral', color: 'text-gray-500' },
+  { value: 5, emoji: '😐', label: 'Neutral', color: 'text-gray-700' },
   { value: 4, emoji: '😕', label: 'Struggling', color: 'text-yellow-500' },
   { value: 3, emoji: '😔', label: 'Low', color: 'text-orange-500' },
   { value: 2, emoji: '😢', label: 'Sad', color: 'text-orange-600' },
@@ -271,7 +271,7 @@ export default function TetherConnection() {
       case 'active':
         return <CheckCircle className="w-4 h-4 text-green-500" />;
       case 'dormant':
-        return <Clock className="w-4 h-4 text-gray-500" />;
+        return <Clock className="w-4 h-4 text-gray-700" />;
       case 'at-risk':
         return <AlertCircle className="w-4 h-4 text-yellow-500" />;
       case 'broken':
@@ -307,7 +307,7 @@ export default function TetherConnection() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Tether Connections</h1>
-                <p className="text-sm text-gray-500">Persistent emotional support network</p>
+                <p className="text-sm text-gray-700">Persistent emotional support network</p>
               </div>
             </div>
             
@@ -319,7 +319,7 @@ export default function TetherConnection() {
                 <span className="text-sm text-gray-600">{currentMood.label}</span>
               </div>
               
-              <button className="relative p-2 text-gray-500 hover:bg-gray-100 rounded-lg">
+              <button className="relative p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
                 <Bell className="w-5 h-5" />
                 <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full" />
               </button>
@@ -335,37 +335,37 @@ export default function TetherConnection() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-bold text-gray-900">{metrics.totalConnections}</p>
-                <p className="text-xs text-gray-500">Total</p>
+                <p className="text-xs text-gray-700">Total</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-green-600">{metrics.activeConnections}</p>
-                <p className="text-xs text-gray-500">Active</p>
+                <p className="text-xs text-gray-700">Active</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-yellow-600">{metrics.atRiskConnections}</p>
-                <p className="text-xs text-gray-500">At Risk</p>
+                <p className="text-xs text-gray-700">At Risk</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-blue-600">{metrics.averageStrength}%</p>
-                <p className="text-xs text-gray-500">Avg Strength</p>
+                <p className="text-xs text-gray-700">Avg Strength</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-purple-600">{metrics.totalPulsesSent}</p>
-                <p className="text-xs text-gray-500">Pulses Sent</p>
+                <p className="text-xs text-gray-700">Pulses Sent</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-pink-600">{metrics.totalPulsesReceived}</p>
-                <p className="text-xs text-gray-500">Received</p>
+                <p className="text-xs text-gray-700">Received</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-green-600">
                   {(metrics.responseRate * 100).toFixed(0)}%
                 </p>
-                <p className="text-xs text-gray-500">Response Rate</p>
+                <p className="text-xs text-gray-700">Response Rate</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-gray-900">{metrics.averageResponseTime}m</p>
-                <p className="text-xs text-gray-500">Avg Response</p>
+                <p className="text-xs text-gray-700">Avg Response</p>
               </div>
             </div>
           </div>
@@ -446,7 +446,7 @@ export default function TetherConnection() {
                       <p className="font-semibold text-gray-900">{connection.userName}</p>
                       <div className="flex items-center space-x-1 mt-1">
                         {getStatusIcon(connection.status)}
-                        <span className="text-xs text-gray-500">{connection.status}</span>
+                        <span className="text-xs text-gray-700">{connection.status}</span>
                       </div>
                     </div>
                   </div>
@@ -456,11 +456,11 @@ export default function TetherConnection() {
                 {/* Connection Info */}
                 <div className="space-y-2 mb-3">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-500">Strength</span>
+                    <span className="text-gray-700">Strength</span>
                     <span className="font-medium text-gray-900">{connection.connectionStrength}%</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-500">Last Contact</span>
+                    <span className="text-gray-700">Last Contact</span>
                     <span className="font-medium text-gray-900">
                       {Math.floor((Date.now() - connection.lastInteraction.getTime()) / (1000 * 60 * 60))}h ago
                     </span>
@@ -619,7 +619,7 @@ export default function TetherConnection() {
 
             {/* Quick Messages */}
             <div className="mb-4">
-              <p className="text-xs text-gray-500 mb-2">Quick messages:</p>
+              <p className="text-xs text-gray-700 mb-2">Quick messages:</p>
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setPulseMessage('Thinking of you!')}
@@ -673,7 +673,7 @@ export default function TetherConnection() {
                 <h3 className="text-xl font-bold">Connection Details</h3>
                 <button
                   onClick={() => setSelectedConnection(null)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-600 hover:text-gray-600"
                 >
                   <XCircle className="w-6 h-6" />
                 </button>
@@ -735,7 +735,7 @@ export default function TetherConnection() {
                           <span className="text-xl">{pulse.mood?.emoji}</span>
                           <div>
                             <p className="text-sm text-gray-900">{pulse.message}</p>
-                            <p className="text-xs text-gray-500 mt-1">
+                            <p className="text-xs text-gray-700 mt-1">
                               {pulse.timestamp.toLocaleString()} • {pulse.type}
                             </p>
                           </div>

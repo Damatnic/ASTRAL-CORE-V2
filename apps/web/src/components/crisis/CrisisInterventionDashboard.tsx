@@ -324,7 +324,7 @@ export default function CrisisInterventionDashboard() {
               </button>
               
               {/* Settings */}
-              <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg">
+              <button className="p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
                 <Settings className="w-5 h-5" />
               </button>
             </div>
@@ -690,7 +690,7 @@ export default function CrisisInterventionDashboard() {
                                     className={`w-3 h-3 ${
                                       i < Math.floor(volunteer.rating)
                                         ? 'text-red-500 fill-current'
-                                        : 'text-gray-300'
+                                        : 'text-gray-600'
                                     }`}
                                   />
                                 ))}

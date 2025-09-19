@@ -102,7 +102,7 @@ export default function WelcomeStep() {
                 <p className="text-sm text-gray-600 mb-3">
                   Use our platform without creating an account. Your privacy is completely protected.
                 </p>
-                <div className="flex items-center space-x-2 text-xs text-gray-500">
+                <div className="flex items-center space-x-2 text-xs text-gray-700">
                   <Lock className="w-3 h-3" />
                   <span>No personal information required</span>
                 </div>
@@ -127,7 +127,7 @@ export default function WelcomeStep() {
                 <p className="text-sm text-gray-600 mb-3">
                   Create an account to track progress, save preferences, and access advanced features.
                 </p>
-                <div className="flex items-center space-x-2 text-xs text-gray-500">
+                <div className="flex items-center space-x-2 text-xs text-gray-700">
                   <Star className="w-3 h-3" />
                   <span>Progress tracking and gamification</span>
                 </div>

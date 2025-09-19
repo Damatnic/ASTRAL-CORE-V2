@@ -254,7 +254,7 @@ export default function OnboardingFlow({ className = '' }: OnboardingFlowProps) 
               </div>
 
               {/* Keyboard shortcuts hint */}
-              <div className="mt-2 text-xs text-gray-500 text-center">
+              <div className="mt-2 text-xs text-gray-700 text-center">
                 <span>Use Ctrl+→ to continue, Ctrl+← to go back</span>
                 {canSkip && <span>, Esc to skip</span>}
                 <span>, Ctrl+Esc for emergency exit</span>

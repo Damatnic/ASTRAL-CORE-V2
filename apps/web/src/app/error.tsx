@@ -178,7 +178,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
               <p className="text-sm text-gray-600">
                 <strong>Error ID:</strong> <span className="font-mono">{errorId}</span>
               </p>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-700 mt-1">
                 Please include this ID if you contact support
               </p>
             </div>

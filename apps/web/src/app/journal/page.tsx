@@ -414,7 +414,7 @@ export default function TherapeuticJournalPage() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
                   Therapeutic Journal
                 </h1>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-600">
                   Evidence-based journaling for mental health and personal growth
                 </p>
               </div>
@@ -481,7 +481,7 @@ export default function TherapeuticJournalPage() {
                     </div>
                     <button
                       onClick={() => setSelectedPrompt(null)}
-                      className="text-gray-400 hover:text-gray-600"
+                      className="text-gray-600 hover:text-gray-600"
                     >
                       ×
                     </button>
@@ -520,7 +520,7 @@ export default function TherapeuticJournalPage() {
                       rows={12}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
                     />
-                    <div className="mt-2 text-sm text-gray-500">
+                    <div className="mt-2 text-sm text-gray-700">
                       Word count: {currentEntry.content?.split(' ').length || 0}
                     </div>
                   </div>
@@ -617,7 +617,7 @@ export default function TherapeuticJournalPage() {
               <Glass variant="light" className="p-6">
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1 relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-5 h-5" />
                     <input
                       type="text"
                       value={searchQuery}
@@ -665,7 +665,7 @@ export default function TherapeuticJournalPage() {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">{prompt.title}</h3>
                       <p className="text-sm text-gray-600 mb-4 line-clamp-3">{prompt.description}</p>
                       
-                      <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center justify-between text-xs text-gray-700">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {prompt.timeEstimate} min
@@ -703,7 +703,7 @@ export default function TherapeuticJournalPage() {
             >
               {journalEntries.length === 0 ? (
                 <Glass variant="light" className="p-12 text-center">
-                  <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">No entries yet</h3>
                   <p className="text-gray-600 mb-6">Start your therapeutic journaling journey today</p>
                   <button
@@ -721,7 +721,7 @@ export default function TherapeuticJournalPage() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <h3 className="text-lg font-semibold text-gray-900">{entry.title}</h3>
-                            {entry.isPrivate && <Lock className="w-4 h-4 text-gray-500" />}
+                            {entry.isPrivate && <Lock className="w-4 h-4 text-gray-700" />}
                           </div>
                           <div className="flex items-center gap-4 text-sm text-gray-600">
                             <span className="flex items-center gap-1">
@@ -736,10 +736,10 @@ export default function TherapeuticJournalPage() {
                           </div>
                         </div>
                         <div className="flex gap-2">
-                          <button className="p-2 text-gray-500 hover:text-purple-600">
+                          <button className="p-2 text-gray-700 hover:text-purple-600">
                             <Bookmark className="w-4 h-4" />
                           </button>
-                          <button className="p-2 text-gray-500 hover:text-purple-600">
+                          <button className="p-2 text-gray-700 hover:text-purple-600">
                             <Download className="w-4 h-4" />
                           </button>
                         </div>
@@ -773,7 +773,7 @@ export default function TherapeuticJournalPage() {
             >
               {insights.length === 0 ? (
                 <Glass variant="light" className="p-12 text-center">
-                  <TrendingUp className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <TrendingUp className="w-16 h-16 text-gray-600 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">No insights yet</h3>
                   <p className="text-gray-600 mb-6">Write a few more entries to unlock personalized insights</p>
                   <button

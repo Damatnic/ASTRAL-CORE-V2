@@ -218,7 +218,7 @@ export default function ErrorDemoPage() {
           </div>
           <div className="space-y-2">
             {testResults.length === 0 ? (
-              <p className="text-gray-500 italic">No tests run yet. Click the test buttons above.</p>
+              <p className="text-gray-700 italic">No tests run yet. Click the test buttons above.</p>
             ) : (
               testResults.map((result, index) => (
                 <div

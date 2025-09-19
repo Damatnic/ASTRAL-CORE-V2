@@ -332,7 +332,7 @@ export default function ProfessionalDashboard() {
           </span>
         </div>
         <h3 className="text-gray-700 font-medium">Critical Sessions</h3>
-        <p className="text-sm text-gray-500 mt-1">Requiring immediate attention</p>
+        <p className="text-sm text-gray-700 mt-1">Requiring immediate attention</p>
       </motion.div>
       
       <motion.div
@@ -348,7 +348,7 @@ export default function ProfessionalDashboard() {
           </span>
         </div>
         <h3 className="text-gray-700 font-medium">Active Crises</h3>
-        <p className="text-sm text-gray-500 mt-1">Currently in progress</p>
+        <p className="text-sm text-gray-700 mt-1">Currently in progress</p>
       </motion.div>
       
       <motion.div
@@ -364,7 +364,7 @@ export default function ProfessionalDashboard() {
           </span>
         </div>
         <h3 className="text-gray-700 font-medium">Waiting Queue</h3>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-gray-700 mt-1">
           Avg wait: {Math.round(systemMetrics.averageWaitTime)}min
         </p>
       </motion.div>
@@ -382,7 +382,7 @@ export default function ProfessionalDashboard() {
           </span>
         </div>
         <h3 className="text-gray-700 font-medium">System Load</h3>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-gray-700 mt-1">
           {systemMetrics.volunteersOnline} volunteers online
         </p>
       </motion.div>
@@ -397,7 +397,7 @@ export default function ProfessionalDashboard() {
         <div className="flex items-center gap-4">
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" size={18} />
             <input
               type="text"
               placeholder="Search sessions..."
@@ -600,7 +600,7 @@ export default function ProfessionalDashboard() {
             </button>
           </div>
         ) : (
-          <p className="text-gray-500 text-center py-8">
+          <p className="text-gray-700 text-center py-8">
             Select a session to access clinical tools
           </p>
         )}
@@ -610,7 +610,7 @@ export default function ProfessionalDashboard() {
       <div className="bg-white rounded-xl shadow-md p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-gray-800">Clinical Notes</h3>
-          <Lock className="text-gray-400" size={18} />
+          <Lock className="text-gray-600" size={18} />
         </div>
         
         {selectedSession ? (
@@ -643,7 +643,7 @@ export default function ProfessionalDashboard() {
             </button>
           </div>
         ) : (
-          <p className="text-gray-500 text-center py-8">
+          <p className="text-gray-700 text-center py-8">
             Select a session to add notes
           </p>
         )}
@@ -896,14 +896,14 @@ export default function ProfessionalDashboard() {
         {activeView === 'patients' && (
           <div className="bg-white rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-800 mb-6">Patient Management</h2>
-            <p className="text-gray-500">Patient management interface coming soon...</p>
+            <p className="text-gray-700">Patient management interface coming soon...</p>
           </div>
         )}
         
         {activeView === 'analytics' && (
           <div className="bg-white rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-800 mb-6">Analytics & Reports</h2>
-            <p className="text-gray-500">Analytics dashboard coming soon...</p>
+            <p className="text-gray-700">Analytics dashboard coming soon...</p>
           </div>
         )}
       </main>

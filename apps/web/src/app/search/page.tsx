@@ -300,7 +300,7 @@ export default function SearchPage() {
               Search Resources
             </h1>
           </div>
-          <p className="text-gray-700 dark:text-gray-300">
+          <p className="text-gray-700 dark:text-gray-600">
             Find mental health resources, crisis support, therapy tools, and educational content
           </p>
         </Glass>
@@ -309,7 +309,7 @@ export default function SearchPage() {
         <Glass variant="light" className="mb-6 p-6">
           <form onSubmit={handleSearchSubmit} className="space-y-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-5 h-5" />
               <input
                 type="text"
                 value={searchQuery}
@@ -318,7 +318,7 @@ export default function SearchPage() {
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg"
               />
               {isSearching && (
-                <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin" />
+                <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-5 h-5 animate-spin" />
               )}
             </div>
 
@@ -470,10 +470,10 @@ export default function SearchPage() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 ml-4">
-                        {result.type === 'phone' && <Phone className="w-4 h-4 text-gray-500" />}
-                        {result.type === 'chat' && <MessageCircle className="w-4 h-4 text-gray-500" />}
-                        {result.type === 'external' && <ExternalLink className="w-4 h-4 text-gray-500" />}
-                        <ArrowRight className="w-4 h-4 text-gray-400" />
+                        {result.type === 'phone' && <Phone className="w-4 h-4 text-gray-700" />}
+                        {result.type === 'chat' && <MessageCircle className="w-4 h-4 text-gray-700" />}
+                        {result.type === 'external' && <ExternalLink className="w-4 h-4 text-gray-700" />}
+                        <ArrowRight className="w-4 h-4 text-gray-600" />
                       </div>
                     </div>
                   </motion.div>
@@ -486,7 +486,7 @@ export default function SearchPage() {
         {/* No Results */}
         {searchQuery && results.length === 0 && !isSearching && (
           <Glass variant="light" className="p-8 text-center">
-            <Search className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <Search className="w-12 h-12 text-gray-600 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">No results found</h3>
             <p className="text-gray-600 mb-4">
               Try different keywords or check out our quick searches above

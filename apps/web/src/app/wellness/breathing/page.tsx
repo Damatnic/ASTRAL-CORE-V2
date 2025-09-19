@@ -348,7 +348,7 @@ export default function BreathingExercisesPage() {
                     </h3>
                     <button
                       onClick={() => setShowInstructions(false)}
-                      className="text-gray-400 hover:text-gray-600"
+                      className="text-gray-600 hover:text-gray-600"
                     >
                       ×
                     </button>

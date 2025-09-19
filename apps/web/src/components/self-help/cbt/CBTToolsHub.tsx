@@ -292,7 +292,7 @@ export default function CBTToolsHub() {
                   )}>
                     {tool.difficulty}
                   </span>
-                  <span className="text-gray-500">{tool.estimatedTime}</span>
+                  <span className="text-gray-700">{tool.estimatedTime}</span>
                 </div>
 
                 {totalCount > 0 && (
@@ -459,7 +459,7 @@ function ThoughtRecordInterface({ records, onSave, onClose }: ThoughtRecordInter
           <h2 className="text-2xl font-bold text-gray-900">Thought Record</h2>
           <p className="text-gray-600">Step {step} of {steps.length}: {steps[step - 1].title}</p>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onClose} className="text-gray-600 hover:text-gray-600">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -596,12 +596,12 @@ function ThoughtRecordInterface({ records, onSave, onClose }: ThoughtRecordInter
               <div key={record.id} className="p-3 bg-gray-50 rounded-lg">
                 <div className="flex items-center justify-between">
                   <p className="text-sm text-gray-900 font-medium">{record.situation}</p>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-700">
                     {new Date(record.date).toLocaleDateString()}
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">{record.automaticThought}</p>
-                <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                <div className="flex items-center gap-4 mt-2 text-xs text-gray-700">
                   <span>{record.emotion}: {record.emotionIntensity}/10 → {record.newEmotionIntensity}/10</span>
                 </div>
               </div>
@@ -659,7 +659,7 @@ function DistortionIdentifierInterface({ onClose }: DistortionIdentifierInterfac
           <h2 className="text-2xl font-bold text-gray-900">Cognitive Distortion Identifier</h2>
           <p className="text-gray-600">AI-powered analysis of thinking patterns</p>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onClose} className="text-gray-600 hover:text-gray-600">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -840,7 +840,7 @@ function BehavioralActivationInterface({ activities, onSave, onClose }: Behavior
           <h2 className="text-2xl font-bold text-gray-900">Behavioral Activation Scheduler</h2>
           <p className="text-gray-600">Plan activities to improve mood and build momentum</p>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onClose} className="text-gray-600 hover:text-gray-600">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -940,7 +940,7 @@ function BehavioralActivationInterface({ activities, onSave, onClose }: Behavior
               }))}
               className="w-full"
             />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-gray-700 mt-1">
               <span>Much worse</span>
               <span>No change</span>
               <span>Much better</span>
@@ -975,8 +975,8 @@ function BehavioralActivationInterface({ activities, onSave, onClose }: Behavior
         <div className="space-y-4">
           {activities.length === 0 ? (
             <div className="text-center py-8">
-              <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-500">No activities planned yet. Switch to "Plan Activity" to get started!</p>
+              <Calendar className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+              <p className="text-gray-700">No activities planned yet. Switch to "Plan Activity" to get started!</p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -1274,7 +1274,7 @@ function ExposureTrackerInterface({ tasks, onSave, onClose }: ExposureTrackerInt
           <h2 className="text-2xl font-bold text-gray-900">Exposure Therapy Tracker</h2>
           <p className="text-gray-600">Systematic desensitization for anxiety and phobias</p>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onClose} className="text-gray-600 hover:text-gray-600">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -1376,7 +1376,7 @@ function ExposureTrackerInterface({ tasks, onSave, onClose }: ExposureTrackerInt
                 }))}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-gray-500">
+              <div className="flex justify-between text-xs text-gray-700">
                 <span>No anxiety (1)</span>
                 <span className="font-medium text-lg text-gray-900">{currentTask.anxietyBefore}/10</span>
                 <span>Extreme anxiety (10)</span>
@@ -1560,8 +1560,8 @@ function ExposureTrackerInterface({ tasks, onSave, onClose }: ExposureTrackerInt
         <div className="space-y-4">
           {tasks.length === 0 ? (
             <div className="text-center py-8">
-              <TrendingUp className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-500">No exposure exercises completed yet. Start with planning an exposure!</p>
+              <TrendingUp className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+              <p className="text-gray-700">No exposure exercises completed yet. Start with planning an exposure!</p>
             </div>
           ) : (
             <div className="space-y-4">

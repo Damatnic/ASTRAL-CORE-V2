@@ -481,7 +481,7 @@ export default function CrisisRapidRelief() {
                     )}
                   >
                     <div className="font-medium">{option.label}</div>
-                    <div className="text-sm text-gray-500">{option.time}</div>
+                    <div className="text-sm text-gray-700">{option.time}</div>
                   </button>
                 ))}
               </div>
@@ -759,8 +759,8 @@ export default function CrisisRapidRelief() {
                         <h3 className="text-lg font-semibold">{technique.name}</h3>
                         {completed && <CheckCircle className="w-5 h-5" />}
                       </div>
-                      <p className="text-white/90 mb-3">{technique.description}</p>
-                      <div className="flex items-center gap-4 text-sm text-white/80">
+                      <p className="text-gray-900 mb-3">{technique.description}</p>
+                      <div className="flex items-center gap-4 text-sm text-gray-900">
                         <span className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           {Math.ceil(technique.duration / 60)} min

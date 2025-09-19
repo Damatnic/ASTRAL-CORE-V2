@@ -247,7 +247,7 @@ export default function RedesignedHomePage() {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">Astral Core</h1>
-                <p className="text-xs text-gray-500">Your wellness companion</p>
+                <p className="text-xs text-gray-700">Your wellness companion</p>
               </div>
             </div>
             
@@ -395,21 +395,21 @@ export default function RedesignedHomePage() {
             <a href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
               About Us
             </a>
-            <span className="text-gray-300">•</span>
+            <span className="text-gray-600">•</span>
             <a href="/privacy" className="text-gray-600 hover:text-gray-900 transition-colors">
               Privacy
             </a>
-            <span className="text-gray-300">•</span>
+            <span className="text-gray-600">•</span>
             <a href="/volunteer" className="text-gray-600 hover:text-gray-900 transition-colors">
               Volunteer
             </a>
-            <span className="text-gray-300">•</span>
+            <span className="text-gray-600">•</span>
             <a href="/professional" className="text-gray-600 hover:text-gray-900 transition-colors">
               For Professionals
             </a>
           </div>
           
-          <p className="text-center text-xs text-gray-500 mt-4">
+          <p className="text-center text-xs text-gray-700 mt-4">
             Free forever • No barriers • Always here for you
           </p>
         </motion.section>

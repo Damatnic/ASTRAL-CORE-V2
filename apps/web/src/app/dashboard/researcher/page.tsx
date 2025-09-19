@@ -155,7 +155,7 @@ export default function ResearcherDashboard() {
                 className={`flex items-center space-x-2 py-2 px-4 border-b-2 font-medium text-sm ${
                   activeTab === tab.id
                     ? 'border-purple-500 text-purple-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                    : 'border-transparent text-gray-700 hover:text-gray-700'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -217,15 +217,15 @@ export default function ResearcherDashboard() {
                   <p className="text-sm text-gray-600 mb-3">{study.primaryOutcome}</p>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <p className="text-gray-500">Participants</p>
+                      <p className="text-gray-700">Participants</p>
                       <p className="font-medium">{study.participants}</p>
                     </div>
                     <div>
-                      <p className="text-gray-500">Completion Rate</p>
+                      <p className="text-gray-700">Completion Rate</p>
                       <p className="font-medium">{study.completionRate}%</p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">Updated: {study.lastUpdated}</p>
+                  <p className="text-xs text-gray-700 mt-2">Updated: {study.lastUpdated}</p>
                 </div>
               ))}
             </div>

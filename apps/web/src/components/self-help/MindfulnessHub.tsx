@@ -660,7 +660,7 @@ export default function MindfulnessHub() {
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-gray-500" />
+                      <Clock className="w-4 h-4 text-gray-700" />
                       <span className="text-sm text-gray-600">{session.duration} min</span>
                     </div>
                     <div className="flex items-center gap-1">

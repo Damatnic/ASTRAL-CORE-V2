@@ -166,7 +166,7 @@ export default function PatientDashboard() {
                       <Star
                         key={i}
                         className={`w-4 h-4 ${
-                          i < activity.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                          i < activity.rating ? 'text-yellow-400 fill-current' : 'text-gray-600'
                         }`}
                       />
                     ))}

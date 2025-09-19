@@ -393,7 +393,7 @@ export function NotificationToast({
             {onClose && (
               <button
                 onClick={onClose}
-                className="ml-3 text-gray-400 hover:text-gray-600 transition-colors"
+                className="ml-3 text-gray-600 hover:text-gray-600 transition-colors"
               >
                 ×
               </button>

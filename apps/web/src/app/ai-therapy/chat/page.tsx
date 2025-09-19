@@ -24,7 +24,7 @@ export default function AITherapyChatPage() {
               AI Therapy Session
             </h1>
           </div>
-          <p className="text-center text-gray-700 dark:text-gray-300 mt-2">
+          <p className="text-center text-gray-700 dark:text-gray-600 mt-2">
             Secure, private, and evidence-based therapy chat with specialized AI therapists
           </p>
         </Glass>

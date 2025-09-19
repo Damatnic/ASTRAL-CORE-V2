@@ -430,7 +430,7 @@ function DemoAccountCard({
               </div>
             ))}
             {account.features.length > 3 && (
-              <div className="text-xs text-gray-500">
+              <div className="text-xs text-gray-700">
                 +{account.features.length - 3} more features
               </div>
             )}
@@ -513,7 +513,7 @@ function DemoAccountModal({
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600"
+              className="text-gray-600 hover:text-gray-600"
             >
               ✕
             </button>

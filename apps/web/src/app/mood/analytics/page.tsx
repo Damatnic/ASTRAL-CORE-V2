@@ -347,7 +347,7 @@ export default function MoodAnalyticsPage() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
                   Mood Analytics
                 </h1>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-600">
                   Comprehensive insights into your mental health patterns
                 </p>
               </div>
@@ -389,7 +389,7 @@ export default function MoodAnalyticsPage() {
                   ) : stats.moodTrend === 'declining' ? (
                     <TrendingDown className="w-4 h-4 text-red-500 mr-1" />
                   ) : (
-                    <Activity className="w-4 h-4 text-gray-400 mr-1" />
+                    <Activity className="w-4 h-4 text-gray-600 mr-1" />
                   )}
                   <span className={`text-sm ${
                     stats.moodTrend === 'improving' ? 'text-green-600' :
@@ -410,7 +410,7 @@ export default function MoodAnalyticsPage() {
               <div>
                 <p className="text-sm text-gray-600">Tracking Streak</p>
                 <p className="text-2xl font-bold text-green-600">{stats.streakDays}</p>
-                <p className="text-sm text-gray-500">days</p>
+                <p className="text-sm text-gray-700">days</p>
               </div>
               <Target className="w-8 h-8 text-green-500" />
             </div>
@@ -424,7 +424,7 @@ export default function MoodAnalyticsPage() {
                   {stats.moodVariability < 1.5 ? 'High' : 
                    stats.moodVariability < 2.5 ? 'Medium' : 'Low'}
                 </p>
-                <p className="text-sm text-gray-500">variability: {stats.moodVariability}</p>
+                <p className="text-sm text-gray-700">variability: {stats.moodVariability}</p>
               </div>
               <BarChart3 className="w-8 h-8 text-blue-500" />
             </div>
@@ -435,7 +435,7 @@ export default function MoodAnalyticsPage() {
               <div>
                 <p className="text-sm text-gray-600">Total Entries</p>
                 <p className="text-2xl font-bold text-indigo-600">{stats.totalEntries}</p>
-                <p className="text-sm text-gray-500">this {timeRange}</p>
+                <p className="text-sm text-gray-700">this {timeRange}</p>
               </div>
               <Calendar className="w-8 h-8 text-indigo-500" />
             </div>

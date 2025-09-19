@@ -265,7 +265,7 @@ export default function NotFoundPage() {
             The page you requested could not be found. If you believe this is an error, 
             please try refreshing the page or contact support.
           </p>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs text-gray-700 mt-2">
             All emergency and crisis support features remain fully functional.
           </p>
         </div>

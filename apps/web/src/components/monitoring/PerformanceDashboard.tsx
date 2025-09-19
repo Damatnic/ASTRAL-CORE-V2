@@ -187,7 +187,7 @@ const PerformanceStatus: React.FC<{
 }> = ({ value, threshold, unit = 'ms', name }) => {
   if (value === null) {
     return (
-      <div className="flex items-center space-x-2 text-gray-500">
+      <div className="flex items-center space-x-2 text-gray-700">
         <div className="w-3 h-3 rounded-full bg-gray-300" />
         <span className="text-sm font-medium">Measuring...</span>
       </div>
@@ -236,7 +236,7 @@ const MetricChart: React.FC<{
   
   if (values.length === 0) {
     return (
-      <div className="h-24 flex items-center justify-center text-gray-500">
+      <div className="h-24 flex items-center justify-center text-gray-700">
         No data available
       </div>
     );
@@ -301,7 +301,7 @@ const MetricChart: React.FC<{
         })}
       </svg>
 
-      <div className="absolute top-0 left-0 text-xs text-gray-500">
+      <div className="absolute top-0 left-0 text-xs text-gray-700">
         {name}: {values[values.length - 1]?.toFixed(unit === 'ms' ? 0 : 3)}{unit}
       </div>
     </div>
@@ -404,25 +404,25 @@ export const PerformanceDashboard: React.FC = () => {
                 {/* Additional Metrics */}
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <div>
-                    <div className="text-gray-500">TTFB</div>
+                    <div className="text-gray-700">TTFB</div>
                     <div className="font-medium">
                       {metrics.ttfb ? `${metrics.ttfb.toFixed(0)}ms` : 'N/A'}
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-500">FCP</div>
+                    <div className="text-gray-700">FCP</div>
                     <div className="font-medium">
                       {metrics.fcp ? `${metrics.fcp.toFixed(0)}ms` : 'N/A'}
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-500">Memory</div>
+                    <div className="text-gray-700">Memory</div>
                     <div className="font-medium">
                       {metrics.memory ? `${metrics.memory.toFixed(1)}MB` : 'N/A'}
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-500">Connection</div>
+                    <div className="text-gray-700">Connection</div>
                     <div className="font-medium">{metrics.connection || 'N/A'}</div>
                   </div>
                 </div>
@@ -521,7 +521,7 @@ export const PerformanceSummary: React.FC = () => {
         </div>
       </div>
 
-      <div className="text-xs text-gray-500">
+      <div className="text-xs text-gray-700">
         Last updated: {new Date(metrics.timestamp).toLocaleTimeString()}
       </div>
     </div>

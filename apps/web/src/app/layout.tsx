@@ -147,7 +147,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                         </div>
                       </div>
                       
-                      <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
+                      <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-700">
                         <p>© 2025 ASTRAL CORE. Built with love to save lives. 💙</p>
                         <p className="mt-2">
                           If you or someone you know is in immediate danger, please contact emergency services (911) or the 988 Suicide & Crisis Lifeline.

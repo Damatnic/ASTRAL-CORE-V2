@@ -1052,7 +1052,7 @@ export default function EncryptedCrisisChat() {
                 </button>
               </div>
               
-              <p className="text-xs text-center text-gray-500 mt-4">
+              <p className="text-xs text-center text-gray-700 mt-4">
                 All conversations are completely private and will be permanently deleted when you end the session
               </p>
             </div>

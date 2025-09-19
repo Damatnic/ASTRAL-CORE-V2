@@ -146,7 +146,7 @@ export default function TherapistPortal() {
             <span className="text-2xl font-bold">{patients.length}</span>
           </div>
           <h3 className="text-gray-700 font-medium">Active Patients</h3>
-          <p className="text-sm text-gray-500 mt-1">{patients.length > 0 ? 'Current caseload' : 'No patients yet'}</p>
+          <p className="text-sm text-gray-700 mt-1">{patients.length > 0 ? 'Current caseload' : 'No patients yet'}</p>
         </div>
 
         <div className="bg-white rounded-xl shadow-md p-6">
@@ -157,7 +157,7 @@ export default function TherapistPortal() {
             <span className="text-2xl font-bold">{appointments.length}</span>
           </div>
           <h3 className="text-gray-700 font-medium">Upcoming Sessions</h3>
-          <p className="text-sm text-gray-500 mt-1">{appointments.length > 0 ? 'This week' : 'No appointments scheduled'}</p>
+          <p className="text-sm text-gray-700 mt-1">{appointments.length > 0 ? 'This week' : 'No appointments scheduled'}</p>
         </div>
 
         <div className="bg-white rounded-xl shadow-md p-6">
@@ -168,7 +168,7 @@ export default function TherapistPortal() {
             <span className="text-2xl font-bold">{therapistProfile?.rating && therapistProfile.rating > 0 ? `${therapistProfile.rating.toFixed(1)}` : 'N/A'}</span>
           </div>
           <h3 className="text-gray-700 font-medium">Average Rating</h3>
-          <p className="text-sm text-gray-500 mt-1">{therapistProfile?.rating && therapistProfile.rating > 0 ? 'Patient feedback' : 'No ratings yet'}</p>
+          <p className="text-sm text-gray-700 mt-1">{therapistProfile?.rating && therapistProfile.rating > 0 ? 'Patient feedback' : 'No ratings yet'}</p>
         </div>
 
         <div className="bg-white rounded-xl shadow-md p-6">
@@ -179,7 +179,7 @@ export default function TherapistPortal() {
             <span className="text-2xl font-bold">{therapistProfile?.sessionsThisMonth || 0}</span>
           </div>
           <h3 className="text-gray-700 font-medium">Sessions This Month</h3>
-          <p className="text-sm text-gray-500 mt-1">{(therapistProfile?.sessionsThisMonth || 0) > 0 ? 'Professional activity' : 'Getting started'}</p>
+          <p className="text-sm text-gray-700 mt-1">{(therapistProfile?.sessionsThisMonth || 0) > 0 ? 'Professional activity' : 'Getting started'}</p>
         </div>
       </div>
 
@@ -211,7 +211,7 @@ export default function TherapistPortal() {
                     <p className="text-sm font-semibold text-gray-900">
                       {appointment.date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
                     </p>
-                    <p className="text-xs text-gray-500">{appointment.duration} min</p>
+                    <p className="text-xs text-gray-700">{appointment.duration} min</p>
                   </div>
                   <div className="w-px h-12 bg-gray-300" />
                   <div>
@@ -222,7 +222,7 @@ export default function TherapistPortal() {
                 <div className="flex items-center space-x-2">
                   {appointment.mode === 'video' && <Video className="w-4 h-4 text-blue-600" />}
                   {appointment.mode === 'phone' && <Phone className="w-4 h-4 text-green-600" />}
-                  <button className="p-2 text-gray-500 hover:text-gray-700">
+                  <button className="p-2 text-gray-700 hover:text-gray-700">
                     <Edit className="w-4 h-4" />
                   </button>
                 </div>
@@ -230,9 +230,9 @@ export default function TherapistPortal() {
             ))
           ) : (
             <div className="text-center py-8">
-              <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-              <p className="text-gray-500 font-medium">No appointments scheduled for today</p>
-              <p className="text-sm text-gray-400 mt-1">Schedule a session to see it here</p>
+              <Calendar className="w-12 h-12 text-gray-600 mx-auto mb-3" />
+              <p className="text-gray-700 font-medium">No appointments scheduled for today</p>
+              <p className="text-sm text-gray-600 mt-1">Schedule a session to see it here</p>
             </div>
           )}
         </div>
@@ -281,7 +281,7 @@ export default function TherapistPortal() {
           <h2 className="text-xl font-bold text-gray-900">Patient Management</h2>
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+              <Search className="w-5 h-5 text-gray-600 absolute left-3 top-1/2 transform -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search patients..."
@@ -300,12 +300,12 @@ export default function TherapistPortal() {
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Risk Level</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Diagnosis</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Next Session</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Patient</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Status</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Risk Level</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Diagnosis</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Next Session</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -315,7 +315,7 @@ export default function TherapistPortal() {
                   <td className="px-6 py-4">
                     <div>
                       <p className="font-semibold text-gray-900">{patient.name}</p>
-                      <p className="text-sm text-gray-500">{patient.email}</p>
+                      <p className="text-sm text-gray-700">{patient.email}</p>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -339,7 +339,7 @@ export default function TherapistPortal() {
                   <td className="px-6 py-4">
                     <p className="text-sm text-gray-900">{patient.diagnosis[0]}</p>
                     {patient.diagnosis.length > 1 && (
-                      <p className="text-xs text-gray-500">+{patient.diagnosis.length - 1} more</p>
+                      <p className="text-xs text-gray-700">+{patient.diagnosis.length - 1} more</p>
                     )}
                   </td>
                   <td className="px-6 py-4">
@@ -367,9 +367,9 @@ export default function TherapistPortal() {
             ) : (
               <tr>
                 <td colSpan={6} className="px-6 py-12 text-center">
-                  <User className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-500 font-medium">No patients added yet</p>
-                  <p className="text-sm text-gray-400 mt-1">Add your first patient to get started</p>
+                  <User className="w-12 h-12 text-gray-600 mx-auto mb-3" />
+                  <p className="text-gray-700 font-medium">No patients added yet</p>
+                  <p className="text-sm text-gray-600 mt-1">Add your first patient to get started</p>
                 </td>
               </tr>
             )}
@@ -386,13 +386,13 @@ export default function TherapistPortal() {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-900">Appointment Calendar</h2>
           <div className="flex items-center space-x-4">
-            <button className="p-2 text-gray-500 hover:text-gray-700">
+            <button className="p-2 text-gray-700 hover:text-gray-700">
               <ChevronLeft className="w-5 h-5" />
             </button>
             <span className="font-semibold text-gray-900">
               {selectedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
             </span>
-            <button className="p-2 text-gray-500 hover:text-gray-700">
+            <button className="p-2 text-gray-700 hover:text-gray-700">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
@@ -432,7 +432,7 @@ export default function TherapistPortal() {
                   <p className="text-lg font-bold text-gray-900">
                     {appointment.date.getDate()}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     {appointment.date.toLocaleDateString('en-US', { month: 'short' })}
                   </p>
                 </div>
@@ -539,7 +539,7 @@ export default function TherapistPortal() {
                 />
                 <span className="font-medium text-gray-700">{therapistProfile.name}</span>
               </div>
-              <button className="p-2 text-gray-500 hover:text-gray-700">
+              <button className="p-2 text-gray-700 hover:text-gray-700">
                 <Settings className="w-5 h-5" />
               </button>
             </div>
@@ -558,7 +558,7 @@ export default function TherapistPortal() {
                 className={`py-3 px-1 border-b-2 font-medium text-sm capitalize transition-colors ${
                   selectedView === view
                     ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    : 'border-transparent text-gray-700 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
                 {view}
@@ -584,15 +584,15 @@ export default function TherapistPortal() {
             <h3 className="text-lg font-bold mb-4">Professional Profile</h3>
             <div className="space-y-4">
               <div>
-                <p className="text-sm text-gray-500">Name</p>
+                <p className="text-sm text-gray-700">Name</p>
                 <p className="font-semibold">{therapistProfile.name}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">License</p>
+                <p className="text-sm text-gray-700">License</p>
                 <p className="font-semibold">{therapistProfile.license}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Specializations</p>
+                <p className="text-sm text-gray-700">Specializations</p>
                 <div className="flex flex-wrap gap-2 mt-1">
                   {therapistProfile.specializations.map(spec => (
                     <span key={spec} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">

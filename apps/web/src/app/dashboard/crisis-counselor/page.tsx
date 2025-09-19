@@ -252,7 +252,7 @@ export default function CrisisCounselorDashboard() {
                   </button>
                 ))}
               </div>
-              <button className="p-2 text-gray-400 hover:text-gray-600">
+              <button className="p-2 text-gray-600 hover:text-gray-600">
                 <Filter className="w-4 h-4" />
               </button>
             </div>
@@ -304,7 +304,7 @@ export default function CrisisCounselorDashboard() {
                             Continue
                           </button>
                         )}
-                        <button className="p-1 text-gray-400 hover:text-gray-600">
+                        <button className="p-1 text-gray-600 hover:text-gray-600">
                           <MoreVertical className="w-4 h-4" />
                         </button>
                       </div>

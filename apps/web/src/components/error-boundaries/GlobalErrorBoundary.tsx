@@ -230,7 +230,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
                 <p className="text-sm text-gray-600">
                   Error ID: <span className="font-mono font-semibold">{this.state.errorId}</span>
                 </p>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-700 mt-1">
                   Please include this ID if you contact support
                 </p>
               </div>
@@ -297,7 +297,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
               {/* Development Info */}
               {process.env.NODE_ENV === 'development' && this.state.error && (
                 <details className="mt-6 text-left">
-                  <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
+                  <summary className="cursor-pointer text-sm text-gray-700 hover:text-gray-700">
                     Developer Details (Development Only)
                   </summary>
                   <div className="mt-2 p-4 bg-gray-100 rounded-lg text-xs font-mono overflow-auto">

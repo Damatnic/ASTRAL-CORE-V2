@@ -363,7 +363,7 @@ export default function DBTSkillsHub() {
                 <p className="text-sm text-gray-600 mb-4">{category.description}</p>
                 
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">{totalSkills} skills</span>
+                  <span className="text-gray-700">{totalSkills} skills</span>
                   <div className="flex items-center gap-1">
                     <CheckCircle className="w-4 h-4 text-green-500" />
                     <span className="text-green-600">{completedSkills}/{totalSkills}</span>
@@ -412,7 +412,7 @@ export default function DBTSkillsHub() {
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
-                        <p className="text-sm text-gray-500 font-mono">{skill.acronym}</p>
+                        <p className="text-sm text-gray-700 font-mono">{skill.acronym}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className={cn(
@@ -435,7 +435,7 @@ export default function DBTSkillsHub() {
                     <p className="text-gray-600 mb-4">{skill.description}</p>
 
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-2 text-sm text-gray-700">
                         <Clock className="w-4 h-4" />
                         {skill.estimatedTime}
                       </div>
@@ -526,7 +526,7 @@ function SkillPracticeInterface({
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600"
+              className="text-gray-600 hover:text-gray-600"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

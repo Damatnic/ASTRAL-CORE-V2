@@ -424,7 +424,7 @@ export function TestDashboard() {
                 </h2>
                 <button
                   onClick={() => setIsVisible(false)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-600 hover:text-gray-600"
                 >
                   ×
                 </button>
@@ -459,19 +459,19 @@ export function TestDashboard() {
                   </h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-gray-600 dark:text-gray-300">Total:</span>
+                      <span className="text-gray-600 dark:text-gray-600">Total:</span>
                       <span className="ml-2 font-medium">{summary.total}</span>
                     </div>
                     <div>
-                      <span className="text-gray-600 dark:text-gray-300">Passed:</span>
+                      <span className="text-gray-600 dark:text-gray-600">Passed:</span>
                       <span className="ml-2 font-medium text-green-600">{summary.passed}</span>
                     </div>
                     <div>
-                      <span className="text-gray-600 dark:text-gray-300">Failed:</span>
+                      <span className="text-gray-600 dark:text-gray-600">Failed:</span>
                       <span className="ml-2 font-medium text-red-600">{summary.failed}</span>
                     </div>
                     <div>
-                      <span className="text-gray-600 dark:text-gray-300">Pass Rate:</span>
+                      <span className="text-gray-600 dark:text-gray-600">Pass Rate:</span>
                       <span className="ml-2 font-medium">{summary.passRate.toFixed(1)}%</span>
                     </div>
                   </div>
@@ -521,7 +521,7 @@ export function TestDashboard() {
                             Test {result.id}
                           </span>
                         </div>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-gray-700">
                           {result.duration}ms
                         </span>
                       </div>

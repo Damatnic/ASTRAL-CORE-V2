@@ -333,7 +333,7 @@ export default function GroundingTechniques() {
                   "w-12 h-12 rounded-full border-2 flex items-center justify-center text-sm font-bold",
                   i < stepProgress
                     ? "bg-green-500 border-green-500 text-white"
-                    : "border-gray-300 text-gray-400"
+                    : "border-gray-300 text-gray-600"
                 )}
               >
                 {i + 1}
@@ -346,7 +346,7 @@ export default function GroundingTechniques() {
             className={cn(
               "px-6 py-3 rounded-lg font-medium transition-all",
               stepProgress >= step.count
-                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                ? "bg-gray-300 text-gray-700 cursor-not-allowed"
                 : "bg-blue-600 text-white hover:bg-blue-700"
             )}
           >
@@ -380,7 +380,7 @@ export default function GroundingTechniques() {
               {step.phase}
             </h3>
             <p className="text-lg text-gray-600 mb-2">{step.instruction}</p>
-            <p className="text-sm text-gray-500 italic">{step.explanation}</p>
+            <p className="text-sm text-gray-700 italic">{step.explanation}</p>
           </div>
           <div className="w-32 h-32 mx-auto relative">
             <svg className="w-full h-full -rotate-90">
@@ -505,7 +505,7 @@ export default function GroundingTechniques() {
                         )}>
                           {tech.type}
                         </span>
-                        <span className="text-xs text-gray-500 flex items-center gap-1">
+                        <span className="text-xs text-gray-700 flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {tech.duration}min
                         </span>
@@ -519,7 +519,7 @@ export default function GroundingTechniques() {
                                 (tech.evidenceLevel === 'moderate' && i < 2) ||
                                 (tech.evidenceLevel === 'low' && i < 1)
                                   ? "text-yellow-400 fill-current"
-                                  : "text-gray-300"
+                                  : "text-gray-600"
                               )}
                             />
                           ))}
@@ -617,7 +617,7 @@ export default function GroundingTechniques() {
                     {technique.name}
                   </h3>
                   <p className="text-xl text-gray-600 mb-4">{technique.description}</p>
-                  <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+                  <div className="flex items-center justify-center gap-4 text-sm text-gray-700">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       ~{technique.duration} minutes
@@ -681,7 +681,7 @@ export default function GroundingTechniques() {
               Recent Sessions
             </h3>
             {sessions.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">
+              <p className="text-gray-700 text-center py-8">
                 Complete your first grounding technique to see your progress
               </p>
             ) : (

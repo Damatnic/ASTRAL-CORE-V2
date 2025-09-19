@@ -103,7 +103,7 @@ export default function OnboardingTrigger({
                       <div className="flex items-center space-x-2">
                         <option.icon className={`w-4 h-4 ${option.color.replace('bg-', 'text-')}`} />
                         <span className="text-sm font-medium text-gray-900">{option.title}</span>
-                        <ChevronRight className="w-3 h-3 text-gray-500 group-hover:translate-x-1 transition-transform ml-auto" />
+                        <ChevronRight className="w-3 h-3 text-gray-700 group-hover:translate-x-1 transition-transform ml-auto" />
                       </div>
                     </button>
                   ))}
@@ -168,7 +168,7 @@ export default function OnboardingTrigger({
                       <h4 className="text-sm font-medium text-gray-900">{option.title}</h4>
                       <p className="text-xs text-gray-600">{option.description}</p>
                     </div>
-                    <ChevronRight className="w-3 h-3 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="w-3 h-3 text-gray-700 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </button>
               ))}

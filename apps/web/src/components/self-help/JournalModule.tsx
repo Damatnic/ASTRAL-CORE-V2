@@ -384,7 +384,7 @@ export default function JournalModule() {
           />
 
           {/* Word Count */}
-          <div className="mt-2 text-right text-sm text-gray-500">
+          <div className="mt-2 text-right text-sm text-gray-700">
             {currentEntry.split(/\s+/).filter(word => word.length > 0).length} words
           </div>
 
@@ -477,7 +477,7 @@ export default function JournalModule() {
               className={cn(
                 "flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all",
                 isSaving || !currentEntry.trim()
-                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  ? "bg-gray-300 text-gray-700 cursor-not-allowed"
                   : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg"
               )}
             >
@@ -493,7 +493,7 @@ export default function JournalModule() {
         {/* Search */}
         <div className="bg-white rounded-xl shadow-sm p-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-600" />
             <input
               type="text"
               placeholder="Search entries..."
@@ -512,7 +512,7 @@ export default function JournalModule() {
           </h3>
           <div className="space-y-3 max-h-[600px] overflow-y-auto">
             {filteredEntries.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">
+              <p className="text-gray-700 text-center py-8">
                 No entries yet. Start writing!
               </p>
             ) : (
@@ -529,7 +529,7 @@ export default function JournalModule() {
                         {entry.title || 'Untitled Entry'}
                       </h4>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-gray-700">
                           {new Date(entry.createdAt).toLocaleDateString()}
                         </span>
                         {entry.entryType !== 'freeform' && (
@@ -554,14 +554,14 @@ export default function JournalModule() {
                             </span>
                           ))}
                           {entry.tags.length > 3 && (
-                            <span className="text-xs text-gray-500">
+                            <span className="text-xs text-gray-700">
                               +{entry.tags.length - 3}
                             </span>
                           )}
                         </div>
                       )}
                     </div>
-                    <ChevronRight className="w-4 h-4 text-gray-400 mt-1" />
+                    <ChevronRight className="w-4 h-4 text-gray-600 mt-1" />
                   </div>
                 </motion.div>
               ))

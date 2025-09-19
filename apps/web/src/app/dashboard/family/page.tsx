@@ -228,14 +228,14 @@ export default function FamilyDashboard() {
                   <div className="flex items-center justify-between text-sm">
                     <div>
                       <p className="text-gray-700">{person.recentActivity}</p>
-                      <p className="text-gray-500">Last active: {person.lastActive}</p>
+                      <p className="text-gray-700">Last active: {person.lastActive}</p>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className="flex items-center text-gray-500">
+                      <span className="flex items-center text-gray-700">
                         {getPermissionIcon(person.permissionLevel)}
                         <span className="ml-1 text-xs">{person.permissionLevel}</span>
                       </span>
-                      <ChevronRight className="w-4 h-4 text-gray-400" />
+                      <ChevronRight className="w-4 h-4 text-gray-600" />
                     </div>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function FamilyDashboard() {
               <div key={index} className="p-4 border border-gray-200 rounded-lg hover:shadow-md transition-all cursor-pointer">
                 <div className="flex justify-between items-start mb-2">
                   <h4 className="font-medium text-gray-900">{resource.title}</h4>
-                  <span className="text-xs text-gray-500">{resource.readTime}</span>
+                  <span className="text-xs text-gray-700">{resource.readTime}</span>
                 </div>
                 <p className="text-sm text-gray-600 mb-3">{resource.description}</p>
                 <div className="flex justify-between items-center">

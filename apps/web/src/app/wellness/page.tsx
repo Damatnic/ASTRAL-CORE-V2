@@ -320,7 +320,7 @@ export default function WellnessPage() {
                           </div>
                         </div>
                       </div>
-                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300" />
+                      <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300" />
                     </div>
 
                     <p className="text-gray-700 mb-4 leading-relaxed text-sm">

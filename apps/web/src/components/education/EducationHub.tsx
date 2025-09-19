@@ -486,7 +486,7 @@ export default function EducationHub() {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-5 h-5" />
             <input
               type="text"
               placeholder="Search articles, videos, resources..."
@@ -546,8 +546,8 @@ export default function EducationHub() {
                 <p className="text-sm text-gray-600 mb-4">{category.description}</p>
                 
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">{categoryContent.length} resources</span>
-                  <ChevronRight className="w-4 h-4 text-gray-400" />
+                  <span className="text-gray-700">{categoryContent.length} resources</span>
+                  <ChevronRight className="w-4 h-4 text-gray-600" />
                 </div>
               </motion.div>
             )
@@ -601,7 +601,7 @@ export default function EducationHub() {
                         e.stopPropagation()
                         toggleBookmark(content.id)
                       }}
-                      className="text-gray-400 hover:text-yellow-500"
+                      className="text-gray-600 hover:text-yellow-500"
                     >
                       <Bookmark className={cn(
                         "w-5 h-5",
@@ -617,7 +617,7 @@ export default function EducationHub() {
                     {content.description}
                   </p>
 
-                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                  <div className="flex items-center gap-4 text-xs text-gray-700 mb-4">
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {content.readingTime}
@@ -653,7 +653,7 @@ export default function EducationHub() {
 
           {filteredContent.length === 0 && (
             <div className="text-center py-12">
-              <BookOpen className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+              <BookOpen className="w-12 h-12 text-gray-600 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">No content found</h3>
               <p className="text-gray-600">Try adjusting your search terms or filters</p>
             </div>
@@ -762,13 +762,13 @@ function ContentDetailView({ content, onClose, onBookmarkToggle, isBookmarked }:
                 )}>
                   {content.difficulty}
                 </span>
-                <span className="text-sm text-gray-500">{content.readingTime}</span>
+                <span className="text-sm text-gray-700">{content.readingTime}</span>
               </div>
               
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{content.title}</h2>
               <p className="text-gray-600">{content.description}</p>
               
-              <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
+              <div className="flex items-center gap-4 mt-3 text-sm text-gray-700">
                 <span>By {content.author}</span>
                 {content.reviewedBy && <span>• Reviewed by {content.reviewedBy}</span>}
                 <span>• Updated {content.lastUpdated.toLocaleDateString()}</span>
@@ -778,7 +778,7 @@ function ContentDetailView({ content, onClose, onBookmarkToggle, isBookmarked }:
             <div className="flex items-center gap-2 ml-4">
               <button
                 onClick={onBookmarkToggle}
-                className="p-2 text-gray-400 hover:text-yellow-500"
+                className="p-2 text-gray-600 hover:text-yellow-500"
               >
                 <Bookmark className={cn(
                   "w-5 h-5",
@@ -788,7 +788,7 @@ function ContentDetailView({ content, onClose, onBookmarkToggle, isBookmarked }:
               
               <button
                 onClick={onClose}
-                className="p-2 text-gray-400 hover:text-gray-600"
+                className="p-2 text-gray-600 hover:text-gray-600"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -823,7 +823,7 @@ function ContentDetailView({ content, onClose, onBookmarkToggle, isBookmarked }:
                 {isCompleted ? 'Completed' : 'Mark as Complete'}
               </button>
               
-              <div className="flex items-center gap-1 text-sm text-gray-500">
+              <div className="flex items-center gap-1 text-sm text-gray-700">
                 <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 <span>{content.rating}/5</span>
                 <span>•</span>
@@ -832,10 +832,10 @@ function ContentDetailView({ content, onClose, onBookmarkToggle, isBookmarked }:
             </div>
             
             <div className="flex items-center gap-2">
-              <button className="p-2 text-gray-400 hover:text-gray-600">
+              <button className="p-2 text-gray-600 hover:text-gray-600">
                 <Share2 className="w-5 h-5" />
               </button>
-              <button className="p-2 text-gray-400 hover:text-gray-600">
+              <button className="p-2 text-gray-600 hover:text-gray-600">
                 <Download className="w-5 h-5" />
               </button>
             </div>

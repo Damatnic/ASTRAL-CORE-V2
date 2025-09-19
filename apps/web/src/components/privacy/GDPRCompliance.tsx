@@ -255,7 +255,7 @@ export const GDPRConsentBanner: React.FC = () => {
                 🍪 Your Privacy Matters
               </h2>
               
-              <p id="gdpr-banner-description" className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <p id="gdpr-banner-description" className="text-gray-700 dark:text-gray-600 mb-4 leading-relaxed">
                 We use cookies and similar technologies to improve your experience, analyze usage, 
                 and provide personalized content. You can choose which categories to accept. 
                 Your choice is important to us.
@@ -319,7 +319,7 @@ export const GDPRConsentBanner: React.FC = () => {
                 </div>
               )}
 
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-3">
+              <p className="text-xs text-gray-700 dark:text-gray-600 mt-3">
                 By continuing to use our site, you agree to our{' '}
                 <a href="/privacy" className="underline hover:text-blue-600">Privacy Policy</a>
                 {' '}and{' '}
@@ -432,7 +432,7 @@ const CookieDetailsPanel: React.FC<{
                   </label>
                 </div>
                 
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <p className="text-sm text-gray-600 dark:text-gray-600 mb-3">
                   {category.description}
                 </p>
                 
@@ -443,7 +443,7 @@ const CookieDetailsPanel: React.FC<{
                     .map(cookie => (
                       <div key={cookie.name} className="text-xs bg-gray-50 dark:bg-gray-800 p-2 rounded">
                         <div className="font-medium">{cookie.name}</div>
-                        <div className="text-gray-600 dark:text-gray-400">
+                        <div className="text-gray-600 dark:text-gray-600">
                           {cookie.purpose} • Duration: {cookie.duration}
                         </div>
                       </div>

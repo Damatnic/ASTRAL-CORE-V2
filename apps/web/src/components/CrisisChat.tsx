@@ -152,7 +152,7 @@ export default function CrisisChat() {
               )}
               <p className="text-sm">{message.content}</p>
               <span className={`text-xs mt-1 block ${
-                message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                message.sender === 'user' ? 'text-blue-100' : 'text-gray-700'
               }`}>
                 {message.timestamp.toLocaleTimeString()}
               </span>
@@ -162,7 +162,7 @@ export default function CrisisChat() {
         
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-white text-gray-500 px-4 py-3 rounded-2xl shadow-md">
+            <div className="bg-white text-gray-700 px-4 py-3 rounded-2xl shadow-md">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -194,7 +194,7 @@ export default function CrisisChat() {
             <Send className="w-5 h-5" />
           </button>
         </div>
-        <p className="text-xs text-gray-500 mt-2 text-center">
+        <p className="text-xs text-gray-700 mt-2 text-center">
           Your conversation is confidential and encrypted. We're here to help.
         </p>
       </form>

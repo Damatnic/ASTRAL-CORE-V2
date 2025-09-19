@@ -144,17 +144,17 @@ function ProgressBar({
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center space-x-2">
             {showIcon && Icon && (
-              <Icon className={`${sizeConfig.iconSize} text-gray-400`} />
+              <Icon className={`${sizeConfig.iconSize} text-gray-600`} />
             )}
             {label && (
-              <span className={`${sizeConfig.textSize} font-medium text-gray-300`}>
+              <span className={`${sizeConfig.textSize} font-medium text-gray-600`}>
                 {label}
               </span>
             )}
           </div>
           <div className="flex items-center space-x-2">
             {showValue && (
-              <span className={`${sizeConfig.textSize} text-gray-400`}>
+              <span className={`${sizeConfig.textSize} text-gray-600`}>
                 {Math.round(currentValue)} / {max}
               </span>
             )}
@@ -178,7 +178,7 @@ function ProgressBar({
 
       {/* Description */}
       {description && (
-        <p className="text-xs text-gray-500 mb-3">{description}</p>
+        <p className="text-xs text-gray-700 mb-3">{description}</p>
       )}
 
       {/* Progress Bar Container */}
@@ -338,7 +338,7 @@ function ProgressBar({
                   } rounded-full`}
                 />
                 <div className="absolute top-5 left-1/2 transform -translate-x-1/2">
-                  <span className="text-xs text-gray-400">{milestone}%</span>
+                  <span className="text-xs text-gray-600">{milestone}%</span>
                 </div>
               </motion.div>
             );

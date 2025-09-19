@@ -451,7 +451,7 @@ export default function SelfHelpPage() {
                     )}>
                       <IconComponent className={cn("w-6 h-6", tool.textColor)} />
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2 text-sm text-gray-700">
                       <Clock className="w-4 h-4" />
                       {tool.timeEstimate}
                     </div>
@@ -499,14 +499,14 @@ export default function SelfHelpPage() {
                                 (tool.evidenceLevel === 'Moderate' && i < 3) ||
                                 (tool.evidenceLevel === 'Emerging' && i < 2)
                                   ? "text-yellow-400 fill-current"
-                                  : "text-gray-300"
+                                  : "text-gray-600"
                               )}
                             />
                           ))}
                         </div>
                       </div>
                       
-                      <div className="text-sm text-gray-500 group-hover:text-gray-700 transition-colors">
+                      <div className="text-sm text-gray-700 group-hover:text-gray-700 transition-colors">
                         Try now →
                       </div>
                     </div>

@@ -216,7 +216,7 @@ function SignInForm() {
                     <div className="w-full border-t border-gray-300"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">Or choose access type</span>
+                    <span className="px-2 bg-white text-gray-700">Or choose access type</span>
                   </div>
                 </div>
               </>
@@ -301,7 +301,7 @@ function SignInForm() {
                     Email Address
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600" />
                     <input
                       id="email"
                       type="email"
@@ -319,7 +319,7 @@ function SignInForm() {
                     Password
                   </label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600" />
                     <input
                       id="password"
                       type={showPassword ? 'text' : 'password'}
@@ -332,7 +332,7 @@ function SignInForm() {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-gray-600"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600 hover:text-gray-600"
                     >
                       {showPassword ? <EyeOff /> : <Eye />}
                     </button>
@@ -368,7 +368,7 @@ function SignInForm() {
                     placeholder="Enter your passcode"
                   />
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-700">
                   Demo credentials: Use "{authType}123" as the passcode
                 </div>
               </div>
@@ -478,7 +478,7 @@ function SignInForm() {
 
             {/* Crisis Notice */}
             {authType === 'anonymous' && (
-              <div className="mt-4 text-center text-sm text-gray-500">
+              <div className="mt-4 text-center text-sm text-gray-700">
                 <p>Anonymous access ensures your privacy</p>
                 <p className="font-semibold text-red-600 mt-2">
                   Emergency? Call 988 immediately

@@ -284,7 +284,7 @@ export default function PeerSupport() {
                         <p className="font-semibold text-gray-900">
                           {post.isAnonymous ? 'Anonymous' : post.userName}
                         </p>
-                        <p className="text-xs text-gray-500 flex items-center">
+                        <p className="text-xs text-gray-700 flex items-center">
                           <Clock className="w-3 h-3 mr-1" />
                           {new Date(post.timestamp).toLocaleString()}
                         </p>
@@ -352,7 +352,7 @@ export default function PeerSupport() {
                       </div>
                       <div>
                         <p className="font-semibold text-sm">{helper.name}</p>
-                        <p className="text-xs text-gray-500">Level {helper.level} • {helper.xp} XP</p>
+                        <p className="text-xs text-gray-700">Level {helper.level} • {helper.xp} XP</p>
                       </div>
                     </div>
                     

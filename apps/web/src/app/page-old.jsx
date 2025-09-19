@@ -362,7 +362,7 @@ export default function HomePage() {
                 <details className="bg-gray-50 rounded-2xl p-6">
                   <summary className="cursor-pointer text-lg font-semibold text-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-2">
                     More wellness tools
-                    <span className="text-sm font-normal text-gray-500 ml-2">(optional)</span>
+                    <span className="text-sm font-normal text-gray-700 ml-2">(optional)</span>
                   </summary>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                     {quickActions.slice(2).map((action) => (
@@ -377,7 +377,7 @@ export default function HomePage() {
                           </div>
                           <button 
                             onClick={() => handleQuickAction(action)}
-                            className="text-gray-400 hover:text-gray-600 transition-colors"
+                            className="text-gray-600 hover:text-gray-600 transition-colors"
                           >
                             <ChevronRight className="w-5 h-5" />
                           </button>
@@ -417,7 +417,7 @@ export default function HomePage() {
                 <details className="bg-white rounded-2xl shadow-lg p-6">
                   <summary className="cursor-pointer text-xl font-bold text-gray-900 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-2">
                     <span id="progress-heading">Your Progress & Goals</span>
-                    <span className="text-sm font-normal text-gray-500 ml-2">(when you're ready)</span>
+                    <span className="text-sm font-normal text-gray-700 ml-2">(when you're ready)</span>
                   </summary>
                   
                   {/* Simple Daily Goal */}

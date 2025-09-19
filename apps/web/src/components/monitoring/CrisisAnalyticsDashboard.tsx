@@ -359,7 +359,7 @@ export default function CrisisAnalyticsDashboard() {
         </div>
         <div className="text-2xl font-bold">{realTimeMetrics.activeCrises}</div>
         <div className="text-sm text-gray-600">Active Crises</div>
-        <div className="mt-2 text-xs text-gray-500">
+        <div className="mt-2 text-xs text-gray-700">
           {realTimeMetrics.criticalSessions} critical
         </div>
       </motion.div>
@@ -380,7 +380,7 @@ export default function CrisisAnalyticsDashboard() {
           {realTimeMetrics.averageResponseTime.toFixed(1)}s
         </div>
         <div className="text-sm text-gray-600">Avg Response Time</div>
-        <div className="mt-2 text-xs text-gray-500">
+        <div className="mt-2 text-xs text-gray-700">
           Target: &lt;60s
         </div>
       </motion.div>
@@ -401,7 +401,7 @@ export default function CrisisAnalyticsDashboard() {
           {realTimeMetrics.averageSeverity.toFixed(1)}/10
         </div>
         <div className="text-sm text-gray-600">Avg Severity</div>
-        <div className="mt-2 text-xs text-gray-500">
+        <div className="mt-2 text-xs text-gray-700">
           Escalation rate: {(realTimeMetrics.escalationRate * 100).toFixed(1)}%
         </div>
       </motion.div>
@@ -422,7 +422,7 @@ export default function CrisisAnalyticsDashboard() {
           {realTimeMetrics.volunteersOnline + realTimeMetrics.professionalsOnline}
         </div>
         <div className="text-sm text-gray-600">Support Staff Online</div>
-        <div className="mt-2 text-xs text-gray-500">
+        <div className="mt-2 text-xs text-gray-700">
           {realTimeMetrics.volunteersOnline} volunteers, {realTimeMetrics.professionalsOnline} professionals
         </div>
       </motion.div>
@@ -517,7 +517,7 @@ export default function CrisisAnalyticsDashboard() {
             <div className="flex items-center justify-between mb-2">
               <div>
                 <h4 className="font-medium">{volunteer.name}</h4>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-700">
                   {volunteer.specializations.join(', ')}
                 </div>
               </div>
@@ -530,19 +530,19 @@ export default function CrisisAnalyticsDashboard() {
             
             <div className="grid grid-cols-4 gap-2 text-xs">
               <div>
-                <span className="text-gray-500">Sessions:</span>
+                <span className="text-gray-700">Sessions:</span>
                 <span className="ml-1 font-medium">{volunteer.sessionsHandled}</span>
               </div>
               <div>
-                <span className="text-gray-500">Success:</span>
+                <span className="text-gray-700">Success:</span>
                 <span className="ml-1 font-medium">{volunteer.successRate}%</span>
               </div>
               <div>
-                <span className="text-gray-500">Response:</span>
+                <span className="text-gray-700">Response:</span>
                 <span className="ml-1 font-medium">{volunteer.averageResponseTime}s</span>
               </div>
               <div>
-                <span className="text-gray-500">Escalations:</span>
+                <span className="text-gray-700">Escalations:</span>
                 <span className="ml-1 font-medium">{volunteer.escalations}</span>
               </div>
             </div>

@@ -197,7 +197,7 @@ export default function ZeroDefectTestingDashboard() {
           </p>
           <div className="flex items-center mt-2">
             {systemStatus && getStatusBadge(systemStatus.status)}
-            <span className="ml-4 text-sm text-gray-500">
+            <span className="ml-4 text-sm text-gray-700">
               {systemStatus?.system.name} v{systemStatus?.system.version}
             </span>
           </div>
@@ -215,7 +215,7 @@ export default function ZeroDefectTestingDashboard() {
                       {systemStatus.registry.totalRegistered.toLocaleString()}
                     </p>
                     <p className="text-sm text-gray-600">Verification Points</p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-700">
                       Target: {systemStatus.registry.targetTotal.toLocaleString()}
                     </p>
                   </div>
@@ -232,7 +232,7 @@ export default function ZeroDefectTestingDashboard() {
                       {systemStatus.pipeline.totalLayers}
                     </p>
                     <p className="text-sm text-gray-600">Validation Layers</p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-700">
                       {systemStatus.pipeline.totalTests.toLocaleString()} tests
                     </p>
                   </div>
@@ -249,7 +249,7 @@ export default function ZeroDefectTestingDashboard() {
                       {formatTime(systemStatus.pipeline.estimatedExecutionTime)}
                     </p>
                     <p className="text-sm text-gray-600">Est. Duration</p>
-                    <p className="text-xs text-gray-500">Full pipeline</p>
+                    <p className="text-xs text-gray-700">Full pipeline</p>
                   </div>
                 </div>
               </CardContent>
@@ -264,7 +264,7 @@ export default function ZeroDefectTestingDashboard() {
                       {systemStatus.militaryGradeStandards.requiredPassRate}%
                     </p>
                     <p className="text-sm text-gray-600">Required Pass Rate</p>
-                    <p className="text-xs text-gray-500">Zero tolerance</p>
+                    <p className="text-xs text-gray-700">Zero tolerance</p>
                   </div>
                 </div>
               </CardContent>
@@ -289,7 +289,7 @@ export default function ZeroDefectTestingDashboard() {
                     <span>{systemStatus.registry.registrationProgress.toFixed(1)}%</span>
                   </div>
                   <Progress value={systemStatus.registry.registrationProgress} className="h-2" />
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-700 mt-1">
                     {systemStatus.registry.totalRegistered.toLocaleString()} of {systemStatus.registry.targetTotal.toLocaleString()} verification points registered
                   </p>
                 </div>
@@ -300,7 +300,7 @@ export default function ZeroDefectTestingDashboard() {
                     <span>{systemStatus.registry.implementationStatus.percentage.toFixed(1)}%</span>
                   </div>
                   <Progress value={systemStatus.registry.implementationStatus.percentage} className="h-2" />
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-700 mt-1">
                     {systemStatus.registry.implementationStatus.implemented.toLocaleString()} implemented, {systemStatus.registry.implementationStatus.planned.toLocaleString()} planned
                   </p>
                 </div>
@@ -482,19 +482,19 @@ export default function ZeroDefectTestingDashboard() {
                     {lastExecution.certification && (
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                         <div>
-                          <p className="text-xs text-gray-500">Certification</p>
+                          <p className="text-xs text-gray-700">Certification</p>
                           <p className="font-medium">{lastExecution.certification.certified ? 'Certified' : 'Not Certified'}</p>
                         </div>
                         <div>
-                          <p className="text-xs text-gray-500">Overall Score</p>
+                          <p className="text-xs text-gray-700">Overall Score</p>
                           <p className="font-medium">{lastExecution.certification.overallScore}/100</p>
                         </div>
                         <div>
-                          <p className="text-xs text-gray-500">Deployment</p>
+                          <p className="text-xs text-gray-700">Deployment</p>
                           <p className="font-medium">{lastExecution.certification.deploymentAuthorized ? 'Authorized' : 'Blocked'}</p>
                         </div>
                         <div>
-                          <p className="text-xs text-gray-500">Failures</p>
+                          <p className="text-xs text-gray-700">Failures</p>
                           <p className="font-medium">{lastExecution.summary?.criticalFailures || 0} Critical</p>
                         </div>
                       </div>

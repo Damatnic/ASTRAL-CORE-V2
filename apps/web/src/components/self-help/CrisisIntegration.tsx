@@ -372,7 +372,7 @@ export default function CrisisIntegration() {
         <div>
           <h3 className="text-xl font-bold text-gray-900 mb-2">{step.name}</h3>
           <p className="text-gray-600 mb-4">{step.description}</p>
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-4">
+          <div className="flex items-center justify-center gap-2 text-sm text-gray-700 mb-4">
             <Clock className="w-4 h-4" />
             <span>~{step.estimatedTime} minutes</span>
           </div>
@@ -489,7 +489,7 @@ export default function CrisisIntegration() {
               <span className="text-sm font-medium text-gray-700">
                 Step {currentStep + 1} of {interventionSteps.length}
               </span>
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-700">
                 {interventionSteps.filter(s => s.completed).length} completed
               </span>
             </div>

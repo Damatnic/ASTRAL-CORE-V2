@@ -202,7 +202,7 @@ export function OptimizedImage({
         className={`bg-gray-200 flex items-center justify-center ${className}`}
         style={{ width, height }}
       >
-        <span className="text-gray-500 text-sm">Image unavailable</span>
+        <span className="text-gray-700 text-sm">Image unavailable</span>
       </div>
     );
   }
@@ -389,7 +389,7 @@ export function PerformanceDashboard() {
             return (
               <div key={metric} className="mb-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-600">
                     {metric}
                   </span>
                   <span className={`text-sm font-bold ${
@@ -415,7 +415,7 @@ export function PerformanceDashboard() {
 
           <button
             onClick={() => setIsVisible(false)}
-            className="mt-4 w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 rounded text-sm"
+            className="mt-4 w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-600 py-2 rounded text-sm"
           >
             Close
           </button>

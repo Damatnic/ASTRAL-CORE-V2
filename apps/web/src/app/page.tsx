@@ -135,7 +135,7 @@ const ProductionHero = () => {
             aria-label="Platform features announcement"
           >
             <Sparkles className="w-5 h-5 text-purple-600" aria-hidden="true" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
               WCAG 2.2 AA Compliant • HIPAA Secure • 24/7 Available
             </span>
           </Glass>
@@ -163,7 +163,7 @@ const ProductionHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-200 mb-12 max-w-4xl mx-auto font-medium"
+          className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-600 mb-12 max-w-4xl mx-auto font-medium"
         >
           Experience comprehensive mental wellness support with evidence-based interventions, 
           24/7 crisis care, and a supportive community. Your privacy and safety are our top priorities.
@@ -224,7 +224,7 @@ const ProductionHero = () => {
                   NEW
                 </span>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+              <p className="text-gray-700 dark:text-gray-600 mb-6 max-w-2xl mx-auto">
                 Chat with specialized AI therapists trained in CBT, trauma therapy, and crisis intervention. 
                 Get professional support whenever you need it, with complete privacy and personalization.
               </p>
@@ -266,7 +266,7 @@ const ProductionHero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="flex flex-wrap items-center justify-center gap-8 text-gray-600 dark:text-gray-400"
+          className="flex flex-wrap items-center justify-center gap-8 text-gray-600 dark:text-gray-600"
           role="list"
           aria-label="Platform certifications and features"
         >
@@ -369,7 +369,7 @@ const ProductionFeatures = () => {
           >
             Comprehensive Mental Health Platform
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-600 max-w-3xl mx-auto">
             Everything you need for your mental wellness journey, built with the latest technology and evidence-based practices.
           </p>
         </motion.div>
@@ -400,7 +400,7 @@ const ProductionFeatures = () => {
                   >
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </Glass>

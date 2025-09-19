@@ -238,7 +238,7 @@ export function AccessibilityPanel() {
                   </h2>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="p-2 text-gray-600 hover:text-gray-600 dark:hover:text-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     aria-label="Close accessibility settings"
                   >
                     ×
@@ -280,7 +280,7 @@ export function AccessibilityPanel() {
 
                       {/* Font Size Selector */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-600 mb-2">
                           Font Size
                         </label>
                         <select
@@ -341,7 +341,7 @@ export function AccessibilityPanel() {
 
                       {/* Cursor Size */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-600 mb-2">
                           Cursor Size
                         </label>
                         <select
@@ -403,7 +403,7 @@ export function AccessibilityPanel() {
                       });
                       announceToScreenReader('Accessibility settings reset to defaults');
                     }}
-                    className="w-full py-2 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full py-2 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-600 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     Reset to Defaults
                   </button>
@@ -430,13 +430,13 @@ function ToggleSetting({ label, description, checked, onChange, icon: Icon }: To
   return (
     <div className="flex items-start space-x-3">
       <div className="flex-shrink-0 pt-1">
-        <Icon className="w-5 h-5 text-gray-400" />
+        <Icon className="w-5 h-5 text-gray-600" />
       </div>
       <div className="flex-1">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm font-medium text-gray-900 dark:text-white">{label}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-600">{description}</p>
           </div>
           <button
             type="button"
@@ -511,7 +511,7 @@ export function KeyboardNavigationHelper() {
           className="fixed bottom-4 right-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-xl z-50 max-w-sm"
         >
           <h3 className="font-bold mb-3 text-gray-900 dark:text-white">Keyboard Shortcuts</h3>
-          <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+          <div className="space-y-2 text-sm text-gray-600 dark:text-gray-600">
             <div><kbd className="bg-gray-100 dark:bg-gray-700 px-1 rounded">Tab</kbd> Navigate forward</div>
             <div><kbd className="bg-gray-100 dark:bg-gray-700 px-1 rounded">Shift+Tab</kbd> Navigate backward</div>
             <div><kbd className="bg-gray-100 dark:bg-gray-700 px-1 rounded">Enter</kbd> Activate button/link</div>
