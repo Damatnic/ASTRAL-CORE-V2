@@ -17,7 +17,7 @@ export default function AboutPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6">
-            About Astral Mental Wellness
+            About Astral Core
           </h1>
           
           <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
