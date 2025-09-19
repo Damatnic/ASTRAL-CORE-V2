@@ -7,9 +7,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Mental Health Optimized Colors and Typography */
+/* Import Mental Health Optimized Colors */
 @import './mental-health-colors.css';
-@import '../styles/typography-system.css';
 
 /* Modern CSS Variables */
 @layer base {
@@ -111,62 +110,21 @@
   }
   
   /* Dark Mode Variables */
-  .dark,
-  [data-theme="dark"] {
+  .dark {
     /* Dark mode backgrounds */
-    --bg-primary: #0F0F23;
-    --bg-secondary: #1A1A2E;
-    --bg-tertiary: #16213E;
+    --bg-primary: var(--neutral-900);
+    --bg-secondary: var(--neutral-800);
+    --bg-tertiary: var(--neutral-700);
     
-    /* Dark mode text with WCAG AAA compliance */
-    --text-primary: #F9FAFB;      /* Gray-50: 19.03:1 on dark bg */
-    --text-secondary: #E5E7EB;    /* Gray-200: 15.25:1 on dark bg */
-    --text-muted: #9CA3AF;        /* Gray-400: 6.68:1 on dark bg */
+    /* Dark mode text */
+    --text-primary: var(--neutral-50);
+    --text-secondary: var(--neutral-200);
+    --text-muted: var(--neutral-400);
     
-    /* Dark mode glass with better opacity */
-    --glass-bg: rgba(15, 15, 35, 0.95);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
-    
-    /* Update color variables for dark mode */
-    --astral-blue-400: #60A5FA;
-    --astral-blue-300: #93C5FD;
-    --astral-green-400: #4ADE80;
-    --astral-purple-400: #C084FC;
-    
-    /* Enhanced scrollbar for dark mode */
-    color-scheme: dark;
-  }
-  
-  /* System preference dark mode */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-primary: #0F0F23;
-      --bg-secondary: #1A1A2E;
-      --bg-tertiary: #16213E;
-      --text-primary: #F9FAFB;
-      --text-secondary: #E5E7EB;
-      --text-muted: #9CA3AF;
-      --glass-bg: rgba(15, 15, 35, 0.95);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      color-scheme: dark;
-    }
-  }
-  
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    :root {
-      --text-primary: #000000;
-      --text-secondary: #1F2937;
-      --text-muted: #374151;
-    }
-    
-    .dark,
-    [data-theme="dark"] {
-      --text-primary: #FFFFFF;
-      --text-secondary: #F3F4F6;
-      --text-muted: #E5E7EB;
-    }
+    /* Dark mode glass */
+    --glass-bg: rgba(17, 25, 40, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.125);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -182,34 +140,24 @@ html {
   color: white;
 }
 
-/* Custom Scrollbar - Light and Dark Mode */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--astral-blue-500) 0%, var(--astral-purple-500) 100%);
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
   border-radius: 100px;
-  border: 2px solid var(--bg-primary);
+  border: 2px solid #ffffff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--astral-purple-600) 0%, var(--astral-blue-600) 100%);
-}
-
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--astral-blue-400) 0%, var(--astral-purple-400) 100%);
-  border: 2px solid var(--bg-primary);
+  background: linear-gradient(180deg, #764ba2 0%, #667eea 100%);
 }
 
 /* Animated Gradient Background */
@@ -591,83 +539,57 @@ html {
   }
 }
 
-/* Enhanced Typography with WCAG AAA Compliance */
+/* Base Typography with Proper Contrast */
 body {
   color: var(--text-primary);
   min-height: 100vh;
   background-color: var(--bg-primary);
   line-height: 1.6;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Headers with proper contrast ratios */
+/* Headers with AAA contrast */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-primary);
+  color: var(--neutral-900);
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 1rem;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3rem); }
-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-h3 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
-h4 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
-h5 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
-h6 { font-size: clamp(1rem, 2vw, 1.25rem); }
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: var(--neutral-50);
+}
 
-/* Text elements with accessible contrast */
+/* Text elements with proper contrast */
 p {
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-  max-width: 75ch;
+  color: var(--text-primary);
 }
 
 span, div, li {
   color: inherit;
 }
 
-/* Improved gray text utility classes */
-.text-gray-100 { color: var(--text-muted); }
-.text-gray-200 { color: var(--text-muted); }
-.text-gray-300 { color: var(--text-tertiary); }
-.text-gray-400 { color: var(--text-tertiary); }
-.text-gray-500 { color: var(--text-secondary); }
-.text-gray-600 { color: var(--text-secondary); }
-.text-gray-700 { color: var(--text-primary); }
-.text-gray-800 { color: var(--text-primary); }
-.text-gray-900 { color: var(--text-primary); }
+/* Gray text utility classes with proper contrast */
+.text-gray-400, .text-gray-300, .text-gray-200 {
+  color: var(--text-muted);
+}
 
-/* Dark mode text overrides */
-.dark .text-gray-100,
-.dark .text-gray-200 { color: var(--text-secondary); }
-.dark .text-gray-300,
-.dark .text-gray-400 { color: var(--text-tertiary); }
-.dark .text-gray-500,
-.dark .text-gray-600 { color: var(--text-muted); }
+.text-gray-500 {
+  color: var(--text-secondary);
+}
 
-/* Links with enhanced accessibility */
+.text-gray-600 {
+  color: var(--text-primary);
+}
+
+/* Links with AA compliance */
 a {
   color: var(--astral-blue-600);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
-  border-radius: 2px;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--astral-blue-700);
   text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
-}
-
-a:focus-visible {
-  outline: 3px solid var(--astral-blue-400);
-  outline-offset: 2px;
 }
 
 .dark a {
@@ -678,104 +600,61 @@ a:focus-visible {
   color: var(--astral-blue-300);
 }
 
-/* Button accessibility */
+/* Button text contrast */
 button, .btn {
   font-weight: 500;
-  font-family: inherit;
-  transition: all 0.2s ease;
-  border-radius: 0.375rem;
-}
-
-button:focus-visible, .btn:focus-visible {
-  outline: 3px solid var(--astral-blue-400);
-  outline-offset: 2px;
 }
 
 button:disabled, .btn:disabled {
-  color: var(--text-muted);
+  color: var(--neutral-400);
   cursor: not-allowed;
-  opacity: 0.6;
 }
 
-/* Glass morphism with enhanced readability */
+/* Glass morphism with readable text */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
-  color: var(--text-primary);
 }
 
 .glass-heavy {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12);
-  color: var(--text-primary);
 }
 
 .dark .glass-heavy {
-  background: rgba(15, 15, 35, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 25, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Ensure text on glass elements is always readable */
-.glass *, .glass-heavy *, .glass-mixed * {
-  color: inherit;
-}
-
-.glass h1, .glass h2, .glass h3, .glass h4, .glass h5, .glass h6,
-.glass-heavy h1, .glass-heavy h2, .glass-heavy h3, .glass-heavy h4, .glass-heavy h5, .glass-heavy h6 {
-  color: var(--text-primary);
-}
-
-.glass p, .glass span, .glass div,
-.glass-heavy p, .glass-heavy span, .glass-heavy div {
-  color: var(--text-secondary);
-}
-
-/* Form elements with enhanced accessibility */
+/* Input fields with proper contrast */
 input, textarea, select {
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  border: 2px solid var(--text-muted);
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-family: inherit;
-  line-height: 1.5;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--neutral-200);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: border-color 0.2s ease;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--astral-blue-500);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-}
-
-input:invalid, textarea:invalid, select:invalid {
-  border-color: var(--crisis-red);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 input::placeholder, textarea::placeholder {
   color: var(--text-muted);
-  opacity: 0.8;
 }
 
 .dark input, .dark textarea, .dark select {
-  background-color: var(--bg-secondary);
-  border-color: var(--text-muted);
-}
-
-/* Label accessibility */
-label {
-  display: block;
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-600);
 }
 
 /* Table text with proper contrast */

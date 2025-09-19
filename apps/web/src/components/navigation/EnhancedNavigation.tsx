@@ -151,13 +151,13 @@ export default function EnhancedNavigation() {
   const navBackground = useTransform(
     scrollY,
     [0, 50],
-    ['var(--glass-heavy)', 'var(--glass-heavy)']
+    ['rgba(255, 255, 255, 0.98)', 'rgba(255, 255, 255, 1)']
   );
 
   const navShadow = useTransform(
     scrollY,
     [0, 50],
-    ['var(--glass-shadow)', 'var(--glass-shadow)']
+    ['0px 2px 12px rgba(0, 0, 0, 0.08)', '0px 4px 20px rgba(0, 0, 0, 0.15)']
   );
 
   return (
@@ -166,7 +166,7 @@ export default function EnhancedNavigation() {
         backgroundColor: navBackground,
         boxShadow: navShadow,
       }}
-      className="fixed top-0 left-0 right-0 z-50 glass-heavy border-b border-gray-200/30 dark:border-gray-700/30"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-gray-200/30"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -183,10 +183,10 @@ export default function EnhancedNavigation() {
               </div>
             </motion.div>
             <div>
-              <h1 className="text-xl font-black text-primary">
+              <h1 className="text-xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
                 ASTRAL
               </h1>
-              <p className="text-xs text-link font-bold -mt-1">CORE</p>
+              <p className="text-xs text-purple-700 font-bold -mt-1">CORE</p>
             </div>
           </Link>
 
@@ -199,8 +199,8 @@ export default function EnhancedNavigation() {
                     onClick={() => setActiveDropdown(activeDropdown === item.id ? null : (item.id || null))}
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       pathname.startsWith(item.href)
-                        ? 'bg-astral-purple-100 text-astral-purple-800 shadow-sm dark:bg-astral-purple-900/20 dark:text-astral-purple-300'
-                        : 'text-primary hover:text-link hover:bg-tertiary font-bold'
+                        ? 'bg-purple-100 text-purple-800 shadow-sm'
+                        : 'text-gray-800 hover:text-purple-700 hover:bg-purple-100 font-bold'
                     }`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -219,10 +219,10 @@ export default function EnhancedNavigation() {
                     href={item.href}
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       pathname === item.href
-                        ? 'bg-astral-purple-100 text-astral-purple-800 shadow-sm dark:bg-astral-purple-900/20 dark:text-astral-purple-300'
+                        ? 'bg-purple-100 text-purple-800 shadow-sm'
                         : item.priority === 'critical'
-                        ? 'bg-crisis-red-600 text-white hover:bg-crisis-red-700 shadow-md focus-visible'
-                        : 'text-primary hover:text-link hover:bg-tertiary font-bold'
+                        ? 'bg-red-500 text-white hover:bg-red-600 shadow-md'
+                        : 'text-gray-800 hover:text-purple-700 hover:bg-purple-100 font-bold'
                     }`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -243,19 +243,19 @@ export default function EnhancedNavigation() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-64 bg-primary rounded-xl shadow-lg border border-quaternary py-2 z-50 dark:bg-tertiary dark:border-quaternary"
+                      className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50"
                     >
                       <div className="px-4 py-2 border-b border-gray-100">
-                        <p className="text-sm font-bold text-primary">{item.label}</p>
-                        <p className="text-xs text-secondary font-medium">{item.description}</p>
+                        <p className="text-sm font-bold text-purple-800">{item.label}</p>
+                        <p className="text-xs text-gray-800 font-medium">{item.description}</p>
                       </div>
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center px-4 py-2 text-sm text-secondary hover:bg-tertiary hover:text-primary transition-colors font-semibold"
+                          className="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-800 transition-colors font-semibold"
                         >
-                          <child.icon className="w-4 h-4 mr-3 text-link" />
+                          <child.icon className="w-4 h-4 mr-3 text-purple-600" />
                           {child.label}
                         </Link>
                       ))}
@@ -269,7 +269,7 @@ export default function EnhancedNavigation() {
           {/* Right side actions */}
           <div className="hidden lg:flex items-center space-x-3">
             {/* Search */}
-            <Link href="/search" className="p-2 text-primary hover:text-link hover:bg-tertiary rounded-lg transition-colors shadow-sm focus-visible">
+            <Link href="/search" className="p-2 text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors shadow-sm">
               <Search className="w-5 h-5" />
             </Link>
 
@@ -278,7 +278,7 @@ export default function EnhancedNavigation() {
               href="tel:988"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center px-4 py-2 bg-crisis-red-600 text-white rounded-lg font-semibold hover:bg-crisis-red-700 transition-colors shadow-lg focus-visible"
+              className="flex items-center px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors shadow-lg"
             >
               <Phone className="w-4 h-4 mr-2" />
               Call 988
@@ -289,7 +289,7 @@ export default function EnhancedNavigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-primary hover:text-link hover:bg-tertiary rounded-lg transition-colors shadow-sm focus-visible"
+            className="lg:hidden p-2 text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors shadow-sm"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -304,13 +304,13 @@ export default function EnhancedNavigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-primary border-t border-quaternary shadow-lg dark:bg-secondary dark:border-quaternary"
+            className="lg:hidden bg-white border-t border-gray-200 shadow-lg"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
               {/* Emergency button first on mobile */}
               <a
                 href="tel:988"
-                className="flex items-center w-full px-4 py-3 bg-crisis-red-600 text-white rounded-lg font-semibold hover:bg-crisis-red-700 transition-colors focus-visible"
+                className="flex items-center w-full px-4 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
               >
                 <Phone className="w-5 h-5 mr-3" />
                 Call 988 - Crisis Hotline
@@ -324,8 +324,8 @@ export default function EnhancedNavigation() {
                     href={item.href}
                     className={`flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       pathname === item.href
-                        ? 'bg-astral-purple-100 text-astral-purple-800 shadow-sm dark:bg-astral-purple-900/20 dark:text-astral-purple-300'
-                        : 'text-primary hover:bg-tertiary font-semibold'
+                        ? 'bg-purple-100 text-purple-800 shadow-sm'
+                        : 'text-gray-900 hover:bg-purple-50/80 font-semibold'
                     }`}
                   >
                     <item.icon className="w-5 h-5 mr-3" />
@@ -344,7 +344,7 @@ export default function EnhancedNavigation() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center px-4 py-2 text-sm text-secondary hover:text-primary hover:bg-tertiary rounded-lg transition-colors font-medium"
+                          className="flex items-center px-4 py-2 text-sm text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors font-medium"
                         >
                           <child.icon className="w-4 h-4 mr-3" />
                           {child.label}
@@ -356,12 +356,12 @@ export default function EnhancedNavigation() {
               ))}
 
               {/* Secondary navigation */}
-              <div className="border-t border-quaternary pt-4 mt-4">
+              <div className="border-t border-gray-200 pt-4 mt-4">
                 {navigationStructure.secondary.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center w-full px-4 py-3 text-sm text-secondary hover:text-primary hover:bg-tertiary rounded-lg transition-colors font-medium"
+                    className="flex items-center w-full px-4 py-3 text-sm text-gray-800 hover:text-purple-700 hover:bg-purple-50/80 rounded-lg transition-colors font-medium"
                   >
                     <item.icon className="w-4 h-4 mr-3" />
                     {item.label}
