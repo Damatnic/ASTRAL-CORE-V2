@@ -63,6 +63,7 @@ export default function OnboardingFlow({ className = '' }: OnboardingFlowProps) 
     skipOnboarding,
     emergencyExit,
     completeStep,
+    markAsReturningUser,
   } = useOnboarding();
 
   const [isVisible, setIsVisible] = useState(false);
@@ -237,7 +238,8 @@ export default function OnboardingFlow({ className = '' }: OnboardingFlowProps) 
                     onClick={() => {
                       completeStep(currentStep);
                       if (currentStep === 'complete') {
-                        // Handle completion
+                        // Complete onboarding and close the modal
+                        markAsReturningUser();
                         return;
                       }
                       nextStep();
