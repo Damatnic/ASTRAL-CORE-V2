@@ -1,0 +1,75 @@
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NEXT_TELEMETRY_DISABLED = "1"
+  SKIP_ENV_VALIDATION = "true"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin", "user"]}
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.openai.com;"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+
+# Crisis intervention endpoints - high priority
+[[edge_functions]]
+  path = "/api/crisis/*"
+  function = "crisis-handler"
+
+# AI therapy endpoints
+[[edge_functions]]
+  path = "/api/ai-therapy/*"
+  function = "ai-therapy-handler"
+
+# Production environment variables template
+[context.production.environment]
+  ENABLE_AI_THERAPY = "true"
+  ENABLE_CRISIS_CHAT = "true"
+  ENABLE_PEER_SUPPORT = "true"
+  NODE_ENV = "production"
+
+# Deploy previews configuration
+[context.deploy-preview]
+  command = "pnpm build"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  NEXT_PUBLIC_DEPLOY_PREVIEW = "true"
+
+# Branch deploys configuration
+[context.branch-deploy]
+  command = "pnpm build"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "staging"
