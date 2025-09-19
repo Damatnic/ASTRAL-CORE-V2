@@ -39,101 +39,23 @@ export default function WelcomeStep() {
         </p>
       </motion.div>
 
-      {/* Safety Assurance */}
+      {/* Quick Safety Note */}
       <motion.div
         className="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-8"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        <div className="flex items-start space-x-4">
-          <div className="bg-green-100 rounded-full p-2">
+        <div className="flex items-center space-x-4">
+          <div className="bg-green-100 rounded-full p-3">
             <Shield className="w-6 h-6 text-green-600" />
           </div>
           <div className="flex-1">
             <h3 className="text-lg font-semibold text-green-900 mb-2">You're in a Safe Space</h3>
-            <ul className="text-green-800 space-y-1 text-sm">
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
-                <span>Your privacy and safety are our top priorities</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
-                <span>You can exit at any time and access crisis support immediately</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
-                <span>All information is encrypted and protected</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
-                <span>You're in control of your experience and data</span>
-              </li>
-            </ul>
+            <p className="text-green-800 text-sm">
+              Your privacy and safety are our top priorities. You can exit at any time and access crisis support immediately.
+            </p>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Privacy Choice */}
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-      >
-        <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
-          How would you like to use ASTRAL CORE?
-        </h3>
-        <div className="grid md:grid-cols-2 gap-4">
-          <button
-            onClick={() => handleAnonymousToggle(true)}
-            className={`p-6 rounded-xl border-2 transition-all duration-300 text-left ${
-              preferences.anonymousMode
-                ? 'border-blue-500 bg-blue-50 shadow-md'
-                : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-25'
-            }`}
-          >
-            <div className="flex items-start space-x-4">
-              <div className={`p-3 rounded-lg ${preferences.anonymousMode ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                <UserX className={`w-6 h-6 ${preferences.anonymousMode ? 'text-blue-600' : 'text-gray-600'}`} />
-              </div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-900 mb-2">Anonymous Support</h4>
-                <p className="text-sm text-gray-600 mb-3">
-                  Use our platform without creating an account. Your privacy is completely protected.
-                </p>
-                <div className="flex items-center space-x-2 text-xs text-gray-700">
-                  <Lock className="w-3 h-3" />
-                  <span>No personal information required</span>
-                </div>
-              </div>
-            </div>
-          </button>
-
-          <button
-            onClick={() => handleAnonymousToggle(false)}
-            className={`p-6 rounded-xl border-2 transition-all duration-300 text-left ${
-              !preferences.anonymousMode
-                ? 'border-blue-500 bg-blue-50 shadow-md'
-                : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-25'
-            }`}
-          >
-            <div className="flex items-start space-x-4">
-              <div className={`p-3 rounded-lg ${!preferences.anonymousMode ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                <UserCheck className={`w-6 h-6 ${!preferences.anonymousMode ? 'text-blue-600' : 'text-gray-600'}`} />
-              </div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-900 mb-2">Personalized Experience</h4>
-                <p className="text-sm text-gray-600 mb-3">
-                  Create an account to track progress, save preferences, and access advanced features.
-                </p>
-                <div className="flex items-center space-x-2 text-xs text-gray-700">
-                  <Star className="w-3 h-3" />
-                  <span>Progress tracking and gamification</span>
-                </div>
-              </div>
-            </div>
-          </button>
         </div>
       </motion.div>
 

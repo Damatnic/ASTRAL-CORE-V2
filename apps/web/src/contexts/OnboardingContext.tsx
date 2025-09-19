@@ -5,6 +5,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 // Onboarding step types for different user journeys
 export type OnboardingStep = 
   | 'welcome' 
+  | 'terms-acceptance'
   | 'crisis-safety' 
   | 'platform-overview' 
   | 'mood-tracking-intro' 
@@ -30,6 +31,7 @@ export interface OnboardingState {
     highContrast: boolean;
     communicationPreferences: string[];
     personalizedWelcome: boolean;
+    consentGiven: boolean;
   };
 }
 
@@ -59,6 +61,7 @@ const defaultState: OnboardingState = {
     highContrast: false,
     communicationPreferences: [],
     personalizedWelcome: true,
+    consentGiven: false,
   },
 };
 
@@ -78,6 +81,7 @@ const getStepFlow = (journey: UserJourneyType): OnboardingStep[] => {
     case 'crisis':
       return [
         'welcome',
+        'terms-acceptance',
         'crisis-safety',
         'crisis-resources',
         'mood-tracking-intro',
@@ -87,6 +91,7 @@ const getStepFlow = (journey: UserJourneyType): OnboardingStep[] => {
     case 'general':
       return [
         'welcome',
+        'terms-acceptance',
         'platform-overview',
         'mood-tracking-intro',
         'safety-planning-intro',
@@ -98,6 +103,7 @@ const getStepFlow = (journey: UserJourneyType): OnboardingStep[] => {
     case 'volunteer':
       return [
         'welcome',
+        'terms-acceptance',
         'platform-overview',
         'crisis-resources',
         'personalization',
@@ -106,6 +112,7 @@ const getStepFlow = (journey: UserJourneyType): OnboardingStep[] => {
     case 'therapist':
       return [
         'welcome',
+        'terms-acceptance',
         'platform-overview',
         'crisis-resources',
         'personalization',
@@ -114,6 +121,7 @@ const getStepFlow = (journey: UserJourneyType): OnboardingStep[] => {
     case 'returning':
       return [
         'welcome',
+        'terms-acceptance',
         'platform-overview',
         'complete'
       ];

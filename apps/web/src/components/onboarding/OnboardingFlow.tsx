@@ -10,6 +10,7 @@ import {
 
 // Import onboarding step components
 import WelcomeStep from './steps/WelcomeStep';
+import TermsAcceptanceStep from './steps/TermsAcceptanceStep';
 import CrisisSafetyStep from './steps/CrisisSafetyStep';
 import PlatformOverviewStep from './steps/PlatformOverviewStep';
 import MoodTrackingIntroStep from './steps/MoodTrackingIntroStep';
@@ -26,6 +27,7 @@ interface OnboardingFlowProps {
 // Step component mapping
 const stepComponents = {
   welcome: WelcomeStep,
+  'terms-acceptance': TermsAcceptanceStep,
   'crisis-safety': CrisisSafetyStep,
   'platform-overview': PlatformOverviewStep,
   'mood-tracking-intro': MoodTrackingIntroStep,
@@ -39,6 +41,7 @@ const stepComponents = {
 // Get step titles for progress indicator
 const stepTitles = {
   welcome: 'Welcome',
+  'terms-acceptance': 'Terms & Privacy',
   'crisis-safety': 'Crisis Safety',
   'platform-overview': 'Platform Overview',
   'mood-tracking-intro': 'Mood Tracking',
@@ -139,14 +142,14 @@ export default function OnboardingFlow({ className = '' }: OnboardingFlowProps) 
           aria-describedby="onboarding-description"
         >
           <motion.div
-            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col"
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {/* Crisis Safety Header - Always Visible */}
-            <div className="bg-red-600 text-white px-6 py-3 flex items-center justify-between" role="banner">
+            <div className="bg-red-600 text-white px-6 py-3 flex items-center justify-between flex-shrink-0" role="banner">
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
@@ -183,13 +186,13 @@ export default function OnboardingFlow({ className = '' }: OnboardingFlowProps) 
               </button>
             </div>
 
-            {/* Main Onboarding Content */}
-            <div className="flex-1 overflow-auto">
+            {/* Main Onboarding Content - Scrollable */}
+            <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0">
               <CurrentStepComponent />
             </div>
 
             {/* Navigation Footer */}
-            <div className="bg-gray-50 px-6 py-4 border-t border-gray-200" role="navigation" aria-label="Onboarding navigation">
+            <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex-shrink-0" role="navigation" aria-label="Onboarding navigation">
               <div className="flex items-center justify-between">
                 {/* Progress Indicator */}
                 <div className="flex items-center space-x-2">
