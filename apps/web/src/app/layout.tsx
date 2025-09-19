@@ -5,13 +5,14 @@ import SessionProvider from '@/components/providers/SessionProvider';
 import { DataPersistenceProvider } from '@/contexts/DataPersistenceContext';
 import { GlobalErrorBoundary } from '@/components/error-boundaries/GlobalErrorBoundary';
 import { OnboardingProvider } from '@/contexts/OnboardingContext';
-import OnboardingFlow from '@/components/onboarding/OnboardingFlow';
+import EnhancedOnboardingFlow from '@/components/onboarding/EnhancedOnboardingFlow';
 import EnhancedNavigation from '@/components/navigation/EnhancedNavigation';
 import { PersonalizationProvider, AdaptiveThemeProvider } from '@/components/personalization/AdaptiveUI';
 import { AccessibilityProvider, AccessibilityPanel, SkipNavigation, KeyboardNavigationHelper } from '@/components/accessibility/AccessibilityEnhancer';
 import { AccessibilityDashboard, AccessibilityIndicator } from '@/components/accessibility/AccessibilityDashboard';
 import { PerformanceDashboard, ResourceHints, registerServiceWorker } from '@/components/performance/PerformanceOptimizer';
 import { TestDashboard } from '@/components/testing/TestingUtils';
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -177,7 +178,22 @@ export default function RootLayout({ children }: RootLayoutProps) {
                       <TestDashboard />
                       
                       {/* Onboarding Flow - Rendered when active */}
-                      <OnboardingFlow />
+                      <EnhancedOnboardingFlow />
+                      
+                      {/* Toast Notifications */}
+                      <Toaster 
+                        position="top-center"
+                        richColors
+                        closeButton
+                        duration={5000}
+                        toastOptions={{
+                          style: {
+                            background: '#fff',
+                            color: '#363636',
+                          },
+                          className: 'sonner-toast',
+                        }}
+                      />
                     </div>
                     </OnboardingProvider>
                   </AdaptiveThemeProvider>
