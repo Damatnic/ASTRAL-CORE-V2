@@ -300,3 +300,6 @@ VERCEL_ENV_CONFIG_SECURE.txt
 # !apps/
 # !packages/
 .vercel
+
+# Local Netlify folder
+.netlify

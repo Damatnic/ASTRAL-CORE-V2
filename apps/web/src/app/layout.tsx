@@ -9,6 +9,7 @@ import OnboardingFlow from '@/components/onboarding/OnboardingFlow';
 import EnhancedNavigation from '@/components/navigation/EnhancedNavigation';
 import { PersonalizationProvider, AdaptiveThemeProvider } from '@/components/personalization/AdaptiveUI';
 import { AccessibilityProvider, AccessibilityPanel, SkipNavigation, KeyboardNavigationHelper } from '@/components/accessibility/AccessibilityEnhancer';
+import { AccessibilityDashboard, AccessibilityIndicator } from '@/components/accessibility/AccessibilityDashboard';
 import { PerformanceDashboard, ResourceHints, registerServiceWorker } from '@/components/performance/PerformanceOptimizer';
 import { TestDashboard } from '@/components/testing/TestingUtils';
 
@@ -65,10 +66,28 @@ export default function RootLayout({ children }: RootLayoutProps) {
         }} />
       </head>
       <body className={`${inter.className} antialiased`}>
-        {/* Skip to main content link for keyboard users */}
+        {/* Enhanced Skip Navigation - WCAG 2.2 Compliant */}
         <a 
           href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="
+            sr-only focus:not-sr-only 
+            focus:absolute focus:top-4 focus:left-4 focus:z-[9999] 
+            focus:px-6 focus:py-3 focus:bg-blue-600 focus:text-white 
+            focus:rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-offset-2
+            focus:text-lg focus:font-semibold focus:shadow-xl
+            focus:transform focus:scale-105 focus:transition-all focus:duration-200
+            focus:border-2 focus:border-white
+            focus:no-underline hover:no-underline
+          "
+          onClick={(e) => {
+            // Ensure focus moves to main content
+            e.preventDefault();
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) {
+              mainContent.focus();
+              mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
         >
           Skip to main content
         </a>
@@ -84,8 +103,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
                       {/* Enhanced Navigation */}
                       <EnhancedNavigation />
                       
-                      {/* Main Content */}
-                      <main id="main-content" className="pt-16" role="main">
+                      {/* Main Content - Enhanced for skip navigation */}
+                      <main 
+                        id="main-content" 
+                        className="pt-16 focus:outline-none" 
+                        role="main"
+                        tabIndex={-1}
+                        aria-label="Main content area"
+                      >
                         {children}
                       </main>
                   
@@ -161,6 +186,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
                       
                       {/* Keyboard Navigation Helper */}
                       <KeyboardNavigationHelper />
+                      
+                      {/* Accessibility Dashboard (development only) */}
+                      <AccessibilityDashboard developmentOnly={true} autoRun={false} />
+                      
+                      {/* Accessibility Indicator */}
+                      <AccessibilityIndicator />
                       
                       {/* Performance Dashboard (development only) */}
                       <PerformanceDashboard />

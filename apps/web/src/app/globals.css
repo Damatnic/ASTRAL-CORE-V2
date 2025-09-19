@@ -2,6 +2,198 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Enhanced Accessibility Styles */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Enhanced focus styles */
+.focus-visible :focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* High contrast mode */
+.high-contrast {
+  --bg-primary: #000000;
+  --bg-secondary: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --border-color: #ffffff;
+  --focus-color: #ffff00;
+}
+
+.high-contrast * {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.high-contrast button,
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.high-contrast :focus-visible {
+  outline: 3px solid var(--focus-color) !important;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Large text mode */
+.large-text * {
+  font-size: 1.25em !important;
+  line-height: 1.6 !important;
+}
+
+.large-text button,
+.large-text input,
+.large-text select,
+.large-text textarea {
+  padding: 0.75rem 1rem !important;
+  min-height: 44px !important;
+}
+
+/* Color blind friendly mode */
+.color-blind-friendly .text-red-500,
+.color-blind-friendly .text-red-600 {
+  color: #d97706 !important; /* Orange instead of red */
+}
+
+.color-blind-friendly .bg-red-500,
+.color-blind-friendly .bg-red-600 {
+  background-color: #d97706 !important;
+}
+
+.color-blind-friendly .text-green-500,
+.color-blind-friendly .text-green-600 {
+  color: #059669 !important; /* Darker green */
+}
+
+.color-blind-friendly .bg-green-500,
+.color-blind-friendly .bg-green-600 {
+  background-color: #059669 !important;
+}
+
+/* Responsive text scaling */
+@media (max-width: 768px) {
+  html[data-font-size="large"] {
+    font-size: 18px;
+  }
+  
+  html[data-font-size="extra-large"] {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  html[data-font-size="large"] {
+    font-size: 20px;
+  }
+  
+  html[data-font-size="extra-large"] {
+    font-size: 24px;
+  }
+}
+
+/* Enhanced cursor sizes */
+html[data-cursor-size="large"] * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M2 2v28l8-8h18V2H2z" fill="black"/><path d="M3 3v25l6-6h18V3H3z" fill="white"/></svg>') 2 2, auto;
+}
+
+html[data-cursor-size="extra-large"] * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M2 2v44l12-12h32V2H2z" fill="black"/><path d="M3 3v41l10-10h32V3H3z" fill="white"/></svg>') 2 2, auto;
+}
+
+/* Enhanced touch targets */
+@media (pointer: coarse) {
+  button,
+  input,
+  select,
+  textarea,
+  a,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"]) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Crisis message styling */
+.crisis-message {
+  border: 3px solid #dc2626 !important;
+  background-color: #fef2f2 !important;
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: #dc2626;
+  }
+  50% {
+    border-color: #ef4444;
+  }
+}
+
+.reduce-motion .crisis-message {
+  animation: none;
+  border: 3px solid #dc2626 !important;
+}
+
+/* Enhanced skip link styling */
+a[href="#main-content"]:focus {
+  position: fixed !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  z-index: 9999 !important;
+  padding: 1rem 1.5rem !important;
+  background: #1d4ed8 !important;
+  color: white !important;
+  border-radius: 0.5rem !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  border: 3px solid white !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  transform: scale(1.05) !important;
+  transition: all 0.2s ease !important;
+}
+
 /* Simple text contrast fixes */
 .text-gray-400, .text-gray-300, .text-gray-200 {
   color: #6b7280 !important;
@@ -18,4 +210,58 @@
 
 .dark .text-gray-500 {
   color: #f3f4f6 !important;
+}
+
+/* Ensure sufficient contrast in dark mode */
+.dark.high-contrast {
+  --bg-primary: #ffffff;
+  --bg-secondary: #000000;
+  --text-primary: #000000;
+  --text-secondary: #ffffff;
+}
+
+/* Chat accessibility enhancements */
+[data-chat-container] {
+  scroll-behavior: smooth;
+}
+
+.reduce-motion [data-chat-container] {
+  scroll-behavior: auto;
+}
+
+/* Message focus indicators */
+[id^="message-"]:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* New message indicator positioning */
+.new-messages-indicator {
+  position: fixed;
+  right: 1rem;
+  z-index: 40;
+}
+
+/* Ensure proper stacking order */
+.accessibility-dashboard {
+  z-index: 9999;
+}
+
+.accessibility-indicator {
+  z-index: 50;
+}
+
+/* Print styles for accessibility reports */
+@media print {
+  .accessibility-dashboard,
+  .accessibility-indicator,
+  .skip-navigation {
+    display: none !important;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+  }
 }

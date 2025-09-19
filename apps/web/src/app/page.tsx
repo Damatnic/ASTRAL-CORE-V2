@@ -21,7 +21,6 @@ const {
   Glass, 
   ProductionButton, 
   Alert, 
-  SkipNavigation, 
   LiveRegion 
 } = ProductionGlassSystem;
 
@@ -417,8 +416,14 @@ const ProductionFeatures = () => {
 export default function ProductionHomePage() {
   return (
     <>
-      <SkipNavigation />
-      <main id="main-content" className="relative">
+      {/* Skip navigation is handled by layout.tsx - don't duplicate */}
+      <main 
+        id="main-content" 
+        tabIndex={-1}
+        className="relative focus:outline-none"
+        role="main"
+        aria-label="Main content"
+      >
         <ProductionHero />
         <ProductionFeatures />
       </main>

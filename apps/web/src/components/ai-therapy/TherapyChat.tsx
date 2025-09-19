@@ -22,6 +22,9 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { CrisisEncryption, SecureStorage } from '@/lib/crypto'
+import { useSmartScroll } from '@/hooks/useSmartScroll'
+import NewMessagesIndicator from '@/components/chat/NewMessagesIndicator'
+import { useAccessibility } from '@/components/accessibility/AccessibilityEnhancer'
 
 interface TherapyMessage {
   id: string
@@ -117,14 +120,29 @@ export default function TherapyChat({
   const [showAssessment, setShowAssessment] = useState(true)
   const [userKey, setUserKey] = useState<CryptoKey | null>(null)
   
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const chatContainerRef = useRef<HTMLDivElement>(null)
-
   const therapist = THERAPIST_PROFILES[therapistId]
+  const { settings, announceToScreenReader } = useAccessibility()
 
-  useEffect(() => {
-    scrollToBottom()
-  }, [session.messages])
+  // Smart scrolling hook with crisis message priority
+  const {
+    scrollRef,
+    isAtBottom,
+    hasNewMessages,
+    userHasScrolled,
+    scrollToBottom,
+    forceScrollToBottom,
+    scrollToTop,
+    markMessagesRead
+  } = useSmartScroll(session.messages, {
+    forceScrollOnCrisis: true,
+    respectReducedMotion: true,
+    threshold: 100
+  })
+
+  // Check for crisis messages in new messages
+  const hasCrisisMessages = hasNewMessages && session.messages
+    .slice(-5) // Check last 5 messages for crisis content
+    .some(msg => msg.type === 'intervention' || msg.metadata?.crisis_level >= 8)
 
   useEffect(() => {
     // Initialize with therapist greeting
@@ -132,10 +150,6 @@ export default function TherapyChat({
       addTherapistMessage(therapist.greeting)
     }
   }, [])
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   const addTherapistMessage = (content: string, type: TherapyMessage['type'] = 'text', metadata?: any) => {
     const message: TherapyMessage = {
@@ -224,6 +238,9 @@ export default function TherapyChat({
       interventions: [...prev.interventions, `Crisis intervention triggered (level ${crisisLevel})`]
     }))
 
+    // Announce crisis intervention to screen readers
+    announceToScreenReader('Crisis intervention activated. Immediate support resources are being provided.')
+
     // Crisis response based on therapist
     let crisisResponse = ''
     if (therapistId === 'aria') {
@@ -248,6 +265,11 @@ For this moment, let's focus on creating a sense of safety and calm. Are you in 
 
     addTherapistMessage(crisisResponse, 'intervention', { crisis_level: crisisLevel, intervention_triggered: true })
 
+    // Force scroll to ensure crisis message is visible
+    setTimeout(() => {
+      forceScrollToBottom()
+    }, 100)
+
     // Show crisis resources
     setTimeout(() => {
       addTherapistMessage(`**Crisis Resources Available 24/7:**
@@ -256,6 +278,11 @@ For this moment, let's focus on creating a sense of safety and calm. Are you in 
 🌐 Chat at suicidepreventionlifeline.org
 
 Remember: Crisis feelings are temporary, but suicide is permanent. You deserve support and care.`, 'intervention')
+      
+      // Force scroll again for resources
+      setTimeout(() => {
+        forceScrollToBottom()
+      }, 100)
     }, 2000)
   }
 
@@ -497,15 +524,23 @@ Remember: Crisis feelings are temporary, but suicide is permanent. You deserve s
 
       {/* Chat Messages */}
       <div 
-        ref={chatContainerRef}
+        ref={scrollRef}
         className="flex-1 overflow-y-auto p-4 space-y-4"
+        data-chat-container
+        role="log"
+        aria-live="polite"
+        aria-label="Therapy chat conversation"
       >
         <AnimatePresence>
           {session.messages.map((message) => (
             <motion.div
               key={message.id}
+              id={`message-${message.id}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: settings.reducedMotion ? 0.1 : 0.3
+              }}
               className={cn(
                 "flex",
                 message.sender === 'user' ? 'justify-end' : 'justify-start'
@@ -517,19 +552,33 @@ Remember: Crisis feelings are temporary, but suicide is permanent. You deserve s
                   ? "bg-blue-600 text-white"
                   : message.type === 'intervention'
                   ? "bg-red-50 border border-red-200 text-red-800"
-                  : "bg-white border border-gray-200 text-gray-900"
+                  : "bg-white border border-gray-200 text-gray-900",
+                settings.highContrast && message.type === 'intervention' && "border-2 border-red-600"
               )}>
                 {message.sender === 'therapist' && message.type !== 'intervention' && (
                   <div className="flex items-center space-x-2 mb-2">
-                    <span className="text-xl">{therapist.avatar}</span>
+                    <span className="text-xl" aria-hidden="true">{therapist.avatar}</span>
                     <span className="text-sm font-medium">{therapist.name}</span>
+                  </div>
+                )}
+                
+                {message.type === 'intervention' && (
+                  <div 
+                    className="flex items-center space-x-2 mb-2"
+                    role="alert"
+                    aria-label="Crisis intervention message"
+                  >
+                    <AlertTriangle className="w-4 h-4 text-red-600" />
+                    <span className="text-sm font-bold text-red-800">Crisis Support</span>
                   </div>
                 )}
                 
                 <div className="whitespace-pre-wrap">{message.content}</div>
                 
                 <div className="text-xs opacity-70 mt-1">
-                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  <time dateTime={message.timestamp.toISOString()}>
+                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </time>
                 </div>
               </div>
             </motion.div>
@@ -540,23 +589,38 @@ Remember: Crisis feelings are temporary, but suicide is permanent. You deserve s
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ 
+              duration: settings.reducedMotion ? 0.1 : 0.3
+            }}
             className="flex justify-start"
+            aria-live="polite"
+            aria-label={`${therapist.name} is typing`}
           >
             <div className="bg-white border border-gray-200 rounded-lg px-4 py-2 max-w-xs">
               <div className="flex items-center space-x-2">
-                <span className="text-xl">{therapist.avatar}</span>
+                <span className="text-xl" aria-hidden="true">{therapist.avatar}</span>
                 <div className="flex space-x-1">
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
                 </div>
+                <span className="sr-only">{therapist.name} is typing</span>
               </div>
             </div>
           </motion.div>
         )}
-        
-        <div ref={messagesEndRef} />
       </div>
+
+      {/* New Messages Indicator */}
+      <NewMessagesIndicator
+        show={hasNewMessages}
+        messageCount={session.messages.length}
+        onClick={() => {
+          forceScrollToBottom()
+          markMessagesRead()
+        }}
+        hasCrisisMessage={hasCrisisMessages}
+      />
 
       {/* Message Input */}
       <div className="bg-white border-t border-gray-200 p-4">

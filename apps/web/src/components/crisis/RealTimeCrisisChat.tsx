@@ -21,6 +21,9 @@ import {
 } from 'lucide-react';
 import { getCrisisDetectionEngine } from '@/lib/ai/crisis-detection-engine';
 import { format } from 'date-fns';
+import { useSmartScroll, useNewMessageIndicator } from '@/hooks/useSmartScroll';
+import { NewMessagesIndicator, ChatNavigationHelper } from '@/components/chat/NewMessagesIndicator';
+import { useAccessibility } from '@/components/accessibility/AccessibilityEnhancer';
 
 // Types
 interface Message {
@@ -89,9 +92,36 @@ export default function RealTimeCrisisChat({
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   
   // Refs
-  const messagesEndRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout>();
   const inputRef = useRef<HTMLInputElement>(null);
+  
+  // Accessibility
+  const { settings, announceToScreenReader } = useAccessibility();
+
+  // Smart scrolling with crisis message priority
+  const {
+    containerRef,
+    scrollTargetRef,
+    isAtBottom,
+    scrollToBottom,
+    forceScrollToBottom
+  } = useSmartScroll(messages, {
+    forceScrollOnCrisis: true,
+    respectReducedMotion: true,
+    bottomThreshold: 100
+  });
+
+  // New message indicator
+  const {
+    unreadCount,
+    showIndicator,
+    clearIndicator
+  } = useNewMessageIndicator(isAtBottom, messages);
+
+  // Check for crisis messages in unread
+  const hasCrisisMessages = messages
+    .slice(-unreadCount)
+    .some(msg => msg.riskLevel === 'CRITICAL' || msg.riskLevel === 'HIGH');
   
   // Initialize Socket.io and AI engine
   useEffect(() => {
@@ -191,14 +221,21 @@ export default function RealTimeCrisisChat({
     });
     
     newSocket.on('crisis:escalated', (data) => {
-      addSystemMessage(
+      const escalationMessage = 
         `Crisis escalated to severity ${data.newSeverity}. ` +
         (data.professionalAssigned ? 'A professional has been notified. ' : '') +
-        (data.emergencyServicesNotified ? 'Emergency services have been contacted.' : '')
-      );
+        (data.emergencyServicesNotified ? 'Emergency services have been contacted.' : '');
+      
+      addSystemMessage(escalationMessage);
+      announceToScreenReader(escalationMessage);
       
       setMetrics(prev => ({ ...prev, severity: data.newSeverity }));
       setShowEmergencyOptions(true);
+      
+      // Force scroll for escalated crisis
+      setTimeout(() => {
+        forceScrollToBottom();
+      }, 100);
     });
     
     newSocket.on('participant:disconnected', (data) => {
@@ -223,11 +260,6 @@ export default function RealTimeCrisisChat({
       }
     };
   }, [sessionId, userId, initialSeverity]);
-  
-  // Auto-scroll to bottom
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
   
   // Get user location for emergencies
   useEffect(() => {
@@ -565,7 +597,14 @@ export default function RealTimeCrisisChat({
       {renderMetricsBar()}
       
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto p-4">
+      <div 
+        ref={containerRef}
+        className="flex-1 overflow-y-auto p-4"
+        data-chat-container
+        role="log"
+        aria-live="polite"
+        aria-label="Crisis chat conversation"
+      >
         <AnimatePresence>
           {messages.map(renderMessage)}
         </AnimatePresence>
@@ -576,7 +615,12 @@ export default function RealTimeCrisisChat({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ 
+              duration: settings.reducedMotion ? 0.1 : 0.3
+            }}
             className="flex items-center gap-2 text-gray-700 text-sm ml-4"
+            aria-live="polite"
+            aria-label={`${volunteer.name} is typing`}
           >
             <div className="flex gap-1">
               <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
@@ -584,11 +628,27 @@ export default function RealTimeCrisisChat({
               <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
             </div>
             <span>{volunteer.name} is typing...</span>
+            <span className="sr-only">{volunteer.name} is typing a message</span>
           </motion.div>
         )}
         
-        <div ref={messagesEndRef} />
+        <div ref={scrollTargetRef} aria-hidden="true" />
       </div>
+      
+      {/* New Messages Indicator */}
+      <NewMessagesIndicator
+        show={showIndicator}
+        unreadCount={unreadCount}
+        onScrollToBottom={() => {
+          scrollToBottom();
+          clearIndicator();
+        }}
+        hasCrisisMessages={hasCrisisMessages}
+        bottomOffset={140}
+      />
+
+      {/* Chat Navigation Helper */}
+      <ChatNavigationHelper />
       
       {/* Input Area */}
       <div className="bg-white border-t p-4">
