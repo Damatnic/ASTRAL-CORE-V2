@@ -70,6 +70,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Skip Navigation Component */}
         <SkipNavigation />
         
+        {/* @ts-ignore - React 19 compatibility issue with class component types */}
         <GlobalErrorBoundary showCrisisResources={true}>
           <SessionProvider>
             <DataPersistenceProvider>

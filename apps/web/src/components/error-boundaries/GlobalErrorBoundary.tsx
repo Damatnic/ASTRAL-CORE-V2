@@ -190,7 +190,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
     </div>
   );
 
-  render(): React.ReactNode {
+  render() {
     if (this.state.hasError) {
       // Custom fallback provided
       if (this.props.fallback) {
