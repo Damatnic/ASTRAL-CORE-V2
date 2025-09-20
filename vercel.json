@@ -1,19 +1,21 @@
 {
   "version": 2,
   "installCommand": "npm install -g pnpm@10.13.1 && pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm --filter @astralcore/database generate && pnpm --filter astral-core-web build",
+  "buildCommand": "cd packages/database && npx prisma generate && cd ../.. && pnpm --filter astral-core-web build",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
   "env": {
     "SKIP_ENV_VALIDATION": "true",
     "SKIP_TYPE_CHECK": "true",
     "NODE_ENV": "production",
-    "VERCEL": "1"
+    "VERCEL": "1",
+    "DATABASE_URL": "file:./dev.db"
   },
   "build": {
     "env": {
       "SKIP_ENV_VALIDATION": "true",
-      "SKIP_TYPE_CHECK": "true"
+      "SKIP_TYPE_CHECK": "true",
+      "DATABASE_URL": "file:./dev.db"
     }
   }
 }

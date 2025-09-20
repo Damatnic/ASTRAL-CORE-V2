@@ -1,15 +1,8 @@
-import { PrismaClient } from '@prisma/client'
+// Import from the database package instead of @prisma/client directly
+import { prisma as dbPrisma, PrismaClient } from '@astralcore/database'
 
-// Create a singleton PrismaClient instance
-const globalForPrisma = global as unknown as { prisma: PrismaClient }
-
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  })
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+// Use the prisma instance from the database package
+export const prisma = dbPrisma
 
 // Export commonly used enums (stubbed for now)
 export enum ActivityType {
@@ -70,24 +63,8 @@ export enum EvidenceLevel {
 // Export PrismaClient type for consistency
 export { PrismaClient }
 
-// Stub services for compatibility
-export const MoodService = {
-  async createMoodEntry(data: any) {
-    // Stub implementation
-    return { success: true, data }
-  },
-  async getMoodHistory(userId: string) {
-    // Stub implementation
-    return []
-  }
-}
-
-export const UserService = {
-  async getOrCreateUser(id: string) {
-    // Stub implementation
-    return { id, createdAt: new Date() }
-  }
-}
+// Export services from database package
+export { MoodService, UserService } from '@astralcore/database'
 
 // Gamification types
 export interface Achievement {
