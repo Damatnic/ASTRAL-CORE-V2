@@ -1,5 +1,4 @@
 # Workspace files that cause deployment issues
-pnpm-lock.yaml
 pnpm-workspace.yaml
 
 # Include database package for Prisma generation
