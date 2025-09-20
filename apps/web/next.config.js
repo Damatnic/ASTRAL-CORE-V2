@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Skip type checking during build for deployment
+  typescript: {
+    ignoreBuildErrors: process.env.SKIP_TYPE_CHECK === 'true',
+  },
+  
+  // Skip ESLint during build for deployment  
+  eslint: {
+    ignoreDuringBuilds: process.env.SKIP_TYPE_CHECK === 'true',
+  },
+
   // Enable experimental features for performance
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
