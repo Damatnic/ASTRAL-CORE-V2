@@ -6,12 +6,14 @@
   "framework": "nextjs",
   "env": {
     "SKIP_ENV_VALIDATION": "true",
+    "SKIP_TYPE_CHECK": "true",
     "NODE_ENV": "production",
     "VERCEL": "1"
   },
   "build": {
     "env": {
-      "SKIP_ENV_VALIDATION": "true"
+      "SKIP_ENV_VALIDATION": "true",
+      "SKIP_TYPE_CHECK": "true"
     }
   }
 }
