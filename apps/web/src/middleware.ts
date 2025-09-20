@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { checkGlobalRateLimit, rateLimit as rateLimitHandler, rateLimitConfigs } from './lib/rate-limiter';
 import { getToken } from 'next-auth/jwt';
 
 // Production Security Headers - OWASP Compliant
@@ -105,57 +104,16 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Check global rate limit first (using Redis if available)
-  try {
-    const globalRateLimitOk = await checkGlobalRateLimit(request);
-    if (!globalRateLimitOk) {
-      return new NextResponse('Too Many Requests', {
-        status: 429,
-        headers: {
-          'Retry-After': '60',
-          'Content-Type': 'text/plain'
-        }
-      });
-    }
-  } catch (error) {
-    // Fall back to in-memory rate limiting if Redis is not available
-    const ip = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? 'unknown';
-    if (!rateLimit(ip)) {
-      return new NextResponse('Too Many Requests', {
-        status: 429,
-        headers: {
-          'Retry-After': '60',
-          'Content-Type': 'text/plain'
-        }
-      });
-    }
-  }
-
-  // Apply API-specific rate limiting
-  if (pathname.startsWith('/api/')) {
-    // Define API route rate limit configurations
-    const apiRateLimits: Record<string, typeof rateLimitConfigs[keyof typeof rateLimitConfigs]> = {
-      '/api/auth': rateLimitConfigs.auth,
-      '/api/crisis': rateLimitConfigs.crisis,
-      '/api/ai-therapy': rateLimitConfigs.aiTherapy,
-      '/api/search': rateLimitConfigs.search,
-    };
-
-    // Find the most specific rate limit config for this API route
-    let rateLimitConfig = rateLimitConfigs.api; // Default
-    
-    for (const [route, config] of Object.entries(apiRateLimits)) {
-      if (pathname.startsWith(route)) {
-        rateLimitConfig = config;
-        break;
+  // Simple in-memory rate limiting for Edge Runtime
+  const ip = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? 'unknown';
+  if (!rateLimit(ip)) {
+    return new NextResponse('Too Many Requests', {
+      status: 429,
+      headers: {
+        'Retry-After': '60',
+        'Content-Type': 'text/plain'
       }
-    }
-    
-    // Apply rate limiting
-    const rateLimitResponse = await rateLimitHandler(request, rateLimitConfig);
-    if (rateLimitResponse) {
-      return rateLimitResponse;
-    }
+    });
   }
 
   // Authentication check for protected routes
