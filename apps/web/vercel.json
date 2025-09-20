@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "installCommand": "npm install --legacy-peer-deps",
+  "installCommand": "cd ../.. && pnpm install",
   "buildCommand": "npm run vercel-build",
   "env": {
     "SKIP_ENV_VALIDATION": "true",
