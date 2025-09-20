@@ -12,9 +12,9 @@ export const authOptions: NextAuthOptions = {
   providers: [
     // Auth0 Provider - primary authentication
     Auth0Provider({
-      clientId: process.env.AUTH0_CLIENT_ID || 'uGv7ns4HVxnKn5ofBdnaKqCKue1JUvZG',
-      clientSecret: process.env.AUTH0_CLIENT_SECRET || 'fJh0Y-Mtc4AYqZxN8hdm6vJf4PGWVBCDipTwLWcHF8L_c9lalReWgzqj9OSUTZpa',
-      issuer: process.env.AUTH0_ISSUER_BASE_URL || 'https://dev-ac3ajs327vs5vzhk.us.auth0.com',
+      clientId: process.env.AUTH0_CLIENT_ID!,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
+      issuer: process.env.AUTH0_ISSUER_BASE_URL!,
     }),
     
     // Anonymous access for crisis situations
@@ -61,5 +61,5 @@ export const authOptions: NextAuthOptions = {
     },
   },
   
-  secret: process.env.NEXTAUTH_SECRET || 'hghiZ5zPEHgH+kMGKVLpp5BUiWhbWVv2E4xuJn3D46E=',
+  secret: process.env.NEXTAUTH_SECRET!,
 };
