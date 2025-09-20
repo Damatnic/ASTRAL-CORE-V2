@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkGlobalRateLimit, rateLimit, rateLimitConfigs } from './lib/rate-limiter';
+import { getToken } from 'next-auth/jwt';
 
 // Production Security Headers - OWASP Compliant
 const securityHeaders = [
@@ -90,7 +92,94 @@ function rateLimit(ip: string, maxRequests = 100, windowMs = 60000): boolean {
  * Mental health platform with enterprise-grade security
  * Accessible to all users while maintaining security standards
  */
-export default function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // Skip middleware for static files
+  if (
+    pathname.startsWith('/_next/static') ||
+    pathname.startsWith('/_next/image') ||
+    pathname.includes('.') ||
+    pathname.startsWith('/favicon')
+  ) {
+    return NextResponse.next();
+  }
+
+  // Check global rate limit first (using Redis if available)
+  try {
+    const globalRateLimitOk = await checkGlobalRateLimit(request);
+    if (!globalRateLimitOk) {
+      return new NextResponse('Too Many Requests', {
+        status: 429,
+        headers: {
+          'Retry-After': '60',
+          'Content-Type': 'text/plain'
+        }
+      });
+    }
+  } catch (error) {
+    // Fall back to in-memory rate limiting if Redis is not available
+    const ip = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? 'unknown';
+    if (!rateLimit(ip)) {
+      return new NextResponse('Too Many Requests', {
+        status: 429,
+        headers: {
+          'Retry-After': '60',
+          'Content-Type': 'text/plain'
+        }
+      });
+    }
+  }
+
+  // Apply API-specific rate limiting
+  if (pathname.startsWith('/api/')) {
+    // Define API route rate limit configurations
+    const apiRateLimits: Record<string, typeof rateLimitConfigs[keyof typeof rateLimitConfigs]> = {
+      '/api/auth': rateLimitConfigs.auth,
+      '/api/crisis': rateLimitConfigs.crisis,
+      '/api/ai-therapy': rateLimitConfigs.aiTherapy,
+      '/api/search': rateLimitConfigs.search,
+    };
+
+    // Find the most specific rate limit config for this API route
+    let rateLimitConfig = rateLimitConfigs.api; // Default
+    
+    for (const [route, config] of Object.entries(apiRateLimits)) {
+      if (pathname.startsWith(route)) {
+        rateLimitConfig = config;
+        break;
+      }
+    }
+    
+    // Apply rate limiting
+    const rateLimitResponse = await rateLimit(request, rateLimitConfig);
+    if (rateLimitResponse) {
+      return rateLimitResponse;
+    }
+  }
+
+  // Authentication check for protected routes
+  const protectedRoutes = ['/dashboard', '/profile', '/therapist', '/admin'];
+  const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
+  
+  if (isProtectedRoute) {
+    try {
+      const token = await getToken({ 
+        req: request, 
+        secret: process.env.NEXTAUTH_SECRET 
+      });
+      
+      if (!token) {
+        // Redirect to sign in page with return URL
+        const url = new URL('/auth/signin', request.url);
+        url.searchParams.set('callbackUrl', pathname);
+        return NextResponse.redirect(url);
+      }
+    } catch (error) {
+      console.error('Auth check error:', error);
+    }
+  }
+  
   const response = NextResponse.next();
   
   // Apply security headers to all responses
@@ -98,21 +187,8 @@ export default function middleware(request: NextRequest) {
     response.headers.set(key, value);
   });
   
-  // Rate limiting
-  const ip = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? 'unknown';
-  
-  if (!rateLimit(ip)) {
-    return new NextResponse('Too Many Requests', {
-      status: 429,
-      headers: {
-        'Retry-After': '60',
-        'Content-Type': 'text/plain'
-      }
-    });
-  }
-  
   // Additional security for API routes
-  if (request.nextUrl.pathname.startsWith('/api/')) {
+  if (pathname.startsWith('/api/')) {
     // Prevent caching of API responses
     response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     response.headers.set('Pragma', 'no-cache');
@@ -124,9 +200,7 @@ export default function middleware(request: NextRequest) {
   
   // Security for sensitive routes
   const sensitiveRoutes = ['/admin', '/dashboard'];
-  const isSensitiveRoute = sensitiveRoutes.some(route => 
-    request.nextUrl.pathname.startsWith(route)
-  );
+  const isSensitiveRoute = sensitiveRoutes.some(route => pathname.startsWith(route));
   
   if (isSensitiveRoute) {
     // Enhanced security for sensitive routes
@@ -134,9 +208,17 @@ export default function middleware(request: NextRequest) {
     response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
   }
   
+  // Crisis route specific headers
+  if (pathname.startsWith('/crisis')) {
+    response.headers.set('X-Crisis-Route', 'true');
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  }
+  
   // Performance headers
   response.headers.set('X-DNS-Prefetch-Control', 'on');
   response.headers.set('X-XSS-Protection', '1; mode=block');
+  response.headers.set('X-Permitted-Cross-Domain-Policies', 'none');
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
   
   return response;
 }
