@@ -211,8 +211,8 @@ try {
   // Build the application using Next.js directly
   console.log('\n🏗️ Building Next.js application...');
   try {
-    // Try to use npx next build directly to avoid npm script issues
-    execSync('npx next build', { 
+    // Try to use pnpm next build to work with workspace dependencies
+    execSync('pnpm exec next build', { 
       stdio: 'inherit',
       cwd: __dirname + '/..'
     });
@@ -220,8 +220,8 @@ try {
   } catch (error) {
     console.error('❌ Next.js build failed:', error.message);
     console.log('🔄 Trying fallback build method...');
-    // Fallback to npm run build
-    runCommand('npm run build', 'Building Next.js application (fallback)');
+    // Fallback to pnpm run build
+    runCommand('pnpm run build', 'Building Next.js application (fallback)');
   }
 
   console.log('\n🎉 Vercel build completed successfully!');
