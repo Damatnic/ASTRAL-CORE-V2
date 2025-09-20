@@ -303,7 +303,7 @@ export default function SearchPage() {
               Search Resources
             </h1>
           </div>
-          <p className="text-gray-900 dark:text-gray-100 font-medium bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm border">
+          <p className="text-gray-900 dark:text-gray-200 font-medium">
             Find mental health resources, crisis support, therapy tools, and educational content
           </p>
         </Glass>
@@ -362,7 +362,7 @@ export default function SearchPage() {
           {/* Quick Searches */}
           {!searchQuery && (
             <div className="mt-6">
-              <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3 bg-white/60 backdrop-blur-sm rounded px-3 py-1 border">Quick Searches:</h3>
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-3">Quick Searches:</h3>
               <div className="flex flex-wrap gap-2">
                 {quickSearches.map((search) => (
                   <button
@@ -380,7 +380,7 @@ export default function SearchPage() {
           {/* Recent Searches */}
           {!searchQuery && recentSearches.length > 0 && (
             <div className="mt-4">
-              <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center bg-white/60 backdrop-blur-sm rounded px-3 py-1 border">
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-3 flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
                 Recent Searches:
               </h3>
