@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import {
   Brain,
@@ -91,7 +91,7 @@ interface SessionSummaryData {
   }
 }
 
-export default function SessionSummaryPage() {
+function SessionSummaryContent() {
   const searchParams = useSearchParams()
   const sessionId = searchParams?.get('sessionId')
   
@@ -775,5 +775,20 @@ Privacy: This summary is encrypted and confidential
         )}
       </div>
     </div>
+  )
+}
+
+export default function SessionSummaryPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading session summary...</p>
+        </div>
+      </div>
+    }>
+      <SessionSummaryContent />
+    </Suspense>
   )
 }
