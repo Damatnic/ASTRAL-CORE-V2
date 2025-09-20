@@ -208,8 +208,21 @@ try {
     }
   }
 
-  // Build the application
-  runCommand('npm run build', 'Building Next.js application');
+  // Build the application using Next.js directly
+  console.log('\n🏗️ Building Next.js application...');
+  try {
+    // Try to use npx next build directly to avoid npm script issues
+    execSync('npx next build', { 
+      stdio: 'inherit',
+      cwd: __dirname + '/..'
+    });
+    console.log('✅ Next.js build completed successfully');
+  } catch (error) {
+    console.error('❌ Next.js build failed:', error.message);
+    console.log('🔄 Trying fallback build method...');
+    // Fallback to npm run build
+    runCommand('npm run build', 'Building Next.js application (fallback)');
+  }
 
   console.log('\n🎉 Vercel build completed successfully!');
   console.log('🌐 ASTRAL CORE V2 is ready for deployment');
