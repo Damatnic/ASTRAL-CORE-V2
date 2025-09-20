@@ -1,7 +1,7 @@
 {
   "version": 2,
   "installCommand": "npm install -g pnpm@10.13.1 && pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm turbo run build --filter=astral-core-web",
+  "buildCommand": "cd apps/web && pnpm exec next build",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
   "env": {
