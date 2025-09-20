@@ -256,7 +256,7 @@ export const ProductionButton = forwardRef<HTMLButtonElement, ProductionButtonPr
         transition={{ duration: 0.2 }}
         className="relative z-10"
       >
-        {children}
+        {children as any}
       </motion.span>
 
       {/* Pressed State Overlay */}

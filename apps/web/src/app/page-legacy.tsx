@@ -69,7 +69,7 @@ const TiltCard = ({ children, className = "" }: { children: React.ReactNode; cla
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
+      {children as any}
     </motion.div>
   );
 };

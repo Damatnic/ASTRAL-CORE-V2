@@ -630,8 +630,8 @@ export default function EnhancedTherapyChat({
       ...prev,
       analytics: {
         ...prev.analytics,
-        [metric]: Array.isArray(prev.analytics[metric]) 
-          ? [...prev.analytics[metric], value]
+        [metric]: Array.isArray((prev.analytics as any)[metric]) 
+          ? [...(prev.analytics as any)[metric], value]
           : typeof value === 'number' 
             ? Math.min(value, 1)
             : value

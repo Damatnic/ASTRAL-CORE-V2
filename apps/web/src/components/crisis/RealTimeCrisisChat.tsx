@@ -92,7 +92,7 @@ export default function RealTimeCrisisChat({
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   
   // Refs
-  const typingTimeoutRef = useRef<NodeJS.Timeout>();
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   
   // Accessibility
@@ -359,7 +359,9 @@ export default function RealTimeCrisisChat({
       socket.emit('typing:start');
     }
     
-    clearTimeout(typingTimeoutRef.current);
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
     typingTimeoutRef.current = setTimeout(() => {
       setIsTyping(false);
       socket.emit('typing:stop');

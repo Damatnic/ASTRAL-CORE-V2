@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { checkGlobalRateLimit, rateLimit, rateLimitConfigs } from './lib/rate-limiter';
+import { checkGlobalRateLimit, rateLimit as rateLimitHandler, rateLimitConfigs } from './lib/rate-limiter';
 import { getToken } from 'next-auth/jwt';
 
 // Production Security Headers - OWASP Compliant
@@ -152,7 +152,7 @@ export default async function middleware(request: NextRequest) {
     }
     
     // Apply rate limiting
-    const rateLimitResponse = await rateLimit(request, rateLimitConfig);
+    const rateLimitResponse = await rateLimitHandler(request, rateLimitConfig);
     if (rateLimitResponse) {
       return rateLimitResponse;
     }

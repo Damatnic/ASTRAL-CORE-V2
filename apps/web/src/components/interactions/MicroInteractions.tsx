@@ -120,7 +120,7 @@ export function EnhancedButton({
         className={loading ? 'opacity-0' : 'opacity-100'}
         transition={{ duration: 0.2 }}
       >
-        {children}
+        {children as any}
       </motion.span>
 
       {/* Pressed State Overlay */}
@@ -249,7 +249,7 @@ export function InteractiveCard({
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       whileTap={{ scale: 0.98 }}
     >
-      {children}
+      {children as any}
     </motion.div>
   );
 }

@@ -648,7 +648,7 @@ export default function ConsentWorkflow({
                 <div className="mb-4">
                   <p className="text-gray-600">{currentStepData.description}</p>
                 </div>
-                {currentStepData.content}
+                {currentStepData.content as any}
               </motion.div>
             </AnimatePresence>
           ) : (

@@ -217,7 +217,7 @@ export default function TherapistSelectionInterface({
               <div className="flex items-center space-x-2 mb-1">
                 <h3 className="text-xl font-bold text-gray-900">{therapist.name}</h3>
                 {therapist.availability.crisisSupport && (
-                  <Shield className="h-4 w-4 text-red-500" title="Crisis Support Available" />
+                  <Shield className="h-4 w-4 text-red-500" aria-label="Crisis Support Available" />
                 )}
               </div>
               <p className="text-gray-600 font-medium">{therapist.title}</p>
