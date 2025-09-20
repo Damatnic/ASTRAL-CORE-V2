@@ -64,18 +64,14 @@ export default function AITherapyPage() {
 
         {/* New Therapist Selection Interface with AI Disclosure */}
         <TherapistSelectionInterface 
-          userId="demo-user"
-          onTherapistSelected={(therapist, sessionType) => {
+          onTherapistSelect={(therapist) => {
             // Navigate to therapy chat with selected therapist
             const therapistId = therapist.id.replace('dr-', ''); // Convert dr-aria to aria for compatibility
-            window.location.href = `/ai-therapy/chat?therapist=${therapistId}&sessionType=${sessionType || 'check-in'}`;
+            window.location.href = `/ai-therapy/chat?therapist=${therapistId}&sessionType=check-in`;
           }}
-          onDisclosureComplete={(userAccepted) => {
-            if (!userAccepted) {
-              // User declined AI therapy, show alternatives
-              console.log('User declined AI therapy');
-            }
-          }}
+          showDisclosure={true}
+          userNeeds={[]}
+          crisisLevel="none"
         />
 
         {/* Enhanced Resource Hub */}
