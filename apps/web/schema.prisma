@@ -1660,3 +1660,332 @@ enum InteractionType {
   SHARE
   RATE
 }
+
+// =============================================================================
+// AI THERAPY SYSTEM - Advanced Mental Health Support
+// =============================================================================
+
+model AITherapist {
+  id           String   @id @default(cuid())
+  therapistId  String   @unique // Internal ID like 'aria', 'sage', 'luna'
+  name         String
+  avatar       String
+  personality  String
+  description  String   @db.Text
+  specialties  String   // JSON array of specialties
+  approaches   String   // JSON array of therapeutic approaches
+  bestFor      String   // JSON array of conditions
+  features     String   // JSON array of key features
+  availability String   // '24/7', 'scheduled', 'on-demand'
+  
+  // Performance metrics
+  sessionsCompleted Int      @default(0)
+  userRating        Float    @default(4.5)
+  responseTime      Float    @default(1.5) // Average response time in seconds
+  
+  // Relationships
+  sessions          AITherapySession[]
+  personalizations  AIPersonalization[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([therapistId])
+  @@map("ai_therapists")
+}
+
+model AITherapySession {
+  id             String   @id @default(cuid())
+  sessionToken   String   @unique
+  userId         String
+  therapistId    String
+  sessionType    AISessionType
+  status         AISessionStatus @default(ACTIVE)
+  
+  // Session timing
+  startedAt      DateTime @default(now())
+  endedAt        DateTime?
+  duration       Int? // Duration in minutes
+  pausedAt       DateTime?
+  pausedDuration Int      @default(0) // Total paused time in seconds
+  
+  // Mood tracking
+  moodBefore     Int? // 1-10 scale
+  moodAfter      Int? // 1-10 scale
+  anxietyBefore  Int? // 1-10 scale
+  anxietyAfter   Int? // 1-10 scale
+  energyBefore   Int? // 1-10 scale
+  energyAfter    Int? // 1-10 scale
+  
+  // Session content (encrypted)
+  encryptedNotes     Bytes? // Session notes encrypted
+  encryptedInsights  Bytes? // AI-generated insights encrypted
+  encryptedHomework  Bytes? // Homework assignments encrypted
+  encryptedGoals     Bytes? // Session goals encrypted
+  
+  // Session metadata
+  topics         String? // JSON array of topics discussed
+  techniques     String? // JSON array of techniques used
+  interventions  String? // JSON array of interventions applied
+  breakthroughs  String? // JSON array of breakthrough moments
+  
+  // Crisis tracking
+  crisisDetected     Boolean @default(false)
+  crisisLevel        Int? // 1-10 scale
+  crisisInterventions String? // JSON array of crisis interventions
+  
+  // Relationships
+  therapist      AITherapist        @relation(fields: [therapistId], references: [therapistId])
+  messages       AITherapyMessage[]
+  exercises      AIExerciseSession[]
+  
+  @@index([userId, status])
+  @@index([therapistId, sessionType])
+  @@index([crisisDetected])
+  @@map("ai_therapy_sessions")
+}
+
+model AITherapyMessage {
+  id           String   @id @default(cuid())
+  sessionId    String
+  messageType  AIMessageType
+  sender       AIMessageSender
+  
+  // Encrypted content
+  encryptedContent Bytes
+  messageHash      String // For integrity verification
+  
+  // Message metadata
+  timestamp    DateTime @default(now())
+  edited       Boolean  @default(false)
+  editedAt     DateTime?
+  
+  // AI analysis
+  sentiment    Float? // -1.0 to 1.0
+  emotion      String? // JSON array of detected emotions
+  riskScore    Int? // 1-10
+  techniques   String? // JSON array of techniques suggested
+  
+  // Voice message support
+  hasAudio     Boolean @default(false)
+  audioDuration Int? // Duration in seconds
+  audioUrl     String? // Encrypted audio URL
+  
+  // Relationships
+  session      AITherapySession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  
+  @@index([sessionId, timestamp])
+  @@index([sender])
+  @@map("ai_therapy_messages")
+}
+
+model AIPersonalization {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  therapistId  String?
+  
+  // User preferences
+  preferredStyle      String? // Communication style preference
+  preferredTechniques String? // JSON array of preferred techniques
+  preferredTopics     String? // JSON array of preferred topics
+  avoidTopics         String? // JSON array of topics to avoid
+  
+  // Adaptive settings
+  responseLength      String  @default("medium") // short, medium, long
+  responseComplexity  String  @default("moderate") // simple, moderate, complex
+  empathyLevel        String  @default("high") // low, medium, high
+  directness          String  @default("balanced") // gentle, balanced, direct
+  
+  // Cultural and personal
+  culturalBackground  String?
+  languagePreference  String  @default("en")
+  timezone            String  @default("UTC")
+  pronouns            String?
+  
+  // Learning from sessions
+  learnedPatterns     String? // JSON array of learned patterns
+  effectiveTechniques String? // JSON array of effective techniques
+  triggerPatterns     String? // JSON array of trigger patterns
+  copingStrategies    String? // JSON array of effective coping strategies
+  
+  // Relationships
+  therapist    AITherapist? @relation(fields: [therapistId], references: [therapistId])
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([therapistId])
+  @@map("ai_personalizations")
+}
+
+model AIExerciseSession {
+  id           String   @id @default(cuid())
+  sessionId    String?
+  userId       String
+  exerciseType AIExerciseType
+  
+  // Exercise details
+  exerciseName String
+  category     String
+  difficulty   String
+  duration     Int // Duration in seconds
+  
+  // Completion tracking
+  startedAt    DateTime @default(now())
+  completedAt  DateTime?
+  completed    Boolean  @default(false)
+  progress     Int      @default(0) // 0-100 percentage
+  
+  // Results
+  results      String? // JSON object with exercise-specific results
+  feedback     String? // AI-generated feedback
+  improvement  Float? // Improvement score
+  
+  // Mood impact
+  moodBefore   Int? // 1-10 scale
+  moodAfter    Int? // 1-10 scale
+  
+  // Relationships
+  session      AITherapySession? @relation(fields: [sessionId], references: [id])
+  
+  @@index([userId, exerciseType])
+  @@index([sessionId])
+  @@map("ai_exercise_sessions")
+}
+
+model AITherapyInsight {
+  id           String   @id @default(cuid())
+  userId       String
+  insightType  AIInsightType
+  
+  // Insight content
+  title        String
+  description  String   @db.Text
+  significance String   @default("medium") // low, medium, high
+  
+  // Data points
+  dataPoints   String // JSON array of data points
+  patterns     String? // JSON array of patterns detected
+  trends       String? // JSON array of trends
+  
+  // Recommendations
+  recommendations String? // JSON array of recommendations
+  actions         String? // JSON array of suggested actions
+  
+  // Time frame
+  periodStart  DateTime
+  periodEnd    DateTime
+  generatedAt  DateTime @default(now())
+  
+  // User interaction
+  viewed       Boolean  @default(false)
+  viewedAt     DateTime?
+  helpful      Boolean?
+  dismissed    Boolean  @default(false)
+  
+  @@index([userId, insightType])
+  @@index([generatedAt])
+  @@map("ai_therapy_insights")
+}
+
+model AITherapyGoal {
+  id           String   @id @default(cuid())
+  userId       String
+  goalType     String
+  
+  // Goal details
+  title        String
+  description  String   @db.Text
+  category     String
+  priority     String   @default("medium") // low, medium, high
+  
+  // SMART criteria
+  specific     String
+  measurable   String
+  achievable   String
+  relevant     String
+  timebound    DateTime // Target completion date
+  
+  // Progress tracking
+  status       AIGoalStatus @default(ACTIVE)
+  progress     Int          @default(0) // 0-100 percentage
+  milestones   String? // JSON array of milestones
+  
+  // Tracking
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  completedAt  DateTime?
+  
+  @@index([userId, status])
+  @@index([goalType])
+  @@map("ai_therapy_goals")
+}
+
+// Enums for AI Therapy System
+enum AISessionType {
+  CRISIS
+  SCHEDULED
+  CHECK_IN
+  INTENSIVE
+  FOLLOWUP
+  ASSESSMENT
+}
+
+enum AISessionStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ABANDONED
+  ESCALATED
+}
+
+enum AIMessageType {
+  TEXT
+  AUDIO
+  ASSESSMENT
+  INTERVENTION
+  EXERCISE
+  RESOURCE
+}
+
+enum AIMessageSender {
+  USER
+  THERAPIST
+  SYSTEM
+}
+
+enum AIExerciseType {
+  CBT_WORKSHEET
+  THOUGHT_RECORD
+  BREATHING
+  MEDITATION
+  GROUNDING
+  JOURNALING
+  MOOD_CHECK
+  PMR // Progressive Muscle Relaxation
+  VISUALIZATION
+  BEHAVIORAL_ACTIVATION
+  VALUES_CLARIFICATION
+  EXPOSURE_THERAPY
+}
+
+enum AIInsightType {
+  MOOD_TREND
+  TRIGGER_PATTERN
+  PROGRESS_REPORT
+  BREAKTHROUGH
+  WARNING_SIGN
+  RECOMMENDATION
+  WEEKLY_SUMMARY
+  MONTHLY_REPORT
+}
+
+enum AIGoalStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ABANDONED
+  REVISED
+}
