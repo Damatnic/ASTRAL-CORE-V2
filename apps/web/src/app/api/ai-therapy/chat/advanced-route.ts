@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '@astralcore/database'
 
 // Advanced AI Therapy Chat with OpenAI Integration
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -27,7 +25,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     // Get or create therapy session
-    let therapySession = await prisma.aITherapySession.findUnique({
+    let therapySession = await prisma.AITherapySession.findUnique({
       where: { sessionToken: sessionId },
       include: {
         therapist: true,
@@ -40,7 +38,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (!therapySession) {
       // Create new session
-      therapySession = await prisma.aITherapySession.create({
+      therapySession = await prisma.AITherapySession.create({
         data: {
           sessionToken: sessionId,
           userId,
@@ -99,7 +97,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       })
 
       // Update session with crisis information
-      await prisma.aITherapySession.update({
+      await prisma.AITherapySession.update({
         where: { id: therapySession.id },
         data: {
           crisisDetected: true,
@@ -147,7 +145,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // Update session with new insights
     if (aiResponse.insights.length > 0) {
-      await prisma.aITherapySession.update({
+      await prisma.AITherapySession.update({
         where: { id: therapySession.id },
         data: {
           encryptedInsights: Buffer.from(JSON.stringify(aiResponse.insights)),
@@ -383,7 +381,7 @@ function generateCBTResponse(message: string, context: any, sessionContext: any)
 
   // Select response based on context
   const category = determineResponseCategory(context)
-  const responseSet = responses[category] || responses.negative_thinking
+  const responseSet = responses[category as keyof typeof responses] || responses.negative_thinking
   const selectedResponse = responseSet[Math.floor(Math.random() * responseSet.length)]
 
   // Add personalization based on session history
@@ -522,7 +520,7 @@ function getSuggestedInterventions(level: string): string[] {
     ]
   }
 
-  return interventions[level] || interventions.low
+  return interventions[level as keyof typeof interventions] || interventions.low
 }
 
 function analyzeMessageContext(message: string): any {

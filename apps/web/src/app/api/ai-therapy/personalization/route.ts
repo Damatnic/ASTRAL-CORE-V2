@@ -228,7 +228,7 @@ function generateRecommendations(profile: any) {
 
   return recommendations.sort((a, b) => {
     const priorityOrder = { high: 3, medium: 2, low: 1 }
-    return priorityOrder[b.priority] - priorityOrder[a.priority]
+    return priorityOrder[b.priority as keyof typeof priorityOrder] - priorityOrder[a.priority as keyof typeof priorityOrder]
   })
 }
 
@@ -382,7 +382,7 @@ function calculateBreakNeeds(profile: any): number {
 function shouldIntegrateExercises(profile: any): boolean {
   const exerciseEffectiveness = profile.learning.effectiveTechniques
     .filter((t: any) => t.technique.includes('exercise'))
-    .reduce((avg, t) => avg + t.effectiveness, 0) / 
+    .reduce((avg: number, t: any) => avg + t.effectiveness, 0) / 
     profile.learning.effectiveTechniques.filter((t: any) => t.technique.includes('exercise')).length
   
   return exerciseEffectiveness > 0.7

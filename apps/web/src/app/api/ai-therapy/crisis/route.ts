@@ -794,7 +794,7 @@ function generateEscalationResponse(level: string) {
     }
   }
 
-  return responses[level] || responses.moderate
+  return responses[level as keyof typeof responses] || responses.moderate
 }
 
 function generateTicketId(): string {
@@ -865,7 +865,7 @@ function getRecommendationsForRisk(riskLevel: string): string[] {
     ]
   }
 
-  return recommendations[riskLevel] || recommendations.minimal
+  return recommendations[riskLevel as keyof typeof recommendations] || recommendations.minimal
 }
 
 function getTargetedResources(assessment: any) {
@@ -876,7 +876,7 @@ function getTargetedResources(assessment: any) {
   if (assessment.riskLevel === 'high' || assessment.riskLevel === 'imminent') {
     return {
       ...base,
-      priority: base.hotlines.filter(h => h.priority === 1),
+      priority: base.hotlines?.filter(h => h.priority === 1) || [],
       immediate: getImmediateActions()
     }
   }

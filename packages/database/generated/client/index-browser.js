@@ -756,6 +756,161 @@ exports.Prisma.SelfHelpInteractionScalarFieldEnum = {
   moodAfter: 'moodAfter'
 };
 
+exports.Prisma.AITherapistScalarFieldEnum = {
+  id: 'id',
+  therapistId: 'therapistId',
+  name: 'name',
+  avatar: 'avatar',
+  personality: 'personality',
+  description: 'description',
+  specialties: 'specialties',
+  approaches: 'approaches',
+  bestFor: 'bestFor',
+  features: 'features',
+  availability: 'availability',
+  sessionsCompleted: 'sessionsCompleted',
+  userRating: 'userRating',
+  responseTime: 'responseTime',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AITherapySessionScalarFieldEnum = {
+  id: 'id',
+  sessionToken: 'sessionToken',
+  userId: 'userId',
+  therapistId: 'therapistId',
+  sessionType: 'sessionType',
+  status: 'status',
+  startedAt: 'startedAt',
+  endedAt: 'endedAt',
+  duration: 'duration',
+  pausedAt: 'pausedAt',
+  pausedDuration: 'pausedDuration',
+  moodBefore: 'moodBefore',
+  moodAfter: 'moodAfter',
+  anxietyBefore: 'anxietyBefore',
+  anxietyAfter: 'anxietyAfter',
+  energyBefore: 'energyBefore',
+  energyAfter: 'energyAfter',
+  encryptedNotes: 'encryptedNotes',
+  encryptedInsights: 'encryptedInsights',
+  encryptedHomework: 'encryptedHomework',
+  encryptedGoals: 'encryptedGoals',
+  topics: 'topics',
+  techniques: 'techniques',
+  interventions: 'interventions',
+  breakthroughs: 'breakthroughs',
+  crisisDetected: 'crisisDetected',
+  crisisLevel: 'crisisLevel',
+  crisisInterventions: 'crisisInterventions'
+};
+
+exports.Prisma.AITherapyMessageScalarFieldEnum = {
+  id: 'id',
+  sessionId: 'sessionId',
+  messageType: 'messageType',
+  sender: 'sender',
+  encryptedContent: 'encryptedContent',
+  messageHash: 'messageHash',
+  timestamp: 'timestamp',
+  edited: 'edited',
+  editedAt: 'editedAt',
+  sentiment: 'sentiment',
+  emotion: 'emotion',
+  riskScore: 'riskScore',
+  techniques: 'techniques',
+  hasAudio: 'hasAudio',
+  audioDuration: 'audioDuration',
+  audioUrl: 'audioUrl'
+};
+
+exports.Prisma.AIPersonalizationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  therapistId: 'therapistId',
+  preferredStyle: 'preferredStyle',
+  preferredTechniques: 'preferredTechniques',
+  preferredTopics: 'preferredTopics',
+  avoidTopics: 'avoidTopics',
+  responseLength: 'responseLength',
+  responseComplexity: 'responseComplexity',
+  empathyLevel: 'empathyLevel',
+  directness: 'directness',
+  culturalBackground: 'culturalBackground',
+  languagePreference: 'languagePreference',
+  timezone: 'timezone',
+  pronouns: 'pronouns',
+  learnedPatterns: 'learnedPatterns',
+  effectiveTechniques: 'effectiveTechniques',
+  triggerPatterns: 'triggerPatterns',
+  copingStrategies: 'copingStrategies',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AIExerciseSessionScalarFieldEnum = {
+  id: 'id',
+  sessionId: 'sessionId',
+  userId: 'userId',
+  exerciseType: 'exerciseType',
+  exerciseName: 'exerciseName',
+  category: 'category',
+  difficulty: 'difficulty',
+  duration: 'duration',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  completed: 'completed',
+  progress: 'progress',
+  results: 'results',
+  feedback: 'feedback',
+  improvement: 'improvement',
+  moodBefore: 'moodBefore',
+  moodAfter: 'moodAfter'
+};
+
+exports.Prisma.AITherapyInsightScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  insightType: 'insightType',
+  title: 'title',
+  description: 'description',
+  significance: 'significance',
+  dataPoints: 'dataPoints',
+  patterns: 'patterns',
+  trends: 'trends',
+  recommendations: 'recommendations',
+  actions: 'actions',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  generatedAt: 'generatedAt',
+  viewed: 'viewed',
+  viewedAt: 'viewedAt',
+  helpful: 'helpful',
+  dismissed: 'dismissed'
+};
+
+exports.Prisma.AITherapyGoalScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  goalType: 'goalType',
+  title: 'title',
+  description: 'description',
+  category: 'category',
+  priority: 'priority',
+  specific: 'specific',
+  measurable: 'measurable',
+  achievable: 'achievable',
+  relevant: 'relevant',
+  timebound: 'timebound',
+  status: 'status',
+  progress: 'progress',
+  milestones: 'milestones',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  completedAt: 'completedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1195,6 +1350,73 @@ exports.InteractionType = exports.$Enums.InteractionType = {
   RATE: 'RATE'
 };
 
+exports.AISessionType = exports.$Enums.AISessionType = {
+  CRISIS: 'CRISIS',
+  SCHEDULED: 'SCHEDULED',
+  CHECK_IN: 'CHECK_IN',
+  INTENSIVE: 'INTENSIVE',
+  FOLLOWUP: 'FOLLOWUP',
+  ASSESSMENT: 'ASSESSMENT'
+};
+
+exports.AISessionStatus = exports.$Enums.AISessionStatus = {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  COMPLETED: 'COMPLETED',
+  ABANDONED: 'ABANDONED',
+  ESCALATED: 'ESCALATED'
+};
+
+exports.AIMessageType = exports.$Enums.AIMessageType = {
+  TEXT: 'TEXT',
+  AUDIO: 'AUDIO',
+  ASSESSMENT: 'ASSESSMENT',
+  INTERVENTION: 'INTERVENTION',
+  EXERCISE: 'EXERCISE',
+  RESOURCE: 'RESOURCE'
+};
+
+exports.AIMessageSender = exports.$Enums.AIMessageSender = {
+  USER: 'USER',
+  THERAPIST: 'THERAPIST',
+  SYSTEM: 'SYSTEM'
+};
+
+exports.AIExerciseType = exports.$Enums.AIExerciseType = {
+  CBT_WORKSHEET: 'CBT_WORKSHEET',
+  THOUGHT_RECORD: 'THOUGHT_RECORD',
+  BREATHING: 'BREATHING',
+  MEDITATION: 'MEDITATION',
+  GROUNDING: 'GROUNDING',
+  JOURNALING: 'JOURNALING',
+  MOOD_CHECK: 'MOOD_CHECK',
+  PMR: 'PMR',
+  VISUALIZATION: 'VISUALIZATION',
+  BEHAVIORAL_ACTIVATION: 'BEHAVIORAL_ACTIVATION',
+  VALUES_CLARIFICATION: 'VALUES_CLARIFICATION',
+  EXPOSURE_THERAPY: 'EXPOSURE_THERAPY'
+};
+
+exports.AIInsightType = exports.$Enums.AIInsightType = {
+  MOOD_TREND: 'MOOD_TREND',
+  TRIGGER_PATTERN: 'TRIGGER_PATTERN',
+  PROGRESS_REPORT: 'PROGRESS_REPORT',
+  BREAKTHROUGH: 'BREAKTHROUGH',
+  WARNING_SIGN: 'WARNING_SIGN',
+  RECOMMENDATION: 'RECOMMENDATION',
+  WEEKLY_SUMMARY: 'WEEKLY_SUMMARY',
+  MONTHLY_REPORT: 'MONTHLY_REPORT'
+};
+
+exports.AIGoalStatus = exports.$Enums.AIGoalStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  COMPLETED: 'COMPLETED',
+  ABANDONED: 'ABANDONED',
+  REVISED: 'REVISED'
+};
+
 exports.Prisma.ModelName = {
   CrisisSession: 'CrisisSession',
   CrisisMessage: 'CrisisMessage',
@@ -1233,7 +1455,14 @@ exports.Prisma.ModelName = {
   GroundingTechnique: 'GroundingTechnique',
   GroundingSession: 'GroundingSession',
   SelfHelpResource: 'SelfHelpResource',
-  SelfHelpInteraction: 'SelfHelpInteraction'
+  SelfHelpInteraction: 'SelfHelpInteraction',
+  AITherapist: 'AITherapist',
+  AITherapySession: 'AITherapySession',
+  AITherapyMessage: 'AITherapyMessage',
+  AIPersonalization: 'AIPersonalization',
+  AIExerciseSession: 'AIExerciseSession',
+  AITherapyInsight: 'AITherapyInsight',
+  AITherapyGoal: 'AITherapyGoal'
 };
 
 /**

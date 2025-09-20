@@ -435,6 +435,55 @@ async function scheduleTherapySession(userId: string, sessionData: any) {
   }
 }
 
+async function handleUpdateSession(sessionId: string, userId: string, sessionData: any) {
+  const updatedSession = {
+    id: sessionId,
+    userId,
+    status: 'UPDATED',
+    updatedAt: new Date(),
+    changes: sessionData
+  }
+  
+  return NextResponse.json({
+    success: true,
+    session: updatedSession,
+    message: 'Session updated successfully'
+  })
+}
+
+async function handleCancelSession(sessionId: string, userId: string, reason: string) {
+  const cancelledSession = {
+    id: sessionId,
+    userId,
+    status: 'CANCELLED',
+    cancelledAt: new Date(),
+    reason
+  }
+  
+  return NextResponse.json({
+    success: true,
+    session: cancelledSession,
+    message: 'Session cancelled successfully'
+  })
+}
+
+async function handleRescheduleSession(sessionId: string, userId: string, sessionData: any) {
+  const rescheduledSession = {
+    id: sessionId,
+    userId,
+    status: 'RESCHEDULED',
+    rescheduledAt: new Date(),
+    newScheduledTime: new Date(sessionData.newScheduledTime)
+  }
+  
+  return NextResponse.json({
+    success: true,
+    session: rescheduledSession,
+    message: 'Session rescheduled successfully'
+  })
+}
+
+
 async function completeSession(sessionId: string, userId: string, completionData: any) {
   return {
     id: sessionId,

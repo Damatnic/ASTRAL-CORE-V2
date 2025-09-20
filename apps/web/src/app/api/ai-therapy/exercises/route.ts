@@ -70,7 +70,7 @@ async function handleListExercises(userId: string, category: string | null, diff
   return NextResponse.json({
     exercises: exercises.map(exercise => ({
       ...exercise,
-      userProgress: userProgress[exercise.id] || null,
+      userProgress: userProgress[exercise.id as keyof typeof userProgress] || null,
       recommended: recommendations.includes(exercise.id)
     })),
     categories: getExerciseCategories(),
@@ -1391,15 +1391,16 @@ function generateSmartRecommendations(progress: any, preferences: any, needs: an
 }
 
 function generateRecommendationReasoning(recommendations: any[]): Record<string, string> {
-  const reasoning = {}
+  const reasoning: Record<string, string> = {}
   
   recommendations.forEach(rec => {
-    reasoning[rec.exerciseId] = {
+    const reasonMap = {
       high_effectiveness: 'This exercise has been very effective for you in the past',
       anxiety_relief: 'Recommended based on your recent anxiety levels',
       grounding_needed: 'Helpful for feeling more present and centered',
       depression_support: 'Can help improve mood and activity levels'
-    }[rec.reason] || 'Recommended for your current situation'
+    }
+    reasoning[rec.exerciseId] = reasonMap[rec.reason as keyof typeof reasonMap] || 'Recommended for your current situation'
   })
   
   return reasoning
@@ -1498,7 +1499,7 @@ function findBestPerforming(history: any[]): string {
   
   const averages = Object.entries(byExercise).map(([id, scores]) => ({
     exerciseId: id,
-    averageScore: scores.reduce((sum, s) => sum + s, 0) / scores.length
+    averageScore: (scores as number[]).reduce((sum, s) => sum + s, 0) / (scores as number[]).length
   }))
   
   return averages.sort((a, b) => b.averageScore - a.averageScore)[0].exerciseId
@@ -1613,11 +1614,11 @@ async function createCustomizedExercise(userId: string, exerciseId: string, cust
   }
   
   if (customizations.pacing) {
-    customized.pacing = customizations.pacing
+    (customized as any).pacing = customizations.pacing
   }
   
   if (customizations.guidance) {
-    customized.guidanceLevel = customizations.guidance
+    (customized as any).guidanceLevel = customizations.guidance
   }
   
   // Save customization preferences

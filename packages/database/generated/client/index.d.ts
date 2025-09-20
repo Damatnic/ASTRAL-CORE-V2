@@ -203,6 +203,41 @@ export type SelfHelpResource = $Result.DefaultSelection<Prisma.$SelfHelpResource
  * 
  */
 export type SelfHelpInteraction = $Result.DefaultSelection<Prisma.$SelfHelpInteractionPayload>
+/**
+ * Model AITherapist
+ * 
+ */
+export type AITherapist = $Result.DefaultSelection<Prisma.$AITherapistPayload>
+/**
+ * Model AITherapySession
+ * 
+ */
+export type AITherapySession = $Result.DefaultSelection<Prisma.$AITherapySessionPayload>
+/**
+ * Model AITherapyMessage
+ * 
+ */
+export type AITherapyMessage = $Result.DefaultSelection<Prisma.$AITherapyMessagePayload>
+/**
+ * Model AIPersonalization
+ * 
+ */
+export type AIPersonalization = $Result.DefaultSelection<Prisma.$AIPersonalizationPayload>
+/**
+ * Model AIExerciseSession
+ * 
+ */
+export type AIExerciseSession = $Result.DefaultSelection<Prisma.$AIExerciseSessionPayload>
+/**
+ * Model AITherapyInsight
+ * 
+ */
+export type AITherapyInsight = $Result.DefaultSelection<Prisma.$AITherapyInsightPayload>
+/**
+ * Model AITherapyGoal
+ * 
+ */
+export type AITherapyGoal = $Result.DefaultSelection<Prisma.$AITherapyGoalPayload>
 
 /**
  * Enums
@@ -755,6 +790,94 @@ export const InteractionType: {
 
 export type InteractionType = (typeof InteractionType)[keyof typeof InteractionType]
 
+
+export const AISessionType: {
+  CRISIS: 'CRISIS',
+  SCHEDULED: 'SCHEDULED',
+  CHECK_IN: 'CHECK_IN',
+  INTENSIVE: 'INTENSIVE',
+  FOLLOWUP: 'FOLLOWUP',
+  ASSESSMENT: 'ASSESSMENT'
+};
+
+export type AISessionType = (typeof AISessionType)[keyof typeof AISessionType]
+
+
+export const AISessionStatus: {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  COMPLETED: 'COMPLETED',
+  ABANDONED: 'ABANDONED',
+  ESCALATED: 'ESCALATED'
+};
+
+export type AISessionStatus = (typeof AISessionStatus)[keyof typeof AISessionStatus]
+
+
+export const AIMessageType: {
+  TEXT: 'TEXT',
+  AUDIO: 'AUDIO',
+  ASSESSMENT: 'ASSESSMENT',
+  INTERVENTION: 'INTERVENTION',
+  EXERCISE: 'EXERCISE',
+  RESOURCE: 'RESOURCE'
+};
+
+export type AIMessageType = (typeof AIMessageType)[keyof typeof AIMessageType]
+
+
+export const AIMessageSender: {
+  USER: 'USER',
+  THERAPIST: 'THERAPIST',
+  SYSTEM: 'SYSTEM'
+};
+
+export type AIMessageSender = (typeof AIMessageSender)[keyof typeof AIMessageSender]
+
+
+export const AIExerciseType: {
+  CBT_WORKSHEET: 'CBT_WORKSHEET',
+  THOUGHT_RECORD: 'THOUGHT_RECORD',
+  BREATHING: 'BREATHING',
+  MEDITATION: 'MEDITATION',
+  GROUNDING: 'GROUNDING',
+  JOURNALING: 'JOURNALING',
+  MOOD_CHECK: 'MOOD_CHECK',
+  PMR: 'PMR',
+  VISUALIZATION: 'VISUALIZATION',
+  BEHAVIORAL_ACTIVATION: 'BEHAVIORAL_ACTIVATION',
+  VALUES_CLARIFICATION: 'VALUES_CLARIFICATION',
+  EXPOSURE_THERAPY: 'EXPOSURE_THERAPY'
+};
+
+export type AIExerciseType = (typeof AIExerciseType)[keyof typeof AIExerciseType]
+
+
+export const AIInsightType: {
+  MOOD_TREND: 'MOOD_TREND',
+  TRIGGER_PATTERN: 'TRIGGER_PATTERN',
+  PROGRESS_REPORT: 'PROGRESS_REPORT',
+  BREAKTHROUGH: 'BREAKTHROUGH',
+  WARNING_SIGN: 'WARNING_SIGN',
+  RECOMMENDATION: 'RECOMMENDATION',
+  WEEKLY_SUMMARY: 'WEEKLY_SUMMARY',
+  MONTHLY_REPORT: 'MONTHLY_REPORT'
+};
+
+export type AIInsightType = (typeof AIInsightType)[keyof typeof AIInsightType]
+
+
+export const AIGoalStatus: {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  COMPLETED: 'COMPLETED',
+  ABANDONED: 'ABANDONED',
+  REVISED: 'REVISED'
+};
+
+export type AIGoalStatus = (typeof AIGoalStatus)[keyof typeof AIGoalStatus]
+
 }
 
 export type CrisisStatus = $Enums.CrisisStatus
@@ -940,6 +1063,34 @@ export const ResourceType: typeof $Enums.ResourceType
 export type InteractionType = $Enums.InteractionType
 
 export const InteractionType: typeof $Enums.InteractionType
+
+export type AISessionType = $Enums.AISessionType
+
+export const AISessionType: typeof $Enums.AISessionType
+
+export type AISessionStatus = $Enums.AISessionStatus
+
+export const AISessionStatus: typeof $Enums.AISessionStatus
+
+export type AIMessageType = $Enums.AIMessageType
+
+export const AIMessageType: typeof $Enums.AIMessageType
+
+export type AIMessageSender = $Enums.AIMessageSender
+
+export const AIMessageSender: typeof $Enums.AIMessageSender
+
+export type AIExerciseType = $Enums.AIExerciseType
+
+export const AIExerciseType: typeof $Enums.AIExerciseType
+
+export type AIInsightType = $Enums.AIInsightType
+
+export const AIInsightType: typeof $Enums.AIInsightType
+
+export type AIGoalStatus = $Enums.AIGoalStatus
+
+export const AIGoalStatus: typeof $Enums.AIGoalStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -1438,6 +1589,76 @@ export class PrismaClient<
     * ```
     */
   get selfHelpInteraction(): Prisma.SelfHelpInteractionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aITherapist`: Exposes CRUD operations for the **AITherapist** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AITherapists
+    * const aITherapists = await prisma.aITherapist.findMany()
+    * ```
+    */
+  get aITherapist(): Prisma.AITherapistDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aITherapySession`: Exposes CRUD operations for the **AITherapySession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AITherapySessions
+    * const aITherapySessions = await prisma.aITherapySession.findMany()
+    * ```
+    */
+  get aITherapySession(): Prisma.AITherapySessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aITherapyMessage`: Exposes CRUD operations for the **AITherapyMessage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AITherapyMessages
+    * const aITherapyMessages = await prisma.aITherapyMessage.findMany()
+    * ```
+    */
+  get aITherapyMessage(): Prisma.AITherapyMessageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aIPersonalization`: Exposes CRUD operations for the **AIPersonalization** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AIPersonalizations
+    * const aIPersonalizations = await prisma.aIPersonalization.findMany()
+    * ```
+    */
+  get aIPersonalization(): Prisma.AIPersonalizationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aIExerciseSession`: Exposes CRUD operations for the **AIExerciseSession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AIExerciseSessions
+    * const aIExerciseSessions = await prisma.aIExerciseSession.findMany()
+    * ```
+    */
+  get aIExerciseSession(): Prisma.AIExerciseSessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aITherapyInsight`: Exposes CRUD operations for the **AITherapyInsight** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AITherapyInsights
+    * const aITherapyInsights = await prisma.aITherapyInsight.findMany()
+    * ```
+    */
+  get aITherapyInsight(): Prisma.AITherapyInsightDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aITherapyGoal`: Exposes CRUD operations for the **AITherapyGoal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AITherapyGoals
+    * const aITherapyGoals = await prisma.aITherapyGoal.findMany()
+    * ```
+    */
+  get aITherapyGoal(): Prisma.AITherapyGoalDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1915,7 +2136,14 @@ export namespace Prisma {
     GroundingTechnique: 'GroundingTechnique',
     GroundingSession: 'GroundingSession',
     SelfHelpResource: 'SelfHelpResource',
-    SelfHelpInteraction: 'SelfHelpInteraction'
+    SelfHelpInteraction: 'SelfHelpInteraction',
+    AITherapist: 'AITherapist',
+    AITherapySession: 'AITherapySession',
+    AITherapyMessage: 'AITherapyMessage',
+    AIPersonalization: 'AIPersonalization',
+    AIExerciseSession: 'AIExerciseSession',
+    AITherapyInsight: 'AITherapyInsight',
+    AITherapyGoal: 'AITherapyGoal'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1934,7 +2162,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "crisisSession" | "crisisMessage" | "crisisEscalation" | "tetherLink" | "tetherPulse" | "tetherEmergency" | "volunteer" | "volunteerTraining" | "volunteerSession" | "volunteerFeedback" | "crisisResourceUsage" | "safetyReport" | "auditLog" | "analyticsEvent" | "performanceMetric" | "systemHealth" | "crisisResource" | "publicMetrics" | "emergencyContact" | "emergencyNotification" | "webSocketConnection" | "user" | "moodEntry" | "safetyPlan" | "safetyPlanVersion" | "userProfile" | "achievement" | "userAchievement" | "challenge" | "userChallenge" | "userActivity" | "journalEntry" | "breathingExercise" | "breathingSession" | "groundingTechnique" | "groundingSession" | "selfHelpResource" | "selfHelpInteraction"
+      modelProps: "crisisSession" | "crisisMessage" | "crisisEscalation" | "tetherLink" | "tetherPulse" | "tetherEmergency" | "volunteer" | "volunteerTraining" | "volunteerSession" | "volunteerFeedback" | "crisisResourceUsage" | "safetyReport" | "auditLog" | "analyticsEvent" | "performanceMetric" | "systemHealth" | "crisisResource" | "publicMetrics" | "emergencyContact" | "emergencyNotification" | "webSocketConnection" | "user" | "moodEntry" | "safetyPlan" | "safetyPlanVersion" | "userProfile" | "achievement" | "userAchievement" | "challenge" | "userChallenge" | "userActivity" | "journalEntry" | "breathingExercise" | "breathingSession" | "groundingTechnique" | "groundingSession" | "selfHelpResource" | "selfHelpInteraction" | "aITherapist" | "aITherapySession" | "aITherapyMessage" | "aIPersonalization" | "aIExerciseSession" | "aITherapyInsight" | "aITherapyGoal"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4750,6 +4978,524 @@ export namespace Prisma {
           }
         }
       }
+      AITherapist: {
+        payload: Prisma.$AITherapistPayload<ExtArgs>
+        fields: Prisma.AITherapistFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AITherapistFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AITherapistFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>
+          }
+          findFirst: {
+            args: Prisma.AITherapistFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AITherapistFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>
+          }
+          findMany: {
+            args: Prisma.AITherapistFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>[]
+          }
+          create: {
+            args: Prisma.AITherapistCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>
+          }
+          createMany: {
+            args: Prisma.AITherapistCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AITherapistCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>[]
+          }
+          delete: {
+            args: Prisma.AITherapistDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>
+          }
+          update: {
+            args: Prisma.AITherapistUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>
+          }
+          deleteMany: {
+            args: Prisma.AITherapistDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AITherapistUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AITherapistUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>[]
+          }
+          upsert: {
+            args: Prisma.AITherapistUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapistPayload>
+          }
+          aggregate: {
+            args: Prisma.AITherapistAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAITherapist>
+          }
+          groupBy: {
+            args: Prisma.AITherapistGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AITherapistGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AITherapistCountArgs<ExtArgs>
+            result: $Utils.Optional<AITherapistCountAggregateOutputType> | number
+          }
+        }
+      }
+      AITherapySession: {
+        payload: Prisma.$AITherapySessionPayload<ExtArgs>
+        fields: Prisma.AITherapySessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AITherapySessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AITherapySessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>
+          }
+          findFirst: {
+            args: Prisma.AITherapySessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AITherapySessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>
+          }
+          findMany: {
+            args: Prisma.AITherapySessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>[]
+          }
+          create: {
+            args: Prisma.AITherapySessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>
+          }
+          createMany: {
+            args: Prisma.AITherapySessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AITherapySessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>[]
+          }
+          delete: {
+            args: Prisma.AITherapySessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>
+          }
+          update: {
+            args: Prisma.AITherapySessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.AITherapySessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AITherapySessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AITherapySessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.AITherapySessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapySessionPayload>
+          }
+          aggregate: {
+            args: Prisma.AITherapySessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAITherapySession>
+          }
+          groupBy: {
+            args: Prisma.AITherapySessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AITherapySessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AITherapySessionCountArgs<ExtArgs>
+            result: $Utils.Optional<AITherapySessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      AITherapyMessage: {
+        payload: Prisma.$AITherapyMessagePayload<ExtArgs>
+        fields: Prisma.AITherapyMessageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AITherapyMessageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AITherapyMessageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>
+          }
+          findFirst: {
+            args: Prisma.AITherapyMessageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AITherapyMessageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>
+          }
+          findMany: {
+            args: Prisma.AITherapyMessageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>[]
+          }
+          create: {
+            args: Prisma.AITherapyMessageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>
+          }
+          createMany: {
+            args: Prisma.AITherapyMessageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AITherapyMessageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>[]
+          }
+          delete: {
+            args: Prisma.AITherapyMessageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>
+          }
+          update: {
+            args: Prisma.AITherapyMessageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>
+          }
+          deleteMany: {
+            args: Prisma.AITherapyMessageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AITherapyMessageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AITherapyMessageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>[]
+          }
+          upsert: {
+            args: Prisma.AITherapyMessageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyMessagePayload>
+          }
+          aggregate: {
+            args: Prisma.AITherapyMessageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAITherapyMessage>
+          }
+          groupBy: {
+            args: Prisma.AITherapyMessageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AITherapyMessageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AITherapyMessageCountArgs<ExtArgs>
+            result: $Utils.Optional<AITherapyMessageCountAggregateOutputType> | number
+          }
+        }
+      }
+      AIPersonalization: {
+        payload: Prisma.$AIPersonalizationPayload<ExtArgs>
+        fields: Prisma.AIPersonalizationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AIPersonalizationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AIPersonalizationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>
+          }
+          findFirst: {
+            args: Prisma.AIPersonalizationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AIPersonalizationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>
+          }
+          findMany: {
+            args: Prisma.AIPersonalizationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>[]
+          }
+          create: {
+            args: Prisma.AIPersonalizationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>
+          }
+          createMany: {
+            args: Prisma.AIPersonalizationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AIPersonalizationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>[]
+          }
+          delete: {
+            args: Prisma.AIPersonalizationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>
+          }
+          update: {
+            args: Prisma.AIPersonalizationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>
+          }
+          deleteMany: {
+            args: Prisma.AIPersonalizationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AIPersonalizationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AIPersonalizationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>[]
+          }
+          upsert: {
+            args: Prisma.AIPersonalizationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIPersonalizationPayload>
+          }
+          aggregate: {
+            args: Prisma.AIPersonalizationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAIPersonalization>
+          }
+          groupBy: {
+            args: Prisma.AIPersonalizationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AIPersonalizationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AIPersonalizationCountArgs<ExtArgs>
+            result: $Utils.Optional<AIPersonalizationCountAggregateOutputType> | number
+          }
+        }
+      }
+      AIExerciseSession: {
+        payload: Prisma.$AIExerciseSessionPayload<ExtArgs>
+        fields: Prisma.AIExerciseSessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AIExerciseSessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AIExerciseSessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>
+          }
+          findFirst: {
+            args: Prisma.AIExerciseSessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AIExerciseSessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>
+          }
+          findMany: {
+            args: Prisma.AIExerciseSessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>[]
+          }
+          create: {
+            args: Prisma.AIExerciseSessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>
+          }
+          createMany: {
+            args: Prisma.AIExerciseSessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AIExerciseSessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>[]
+          }
+          delete: {
+            args: Prisma.AIExerciseSessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>
+          }
+          update: {
+            args: Prisma.AIExerciseSessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.AIExerciseSessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AIExerciseSessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AIExerciseSessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.AIExerciseSessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AIExerciseSessionPayload>
+          }
+          aggregate: {
+            args: Prisma.AIExerciseSessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAIExerciseSession>
+          }
+          groupBy: {
+            args: Prisma.AIExerciseSessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AIExerciseSessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AIExerciseSessionCountArgs<ExtArgs>
+            result: $Utils.Optional<AIExerciseSessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      AITherapyInsight: {
+        payload: Prisma.$AITherapyInsightPayload<ExtArgs>
+        fields: Prisma.AITherapyInsightFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AITherapyInsightFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AITherapyInsightFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>
+          }
+          findFirst: {
+            args: Prisma.AITherapyInsightFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AITherapyInsightFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>
+          }
+          findMany: {
+            args: Prisma.AITherapyInsightFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>[]
+          }
+          create: {
+            args: Prisma.AITherapyInsightCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>
+          }
+          createMany: {
+            args: Prisma.AITherapyInsightCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AITherapyInsightCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>[]
+          }
+          delete: {
+            args: Prisma.AITherapyInsightDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>
+          }
+          update: {
+            args: Prisma.AITherapyInsightUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>
+          }
+          deleteMany: {
+            args: Prisma.AITherapyInsightDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AITherapyInsightUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AITherapyInsightUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>[]
+          }
+          upsert: {
+            args: Prisma.AITherapyInsightUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyInsightPayload>
+          }
+          aggregate: {
+            args: Prisma.AITherapyInsightAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAITherapyInsight>
+          }
+          groupBy: {
+            args: Prisma.AITherapyInsightGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AITherapyInsightGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AITherapyInsightCountArgs<ExtArgs>
+            result: $Utils.Optional<AITherapyInsightCountAggregateOutputType> | number
+          }
+        }
+      }
+      AITherapyGoal: {
+        payload: Prisma.$AITherapyGoalPayload<ExtArgs>
+        fields: Prisma.AITherapyGoalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AITherapyGoalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AITherapyGoalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>
+          }
+          findFirst: {
+            args: Prisma.AITherapyGoalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AITherapyGoalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>
+          }
+          findMany: {
+            args: Prisma.AITherapyGoalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>[]
+          }
+          create: {
+            args: Prisma.AITherapyGoalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>
+          }
+          createMany: {
+            args: Prisma.AITherapyGoalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AITherapyGoalCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>[]
+          }
+          delete: {
+            args: Prisma.AITherapyGoalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>
+          }
+          update: {
+            args: Prisma.AITherapyGoalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>
+          }
+          deleteMany: {
+            args: Prisma.AITherapyGoalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AITherapyGoalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AITherapyGoalUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>[]
+          }
+          upsert: {
+            args: Prisma.AITherapyGoalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AITherapyGoalPayload>
+          }
+          aggregate: {
+            args: Prisma.AITherapyGoalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAITherapyGoal>
+          }
+          groupBy: {
+            args: Prisma.AITherapyGoalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AITherapyGoalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AITherapyGoalCountArgs<ExtArgs>
+            result: $Utils.Optional<AITherapyGoalCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -4884,6 +5630,13 @@ export namespace Prisma {
     groundingSession?: GroundingSessionOmit
     selfHelpResource?: SelfHelpResourceOmit
     selfHelpInteraction?: SelfHelpInteractionOmit
+    aITherapist?: AITherapistOmit
+    aITherapySession?: AITherapySessionOmit
+    aITherapyMessage?: AITherapyMessageOmit
+    aIPersonalization?: AIPersonalizationOmit
+    aIExerciseSession?: AIExerciseSessionOmit
+    aITherapyInsight?: AITherapyInsightOmit
+    aITherapyGoal?: AITherapyGoalOmit
   }
 
   /* Types for Logging */
@@ -5423,6 +6176,86 @@ export namespace Prisma {
    */
   export type SelfHelpResourceCountOutputTypeCountInteractionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SelfHelpInteractionWhereInput
+  }
+
+
+  /**
+   * Count Type AITherapistCountOutputType
+   */
+
+  export type AITherapistCountOutputType = {
+    sessions: number
+    personalizations: number
+  }
+
+  export type AITherapistCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sessions?: boolean | AITherapistCountOutputTypeCountSessionsArgs
+    personalizations?: boolean | AITherapistCountOutputTypeCountPersonalizationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AITherapistCountOutputType without action
+   */
+  export type AITherapistCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapistCountOutputType
+     */
+    select?: AITherapistCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AITherapistCountOutputType without action
+   */
+  export type AITherapistCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapySessionWhereInput
+  }
+
+  /**
+   * AITherapistCountOutputType without action
+   */
+  export type AITherapistCountOutputTypeCountPersonalizationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AIPersonalizationWhereInput
+  }
+
+
+  /**
+   * Count Type AITherapySessionCountOutputType
+   */
+
+  export type AITherapySessionCountOutputType = {
+    messages: number
+    exercises: number
+  }
+
+  export type AITherapySessionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    messages?: boolean | AITherapySessionCountOutputTypeCountMessagesArgs
+    exercises?: boolean | AITherapySessionCountOutputTypeCountExercisesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AITherapySessionCountOutputType without action
+   */
+  export type AITherapySessionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySessionCountOutputType
+     */
+    select?: AITherapySessionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AITherapySessionCountOutputType without action
+   */
+  export type AITherapySessionCountOutputTypeCountMessagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapyMessageWhereInput
+  }
+
+  /**
+   * AITherapySessionCountOutputType without action
+   */
+  export type AITherapySessionCountOutputTypeCountExercisesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AIExerciseSessionWhereInput
   }
 
 
@@ -51409,6 +52242,8929 @@ export namespace Prisma {
 
 
   /**
+   * Model AITherapist
+   */
+
+  export type AggregateAITherapist = {
+    _count: AITherapistCountAggregateOutputType | null
+    _avg: AITherapistAvgAggregateOutputType | null
+    _sum: AITherapistSumAggregateOutputType | null
+    _min: AITherapistMinAggregateOutputType | null
+    _max: AITherapistMaxAggregateOutputType | null
+  }
+
+  export type AITherapistAvgAggregateOutputType = {
+    sessionsCompleted: number | null
+    userRating: number | null
+    responseTime: number | null
+  }
+
+  export type AITherapistSumAggregateOutputType = {
+    sessionsCompleted: number | null
+    userRating: number | null
+    responseTime: number | null
+  }
+
+  export type AITherapistMinAggregateOutputType = {
+    id: string | null
+    therapistId: string | null
+    name: string | null
+    avatar: string | null
+    personality: string | null
+    description: string | null
+    specialties: string | null
+    approaches: string | null
+    bestFor: string | null
+    features: string | null
+    availability: string | null
+    sessionsCompleted: number | null
+    userRating: number | null
+    responseTime: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AITherapistMaxAggregateOutputType = {
+    id: string | null
+    therapistId: string | null
+    name: string | null
+    avatar: string | null
+    personality: string | null
+    description: string | null
+    specialties: string | null
+    approaches: string | null
+    bestFor: string | null
+    features: string | null
+    availability: string | null
+    sessionsCompleted: number | null
+    userRating: number | null
+    responseTime: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AITherapistCountAggregateOutputType = {
+    id: number
+    therapistId: number
+    name: number
+    avatar: number
+    personality: number
+    description: number
+    specialties: number
+    approaches: number
+    bestFor: number
+    features: number
+    availability: number
+    sessionsCompleted: number
+    userRating: number
+    responseTime: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AITherapistAvgAggregateInputType = {
+    sessionsCompleted?: true
+    userRating?: true
+    responseTime?: true
+  }
+
+  export type AITherapistSumAggregateInputType = {
+    sessionsCompleted?: true
+    userRating?: true
+    responseTime?: true
+  }
+
+  export type AITherapistMinAggregateInputType = {
+    id?: true
+    therapistId?: true
+    name?: true
+    avatar?: true
+    personality?: true
+    description?: true
+    specialties?: true
+    approaches?: true
+    bestFor?: true
+    features?: true
+    availability?: true
+    sessionsCompleted?: true
+    userRating?: true
+    responseTime?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AITherapistMaxAggregateInputType = {
+    id?: true
+    therapistId?: true
+    name?: true
+    avatar?: true
+    personality?: true
+    description?: true
+    specialties?: true
+    approaches?: true
+    bestFor?: true
+    features?: true
+    availability?: true
+    sessionsCompleted?: true
+    userRating?: true
+    responseTime?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AITherapistCountAggregateInputType = {
+    id?: true
+    therapistId?: true
+    name?: true
+    avatar?: true
+    personality?: true
+    description?: true
+    specialties?: true
+    approaches?: true
+    bestFor?: true
+    features?: true
+    availability?: true
+    sessionsCompleted?: true
+    userRating?: true
+    responseTime?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AITherapistAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapist to aggregate.
+     */
+    where?: AITherapistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapists to fetch.
+     */
+    orderBy?: AITherapistOrderByWithRelationInput | AITherapistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AITherapistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AITherapists
+    **/
+    _count?: true | AITherapistCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AITherapistAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AITherapistSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AITherapistMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AITherapistMaxAggregateInputType
+  }
+
+  export type GetAITherapistAggregateType<T extends AITherapistAggregateArgs> = {
+        [P in keyof T & keyof AggregateAITherapist]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAITherapist[P]>
+      : GetScalarType<T[P], AggregateAITherapist[P]>
+  }
+
+
+
+
+  export type AITherapistGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapistWhereInput
+    orderBy?: AITherapistOrderByWithAggregationInput | AITherapistOrderByWithAggregationInput[]
+    by: AITherapistScalarFieldEnum[] | AITherapistScalarFieldEnum
+    having?: AITherapistScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AITherapistCountAggregateInputType | true
+    _avg?: AITherapistAvgAggregateInputType
+    _sum?: AITherapistSumAggregateInputType
+    _min?: AITherapistMinAggregateInputType
+    _max?: AITherapistMaxAggregateInputType
+  }
+
+  export type AITherapistGroupByOutputType = {
+    id: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted: number
+    userRating: number
+    responseTime: number
+    createdAt: Date
+    updatedAt: Date
+    _count: AITherapistCountAggregateOutputType | null
+    _avg: AITherapistAvgAggregateOutputType | null
+    _sum: AITherapistSumAggregateOutputType | null
+    _min: AITherapistMinAggregateOutputType | null
+    _max: AITherapistMaxAggregateOutputType | null
+  }
+
+  type GetAITherapistGroupByPayload<T extends AITherapistGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AITherapistGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AITherapistGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AITherapistGroupByOutputType[P]>
+            : GetScalarType<T[P], AITherapistGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AITherapistSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    therapistId?: boolean
+    name?: boolean
+    avatar?: boolean
+    personality?: boolean
+    description?: boolean
+    specialties?: boolean
+    approaches?: boolean
+    bestFor?: boolean
+    features?: boolean
+    availability?: boolean
+    sessionsCompleted?: boolean
+    userRating?: boolean
+    responseTime?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    sessions?: boolean | AITherapist$sessionsArgs<ExtArgs>
+    personalizations?: boolean | AITherapist$personalizationsArgs<ExtArgs>
+    _count?: boolean | AITherapistCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapist"]>
+
+  export type AITherapistSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    therapistId?: boolean
+    name?: boolean
+    avatar?: boolean
+    personality?: boolean
+    description?: boolean
+    specialties?: boolean
+    approaches?: boolean
+    bestFor?: boolean
+    features?: boolean
+    availability?: boolean
+    sessionsCompleted?: boolean
+    userRating?: boolean
+    responseTime?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["aITherapist"]>
+
+  export type AITherapistSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    therapistId?: boolean
+    name?: boolean
+    avatar?: boolean
+    personality?: boolean
+    description?: boolean
+    specialties?: boolean
+    approaches?: boolean
+    bestFor?: boolean
+    features?: boolean
+    availability?: boolean
+    sessionsCompleted?: boolean
+    userRating?: boolean
+    responseTime?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["aITherapist"]>
+
+  export type AITherapistSelectScalar = {
+    id?: boolean
+    therapistId?: boolean
+    name?: boolean
+    avatar?: boolean
+    personality?: boolean
+    description?: boolean
+    specialties?: boolean
+    approaches?: boolean
+    bestFor?: boolean
+    features?: boolean
+    availability?: boolean
+    sessionsCompleted?: boolean
+    userRating?: boolean
+    responseTime?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AITherapistOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "therapistId" | "name" | "avatar" | "personality" | "description" | "specialties" | "approaches" | "bestFor" | "features" | "availability" | "sessionsCompleted" | "userRating" | "responseTime" | "createdAt" | "updatedAt", ExtArgs["result"]["aITherapist"]>
+  export type AITherapistInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sessions?: boolean | AITherapist$sessionsArgs<ExtArgs>
+    personalizations?: boolean | AITherapist$personalizationsArgs<ExtArgs>
+    _count?: boolean | AITherapistCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AITherapistIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type AITherapistIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $AITherapistPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AITherapist"
+    objects: {
+      sessions: Prisma.$AITherapySessionPayload<ExtArgs>[]
+      personalizations: Prisma.$AIPersonalizationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      therapistId: string
+      name: string
+      avatar: string
+      personality: string
+      description: string
+      specialties: string
+      approaches: string
+      bestFor: string
+      features: string
+      availability: string
+      sessionsCompleted: number
+      userRating: number
+      responseTime: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["aITherapist"]>
+    composites: {}
+  }
+
+  type AITherapistGetPayload<S extends boolean | null | undefined | AITherapistDefaultArgs> = $Result.GetResult<Prisma.$AITherapistPayload, S>
+
+  type AITherapistCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AITherapistFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AITherapistCountAggregateInputType | true
+    }
+
+  export interface AITherapistDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AITherapist'], meta: { name: 'AITherapist' } }
+    /**
+     * Find zero or one AITherapist that matches the filter.
+     * @param {AITherapistFindUniqueArgs} args - Arguments to find a AITherapist
+     * @example
+     * // Get one AITherapist
+     * const aITherapist = await prisma.aITherapist.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AITherapistFindUniqueArgs>(args: SelectSubset<T, AITherapistFindUniqueArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AITherapist that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AITherapistFindUniqueOrThrowArgs} args - Arguments to find a AITherapist
+     * @example
+     * // Get one AITherapist
+     * const aITherapist = await prisma.aITherapist.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AITherapistFindUniqueOrThrowArgs>(args: SelectSubset<T, AITherapistFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapist that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistFindFirstArgs} args - Arguments to find a AITherapist
+     * @example
+     * // Get one AITherapist
+     * const aITherapist = await prisma.aITherapist.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AITherapistFindFirstArgs>(args?: SelectSubset<T, AITherapistFindFirstArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapist that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistFindFirstOrThrowArgs} args - Arguments to find a AITherapist
+     * @example
+     * // Get one AITherapist
+     * const aITherapist = await prisma.aITherapist.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AITherapistFindFirstOrThrowArgs>(args?: SelectSubset<T, AITherapistFindFirstOrThrowArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AITherapists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AITherapists
+     * const aITherapists = await prisma.aITherapist.findMany()
+     * 
+     * // Get first 10 AITherapists
+     * const aITherapists = await prisma.aITherapist.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aITherapistWithIdOnly = await prisma.aITherapist.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AITherapistFindManyArgs>(args?: SelectSubset<T, AITherapistFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AITherapist.
+     * @param {AITherapistCreateArgs} args - Arguments to create a AITherapist.
+     * @example
+     * // Create one AITherapist
+     * const AITherapist = await prisma.aITherapist.create({
+     *   data: {
+     *     // ... data to create a AITherapist
+     *   }
+     * })
+     * 
+     */
+    create<T extends AITherapistCreateArgs>(args: SelectSubset<T, AITherapistCreateArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AITherapists.
+     * @param {AITherapistCreateManyArgs} args - Arguments to create many AITherapists.
+     * @example
+     * // Create many AITherapists
+     * const aITherapist = await prisma.aITherapist.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AITherapistCreateManyArgs>(args?: SelectSubset<T, AITherapistCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AITherapists and returns the data saved in the database.
+     * @param {AITherapistCreateManyAndReturnArgs} args - Arguments to create many AITherapists.
+     * @example
+     * // Create many AITherapists
+     * const aITherapist = await prisma.aITherapist.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AITherapists and only return the `id`
+     * const aITherapistWithIdOnly = await prisma.aITherapist.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AITherapistCreateManyAndReturnArgs>(args?: SelectSubset<T, AITherapistCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AITherapist.
+     * @param {AITherapistDeleteArgs} args - Arguments to delete one AITherapist.
+     * @example
+     * // Delete one AITherapist
+     * const AITherapist = await prisma.aITherapist.delete({
+     *   where: {
+     *     // ... filter to delete one AITherapist
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AITherapistDeleteArgs>(args: SelectSubset<T, AITherapistDeleteArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AITherapist.
+     * @param {AITherapistUpdateArgs} args - Arguments to update one AITherapist.
+     * @example
+     * // Update one AITherapist
+     * const aITherapist = await prisma.aITherapist.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AITherapistUpdateArgs>(args: SelectSubset<T, AITherapistUpdateArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AITherapists.
+     * @param {AITherapistDeleteManyArgs} args - Arguments to filter AITherapists to delete.
+     * @example
+     * // Delete a few AITherapists
+     * const { count } = await prisma.aITherapist.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AITherapistDeleteManyArgs>(args?: SelectSubset<T, AITherapistDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AITherapists
+     * const aITherapist = await prisma.aITherapist.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AITherapistUpdateManyArgs>(args: SelectSubset<T, AITherapistUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapists and returns the data updated in the database.
+     * @param {AITherapistUpdateManyAndReturnArgs} args - Arguments to update many AITherapists.
+     * @example
+     * // Update many AITherapists
+     * const aITherapist = await prisma.aITherapist.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AITherapists and only return the `id`
+     * const aITherapistWithIdOnly = await prisma.aITherapist.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AITherapistUpdateManyAndReturnArgs>(args: SelectSubset<T, AITherapistUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AITherapist.
+     * @param {AITherapistUpsertArgs} args - Arguments to update or create a AITherapist.
+     * @example
+     * // Update or create a AITherapist
+     * const aITherapist = await prisma.aITherapist.upsert({
+     *   create: {
+     *     // ... data to create a AITherapist
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AITherapist we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AITherapistUpsertArgs>(args: SelectSubset<T, AITherapistUpsertArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AITherapists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistCountArgs} args - Arguments to filter AITherapists to count.
+     * @example
+     * // Count the number of AITherapists
+     * const count = await prisma.aITherapist.count({
+     *   where: {
+     *     // ... the filter for the AITherapists we want to count
+     *   }
+     * })
+    **/
+    count<T extends AITherapistCountArgs>(
+      args?: Subset<T, AITherapistCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AITherapistCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AITherapist.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AITherapistAggregateArgs>(args: Subset<T, AITherapistAggregateArgs>): Prisma.PrismaPromise<GetAITherapistAggregateType<T>>
+
+    /**
+     * Group by AITherapist.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapistGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AITherapistGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AITherapistGroupByArgs['orderBy'] }
+        : { orderBy?: AITherapistGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AITherapistGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAITherapistGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AITherapist model
+   */
+  readonly fields: AITherapistFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AITherapist.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AITherapistClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sessions<T extends AITherapist$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, AITherapist$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    personalizations<T extends AITherapist$personalizationsArgs<ExtArgs> = {}>(args?: Subset<T, AITherapist$personalizationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AITherapist model
+   */
+  interface AITherapistFieldRefs {
+    readonly id: FieldRef<"AITherapist", 'String'>
+    readonly therapistId: FieldRef<"AITherapist", 'String'>
+    readonly name: FieldRef<"AITherapist", 'String'>
+    readonly avatar: FieldRef<"AITherapist", 'String'>
+    readonly personality: FieldRef<"AITherapist", 'String'>
+    readonly description: FieldRef<"AITherapist", 'String'>
+    readonly specialties: FieldRef<"AITherapist", 'String'>
+    readonly approaches: FieldRef<"AITherapist", 'String'>
+    readonly bestFor: FieldRef<"AITherapist", 'String'>
+    readonly features: FieldRef<"AITherapist", 'String'>
+    readonly availability: FieldRef<"AITherapist", 'String'>
+    readonly sessionsCompleted: FieldRef<"AITherapist", 'Int'>
+    readonly userRating: FieldRef<"AITherapist", 'Float'>
+    readonly responseTime: FieldRef<"AITherapist", 'Float'>
+    readonly createdAt: FieldRef<"AITherapist", 'DateTime'>
+    readonly updatedAt: FieldRef<"AITherapist", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AITherapist findUnique
+   */
+  export type AITherapistFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapist to fetch.
+     */
+    where: AITherapistWhereUniqueInput
+  }
+
+  /**
+   * AITherapist findUniqueOrThrow
+   */
+  export type AITherapistFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapist to fetch.
+     */
+    where: AITherapistWhereUniqueInput
+  }
+
+  /**
+   * AITherapist findFirst
+   */
+  export type AITherapistFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapist to fetch.
+     */
+    where?: AITherapistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapists to fetch.
+     */
+    orderBy?: AITherapistOrderByWithRelationInput | AITherapistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapists.
+     */
+    cursor?: AITherapistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapists.
+     */
+    distinct?: AITherapistScalarFieldEnum | AITherapistScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapist findFirstOrThrow
+   */
+  export type AITherapistFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapist to fetch.
+     */
+    where?: AITherapistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapists to fetch.
+     */
+    orderBy?: AITherapistOrderByWithRelationInput | AITherapistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapists.
+     */
+    cursor?: AITherapistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapists.
+     */
+    distinct?: AITherapistScalarFieldEnum | AITherapistScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapist findMany
+   */
+  export type AITherapistFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapists to fetch.
+     */
+    where?: AITherapistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapists to fetch.
+     */
+    orderBy?: AITherapistOrderByWithRelationInput | AITherapistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AITherapists.
+     */
+    cursor?: AITherapistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapists.
+     */
+    skip?: number
+    distinct?: AITherapistScalarFieldEnum | AITherapistScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapist create
+   */
+  export type AITherapistCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AITherapist.
+     */
+    data: XOR<AITherapistCreateInput, AITherapistUncheckedCreateInput>
+  }
+
+  /**
+   * AITherapist createMany
+   */
+  export type AITherapistCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AITherapists.
+     */
+    data: AITherapistCreateManyInput | AITherapistCreateManyInput[]
+  }
+
+  /**
+   * AITherapist createManyAndReturn
+   */
+  export type AITherapistCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * The data used to create many AITherapists.
+     */
+    data: AITherapistCreateManyInput | AITherapistCreateManyInput[]
+  }
+
+  /**
+   * AITherapist update
+   */
+  export type AITherapistUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AITherapist.
+     */
+    data: XOR<AITherapistUpdateInput, AITherapistUncheckedUpdateInput>
+    /**
+     * Choose, which AITherapist to update.
+     */
+    where: AITherapistWhereUniqueInput
+  }
+
+  /**
+   * AITherapist updateMany
+   */
+  export type AITherapistUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AITherapists.
+     */
+    data: XOR<AITherapistUpdateManyMutationInput, AITherapistUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapists to update
+     */
+    where?: AITherapistWhereInput
+    /**
+     * Limit how many AITherapists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapist updateManyAndReturn
+   */
+  export type AITherapistUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * The data used to update AITherapists.
+     */
+    data: XOR<AITherapistUpdateManyMutationInput, AITherapistUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapists to update
+     */
+    where?: AITherapistWhereInput
+    /**
+     * Limit how many AITherapists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapist upsert
+   */
+  export type AITherapistUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AITherapist to update in case it exists.
+     */
+    where: AITherapistWhereUniqueInput
+    /**
+     * In case the AITherapist found by the `where` argument doesn't exist, create a new AITherapist with this data.
+     */
+    create: XOR<AITherapistCreateInput, AITherapistUncheckedCreateInput>
+    /**
+     * In case the AITherapist was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AITherapistUpdateInput, AITherapistUncheckedUpdateInput>
+  }
+
+  /**
+   * AITherapist delete
+   */
+  export type AITherapistDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    /**
+     * Filter which AITherapist to delete.
+     */
+    where: AITherapistWhereUniqueInput
+  }
+
+  /**
+   * AITherapist deleteMany
+   */
+  export type AITherapistDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapists to delete
+     */
+    where?: AITherapistWhereInput
+    /**
+     * Limit how many AITherapists to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapist.sessions
+   */
+  export type AITherapist$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    where?: AITherapySessionWhereInput
+    orderBy?: AITherapySessionOrderByWithRelationInput | AITherapySessionOrderByWithRelationInput[]
+    cursor?: AITherapySessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AITherapySessionScalarFieldEnum | AITherapySessionScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapist.personalizations
+   */
+  export type AITherapist$personalizationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    where?: AIPersonalizationWhereInput
+    orderBy?: AIPersonalizationOrderByWithRelationInput | AIPersonalizationOrderByWithRelationInput[]
+    cursor?: AIPersonalizationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AIPersonalizationScalarFieldEnum | AIPersonalizationScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapist without action
+   */
+  export type AITherapistDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AITherapySession
+   */
+
+  export type AggregateAITherapySession = {
+    _count: AITherapySessionCountAggregateOutputType | null
+    _avg: AITherapySessionAvgAggregateOutputType | null
+    _sum: AITherapySessionSumAggregateOutputType | null
+    _min: AITherapySessionMinAggregateOutputType | null
+    _max: AITherapySessionMaxAggregateOutputType | null
+  }
+
+  export type AITherapySessionAvgAggregateOutputType = {
+    duration: number | null
+    pausedDuration: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    energyBefore: number | null
+    energyAfter: number | null
+    crisisLevel: number | null
+  }
+
+  export type AITherapySessionSumAggregateOutputType = {
+    duration: number | null
+    pausedDuration: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    energyBefore: number | null
+    energyAfter: number | null
+    crisisLevel: number | null
+  }
+
+  export type AITherapySessionMinAggregateOutputType = {
+    id: string | null
+    sessionToken: string | null
+    userId: string | null
+    therapistId: string | null
+    sessionType: $Enums.AISessionType | null
+    status: $Enums.AISessionStatus | null
+    startedAt: Date | null
+    endedAt: Date | null
+    duration: number | null
+    pausedAt: Date | null
+    pausedDuration: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    energyBefore: number | null
+    energyAfter: number | null
+    encryptedNotes: Uint8Array | null
+    encryptedInsights: Uint8Array | null
+    encryptedHomework: Uint8Array | null
+    encryptedGoals: Uint8Array | null
+    topics: string | null
+    techniques: string | null
+    interventions: string | null
+    breakthroughs: string | null
+    crisisDetected: boolean | null
+    crisisLevel: number | null
+    crisisInterventions: string | null
+  }
+
+  export type AITherapySessionMaxAggregateOutputType = {
+    id: string | null
+    sessionToken: string | null
+    userId: string | null
+    therapistId: string | null
+    sessionType: $Enums.AISessionType | null
+    status: $Enums.AISessionStatus | null
+    startedAt: Date | null
+    endedAt: Date | null
+    duration: number | null
+    pausedAt: Date | null
+    pausedDuration: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    energyBefore: number | null
+    energyAfter: number | null
+    encryptedNotes: Uint8Array | null
+    encryptedInsights: Uint8Array | null
+    encryptedHomework: Uint8Array | null
+    encryptedGoals: Uint8Array | null
+    topics: string | null
+    techniques: string | null
+    interventions: string | null
+    breakthroughs: string | null
+    crisisDetected: boolean | null
+    crisisLevel: number | null
+    crisisInterventions: string | null
+  }
+
+  export type AITherapySessionCountAggregateOutputType = {
+    id: number
+    sessionToken: number
+    userId: number
+    therapistId: number
+    sessionType: number
+    status: number
+    startedAt: number
+    endedAt: number
+    duration: number
+    pausedAt: number
+    pausedDuration: number
+    moodBefore: number
+    moodAfter: number
+    anxietyBefore: number
+    anxietyAfter: number
+    energyBefore: number
+    energyAfter: number
+    encryptedNotes: number
+    encryptedInsights: number
+    encryptedHomework: number
+    encryptedGoals: number
+    topics: number
+    techniques: number
+    interventions: number
+    breakthroughs: number
+    crisisDetected: number
+    crisisLevel: number
+    crisisInterventions: number
+    _all: number
+  }
+
+
+  export type AITherapySessionAvgAggregateInputType = {
+    duration?: true
+    pausedDuration?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    energyBefore?: true
+    energyAfter?: true
+    crisisLevel?: true
+  }
+
+  export type AITherapySessionSumAggregateInputType = {
+    duration?: true
+    pausedDuration?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    energyBefore?: true
+    energyAfter?: true
+    crisisLevel?: true
+  }
+
+  export type AITherapySessionMinAggregateInputType = {
+    id?: true
+    sessionToken?: true
+    userId?: true
+    therapistId?: true
+    sessionType?: true
+    status?: true
+    startedAt?: true
+    endedAt?: true
+    duration?: true
+    pausedAt?: true
+    pausedDuration?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    energyBefore?: true
+    energyAfter?: true
+    encryptedNotes?: true
+    encryptedInsights?: true
+    encryptedHomework?: true
+    encryptedGoals?: true
+    topics?: true
+    techniques?: true
+    interventions?: true
+    breakthroughs?: true
+    crisisDetected?: true
+    crisisLevel?: true
+    crisisInterventions?: true
+  }
+
+  export type AITherapySessionMaxAggregateInputType = {
+    id?: true
+    sessionToken?: true
+    userId?: true
+    therapistId?: true
+    sessionType?: true
+    status?: true
+    startedAt?: true
+    endedAt?: true
+    duration?: true
+    pausedAt?: true
+    pausedDuration?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    energyBefore?: true
+    energyAfter?: true
+    encryptedNotes?: true
+    encryptedInsights?: true
+    encryptedHomework?: true
+    encryptedGoals?: true
+    topics?: true
+    techniques?: true
+    interventions?: true
+    breakthroughs?: true
+    crisisDetected?: true
+    crisisLevel?: true
+    crisisInterventions?: true
+  }
+
+  export type AITherapySessionCountAggregateInputType = {
+    id?: true
+    sessionToken?: true
+    userId?: true
+    therapistId?: true
+    sessionType?: true
+    status?: true
+    startedAt?: true
+    endedAt?: true
+    duration?: true
+    pausedAt?: true
+    pausedDuration?: true
+    moodBefore?: true
+    moodAfter?: true
+    anxietyBefore?: true
+    anxietyAfter?: true
+    energyBefore?: true
+    energyAfter?: true
+    encryptedNotes?: true
+    encryptedInsights?: true
+    encryptedHomework?: true
+    encryptedGoals?: true
+    topics?: true
+    techniques?: true
+    interventions?: true
+    breakthroughs?: true
+    crisisDetected?: true
+    crisisLevel?: true
+    crisisInterventions?: true
+    _all?: true
+  }
+
+  export type AITherapySessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapySession to aggregate.
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapySessions to fetch.
+     */
+    orderBy?: AITherapySessionOrderByWithRelationInput | AITherapySessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AITherapySessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapySessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapySessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AITherapySessions
+    **/
+    _count?: true | AITherapySessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AITherapySessionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AITherapySessionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AITherapySessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AITherapySessionMaxAggregateInputType
+  }
+
+  export type GetAITherapySessionAggregateType<T extends AITherapySessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateAITherapySession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAITherapySession[P]>
+      : GetScalarType<T[P], AggregateAITherapySession[P]>
+  }
+
+
+
+
+  export type AITherapySessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapySessionWhereInput
+    orderBy?: AITherapySessionOrderByWithAggregationInput | AITherapySessionOrderByWithAggregationInput[]
+    by: AITherapySessionScalarFieldEnum[] | AITherapySessionScalarFieldEnum
+    having?: AITherapySessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AITherapySessionCountAggregateInputType | true
+    _avg?: AITherapySessionAvgAggregateInputType
+    _sum?: AITherapySessionSumAggregateInputType
+    _min?: AITherapySessionMinAggregateInputType
+    _max?: AITherapySessionMaxAggregateInputType
+  }
+
+  export type AITherapySessionGroupByOutputType = {
+    id: string
+    sessionToken: string
+    userId: string
+    therapistId: string
+    sessionType: $Enums.AISessionType
+    status: $Enums.AISessionStatus
+    startedAt: Date
+    endedAt: Date | null
+    duration: number | null
+    pausedAt: Date | null
+    pausedDuration: number
+    moodBefore: number | null
+    moodAfter: number | null
+    anxietyBefore: number | null
+    anxietyAfter: number | null
+    energyBefore: number | null
+    energyAfter: number | null
+    encryptedNotes: Uint8Array | null
+    encryptedInsights: Uint8Array | null
+    encryptedHomework: Uint8Array | null
+    encryptedGoals: Uint8Array | null
+    topics: string | null
+    techniques: string | null
+    interventions: string | null
+    breakthroughs: string | null
+    crisisDetected: boolean
+    crisisLevel: number | null
+    crisisInterventions: string | null
+    _count: AITherapySessionCountAggregateOutputType | null
+    _avg: AITherapySessionAvgAggregateOutputType | null
+    _sum: AITherapySessionSumAggregateOutputType | null
+    _min: AITherapySessionMinAggregateOutputType | null
+    _max: AITherapySessionMaxAggregateOutputType | null
+  }
+
+  type GetAITherapySessionGroupByPayload<T extends AITherapySessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AITherapySessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AITherapySessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AITherapySessionGroupByOutputType[P]>
+            : GetScalarType<T[P], AITherapySessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AITherapySessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionToken?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    sessionType?: boolean
+    status?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
+    duration?: boolean
+    pausedAt?: boolean
+    pausedDuration?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    energyBefore?: boolean
+    energyAfter?: boolean
+    encryptedNotes?: boolean
+    encryptedInsights?: boolean
+    encryptedHomework?: boolean
+    encryptedGoals?: boolean
+    topics?: boolean
+    techniques?: boolean
+    interventions?: boolean
+    breakthroughs?: boolean
+    crisisDetected?: boolean
+    crisisLevel?: boolean
+    crisisInterventions?: boolean
+    therapist?: boolean | AITherapistDefaultArgs<ExtArgs>
+    messages?: boolean | AITherapySession$messagesArgs<ExtArgs>
+    exercises?: boolean | AITherapySession$exercisesArgs<ExtArgs>
+    _count?: boolean | AITherapySessionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapySession"]>
+
+  export type AITherapySessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionToken?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    sessionType?: boolean
+    status?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
+    duration?: boolean
+    pausedAt?: boolean
+    pausedDuration?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    energyBefore?: boolean
+    energyAfter?: boolean
+    encryptedNotes?: boolean
+    encryptedInsights?: boolean
+    encryptedHomework?: boolean
+    encryptedGoals?: boolean
+    topics?: boolean
+    techniques?: boolean
+    interventions?: boolean
+    breakthroughs?: boolean
+    crisisDetected?: boolean
+    crisisLevel?: boolean
+    crisisInterventions?: boolean
+    therapist?: boolean | AITherapistDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapySession"]>
+
+  export type AITherapySessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionToken?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    sessionType?: boolean
+    status?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
+    duration?: boolean
+    pausedAt?: boolean
+    pausedDuration?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    energyBefore?: boolean
+    energyAfter?: boolean
+    encryptedNotes?: boolean
+    encryptedInsights?: boolean
+    encryptedHomework?: boolean
+    encryptedGoals?: boolean
+    topics?: boolean
+    techniques?: boolean
+    interventions?: boolean
+    breakthroughs?: boolean
+    crisisDetected?: boolean
+    crisisLevel?: boolean
+    crisisInterventions?: boolean
+    therapist?: boolean | AITherapistDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapySession"]>
+
+  export type AITherapySessionSelectScalar = {
+    id?: boolean
+    sessionToken?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    sessionType?: boolean
+    status?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
+    duration?: boolean
+    pausedAt?: boolean
+    pausedDuration?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    anxietyBefore?: boolean
+    anxietyAfter?: boolean
+    energyBefore?: boolean
+    energyAfter?: boolean
+    encryptedNotes?: boolean
+    encryptedInsights?: boolean
+    encryptedHomework?: boolean
+    encryptedGoals?: boolean
+    topics?: boolean
+    techniques?: boolean
+    interventions?: boolean
+    breakthroughs?: boolean
+    crisisDetected?: boolean
+    crisisLevel?: boolean
+    crisisInterventions?: boolean
+  }
+
+  export type AITherapySessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionToken" | "userId" | "therapistId" | "sessionType" | "status" | "startedAt" | "endedAt" | "duration" | "pausedAt" | "pausedDuration" | "moodBefore" | "moodAfter" | "anxietyBefore" | "anxietyAfter" | "energyBefore" | "energyAfter" | "encryptedNotes" | "encryptedInsights" | "encryptedHomework" | "encryptedGoals" | "topics" | "techniques" | "interventions" | "breakthroughs" | "crisisDetected" | "crisisLevel" | "crisisInterventions", ExtArgs["result"]["aITherapySession"]>
+  export type AITherapySessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    therapist?: boolean | AITherapistDefaultArgs<ExtArgs>
+    messages?: boolean | AITherapySession$messagesArgs<ExtArgs>
+    exercises?: boolean | AITherapySession$exercisesArgs<ExtArgs>
+    _count?: boolean | AITherapySessionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AITherapySessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    therapist?: boolean | AITherapistDefaultArgs<ExtArgs>
+  }
+  export type AITherapySessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    therapist?: boolean | AITherapistDefaultArgs<ExtArgs>
+  }
+
+  export type $AITherapySessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AITherapySession"
+    objects: {
+      therapist: Prisma.$AITherapistPayload<ExtArgs>
+      messages: Prisma.$AITherapyMessagePayload<ExtArgs>[]
+      exercises: Prisma.$AIExerciseSessionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sessionToken: string
+      userId: string
+      therapistId: string
+      sessionType: $Enums.AISessionType
+      status: $Enums.AISessionStatus
+      startedAt: Date
+      endedAt: Date | null
+      duration: number | null
+      pausedAt: Date | null
+      pausedDuration: number
+      moodBefore: number | null
+      moodAfter: number | null
+      anxietyBefore: number | null
+      anxietyAfter: number | null
+      energyBefore: number | null
+      energyAfter: number | null
+      encryptedNotes: Uint8Array | null
+      encryptedInsights: Uint8Array | null
+      encryptedHomework: Uint8Array | null
+      encryptedGoals: Uint8Array | null
+      topics: string | null
+      techniques: string | null
+      interventions: string | null
+      breakthroughs: string | null
+      crisisDetected: boolean
+      crisisLevel: number | null
+      crisisInterventions: string | null
+    }, ExtArgs["result"]["aITherapySession"]>
+    composites: {}
+  }
+
+  type AITherapySessionGetPayload<S extends boolean | null | undefined | AITherapySessionDefaultArgs> = $Result.GetResult<Prisma.$AITherapySessionPayload, S>
+
+  type AITherapySessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AITherapySessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AITherapySessionCountAggregateInputType | true
+    }
+
+  export interface AITherapySessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AITherapySession'], meta: { name: 'AITherapySession' } }
+    /**
+     * Find zero or one AITherapySession that matches the filter.
+     * @param {AITherapySessionFindUniqueArgs} args - Arguments to find a AITherapySession
+     * @example
+     * // Get one AITherapySession
+     * const aITherapySession = await prisma.aITherapySession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AITherapySessionFindUniqueArgs>(args: SelectSubset<T, AITherapySessionFindUniqueArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AITherapySession that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AITherapySessionFindUniqueOrThrowArgs} args - Arguments to find a AITherapySession
+     * @example
+     * // Get one AITherapySession
+     * const aITherapySession = await prisma.aITherapySession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AITherapySessionFindUniqueOrThrowArgs>(args: SelectSubset<T, AITherapySessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapySession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionFindFirstArgs} args - Arguments to find a AITherapySession
+     * @example
+     * // Get one AITherapySession
+     * const aITherapySession = await prisma.aITherapySession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AITherapySessionFindFirstArgs>(args?: SelectSubset<T, AITherapySessionFindFirstArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapySession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionFindFirstOrThrowArgs} args - Arguments to find a AITherapySession
+     * @example
+     * // Get one AITherapySession
+     * const aITherapySession = await prisma.aITherapySession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AITherapySessionFindFirstOrThrowArgs>(args?: SelectSubset<T, AITherapySessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AITherapySessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AITherapySessions
+     * const aITherapySessions = await prisma.aITherapySession.findMany()
+     * 
+     * // Get first 10 AITherapySessions
+     * const aITherapySessions = await prisma.aITherapySession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aITherapySessionWithIdOnly = await prisma.aITherapySession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AITherapySessionFindManyArgs>(args?: SelectSubset<T, AITherapySessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AITherapySession.
+     * @param {AITherapySessionCreateArgs} args - Arguments to create a AITherapySession.
+     * @example
+     * // Create one AITherapySession
+     * const AITherapySession = await prisma.aITherapySession.create({
+     *   data: {
+     *     // ... data to create a AITherapySession
+     *   }
+     * })
+     * 
+     */
+    create<T extends AITherapySessionCreateArgs>(args: SelectSubset<T, AITherapySessionCreateArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AITherapySessions.
+     * @param {AITherapySessionCreateManyArgs} args - Arguments to create many AITherapySessions.
+     * @example
+     * // Create many AITherapySessions
+     * const aITherapySession = await prisma.aITherapySession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AITherapySessionCreateManyArgs>(args?: SelectSubset<T, AITherapySessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AITherapySessions and returns the data saved in the database.
+     * @param {AITherapySessionCreateManyAndReturnArgs} args - Arguments to create many AITherapySessions.
+     * @example
+     * // Create many AITherapySessions
+     * const aITherapySession = await prisma.aITherapySession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AITherapySessions and only return the `id`
+     * const aITherapySessionWithIdOnly = await prisma.aITherapySession.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AITherapySessionCreateManyAndReturnArgs>(args?: SelectSubset<T, AITherapySessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AITherapySession.
+     * @param {AITherapySessionDeleteArgs} args - Arguments to delete one AITherapySession.
+     * @example
+     * // Delete one AITherapySession
+     * const AITherapySession = await prisma.aITherapySession.delete({
+     *   where: {
+     *     // ... filter to delete one AITherapySession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AITherapySessionDeleteArgs>(args: SelectSubset<T, AITherapySessionDeleteArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AITherapySession.
+     * @param {AITherapySessionUpdateArgs} args - Arguments to update one AITherapySession.
+     * @example
+     * // Update one AITherapySession
+     * const aITherapySession = await prisma.aITherapySession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AITherapySessionUpdateArgs>(args: SelectSubset<T, AITherapySessionUpdateArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AITherapySessions.
+     * @param {AITherapySessionDeleteManyArgs} args - Arguments to filter AITherapySessions to delete.
+     * @example
+     * // Delete a few AITherapySessions
+     * const { count } = await prisma.aITherapySession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AITherapySessionDeleteManyArgs>(args?: SelectSubset<T, AITherapySessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapySessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AITherapySessions
+     * const aITherapySession = await prisma.aITherapySession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AITherapySessionUpdateManyArgs>(args: SelectSubset<T, AITherapySessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapySessions and returns the data updated in the database.
+     * @param {AITherapySessionUpdateManyAndReturnArgs} args - Arguments to update many AITherapySessions.
+     * @example
+     * // Update many AITherapySessions
+     * const aITherapySession = await prisma.aITherapySession.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AITherapySessions and only return the `id`
+     * const aITherapySessionWithIdOnly = await prisma.aITherapySession.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AITherapySessionUpdateManyAndReturnArgs>(args: SelectSubset<T, AITherapySessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AITherapySession.
+     * @param {AITherapySessionUpsertArgs} args - Arguments to update or create a AITherapySession.
+     * @example
+     * // Update or create a AITherapySession
+     * const aITherapySession = await prisma.aITherapySession.upsert({
+     *   create: {
+     *     // ... data to create a AITherapySession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AITherapySession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AITherapySessionUpsertArgs>(args: SelectSubset<T, AITherapySessionUpsertArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AITherapySessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionCountArgs} args - Arguments to filter AITherapySessions to count.
+     * @example
+     * // Count the number of AITherapySessions
+     * const count = await prisma.aITherapySession.count({
+     *   where: {
+     *     // ... the filter for the AITherapySessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends AITherapySessionCountArgs>(
+      args?: Subset<T, AITherapySessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AITherapySessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AITherapySession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AITherapySessionAggregateArgs>(args: Subset<T, AITherapySessionAggregateArgs>): Prisma.PrismaPromise<GetAITherapySessionAggregateType<T>>
+
+    /**
+     * Group by AITherapySession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapySessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AITherapySessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AITherapySessionGroupByArgs['orderBy'] }
+        : { orderBy?: AITherapySessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AITherapySessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAITherapySessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AITherapySession model
+   */
+  readonly fields: AITherapySessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AITherapySession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AITherapySessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    therapist<T extends AITherapistDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AITherapistDefaultArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    messages<T extends AITherapySession$messagesArgs<ExtArgs> = {}>(args?: Subset<T, AITherapySession$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    exercises<T extends AITherapySession$exercisesArgs<ExtArgs> = {}>(args?: Subset<T, AITherapySession$exercisesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AITherapySession model
+   */
+  interface AITherapySessionFieldRefs {
+    readonly id: FieldRef<"AITherapySession", 'String'>
+    readonly sessionToken: FieldRef<"AITherapySession", 'String'>
+    readonly userId: FieldRef<"AITherapySession", 'String'>
+    readonly therapistId: FieldRef<"AITherapySession", 'String'>
+    readonly sessionType: FieldRef<"AITherapySession", 'AISessionType'>
+    readonly status: FieldRef<"AITherapySession", 'AISessionStatus'>
+    readonly startedAt: FieldRef<"AITherapySession", 'DateTime'>
+    readonly endedAt: FieldRef<"AITherapySession", 'DateTime'>
+    readonly duration: FieldRef<"AITherapySession", 'Int'>
+    readonly pausedAt: FieldRef<"AITherapySession", 'DateTime'>
+    readonly pausedDuration: FieldRef<"AITherapySession", 'Int'>
+    readonly moodBefore: FieldRef<"AITherapySession", 'Int'>
+    readonly moodAfter: FieldRef<"AITherapySession", 'Int'>
+    readonly anxietyBefore: FieldRef<"AITherapySession", 'Int'>
+    readonly anxietyAfter: FieldRef<"AITherapySession", 'Int'>
+    readonly energyBefore: FieldRef<"AITherapySession", 'Int'>
+    readonly energyAfter: FieldRef<"AITherapySession", 'Int'>
+    readonly encryptedNotes: FieldRef<"AITherapySession", 'Bytes'>
+    readonly encryptedInsights: FieldRef<"AITherapySession", 'Bytes'>
+    readonly encryptedHomework: FieldRef<"AITherapySession", 'Bytes'>
+    readonly encryptedGoals: FieldRef<"AITherapySession", 'Bytes'>
+    readonly topics: FieldRef<"AITherapySession", 'String'>
+    readonly techniques: FieldRef<"AITherapySession", 'String'>
+    readonly interventions: FieldRef<"AITherapySession", 'String'>
+    readonly breakthroughs: FieldRef<"AITherapySession", 'String'>
+    readonly crisisDetected: FieldRef<"AITherapySession", 'Boolean'>
+    readonly crisisLevel: FieldRef<"AITherapySession", 'Int'>
+    readonly crisisInterventions: FieldRef<"AITherapySession", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AITherapySession findUnique
+   */
+  export type AITherapySessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapySession to fetch.
+     */
+    where: AITherapySessionWhereUniqueInput
+  }
+
+  /**
+   * AITherapySession findUniqueOrThrow
+   */
+  export type AITherapySessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapySession to fetch.
+     */
+    where: AITherapySessionWhereUniqueInput
+  }
+
+  /**
+   * AITherapySession findFirst
+   */
+  export type AITherapySessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapySession to fetch.
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapySessions to fetch.
+     */
+    orderBy?: AITherapySessionOrderByWithRelationInput | AITherapySessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapySessions.
+     */
+    cursor?: AITherapySessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapySessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapySessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapySessions.
+     */
+    distinct?: AITherapySessionScalarFieldEnum | AITherapySessionScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapySession findFirstOrThrow
+   */
+  export type AITherapySessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapySession to fetch.
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapySessions to fetch.
+     */
+    orderBy?: AITherapySessionOrderByWithRelationInput | AITherapySessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapySessions.
+     */
+    cursor?: AITherapySessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapySessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapySessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapySessions.
+     */
+    distinct?: AITherapySessionScalarFieldEnum | AITherapySessionScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapySession findMany
+   */
+  export type AITherapySessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapySessions to fetch.
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapySessions to fetch.
+     */
+    orderBy?: AITherapySessionOrderByWithRelationInput | AITherapySessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AITherapySessions.
+     */
+    cursor?: AITherapySessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapySessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapySessions.
+     */
+    skip?: number
+    distinct?: AITherapySessionScalarFieldEnum | AITherapySessionScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapySession create
+   */
+  export type AITherapySessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AITherapySession.
+     */
+    data: XOR<AITherapySessionCreateInput, AITherapySessionUncheckedCreateInput>
+  }
+
+  /**
+   * AITherapySession createMany
+   */
+  export type AITherapySessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AITherapySessions.
+     */
+    data: AITherapySessionCreateManyInput | AITherapySessionCreateManyInput[]
+  }
+
+  /**
+   * AITherapySession createManyAndReturn
+   */
+  export type AITherapySessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many AITherapySessions.
+     */
+    data: AITherapySessionCreateManyInput | AITherapySessionCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AITherapySession update
+   */
+  export type AITherapySessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AITherapySession.
+     */
+    data: XOR<AITherapySessionUpdateInput, AITherapySessionUncheckedUpdateInput>
+    /**
+     * Choose, which AITherapySession to update.
+     */
+    where: AITherapySessionWhereUniqueInput
+  }
+
+  /**
+   * AITherapySession updateMany
+   */
+  export type AITherapySessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AITherapySessions.
+     */
+    data: XOR<AITherapySessionUpdateManyMutationInput, AITherapySessionUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapySessions to update
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * Limit how many AITherapySessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapySession updateManyAndReturn
+   */
+  export type AITherapySessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * The data used to update AITherapySessions.
+     */
+    data: XOR<AITherapySessionUpdateManyMutationInput, AITherapySessionUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapySessions to update
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * Limit how many AITherapySessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AITherapySession upsert
+   */
+  export type AITherapySessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AITherapySession to update in case it exists.
+     */
+    where: AITherapySessionWhereUniqueInput
+    /**
+     * In case the AITherapySession found by the `where` argument doesn't exist, create a new AITherapySession with this data.
+     */
+    create: XOR<AITherapySessionCreateInput, AITherapySessionUncheckedCreateInput>
+    /**
+     * In case the AITherapySession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AITherapySessionUpdateInput, AITherapySessionUncheckedUpdateInput>
+  }
+
+  /**
+   * AITherapySession delete
+   */
+  export type AITherapySessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    /**
+     * Filter which AITherapySession to delete.
+     */
+    where: AITherapySessionWhereUniqueInput
+  }
+
+  /**
+   * AITherapySession deleteMany
+   */
+  export type AITherapySessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapySessions to delete
+     */
+    where?: AITherapySessionWhereInput
+    /**
+     * Limit how many AITherapySessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapySession.messages
+   */
+  export type AITherapySession$messagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    where?: AITherapyMessageWhereInput
+    orderBy?: AITherapyMessageOrderByWithRelationInput | AITherapyMessageOrderByWithRelationInput[]
+    cursor?: AITherapyMessageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AITherapyMessageScalarFieldEnum | AITherapyMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapySession.exercises
+   */
+  export type AITherapySession$exercisesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    where?: AIExerciseSessionWhereInput
+    orderBy?: AIExerciseSessionOrderByWithRelationInput | AIExerciseSessionOrderByWithRelationInput[]
+    cursor?: AIExerciseSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AIExerciseSessionScalarFieldEnum | AIExerciseSessionScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapySession without action
+   */
+  export type AITherapySessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AITherapyMessage
+   */
+
+  export type AggregateAITherapyMessage = {
+    _count: AITherapyMessageCountAggregateOutputType | null
+    _avg: AITherapyMessageAvgAggregateOutputType | null
+    _sum: AITherapyMessageSumAggregateOutputType | null
+    _min: AITherapyMessageMinAggregateOutputType | null
+    _max: AITherapyMessageMaxAggregateOutputType | null
+  }
+
+  export type AITherapyMessageAvgAggregateOutputType = {
+    sentiment: number | null
+    riskScore: number | null
+    audioDuration: number | null
+  }
+
+  export type AITherapyMessageSumAggregateOutputType = {
+    sentiment: number | null
+    riskScore: number | null
+    audioDuration: number | null
+  }
+
+  export type AITherapyMessageMinAggregateOutputType = {
+    id: string | null
+    sessionId: string | null
+    messageType: $Enums.AIMessageType | null
+    sender: $Enums.AIMessageSender | null
+    encryptedContent: Uint8Array | null
+    messageHash: string | null
+    timestamp: Date | null
+    edited: boolean | null
+    editedAt: Date | null
+    sentiment: number | null
+    emotion: string | null
+    riskScore: number | null
+    techniques: string | null
+    hasAudio: boolean | null
+    audioDuration: number | null
+    audioUrl: string | null
+  }
+
+  export type AITherapyMessageMaxAggregateOutputType = {
+    id: string | null
+    sessionId: string | null
+    messageType: $Enums.AIMessageType | null
+    sender: $Enums.AIMessageSender | null
+    encryptedContent: Uint8Array | null
+    messageHash: string | null
+    timestamp: Date | null
+    edited: boolean | null
+    editedAt: Date | null
+    sentiment: number | null
+    emotion: string | null
+    riskScore: number | null
+    techniques: string | null
+    hasAudio: boolean | null
+    audioDuration: number | null
+    audioUrl: string | null
+  }
+
+  export type AITherapyMessageCountAggregateOutputType = {
+    id: number
+    sessionId: number
+    messageType: number
+    sender: number
+    encryptedContent: number
+    messageHash: number
+    timestamp: number
+    edited: number
+    editedAt: number
+    sentiment: number
+    emotion: number
+    riskScore: number
+    techniques: number
+    hasAudio: number
+    audioDuration: number
+    audioUrl: number
+    _all: number
+  }
+
+
+  export type AITherapyMessageAvgAggregateInputType = {
+    sentiment?: true
+    riskScore?: true
+    audioDuration?: true
+  }
+
+  export type AITherapyMessageSumAggregateInputType = {
+    sentiment?: true
+    riskScore?: true
+    audioDuration?: true
+  }
+
+  export type AITherapyMessageMinAggregateInputType = {
+    id?: true
+    sessionId?: true
+    messageType?: true
+    sender?: true
+    encryptedContent?: true
+    messageHash?: true
+    timestamp?: true
+    edited?: true
+    editedAt?: true
+    sentiment?: true
+    emotion?: true
+    riskScore?: true
+    techniques?: true
+    hasAudio?: true
+    audioDuration?: true
+    audioUrl?: true
+  }
+
+  export type AITherapyMessageMaxAggregateInputType = {
+    id?: true
+    sessionId?: true
+    messageType?: true
+    sender?: true
+    encryptedContent?: true
+    messageHash?: true
+    timestamp?: true
+    edited?: true
+    editedAt?: true
+    sentiment?: true
+    emotion?: true
+    riskScore?: true
+    techniques?: true
+    hasAudio?: true
+    audioDuration?: true
+    audioUrl?: true
+  }
+
+  export type AITherapyMessageCountAggregateInputType = {
+    id?: true
+    sessionId?: true
+    messageType?: true
+    sender?: true
+    encryptedContent?: true
+    messageHash?: true
+    timestamp?: true
+    edited?: true
+    editedAt?: true
+    sentiment?: true
+    emotion?: true
+    riskScore?: true
+    techniques?: true
+    hasAudio?: true
+    audioDuration?: true
+    audioUrl?: true
+    _all?: true
+  }
+
+  export type AITherapyMessageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapyMessage to aggregate.
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyMessages to fetch.
+     */
+    orderBy?: AITherapyMessageOrderByWithRelationInput | AITherapyMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AITherapyMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyMessages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AITherapyMessages
+    **/
+    _count?: true | AITherapyMessageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AITherapyMessageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AITherapyMessageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AITherapyMessageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AITherapyMessageMaxAggregateInputType
+  }
+
+  export type GetAITherapyMessageAggregateType<T extends AITherapyMessageAggregateArgs> = {
+        [P in keyof T & keyof AggregateAITherapyMessage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAITherapyMessage[P]>
+      : GetScalarType<T[P], AggregateAITherapyMessage[P]>
+  }
+
+
+
+
+  export type AITherapyMessageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapyMessageWhereInput
+    orderBy?: AITherapyMessageOrderByWithAggregationInput | AITherapyMessageOrderByWithAggregationInput[]
+    by: AITherapyMessageScalarFieldEnum[] | AITherapyMessageScalarFieldEnum
+    having?: AITherapyMessageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AITherapyMessageCountAggregateInputType | true
+    _avg?: AITherapyMessageAvgAggregateInputType
+    _sum?: AITherapyMessageSumAggregateInputType
+    _min?: AITherapyMessageMinAggregateInputType
+    _max?: AITherapyMessageMaxAggregateInputType
+  }
+
+  export type AITherapyMessageGroupByOutputType = {
+    id: string
+    sessionId: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp: Date
+    edited: boolean
+    editedAt: Date | null
+    sentiment: number | null
+    emotion: string | null
+    riskScore: number | null
+    techniques: string | null
+    hasAudio: boolean
+    audioDuration: number | null
+    audioUrl: string | null
+    _count: AITherapyMessageCountAggregateOutputType | null
+    _avg: AITherapyMessageAvgAggregateOutputType | null
+    _sum: AITherapyMessageSumAggregateOutputType | null
+    _min: AITherapyMessageMinAggregateOutputType | null
+    _max: AITherapyMessageMaxAggregateOutputType | null
+  }
+
+  type GetAITherapyMessageGroupByPayload<T extends AITherapyMessageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AITherapyMessageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AITherapyMessageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AITherapyMessageGroupByOutputType[P]>
+            : GetScalarType<T[P], AITherapyMessageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AITherapyMessageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    messageType?: boolean
+    sender?: boolean
+    encryptedContent?: boolean
+    messageHash?: boolean
+    timestamp?: boolean
+    edited?: boolean
+    editedAt?: boolean
+    sentiment?: boolean
+    emotion?: boolean
+    riskScore?: boolean
+    techniques?: boolean
+    hasAudio?: boolean
+    audioDuration?: boolean
+    audioUrl?: boolean
+    session?: boolean | AITherapySessionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapyMessage"]>
+
+  export type AITherapyMessageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    messageType?: boolean
+    sender?: boolean
+    encryptedContent?: boolean
+    messageHash?: boolean
+    timestamp?: boolean
+    edited?: boolean
+    editedAt?: boolean
+    sentiment?: boolean
+    emotion?: boolean
+    riskScore?: boolean
+    techniques?: boolean
+    hasAudio?: boolean
+    audioDuration?: boolean
+    audioUrl?: boolean
+    session?: boolean | AITherapySessionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapyMessage"]>
+
+  export type AITherapyMessageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    messageType?: boolean
+    sender?: boolean
+    encryptedContent?: boolean
+    messageHash?: boolean
+    timestamp?: boolean
+    edited?: boolean
+    editedAt?: boolean
+    sentiment?: boolean
+    emotion?: boolean
+    riskScore?: boolean
+    techniques?: boolean
+    hasAudio?: boolean
+    audioDuration?: boolean
+    audioUrl?: boolean
+    session?: boolean | AITherapySessionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aITherapyMessage"]>
+
+  export type AITherapyMessageSelectScalar = {
+    id?: boolean
+    sessionId?: boolean
+    messageType?: boolean
+    sender?: boolean
+    encryptedContent?: boolean
+    messageHash?: boolean
+    timestamp?: boolean
+    edited?: boolean
+    editedAt?: boolean
+    sentiment?: boolean
+    emotion?: boolean
+    riskScore?: boolean
+    techniques?: boolean
+    hasAudio?: boolean
+    audioDuration?: boolean
+    audioUrl?: boolean
+  }
+
+  export type AITherapyMessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionId" | "messageType" | "sender" | "encryptedContent" | "messageHash" | "timestamp" | "edited" | "editedAt" | "sentiment" | "emotion" | "riskScore" | "techniques" | "hasAudio" | "audioDuration" | "audioUrl", ExtArgs["result"]["aITherapyMessage"]>
+  export type AITherapyMessageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    session?: boolean | AITherapySessionDefaultArgs<ExtArgs>
+  }
+  export type AITherapyMessageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    session?: boolean | AITherapySessionDefaultArgs<ExtArgs>
+  }
+  export type AITherapyMessageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    session?: boolean | AITherapySessionDefaultArgs<ExtArgs>
+  }
+
+  export type $AITherapyMessagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AITherapyMessage"
+    objects: {
+      session: Prisma.$AITherapySessionPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sessionId: string
+      messageType: $Enums.AIMessageType
+      sender: $Enums.AIMessageSender
+      encryptedContent: Uint8Array
+      messageHash: string
+      timestamp: Date
+      edited: boolean
+      editedAt: Date | null
+      sentiment: number | null
+      emotion: string | null
+      riskScore: number | null
+      techniques: string | null
+      hasAudio: boolean
+      audioDuration: number | null
+      audioUrl: string | null
+    }, ExtArgs["result"]["aITherapyMessage"]>
+    composites: {}
+  }
+
+  type AITherapyMessageGetPayload<S extends boolean | null | undefined | AITherapyMessageDefaultArgs> = $Result.GetResult<Prisma.$AITherapyMessagePayload, S>
+
+  type AITherapyMessageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AITherapyMessageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AITherapyMessageCountAggregateInputType | true
+    }
+
+  export interface AITherapyMessageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AITherapyMessage'], meta: { name: 'AITherapyMessage' } }
+    /**
+     * Find zero or one AITherapyMessage that matches the filter.
+     * @param {AITherapyMessageFindUniqueArgs} args - Arguments to find a AITherapyMessage
+     * @example
+     * // Get one AITherapyMessage
+     * const aITherapyMessage = await prisma.aITherapyMessage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AITherapyMessageFindUniqueArgs>(args: SelectSubset<T, AITherapyMessageFindUniqueArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AITherapyMessage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AITherapyMessageFindUniqueOrThrowArgs} args - Arguments to find a AITherapyMessage
+     * @example
+     * // Get one AITherapyMessage
+     * const aITherapyMessage = await prisma.aITherapyMessage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AITherapyMessageFindUniqueOrThrowArgs>(args: SelectSubset<T, AITherapyMessageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapyMessage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageFindFirstArgs} args - Arguments to find a AITherapyMessage
+     * @example
+     * // Get one AITherapyMessage
+     * const aITherapyMessage = await prisma.aITherapyMessage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AITherapyMessageFindFirstArgs>(args?: SelectSubset<T, AITherapyMessageFindFirstArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapyMessage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageFindFirstOrThrowArgs} args - Arguments to find a AITherapyMessage
+     * @example
+     * // Get one AITherapyMessage
+     * const aITherapyMessage = await prisma.aITherapyMessage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AITherapyMessageFindFirstOrThrowArgs>(args?: SelectSubset<T, AITherapyMessageFindFirstOrThrowArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AITherapyMessages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AITherapyMessages
+     * const aITherapyMessages = await prisma.aITherapyMessage.findMany()
+     * 
+     * // Get first 10 AITherapyMessages
+     * const aITherapyMessages = await prisma.aITherapyMessage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aITherapyMessageWithIdOnly = await prisma.aITherapyMessage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AITherapyMessageFindManyArgs>(args?: SelectSubset<T, AITherapyMessageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AITherapyMessage.
+     * @param {AITherapyMessageCreateArgs} args - Arguments to create a AITherapyMessage.
+     * @example
+     * // Create one AITherapyMessage
+     * const AITherapyMessage = await prisma.aITherapyMessage.create({
+     *   data: {
+     *     // ... data to create a AITherapyMessage
+     *   }
+     * })
+     * 
+     */
+    create<T extends AITherapyMessageCreateArgs>(args: SelectSubset<T, AITherapyMessageCreateArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AITherapyMessages.
+     * @param {AITherapyMessageCreateManyArgs} args - Arguments to create many AITherapyMessages.
+     * @example
+     * // Create many AITherapyMessages
+     * const aITherapyMessage = await prisma.aITherapyMessage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AITherapyMessageCreateManyArgs>(args?: SelectSubset<T, AITherapyMessageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AITherapyMessages and returns the data saved in the database.
+     * @param {AITherapyMessageCreateManyAndReturnArgs} args - Arguments to create many AITherapyMessages.
+     * @example
+     * // Create many AITherapyMessages
+     * const aITherapyMessage = await prisma.aITherapyMessage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AITherapyMessages and only return the `id`
+     * const aITherapyMessageWithIdOnly = await prisma.aITherapyMessage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AITherapyMessageCreateManyAndReturnArgs>(args?: SelectSubset<T, AITherapyMessageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AITherapyMessage.
+     * @param {AITherapyMessageDeleteArgs} args - Arguments to delete one AITherapyMessage.
+     * @example
+     * // Delete one AITherapyMessage
+     * const AITherapyMessage = await prisma.aITherapyMessage.delete({
+     *   where: {
+     *     // ... filter to delete one AITherapyMessage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AITherapyMessageDeleteArgs>(args: SelectSubset<T, AITherapyMessageDeleteArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AITherapyMessage.
+     * @param {AITherapyMessageUpdateArgs} args - Arguments to update one AITherapyMessage.
+     * @example
+     * // Update one AITherapyMessage
+     * const aITherapyMessage = await prisma.aITherapyMessage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AITherapyMessageUpdateArgs>(args: SelectSubset<T, AITherapyMessageUpdateArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AITherapyMessages.
+     * @param {AITherapyMessageDeleteManyArgs} args - Arguments to filter AITherapyMessages to delete.
+     * @example
+     * // Delete a few AITherapyMessages
+     * const { count } = await prisma.aITherapyMessage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AITherapyMessageDeleteManyArgs>(args?: SelectSubset<T, AITherapyMessageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapyMessages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AITherapyMessages
+     * const aITherapyMessage = await prisma.aITherapyMessage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AITherapyMessageUpdateManyArgs>(args: SelectSubset<T, AITherapyMessageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapyMessages and returns the data updated in the database.
+     * @param {AITherapyMessageUpdateManyAndReturnArgs} args - Arguments to update many AITherapyMessages.
+     * @example
+     * // Update many AITherapyMessages
+     * const aITherapyMessage = await prisma.aITherapyMessage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AITherapyMessages and only return the `id`
+     * const aITherapyMessageWithIdOnly = await prisma.aITherapyMessage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AITherapyMessageUpdateManyAndReturnArgs>(args: SelectSubset<T, AITherapyMessageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AITherapyMessage.
+     * @param {AITherapyMessageUpsertArgs} args - Arguments to update or create a AITherapyMessage.
+     * @example
+     * // Update or create a AITherapyMessage
+     * const aITherapyMessage = await prisma.aITherapyMessage.upsert({
+     *   create: {
+     *     // ... data to create a AITherapyMessage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AITherapyMessage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AITherapyMessageUpsertArgs>(args: SelectSubset<T, AITherapyMessageUpsertArgs<ExtArgs>>): Prisma__AITherapyMessageClient<$Result.GetResult<Prisma.$AITherapyMessagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AITherapyMessages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageCountArgs} args - Arguments to filter AITherapyMessages to count.
+     * @example
+     * // Count the number of AITherapyMessages
+     * const count = await prisma.aITherapyMessage.count({
+     *   where: {
+     *     // ... the filter for the AITherapyMessages we want to count
+     *   }
+     * })
+    **/
+    count<T extends AITherapyMessageCountArgs>(
+      args?: Subset<T, AITherapyMessageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AITherapyMessageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AITherapyMessage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AITherapyMessageAggregateArgs>(args: Subset<T, AITherapyMessageAggregateArgs>): Prisma.PrismaPromise<GetAITherapyMessageAggregateType<T>>
+
+    /**
+     * Group by AITherapyMessage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyMessageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AITherapyMessageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AITherapyMessageGroupByArgs['orderBy'] }
+        : { orderBy?: AITherapyMessageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AITherapyMessageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAITherapyMessageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AITherapyMessage model
+   */
+  readonly fields: AITherapyMessageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AITherapyMessage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AITherapyMessageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    session<T extends AITherapySessionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AITherapySessionDefaultArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AITherapyMessage model
+   */
+  interface AITherapyMessageFieldRefs {
+    readonly id: FieldRef<"AITherapyMessage", 'String'>
+    readonly sessionId: FieldRef<"AITherapyMessage", 'String'>
+    readonly messageType: FieldRef<"AITherapyMessage", 'AIMessageType'>
+    readonly sender: FieldRef<"AITherapyMessage", 'AIMessageSender'>
+    readonly encryptedContent: FieldRef<"AITherapyMessage", 'Bytes'>
+    readonly messageHash: FieldRef<"AITherapyMessage", 'String'>
+    readonly timestamp: FieldRef<"AITherapyMessage", 'DateTime'>
+    readonly edited: FieldRef<"AITherapyMessage", 'Boolean'>
+    readonly editedAt: FieldRef<"AITherapyMessage", 'DateTime'>
+    readonly sentiment: FieldRef<"AITherapyMessage", 'Float'>
+    readonly emotion: FieldRef<"AITherapyMessage", 'String'>
+    readonly riskScore: FieldRef<"AITherapyMessage", 'Int'>
+    readonly techniques: FieldRef<"AITherapyMessage", 'String'>
+    readonly hasAudio: FieldRef<"AITherapyMessage", 'Boolean'>
+    readonly audioDuration: FieldRef<"AITherapyMessage", 'Int'>
+    readonly audioUrl: FieldRef<"AITherapyMessage", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AITherapyMessage findUnique
+   */
+  export type AITherapyMessageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapyMessage to fetch.
+     */
+    where: AITherapyMessageWhereUniqueInput
+  }
+
+  /**
+   * AITherapyMessage findUniqueOrThrow
+   */
+  export type AITherapyMessageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapyMessage to fetch.
+     */
+    where: AITherapyMessageWhereUniqueInput
+  }
+
+  /**
+   * AITherapyMessage findFirst
+   */
+  export type AITherapyMessageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapyMessage to fetch.
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyMessages to fetch.
+     */
+    orderBy?: AITherapyMessageOrderByWithRelationInput | AITherapyMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapyMessages.
+     */
+    cursor?: AITherapyMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyMessages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapyMessages.
+     */
+    distinct?: AITherapyMessageScalarFieldEnum | AITherapyMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyMessage findFirstOrThrow
+   */
+  export type AITherapyMessageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapyMessage to fetch.
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyMessages to fetch.
+     */
+    orderBy?: AITherapyMessageOrderByWithRelationInput | AITherapyMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapyMessages.
+     */
+    cursor?: AITherapyMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyMessages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapyMessages.
+     */
+    distinct?: AITherapyMessageScalarFieldEnum | AITherapyMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyMessage findMany
+   */
+  export type AITherapyMessageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AITherapyMessages to fetch.
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyMessages to fetch.
+     */
+    orderBy?: AITherapyMessageOrderByWithRelationInput | AITherapyMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AITherapyMessages.
+     */
+    cursor?: AITherapyMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyMessages.
+     */
+    skip?: number
+    distinct?: AITherapyMessageScalarFieldEnum | AITherapyMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyMessage create
+   */
+  export type AITherapyMessageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AITherapyMessage.
+     */
+    data: XOR<AITherapyMessageCreateInput, AITherapyMessageUncheckedCreateInput>
+  }
+
+  /**
+   * AITherapyMessage createMany
+   */
+  export type AITherapyMessageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AITherapyMessages.
+     */
+    data: AITherapyMessageCreateManyInput | AITherapyMessageCreateManyInput[]
+  }
+
+  /**
+   * AITherapyMessage createManyAndReturn
+   */
+  export type AITherapyMessageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * The data used to create many AITherapyMessages.
+     */
+    data: AITherapyMessageCreateManyInput | AITherapyMessageCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AITherapyMessage update
+   */
+  export type AITherapyMessageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AITherapyMessage.
+     */
+    data: XOR<AITherapyMessageUpdateInput, AITherapyMessageUncheckedUpdateInput>
+    /**
+     * Choose, which AITherapyMessage to update.
+     */
+    where: AITherapyMessageWhereUniqueInput
+  }
+
+  /**
+   * AITherapyMessage updateMany
+   */
+  export type AITherapyMessageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AITherapyMessages.
+     */
+    data: XOR<AITherapyMessageUpdateManyMutationInput, AITherapyMessageUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapyMessages to update
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * Limit how many AITherapyMessages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyMessage updateManyAndReturn
+   */
+  export type AITherapyMessageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * The data used to update AITherapyMessages.
+     */
+    data: XOR<AITherapyMessageUpdateManyMutationInput, AITherapyMessageUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapyMessages to update
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * Limit how many AITherapyMessages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AITherapyMessage upsert
+   */
+  export type AITherapyMessageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AITherapyMessage to update in case it exists.
+     */
+    where: AITherapyMessageWhereUniqueInput
+    /**
+     * In case the AITherapyMessage found by the `where` argument doesn't exist, create a new AITherapyMessage with this data.
+     */
+    create: XOR<AITherapyMessageCreateInput, AITherapyMessageUncheckedCreateInput>
+    /**
+     * In case the AITherapyMessage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AITherapyMessageUpdateInput, AITherapyMessageUncheckedUpdateInput>
+  }
+
+  /**
+   * AITherapyMessage delete
+   */
+  export type AITherapyMessageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+    /**
+     * Filter which AITherapyMessage to delete.
+     */
+    where: AITherapyMessageWhereUniqueInput
+  }
+
+  /**
+   * AITherapyMessage deleteMany
+   */
+  export type AITherapyMessageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapyMessages to delete
+     */
+    where?: AITherapyMessageWhereInput
+    /**
+     * Limit how many AITherapyMessages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyMessage without action
+   */
+  export type AITherapyMessageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyMessage
+     */
+    select?: AITherapyMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyMessage
+     */
+    omit?: AITherapyMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapyMessageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AIPersonalization
+   */
+
+  export type AggregateAIPersonalization = {
+    _count: AIPersonalizationCountAggregateOutputType | null
+    _min: AIPersonalizationMinAggregateOutputType | null
+    _max: AIPersonalizationMaxAggregateOutputType | null
+  }
+
+  export type AIPersonalizationMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    therapistId: string | null
+    preferredStyle: string | null
+    preferredTechniques: string | null
+    preferredTopics: string | null
+    avoidTopics: string | null
+    responseLength: string | null
+    responseComplexity: string | null
+    empathyLevel: string | null
+    directness: string | null
+    culturalBackground: string | null
+    languagePreference: string | null
+    timezone: string | null
+    pronouns: string | null
+    learnedPatterns: string | null
+    effectiveTechniques: string | null
+    triggerPatterns: string | null
+    copingStrategies: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AIPersonalizationMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    therapistId: string | null
+    preferredStyle: string | null
+    preferredTechniques: string | null
+    preferredTopics: string | null
+    avoidTopics: string | null
+    responseLength: string | null
+    responseComplexity: string | null
+    empathyLevel: string | null
+    directness: string | null
+    culturalBackground: string | null
+    languagePreference: string | null
+    timezone: string | null
+    pronouns: string | null
+    learnedPatterns: string | null
+    effectiveTechniques: string | null
+    triggerPatterns: string | null
+    copingStrategies: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AIPersonalizationCountAggregateOutputType = {
+    id: number
+    userId: number
+    therapistId: number
+    preferredStyle: number
+    preferredTechniques: number
+    preferredTopics: number
+    avoidTopics: number
+    responseLength: number
+    responseComplexity: number
+    empathyLevel: number
+    directness: number
+    culturalBackground: number
+    languagePreference: number
+    timezone: number
+    pronouns: number
+    learnedPatterns: number
+    effectiveTechniques: number
+    triggerPatterns: number
+    copingStrategies: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AIPersonalizationMinAggregateInputType = {
+    id?: true
+    userId?: true
+    therapistId?: true
+    preferredStyle?: true
+    preferredTechniques?: true
+    preferredTopics?: true
+    avoidTopics?: true
+    responseLength?: true
+    responseComplexity?: true
+    empathyLevel?: true
+    directness?: true
+    culturalBackground?: true
+    languagePreference?: true
+    timezone?: true
+    pronouns?: true
+    learnedPatterns?: true
+    effectiveTechniques?: true
+    triggerPatterns?: true
+    copingStrategies?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AIPersonalizationMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    therapistId?: true
+    preferredStyle?: true
+    preferredTechniques?: true
+    preferredTopics?: true
+    avoidTopics?: true
+    responseLength?: true
+    responseComplexity?: true
+    empathyLevel?: true
+    directness?: true
+    culturalBackground?: true
+    languagePreference?: true
+    timezone?: true
+    pronouns?: true
+    learnedPatterns?: true
+    effectiveTechniques?: true
+    triggerPatterns?: true
+    copingStrategies?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AIPersonalizationCountAggregateInputType = {
+    id?: true
+    userId?: true
+    therapistId?: true
+    preferredStyle?: true
+    preferredTechniques?: true
+    preferredTopics?: true
+    avoidTopics?: true
+    responseLength?: true
+    responseComplexity?: true
+    empathyLevel?: true
+    directness?: true
+    culturalBackground?: true
+    languagePreference?: true
+    timezone?: true
+    pronouns?: true
+    learnedPatterns?: true
+    effectiveTechniques?: true
+    triggerPatterns?: true
+    copingStrategies?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AIPersonalizationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AIPersonalization to aggregate.
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIPersonalizations to fetch.
+     */
+    orderBy?: AIPersonalizationOrderByWithRelationInput | AIPersonalizationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AIPersonalizationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIPersonalizations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIPersonalizations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AIPersonalizations
+    **/
+    _count?: true | AIPersonalizationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AIPersonalizationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AIPersonalizationMaxAggregateInputType
+  }
+
+  export type GetAIPersonalizationAggregateType<T extends AIPersonalizationAggregateArgs> = {
+        [P in keyof T & keyof AggregateAIPersonalization]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAIPersonalization[P]>
+      : GetScalarType<T[P], AggregateAIPersonalization[P]>
+  }
+
+
+
+
+  export type AIPersonalizationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AIPersonalizationWhereInput
+    orderBy?: AIPersonalizationOrderByWithAggregationInput | AIPersonalizationOrderByWithAggregationInput[]
+    by: AIPersonalizationScalarFieldEnum[] | AIPersonalizationScalarFieldEnum
+    having?: AIPersonalizationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AIPersonalizationCountAggregateInputType | true
+    _min?: AIPersonalizationMinAggregateInputType
+    _max?: AIPersonalizationMaxAggregateInputType
+  }
+
+  export type AIPersonalizationGroupByOutputType = {
+    id: string
+    userId: string
+    therapistId: string | null
+    preferredStyle: string | null
+    preferredTechniques: string | null
+    preferredTopics: string | null
+    avoidTopics: string | null
+    responseLength: string
+    responseComplexity: string
+    empathyLevel: string
+    directness: string
+    culturalBackground: string | null
+    languagePreference: string
+    timezone: string
+    pronouns: string | null
+    learnedPatterns: string | null
+    effectiveTechniques: string | null
+    triggerPatterns: string | null
+    copingStrategies: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: AIPersonalizationCountAggregateOutputType | null
+    _min: AIPersonalizationMinAggregateOutputType | null
+    _max: AIPersonalizationMaxAggregateOutputType | null
+  }
+
+  type GetAIPersonalizationGroupByPayload<T extends AIPersonalizationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AIPersonalizationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AIPersonalizationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AIPersonalizationGroupByOutputType[P]>
+            : GetScalarType<T[P], AIPersonalizationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AIPersonalizationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    preferredStyle?: boolean
+    preferredTechniques?: boolean
+    preferredTopics?: boolean
+    avoidTopics?: boolean
+    responseLength?: boolean
+    responseComplexity?: boolean
+    empathyLevel?: boolean
+    directness?: boolean
+    culturalBackground?: boolean
+    languagePreference?: boolean
+    timezone?: boolean
+    pronouns?: boolean
+    learnedPatterns?: boolean
+    effectiveTechniques?: boolean
+    triggerPatterns?: boolean
+    copingStrategies?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    therapist?: boolean | AIPersonalization$therapistArgs<ExtArgs>
+  }, ExtArgs["result"]["aIPersonalization"]>
+
+  export type AIPersonalizationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    preferredStyle?: boolean
+    preferredTechniques?: boolean
+    preferredTopics?: boolean
+    avoidTopics?: boolean
+    responseLength?: boolean
+    responseComplexity?: boolean
+    empathyLevel?: boolean
+    directness?: boolean
+    culturalBackground?: boolean
+    languagePreference?: boolean
+    timezone?: boolean
+    pronouns?: boolean
+    learnedPatterns?: boolean
+    effectiveTechniques?: boolean
+    triggerPatterns?: boolean
+    copingStrategies?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    therapist?: boolean | AIPersonalization$therapistArgs<ExtArgs>
+  }, ExtArgs["result"]["aIPersonalization"]>
+
+  export type AIPersonalizationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    preferredStyle?: boolean
+    preferredTechniques?: boolean
+    preferredTopics?: boolean
+    avoidTopics?: boolean
+    responseLength?: boolean
+    responseComplexity?: boolean
+    empathyLevel?: boolean
+    directness?: boolean
+    culturalBackground?: boolean
+    languagePreference?: boolean
+    timezone?: boolean
+    pronouns?: boolean
+    learnedPatterns?: boolean
+    effectiveTechniques?: boolean
+    triggerPatterns?: boolean
+    copingStrategies?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    therapist?: boolean | AIPersonalization$therapistArgs<ExtArgs>
+  }, ExtArgs["result"]["aIPersonalization"]>
+
+  export type AIPersonalizationSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    therapistId?: boolean
+    preferredStyle?: boolean
+    preferredTechniques?: boolean
+    preferredTopics?: boolean
+    avoidTopics?: boolean
+    responseLength?: boolean
+    responseComplexity?: boolean
+    empathyLevel?: boolean
+    directness?: boolean
+    culturalBackground?: boolean
+    languagePreference?: boolean
+    timezone?: boolean
+    pronouns?: boolean
+    learnedPatterns?: boolean
+    effectiveTechniques?: boolean
+    triggerPatterns?: boolean
+    copingStrategies?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AIPersonalizationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "therapistId" | "preferredStyle" | "preferredTechniques" | "preferredTopics" | "avoidTopics" | "responseLength" | "responseComplexity" | "empathyLevel" | "directness" | "culturalBackground" | "languagePreference" | "timezone" | "pronouns" | "learnedPatterns" | "effectiveTechniques" | "triggerPatterns" | "copingStrategies" | "createdAt" | "updatedAt", ExtArgs["result"]["aIPersonalization"]>
+  export type AIPersonalizationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    therapist?: boolean | AIPersonalization$therapistArgs<ExtArgs>
+  }
+  export type AIPersonalizationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    therapist?: boolean | AIPersonalization$therapistArgs<ExtArgs>
+  }
+  export type AIPersonalizationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    therapist?: boolean | AIPersonalization$therapistArgs<ExtArgs>
+  }
+
+  export type $AIPersonalizationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AIPersonalization"
+    objects: {
+      therapist: Prisma.$AITherapistPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      therapistId: string | null
+      preferredStyle: string | null
+      preferredTechniques: string | null
+      preferredTopics: string | null
+      avoidTopics: string | null
+      responseLength: string
+      responseComplexity: string
+      empathyLevel: string
+      directness: string
+      culturalBackground: string | null
+      languagePreference: string
+      timezone: string
+      pronouns: string | null
+      learnedPatterns: string | null
+      effectiveTechniques: string | null
+      triggerPatterns: string | null
+      copingStrategies: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["aIPersonalization"]>
+    composites: {}
+  }
+
+  type AIPersonalizationGetPayload<S extends boolean | null | undefined | AIPersonalizationDefaultArgs> = $Result.GetResult<Prisma.$AIPersonalizationPayload, S>
+
+  type AIPersonalizationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AIPersonalizationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AIPersonalizationCountAggregateInputType | true
+    }
+
+  export interface AIPersonalizationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AIPersonalization'], meta: { name: 'AIPersonalization' } }
+    /**
+     * Find zero or one AIPersonalization that matches the filter.
+     * @param {AIPersonalizationFindUniqueArgs} args - Arguments to find a AIPersonalization
+     * @example
+     * // Get one AIPersonalization
+     * const aIPersonalization = await prisma.aIPersonalization.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AIPersonalizationFindUniqueArgs>(args: SelectSubset<T, AIPersonalizationFindUniqueArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AIPersonalization that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AIPersonalizationFindUniqueOrThrowArgs} args - Arguments to find a AIPersonalization
+     * @example
+     * // Get one AIPersonalization
+     * const aIPersonalization = await prisma.aIPersonalization.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AIPersonalizationFindUniqueOrThrowArgs>(args: SelectSubset<T, AIPersonalizationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AIPersonalization that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationFindFirstArgs} args - Arguments to find a AIPersonalization
+     * @example
+     * // Get one AIPersonalization
+     * const aIPersonalization = await prisma.aIPersonalization.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AIPersonalizationFindFirstArgs>(args?: SelectSubset<T, AIPersonalizationFindFirstArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AIPersonalization that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationFindFirstOrThrowArgs} args - Arguments to find a AIPersonalization
+     * @example
+     * // Get one AIPersonalization
+     * const aIPersonalization = await prisma.aIPersonalization.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AIPersonalizationFindFirstOrThrowArgs>(args?: SelectSubset<T, AIPersonalizationFindFirstOrThrowArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AIPersonalizations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AIPersonalizations
+     * const aIPersonalizations = await prisma.aIPersonalization.findMany()
+     * 
+     * // Get first 10 AIPersonalizations
+     * const aIPersonalizations = await prisma.aIPersonalization.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aIPersonalizationWithIdOnly = await prisma.aIPersonalization.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AIPersonalizationFindManyArgs>(args?: SelectSubset<T, AIPersonalizationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AIPersonalization.
+     * @param {AIPersonalizationCreateArgs} args - Arguments to create a AIPersonalization.
+     * @example
+     * // Create one AIPersonalization
+     * const AIPersonalization = await prisma.aIPersonalization.create({
+     *   data: {
+     *     // ... data to create a AIPersonalization
+     *   }
+     * })
+     * 
+     */
+    create<T extends AIPersonalizationCreateArgs>(args: SelectSubset<T, AIPersonalizationCreateArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AIPersonalizations.
+     * @param {AIPersonalizationCreateManyArgs} args - Arguments to create many AIPersonalizations.
+     * @example
+     * // Create many AIPersonalizations
+     * const aIPersonalization = await prisma.aIPersonalization.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AIPersonalizationCreateManyArgs>(args?: SelectSubset<T, AIPersonalizationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AIPersonalizations and returns the data saved in the database.
+     * @param {AIPersonalizationCreateManyAndReturnArgs} args - Arguments to create many AIPersonalizations.
+     * @example
+     * // Create many AIPersonalizations
+     * const aIPersonalization = await prisma.aIPersonalization.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AIPersonalizations and only return the `id`
+     * const aIPersonalizationWithIdOnly = await prisma.aIPersonalization.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AIPersonalizationCreateManyAndReturnArgs>(args?: SelectSubset<T, AIPersonalizationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AIPersonalization.
+     * @param {AIPersonalizationDeleteArgs} args - Arguments to delete one AIPersonalization.
+     * @example
+     * // Delete one AIPersonalization
+     * const AIPersonalization = await prisma.aIPersonalization.delete({
+     *   where: {
+     *     // ... filter to delete one AIPersonalization
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AIPersonalizationDeleteArgs>(args: SelectSubset<T, AIPersonalizationDeleteArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AIPersonalization.
+     * @param {AIPersonalizationUpdateArgs} args - Arguments to update one AIPersonalization.
+     * @example
+     * // Update one AIPersonalization
+     * const aIPersonalization = await prisma.aIPersonalization.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AIPersonalizationUpdateArgs>(args: SelectSubset<T, AIPersonalizationUpdateArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AIPersonalizations.
+     * @param {AIPersonalizationDeleteManyArgs} args - Arguments to filter AIPersonalizations to delete.
+     * @example
+     * // Delete a few AIPersonalizations
+     * const { count } = await prisma.aIPersonalization.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AIPersonalizationDeleteManyArgs>(args?: SelectSubset<T, AIPersonalizationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AIPersonalizations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AIPersonalizations
+     * const aIPersonalization = await prisma.aIPersonalization.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AIPersonalizationUpdateManyArgs>(args: SelectSubset<T, AIPersonalizationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AIPersonalizations and returns the data updated in the database.
+     * @param {AIPersonalizationUpdateManyAndReturnArgs} args - Arguments to update many AIPersonalizations.
+     * @example
+     * // Update many AIPersonalizations
+     * const aIPersonalization = await prisma.aIPersonalization.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AIPersonalizations and only return the `id`
+     * const aIPersonalizationWithIdOnly = await prisma.aIPersonalization.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AIPersonalizationUpdateManyAndReturnArgs>(args: SelectSubset<T, AIPersonalizationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AIPersonalization.
+     * @param {AIPersonalizationUpsertArgs} args - Arguments to update or create a AIPersonalization.
+     * @example
+     * // Update or create a AIPersonalization
+     * const aIPersonalization = await prisma.aIPersonalization.upsert({
+     *   create: {
+     *     // ... data to create a AIPersonalization
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AIPersonalization we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AIPersonalizationUpsertArgs>(args: SelectSubset<T, AIPersonalizationUpsertArgs<ExtArgs>>): Prisma__AIPersonalizationClient<$Result.GetResult<Prisma.$AIPersonalizationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AIPersonalizations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationCountArgs} args - Arguments to filter AIPersonalizations to count.
+     * @example
+     * // Count the number of AIPersonalizations
+     * const count = await prisma.aIPersonalization.count({
+     *   where: {
+     *     // ... the filter for the AIPersonalizations we want to count
+     *   }
+     * })
+    **/
+    count<T extends AIPersonalizationCountArgs>(
+      args?: Subset<T, AIPersonalizationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AIPersonalizationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AIPersonalization.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AIPersonalizationAggregateArgs>(args: Subset<T, AIPersonalizationAggregateArgs>): Prisma.PrismaPromise<GetAIPersonalizationAggregateType<T>>
+
+    /**
+     * Group by AIPersonalization.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIPersonalizationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AIPersonalizationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AIPersonalizationGroupByArgs['orderBy'] }
+        : { orderBy?: AIPersonalizationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AIPersonalizationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAIPersonalizationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AIPersonalization model
+   */
+  readonly fields: AIPersonalizationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AIPersonalization.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AIPersonalizationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    therapist<T extends AIPersonalization$therapistArgs<ExtArgs> = {}>(args?: Subset<T, AIPersonalization$therapistArgs<ExtArgs>>): Prisma__AITherapistClient<$Result.GetResult<Prisma.$AITherapistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AIPersonalization model
+   */
+  interface AIPersonalizationFieldRefs {
+    readonly id: FieldRef<"AIPersonalization", 'String'>
+    readonly userId: FieldRef<"AIPersonalization", 'String'>
+    readonly therapistId: FieldRef<"AIPersonalization", 'String'>
+    readonly preferredStyle: FieldRef<"AIPersonalization", 'String'>
+    readonly preferredTechniques: FieldRef<"AIPersonalization", 'String'>
+    readonly preferredTopics: FieldRef<"AIPersonalization", 'String'>
+    readonly avoidTopics: FieldRef<"AIPersonalization", 'String'>
+    readonly responseLength: FieldRef<"AIPersonalization", 'String'>
+    readonly responseComplexity: FieldRef<"AIPersonalization", 'String'>
+    readonly empathyLevel: FieldRef<"AIPersonalization", 'String'>
+    readonly directness: FieldRef<"AIPersonalization", 'String'>
+    readonly culturalBackground: FieldRef<"AIPersonalization", 'String'>
+    readonly languagePreference: FieldRef<"AIPersonalization", 'String'>
+    readonly timezone: FieldRef<"AIPersonalization", 'String'>
+    readonly pronouns: FieldRef<"AIPersonalization", 'String'>
+    readonly learnedPatterns: FieldRef<"AIPersonalization", 'String'>
+    readonly effectiveTechniques: FieldRef<"AIPersonalization", 'String'>
+    readonly triggerPatterns: FieldRef<"AIPersonalization", 'String'>
+    readonly copingStrategies: FieldRef<"AIPersonalization", 'String'>
+    readonly createdAt: FieldRef<"AIPersonalization", 'DateTime'>
+    readonly updatedAt: FieldRef<"AIPersonalization", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AIPersonalization findUnique
+   */
+  export type AIPersonalizationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * Filter, which AIPersonalization to fetch.
+     */
+    where: AIPersonalizationWhereUniqueInput
+  }
+
+  /**
+   * AIPersonalization findUniqueOrThrow
+   */
+  export type AIPersonalizationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * Filter, which AIPersonalization to fetch.
+     */
+    where: AIPersonalizationWhereUniqueInput
+  }
+
+  /**
+   * AIPersonalization findFirst
+   */
+  export type AIPersonalizationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * Filter, which AIPersonalization to fetch.
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIPersonalizations to fetch.
+     */
+    orderBy?: AIPersonalizationOrderByWithRelationInput | AIPersonalizationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AIPersonalizations.
+     */
+    cursor?: AIPersonalizationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIPersonalizations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIPersonalizations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AIPersonalizations.
+     */
+    distinct?: AIPersonalizationScalarFieldEnum | AIPersonalizationScalarFieldEnum[]
+  }
+
+  /**
+   * AIPersonalization findFirstOrThrow
+   */
+  export type AIPersonalizationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * Filter, which AIPersonalization to fetch.
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIPersonalizations to fetch.
+     */
+    orderBy?: AIPersonalizationOrderByWithRelationInput | AIPersonalizationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AIPersonalizations.
+     */
+    cursor?: AIPersonalizationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIPersonalizations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIPersonalizations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AIPersonalizations.
+     */
+    distinct?: AIPersonalizationScalarFieldEnum | AIPersonalizationScalarFieldEnum[]
+  }
+
+  /**
+   * AIPersonalization findMany
+   */
+  export type AIPersonalizationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * Filter, which AIPersonalizations to fetch.
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIPersonalizations to fetch.
+     */
+    orderBy?: AIPersonalizationOrderByWithRelationInput | AIPersonalizationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AIPersonalizations.
+     */
+    cursor?: AIPersonalizationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIPersonalizations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIPersonalizations.
+     */
+    skip?: number
+    distinct?: AIPersonalizationScalarFieldEnum | AIPersonalizationScalarFieldEnum[]
+  }
+
+  /**
+   * AIPersonalization create
+   */
+  export type AIPersonalizationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AIPersonalization.
+     */
+    data: XOR<AIPersonalizationCreateInput, AIPersonalizationUncheckedCreateInput>
+  }
+
+  /**
+   * AIPersonalization createMany
+   */
+  export type AIPersonalizationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AIPersonalizations.
+     */
+    data: AIPersonalizationCreateManyInput | AIPersonalizationCreateManyInput[]
+  }
+
+  /**
+   * AIPersonalization createManyAndReturn
+   */
+  export type AIPersonalizationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * The data used to create many AIPersonalizations.
+     */
+    data: AIPersonalizationCreateManyInput | AIPersonalizationCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AIPersonalization update
+   */
+  export type AIPersonalizationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AIPersonalization.
+     */
+    data: XOR<AIPersonalizationUpdateInput, AIPersonalizationUncheckedUpdateInput>
+    /**
+     * Choose, which AIPersonalization to update.
+     */
+    where: AIPersonalizationWhereUniqueInput
+  }
+
+  /**
+   * AIPersonalization updateMany
+   */
+  export type AIPersonalizationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AIPersonalizations.
+     */
+    data: XOR<AIPersonalizationUpdateManyMutationInput, AIPersonalizationUncheckedUpdateManyInput>
+    /**
+     * Filter which AIPersonalizations to update
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * Limit how many AIPersonalizations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AIPersonalization updateManyAndReturn
+   */
+  export type AIPersonalizationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * The data used to update AIPersonalizations.
+     */
+    data: XOR<AIPersonalizationUpdateManyMutationInput, AIPersonalizationUncheckedUpdateManyInput>
+    /**
+     * Filter which AIPersonalizations to update
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * Limit how many AIPersonalizations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AIPersonalization upsert
+   */
+  export type AIPersonalizationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AIPersonalization to update in case it exists.
+     */
+    where: AIPersonalizationWhereUniqueInput
+    /**
+     * In case the AIPersonalization found by the `where` argument doesn't exist, create a new AIPersonalization with this data.
+     */
+    create: XOR<AIPersonalizationCreateInput, AIPersonalizationUncheckedCreateInput>
+    /**
+     * In case the AIPersonalization was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AIPersonalizationUpdateInput, AIPersonalizationUncheckedUpdateInput>
+  }
+
+  /**
+   * AIPersonalization delete
+   */
+  export type AIPersonalizationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+    /**
+     * Filter which AIPersonalization to delete.
+     */
+    where: AIPersonalizationWhereUniqueInput
+  }
+
+  /**
+   * AIPersonalization deleteMany
+   */
+  export type AIPersonalizationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AIPersonalizations to delete
+     */
+    where?: AIPersonalizationWhereInput
+    /**
+     * Limit how many AIPersonalizations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AIPersonalization.therapist
+   */
+  export type AIPersonalization$therapistArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapist
+     */
+    select?: AITherapistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapist
+     */
+    omit?: AITherapistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapistInclude<ExtArgs> | null
+    where?: AITherapistWhereInput
+  }
+
+  /**
+   * AIPersonalization without action
+   */
+  export type AIPersonalizationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIPersonalization
+     */
+    select?: AIPersonalizationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIPersonalization
+     */
+    omit?: AIPersonalizationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIPersonalizationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AIExerciseSession
+   */
+
+  export type AggregateAIExerciseSession = {
+    _count: AIExerciseSessionCountAggregateOutputType | null
+    _avg: AIExerciseSessionAvgAggregateOutputType | null
+    _sum: AIExerciseSessionSumAggregateOutputType | null
+    _min: AIExerciseSessionMinAggregateOutputType | null
+    _max: AIExerciseSessionMaxAggregateOutputType | null
+  }
+
+  export type AIExerciseSessionAvgAggregateOutputType = {
+    duration: number | null
+    progress: number | null
+    improvement: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type AIExerciseSessionSumAggregateOutputType = {
+    duration: number | null
+    progress: number | null
+    improvement: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type AIExerciseSessionMinAggregateOutputType = {
+    id: string | null
+    sessionId: string | null
+    userId: string | null
+    exerciseType: $Enums.AIExerciseType | null
+    exerciseName: string | null
+    category: string | null
+    difficulty: string | null
+    duration: number | null
+    startedAt: Date | null
+    completedAt: Date | null
+    completed: boolean | null
+    progress: number | null
+    results: string | null
+    feedback: string | null
+    improvement: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type AIExerciseSessionMaxAggregateOutputType = {
+    id: string | null
+    sessionId: string | null
+    userId: string | null
+    exerciseType: $Enums.AIExerciseType | null
+    exerciseName: string | null
+    category: string | null
+    difficulty: string | null
+    duration: number | null
+    startedAt: Date | null
+    completedAt: Date | null
+    completed: boolean | null
+    progress: number | null
+    results: string | null
+    feedback: string | null
+    improvement: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+  }
+
+  export type AIExerciseSessionCountAggregateOutputType = {
+    id: number
+    sessionId: number
+    userId: number
+    exerciseType: number
+    exerciseName: number
+    category: number
+    difficulty: number
+    duration: number
+    startedAt: number
+    completedAt: number
+    completed: number
+    progress: number
+    results: number
+    feedback: number
+    improvement: number
+    moodBefore: number
+    moodAfter: number
+    _all: number
+  }
+
+
+  export type AIExerciseSessionAvgAggregateInputType = {
+    duration?: true
+    progress?: true
+    improvement?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type AIExerciseSessionSumAggregateInputType = {
+    duration?: true
+    progress?: true
+    improvement?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type AIExerciseSessionMinAggregateInputType = {
+    id?: true
+    sessionId?: true
+    userId?: true
+    exerciseType?: true
+    exerciseName?: true
+    category?: true
+    difficulty?: true
+    duration?: true
+    startedAt?: true
+    completedAt?: true
+    completed?: true
+    progress?: true
+    results?: true
+    feedback?: true
+    improvement?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type AIExerciseSessionMaxAggregateInputType = {
+    id?: true
+    sessionId?: true
+    userId?: true
+    exerciseType?: true
+    exerciseName?: true
+    category?: true
+    difficulty?: true
+    duration?: true
+    startedAt?: true
+    completedAt?: true
+    completed?: true
+    progress?: true
+    results?: true
+    feedback?: true
+    improvement?: true
+    moodBefore?: true
+    moodAfter?: true
+  }
+
+  export type AIExerciseSessionCountAggregateInputType = {
+    id?: true
+    sessionId?: true
+    userId?: true
+    exerciseType?: true
+    exerciseName?: true
+    category?: true
+    difficulty?: true
+    duration?: true
+    startedAt?: true
+    completedAt?: true
+    completed?: true
+    progress?: true
+    results?: true
+    feedback?: true
+    improvement?: true
+    moodBefore?: true
+    moodAfter?: true
+    _all?: true
+  }
+
+  export type AIExerciseSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AIExerciseSession to aggregate.
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIExerciseSessions to fetch.
+     */
+    orderBy?: AIExerciseSessionOrderByWithRelationInput | AIExerciseSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AIExerciseSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIExerciseSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIExerciseSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AIExerciseSessions
+    **/
+    _count?: true | AIExerciseSessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AIExerciseSessionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AIExerciseSessionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AIExerciseSessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AIExerciseSessionMaxAggregateInputType
+  }
+
+  export type GetAIExerciseSessionAggregateType<T extends AIExerciseSessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateAIExerciseSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAIExerciseSession[P]>
+      : GetScalarType<T[P], AggregateAIExerciseSession[P]>
+  }
+
+
+
+
+  export type AIExerciseSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AIExerciseSessionWhereInput
+    orderBy?: AIExerciseSessionOrderByWithAggregationInput | AIExerciseSessionOrderByWithAggregationInput[]
+    by: AIExerciseSessionScalarFieldEnum[] | AIExerciseSessionScalarFieldEnum
+    having?: AIExerciseSessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AIExerciseSessionCountAggregateInputType | true
+    _avg?: AIExerciseSessionAvgAggregateInputType
+    _sum?: AIExerciseSessionSumAggregateInputType
+    _min?: AIExerciseSessionMinAggregateInputType
+    _max?: AIExerciseSessionMaxAggregateInputType
+  }
+
+  export type AIExerciseSessionGroupByOutputType = {
+    id: string
+    sessionId: string | null
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt: Date
+    completedAt: Date | null
+    completed: boolean
+    progress: number
+    results: string | null
+    feedback: string | null
+    improvement: number | null
+    moodBefore: number | null
+    moodAfter: number | null
+    _count: AIExerciseSessionCountAggregateOutputType | null
+    _avg: AIExerciseSessionAvgAggregateOutputType | null
+    _sum: AIExerciseSessionSumAggregateOutputType | null
+    _min: AIExerciseSessionMinAggregateOutputType | null
+    _max: AIExerciseSessionMaxAggregateOutputType | null
+  }
+
+  type GetAIExerciseSessionGroupByPayload<T extends AIExerciseSessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AIExerciseSessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AIExerciseSessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AIExerciseSessionGroupByOutputType[P]>
+            : GetScalarType<T[P], AIExerciseSessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AIExerciseSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    exerciseType?: boolean
+    exerciseName?: boolean
+    category?: boolean
+    difficulty?: boolean
+    duration?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    completed?: boolean
+    progress?: boolean
+    results?: boolean
+    feedback?: boolean
+    improvement?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    session?: boolean | AIExerciseSession$sessionArgs<ExtArgs>
+  }, ExtArgs["result"]["aIExerciseSession"]>
+
+  export type AIExerciseSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    exerciseType?: boolean
+    exerciseName?: boolean
+    category?: boolean
+    difficulty?: boolean
+    duration?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    completed?: boolean
+    progress?: boolean
+    results?: boolean
+    feedback?: boolean
+    improvement?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    session?: boolean | AIExerciseSession$sessionArgs<ExtArgs>
+  }, ExtArgs["result"]["aIExerciseSession"]>
+
+  export type AIExerciseSessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    exerciseType?: boolean
+    exerciseName?: boolean
+    category?: boolean
+    difficulty?: boolean
+    duration?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    completed?: boolean
+    progress?: boolean
+    results?: boolean
+    feedback?: boolean
+    improvement?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+    session?: boolean | AIExerciseSession$sessionArgs<ExtArgs>
+  }, ExtArgs["result"]["aIExerciseSession"]>
+
+  export type AIExerciseSessionSelectScalar = {
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    exerciseType?: boolean
+    exerciseName?: boolean
+    category?: boolean
+    difficulty?: boolean
+    duration?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    completed?: boolean
+    progress?: boolean
+    results?: boolean
+    feedback?: boolean
+    improvement?: boolean
+    moodBefore?: boolean
+    moodAfter?: boolean
+  }
+
+  export type AIExerciseSessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionId" | "userId" | "exerciseType" | "exerciseName" | "category" | "difficulty" | "duration" | "startedAt" | "completedAt" | "completed" | "progress" | "results" | "feedback" | "improvement" | "moodBefore" | "moodAfter", ExtArgs["result"]["aIExerciseSession"]>
+  export type AIExerciseSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    session?: boolean | AIExerciseSession$sessionArgs<ExtArgs>
+  }
+  export type AIExerciseSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    session?: boolean | AIExerciseSession$sessionArgs<ExtArgs>
+  }
+  export type AIExerciseSessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    session?: boolean | AIExerciseSession$sessionArgs<ExtArgs>
+  }
+
+  export type $AIExerciseSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AIExerciseSession"
+    objects: {
+      session: Prisma.$AITherapySessionPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sessionId: string | null
+      userId: string
+      exerciseType: $Enums.AIExerciseType
+      exerciseName: string
+      category: string
+      difficulty: string
+      duration: number
+      startedAt: Date
+      completedAt: Date | null
+      completed: boolean
+      progress: number
+      results: string | null
+      feedback: string | null
+      improvement: number | null
+      moodBefore: number | null
+      moodAfter: number | null
+    }, ExtArgs["result"]["aIExerciseSession"]>
+    composites: {}
+  }
+
+  type AIExerciseSessionGetPayload<S extends boolean | null | undefined | AIExerciseSessionDefaultArgs> = $Result.GetResult<Prisma.$AIExerciseSessionPayload, S>
+
+  type AIExerciseSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AIExerciseSessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AIExerciseSessionCountAggregateInputType | true
+    }
+
+  export interface AIExerciseSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AIExerciseSession'], meta: { name: 'AIExerciseSession' } }
+    /**
+     * Find zero or one AIExerciseSession that matches the filter.
+     * @param {AIExerciseSessionFindUniqueArgs} args - Arguments to find a AIExerciseSession
+     * @example
+     * // Get one AIExerciseSession
+     * const aIExerciseSession = await prisma.aIExerciseSession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AIExerciseSessionFindUniqueArgs>(args: SelectSubset<T, AIExerciseSessionFindUniqueArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AIExerciseSession that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AIExerciseSessionFindUniqueOrThrowArgs} args - Arguments to find a AIExerciseSession
+     * @example
+     * // Get one AIExerciseSession
+     * const aIExerciseSession = await prisma.aIExerciseSession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AIExerciseSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, AIExerciseSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AIExerciseSession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionFindFirstArgs} args - Arguments to find a AIExerciseSession
+     * @example
+     * // Get one AIExerciseSession
+     * const aIExerciseSession = await prisma.aIExerciseSession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AIExerciseSessionFindFirstArgs>(args?: SelectSubset<T, AIExerciseSessionFindFirstArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AIExerciseSession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionFindFirstOrThrowArgs} args - Arguments to find a AIExerciseSession
+     * @example
+     * // Get one AIExerciseSession
+     * const aIExerciseSession = await prisma.aIExerciseSession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AIExerciseSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, AIExerciseSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AIExerciseSessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AIExerciseSessions
+     * const aIExerciseSessions = await prisma.aIExerciseSession.findMany()
+     * 
+     * // Get first 10 AIExerciseSessions
+     * const aIExerciseSessions = await prisma.aIExerciseSession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aIExerciseSessionWithIdOnly = await prisma.aIExerciseSession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AIExerciseSessionFindManyArgs>(args?: SelectSubset<T, AIExerciseSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AIExerciseSession.
+     * @param {AIExerciseSessionCreateArgs} args - Arguments to create a AIExerciseSession.
+     * @example
+     * // Create one AIExerciseSession
+     * const AIExerciseSession = await prisma.aIExerciseSession.create({
+     *   data: {
+     *     // ... data to create a AIExerciseSession
+     *   }
+     * })
+     * 
+     */
+    create<T extends AIExerciseSessionCreateArgs>(args: SelectSubset<T, AIExerciseSessionCreateArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AIExerciseSessions.
+     * @param {AIExerciseSessionCreateManyArgs} args - Arguments to create many AIExerciseSessions.
+     * @example
+     * // Create many AIExerciseSessions
+     * const aIExerciseSession = await prisma.aIExerciseSession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AIExerciseSessionCreateManyArgs>(args?: SelectSubset<T, AIExerciseSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AIExerciseSessions and returns the data saved in the database.
+     * @param {AIExerciseSessionCreateManyAndReturnArgs} args - Arguments to create many AIExerciseSessions.
+     * @example
+     * // Create many AIExerciseSessions
+     * const aIExerciseSession = await prisma.aIExerciseSession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AIExerciseSessions and only return the `id`
+     * const aIExerciseSessionWithIdOnly = await prisma.aIExerciseSession.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AIExerciseSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, AIExerciseSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AIExerciseSession.
+     * @param {AIExerciseSessionDeleteArgs} args - Arguments to delete one AIExerciseSession.
+     * @example
+     * // Delete one AIExerciseSession
+     * const AIExerciseSession = await prisma.aIExerciseSession.delete({
+     *   where: {
+     *     // ... filter to delete one AIExerciseSession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AIExerciseSessionDeleteArgs>(args: SelectSubset<T, AIExerciseSessionDeleteArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AIExerciseSession.
+     * @param {AIExerciseSessionUpdateArgs} args - Arguments to update one AIExerciseSession.
+     * @example
+     * // Update one AIExerciseSession
+     * const aIExerciseSession = await prisma.aIExerciseSession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AIExerciseSessionUpdateArgs>(args: SelectSubset<T, AIExerciseSessionUpdateArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AIExerciseSessions.
+     * @param {AIExerciseSessionDeleteManyArgs} args - Arguments to filter AIExerciseSessions to delete.
+     * @example
+     * // Delete a few AIExerciseSessions
+     * const { count } = await prisma.aIExerciseSession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AIExerciseSessionDeleteManyArgs>(args?: SelectSubset<T, AIExerciseSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AIExerciseSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AIExerciseSessions
+     * const aIExerciseSession = await prisma.aIExerciseSession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AIExerciseSessionUpdateManyArgs>(args: SelectSubset<T, AIExerciseSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AIExerciseSessions and returns the data updated in the database.
+     * @param {AIExerciseSessionUpdateManyAndReturnArgs} args - Arguments to update many AIExerciseSessions.
+     * @example
+     * // Update many AIExerciseSessions
+     * const aIExerciseSession = await prisma.aIExerciseSession.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AIExerciseSessions and only return the `id`
+     * const aIExerciseSessionWithIdOnly = await prisma.aIExerciseSession.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AIExerciseSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, AIExerciseSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AIExerciseSession.
+     * @param {AIExerciseSessionUpsertArgs} args - Arguments to update or create a AIExerciseSession.
+     * @example
+     * // Update or create a AIExerciseSession
+     * const aIExerciseSession = await prisma.aIExerciseSession.upsert({
+     *   create: {
+     *     // ... data to create a AIExerciseSession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AIExerciseSession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AIExerciseSessionUpsertArgs>(args: SelectSubset<T, AIExerciseSessionUpsertArgs<ExtArgs>>): Prisma__AIExerciseSessionClient<$Result.GetResult<Prisma.$AIExerciseSessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AIExerciseSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionCountArgs} args - Arguments to filter AIExerciseSessions to count.
+     * @example
+     * // Count the number of AIExerciseSessions
+     * const count = await prisma.aIExerciseSession.count({
+     *   where: {
+     *     // ... the filter for the AIExerciseSessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends AIExerciseSessionCountArgs>(
+      args?: Subset<T, AIExerciseSessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AIExerciseSessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AIExerciseSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AIExerciseSessionAggregateArgs>(args: Subset<T, AIExerciseSessionAggregateArgs>): Prisma.PrismaPromise<GetAIExerciseSessionAggregateType<T>>
+
+    /**
+     * Group by AIExerciseSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AIExerciseSessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AIExerciseSessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AIExerciseSessionGroupByArgs['orderBy'] }
+        : { orderBy?: AIExerciseSessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AIExerciseSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAIExerciseSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AIExerciseSession model
+   */
+  readonly fields: AIExerciseSessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AIExerciseSession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AIExerciseSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    session<T extends AIExerciseSession$sessionArgs<ExtArgs> = {}>(args?: Subset<T, AIExerciseSession$sessionArgs<ExtArgs>>): Prisma__AITherapySessionClient<$Result.GetResult<Prisma.$AITherapySessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AIExerciseSession model
+   */
+  interface AIExerciseSessionFieldRefs {
+    readonly id: FieldRef<"AIExerciseSession", 'String'>
+    readonly sessionId: FieldRef<"AIExerciseSession", 'String'>
+    readonly userId: FieldRef<"AIExerciseSession", 'String'>
+    readonly exerciseType: FieldRef<"AIExerciseSession", 'AIExerciseType'>
+    readonly exerciseName: FieldRef<"AIExerciseSession", 'String'>
+    readonly category: FieldRef<"AIExerciseSession", 'String'>
+    readonly difficulty: FieldRef<"AIExerciseSession", 'String'>
+    readonly duration: FieldRef<"AIExerciseSession", 'Int'>
+    readonly startedAt: FieldRef<"AIExerciseSession", 'DateTime'>
+    readonly completedAt: FieldRef<"AIExerciseSession", 'DateTime'>
+    readonly completed: FieldRef<"AIExerciseSession", 'Boolean'>
+    readonly progress: FieldRef<"AIExerciseSession", 'Int'>
+    readonly results: FieldRef<"AIExerciseSession", 'String'>
+    readonly feedback: FieldRef<"AIExerciseSession", 'String'>
+    readonly improvement: FieldRef<"AIExerciseSession", 'Float'>
+    readonly moodBefore: FieldRef<"AIExerciseSession", 'Int'>
+    readonly moodAfter: FieldRef<"AIExerciseSession", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AIExerciseSession findUnique
+   */
+  export type AIExerciseSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AIExerciseSession to fetch.
+     */
+    where: AIExerciseSessionWhereUniqueInput
+  }
+
+  /**
+   * AIExerciseSession findUniqueOrThrow
+   */
+  export type AIExerciseSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AIExerciseSession to fetch.
+     */
+    where: AIExerciseSessionWhereUniqueInput
+  }
+
+  /**
+   * AIExerciseSession findFirst
+   */
+  export type AIExerciseSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AIExerciseSession to fetch.
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIExerciseSessions to fetch.
+     */
+    orderBy?: AIExerciseSessionOrderByWithRelationInput | AIExerciseSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AIExerciseSessions.
+     */
+    cursor?: AIExerciseSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIExerciseSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIExerciseSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AIExerciseSessions.
+     */
+    distinct?: AIExerciseSessionScalarFieldEnum | AIExerciseSessionScalarFieldEnum[]
+  }
+
+  /**
+   * AIExerciseSession findFirstOrThrow
+   */
+  export type AIExerciseSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AIExerciseSession to fetch.
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIExerciseSessions to fetch.
+     */
+    orderBy?: AIExerciseSessionOrderByWithRelationInput | AIExerciseSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AIExerciseSessions.
+     */
+    cursor?: AIExerciseSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIExerciseSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIExerciseSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AIExerciseSessions.
+     */
+    distinct?: AIExerciseSessionScalarFieldEnum | AIExerciseSessionScalarFieldEnum[]
+  }
+
+  /**
+   * AIExerciseSession findMany
+   */
+  export type AIExerciseSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which AIExerciseSessions to fetch.
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AIExerciseSessions to fetch.
+     */
+    orderBy?: AIExerciseSessionOrderByWithRelationInput | AIExerciseSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AIExerciseSessions.
+     */
+    cursor?: AIExerciseSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AIExerciseSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AIExerciseSessions.
+     */
+    skip?: number
+    distinct?: AIExerciseSessionScalarFieldEnum | AIExerciseSessionScalarFieldEnum[]
+  }
+
+  /**
+   * AIExerciseSession create
+   */
+  export type AIExerciseSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AIExerciseSession.
+     */
+    data: XOR<AIExerciseSessionCreateInput, AIExerciseSessionUncheckedCreateInput>
+  }
+
+  /**
+   * AIExerciseSession createMany
+   */
+  export type AIExerciseSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AIExerciseSessions.
+     */
+    data: AIExerciseSessionCreateManyInput | AIExerciseSessionCreateManyInput[]
+  }
+
+  /**
+   * AIExerciseSession createManyAndReturn
+   */
+  export type AIExerciseSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many AIExerciseSessions.
+     */
+    data: AIExerciseSessionCreateManyInput | AIExerciseSessionCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AIExerciseSession update
+   */
+  export type AIExerciseSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AIExerciseSession.
+     */
+    data: XOR<AIExerciseSessionUpdateInput, AIExerciseSessionUncheckedUpdateInput>
+    /**
+     * Choose, which AIExerciseSession to update.
+     */
+    where: AIExerciseSessionWhereUniqueInput
+  }
+
+  /**
+   * AIExerciseSession updateMany
+   */
+  export type AIExerciseSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AIExerciseSessions.
+     */
+    data: XOR<AIExerciseSessionUpdateManyMutationInput, AIExerciseSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which AIExerciseSessions to update
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * Limit how many AIExerciseSessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AIExerciseSession updateManyAndReturn
+   */
+  export type AIExerciseSessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * The data used to update AIExerciseSessions.
+     */
+    data: XOR<AIExerciseSessionUpdateManyMutationInput, AIExerciseSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which AIExerciseSessions to update
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * Limit how many AIExerciseSessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AIExerciseSession upsert
+   */
+  export type AIExerciseSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AIExerciseSession to update in case it exists.
+     */
+    where: AIExerciseSessionWhereUniqueInput
+    /**
+     * In case the AIExerciseSession found by the `where` argument doesn't exist, create a new AIExerciseSession with this data.
+     */
+    create: XOR<AIExerciseSessionCreateInput, AIExerciseSessionUncheckedCreateInput>
+    /**
+     * In case the AIExerciseSession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AIExerciseSessionUpdateInput, AIExerciseSessionUncheckedUpdateInput>
+  }
+
+  /**
+   * AIExerciseSession delete
+   */
+  export type AIExerciseSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+    /**
+     * Filter which AIExerciseSession to delete.
+     */
+    where: AIExerciseSessionWhereUniqueInput
+  }
+
+  /**
+   * AIExerciseSession deleteMany
+   */
+  export type AIExerciseSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AIExerciseSessions to delete
+     */
+    where?: AIExerciseSessionWhereInput
+    /**
+     * Limit how many AIExerciseSessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AIExerciseSession.session
+   */
+  export type AIExerciseSession$sessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapySession
+     */
+    select?: AITherapySessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapySession
+     */
+    omit?: AITherapySessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AITherapySessionInclude<ExtArgs> | null
+    where?: AITherapySessionWhereInput
+  }
+
+  /**
+   * AIExerciseSession without action
+   */
+  export type AIExerciseSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AIExerciseSession
+     */
+    select?: AIExerciseSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AIExerciseSession
+     */
+    omit?: AIExerciseSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AIExerciseSessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AITherapyInsight
+   */
+
+  export type AggregateAITherapyInsight = {
+    _count: AITherapyInsightCountAggregateOutputType | null
+    _min: AITherapyInsightMinAggregateOutputType | null
+    _max: AITherapyInsightMaxAggregateOutputType | null
+  }
+
+  export type AITherapyInsightMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    insightType: $Enums.AIInsightType | null
+    title: string | null
+    description: string | null
+    significance: string | null
+    dataPoints: string | null
+    patterns: string | null
+    trends: string | null
+    recommendations: string | null
+    actions: string | null
+    periodStart: Date | null
+    periodEnd: Date | null
+    generatedAt: Date | null
+    viewed: boolean | null
+    viewedAt: Date | null
+    helpful: boolean | null
+    dismissed: boolean | null
+  }
+
+  export type AITherapyInsightMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    insightType: $Enums.AIInsightType | null
+    title: string | null
+    description: string | null
+    significance: string | null
+    dataPoints: string | null
+    patterns: string | null
+    trends: string | null
+    recommendations: string | null
+    actions: string | null
+    periodStart: Date | null
+    periodEnd: Date | null
+    generatedAt: Date | null
+    viewed: boolean | null
+    viewedAt: Date | null
+    helpful: boolean | null
+    dismissed: boolean | null
+  }
+
+  export type AITherapyInsightCountAggregateOutputType = {
+    id: number
+    userId: number
+    insightType: number
+    title: number
+    description: number
+    significance: number
+    dataPoints: number
+    patterns: number
+    trends: number
+    recommendations: number
+    actions: number
+    periodStart: number
+    periodEnd: number
+    generatedAt: number
+    viewed: number
+    viewedAt: number
+    helpful: number
+    dismissed: number
+    _all: number
+  }
+
+
+  export type AITherapyInsightMinAggregateInputType = {
+    id?: true
+    userId?: true
+    insightType?: true
+    title?: true
+    description?: true
+    significance?: true
+    dataPoints?: true
+    patterns?: true
+    trends?: true
+    recommendations?: true
+    actions?: true
+    periodStart?: true
+    periodEnd?: true
+    generatedAt?: true
+    viewed?: true
+    viewedAt?: true
+    helpful?: true
+    dismissed?: true
+  }
+
+  export type AITherapyInsightMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    insightType?: true
+    title?: true
+    description?: true
+    significance?: true
+    dataPoints?: true
+    patterns?: true
+    trends?: true
+    recommendations?: true
+    actions?: true
+    periodStart?: true
+    periodEnd?: true
+    generatedAt?: true
+    viewed?: true
+    viewedAt?: true
+    helpful?: true
+    dismissed?: true
+  }
+
+  export type AITherapyInsightCountAggregateInputType = {
+    id?: true
+    userId?: true
+    insightType?: true
+    title?: true
+    description?: true
+    significance?: true
+    dataPoints?: true
+    patterns?: true
+    trends?: true
+    recommendations?: true
+    actions?: true
+    periodStart?: true
+    periodEnd?: true
+    generatedAt?: true
+    viewed?: true
+    viewedAt?: true
+    helpful?: true
+    dismissed?: true
+    _all?: true
+  }
+
+  export type AITherapyInsightAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapyInsight to aggregate.
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyInsights to fetch.
+     */
+    orderBy?: AITherapyInsightOrderByWithRelationInput | AITherapyInsightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AITherapyInsightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyInsights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyInsights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AITherapyInsights
+    **/
+    _count?: true | AITherapyInsightCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AITherapyInsightMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AITherapyInsightMaxAggregateInputType
+  }
+
+  export type GetAITherapyInsightAggregateType<T extends AITherapyInsightAggregateArgs> = {
+        [P in keyof T & keyof AggregateAITherapyInsight]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAITherapyInsight[P]>
+      : GetScalarType<T[P], AggregateAITherapyInsight[P]>
+  }
+
+
+
+
+  export type AITherapyInsightGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapyInsightWhereInput
+    orderBy?: AITherapyInsightOrderByWithAggregationInput | AITherapyInsightOrderByWithAggregationInput[]
+    by: AITherapyInsightScalarFieldEnum[] | AITherapyInsightScalarFieldEnum
+    having?: AITherapyInsightScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AITherapyInsightCountAggregateInputType | true
+    _min?: AITherapyInsightMinAggregateInputType
+    _max?: AITherapyInsightMaxAggregateInputType
+  }
+
+  export type AITherapyInsightGroupByOutputType = {
+    id: string
+    userId: string
+    insightType: $Enums.AIInsightType
+    title: string
+    description: string
+    significance: string
+    dataPoints: string
+    patterns: string | null
+    trends: string | null
+    recommendations: string | null
+    actions: string | null
+    periodStart: Date
+    periodEnd: Date
+    generatedAt: Date
+    viewed: boolean
+    viewedAt: Date | null
+    helpful: boolean | null
+    dismissed: boolean
+    _count: AITherapyInsightCountAggregateOutputType | null
+    _min: AITherapyInsightMinAggregateOutputType | null
+    _max: AITherapyInsightMaxAggregateOutputType | null
+  }
+
+  type GetAITherapyInsightGroupByPayload<T extends AITherapyInsightGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AITherapyInsightGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AITherapyInsightGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AITherapyInsightGroupByOutputType[P]>
+            : GetScalarType<T[P], AITherapyInsightGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AITherapyInsightSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    insightType?: boolean
+    title?: boolean
+    description?: boolean
+    significance?: boolean
+    dataPoints?: boolean
+    patterns?: boolean
+    trends?: boolean
+    recommendations?: boolean
+    actions?: boolean
+    periodStart?: boolean
+    periodEnd?: boolean
+    generatedAt?: boolean
+    viewed?: boolean
+    viewedAt?: boolean
+    helpful?: boolean
+    dismissed?: boolean
+  }, ExtArgs["result"]["aITherapyInsight"]>
+
+  export type AITherapyInsightSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    insightType?: boolean
+    title?: boolean
+    description?: boolean
+    significance?: boolean
+    dataPoints?: boolean
+    patterns?: boolean
+    trends?: boolean
+    recommendations?: boolean
+    actions?: boolean
+    periodStart?: boolean
+    periodEnd?: boolean
+    generatedAt?: boolean
+    viewed?: boolean
+    viewedAt?: boolean
+    helpful?: boolean
+    dismissed?: boolean
+  }, ExtArgs["result"]["aITherapyInsight"]>
+
+  export type AITherapyInsightSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    insightType?: boolean
+    title?: boolean
+    description?: boolean
+    significance?: boolean
+    dataPoints?: boolean
+    patterns?: boolean
+    trends?: boolean
+    recommendations?: boolean
+    actions?: boolean
+    periodStart?: boolean
+    periodEnd?: boolean
+    generatedAt?: boolean
+    viewed?: boolean
+    viewedAt?: boolean
+    helpful?: boolean
+    dismissed?: boolean
+  }, ExtArgs["result"]["aITherapyInsight"]>
+
+  export type AITherapyInsightSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    insightType?: boolean
+    title?: boolean
+    description?: boolean
+    significance?: boolean
+    dataPoints?: boolean
+    patterns?: boolean
+    trends?: boolean
+    recommendations?: boolean
+    actions?: boolean
+    periodStart?: boolean
+    periodEnd?: boolean
+    generatedAt?: boolean
+    viewed?: boolean
+    viewedAt?: boolean
+    helpful?: boolean
+    dismissed?: boolean
+  }
+
+  export type AITherapyInsightOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "insightType" | "title" | "description" | "significance" | "dataPoints" | "patterns" | "trends" | "recommendations" | "actions" | "periodStart" | "periodEnd" | "generatedAt" | "viewed" | "viewedAt" | "helpful" | "dismissed", ExtArgs["result"]["aITherapyInsight"]>
+
+  export type $AITherapyInsightPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AITherapyInsight"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      insightType: $Enums.AIInsightType
+      title: string
+      description: string
+      significance: string
+      dataPoints: string
+      patterns: string | null
+      trends: string | null
+      recommendations: string | null
+      actions: string | null
+      periodStart: Date
+      periodEnd: Date
+      generatedAt: Date
+      viewed: boolean
+      viewedAt: Date | null
+      helpful: boolean | null
+      dismissed: boolean
+    }, ExtArgs["result"]["aITherapyInsight"]>
+    composites: {}
+  }
+
+  type AITherapyInsightGetPayload<S extends boolean | null | undefined | AITherapyInsightDefaultArgs> = $Result.GetResult<Prisma.$AITherapyInsightPayload, S>
+
+  type AITherapyInsightCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AITherapyInsightFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AITherapyInsightCountAggregateInputType | true
+    }
+
+  export interface AITherapyInsightDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AITherapyInsight'], meta: { name: 'AITherapyInsight' } }
+    /**
+     * Find zero or one AITherapyInsight that matches the filter.
+     * @param {AITherapyInsightFindUniqueArgs} args - Arguments to find a AITherapyInsight
+     * @example
+     * // Get one AITherapyInsight
+     * const aITherapyInsight = await prisma.aITherapyInsight.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AITherapyInsightFindUniqueArgs>(args: SelectSubset<T, AITherapyInsightFindUniqueArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AITherapyInsight that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AITherapyInsightFindUniqueOrThrowArgs} args - Arguments to find a AITherapyInsight
+     * @example
+     * // Get one AITherapyInsight
+     * const aITherapyInsight = await prisma.aITherapyInsight.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AITherapyInsightFindUniqueOrThrowArgs>(args: SelectSubset<T, AITherapyInsightFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapyInsight that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightFindFirstArgs} args - Arguments to find a AITherapyInsight
+     * @example
+     * // Get one AITherapyInsight
+     * const aITherapyInsight = await prisma.aITherapyInsight.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AITherapyInsightFindFirstArgs>(args?: SelectSubset<T, AITherapyInsightFindFirstArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapyInsight that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightFindFirstOrThrowArgs} args - Arguments to find a AITherapyInsight
+     * @example
+     * // Get one AITherapyInsight
+     * const aITherapyInsight = await prisma.aITherapyInsight.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AITherapyInsightFindFirstOrThrowArgs>(args?: SelectSubset<T, AITherapyInsightFindFirstOrThrowArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AITherapyInsights that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AITherapyInsights
+     * const aITherapyInsights = await prisma.aITherapyInsight.findMany()
+     * 
+     * // Get first 10 AITherapyInsights
+     * const aITherapyInsights = await prisma.aITherapyInsight.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aITherapyInsightWithIdOnly = await prisma.aITherapyInsight.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AITherapyInsightFindManyArgs>(args?: SelectSubset<T, AITherapyInsightFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AITherapyInsight.
+     * @param {AITherapyInsightCreateArgs} args - Arguments to create a AITherapyInsight.
+     * @example
+     * // Create one AITherapyInsight
+     * const AITherapyInsight = await prisma.aITherapyInsight.create({
+     *   data: {
+     *     // ... data to create a AITherapyInsight
+     *   }
+     * })
+     * 
+     */
+    create<T extends AITherapyInsightCreateArgs>(args: SelectSubset<T, AITherapyInsightCreateArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AITherapyInsights.
+     * @param {AITherapyInsightCreateManyArgs} args - Arguments to create many AITherapyInsights.
+     * @example
+     * // Create many AITherapyInsights
+     * const aITherapyInsight = await prisma.aITherapyInsight.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AITherapyInsightCreateManyArgs>(args?: SelectSubset<T, AITherapyInsightCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AITherapyInsights and returns the data saved in the database.
+     * @param {AITherapyInsightCreateManyAndReturnArgs} args - Arguments to create many AITherapyInsights.
+     * @example
+     * // Create many AITherapyInsights
+     * const aITherapyInsight = await prisma.aITherapyInsight.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AITherapyInsights and only return the `id`
+     * const aITherapyInsightWithIdOnly = await prisma.aITherapyInsight.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AITherapyInsightCreateManyAndReturnArgs>(args?: SelectSubset<T, AITherapyInsightCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AITherapyInsight.
+     * @param {AITherapyInsightDeleteArgs} args - Arguments to delete one AITherapyInsight.
+     * @example
+     * // Delete one AITherapyInsight
+     * const AITherapyInsight = await prisma.aITherapyInsight.delete({
+     *   where: {
+     *     // ... filter to delete one AITherapyInsight
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AITherapyInsightDeleteArgs>(args: SelectSubset<T, AITherapyInsightDeleteArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AITherapyInsight.
+     * @param {AITherapyInsightUpdateArgs} args - Arguments to update one AITherapyInsight.
+     * @example
+     * // Update one AITherapyInsight
+     * const aITherapyInsight = await prisma.aITherapyInsight.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AITherapyInsightUpdateArgs>(args: SelectSubset<T, AITherapyInsightUpdateArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AITherapyInsights.
+     * @param {AITherapyInsightDeleteManyArgs} args - Arguments to filter AITherapyInsights to delete.
+     * @example
+     * // Delete a few AITherapyInsights
+     * const { count } = await prisma.aITherapyInsight.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AITherapyInsightDeleteManyArgs>(args?: SelectSubset<T, AITherapyInsightDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapyInsights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AITherapyInsights
+     * const aITherapyInsight = await prisma.aITherapyInsight.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AITherapyInsightUpdateManyArgs>(args: SelectSubset<T, AITherapyInsightUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapyInsights and returns the data updated in the database.
+     * @param {AITherapyInsightUpdateManyAndReturnArgs} args - Arguments to update many AITherapyInsights.
+     * @example
+     * // Update many AITherapyInsights
+     * const aITherapyInsight = await prisma.aITherapyInsight.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AITherapyInsights and only return the `id`
+     * const aITherapyInsightWithIdOnly = await prisma.aITherapyInsight.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AITherapyInsightUpdateManyAndReturnArgs>(args: SelectSubset<T, AITherapyInsightUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AITherapyInsight.
+     * @param {AITherapyInsightUpsertArgs} args - Arguments to update or create a AITherapyInsight.
+     * @example
+     * // Update or create a AITherapyInsight
+     * const aITherapyInsight = await prisma.aITherapyInsight.upsert({
+     *   create: {
+     *     // ... data to create a AITherapyInsight
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AITherapyInsight we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AITherapyInsightUpsertArgs>(args: SelectSubset<T, AITherapyInsightUpsertArgs<ExtArgs>>): Prisma__AITherapyInsightClient<$Result.GetResult<Prisma.$AITherapyInsightPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AITherapyInsights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightCountArgs} args - Arguments to filter AITherapyInsights to count.
+     * @example
+     * // Count the number of AITherapyInsights
+     * const count = await prisma.aITherapyInsight.count({
+     *   where: {
+     *     // ... the filter for the AITherapyInsights we want to count
+     *   }
+     * })
+    **/
+    count<T extends AITherapyInsightCountArgs>(
+      args?: Subset<T, AITherapyInsightCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AITherapyInsightCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AITherapyInsight.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AITherapyInsightAggregateArgs>(args: Subset<T, AITherapyInsightAggregateArgs>): Prisma.PrismaPromise<GetAITherapyInsightAggregateType<T>>
+
+    /**
+     * Group by AITherapyInsight.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyInsightGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AITherapyInsightGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AITherapyInsightGroupByArgs['orderBy'] }
+        : { orderBy?: AITherapyInsightGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AITherapyInsightGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAITherapyInsightGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AITherapyInsight model
+   */
+  readonly fields: AITherapyInsightFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AITherapyInsight.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AITherapyInsightClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AITherapyInsight model
+   */
+  interface AITherapyInsightFieldRefs {
+    readonly id: FieldRef<"AITherapyInsight", 'String'>
+    readonly userId: FieldRef<"AITherapyInsight", 'String'>
+    readonly insightType: FieldRef<"AITherapyInsight", 'AIInsightType'>
+    readonly title: FieldRef<"AITherapyInsight", 'String'>
+    readonly description: FieldRef<"AITherapyInsight", 'String'>
+    readonly significance: FieldRef<"AITherapyInsight", 'String'>
+    readonly dataPoints: FieldRef<"AITherapyInsight", 'String'>
+    readonly patterns: FieldRef<"AITherapyInsight", 'String'>
+    readonly trends: FieldRef<"AITherapyInsight", 'String'>
+    readonly recommendations: FieldRef<"AITherapyInsight", 'String'>
+    readonly actions: FieldRef<"AITherapyInsight", 'String'>
+    readonly periodStart: FieldRef<"AITherapyInsight", 'DateTime'>
+    readonly periodEnd: FieldRef<"AITherapyInsight", 'DateTime'>
+    readonly generatedAt: FieldRef<"AITherapyInsight", 'DateTime'>
+    readonly viewed: FieldRef<"AITherapyInsight", 'Boolean'>
+    readonly viewedAt: FieldRef<"AITherapyInsight", 'DateTime'>
+    readonly helpful: FieldRef<"AITherapyInsight", 'Boolean'>
+    readonly dismissed: FieldRef<"AITherapyInsight", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AITherapyInsight findUnique
+   */
+  export type AITherapyInsightFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyInsight to fetch.
+     */
+    where: AITherapyInsightWhereUniqueInput
+  }
+
+  /**
+   * AITherapyInsight findUniqueOrThrow
+   */
+  export type AITherapyInsightFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyInsight to fetch.
+     */
+    where: AITherapyInsightWhereUniqueInput
+  }
+
+  /**
+   * AITherapyInsight findFirst
+   */
+  export type AITherapyInsightFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyInsight to fetch.
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyInsights to fetch.
+     */
+    orderBy?: AITherapyInsightOrderByWithRelationInput | AITherapyInsightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapyInsights.
+     */
+    cursor?: AITherapyInsightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyInsights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyInsights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapyInsights.
+     */
+    distinct?: AITherapyInsightScalarFieldEnum | AITherapyInsightScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyInsight findFirstOrThrow
+   */
+  export type AITherapyInsightFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyInsight to fetch.
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyInsights to fetch.
+     */
+    orderBy?: AITherapyInsightOrderByWithRelationInput | AITherapyInsightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapyInsights.
+     */
+    cursor?: AITherapyInsightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyInsights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyInsights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapyInsights.
+     */
+    distinct?: AITherapyInsightScalarFieldEnum | AITherapyInsightScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyInsight findMany
+   */
+  export type AITherapyInsightFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyInsights to fetch.
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyInsights to fetch.
+     */
+    orderBy?: AITherapyInsightOrderByWithRelationInput | AITherapyInsightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AITherapyInsights.
+     */
+    cursor?: AITherapyInsightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyInsights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyInsights.
+     */
+    skip?: number
+    distinct?: AITherapyInsightScalarFieldEnum | AITherapyInsightScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyInsight create
+   */
+  export type AITherapyInsightCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * The data needed to create a AITherapyInsight.
+     */
+    data: XOR<AITherapyInsightCreateInput, AITherapyInsightUncheckedCreateInput>
+  }
+
+  /**
+   * AITherapyInsight createMany
+   */
+  export type AITherapyInsightCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AITherapyInsights.
+     */
+    data: AITherapyInsightCreateManyInput | AITherapyInsightCreateManyInput[]
+  }
+
+  /**
+   * AITherapyInsight createManyAndReturn
+   */
+  export type AITherapyInsightCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * The data used to create many AITherapyInsights.
+     */
+    data: AITherapyInsightCreateManyInput | AITherapyInsightCreateManyInput[]
+  }
+
+  /**
+   * AITherapyInsight update
+   */
+  export type AITherapyInsightUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * The data needed to update a AITherapyInsight.
+     */
+    data: XOR<AITherapyInsightUpdateInput, AITherapyInsightUncheckedUpdateInput>
+    /**
+     * Choose, which AITherapyInsight to update.
+     */
+    where: AITherapyInsightWhereUniqueInput
+  }
+
+  /**
+   * AITherapyInsight updateMany
+   */
+  export type AITherapyInsightUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AITherapyInsights.
+     */
+    data: XOR<AITherapyInsightUpdateManyMutationInput, AITherapyInsightUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapyInsights to update
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * Limit how many AITherapyInsights to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyInsight updateManyAndReturn
+   */
+  export type AITherapyInsightUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * The data used to update AITherapyInsights.
+     */
+    data: XOR<AITherapyInsightUpdateManyMutationInput, AITherapyInsightUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapyInsights to update
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * Limit how many AITherapyInsights to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyInsight upsert
+   */
+  export type AITherapyInsightUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * The filter to search for the AITherapyInsight to update in case it exists.
+     */
+    where: AITherapyInsightWhereUniqueInput
+    /**
+     * In case the AITherapyInsight found by the `where` argument doesn't exist, create a new AITherapyInsight with this data.
+     */
+    create: XOR<AITherapyInsightCreateInput, AITherapyInsightUncheckedCreateInput>
+    /**
+     * In case the AITherapyInsight was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AITherapyInsightUpdateInput, AITherapyInsightUncheckedUpdateInput>
+  }
+
+  /**
+   * AITherapyInsight delete
+   */
+  export type AITherapyInsightDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+    /**
+     * Filter which AITherapyInsight to delete.
+     */
+    where: AITherapyInsightWhereUniqueInput
+  }
+
+  /**
+   * AITherapyInsight deleteMany
+   */
+  export type AITherapyInsightDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapyInsights to delete
+     */
+    where?: AITherapyInsightWhereInput
+    /**
+     * Limit how many AITherapyInsights to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyInsight without action
+   */
+  export type AITherapyInsightDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyInsight
+     */
+    select?: AITherapyInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyInsight
+     */
+    omit?: AITherapyInsightOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AITherapyGoal
+   */
+
+  export type AggregateAITherapyGoal = {
+    _count: AITherapyGoalCountAggregateOutputType | null
+    _avg: AITherapyGoalAvgAggregateOutputType | null
+    _sum: AITherapyGoalSumAggregateOutputType | null
+    _min: AITherapyGoalMinAggregateOutputType | null
+    _max: AITherapyGoalMaxAggregateOutputType | null
+  }
+
+  export type AITherapyGoalAvgAggregateOutputType = {
+    progress: number | null
+  }
+
+  export type AITherapyGoalSumAggregateOutputType = {
+    progress: number | null
+  }
+
+  export type AITherapyGoalMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    goalType: string | null
+    title: string | null
+    description: string | null
+    category: string | null
+    priority: string | null
+    specific: string | null
+    measurable: string | null
+    achievable: string | null
+    relevant: string | null
+    timebound: Date | null
+    status: $Enums.AIGoalStatus | null
+    progress: number | null
+    milestones: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    completedAt: Date | null
+  }
+
+  export type AITherapyGoalMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    goalType: string | null
+    title: string | null
+    description: string | null
+    category: string | null
+    priority: string | null
+    specific: string | null
+    measurable: string | null
+    achievable: string | null
+    relevant: string | null
+    timebound: Date | null
+    status: $Enums.AIGoalStatus | null
+    progress: number | null
+    milestones: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    completedAt: Date | null
+  }
+
+  export type AITherapyGoalCountAggregateOutputType = {
+    id: number
+    userId: number
+    goalType: number
+    title: number
+    description: number
+    category: number
+    priority: number
+    specific: number
+    measurable: number
+    achievable: number
+    relevant: number
+    timebound: number
+    status: number
+    progress: number
+    milestones: number
+    createdAt: number
+    updatedAt: number
+    completedAt: number
+    _all: number
+  }
+
+
+  export type AITherapyGoalAvgAggregateInputType = {
+    progress?: true
+  }
+
+  export type AITherapyGoalSumAggregateInputType = {
+    progress?: true
+  }
+
+  export type AITherapyGoalMinAggregateInputType = {
+    id?: true
+    userId?: true
+    goalType?: true
+    title?: true
+    description?: true
+    category?: true
+    priority?: true
+    specific?: true
+    measurable?: true
+    achievable?: true
+    relevant?: true
+    timebound?: true
+    status?: true
+    progress?: true
+    milestones?: true
+    createdAt?: true
+    updatedAt?: true
+    completedAt?: true
+  }
+
+  export type AITherapyGoalMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    goalType?: true
+    title?: true
+    description?: true
+    category?: true
+    priority?: true
+    specific?: true
+    measurable?: true
+    achievable?: true
+    relevant?: true
+    timebound?: true
+    status?: true
+    progress?: true
+    milestones?: true
+    createdAt?: true
+    updatedAt?: true
+    completedAt?: true
+  }
+
+  export type AITherapyGoalCountAggregateInputType = {
+    id?: true
+    userId?: true
+    goalType?: true
+    title?: true
+    description?: true
+    category?: true
+    priority?: true
+    specific?: true
+    measurable?: true
+    achievable?: true
+    relevant?: true
+    timebound?: true
+    status?: true
+    progress?: true
+    milestones?: true
+    createdAt?: true
+    updatedAt?: true
+    completedAt?: true
+    _all?: true
+  }
+
+  export type AITherapyGoalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapyGoal to aggregate.
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyGoals to fetch.
+     */
+    orderBy?: AITherapyGoalOrderByWithRelationInput | AITherapyGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AITherapyGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AITherapyGoals
+    **/
+    _count?: true | AITherapyGoalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AITherapyGoalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AITherapyGoalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AITherapyGoalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AITherapyGoalMaxAggregateInputType
+  }
+
+  export type GetAITherapyGoalAggregateType<T extends AITherapyGoalAggregateArgs> = {
+        [P in keyof T & keyof AggregateAITherapyGoal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAITherapyGoal[P]>
+      : GetScalarType<T[P], AggregateAITherapyGoal[P]>
+  }
+
+
+
+
+  export type AITherapyGoalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AITherapyGoalWhereInput
+    orderBy?: AITherapyGoalOrderByWithAggregationInput | AITherapyGoalOrderByWithAggregationInput[]
+    by: AITherapyGoalScalarFieldEnum[] | AITherapyGoalScalarFieldEnum
+    having?: AITherapyGoalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AITherapyGoalCountAggregateInputType | true
+    _avg?: AITherapyGoalAvgAggregateInputType
+    _sum?: AITherapyGoalSumAggregateInputType
+    _min?: AITherapyGoalMinAggregateInputType
+    _max?: AITherapyGoalMaxAggregateInputType
+  }
+
+  export type AITherapyGoalGroupByOutputType = {
+    id: string
+    userId: string
+    goalType: string
+    title: string
+    description: string
+    category: string
+    priority: string
+    specific: string
+    measurable: string
+    achievable: string
+    relevant: string
+    timebound: Date
+    status: $Enums.AIGoalStatus
+    progress: number
+    milestones: string | null
+    createdAt: Date
+    updatedAt: Date
+    completedAt: Date | null
+    _count: AITherapyGoalCountAggregateOutputType | null
+    _avg: AITherapyGoalAvgAggregateOutputType | null
+    _sum: AITherapyGoalSumAggregateOutputType | null
+    _min: AITherapyGoalMinAggregateOutputType | null
+    _max: AITherapyGoalMaxAggregateOutputType | null
+  }
+
+  type GetAITherapyGoalGroupByPayload<T extends AITherapyGoalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AITherapyGoalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AITherapyGoalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AITherapyGoalGroupByOutputType[P]>
+            : GetScalarType<T[P], AITherapyGoalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AITherapyGoalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    goalType?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    priority?: boolean
+    specific?: boolean
+    measurable?: boolean
+    achievable?: boolean
+    relevant?: boolean
+    timebound?: boolean
+    status?: boolean
+    progress?: boolean
+    milestones?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    completedAt?: boolean
+  }, ExtArgs["result"]["aITherapyGoal"]>
+
+  export type AITherapyGoalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    goalType?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    priority?: boolean
+    specific?: boolean
+    measurable?: boolean
+    achievable?: boolean
+    relevant?: boolean
+    timebound?: boolean
+    status?: boolean
+    progress?: boolean
+    milestones?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    completedAt?: boolean
+  }, ExtArgs["result"]["aITherapyGoal"]>
+
+  export type AITherapyGoalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    goalType?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    priority?: boolean
+    specific?: boolean
+    measurable?: boolean
+    achievable?: boolean
+    relevant?: boolean
+    timebound?: boolean
+    status?: boolean
+    progress?: boolean
+    milestones?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    completedAt?: boolean
+  }, ExtArgs["result"]["aITherapyGoal"]>
+
+  export type AITherapyGoalSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    goalType?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    priority?: boolean
+    specific?: boolean
+    measurable?: boolean
+    achievable?: boolean
+    relevant?: boolean
+    timebound?: boolean
+    status?: boolean
+    progress?: boolean
+    milestones?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    completedAt?: boolean
+  }
+
+  export type AITherapyGoalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "goalType" | "title" | "description" | "category" | "priority" | "specific" | "measurable" | "achievable" | "relevant" | "timebound" | "status" | "progress" | "milestones" | "createdAt" | "updatedAt" | "completedAt", ExtArgs["result"]["aITherapyGoal"]>
+
+  export type $AITherapyGoalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AITherapyGoal"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      goalType: string
+      title: string
+      description: string
+      category: string
+      priority: string
+      specific: string
+      measurable: string
+      achievable: string
+      relevant: string
+      timebound: Date
+      status: $Enums.AIGoalStatus
+      progress: number
+      milestones: string | null
+      createdAt: Date
+      updatedAt: Date
+      completedAt: Date | null
+    }, ExtArgs["result"]["aITherapyGoal"]>
+    composites: {}
+  }
+
+  type AITherapyGoalGetPayload<S extends boolean | null | undefined | AITherapyGoalDefaultArgs> = $Result.GetResult<Prisma.$AITherapyGoalPayload, S>
+
+  type AITherapyGoalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AITherapyGoalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: AITherapyGoalCountAggregateInputType | true
+    }
+
+  export interface AITherapyGoalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AITherapyGoal'], meta: { name: 'AITherapyGoal' } }
+    /**
+     * Find zero or one AITherapyGoal that matches the filter.
+     * @param {AITherapyGoalFindUniqueArgs} args - Arguments to find a AITherapyGoal
+     * @example
+     * // Get one AITherapyGoal
+     * const aITherapyGoal = await prisma.aITherapyGoal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AITherapyGoalFindUniqueArgs>(args: SelectSubset<T, AITherapyGoalFindUniqueArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AITherapyGoal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AITherapyGoalFindUniqueOrThrowArgs} args - Arguments to find a AITherapyGoal
+     * @example
+     * // Get one AITherapyGoal
+     * const aITherapyGoal = await prisma.aITherapyGoal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AITherapyGoalFindUniqueOrThrowArgs>(args: SelectSubset<T, AITherapyGoalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapyGoal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalFindFirstArgs} args - Arguments to find a AITherapyGoal
+     * @example
+     * // Get one AITherapyGoal
+     * const aITherapyGoal = await prisma.aITherapyGoal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AITherapyGoalFindFirstArgs>(args?: SelectSubset<T, AITherapyGoalFindFirstArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AITherapyGoal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalFindFirstOrThrowArgs} args - Arguments to find a AITherapyGoal
+     * @example
+     * // Get one AITherapyGoal
+     * const aITherapyGoal = await prisma.aITherapyGoal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AITherapyGoalFindFirstOrThrowArgs>(args?: SelectSubset<T, AITherapyGoalFindFirstOrThrowArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AITherapyGoals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AITherapyGoals
+     * const aITherapyGoals = await prisma.aITherapyGoal.findMany()
+     * 
+     * // Get first 10 AITherapyGoals
+     * const aITherapyGoals = await prisma.aITherapyGoal.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aITherapyGoalWithIdOnly = await prisma.aITherapyGoal.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AITherapyGoalFindManyArgs>(args?: SelectSubset<T, AITherapyGoalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AITherapyGoal.
+     * @param {AITherapyGoalCreateArgs} args - Arguments to create a AITherapyGoal.
+     * @example
+     * // Create one AITherapyGoal
+     * const AITherapyGoal = await prisma.aITherapyGoal.create({
+     *   data: {
+     *     // ... data to create a AITherapyGoal
+     *   }
+     * })
+     * 
+     */
+    create<T extends AITherapyGoalCreateArgs>(args: SelectSubset<T, AITherapyGoalCreateArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AITherapyGoals.
+     * @param {AITherapyGoalCreateManyArgs} args - Arguments to create many AITherapyGoals.
+     * @example
+     * // Create many AITherapyGoals
+     * const aITherapyGoal = await prisma.aITherapyGoal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AITherapyGoalCreateManyArgs>(args?: SelectSubset<T, AITherapyGoalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AITherapyGoals and returns the data saved in the database.
+     * @param {AITherapyGoalCreateManyAndReturnArgs} args - Arguments to create many AITherapyGoals.
+     * @example
+     * // Create many AITherapyGoals
+     * const aITherapyGoal = await prisma.aITherapyGoal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AITherapyGoals and only return the `id`
+     * const aITherapyGoalWithIdOnly = await prisma.aITherapyGoal.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AITherapyGoalCreateManyAndReturnArgs>(args?: SelectSubset<T, AITherapyGoalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AITherapyGoal.
+     * @param {AITherapyGoalDeleteArgs} args - Arguments to delete one AITherapyGoal.
+     * @example
+     * // Delete one AITherapyGoal
+     * const AITherapyGoal = await prisma.aITherapyGoal.delete({
+     *   where: {
+     *     // ... filter to delete one AITherapyGoal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AITherapyGoalDeleteArgs>(args: SelectSubset<T, AITherapyGoalDeleteArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AITherapyGoal.
+     * @param {AITherapyGoalUpdateArgs} args - Arguments to update one AITherapyGoal.
+     * @example
+     * // Update one AITherapyGoal
+     * const aITherapyGoal = await prisma.aITherapyGoal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AITherapyGoalUpdateArgs>(args: SelectSubset<T, AITherapyGoalUpdateArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AITherapyGoals.
+     * @param {AITherapyGoalDeleteManyArgs} args - Arguments to filter AITherapyGoals to delete.
+     * @example
+     * // Delete a few AITherapyGoals
+     * const { count } = await prisma.aITherapyGoal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AITherapyGoalDeleteManyArgs>(args?: SelectSubset<T, AITherapyGoalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapyGoals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AITherapyGoals
+     * const aITherapyGoal = await prisma.aITherapyGoal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AITherapyGoalUpdateManyArgs>(args: SelectSubset<T, AITherapyGoalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AITherapyGoals and returns the data updated in the database.
+     * @param {AITherapyGoalUpdateManyAndReturnArgs} args - Arguments to update many AITherapyGoals.
+     * @example
+     * // Update many AITherapyGoals
+     * const aITherapyGoal = await prisma.aITherapyGoal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AITherapyGoals and only return the `id`
+     * const aITherapyGoalWithIdOnly = await prisma.aITherapyGoal.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AITherapyGoalUpdateManyAndReturnArgs>(args: SelectSubset<T, AITherapyGoalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AITherapyGoal.
+     * @param {AITherapyGoalUpsertArgs} args - Arguments to update or create a AITherapyGoal.
+     * @example
+     * // Update or create a AITherapyGoal
+     * const aITherapyGoal = await prisma.aITherapyGoal.upsert({
+     *   create: {
+     *     // ... data to create a AITherapyGoal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AITherapyGoal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AITherapyGoalUpsertArgs>(args: SelectSubset<T, AITherapyGoalUpsertArgs<ExtArgs>>): Prisma__AITherapyGoalClient<$Result.GetResult<Prisma.$AITherapyGoalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AITherapyGoals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalCountArgs} args - Arguments to filter AITherapyGoals to count.
+     * @example
+     * // Count the number of AITherapyGoals
+     * const count = await prisma.aITherapyGoal.count({
+     *   where: {
+     *     // ... the filter for the AITherapyGoals we want to count
+     *   }
+     * })
+    **/
+    count<T extends AITherapyGoalCountArgs>(
+      args?: Subset<T, AITherapyGoalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AITherapyGoalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AITherapyGoal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AITherapyGoalAggregateArgs>(args: Subset<T, AITherapyGoalAggregateArgs>): Prisma.PrismaPromise<GetAITherapyGoalAggregateType<T>>
+
+    /**
+     * Group by AITherapyGoal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AITherapyGoalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AITherapyGoalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AITherapyGoalGroupByArgs['orderBy'] }
+        : { orderBy?: AITherapyGoalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AITherapyGoalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAITherapyGoalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AITherapyGoal model
+   */
+  readonly fields: AITherapyGoalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AITherapyGoal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AITherapyGoalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AITherapyGoal model
+   */
+  interface AITherapyGoalFieldRefs {
+    readonly id: FieldRef<"AITherapyGoal", 'String'>
+    readonly userId: FieldRef<"AITherapyGoal", 'String'>
+    readonly goalType: FieldRef<"AITherapyGoal", 'String'>
+    readonly title: FieldRef<"AITherapyGoal", 'String'>
+    readonly description: FieldRef<"AITherapyGoal", 'String'>
+    readonly category: FieldRef<"AITherapyGoal", 'String'>
+    readonly priority: FieldRef<"AITherapyGoal", 'String'>
+    readonly specific: FieldRef<"AITherapyGoal", 'String'>
+    readonly measurable: FieldRef<"AITherapyGoal", 'String'>
+    readonly achievable: FieldRef<"AITherapyGoal", 'String'>
+    readonly relevant: FieldRef<"AITherapyGoal", 'String'>
+    readonly timebound: FieldRef<"AITherapyGoal", 'DateTime'>
+    readonly status: FieldRef<"AITherapyGoal", 'AIGoalStatus'>
+    readonly progress: FieldRef<"AITherapyGoal", 'Int'>
+    readonly milestones: FieldRef<"AITherapyGoal", 'String'>
+    readonly createdAt: FieldRef<"AITherapyGoal", 'DateTime'>
+    readonly updatedAt: FieldRef<"AITherapyGoal", 'DateTime'>
+    readonly completedAt: FieldRef<"AITherapyGoal", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AITherapyGoal findUnique
+   */
+  export type AITherapyGoalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyGoal to fetch.
+     */
+    where: AITherapyGoalWhereUniqueInput
+  }
+
+  /**
+   * AITherapyGoal findUniqueOrThrow
+   */
+  export type AITherapyGoalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyGoal to fetch.
+     */
+    where: AITherapyGoalWhereUniqueInput
+  }
+
+  /**
+   * AITherapyGoal findFirst
+   */
+  export type AITherapyGoalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyGoal to fetch.
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyGoals to fetch.
+     */
+    orderBy?: AITherapyGoalOrderByWithRelationInput | AITherapyGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapyGoals.
+     */
+    cursor?: AITherapyGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapyGoals.
+     */
+    distinct?: AITherapyGoalScalarFieldEnum | AITherapyGoalScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyGoal findFirstOrThrow
+   */
+  export type AITherapyGoalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyGoal to fetch.
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyGoals to fetch.
+     */
+    orderBy?: AITherapyGoalOrderByWithRelationInput | AITherapyGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AITherapyGoals.
+     */
+    cursor?: AITherapyGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AITherapyGoals.
+     */
+    distinct?: AITherapyGoalScalarFieldEnum | AITherapyGoalScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyGoal findMany
+   */
+  export type AITherapyGoalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * Filter, which AITherapyGoals to fetch.
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AITherapyGoals to fetch.
+     */
+    orderBy?: AITherapyGoalOrderByWithRelationInput | AITherapyGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AITherapyGoals.
+     */
+    cursor?: AITherapyGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AITherapyGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AITherapyGoals.
+     */
+    skip?: number
+    distinct?: AITherapyGoalScalarFieldEnum | AITherapyGoalScalarFieldEnum[]
+  }
+
+  /**
+   * AITherapyGoal create
+   */
+  export type AITherapyGoalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * The data needed to create a AITherapyGoal.
+     */
+    data: XOR<AITherapyGoalCreateInput, AITherapyGoalUncheckedCreateInput>
+  }
+
+  /**
+   * AITherapyGoal createMany
+   */
+  export type AITherapyGoalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AITherapyGoals.
+     */
+    data: AITherapyGoalCreateManyInput | AITherapyGoalCreateManyInput[]
+  }
+
+  /**
+   * AITherapyGoal createManyAndReturn
+   */
+  export type AITherapyGoalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * The data used to create many AITherapyGoals.
+     */
+    data: AITherapyGoalCreateManyInput | AITherapyGoalCreateManyInput[]
+  }
+
+  /**
+   * AITherapyGoal update
+   */
+  export type AITherapyGoalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * The data needed to update a AITherapyGoal.
+     */
+    data: XOR<AITherapyGoalUpdateInput, AITherapyGoalUncheckedUpdateInput>
+    /**
+     * Choose, which AITherapyGoal to update.
+     */
+    where: AITherapyGoalWhereUniqueInput
+  }
+
+  /**
+   * AITherapyGoal updateMany
+   */
+  export type AITherapyGoalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AITherapyGoals.
+     */
+    data: XOR<AITherapyGoalUpdateManyMutationInput, AITherapyGoalUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapyGoals to update
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * Limit how many AITherapyGoals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyGoal updateManyAndReturn
+   */
+  export type AITherapyGoalUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * The data used to update AITherapyGoals.
+     */
+    data: XOR<AITherapyGoalUpdateManyMutationInput, AITherapyGoalUncheckedUpdateManyInput>
+    /**
+     * Filter which AITherapyGoals to update
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * Limit how many AITherapyGoals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyGoal upsert
+   */
+  export type AITherapyGoalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * The filter to search for the AITherapyGoal to update in case it exists.
+     */
+    where: AITherapyGoalWhereUniqueInput
+    /**
+     * In case the AITherapyGoal found by the `where` argument doesn't exist, create a new AITherapyGoal with this data.
+     */
+    create: XOR<AITherapyGoalCreateInput, AITherapyGoalUncheckedCreateInput>
+    /**
+     * In case the AITherapyGoal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AITherapyGoalUpdateInput, AITherapyGoalUncheckedUpdateInput>
+  }
+
+  /**
+   * AITherapyGoal delete
+   */
+  export type AITherapyGoalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+    /**
+     * Filter which AITherapyGoal to delete.
+     */
+    where: AITherapyGoalWhereUniqueInput
+  }
+
+  /**
+   * AITherapyGoal deleteMany
+   */
+  export type AITherapyGoalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AITherapyGoals to delete
+     */
+    where?: AITherapyGoalWhereInput
+    /**
+     * Limit how many AITherapyGoals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AITherapyGoal without action
+   */
+  export type AITherapyGoalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AITherapyGoal
+     */
+    select?: AITherapyGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AITherapyGoal
+     */
+    omit?: AITherapyGoalOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -52172,6 +61928,182 @@ export namespace Prisma {
   export type SelfHelpInteractionScalarFieldEnum = (typeof SelfHelpInteractionScalarFieldEnum)[keyof typeof SelfHelpInteractionScalarFieldEnum]
 
 
+  export const AITherapistScalarFieldEnum: {
+    id: 'id',
+    therapistId: 'therapistId',
+    name: 'name',
+    avatar: 'avatar',
+    personality: 'personality',
+    description: 'description',
+    specialties: 'specialties',
+    approaches: 'approaches',
+    bestFor: 'bestFor',
+    features: 'features',
+    availability: 'availability',
+    sessionsCompleted: 'sessionsCompleted',
+    userRating: 'userRating',
+    responseTime: 'responseTime',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AITherapistScalarFieldEnum = (typeof AITherapistScalarFieldEnum)[keyof typeof AITherapistScalarFieldEnum]
+
+
+  export const AITherapySessionScalarFieldEnum: {
+    id: 'id',
+    sessionToken: 'sessionToken',
+    userId: 'userId',
+    therapistId: 'therapistId',
+    sessionType: 'sessionType',
+    status: 'status',
+    startedAt: 'startedAt',
+    endedAt: 'endedAt',
+    duration: 'duration',
+    pausedAt: 'pausedAt',
+    pausedDuration: 'pausedDuration',
+    moodBefore: 'moodBefore',
+    moodAfter: 'moodAfter',
+    anxietyBefore: 'anxietyBefore',
+    anxietyAfter: 'anxietyAfter',
+    energyBefore: 'energyBefore',
+    energyAfter: 'energyAfter',
+    encryptedNotes: 'encryptedNotes',
+    encryptedInsights: 'encryptedInsights',
+    encryptedHomework: 'encryptedHomework',
+    encryptedGoals: 'encryptedGoals',
+    topics: 'topics',
+    techniques: 'techniques',
+    interventions: 'interventions',
+    breakthroughs: 'breakthroughs',
+    crisisDetected: 'crisisDetected',
+    crisisLevel: 'crisisLevel',
+    crisisInterventions: 'crisisInterventions'
+  };
+
+  export type AITherapySessionScalarFieldEnum = (typeof AITherapySessionScalarFieldEnum)[keyof typeof AITherapySessionScalarFieldEnum]
+
+
+  export const AITherapyMessageScalarFieldEnum: {
+    id: 'id',
+    sessionId: 'sessionId',
+    messageType: 'messageType',
+    sender: 'sender',
+    encryptedContent: 'encryptedContent',
+    messageHash: 'messageHash',
+    timestamp: 'timestamp',
+    edited: 'edited',
+    editedAt: 'editedAt',
+    sentiment: 'sentiment',
+    emotion: 'emotion',
+    riskScore: 'riskScore',
+    techniques: 'techniques',
+    hasAudio: 'hasAudio',
+    audioDuration: 'audioDuration',
+    audioUrl: 'audioUrl'
+  };
+
+  export type AITherapyMessageScalarFieldEnum = (typeof AITherapyMessageScalarFieldEnum)[keyof typeof AITherapyMessageScalarFieldEnum]
+
+
+  export const AIPersonalizationScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    therapistId: 'therapistId',
+    preferredStyle: 'preferredStyle',
+    preferredTechniques: 'preferredTechniques',
+    preferredTopics: 'preferredTopics',
+    avoidTopics: 'avoidTopics',
+    responseLength: 'responseLength',
+    responseComplexity: 'responseComplexity',
+    empathyLevel: 'empathyLevel',
+    directness: 'directness',
+    culturalBackground: 'culturalBackground',
+    languagePreference: 'languagePreference',
+    timezone: 'timezone',
+    pronouns: 'pronouns',
+    learnedPatterns: 'learnedPatterns',
+    effectiveTechniques: 'effectiveTechniques',
+    triggerPatterns: 'triggerPatterns',
+    copingStrategies: 'copingStrategies',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AIPersonalizationScalarFieldEnum = (typeof AIPersonalizationScalarFieldEnum)[keyof typeof AIPersonalizationScalarFieldEnum]
+
+
+  export const AIExerciseSessionScalarFieldEnum: {
+    id: 'id',
+    sessionId: 'sessionId',
+    userId: 'userId',
+    exerciseType: 'exerciseType',
+    exerciseName: 'exerciseName',
+    category: 'category',
+    difficulty: 'difficulty',
+    duration: 'duration',
+    startedAt: 'startedAt',
+    completedAt: 'completedAt',
+    completed: 'completed',
+    progress: 'progress',
+    results: 'results',
+    feedback: 'feedback',
+    improvement: 'improvement',
+    moodBefore: 'moodBefore',
+    moodAfter: 'moodAfter'
+  };
+
+  export type AIExerciseSessionScalarFieldEnum = (typeof AIExerciseSessionScalarFieldEnum)[keyof typeof AIExerciseSessionScalarFieldEnum]
+
+
+  export const AITherapyInsightScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    insightType: 'insightType',
+    title: 'title',
+    description: 'description',
+    significance: 'significance',
+    dataPoints: 'dataPoints',
+    patterns: 'patterns',
+    trends: 'trends',
+    recommendations: 'recommendations',
+    actions: 'actions',
+    periodStart: 'periodStart',
+    periodEnd: 'periodEnd',
+    generatedAt: 'generatedAt',
+    viewed: 'viewed',
+    viewedAt: 'viewedAt',
+    helpful: 'helpful',
+    dismissed: 'dismissed'
+  };
+
+  export type AITherapyInsightScalarFieldEnum = (typeof AITherapyInsightScalarFieldEnum)[keyof typeof AITherapyInsightScalarFieldEnum]
+
+
+  export const AITherapyGoalScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    goalType: 'goalType',
+    title: 'title',
+    description: 'description',
+    category: 'category',
+    priority: 'priority',
+    specific: 'specific',
+    measurable: 'measurable',
+    achievable: 'achievable',
+    relevant: 'relevant',
+    timebound: 'timebound',
+    status: 'status',
+    progress: 'progress',
+    milestones: 'milestones',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    completedAt: 'completedAt'
+  };
+
+  export type AITherapyGoalScalarFieldEnum = (typeof AITherapyGoalScalarFieldEnum)[keyof typeof AITherapyGoalScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -52600,6 +62532,55 @@ export namespace Prisma {
    * Reference to a field of type 'InteractionType'
    */
   export type EnumInteractionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InteractionType'>
+    
+
+
+  /**
+   * Reference to a field of type 'AISessionType'
+   */
+  export type EnumAISessionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AISessionType'>
+    
+
+
+  /**
+   * Reference to a field of type 'AISessionStatus'
+   */
+  export type EnumAISessionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AISessionStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'AIMessageType'
+   */
+  export type EnumAIMessageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AIMessageType'>
+    
+
+
+  /**
+   * Reference to a field of type 'AIMessageSender'
+   */
+  export type EnumAIMessageSenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AIMessageSender'>
+    
+
+
+  /**
+   * Reference to a field of type 'AIExerciseType'
+   */
+  export type EnumAIExerciseTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AIExerciseType'>
+    
+
+
+  /**
+   * Reference to a field of type 'AIInsightType'
+   */
+  export type EnumAIInsightTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AIInsightType'>
+    
+
+
+  /**
+   * Reference to a field of type 'AIGoalStatus'
+   */
+  export type EnumAIGoalStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AIGoalStatus'>
     
   /**
    * Deep Input Types
@@ -56488,6 +66469,899 @@ export namespace Prisma {
     notes?: StringNullableWithAggregatesFilter<"SelfHelpInteraction"> | string | null
     moodBefore?: IntNullableWithAggregatesFilter<"SelfHelpInteraction"> | number | null
     moodAfter?: IntNullableWithAggregatesFilter<"SelfHelpInteraction"> | number | null
+  }
+
+  export type AITherapistWhereInput = {
+    AND?: AITherapistWhereInput | AITherapistWhereInput[]
+    OR?: AITherapistWhereInput[]
+    NOT?: AITherapistWhereInput | AITherapistWhereInput[]
+    id?: StringFilter<"AITherapist"> | string
+    therapistId?: StringFilter<"AITherapist"> | string
+    name?: StringFilter<"AITherapist"> | string
+    avatar?: StringFilter<"AITherapist"> | string
+    personality?: StringFilter<"AITherapist"> | string
+    description?: StringFilter<"AITherapist"> | string
+    specialties?: StringFilter<"AITherapist"> | string
+    approaches?: StringFilter<"AITherapist"> | string
+    bestFor?: StringFilter<"AITherapist"> | string
+    features?: StringFilter<"AITherapist"> | string
+    availability?: StringFilter<"AITherapist"> | string
+    sessionsCompleted?: IntFilter<"AITherapist"> | number
+    userRating?: FloatFilter<"AITherapist"> | number
+    responseTime?: FloatFilter<"AITherapist"> | number
+    createdAt?: DateTimeFilter<"AITherapist"> | Date | string
+    updatedAt?: DateTimeFilter<"AITherapist"> | Date | string
+    sessions?: AITherapySessionListRelationFilter
+    personalizations?: AIPersonalizationListRelationFilter
+  }
+
+  export type AITherapistOrderByWithRelationInput = {
+    id?: SortOrder
+    therapistId?: SortOrder
+    name?: SortOrder
+    avatar?: SortOrder
+    personality?: SortOrder
+    description?: SortOrder
+    specialties?: SortOrder
+    approaches?: SortOrder
+    bestFor?: SortOrder
+    features?: SortOrder
+    availability?: SortOrder
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    sessions?: AITherapySessionOrderByRelationAggregateInput
+    personalizations?: AIPersonalizationOrderByRelationAggregateInput
+  }
+
+  export type AITherapistWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    therapistId?: string
+    AND?: AITherapistWhereInput | AITherapistWhereInput[]
+    OR?: AITherapistWhereInput[]
+    NOT?: AITherapistWhereInput | AITherapistWhereInput[]
+    name?: StringFilter<"AITherapist"> | string
+    avatar?: StringFilter<"AITherapist"> | string
+    personality?: StringFilter<"AITherapist"> | string
+    description?: StringFilter<"AITherapist"> | string
+    specialties?: StringFilter<"AITherapist"> | string
+    approaches?: StringFilter<"AITherapist"> | string
+    bestFor?: StringFilter<"AITherapist"> | string
+    features?: StringFilter<"AITherapist"> | string
+    availability?: StringFilter<"AITherapist"> | string
+    sessionsCompleted?: IntFilter<"AITherapist"> | number
+    userRating?: FloatFilter<"AITherapist"> | number
+    responseTime?: FloatFilter<"AITherapist"> | number
+    createdAt?: DateTimeFilter<"AITherapist"> | Date | string
+    updatedAt?: DateTimeFilter<"AITherapist"> | Date | string
+    sessions?: AITherapySessionListRelationFilter
+    personalizations?: AIPersonalizationListRelationFilter
+  }, "id" | "therapistId">
+
+  export type AITherapistOrderByWithAggregationInput = {
+    id?: SortOrder
+    therapistId?: SortOrder
+    name?: SortOrder
+    avatar?: SortOrder
+    personality?: SortOrder
+    description?: SortOrder
+    specialties?: SortOrder
+    approaches?: SortOrder
+    bestFor?: SortOrder
+    features?: SortOrder
+    availability?: SortOrder
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AITherapistCountOrderByAggregateInput
+    _avg?: AITherapistAvgOrderByAggregateInput
+    _max?: AITherapistMaxOrderByAggregateInput
+    _min?: AITherapistMinOrderByAggregateInput
+    _sum?: AITherapistSumOrderByAggregateInput
+  }
+
+  export type AITherapistScalarWhereWithAggregatesInput = {
+    AND?: AITherapistScalarWhereWithAggregatesInput | AITherapistScalarWhereWithAggregatesInput[]
+    OR?: AITherapistScalarWhereWithAggregatesInput[]
+    NOT?: AITherapistScalarWhereWithAggregatesInput | AITherapistScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AITherapist"> | string
+    therapistId?: StringWithAggregatesFilter<"AITherapist"> | string
+    name?: StringWithAggregatesFilter<"AITherapist"> | string
+    avatar?: StringWithAggregatesFilter<"AITherapist"> | string
+    personality?: StringWithAggregatesFilter<"AITherapist"> | string
+    description?: StringWithAggregatesFilter<"AITherapist"> | string
+    specialties?: StringWithAggregatesFilter<"AITherapist"> | string
+    approaches?: StringWithAggregatesFilter<"AITherapist"> | string
+    bestFor?: StringWithAggregatesFilter<"AITherapist"> | string
+    features?: StringWithAggregatesFilter<"AITherapist"> | string
+    availability?: StringWithAggregatesFilter<"AITherapist"> | string
+    sessionsCompleted?: IntWithAggregatesFilter<"AITherapist"> | number
+    userRating?: FloatWithAggregatesFilter<"AITherapist"> | number
+    responseTime?: FloatWithAggregatesFilter<"AITherapist"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"AITherapist"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AITherapist"> | Date | string
+  }
+
+  export type AITherapySessionWhereInput = {
+    AND?: AITherapySessionWhereInput | AITherapySessionWhereInput[]
+    OR?: AITherapySessionWhereInput[]
+    NOT?: AITherapySessionWhereInput | AITherapySessionWhereInput[]
+    id?: StringFilter<"AITherapySession"> | string
+    sessionToken?: StringFilter<"AITherapySession"> | string
+    userId?: StringFilter<"AITherapySession"> | string
+    therapistId?: StringFilter<"AITherapySession"> | string
+    sessionType?: EnumAISessionTypeFilter<"AITherapySession"> | $Enums.AISessionType
+    status?: EnumAISessionStatusFilter<"AITherapySession"> | $Enums.AISessionStatus
+    startedAt?: DateTimeFilter<"AITherapySession"> | Date | string
+    endedAt?: DateTimeNullableFilter<"AITherapySession"> | Date | string | null
+    duration?: IntNullableFilter<"AITherapySession"> | number | null
+    pausedAt?: DateTimeNullableFilter<"AITherapySession"> | Date | string | null
+    pausedDuration?: IntFilter<"AITherapySession"> | number
+    moodBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    moodAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    anxietyBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    anxietyAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    energyBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    energyAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    encryptedNotes?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedInsights?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedHomework?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedGoals?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    topics?: StringNullableFilter<"AITherapySession"> | string | null
+    techniques?: StringNullableFilter<"AITherapySession"> | string | null
+    interventions?: StringNullableFilter<"AITherapySession"> | string | null
+    breakthroughs?: StringNullableFilter<"AITherapySession"> | string | null
+    crisisDetected?: BoolFilter<"AITherapySession"> | boolean
+    crisisLevel?: IntNullableFilter<"AITherapySession"> | number | null
+    crisisInterventions?: StringNullableFilter<"AITherapySession"> | string | null
+    therapist?: XOR<AITherapistScalarRelationFilter, AITherapistWhereInput>
+    messages?: AITherapyMessageListRelationFilter
+    exercises?: AIExerciseSessionListRelationFilter
+  }
+
+  export type AITherapySessionOrderByWithRelationInput = {
+    id?: SortOrder
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    sessionType?: SortOrder
+    status?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    pausedAt?: SortOrderInput | SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    anxietyBefore?: SortOrderInput | SortOrder
+    anxietyAfter?: SortOrderInput | SortOrder
+    energyBefore?: SortOrderInput | SortOrder
+    energyAfter?: SortOrderInput | SortOrder
+    encryptedNotes?: SortOrderInput | SortOrder
+    encryptedInsights?: SortOrderInput | SortOrder
+    encryptedHomework?: SortOrderInput | SortOrder
+    encryptedGoals?: SortOrderInput | SortOrder
+    topics?: SortOrderInput | SortOrder
+    techniques?: SortOrderInput | SortOrder
+    interventions?: SortOrderInput | SortOrder
+    breakthroughs?: SortOrderInput | SortOrder
+    crisisDetected?: SortOrder
+    crisisLevel?: SortOrderInput | SortOrder
+    crisisInterventions?: SortOrderInput | SortOrder
+    therapist?: AITherapistOrderByWithRelationInput
+    messages?: AITherapyMessageOrderByRelationAggregateInput
+    exercises?: AIExerciseSessionOrderByRelationAggregateInput
+  }
+
+  export type AITherapySessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    sessionToken?: string
+    AND?: AITherapySessionWhereInput | AITherapySessionWhereInput[]
+    OR?: AITherapySessionWhereInput[]
+    NOT?: AITherapySessionWhereInput | AITherapySessionWhereInput[]
+    userId?: StringFilter<"AITherapySession"> | string
+    therapistId?: StringFilter<"AITherapySession"> | string
+    sessionType?: EnumAISessionTypeFilter<"AITherapySession"> | $Enums.AISessionType
+    status?: EnumAISessionStatusFilter<"AITherapySession"> | $Enums.AISessionStatus
+    startedAt?: DateTimeFilter<"AITherapySession"> | Date | string
+    endedAt?: DateTimeNullableFilter<"AITherapySession"> | Date | string | null
+    duration?: IntNullableFilter<"AITherapySession"> | number | null
+    pausedAt?: DateTimeNullableFilter<"AITherapySession"> | Date | string | null
+    pausedDuration?: IntFilter<"AITherapySession"> | number
+    moodBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    moodAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    anxietyBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    anxietyAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    energyBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    energyAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    encryptedNotes?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedInsights?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedHomework?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedGoals?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    topics?: StringNullableFilter<"AITherapySession"> | string | null
+    techniques?: StringNullableFilter<"AITherapySession"> | string | null
+    interventions?: StringNullableFilter<"AITherapySession"> | string | null
+    breakthroughs?: StringNullableFilter<"AITherapySession"> | string | null
+    crisisDetected?: BoolFilter<"AITherapySession"> | boolean
+    crisisLevel?: IntNullableFilter<"AITherapySession"> | number | null
+    crisisInterventions?: StringNullableFilter<"AITherapySession"> | string | null
+    therapist?: XOR<AITherapistScalarRelationFilter, AITherapistWhereInput>
+    messages?: AITherapyMessageListRelationFilter
+    exercises?: AIExerciseSessionListRelationFilter
+  }, "id" | "sessionToken">
+
+  export type AITherapySessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    sessionType?: SortOrder
+    status?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    pausedAt?: SortOrderInput | SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    anxietyBefore?: SortOrderInput | SortOrder
+    anxietyAfter?: SortOrderInput | SortOrder
+    energyBefore?: SortOrderInput | SortOrder
+    energyAfter?: SortOrderInput | SortOrder
+    encryptedNotes?: SortOrderInput | SortOrder
+    encryptedInsights?: SortOrderInput | SortOrder
+    encryptedHomework?: SortOrderInput | SortOrder
+    encryptedGoals?: SortOrderInput | SortOrder
+    topics?: SortOrderInput | SortOrder
+    techniques?: SortOrderInput | SortOrder
+    interventions?: SortOrderInput | SortOrder
+    breakthroughs?: SortOrderInput | SortOrder
+    crisisDetected?: SortOrder
+    crisisLevel?: SortOrderInput | SortOrder
+    crisisInterventions?: SortOrderInput | SortOrder
+    _count?: AITherapySessionCountOrderByAggregateInput
+    _avg?: AITherapySessionAvgOrderByAggregateInput
+    _max?: AITherapySessionMaxOrderByAggregateInput
+    _min?: AITherapySessionMinOrderByAggregateInput
+    _sum?: AITherapySessionSumOrderByAggregateInput
+  }
+
+  export type AITherapySessionScalarWhereWithAggregatesInput = {
+    AND?: AITherapySessionScalarWhereWithAggregatesInput | AITherapySessionScalarWhereWithAggregatesInput[]
+    OR?: AITherapySessionScalarWhereWithAggregatesInput[]
+    NOT?: AITherapySessionScalarWhereWithAggregatesInput | AITherapySessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AITherapySession"> | string
+    sessionToken?: StringWithAggregatesFilter<"AITherapySession"> | string
+    userId?: StringWithAggregatesFilter<"AITherapySession"> | string
+    therapistId?: StringWithAggregatesFilter<"AITherapySession"> | string
+    sessionType?: EnumAISessionTypeWithAggregatesFilter<"AITherapySession"> | $Enums.AISessionType
+    status?: EnumAISessionStatusWithAggregatesFilter<"AITherapySession"> | $Enums.AISessionStatus
+    startedAt?: DateTimeWithAggregatesFilter<"AITherapySession"> | Date | string
+    endedAt?: DateTimeNullableWithAggregatesFilter<"AITherapySession"> | Date | string | null
+    duration?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    pausedAt?: DateTimeNullableWithAggregatesFilter<"AITherapySession"> | Date | string | null
+    pausedDuration?: IntWithAggregatesFilter<"AITherapySession"> | number
+    moodBefore?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    moodAfter?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    anxietyBefore?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    anxietyAfter?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    energyBefore?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    energyAfter?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    encryptedNotes?: BytesNullableWithAggregatesFilter<"AITherapySession"> | Uint8Array | null
+    encryptedInsights?: BytesNullableWithAggregatesFilter<"AITherapySession"> | Uint8Array | null
+    encryptedHomework?: BytesNullableWithAggregatesFilter<"AITherapySession"> | Uint8Array | null
+    encryptedGoals?: BytesNullableWithAggregatesFilter<"AITherapySession"> | Uint8Array | null
+    topics?: StringNullableWithAggregatesFilter<"AITherapySession"> | string | null
+    techniques?: StringNullableWithAggregatesFilter<"AITherapySession"> | string | null
+    interventions?: StringNullableWithAggregatesFilter<"AITherapySession"> | string | null
+    breakthroughs?: StringNullableWithAggregatesFilter<"AITherapySession"> | string | null
+    crisisDetected?: BoolWithAggregatesFilter<"AITherapySession"> | boolean
+    crisisLevel?: IntNullableWithAggregatesFilter<"AITherapySession"> | number | null
+    crisisInterventions?: StringNullableWithAggregatesFilter<"AITherapySession"> | string | null
+  }
+
+  export type AITherapyMessageWhereInput = {
+    AND?: AITherapyMessageWhereInput | AITherapyMessageWhereInput[]
+    OR?: AITherapyMessageWhereInput[]
+    NOT?: AITherapyMessageWhereInput | AITherapyMessageWhereInput[]
+    id?: StringFilter<"AITherapyMessage"> | string
+    sessionId?: StringFilter<"AITherapyMessage"> | string
+    messageType?: EnumAIMessageTypeFilter<"AITherapyMessage"> | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFilter<"AITherapyMessage"> | $Enums.AIMessageSender
+    encryptedContent?: BytesFilter<"AITherapyMessage"> | Uint8Array
+    messageHash?: StringFilter<"AITherapyMessage"> | string
+    timestamp?: DateTimeFilter<"AITherapyMessage"> | Date | string
+    edited?: BoolFilter<"AITherapyMessage"> | boolean
+    editedAt?: DateTimeNullableFilter<"AITherapyMessage"> | Date | string | null
+    sentiment?: FloatNullableFilter<"AITherapyMessage"> | number | null
+    emotion?: StringNullableFilter<"AITherapyMessage"> | string | null
+    riskScore?: IntNullableFilter<"AITherapyMessage"> | number | null
+    techniques?: StringNullableFilter<"AITherapyMessage"> | string | null
+    hasAudio?: BoolFilter<"AITherapyMessage"> | boolean
+    audioDuration?: IntNullableFilter<"AITherapyMessage"> | number | null
+    audioUrl?: StringNullableFilter<"AITherapyMessage"> | string | null
+    session?: XOR<AITherapySessionScalarRelationFilter, AITherapySessionWhereInput>
+  }
+
+  export type AITherapyMessageOrderByWithRelationInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    messageType?: SortOrder
+    sender?: SortOrder
+    encryptedContent?: SortOrder
+    messageHash?: SortOrder
+    timestamp?: SortOrder
+    edited?: SortOrder
+    editedAt?: SortOrderInput | SortOrder
+    sentiment?: SortOrderInput | SortOrder
+    emotion?: SortOrderInput | SortOrder
+    riskScore?: SortOrderInput | SortOrder
+    techniques?: SortOrderInput | SortOrder
+    hasAudio?: SortOrder
+    audioDuration?: SortOrderInput | SortOrder
+    audioUrl?: SortOrderInput | SortOrder
+    session?: AITherapySessionOrderByWithRelationInput
+  }
+
+  export type AITherapyMessageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AITherapyMessageWhereInput | AITherapyMessageWhereInput[]
+    OR?: AITherapyMessageWhereInput[]
+    NOT?: AITherapyMessageWhereInput | AITherapyMessageWhereInput[]
+    sessionId?: StringFilter<"AITherapyMessage"> | string
+    messageType?: EnumAIMessageTypeFilter<"AITherapyMessage"> | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFilter<"AITherapyMessage"> | $Enums.AIMessageSender
+    encryptedContent?: BytesFilter<"AITherapyMessage"> | Uint8Array
+    messageHash?: StringFilter<"AITherapyMessage"> | string
+    timestamp?: DateTimeFilter<"AITherapyMessage"> | Date | string
+    edited?: BoolFilter<"AITherapyMessage"> | boolean
+    editedAt?: DateTimeNullableFilter<"AITherapyMessage"> | Date | string | null
+    sentiment?: FloatNullableFilter<"AITherapyMessage"> | number | null
+    emotion?: StringNullableFilter<"AITherapyMessage"> | string | null
+    riskScore?: IntNullableFilter<"AITherapyMessage"> | number | null
+    techniques?: StringNullableFilter<"AITherapyMessage"> | string | null
+    hasAudio?: BoolFilter<"AITherapyMessage"> | boolean
+    audioDuration?: IntNullableFilter<"AITherapyMessage"> | number | null
+    audioUrl?: StringNullableFilter<"AITherapyMessage"> | string | null
+    session?: XOR<AITherapySessionScalarRelationFilter, AITherapySessionWhereInput>
+  }, "id">
+
+  export type AITherapyMessageOrderByWithAggregationInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    messageType?: SortOrder
+    sender?: SortOrder
+    encryptedContent?: SortOrder
+    messageHash?: SortOrder
+    timestamp?: SortOrder
+    edited?: SortOrder
+    editedAt?: SortOrderInput | SortOrder
+    sentiment?: SortOrderInput | SortOrder
+    emotion?: SortOrderInput | SortOrder
+    riskScore?: SortOrderInput | SortOrder
+    techniques?: SortOrderInput | SortOrder
+    hasAudio?: SortOrder
+    audioDuration?: SortOrderInput | SortOrder
+    audioUrl?: SortOrderInput | SortOrder
+    _count?: AITherapyMessageCountOrderByAggregateInput
+    _avg?: AITherapyMessageAvgOrderByAggregateInput
+    _max?: AITherapyMessageMaxOrderByAggregateInput
+    _min?: AITherapyMessageMinOrderByAggregateInput
+    _sum?: AITherapyMessageSumOrderByAggregateInput
+  }
+
+  export type AITherapyMessageScalarWhereWithAggregatesInput = {
+    AND?: AITherapyMessageScalarWhereWithAggregatesInput | AITherapyMessageScalarWhereWithAggregatesInput[]
+    OR?: AITherapyMessageScalarWhereWithAggregatesInput[]
+    NOT?: AITherapyMessageScalarWhereWithAggregatesInput | AITherapyMessageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AITherapyMessage"> | string
+    sessionId?: StringWithAggregatesFilter<"AITherapyMessage"> | string
+    messageType?: EnumAIMessageTypeWithAggregatesFilter<"AITherapyMessage"> | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderWithAggregatesFilter<"AITherapyMessage"> | $Enums.AIMessageSender
+    encryptedContent?: BytesWithAggregatesFilter<"AITherapyMessage"> | Uint8Array
+    messageHash?: StringWithAggregatesFilter<"AITherapyMessage"> | string
+    timestamp?: DateTimeWithAggregatesFilter<"AITherapyMessage"> | Date | string
+    edited?: BoolWithAggregatesFilter<"AITherapyMessage"> | boolean
+    editedAt?: DateTimeNullableWithAggregatesFilter<"AITherapyMessage"> | Date | string | null
+    sentiment?: FloatNullableWithAggregatesFilter<"AITherapyMessage"> | number | null
+    emotion?: StringNullableWithAggregatesFilter<"AITherapyMessage"> | string | null
+    riskScore?: IntNullableWithAggregatesFilter<"AITherapyMessage"> | number | null
+    techniques?: StringNullableWithAggregatesFilter<"AITherapyMessage"> | string | null
+    hasAudio?: BoolWithAggregatesFilter<"AITherapyMessage"> | boolean
+    audioDuration?: IntNullableWithAggregatesFilter<"AITherapyMessage"> | number | null
+    audioUrl?: StringNullableWithAggregatesFilter<"AITherapyMessage"> | string | null
+  }
+
+  export type AIPersonalizationWhereInput = {
+    AND?: AIPersonalizationWhereInput | AIPersonalizationWhereInput[]
+    OR?: AIPersonalizationWhereInput[]
+    NOT?: AIPersonalizationWhereInput | AIPersonalizationWhereInput[]
+    id?: StringFilter<"AIPersonalization"> | string
+    userId?: StringFilter<"AIPersonalization"> | string
+    therapistId?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredStyle?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredTechniques?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredTopics?: StringNullableFilter<"AIPersonalization"> | string | null
+    avoidTopics?: StringNullableFilter<"AIPersonalization"> | string | null
+    responseLength?: StringFilter<"AIPersonalization"> | string
+    responseComplexity?: StringFilter<"AIPersonalization"> | string
+    empathyLevel?: StringFilter<"AIPersonalization"> | string
+    directness?: StringFilter<"AIPersonalization"> | string
+    culturalBackground?: StringNullableFilter<"AIPersonalization"> | string | null
+    languagePreference?: StringFilter<"AIPersonalization"> | string
+    timezone?: StringFilter<"AIPersonalization"> | string
+    pronouns?: StringNullableFilter<"AIPersonalization"> | string | null
+    learnedPatterns?: StringNullableFilter<"AIPersonalization"> | string | null
+    effectiveTechniques?: StringNullableFilter<"AIPersonalization"> | string | null
+    triggerPatterns?: StringNullableFilter<"AIPersonalization"> | string | null
+    copingStrategies?: StringNullableFilter<"AIPersonalization"> | string | null
+    createdAt?: DateTimeFilter<"AIPersonalization"> | Date | string
+    updatedAt?: DateTimeFilter<"AIPersonalization"> | Date | string
+    therapist?: XOR<AITherapistNullableScalarRelationFilter, AITherapistWhereInput> | null
+  }
+
+  export type AIPersonalizationOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrderInput | SortOrder
+    preferredStyle?: SortOrderInput | SortOrder
+    preferredTechniques?: SortOrderInput | SortOrder
+    preferredTopics?: SortOrderInput | SortOrder
+    avoidTopics?: SortOrderInput | SortOrder
+    responseLength?: SortOrder
+    responseComplexity?: SortOrder
+    empathyLevel?: SortOrder
+    directness?: SortOrder
+    culturalBackground?: SortOrderInput | SortOrder
+    languagePreference?: SortOrder
+    timezone?: SortOrder
+    pronouns?: SortOrderInput | SortOrder
+    learnedPatterns?: SortOrderInput | SortOrder
+    effectiveTechniques?: SortOrderInput | SortOrder
+    triggerPatterns?: SortOrderInput | SortOrder
+    copingStrategies?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    therapist?: AITherapistOrderByWithRelationInput
+  }
+
+  export type AIPersonalizationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId?: string
+    AND?: AIPersonalizationWhereInput | AIPersonalizationWhereInput[]
+    OR?: AIPersonalizationWhereInput[]
+    NOT?: AIPersonalizationWhereInput | AIPersonalizationWhereInput[]
+    therapistId?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredStyle?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredTechniques?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredTopics?: StringNullableFilter<"AIPersonalization"> | string | null
+    avoidTopics?: StringNullableFilter<"AIPersonalization"> | string | null
+    responseLength?: StringFilter<"AIPersonalization"> | string
+    responseComplexity?: StringFilter<"AIPersonalization"> | string
+    empathyLevel?: StringFilter<"AIPersonalization"> | string
+    directness?: StringFilter<"AIPersonalization"> | string
+    culturalBackground?: StringNullableFilter<"AIPersonalization"> | string | null
+    languagePreference?: StringFilter<"AIPersonalization"> | string
+    timezone?: StringFilter<"AIPersonalization"> | string
+    pronouns?: StringNullableFilter<"AIPersonalization"> | string | null
+    learnedPatterns?: StringNullableFilter<"AIPersonalization"> | string | null
+    effectiveTechniques?: StringNullableFilter<"AIPersonalization"> | string | null
+    triggerPatterns?: StringNullableFilter<"AIPersonalization"> | string | null
+    copingStrategies?: StringNullableFilter<"AIPersonalization"> | string | null
+    createdAt?: DateTimeFilter<"AIPersonalization"> | Date | string
+    updatedAt?: DateTimeFilter<"AIPersonalization"> | Date | string
+    therapist?: XOR<AITherapistNullableScalarRelationFilter, AITherapistWhereInput> | null
+  }, "id" | "userId">
+
+  export type AIPersonalizationOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrderInput | SortOrder
+    preferredStyle?: SortOrderInput | SortOrder
+    preferredTechniques?: SortOrderInput | SortOrder
+    preferredTopics?: SortOrderInput | SortOrder
+    avoidTopics?: SortOrderInput | SortOrder
+    responseLength?: SortOrder
+    responseComplexity?: SortOrder
+    empathyLevel?: SortOrder
+    directness?: SortOrder
+    culturalBackground?: SortOrderInput | SortOrder
+    languagePreference?: SortOrder
+    timezone?: SortOrder
+    pronouns?: SortOrderInput | SortOrder
+    learnedPatterns?: SortOrderInput | SortOrder
+    effectiveTechniques?: SortOrderInput | SortOrder
+    triggerPatterns?: SortOrderInput | SortOrder
+    copingStrategies?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AIPersonalizationCountOrderByAggregateInput
+    _max?: AIPersonalizationMaxOrderByAggregateInput
+    _min?: AIPersonalizationMinOrderByAggregateInput
+  }
+
+  export type AIPersonalizationScalarWhereWithAggregatesInput = {
+    AND?: AIPersonalizationScalarWhereWithAggregatesInput | AIPersonalizationScalarWhereWithAggregatesInput[]
+    OR?: AIPersonalizationScalarWhereWithAggregatesInput[]
+    NOT?: AIPersonalizationScalarWhereWithAggregatesInput | AIPersonalizationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    userId?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    therapistId?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    preferredStyle?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    preferredTechniques?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    preferredTopics?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    avoidTopics?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    responseLength?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    responseComplexity?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    empathyLevel?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    directness?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    culturalBackground?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    languagePreference?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    timezone?: StringWithAggregatesFilter<"AIPersonalization"> | string
+    pronouns?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    learnedPatterns?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    effectiveTechniques?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    triggerPatterns?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    copingStrategies?: StringNullableWithAggregatesFilter<"AIPersonalization"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"AIPersonalization"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AIPersonalization"> | Date | string
+  }
+
+  export type AIExerciseSessionWhereInput = {
+    AND?: AIExerciseSessionWhereInput | AIExerciseSessionWhereInput[]
+    OR?: AIExerciseSessionWhereInput[]
+    NOT?: AIExerciseSessionWhereInput | AIExerciseSessionWhereInput[]
+    id?: StringFilter<"AIExerciseSession"> | string
+    sessionId?: StringNullableFilter<"AIExerciseSession"> | string | null
+    userId?: StringFilter<"AIExerciseSession"> | string
+    exerciseType?: EnumAIExerciseTypeFilter<"AIExerciseSession"> | $Enums.AIExerciseType
+    exerciseName?: StringFilter<"AIExerciseSession"> | string
+    category?: StringFilter<"AIExerciseSession"> | string
+    difficulty?: StringFilter<"AIExerciseSession"> | string
+    duration?: IntFilter<"AIExerciseSession"> | number
+    startedAt?: DateTimeFilter<"AIExerciseSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"AIExerciseSession"> | Date | string | null
+    completed?: BoolFilter<"AIExerciseSession"> | boolean
+    progress?: IntFilter<"AIExerciseSession"> | number
+    results?: StringNullableFilter<"AIExerciseSession"> | string | null
+    feedback?: StringNullableFilter<"AIExerciseSession"> | string | null
+    improvement?: FloatNullableFilter<"AIExerciseSession"> | number | null
+    moodBefore?: IntNullableFilter<"AIExerciseSession"> | number | null
+    moodAfter?: IntNullableFilter<"AIExerciseSession"> | number | null
+    session?: XOR<AITherapySessionNullableScalarRelationFilter, AITherapySessionWhereInput> | null
+  }
+
+  export type AIExerciseSessionOrderByWithRelationInput = {
+    id?: SortOrder
+    sessionId?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    exerciseType?: SortOrder
+    exerciseName?: SortOrder
+    category?: SortOrder
+    difficulty?: SortOrder
+    duration?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    completed?: SortOrder
+    progress?: SortOrder
+    results?: SortOrderInput | SortOrder
+    feedback?: SortOrderInput | SortOrder
+    improvement?: SortOrderInput | SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    session?: AITherapySessionOrderByWithRelationInput
+  }
+
+  export type AIExerciseSessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AIExerciseSessionWhereInput | AIExerciseSessionWhereInput[]
+    OR?: AIExerciseSessionWhereInput[]
+    NOT?: AIExerciseSessionWhereInput | AIExerciseSessionWhereInput[]
+    sessionId?: StringNullableFilter<"AIExerciseSession"> | string | null
+    userId?: StringFilter<"AIExerciseSession"> | string
+    exerciseType?: EnumAIExerciseTypeFilter<"AIExerciseSession"> | $Enums.AIExerciseType
+    exerciseName?: StringFilter<"AIExerciseSession"> | string
+    category?: StringFilter<"AIExerciseSession"> | string
+    difficulty?: StringFilter<"AIExerciseSession"> | string
+    duration?: IntFilter<"AIExerciseSession"> | number
+    startedAt?: DateTimeFilter<"AIExerciseSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"AIExerciseSession"> | Date | string | null
+    completed?: BoolFilter<"AIExerciseSession"> | boolean
+    progress?: IntFilter<"AIExerciseSession"> | number
+    results?: StringNullableFilter<"AIExerciseSession"> | string | null
+    feedback?: StringNullableFilter<"AIExerciseSession"> | string | null
+    improvement?: FloatNullableFilter<"AIExerciseSession"> | number | null
+    moodBefore?: IntNullableFilter<"AIExerciseSession"> | number | null
+    moodAfter?: IntNullableFilter<"AIExerciseSession"> | number | null
+    session?: XOR<AITherapySessionNullableScalarRelationFilter, AITherapySessionWhereInput> | null
+  }, "id">
+
+  export type AIExerciseSessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    sessionId?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    exerciseType?: SortOrder
+    exerciseName?: SortOrder
+    category?: SortOrder
+    difficulty?: SortOrder
+    duration?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    completed?: SortOrder
+    progress?: SortOrder
+    results?: SortOrderInput | SortOrder
+    feedback?: SortOrderInput | SortOrder
+    improvement?: SortOrderInput | SortOrder
+    moodBefore?: SortOrderInput | SortOrder
+    moodAfter?: SortOrderInput | SortOrder
+    _count?: AIExerciseSessionCountOrderByAggregateInput
+    _avg?: AIExerciseSessionAvgOrderByAggregateInput
+    _max?: AIExerciseSessionMaxOrderByAggregateInput
+    _min?: AIExerciseSessionMinOrderByAggregateInput
+    _sum?: AIExerciseSessionSumOrderByAggregateInput
+  }
+
+  export type AIExerciseSessionScalarWhereWithAggregatesInput = {
+    AND?: AIExerciseSessionScalarWhereWithAggregatesInput | AIExerciseSessionScalarWhereWithAggregatesInput[]
+    OR?: AIExerciseSessionScalarWhereWithAggregatesInput[]
+    NOT?: AIExerciseSessionScalarWhereWithAggregatesInput | AIExerciseSessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AIExerciseSession"> | string
+    sessionId?: StringNullableWithAggregatesFilter<"AIExerciseSession"> | string | null
+    userId?: StringWithAggregatesFilter<"AIExerciseSession"> | string
+    exerciseType?: EnumAIExerciseTypeWithAggregatesFilter<"AIExerciseSession"> | $Enums.AIExerciseType
+    exerciseName?: StringWithAggregatesFilter<"AIExerciseSession"> | string
+    category?: StringWithAggregatesFilter<"AIExerciseSession"> | string
+    difficulty?: StringWithAggregatesFilter<"AIExerciseSession"> | string
+    duration?: IntWithAggregatesFilter<"AIExerciseSession"> | number
+    startedAt?: DateTimeWithAggregatesFilter<"AIExerciseSession"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"AIExerciseSession"> | Date | string | null
+    completed?: BoolWithAggregatesFilter<"AIExerciseSession"> | boolean
+    progress?: IntWithAggregatesFilter<"AIExerciseSession"> | number
+    results?: StringNullableWithAggregatesFilter<"AIExerciseSession"> | string | null
+    feedback?: StringNullableWithAggregatesFilter<"AIExerciseSession"> | string | null
+    improvement?: FloatNullableWithAggregatesFilter<"AIExerciseSession"> | number | null
+    moodBefore?: IntNullableWithAggregatesFilter<"AIExerciseSession"> | number | null
+    moodAfter?: IntNullableWithAggregatesFilter<"AIExerciseSession"> | number | null
+  }
+
+  export type AITherapyInsightWhereInput = {
+    AND?: AITherapyInsightWhereInput | AITherapyInsightWhereInput[]
+    OR?: AITherapyInsightWhereInput[]
+    NOT?: AITherapyInsightWhereInput | AITherapyInsightWhereInput[]
+    id?: StringFilter<"AITherapyInsight"> | string
+    userId?: StringFilter<"AITherapyInsight"> | string
+    insightType?: EnumAIInsightTypeFilter<"AITherapyInsight"> | $Enums.AIInsightType
+    title?: StringFilter<"AITherapyInsight"> | string
+    description?: StringFilter<"AITherapyInsight"> | string
+    significance?: StringFilter<"AITherapyInsight"> | string
+    dataPoints?: StringFilter<"AITherapyInsight"> | string
+    patterns?: StringNullableFilter<"AITherapyInsight"> | string | null
+    trends?: StringNullableFilter<"AITherapyInsight"> | string | null
+    recommendations?: StringNullableFilter<"AITherapyInsight"> | string | null
+    actions?: StringNullableFilter<"AITherapyInsight"> | string | null
+    periodStart?: DateTimeFilter<"AITherapyInsight"> | Date | string
+    periodEnd?: DateTimeFilter<"AITherapyInsight"> | Date | string
+    generatedAt?: DateTimeFilter<"AITherapyInsight"> | Date | string
+    viewed?: BoolFilter<"AITherapyInsight"> | boolean
+    viewedAt?: DateTimeNullableFilter<"AITherapyInsight"> | Date | string | null
+    helpful?: BoolNullableFilter<"AITherapyInsight"> | boolean | null
+    dismissed?: BoolFilter<"AITherapyInsight"> | boolean
+  }
+
+  export type AITherapyInsightOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    insightType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    significance?: SortOrder
+    dataPoints?: SortOrder
+    patterns?: SortOrderInput | SortOrder
+    trends?: SortOrderInput | SortOrder
+    recommendations?: SortOrderInput | SortOrder
+    actions?: SortOrderInput | SortOrder
+    periodStart?: SortOrder
+    periodEnd?: SortOrder
+    generatedAt?: SortOrder
+    viewed?: SortOrder
+    viewedAt?: SortOrderInput | SortOrder
+    helpful?: SortOrderInput | SortOrder
+    dismissed?: SortOrder
+  }
+
+  export type AITherapyInsightWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AITherapyInsightWhereInput | AITherapyInsightWhereInput[]
+    OR?: AITherapyInsightWhereInput[]
+    NOT?: AITherapyInsightWhereInput | AITherapyInsightWhereInput[]
+    userId?: StringFilter<"AITherapyInsight"> | string
+    insightType?: EnumAIInsightTypeFilter<"AITherapyInsight"> | $Enums.AIInsightType
+    title?: StringFilter<"AITherapyInsight"> | string
+    description?: StringFilter<"AITherapyInsight"> | string
+    significance?: StringFilter<"AITherapyInsight"> | string
+    dataPoints?: StringFilter<"AITherapyInsight"> | string
+    patterns?: StringNullableFilter<"AITherapyInsight"> | string | null
+    trends?: StringNullableFilter<"AITherapyInsight"> | string | null
+    recommendations?: StringNullableFilter<"AITherapyInsight"> | string | null
+    actions?: StringNullableFilter<"AITherapyInsight"> | string | null
+    periodStart?: DateTimeFilter<"AITherapyInsight"> | Date | string
+    periodEnd?: DateTimeFilter<"AITherapyInsight"> | Date | string
+    generatedAt?: DateTimeFilter<"AITherapyInsight"> | Date | string
+    viewed?: BoolFilter<"AITherapyInsight"> | boolean
+    viewedAt?: DateTimeNullableFilter<"AITherapyInsight"> | Date | string | null
+    helpful?: BoolNullableFilter<"AITherapyInsight"> | boolean | null
+    dismissed?: BoolFilter<"AITherapyInsight"> | boolean
+  }, "id">
+
+  export type AITherapyInsightOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    insightType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    significance?: SortOrder
+    dataPoints?: SortOrder
+    patterns?: SortOrderInput | SortOrder
+    trends?: SortOrderInput | SortOrder
+    recommendations?: SortOrderInput | SortOrder
+    actions?: SortOrderInput | SortOrder
+    periodStart?: SortOrder
+    periodEnd?: SortOrder
+    generatedAt?: SortOrder
+    viewed?: SortOrder
+    viewedAt?: SortOrderInput | SortOrder
+    helpful?: SortOrderInput | SortOrder
+    dismissed?: SortOrder
+    _count?: AITherapyInsightCountOrderByAggregateInput
+    _max?: AITherapyInsightMaxOrderByAggregateInput
+    _min?: AITherapyInsightMinOrderByAggregateInput
+  }
+
+  export type AITherapyInsightScalarWhereWithAggregatesInput = {
+    AND?: AITherapyInsightScalarWhereWithAggregatesInput | AITherapyInsightScalarWhereWithAggregatesInput[]
+    OR?: AITherapyInsightScalarWhereWithAggregatesInput[]
+    NOT?: AITherapyInsightScalarWhereWithAggregatesInput | AITherapyInsightScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AITherapyInsight"> | string
+    userId?: StringWithAggregatesFilter<"AITherapyInsight"> | string
+    insightType?: EnumAIInsightTypeWithAggregatesFilter<"AITherapyInsight"> | $Enums.AIInsightType
+    title?: StringWithAggregatesFilter<"AITherapyInsight"> | string
+    description?: StringWithAggregatesFilter<"AITherapyInsight"> | string
+    significance?: StringWithAggregatesFilter<"AITherapyInsight"> | string
+    dataPoints?: StringWithAggregatesFilter<"AITherapyInsight"> | string
+    patterns?: StringNullableWithAggregatesFilter<"AITherapyInsight"> | string | null
+    trends?: StringNullableWithAggregatesFilter<"AITherapyInsight"> | string | null
+    recommendations?: StringNullableWithAggregatesFilter<"AITherapyInsight"> | string | null
+    actions?: StringNullableWithAggregatesFilter<"AITherapyInsight"> | string | null
+    periodStart?: DateTimeWithAggregatesFilter<"AITherapyInsight"> | Date | string
+    periodEnd?: DateTimeWithAggregatesFilter<"AITherapyInsight"> | Date | string
+    generatedAt?: DateTimeWithAggregatesFilter<"AITherapyInsight"> | Date | string
+    viewed?: BoolWithAggregatesFilter<"AITherapyInsight"> | boolean
+    viewedAt?: DateTimeNullableWithAggregatesFilter<"AITherapyInsight"> | Date | string | null
+    helpful?: BoolNullableWithAggregatesFilter<"AITherapyInsight"> | boolean | null
+    dismissed?: BoolWithAggregatesFilter<"AITherapyInsight"> | boolean
+  }
+
+  export type AITherapyGoalWhereInput = {
+    AND?: AITherapyGoalWhereInput | AITherapyGoalWhereInput[]
+    OR?: AITherapyGoalWhereInput[]
+    NOT?: AITherapyGoalWhereInput | AITherapyGoalWhereInput[]
+    id?: StringFilter<"AITherapyGoal"> | string
+    userId?: StringFilter<"AITherapyGoal"> | string
+    goalType?: StringFilter<"AITherapyGoal"> | string
+    title?: StringFilter<"AITherapyGoal"> | string
+    description?: StringFilter<"AITherapyGoal"> | string
+    category?: StringFilter<"AITherapyGoal"> | string
+    priority?: StringFilter<"AITherapyGoal"> | string
+    specific?: StringFilter<"AITherapyGoal"> | string
+    measurable?: StringFilter<"AITherapyGoal"> | string
+    achievable?: StringFilter<"AITherapyGoal"> | string
+    relevant?: StringFilter<"AITherapyGoal"> | string
+    timebound?: DateTimeFilter<"AITherapyGoal"> | Date | string
+    status?: EnumAIGoalStatusFilter<"AITherapyGoal"> | $Enums.AIGoalStatus
+    progress?: IntFilter<"AITherapyGoal"> | number
+    milestones?: StringNullableFilter<"AITherapyGoal"> | string | null
+    createdAt?: DateTimeFilter<"AITherapyGoal"> | Date | string
+    updatedAt?: DateTimeFilter<"AITherapyGoal"> | Date | string
+    completedAt?: DateTimeNullableFilter<"AITherapyGoal"> | Date | string | null
+  }
+
+  export type AITherapyGoalOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    goalType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    priority?: SortOrder
+    specific?: SortOrder
+    measurable?: SortOrder
+    achievable?: SortOrder
+    relevant?: SortOrder
+    timebound?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    milestones?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+  }
+
+  export type AITherapyGoalWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AITherapyGoalWhereInput | AITherapyGoalWhereInput[]
+    OR?: AITherapyGoalWhereInput[]
+    NOT?: AITherapyGoalWhereInput | AITherapyGoalWhereInput[]
+    userId?: StringFilter<"AITherapyGoal"> | string
+    goalType?: StringFilter<"AITherapyGoal"> | string
+    title?: StringFilter<"AITherapyGoal"> | string
+    description?: StringFilter<"AITherapyGoal"> | string
+    category?: StringFilter<"AITherapyGoal"> | string
+    priority?: StringFilter<"AITherapyGoal"> | string
+    specific?: StringFilter<"AITherapyGoal"> | string
+    measurable?: StringFilter<"AITherapyGoal"> | string
+    achievable?: StringFilter<"AITherapyGoal"> | string
+    relevant?: StringFilter<"AITherapyGoal"> | string
+    timebound?: DateTimeFilter<"AITherapyGoal"> | Date | string
+    status?: EnumAIGoalStatusFilter<"AITherapyGoal"> | $Enums.AIGoalStatus
+    progress?: IntFilter<"AITherapyGoal"> | number
+    milestones?: StringNullableFilter<"AITherapyGoal"> | string | null
+    createdAt?: DateTimeFilter<"AITherapyGoal"> | Date | string
+    updatedAt?: DateTimeFilter<"AITherapyGoal"> | Date | string
+    completedAt?: DateTimeNullableFilter<"AITherapyGoal"> | Date | string | null
+  }, "id">
+
+  export type AITherapyGoalOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    goalType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    priority?: SortOrder
+    specific?: SortOrder
+    measurable?: SortOrder
+    achievable?: SortOrder
+    relevant?: SortOrder
+    timebound?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    milestones?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    _count?: AITherapyGoalCountOrderByAggregateInput
+    _avg?: AITherapyGoalAvgOrderByAggregateInput
+    _max?: AITherapyGoalMaxOrderByAggregateInput
+    _min?: AITherapyGoalMinOrderByAggregateInput
+    _sum?: AITherapyGoalSumOrderByAggregateInput
+  }
+
+  export type AITherapyGoalScalarWhereWithAggregatesInput = {
+    AND?: AITherapyGoalScalarWhereWithAggregatesInput | AITherapyGoalScalarWhereWithAggregatesInput[]
+    OR?: AITherapyGoalScalarWhereWithAggregatesInput[]
+    NOT?: AITherapyGoalScalarWhereWithAggregatesInput | AITherapyGoalScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    userId?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    goalType?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    title?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    description?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    category?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    priority?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    specific?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    measurable?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    achievable?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    relevant?: StringWithAggregatesFilter<"AITherapyGoal"> | string
+    timebound?: DateTimeWithAggregatesFilter<"AITherapyGoal"> | Date | string
+    status?: EnumAIGoalStatusWithAggregatesFilter<"AITherapyGoal"> | $Enums.AIGoalStatus
+    progress?: IntWithAggregatesFilter<"AITherapyGoal"> | number
+    milestones?: StringNullableWithAggregatesFilter<"AITherapyGoal"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"AITherapyGoal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AITherapyGoal"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"AITherapyGoal"> | Date | string | null
   }
 
   export type CrisisSessionCreateInput = {
@@ -61041,6 +71915,1103 @@ export namespace Prisma {
     moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type AITherapistCreateInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: AITherapySessionCreateNestedManyWithoutTherapistInput
+    personalizations?: AIPersonalizationCreateNestedManyWithoutTherapistInput
+  }
+
+  export type AITherapistUncheckedCreateInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: AITherapySessionUncheckedCreateNestedManyWithoutTherapistInput
+    personalizations?: AIPersonalizationUncheckedCreateNestedManyWithoutTherapistInput
+  }
+
+  export type AITherapistUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: AITherapySessionUpdateManyWithoutTherapistNestedInput
+    personalizations?: AIPersonalizationUpdateManyWithoutTherapistNestedInput
+  }
+
+  export type AITherapistUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: AITherapySessionUncheckedUpdateManyWithoutTherapistNestedInput
+    personalizations?: AIPersonalizationUncheckedUpdateManyWithoutTherapistNestedInput
+  }
+
+  export type AITherapistCreateManyInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AITherapistUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITherapistUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITherapySessionCreateInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    therapist: AITherapistCreateNestedOneWithoutSessionsInput
+    messages?: AITherapyMessageCreateNestedManyWithoutSessionInput
+    exercises?: AIExerciseSessionCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionUncheckedCreateInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    therapistId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    messages?: AITherapyMessageUncheckedCreateNestedManyWithoutSessionInput
+    exercises?: AIExerciseSessionUncheckedCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    therapist?: AITherapistUpdateOneRequiredWithoutSessionsNestedInput
+    messages?: AITherapyMessageUpdateManyWithoutSessionNestedInput
+    exercises?: AIExerciseSessionUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapySessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    messages?: AITherapyMessageUncheckedUpdateManyWithoutSessionNestedInput
+    exercises?: AIExerciseSessionUncheckedUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapySessionCreateManyInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    therapistId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+  }
+
+  export type AITherapySessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AITherapySessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AITherapyMessageCreateInput = {
+    id?: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp?: Date | string
+    edited?: boolean
+    editedAt?: Date | string | null
+    sentiment?: number | null
+    emotion?: string | null
+    riskScore?: number | null
+    techniques?: string | null
+    hasAudio?: boolean
+    audioDuration?: number | null
+    audioUrl?: string | null
+    session: AITherapySessionCreateNestedOneWithoutMessagesInput
+  }
+
+  export type AITherapyMessageUncheckedCreateInput = {
+    id?: string
+    sessionId: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp?: Date | string
+    edited?: boolean
+    editedAt?: Date | string | null
+    sentiment?: number | null
+    emotion?: string | null
+    riskScore?: number | null
+    techniques?: string | null
+    hasAudio?: boolean
+    audioDuration?: number | null
+    audioUrl?: string | null
+  }
+
+  export type AITherapyMessageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    session?: AITherapySessionUpdateOneRequiredWithoutMessagesNestedInput
+  }
+
+  export type AITherapyMessageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AITherapyMessageCreateManyInput = {
+    id?: string
+    sessionId: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp?: Date | string
+    edited?: boolean
+    editedAt?: Date | string | null
+    sentiment?: number | null
+    emotion?: string | null
+    riskScore?: number | null
+    techniques?: string | null
+    hasAudio?: boolean
+    audioDuration?: number | null
+    audioUrl?: string | null
+  }
+
+  export type AITherapyMessageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AITherapyMessageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AIPersonalizationCreateInput = {
+    id?: string
+    userId: string
+    preferredStyle?: string | null
+    preferredTechniques?: string | null
+    preferredTopics?: string | null
+    avoidTopics?: string | null
+    responseLength?: string
+    responseComplexity?: string
+    empathyLevel?: string
+    directness?: string
+    culturalBackground?: string | null
+    languagePreference?: string
+    timezone?: string
+    pronouns?: string | null
+    learnedPatterns?: string | null
+    effectiveTechniques?: string | null
+    triggerPatterns?: string | null
+    copingStrategies?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    therapist?: AITherapistCreateNestedOneWithoutPersonalizationsInput
+  }
+
+  export type AIPersonalizationUncheckedCreateInput = {
+    id?: string
+    userId: string
+    therapistId?: string | null
+    preferredStyle?: string | null
+    preferredTechniques?: string | null
+    preferredTopics?: string | null
+    avoidTopics?: string | null
+    responseLength?: string
+    responseComplexity?: string
+    empathyLevel?: string
+    directness?: string
+    culturalBackground?: string | null
+    languagePreference?: string
+    timezone?: string
+    pronouns?: string | null
+    learnedPatterns?: string | null
+    effectiveTechniques?: string | null
+    triggerPatterns?: string | null
+    copingStrategies?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AIPersonalizationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    therapist?: AITherapistUpdateOneWithoutPersonalizationsNestedInput
+  }
+
+  export type AIPersonalizationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    therapistId?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AIPersonalizationCreateManyInput = {
+    id?: string
+    userId: string
+    therapistId?: string | null
+    preferredStyle?: string | null
+    preferredTechniques?: string | null
+    preferredTopics?: string | null
+    avoidTopics?: string | null
+    responseLength?: string
+    responseComplexity?: string
+    empathyLevel?: string
+    directness?: string
+    culturalBackground?: string | null
+    languagePreference?: string
+    timezone?: string
+    pronouns?: string | null
+    learnedPatterns?: string | null
+    effectiveTechniques?: string | null
+    triggerPatterns?: string | null
+    copingStrategies?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AIPersonalizationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AIPersonalizationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    therapistId?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AIExerciseSessionCreateInput = {
+    id?: string
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    completed?: boolean
+    progress?: number
+    results?: string | null
+    feedback?: string | null
+    improvement?: number | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+    session?: AITherapySessionCreateNestedOneWithoutExercisesInput
+  }
+
+  export type AIExerciseSessionUncheckedCreateInput = {
+    id?: string
+    sessionId?: string | null
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    completed?: boolean
+    progress?: number
+    results?: string | null
+    feedback?: string | null
+    improvement?: number | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type AIExerciseSessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    session?: AITherapySessionUpdateOneWithoutExercisesNestedInput
+  }
+
+  export type AIExerciseSessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AIExerciseSessionCreateManyInput = {
+    id?: string
+    sessionId?: string | null
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    completed?: boolean
+    progress?: number
+    results?: string | null
+    feedback?: string | null
+    improvement?: number | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type AIExerciseSessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AIExerciseSessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AITherapyInsightCreateInput = {
+    id?: string
+    userId: string
+    insightType: $Enums.AIInsightType
+    title: string
+    description: string
+    significance?: string
+    dataPoints: string
+    patterns?: string | null
+    trends?: string | null
+    recommendations?: string | null
+    actions?: string | null
+    periodStart: Date | string
+    periodEnd: Date | string
+    generatedAt?: Date | string
+    viewed?: boolean
+    viewedAt?: Date | string | null
+    helpful?: boolean | null
+    dismissed?: boolean
+  }
+
+  export type AITherapyInsightUncheckedCreateInput = {
+    id?: string
+    userId: string
+    insightType: $Enums.AIInsightType
+    title: string
+    description: string
+    significance?: string
+    dataPoints: string
+    patterns?: string | null
+    trends?: string | null
+    recommendations?: string | null
+    actions?: string | null
+    periodStart: Date | string
+    periodEnd: Date | string
+    generatedAt?: Date | string
+    viewed?: boolean
+    viewedAt?: Date | string | null
+    helpful?: boolean | null
+    dismissed?: boolean
+  }
+
+  export type AITherapyInsightUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    insightType?: EnumAIInsightTypeFieldUpdateOperationsInput | $Enums.AIInsightType
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    significance?: StringFieldUpdateOperationsInput | string
+    dataPoints?: StringFieldUpdateOperationsInput | string
+    patterns?: NullableStringFieldUpdateOperationsInput | string | null
+    trends?: NullableStringFieldUpdateOperationsInput | string | null
+    recommendations?: NullableStringFieldUpdateOperationsInput | string | null
+    actions?: NullableStringFieldUpdateOperationsInput | string | null
+    periodStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    periodEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    viewed?: BoolFieldUpdateOperationsInput | boolean
+    viewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    helpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    dismissed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AITherapyInsightUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    insightType?: EnumAIInsightTypeFieldUpdateOperationsInput | $Enums.AIInsightType
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    significance?: StringFieldUpdateOperationsInput | string
+    dataPoints?: StringFieldUpdateOperationsInput | string
+    patterns?: NullableStringFieldUpdateOperationsInput | string | null
+    trends?: NullableStringFieldUpdateOperationsInput | string | null
+    recommendations?: NullableStringFieldUpdateOperationsInput | string | null
+    actions?: NullableStringFieldUpdateOperationsInput | string | null
+    periodStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    periodEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    viewed?: BoolFieldUpdateOperationsInput | boolean
+    viewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    helpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    dismissed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AITherapyInsightCreateManyInput = {
+    id?: string
+    userId: string
+    insightType: $Enums.AIInsightType
+    title: string
+    description: string
+    significance?: string
+    dataPoints: string
+    patterns?: string | null
+    trends?: string | null
+    recommendations?: string | null
+    actions?: string | null
+    periodStart: Date | string
+    periodEnd: Date | string
+    generatedAt?: Date | string
+    viewed?: boolean
+    viewedAt?: Date | string | null
+    helpful?: boolean | null
+    dismissed?: boolean
+  }
+
+  export type AITherapyInsightUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    insightType?: EnumAIInsightTypeFieldUpdateOperationsInput | $Enums.AIInsightType
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    significance?: StringFieldUpdateOperationsInput | string
+    dataPoints?: StringFieldUpdateOperationsInput | string
+    patterns?: NullableStringFieldUpdateOperationsInput | string | null
+    trends?: NullableStringFieldUpdateOperationsInput | string | null
+    recommendations?: NullableStringFieldUpdateOperationsInput | string | null
+    actions?: NullableStringFieldUpdateOperationsInput | string | null
+    periodStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    periodEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    viewed?: BoolFieldUpdateOperationsInput | boolean
+    viewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    helpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    dismissed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AITherapyInsightUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    insightType?: EnumAIInsightTypeFieldUpdateOperationsInput | $Enums.AIInsightType
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    significance?: StringFieldUpdateOperationsInput | string
+    dataPoints?: StringFieldUpdateOperationsInput | string
+    patterns?: NullableStringFieldUpdateOperationsInput | string | null
+    trends?: NullableStringFieldUpdateOperationsInput | string | null
+    recommendations?: NullableStringFieldUpdateOperationsInput | string | null
+    actions?: NullableStringFieldUpdateOperationsInput | string | null
+    periodStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    periodEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    viewed?: BoolFieldUpdateOperationsInput | boolean
+    viewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    helpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    dismissed?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AITherapyGoalCreateInput = {
+    id?: string
+    userId: string
+    goalType: string
+    title: string
+    description: string
+    category: string
+    priority?: string
+    specific: string
+    measurable: string
+    achievable: string
+    relevant: string
+    timebound: Date | string
+    status?: $Enums.AIGoalStatus
+    progress?: number
+    milestones?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    completedAt?: Date | string | null
+  }
+
+  export type AITherapyGoalUncheckedCreateInput = {
+    id?: string
+    userId: string
+    goalType: string
+    title: string
+    description: string
+    category: string
+    priority?: string
+    specific: string
+    measurable: string
+    achievable: string
+    relevant: string
+    timebound: Date | string
+    status?: $Enums.AIGoalStatus
+    progress?: number
+    milestones?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    completedAt?: Date | string | null
+  }
+
+  export type AITherapyGoalUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    goalType?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    specific?: StringFieldUpdateOperationsInput | string
+    measurable?: StringFieldUpdateOperationsInput | string
+    achievable?: StringFieldUpdateOperationsInput | string
+    relevant?: StringFieldUpdateOperationsInput | string
+    timebound?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumAIGoalStatusFieldUpdateOperationsInput | $Enums.AIGoalStatus
+    progress?: IntFieldUpdateOperationsInput | number
+    milestones?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AITherapyGoalUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    goalType?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    specific?: StringFieldUpdateOperationsInput | string
+    measurable?: StringFieldUpdateOperationsInput | string
+    achievable?: StringFieldUpdateOperationsInput | string
+    relevant?: StringFieldUpdateOperationsInput | string
+    timebound?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumAIGoalStatusFieldUpdateOperationsInput | $Enums.AIGoalStatus
+    progress?: IntFieldUpdateOperationsInput | number
+    milestones?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AITherapyGoalCreateManyInput = {
+    id?: string
+    userId: string
+    goalType: string
+    title: string
+    description: string
+    category: string
+    priority?: string
+    specific: string
+    measurable: string
+    achievable: string
+    relevant: string
+    timebound: Date | string
+    status?: $Enums.AIGoalStatus
+    progress?: number
+    milestones?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    completedAt?: Date | string | null
+  }
+
+  export type AITherapyGoalUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    goalType?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    specific?: StringFieldUpdateOperationsInput | string
+    measurable?: StringFieldUpdateOperationsInput | string
+    achievable?: StringFieldUpdateOperationsInput | string
+    relevant?: StringFieldUpdateOperationsInput | string
+    timebound?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumAIGoalStatusFieldUpdateOperationsInput | $Enums.AIGoalStatus
+    progress?: IntFieldUpdateOperationsInput | number
+    milestones?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AITherapyGoalUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    goalType?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    specific?: StringFieldUpdateOperationsInput | string
+    measurable?: StringFieldUpdateOperationsInput | string
+    achievable?: StringFieldUpdateOperationsInput | string
+    relevant?: StringFieldUpdateOperationsInput | string
+    timebound?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumAIGoalStatusFieldUpdateOperationsInput | $Enums.AIGoalStatus
+    progress?: IntFieldUpdateOperationsInput | number
+    milestones?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -64769,6 +76740,722 @@ export namespace Prisma {
     _max?: NestedEnumInteractionTypeFilter<$PrismaModel>
   }
 
+  export type AITherapySessionListRelationFilter = {
+    every?: AITherapySessionWhereInput
+    some?: AITherapySessionWhereInput
+    none?: AITherapySessionWhereInput
+  }
+
+  export type AIPersonalizationListRelationFilter = {
+    every?: AIPersonalizationWhereInput
+    some?: AIPersonalizationWhereInput
+    none?: AIPersonalizationWhereInput
+  }
+
+  export type AITherapySessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AIPersonalizationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AITherapistCountOrderByAggregateInput = {
+    id?: SortOrder
+    therapistId?: SortOrder
+    name?: SortOrder
+    avatar?: SortOrder
+    personality?: SortOrder
+    description?: SortOrder
+    specialties?: SortOrder
+    approaches?: SortOrder
+    bestFor?: SortOrder
+    features?: SortOrder
+    availability?: SortOrder
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AITherapistAvgOrderByAggregateInput = {
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+  }
+
+  export type AITherapistMaxOrderByAggregateInput = {
+    id?: SortOrder
+    therapistId?: SortOrder
+    name?: SortOrder
+    avatar?: SortOrder
+    personality?: SortOrder
+    description?: SortOrder
+    specialties?: SortOrder
+    approaches?: SortOrder
+    bestFor?: SortOrder
+    features?: SortOrder
+    availability?: SortOrder
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AITherapistMinOrderByAggregateInput = {
+    id?: SortOrder
+    therapistId?: SortOrder
+    name?: SortOrder
+    avatar?: SortOrder
+    personality?: SortOrder
+    description?: SortOrder
+    specialties?: SortOrder
+    approaches?: SortOrder
+    bestFor?: SortOrder
+    features?: SortOrder
+    availability?: SortOrder
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AITherapistSumOrderByAggregateInput = {
+    sessionsCompleted?: SortOrder
+    userRating?: SortOrder
+    responseTime?: SortOrder
+  }
+
+  export type EnumAISessionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionType | EnumAISessionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionType[]
+    notIn?: $Enums.AISessionType[]
+    not?: NestedEnumAISessionTypeFilter<$PrismaModel> | $Enums.AISessionType
+  }
+
+  export type EnumAISessionStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionStatus | EnumAISessionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionStatus[]
+    notIn?: $Enums.AISessionStatus[]
+    not?: NestedEnumAISessionStatusFilter<$PrismaModel> | $Enums.AISessionStatus
+  }
+
+  export type AITherapistScalarRelationFilter = {
+    is?: AITherapistWhereInput
+    isNot?: AITherapistWhereInput
+  }
+
+  export type AITherapyMessageListRelationFilter = {
+    every?: AITherapyMessageWhereInput
+    some?: AITherapyMessageWhereInput
+    none?: AITherapyMessageWhereInput
+  }
+
+  export type AIExerciseSessionListRelationFilter = {
+    every?: AIExerciseSessionWhereInput
+    some?: AIExerciseSessionWhereInput
+    none?: AIExerciseSessionWhereInput
+  }
+
+  export type AITherapyMessageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AIExerciseSessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AITherapySessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    sessionType?: SortOrder
+    status?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrder
+    duration?: SortOrder
+    pausedAt?: SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    energyBefore?: SortOrder
+    energyAfter?: SortOrder
+    encryptedNotes?: SortOrder
+    encryptedInsights?: SortOrder
+    encryptedHomework?: SortOrder
+    encryptedGoals?: SortOrder
+    topics?: SortOrder
+    techniques?: SortOrder
+    interventions?: SortOrder
+    breakthroughs?: SortOrder
+    crisisDetected?: SortOrder
+    crisisLevel?: SortOrder
+    crisisInterventions?: SortOrder
+  }
+
+  export type AITherapySessionAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    energyBefore?: SortOrder
+    energyAfter?: SortOrder
+    crisisLevel?: SortOrder
+  }
+
+  export type AITherapySessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    sessionType?: SortOrder
+    status?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrder
+    duration?: SortOrder
+    pausedAt?: SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    energyBefore?: SortOrder
+    energyAfter?: SortOrder
+    encryptedNotes?: SortOrder
+    encryptedInsights?: SortOrder
+    encryptedHomework?: SortOrder
+    encryptedGoals?: SortOrder
+    topics?: SortOrder
+    techniques?: SortOrder
+    interventions?: SortOrder
+    breakthroughs?: SortOrder
+    crisisDetected?: SortOrder
+    crisisLevel?: SortOrder
+    crisisInterventions?: SortOrder
+  }
+
+  export type AITherapySessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    sessionType?: SortOrder
+    status?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrder
+    duration?: SortOrder
+    pausedAt?: SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    energyBefore?: SortOrder
+    energyAfter?: SortOrder
+    encryptedNotes?: SortOrder
+    encryptedInsights?: SortOrder
+    encryptedHomework?: SortOrder
+    encryptedGoals?: SortOrder
+    topics?: SortOrder
+    techniques?: SortOrder
+    interventions?: SortOrder
+    breakthroughs?: SortOrder
+    crisisDetected?: SortOrder
+    crisisLevel?: SortOrder
+    crisisInterventions?: SortOrder
+  }
+
+  export type AITherapySessionSumOrderByAggregateInput = {
+    duration?: SortOrder
+    pausedDuration?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+    anxietyBefore?: SortOrder
+    anxietyAfter?: SortOrder
+    energyBefore?: SortOrder
+    energyAfter?: SortOrder
+    crisisLevel?: SortOrder
+  }
+
+  export type EnumAISessionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionType | EnumAISessionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionType[]
+    notIn?: $Enums.AISessionType[]
+    not?: NestedEnumAISessionTypeWithAggregatesFilter<$PrismaModel> | $Enums.AISessionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAISessionTypeFilter<$PrismaModel>
+    _max?: NestedEnumAISessionTypeFilter<$PrismaModel>
+  }
+
+  export type EnumAISessionStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionStatus | EnumAISessionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionStatus[]
+    notIn?: $Enums.AISessionStatus[]
+    not?: NestedEnumAISessionStatusWithAggregatesFilter<$PrismaModel> | $Enums.AISessionStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAISessionStatusFilter<$PrismaModel>
+    _max?: NestedEnumAISessionStatusFilter<$PrismaModel>
+  }
+
+  export type EnumAIMessageTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageType | EnumAIMessageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageType[]
+    notIn?: $Enums.AIMessageType[]
+    not?: NestedEnumAIMessageTypeFilter<$PrismaModel> | $Enums.AIMessageType
+  }
+
+  export type EnumAIMessageSenderFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageSender | EnumAIMessageSenderFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageSender[]
+    notIn?: $Enums.AIMessageSender[]
+    not?: NestedEnumAIMessageSenderFilter<$PrismaModel> | $Enums.AIMessageSender
+  }
+
+  export type AITherapySessionScalarRelationFilter = {
+    is?: AITherapySessionWhereInput
+    isNot?: AITherapySessionWhereInput
+  }
+
+  export type AITherapyMessageCountOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    messageType?: SortOrder
+    sender?: SortOrder
+    encryptedContent?: SortOrder
+    messageHash?: SortOrder
+    timestamp?: SortOrder
+    edited?: SortOrder
+    editedAt?: SortOrder
+    sentiment?: SortOrder
+    emotion?: SortOrder
+    riskScore?: SortOrder
+    techniques?: SortOrder
+    hasAudio?: SortOrder
+    audioDuration?: SortOrder
+    audioUrl?: SortOrder
+  }
+
+  export type AITherapyMessageAvgOrderByAggregateInput = {
+    sentiment?: SortOrder
+    riskScore?: SortOrder
+    audioDuration?: SortOrder
+  }
+
+  export type AITherapyMessageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    messageType?: SortOrder
+    sender?: SortOrder
+    encryptedContent?: SortOrder
+    messageHash?: SortOrder
+    timestamp?: SortOrder
+    edited?: SortOrder
+    editedAt?: SortOrder
+    sentiment?: SortOrder
+    emotion?: SortOrder
+    riskScore?: SortOrder
+    techniques?: SortOrder
+    hasAudio?: SortOrder
+    audioDuration?: SortOrder
+    audioUrl?: SortOrder
+  }
+
+  export type AITherapyMessageMinOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    messageType?: SortOrder
+    sender?: SortOrder
+    encryptedContent?: SortOrder
+    messageHash?: SortOrder
+    timestamp?: SortOrder
+    edited?: SortOrder
+    editedAt?: SortOrder
+    sentiment?: SortOrder
+    emotion?: SortOrder
+    riskScore?: SortOrder
+    techniques?: SortOrder
+    hasAudio?: SortOrder
+    audioDuration?: SortOrder
+    audioUrl?: SortOrder
+  }
+
+  export type AITherapyMessageSumOrderByAggregateInput = {
+    sentiment?: SortOrder
+    riskScore?: SortOrder
+    audioDuration?: SortOrder
+  }
+
+  export type EnumAIMessageTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageType | EnumAIMessageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageType[]
+    notIn?: $Enums.AIMessageType[]
+    not?: NestedEnumAIMessageTypeWithAggregatesFilter<$PrismaModel> | $Enums.AIMessageType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIMessageTypeFilter<$PrismaModel>
+    _max?: NestedEnumAIMessageTypeFilter<$PrismaModel>
+  }
+
+  export type EnumAIMessageSenderWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageSender | EnumAIMessageSenderFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageSender[]
+    notIn?: $Enums.AIMessageSender[]
+    not?: NestedEnumAIMessageSenderWithAggregatesFilter<$PrismaModel> | $Enums.AIMessageSender
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIMessageSenderFilter<$PrismaModel>
+    _max?: NestedEnumAIMessageSenderFilter<$PrismaModel>
+  }
+
+  export type AITherapistNullableScalarRelationFilter = {
+    is?: AITherapistWhereInput | null
+    isNot?: AITherapistWhereInput | null
+  }
+
+  export type AIPersonalizationCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    preferredStyle?: SortOrder
+    preferredTechniques?: SortOrder
+    preferredTopics?: SortOrder
+    avoidTopics?: SortOrder
+    responseLength?: SortOrder
+    responseComplexity?: SortOrder
+    empathyLevel?: SortOrder
+    directness?: SortOrder
+    culturalBackground?: SortOrder
+    languagePreference?: SortOrder
+    timezone?: SortOrder
+    pronouns?: SortOrder
+    learnedPatterns?: SortOrder
+    effectiveTechniques?: SortOrder
+    triggerPatterns?: SortOrder
+    copingStrategies?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AIPersonalizationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    preferredStyle?: SortOrder
+    preferredTechniques?: SortOrder
+    preferredTopics?: SortOrder
+    avoidTopics?: SortOrder
+    responseLength?: SortOrder
+    responseComplexity?: SortOrder
+    empathyLevel?: SortOrder
+    directness?: SortOrder
+    culturalBackground?: SortOrder
+    languagePreference?: SortOrder
+    timezone?: SortOrder
+    pronouns?: SortOrder
+    learnedPatterns?: SortOrder
+    effectiveTechniques?: SortOrder
+    triggerPatterns?: SortOrder
+    copingStrategies?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AIPersonalizationMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    therapistId?: SortOrder
+    preferredStyle?: SortOrder
+    preferredTechniques?: SortOrder
+    preferredTopics?: SortOrder
+    avoidTopics?: SortOrder
+    responseLength?: SortOrder
+    responseComplexity?: SortOrder
+    empathyLevel?: SortOrder
+    directness?: SortOrder
+    culturalBackground?: SortOrder
+    languagePreference?: SortOrder
+    timezone?: SortOrder
+    pronouns?: SortOrder
+    learnedPatterns?: SortOrder
+    effectiveTechniques?: SortOrder
+    triggerPatterns?: SortOrder
+    copingStrategies?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EnumAIExerciseTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIExerciseType | EnumAIExerciseTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIExerciseType[]
+    notIn?: $Enums.AIExerciseType[]
+    not?: NestedEnumAIExerciseTypeFilter<$PrismaModel> | $Enums.AIExerciseType
+  }
+
+  export type AITherapySessionNullableScalarRelationFilter = {
+    is?: AITherapySessionWhereInput | null
+    isNot?: AITherapySessionWhereInput | null
+  }
+
+  export type AIExerciseSessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    exerciseType?: SortOrder
+    exerciseName?: SortOrder
+    category?: SortOrder
+    difficulty?: SortOrder
+    duration?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    completed?: SortOrder
+    progress?: SortOrder
+    results?: SortOrder
+    feedback?: SortOrder
+    improvement?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type AIExerciseSessionAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    progress?: SortOrder
+    improvement?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type AIExerciseSessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    exerciseType?: SortOrder
+    exerciseName?: SortOrder
+    category?: SortOrder
+    difficulty?: SortOrder
+    duration?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    completed?: SortOrder
+    progress?: SortOrder
+    results?: SortOrder
+    feedback?: SortOrder
+    improvement?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type AIExerciseSessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    exerciseType?: SortOrder
+    exerciseName?: SortOrder
+    category?: SortOrder
+    difficulty?: SortOrder
+    duration?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    completed?: SortOrder
+    progress?: SortOrder
+    results?: SortOrder
+    feedback?: SortOrder
+    improvement?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type AIExerciseSessionSumOrderByAggregateInput = {
+    duration?: SortOrder
+    progress?: SortOrder
+    improvement?: SortOrder
+    moodBefore?: SortOrder
+    moodAfter?: SortOrder
+  }
+
+  export type EnumAIExerciseTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIExerciseType | EnumAIExerciseTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIExerciseType[]
+    notIn?: $Enums.AIExerciseType[]
+    not?: NestedEnumAIExerciseTypeWithAggregatesFilter<$PrismaModel> | $Enums.AIExerciseType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIExerciseTypeFilter<$PrismaModel>
+    _max?: NestedEnumAIExerciseTypeFilter<$PrismaModel>
+  }
+
+  export type EnumAIInsightTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIInsightType | EnumAIInsightTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIInsightType[]
+    notIn?: $Enums.AIInsightType[]
+    not?: NestedEnumAIInsightTypeFilter<$PrismaModel> | $Enums.AIInsightType
+  }
+
+  export type AITherapyInsightCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    insightType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    significance?: SortOrder
+    dataPoints?: SortOrder
+    patterns?: SortOrder
+    trends?: SortOrder
+    recommendations?: SortOrder
+    actions?: SortOrder
+    periodStart?: SortOrder
+    periodEnd?: SortOrder
+    generatedAt?: SortOrder
+    viewed?: SortOrder
+    viewedAt?: SortOrder
+    helpful?: SortOrder
+    dismissed?: SortOrder
+  }
+
+  export type AITherapyInsightMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    insightType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    significance?: SortOrder
+    dataPoints?: SortOrder
+    patterns?: SortOrder
+    trends?: SortOrder
+    recommendations?: SortOrder
+    actions?: SortOrder
+    periodStart?: SortOrder
+    periodEnd?: SortOrder
+    generatedAt?: SortOrder
+    viewed?: SortOrder
+    viewedAt?: SortOrder
+    helpful?: SortOrder
+    dismissed?: SortOrder
+  }
+
+  export type AITherapyInsightMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    insightType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    significance?: SortOrder
+    dataPoints?: SortOrder
+    patterns?: SortOrder
+    trends?: SortOrder
+    recommendations?: SortOrder
+    actions?: SortOrder
+    periodStart?: SortOrder
+    periodEnd?: SortOrder
+    generatedAt?: SortOrder
+    viewed?: SortOrder
+    viewedAt?: SortOrder
+    helpful?: SortOrder
+    dismissed?: SortOrder
+  }
+
+  export type EnumAIInsightTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIInsightType | EnumAIInsightTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIInsightType[]
+    notIn?: $Enums.AIInsightType[]
+    not?: NestedEnumAIInsightTypeWithAggregatesFilter<$PrismaModel> | $Enums.AIInsightType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIInsightTypeFilter<$PrismaModel>
+    _max?: NestedEnumAIInsightTypeFilter<$PrismaModel>
+  }
+
+  export type EnumAIGoalStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIGoalStatus | EnumAIGoalStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AIGoalStatus[]
+    notIn?: $Enums.AIGoalStatus[]
+    not?: NestedEnumAIGoalStatusFilter<$PrismaModel> | $Enums.AIGoalStatus
+  }
+
+  export type AITherapyGoalCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    goalType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    priority?: SortOrder
+    specific?: SortOrder
+    measurable?: SortOrder
+    achievable?: SortOrder
+    relevant?: SortOrder
+    timebound?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    milestones?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type AITherapyGoalAvgOrderByAggregateInput = {
+    progress?: SortOrder
+  }
+
+  export type AITherapyGoalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    goalType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    priority?: SortOrder
+    specific?: SortOrder
+    measurable?: SortOrder
+    achievable?: SortOrder
+    relevant?: SortOrder
+    timebound?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    milestones?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type AITherapyGoalMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    goalType?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    priority?: SortOrder
+    specific?: SortOrder
+    measurable?: SortOrder
+    achievable?: SortOrder
+    relevant?: SortOrder
+    timebound?: SortOrder
+    status?: SortOrder
+    progress?: SortOrder
+    milestones?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type AITherapyGoalSumOrderByAggregateInput = {
+    progress?: SortOrder
+  }
+
+  export type EnumAIGoalStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIGoalStatus | EnumAIGoalStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AIGoalStatus[]
+    notIn?: $Enums.AIGoalStatus[]
+    not?: NestedEnumAIGoalStatusWithAggregatesFilter<$PrismaModel> | $Enums.AIGoalStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIGoalStatusFilter<$PrismaModel>
+    _max?: NestedEnumAIGoalStatusFilter<$PrismaModel>
+  }
+
   export type CrisisMessageCreateNestedManyWithoutSessionInput = {
     create?: XOR<CrisisMessageCreateWithoutSessionInput, CrisisMessageUncheckedCreateWithoutSessionInput> | CrisisMessageCreateWithoutSessionInput[] | CrisisMessageUncheckedCreateWithoutSessionInput[]
     connectOrCreate?: CrisisMessageCreateOrConnectWithoutSessionInput | CrisisMessageCreateOrConnectWithoutSessionInput[]
@@ -66467,6 +79154,262 @@ export namespace Prisma {
     update?: XOR<XOR<SelfHelpResourceUpdateToOneWithWhereWithoutInteractionsInput, SelfHelpResourceUpdateWithoutInteractionsInput>, SelfHelpResourceUncheckedUpdateWithoutInteractionsInput>
   }
 
+  export type AITherapySessionCreateNestedManyWithoutTherapistInput = {
+    create?: XOR<AITherapySessionCreateWithoutTherapistInput, AITherapySessionUncheckedCreateWithoutTherapistInput> | AITherapySessionCreateWithoutTherapistInput[] | AITherapySessionUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutTherapistInput | AITherapySessionCreateOrConnectWithoutTherapistInput[]
+    createMany?: AITherapySessionCreateManyTherapistInputEnvelope
+    connect?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+  }
+
+  export type AIPersonalizationCreateNestedManyWithoutTherapistInput = {
+    create?: XOR<AIPersonalizationCreateWithoutTherapistInput, AIPersonalizationUncheckedCreateWithoutTherapistInput> | AIPersonalizationCreateWithoutTherapistInput[] | AIPersonalizationUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AIPersonalizationCreateOrConnectWithoutTherapistInput | AIPersonalizationCreateOrConnectWithoutTherapistInput[]
+    createMany?: AIPersonalizationCreateManyTherapistInputEnvelope
+    connect?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+  }
+
+  export type AITherapySessionUncheckedCreateNestedManyWithoutTherapistInput = {
+    create?: XOR<AITherapySessionCreateWithoutTherapistInput, AITherapySessionUncheckedCreateWithoutTherapistInput> | AITherapySessionCreateWithoutTherapistInput[] | AITherapySessionUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutTherapistInput | AITherapySessionCreateOrConnectWithoutTherapistInput[]
+    createMany?: AITherapySessionCreateManyTherapistInputEnvelope
+    connect?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+  }
+
+  export type AIPersonalizationUncheckedCreateNestedManyWithoutTherapistInput = {
+    create?: XOR<AIPersonalizationCreateWithoutTherapistInput, AIPersonalizationUncheckedCreateWithoutTherapistInput> | AIPersonalizationCreateWithoutTherapistInput[] | AIPersonalizationUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AIPersonalizationCreateOrConnectWithoutTherapistInput | AIPersonalizationCreateOrConnectWithoutTherapistInput[]
+    createMany?: AIPersonalizationCreateManyTherapistInputEnvelope
+    connect?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+  }
+
+  export type AITherapySessionUpdateManyWithoutTherapistNestedInput = {
+    create?: XOR<AITherapySessionCreateWithoutTherapistInput, AITherapySessionUncheckedCreateWithoutTherapistInput> | AITherapySessionCreateWithoutTherapistInput[] | AITherapySessionUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutTherapistInput | AITherapySessionCreateOrConnectWithoutTherapistInput[]
+    upsert?: AITherapySessionUpsertWithWhereUniqueWithoutTherapistInput | AITherapySessionUpsertWithWhereUniqueWithoutTherapistInput[]
+    createMany?: AITherapySessionCreateManyTherapistInputEnvelope
+    set?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    disconnect?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    delete?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    connect?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    update?: AITherapySessionUpdateWithWhereUniqueWithoutTherapistInput | AITherapySessionUpdateWithWhereUniqueWithoutTherapistInput[]
+    updateMany?: AITherapySessionUpdateManyWithWhereWithoutTherapistInput | AITherapySessionUpdateManyWithWhereWithoutTherapistInput[]
+    deleteMany?: AITherapySessionScalarWhereInput | AITherapySessionScalarWhereInput[]
+  }
+
+  export type AIPersonalizationUpdateManyWithoutTherapistNestedInput = {
+    create?: XOR<AIPersonalizationCreateWithoutTherapistInput, AIPersonalizationUncheckedCreateWithoutTherapistInput> | AIPersonalizationCreateWithoutTherapistInput[] | AIPersonalizationUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AIPersonalizationCreateOrConnectWithoutTherapistInput | AIPersonalizationCreateOrConnectWithoutTherapistInput[]
+    upsert?: AIPersonalizationUpsertWithWhereUniqueWithoutTherapistInput | AIPersonalizationUpsertWithWhereUniqueWithoutTherapistInput[]
+    createMany?: AIPersonalizationCreateManyTherapistInputEnvelope
+    set?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    disconnect?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    delete?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    connect?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    update?: AIPersonalizationUpdateWithWhereUniqueWithoutTherapistInput | AIPersonalizationUpdateWithWhereUniqueWithoutTherapistInput[]
+    updateMany?: AIPersonalizationUpdateManyWithWhereWithoutTherapistInput | AIPersonalizationUpdateManyWithWhereWithoutTherapistInput[]
+    deleteMany?: AIPersonalizationScalarWhereInput | AIPersonalizationScalarWhereInput[]
+  }
+
+  export type AITherapySessionUncheckedUpdateManyWithoutTherapistNestedInput = {
+    create?: XOR<AITherapySessionCreateWithoutTherapistInput, AITherapySessionUncheckedCreateWithoutTherapistInput> | AITherapySessionCreateWithoutTherapistInput[] | AITherapySessionUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutTherapistInput | AITherapySessionCreateOrConnectWithoutTherapistInput[]
+    upsert?: AITherapySessionUpsertWithWhereUniqueWithoutTherapistInput | AITherapySessionUpsertWithWhereUniqueWithoutTherapistInput[]
+    createMany?: AITherapySessionCreateManyTherapistInputEnvelope
+    set?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    disconnect?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    delete?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    connect?: AITherapySessionWhereUniqueInput | AITherapySessionWhereUniqueInput[]
+    update?: AITherapySessionUpdateWithWhereUniqueWithoutTherapistInput | AITherapySessionUpdateWithWhereUniqueWithoutTherapistInput[]
+    updateMany?: AITherapySessionUpdateManyWithWhereWithoutTherapistInput | AITherapySessionUpdateManyWithWhereWithoutTherapistInput[]
+    deleteMany?: AITherapySessionScalarWhereInput | AITherapySessionScalarWhereInput[]
+  }
+
+  export type AIPersonalizationUncheckedUpdateManyWithoutTherapistNestedInput = {
+    create?: XOR<AIPersonalizationCreateWithoutTherapistInput, AIPersonalizationUncheckedCreateWithoutTherapistInput> | AIPersonalizationCreateWithoutTherapistInput[] | AIPersonalizationUncheckedCreateWithoutTherapistInput[]
+    connectOrCreate?: AIPersonalizationCreateOrConnectWithoutTherapistInput | AIPersonalizationCreateOrConnectWithoutTherapistInput[]
+    upsert?: AIPersonalizationUpsertWithWhereUniqueWithoutTherapistInput | AIPersonalizationUpsertWithWhereUniqueWithoutTherapistInput[]
+    createMany?: AIPersonalizationCreateManyTherapistInputEnvelope
+    set?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    disconnect?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    delete?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    connect?: AIPersonalizationWhereUniqueInput | AIPersonalizationWhereUniqueInput[]
+    update?: AIPersonalizationUpdateWithWhereUniqueWithoutTherapistInput | AIPersonalizationUpdateWithWhereUniqueWithoutTherapistInput[]
+    updateMany?: AIPersonalizationUpdateManyWithWhereWithoutTherapistInput | AIPersonalizationUpdateManyWithWhereWithoutTherapistInput[]
+    deleteMany?: AIPersonalizationScalarWhereInput | AIPersonalizationScalarWhereInput[]
+  }
+
+  export type AITherapistCreateNestedOneWithoutSessionsInput = {
+    create?: XOR<AITherapistCreateWithoutSessionsInput, AITherapistUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: AITherapistCreateOrConnectWithoutSessionsInput
+    connect?: AITherapistWhereUniqueInput
+  }
+
+  export type AITherapyMessageCreateNestedManyWithoutSessionInput = {
+    create?: XOR<AITherapyMessageCreateWithoutSessionInput, AITherapyMessageUncheckedCreateWithoutSessionInput> | AITherapyMessageCreateWithoutSessionInput[] | AITherapyMessageUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AITherapyMessageCreateOrConnectWithoutSessionInput | AITherapyMessageCreateOrConnectWithoutSessionInput[]
+    createMany?: AITherapyMessageCreateManySessionInputEnvelope
+    connect?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+  }
+
+  export type AIExerciseSessionCreateNestedManyWithoutSessionInput = {
+    create?: XOR<AIExerciseSessionCreateWithoutSessionInput, AIExerciseSessionUncheckedCreateWithoutSessionInput> | AIExerciseSessionCreateWithoutSessionInput[] | AIExerciseSessionUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AIExerciseSessionCreateOrConnectWithoutSessionInput | AIExerciseSessionCreateOrConnectWithoutSessionInput[]
+    createMany?: AIExerciseSessionCreateManySessionInputEnvelope
+    connect?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+  }
+
+  export type AITherapyMessageUncheckedCreateNestedManyWithoutSessionInput = {
+    create?: XOR<AITherapyMessageCreateWithoutSessionInput, AITherapyMessageUncheckedCreateWithoutSessionInput> | AITherapyMessageCreateWithoutSessionInput[] | AITherapyMessageUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AITherapyMessageCreateOrConnectWithoutSessionInput | AITherapyMessageCreateOrConnectWithoutSessionInput[]
+    createMany?: AITherapyMessageCreateManySessionInputEnvelope
+    connect?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+  }
+
+  export type AIExerciseSessionUncheckedCreateNestedManyWithoutSessionInput = {
+    create?: XOR<AIExerciseSessionCreateWithoutSessionInput, AIExerciseSessionUncheckedCreateWithoutSessionInput> | AIExerciseSessionCreateWithoutSessionInput[] | AIExerciseSessionUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AIExerciseSessionCreateOrConnectWithoutSessionInput | AIExerciseSessionCreateOrConnectWithoutSessionInput[]
+    createMany?: AIExerciseSessionCreateManySessionInputEnvelope
+    connect?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+  }
+
+  export type EnumAISessionTypeFieldUpdateOperationsInput = {
+    set?: $Enums.AISessionType
+  }
+
+  export type EnumAISessionStatusFieldUpdateOperationsInput = {
+    set?: $Enums.AISessionStatus
+  }
+
+  export type AITherapistUpdateOneRequiredWithoutSessionsNestedInput = {
+    create?: XOR<AITherapistCreateWithoutSessionsInput, AITherapistUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: AITherapistCreateOrConnectWithoutSessionsInput
+    upsert?: AITherapistUpsertWithoutSessionsInput
+    connect?: AITherapistWhereUniqueInput
+    update?: XOR<XOR<AITherapistUpdateToOneWithWhereWithoutSessionsInput, AITherapistUpdateWithoutSessionsInput>, AITherapistUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type AITherapyMessageUpdateManyWithoutSessionNestedInput = {
+    create?: XOR<AITherapyMessageCreateWithoutSessionInput, AITherapyMessageUncheckedCreateWithoutSessionInput> | AITherapyMessageCreateWithoutSessionInput[] | AITherapyMessageUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AITherapyMessageCreateOrConnectWithoutSessionInput | AITherapyMessageCreateOrConnectWithoutSessionInput[]
+    upsert?: AITherapyMessageUpsertWithWhereUniqueWithoutSessionInput | AITherapyMessageUpsertWithWhereUniqueWithoutSessionInput[]
+    createMany?: AITherapyMessageCreateManySessionInputEnvelope
+    set?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    disconnect?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    delete?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    connect?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    update?: AITherapyMessageUpdateWithWhereUniqueWithoutSessionInput | AITherapyMessageUpdateWithWhereUniqueWithoutSessionInput[]
+    updateMany?: AITherapyMessageUpdateManyWithWhereWithoutSessionInput | AITherapyMessageUpdateManyWithWhereWithoutSessionInput[]
+    deleteMany?: AITherapyMessageScalarWhereInput | AITherapyMessageScalarWhereInput[]
+  }
+
+  export type AIExerciseSessionUpdateManyWithoutSessionNestedInput = {
+    create?: XOR<AIExerciseSessionCreateWithoutSessionInput, AIExerciseSessionUncheckedCreateWithoutSessionInput> | AIExerciseSessionCreateWithoutSessionInput[] | AIExerciseSessionUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AIExerciseSessionCreateOrConnectWithoutSessionInput | AIExerciseSessionCreateOrConnectWithoutSessionInput[]
+    upsert?: AIExerciseSessionUpsertWithWhereUniqueWithoutSessionInput | AIExerciseSessionUpsertWithWhereUniqueWithoutSessionInput[]
+    createMany?: AIExerciseSessionCreateManySessionInputEnvelope
+    set?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    disconnect?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    delete?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    connect?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    update?: AIExerciseSessionUpdateWithWhereUniqueWithoutSessionInput | AIExerciseSessionUpdateWithWhereUniqueWithoutSessionInput[]
+    updateMany?: AIExerciseSessionUpdateManyWithWhereWithoutSessionInput | AIExerciseSessionUpdateManyWithWhereWithoutSessionInput[]
+    deleteMany?: AIExerciseSessionScalarWhereInput | AIExerciseSessionScalarWhereInput[]
+  }
+
+  export type AITherapyMessageUncheckedUpdateManyWithoutSessionNestedInput = {
+    create?: XOR<AITherapyMessageCreateWithoutSessionInput, AITherapyMessageUncheckedCreateWithoutSessionInput> | AITherapyMessageCreateWithoutSessionInput[] | AITherapyMessageUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AITherapyMessageCreateOrConnectWithoutSessionInput | AITherapyMessageCreateOrConnectWithoutSessionInput[]
+    upsert?: AITherapyMessageUpsertWithWhereUniqueWithoutSessionInput | AITherapyMessageUpsertWithWhereUniqueWithoutSessionInput[]
+    createMany?: AITherapyMessageCreateManySessionInputEnvelope
+    set?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    disconnect?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    delete?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    connect?: AITherapyMessageWhereUniqueInput | AITherapyMessageWhereUniqueInput[]
+    update?: AITherapyMessageUpdateWithWhereUniqueWithoutSessionInput | AITherapyMessageUpdateWithWhereUniqueWithoutSessionInput[]
+    updateMany?: AITherapyMessageUpdateManyWithWhereWithoutSessionInput | AITherapyMessageUpdateManyWithWhereWithoutSessionInput[]
+    deleteMany?: AITherapyMessageScalarWhereInput | AITherapyMessageScalarWhereInput[]
+  }
+
+  export type AIExerciseSessionUncheckedUpdateManyWithoutSessionNestedInput = {
+    create?: XOR<AIExerciseSessionCreateWithoutSessionInput, AIExerciseSessionUncheckedCreateWithoutSessionInput> | AIExerciseSessionCreateWithoutSessionInput[] | AIExerciseSessionUncheckedCreateWithoutSessionInput[]
+    connectOrCreate?: AIExerciseSessionCreateOrConnectWithoutSessionInput | AIExerciseSessionCreateOrConnectWithoutSessionInput[]
+    upsert?: AIExerciseSessionUpsertWithWhereUniqueWithoutSessionInput | AIExerciseSessionUpsertWithWhereUniqueWithoutSessionInput[]
+    createMany?: AIExerciseSessionCreateManySessionInputEnvelope
+    set?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    disconnect?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    delete?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    connect?: AIExerciseSessionWhereUniqueInput | AIExerciseSessionWhereUniqueInput[]
+    update?: AIExerciseSessionUpdateWithWhereUniqueWithoutSessionInput | AIExerciseSessionUpdateWithWhereUniqueWithoutSessionInput[]
+    updateMany?: AIExerciseSessionUpdateManyWithWhereWithoutSessionInput | AIExerciseSessionUpdateManyWithWhereWithoutSessionInput[]
+    deleteMany?: AIExerciseSessionScalarWhereInput | AIExerciseSessionScalarWhereInput[]
+  }
+
+  export type AITherapySessionCreateNestedOneWithoutMessagesInput = {
+    create?: XOR<AITherapySessionCreateWithoutMessagesInput, AITherapySessionUncheckedCreateWithoutMessagesInput>
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutMessagesInput
+    connect?: AITherapySessionWhereUniqueInput
+  }
+
+  export type EnumAIMessageTypeFieldUpdateOperationsInput = {
+    set?: $Enums.AIMessageType
+  }
+
+  export type EnumAIMessageSenderFieldUpdateOperationsInput = {
+    set?: $Enums.AIMessageSender
+  }
+
+  export type AITherapySessionUpdateOneRequiredWithoutMessagesNestedInput = {
+    create?: XOR<AITherapySessionCreateWithoutMessagesInput, AITherapySessionUncheckedCreateWithoutMessagesInput>
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutMessagesInput
+    upsert?: AITherapySessionUpsertWithoutMessagesInput
+    connect?: AITherapySessionWhereUniqueInput
+    update?: XOR<XOR<AITherapySessionUpdateToOneWithWhereWithoutMessagesInput, AITherapySessionUpdateWithoutMessagesInput>, AITherapySessionUncheckedUpdateWithoutMessagesInput>
+  }
+
+  export type AITherapistCreateNestedOneWithoutPersonalizationsInput = {
+    create?: XOR<AITherapistCreateWithoutPersonalizationsInput, AITherapistUncheckedCreateWithoutPersonalizationsInput>
+    connectOrCreate?: AITherapistCreateOrConnectWithoutPersonalizationsInput
+    connect?: AITherapistWhereUniqueInput
+  }
+
+  export type AITherapistUpdateOneWithoutPersonalizationsNestedInput = {
+    create?: XOR<AITherapistCreateWithoutPersonalizationsInput, AITherapistUncheckedCreateWithoutPersonalizationsInput>
+    connectOrCreate?: AITherapistCreateOrConnectWithoutPersonalizationsInput
+    upsert?: AITherapistUpsertWithoutPersonalizationsInput
+    disconnect?: AITherapistWhereInput | boolean
+    delete?: AITherapistWhereInput | boolean
+    connect?: AITherapistWhereUniqueInput
+    update?: XOR<XOR<AITherapistUpdateToOneWithWhereWithoutPersonalizationsInput, AITherapistUpdateWithoutPersonalizationsInput>, AITherapistUncheckedUpdateWithoutPersonalizationsInput>
+  }
+
+  export type AITherapySessionCreateNestedOneWithoutExercisesInput = {
+    create?: XOR<AITherapySessionCreateWithoutExercisesInput, AITherapySessionUncheckedCreateWithoutExercisesInput>
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutExercisesInput
+    connect?: AITherapySessionWhereUniqueInput
+  }
+
+  export type EnumAIExerciseTypeFieldUpdateOperationsInput = {
+    set?: $Enums.AIExerciseType
+  }
+
+  export type AITherapySessionUpdateOneWithoutExercisesNestedInput = {
+    create?: XOR<AITherapySessionCreateWithoutExercisesInput, AITherapySessionUncheckedCreateWithoutExercisesInput>
+    connectOrCreate?: AITherapySessionCreateOrConnectWithoutExercisesInput
+    upsert?: AITherapySessionUpsertWithoutExercisesInput
+    disconnect?: AITherapySessionWhereInput | boolean
+    delete?: AITherapySessionWhereInput | boolean
+    connect?: AITherapySessionWhereUniqueInput
+    update?: XOR<XOR<AITherapySessionUpdateToOneWithWhereWithoutExercisesInput, AITherapySessionUpdateWithoutExercisesInput>, AITherapySessionUncheckedUpdateWithoutExercisesInput>
+  }
+
+  export type EnumAIInsightTypeFieldUpdateOperationsInput = {
+    set?: $Enums.AIInsightType
+  }
+
+  export type EnumAIGoalStatusFieldUpdateOperationsInput = {
+    set?: $Enums.AIGoalStatus
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -67580,6 +80523,125 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumInteractionTypeFilter<$PrismaModel>
     _max?: NestedEnumInteractionTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAISessionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionType | EnumAISessionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionType[]
+    notIn?: $Enums.AISessionType[]
+    not?: NestedEnumAISessionTypeFilter<$PrismaModel> | $Enums.AISessionType
+  }
+
+  export type NestedEnumAISessionStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionStatus | EnumAISessionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionStatus[]
+    notIn?: $Enums.AISessionStatus[]
+    not?: NestedEnumAISessionStatusFilter<$PrismaModel> | $Enums.AISessionStatus
+  }
+
+  export type NestedEnumAISessionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionType | EnumAISessionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionType[]
+    notIn?: $Enums.AISessionType[]
+    not?: NestedEnumAISessionTypeWithAggregatesFilter<$PrismaModel> | $Enums.AISessionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAISessionTypeFilter<$PrismaModel>
+    _max?: NestedEnumAISessionTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAISessionStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AISessionStatus | EnumAISessionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AISessionStatus[]
+    notIn?: $Enums.AISessionStatus[]
+    not?: NestedEnumAISessionStatusWithAggregatesFilter<$PrismaModel> | $Enums.AISessionStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAISessionStatusFilter<$PrismaModel>
+    _max?: NestedEnumAISessionStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAIMessageTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageType | EnumAIMessageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageType[]
+    notIn?: $Enums.AIMessageType[]
+    not?: NestedEnumAIMessageTypeFilter<$PrismaModel> | $Enums.AIMessageType
+  }
+
+  export type NestedEnumAIMessageSenderFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageSender | EnumAIMessageSenderFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageSender[]
+    notIn?: $Enums.AIMessageSender[]
+    not?: NestedEnumAIMessageSenderFilter<$PrismaModel> | $Enums.AIMessageSender
+  }
+
+  export type NestedEnumAIMessageTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageType | EnumAIMessageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageType[]
+    notIn?: $Enums.AIMessageType[]
+    not?: NestedEnumAIMessageTypeWithAggregatesFilter<$PrismaModel> | $Enums.AIMessageType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIMessageTypeFilter<$PrismaModel>
+    _max?: NestedEnumAIMessageTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAIMessageSenderWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIMessageSender | EnumAIMessageSenderFieldRefInput<$PrismaModel>
+    in?: $Enums.AIMessageSender[]
+    notIn?: $Enums.AIMessageSender[]
+    not?: NestedEnumAIMessageSenderWithAggregatesFilter<$PrismaModel> | $Enums.AIMessageSender
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIMessageSenderFilter<$PrismaModel>
+    _max?: NestedEnumAIMessageSenderFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAIExerciseTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIExerciseType | EnumAIExerciseTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIExerciseType[]
+    notIn?: $Enums.AIExerciseType[]
+    not?: NestedEnumAIExerciseTypeFilter<$PrismaModel> | $Enums.AIExerciseType
+  }
+
+  export type NestedEnumAIExerciseTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIExerciseType | EnumAIExerciseTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIExerciseType[]
+    notIn?: $Enums.AIExerciseType[]
+    not?: NestedEnumAIExerciseTypeWithAggregatesFilter<$PrismaModel> | $Enums.AIExerciseType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIExerciseTypeFilter<$PrismaModel>
+    _max?: NestedEnumAIExerciseTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAIInsightTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIInsightType | EnumAIInsightTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIInsightType[]
+    notIn?: $Enums.AIInsightType[]
+    not?: NestedEnumAIInsightTypeFilter<$PrismaModel> | $Enums.AIInsightType
+  }
+
+  export type NestedEnumAIInsightTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIInsightType | EnumAIInsightTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AIInsightType[]
+    notIn?: $Enums.AIInsightType[]
+    not?: NestedEnumAIInsightTypeWithAggregatesFilter<$PrismaModel> | $Enums.AIInsightType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIInsightTypeFilter<$PrismaModel>
+    _max?: NestedEnumAIInsightTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAIGoalStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIGoalStatus | EnumAIGoalStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AIGoalStatus[]
+    notIn?: $Enums.AIGoalStatus[]
+    not?: NestedEnumAIGoalStatusFilter<$PrismaModel> | $Enums.AIGoalStatus
+  }
+
+  export type NestedEnumAIGoalStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AIGoalStatus | EnumAIGoalStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.AIGoalStatus[]
+    notIn?: $Enums.AIGoalStatus[]
+    not?: NestedEnumAIGoalStatusWithAggregatesFilter<$PrismaModel> | $Enums.AIGoalStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAIGoalStatusFilter<$PrismaModel>
+    _max?: NestedEnumAIGoalStatusFilter<$PrismaModel>
   }
 
   export type CrisisMessageCreateWithoutSessionInput = {
@@ -72402,6 +85464,876 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type AITherapySessionCreateWithoutTherapistInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    messages?: AITherapyMessageCreateNestedManyWithoutSessionInput
+    exercises?: AIExerciseSessionCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionUncheckedCreateWithoutTherapistInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    messages?: AITherapyMessageUncheckedCreateNestedManyWithoutSessionInput
+    exercises?: AIExerciseSessionUncheckedCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionCreateOrConnectWithoutTherapistInput = {
+    where: AITherapySessionWhereUniqueInput
+    create: XOR<AITherapySessionCreateWithoutTherapistInput, AITherapySessionUncheckedCreateWithoutTherapistInput>
+  }
+
+  export type AITherapySessionCreateManyTherapistInputEnvelope = {
+    data: AITherapySessionCreateManyTherapistInput | AITherapySessionCreateManyTherapistInput[]
+  }
+
+  export type AIPersonalizationCreateWithoutTherapistInput = {
+    id?: string
+    userId: string
+    preferredStyle?: string | null
+    preferredTechniques?: string | null
+    preferredTopics?: string | null
+    avoidTopics?: string | null
+    responseLength?: string
+    responseComplexity?: string
+    empathyLevel?: string
+    directness?: string
+    culturalBackground?: string | null
+    languagePreference?: string
+    timezone?: string
+    pronouns?: string | null
+    learnedPatterns?: string | null
+    effectiveTechniques?: string | null
+    triggerPatterns?: string | null
+    copingStrategies?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AIPersonalizationUncheckedCreateWithoutTherapistInput = {
+    id?: string
+    userId: string
+    preferredStyle?: string | null
+    preferredTechniques?: string | null
+    preferredTopics?: string | null
+    avoidTopics?: string | null
+    responseLength?: string
+    responseComplexity?: string
+    empathyLevel?: string
+    directness?: string
+    culturalBackground?: string | null
+    languagePreference?: string
+    timezone?: string
+    pronouns?: string | null
+    learnedPatterns?: string | null
+    effectiveTechniques?: string | null
+    triggerPatterns?: string | null
+    copingStrategies?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AIPersonalizationCreateOrConnectWithoutTherapistInput = {
+    where: AIPersonalizationWhereUniqueInput
+    create: XOR<AIPersonalizationCreateWithoutTherapistInput, AIPersonalizationUncheckedCreateWithoutTherapistInput>
+  }
+
+  export type AIPersonalizationCreateManyTherapistInputEnvelope = {
+    data: AIPersonalizationCreateManyTherapistInput | AIPersonalizationCreateManyTherapistInput[]
+  }
+
+  export type AITherapySessionUpsertWithWhereUniqueWithoutTherapistInput = {
+    where: AITherapySessionWhereUniqueInput
+    update: XOR<AITherapySessionUpdateWithoutTherapistInput, AITherapySessionUncheckedUpdateWithoutTherapistInput>
+    create: XOR<AITherapySessionCreateWithoutTherapistInput, AITherapySessionUncheckedCreateWithoutTherapistInput>
+  }
+
+  export type AITherapySessionUpdateWithWhereUniqueWithoutTherapistInput = {
+    where: AITherapySessionWhereUniqueInput
+    data: XOR<AITherapySessionUpdateWithoutTherapistInput, AITherapySessionUncheckedUpdateWithoutTherapistInput>
+  }
+
+  export type AITherapySessionUpdateManyWithWhereWithoutTherapistInput = {
+    where: AITherapySessionScalarWhereInput
+    data: XOR<AITherapySessionUpdateManyMutationInput, AITherapySessionUncheckedUpdateManyWithoutTherapistInput>
+  }
+
+  export type AITherapySessionScalarWhereInput = {
+    AND?: AITherapySessionScalarWhereInput | AITherapySessionScalarWhereInput[]
+    OR?: AITherapySessionScalarWhereInput[]
+    NOT?: AITherapySessionScalarWhereInput | AITherapySessionScalarWhereInput[]
+    id?: StringFilter<"AITherapySession"> | string
+    sessionToken?: StringFilter<"AITherapySession"> | string
+    userId?: StringFilter<"AITherapySession"> | string
+    therapistId?: StringFilter<"AITherapySession"> | string
+    sessionType?: EnumAISessionTypeFilter<"AITherapySession"> | $Enums.AISessionType
+    status?: EnumAISessionStatusFilter<"AITherapySession"> | $Enums.AISessionStatus
+    startedAt?: DateTimeFilter<"AITherapySession"> | Date | string
+    endedAt?: DateTimeNullableFilter<"AITherapySession"> | Date | string | null
+    duration?: IntNullableFilter<"AITherapySession"> | number | null
+    pausedAt?: DateTimeNullableFilter<"AITherapySession"> | Date | string | null
+    pausedDuration?: IntFilter<"AITherapySession"> | number
+    moodBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    moodAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    anxietyBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    anxietyAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    energyBefore?: IntNullableFilter<"AITherapySession"> | number | null
+    energyAfter?: IntNullableFilter<"AITherapySession"> | number | null
+    encryptedNotes?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedInsights?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedHomework?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    encryptedGoals?: BytesNullableFilter<"AITherapySession"> | Uint8Array | null
+    topics?: StringNullableFilter<"AITherapySession"> | string | null
+    techniques?: StringNullableFilter<"AITherapySession"> | string | null
+    interventions?: StringNullableFilter<"AITherapySession"> | string | null
+    breakthroughs?: StringNullableFilter<"AITherapySession"> | string | null
+    crisisDetected?: BoolFilter<"AITherapySession"> | boolean
+    crisisLevel?: IntNullableFilter<"AITherapySession"> | number | null
+    crisisInterventions?: StringNullableFilter<"AITherapySession"> | string | null
+  }
+
+  export type AIPersonalizationUpsertWithWhereUniqueWithoutTherapistInput = {
+    where: AIPersonalizationWhereUniqueInput
+    update: XOR<AIPersonalizationUpdateWithoutTherapistInput, AIPersonalizationUncheckedUpdateWithoutTherapistInput>
+    create: XOR<AIPersonalizationCreateWithoutTherapistInput, AIPersonalizationUncheckedCreateWithoutTherapistInput>
+  }
+
+  export type AIPersonalizationUpdateWithWhereUniqueWithoutTherapistInput = {
+    where: AIPersonalizationWhereUniqueInput
+    data: XOR<AIPersonalizationUpdateWithoutTherapistInput, AIPersonalizationUncheckedUpdateWithoutTherapistInput>
+  }
+
+  export type AIPersonalizationUpdateManyWithWhereWithoutTherapistInput = {
+    where: AIPersonalizationScalarWhereInput
+    data: XOR<AIPersonalizationUpdateManyMutationInput, AIPersonalizationUncheckedUpdateManyWithoutTherapistInput>
+  }
+
+  export type AIPersonalizationScalarWhereInput = {
+    AND?: AIPersonalizationScalarWhereInput | AIPersonalizationScalarWhereInput[]
+    OR?: AIPersonalizationScalarWhereInput[]
+    NOT?: AIPersonalizationScalarWhereInput | AIPersonalizationScalarWhereInput[]
+    id?: StringFilter<"AIPersonalization"> | string
+    userId?: StringFilter<"AIPersonalization"> | string
+    therapistId?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredStyle?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredTechniques?: StringNullableFilter<"AIPersonalization"> | string | null
+    preferredTopics?: StringNullableFilter<"AIPersonalization"> | string | null
+    avoidTopics?: StringNullableFilter<"AIPersonalization"> | string | null
+    responseLength?: StringFilter<"AIPersonalization"> | string
+    responseComplexity?: StringFilter<"AIPersonalization"> | string
+    empathyLevel?: StringFilter<"AIPersonalization"> | string
+    directness?: StringFilter<"AIPersonalization"> | string
+    culturalBackground?: StringNullableFilter<"AIPersonalization"> | string | null
+    languagePreference?: StringFilter<"AIPersonalization"> | string
+    timezone?: StringFilter<"AIPersonalization"> | string
+    pronouns?: StringNullableFilter<"AIPersonalization"> | string | null
+    learnedPatterns?: StringNullableFilter<"AIPersonalization"> | string | null
+    effectiveTechniques?: StringNullableFilter<"AIPersonalization"> | string | null
+    triggerPatterns?: StringNullableFilter<"AIPersonalization"> | string | null
+    copingStrategies?: StringNullableFilter<"AIPersonalization"> | string | null
+    createdAt?: DateTimeFilter<"AIPersonalization"> | Date | string
+    updatedAt?: DateTimeFilter<"AIPersonalization"> | Date | string
+  }
+
+  export type AITherapistCreateWithoutSessionsInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    personalizations?: AIPersonalizationCreateNestedManyWithoutTherapistInput
+  }
+
+  export type AITherapistUncheckedCreateWithoutSessionsInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    personalizations?: AIPersonalizationUncheckedCreateNestedManyWithoutTherapistInput
+  }
+
+  export type AITherapistCreateOrConnectWithoutSessionsInput = {
+    where: AITherapistWhereUniqueInput
+    create: XOR<AITherapistCreateWithoutSessionsInput, AITherapistUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type AITherapyMessageCreateWithoutSessionInput = {
+    id?: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp?: Date | string
+    edited?: boolean
+    editedAt?: Date | string | null
+    sentiment?: number | null
+    emotion?: string | null
+    riskScore?: number | null
+    techniques?: string | null
+    hasAudio?: boolean
+    audioDuration?: number | null
+    audioUrl?: string | null
+  }
+
+  export type AITherapyMessageUncheckedCreateWithoutSessionInput = {
+    id?: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp?: Date | string
+    edited?: boolean
+    editedAt?: Date | string | null
+    sentiment?: number | null
+    emotion?: string | null
+    riskScore?: number | null
+    techniques?: string | null
+    hasAudio?: boolean
+    audioDuration?: number | null
+    audioUrl?: string | null
+  }
+
+  export type AITherapyMessageCreateOrConnectWithoutSessionInput = {
+    where: AITherapyMessageWhereUniqueInput
+    create: XOR<AITherapyMessageCreateWithoutSessionInput, AITherapyMessageUncheckedCreateWithoutSessionInput>
+  }
+
+  export type AITherapyMessageCreateManySessionInputEnvelope = {
+    data: AITherapyMessageCreateManySessionInput | AITherapyMessageCreateManySessionInput[]
+  }
+
+  export type AIExerciseSessionCreateWithoutSessionInput = {
+    id?: string
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    completed?: boolean
+    progress?: number
+    results?: string | null
+    feedback?: string | null
+    improvement?: number | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type AIExerciseSessionUncheckedCreateWithoutSessionInput = {
+    id?: string
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    completed?: boolean
+    progress?: number
+    results?: string | null
+    feedback?: string | null
+    improvement?: number | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type AIExerciseSessionCreateOrConnectWithoutSessionInput = {
+    where: AIExerciseSessionWhereUniqueInput
+    create: XOR<AIExerciseSessionCreateWithoutSessionInput, AIExerciseSessionUncheckedCreateWithoutSessionInput>
+  }
+
+  export type AIExerciseSessionCreateManySessionInputEnvelope = {
+    data: AIExerciseSessionCreateManySessionInput | AIExerciseSessionCreateManySessionInput[]
+  }
+
+  export type AITherapistUpsertWithoutSessionsInput = {
+    update: XOR<AITherapistUpdateWithoutSessionsInput, AITherapistUncheckedUpdateWithoutSessionsInput>
+    create: XOR<AITherapistCreateWithoutSessionsInput, AITherapistUncheckedCreateWithoutSessionsInput>
+    where?: AITherapistWhereInput
+  }
+
+  export type AITherapistUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: AITherapistWhereInput
+    data: XOR<AITherapistUpdateWithoutSessionsInput, AITherapistUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type AITherapistUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    personalizations?: AIPersonalizationUpdateManyWithoutTherapistNestedInput
+  }
+
+  export type AITherapistUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    personalizations?: AIPersonalizationUncheckedUpdateManyWithoutTherapistNestedInput
+  }
+
+  export type AITherapyMessageUpsertWithWhereUniqueWithoutSessionInput = {
+    where: AITherapyMessageWhereUniqueInput
+    update: XOR<AITherapyMessageUpdateWithoutSessionInput, AITherapyMessageUncheckedUpdateWithoutSessionInput>
+    create: XOR<AITherapyMessageCreateWithoutSessionInput, AITherapyMessageUncheckedCreateWithoutSessionInput>
+  }
+
+  export type AITherapyMessageUpdateWithWhereUniqueWithoutSessionInput = {
+    where: AITherapyMessageWhereUniqueInput
+    data: XOR<AITherapyMessageUpdateWithoutSessionInput, AITherapyMessageUncheckedUpdateWithoutSessionInput>
+  }
+
+  export type AITherapyMessageUpdateManyWithWhereWithoutSessionInput = {
+    where: AITherapyMessageScalarWhereInput
+    data: XOR<AITherapyMessageUpdateManyMutationInput, AITherapyMessageUncheckedUpdateManyWithoutSessionInput>
+  }
+
+  export type AITherapyMessageScalarWhereInput = {
+    AND?: AITherapyMessageScalarWhereInput | AITherapyMessageScalarWhereInput[]
+    OR?: AITherapyMessageScalarWhereInput[]
+    NOT?: AITherapyMessageScalarWhereInput | AITherapyMessageScalarWhereInput[]
+    id?: StringFilter<"AITherapyMessage"> | string
+    sessionId?: StringFilter<"AITherapyMessage"> | string
+    messageType?: EnumAIMessageTypeFilter<"AITherapyMessage"> | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFilter<"AITherapyMessage"> | $Enums.AIMessageSender
+    encryptedContent?: BytesFilter<"AITherapyMessage"> | Uint8Array
+    messageHash?: StringFilter<"AITherapyMessage"> | string
+    timestamp?: DateTimeFilter<"AITherapyMessage"> | Date | string
+    edited?: BoolFilter<"AITherapyMessage"> | boolean
+    editedAt?: DateTimeNullableFilter<"AITherapyMessage"> | Date | string | null
+    sentiment?: FloatNullableFilter<"AITherapyMessage"> | number | null
+    emotion?: StringNullableFilter<"AITherapyMessage"> | string | null
+    riskScore?: IntNullableFilter<"AITherapyMessage"> | number | null
+    techniques?: StringNullableFilter<"AITherapyMessage"> | string | null
+    hasAudio?: BoolFilter<"AITherapyMessage"> | boolean
+    audioDuration?: IntNullableFilter<"AITherapyMessage"> | number | null
+    audioUrl?: StringNullableFilter<"AITherapyMessage"> | string | null
+  }
+
+  export type AIExerciseSessionUpsertWithWhereUniqueWithoutSessionInput = {
+    where: AIExerciseSessionWhereUniqueInput
+    update: XOR<AIExerciseSessionUpdateWithoutSessionInput, AIExerciseSessionUncheckedUpdateWithoutSessionInput>
+    create: XOR<AIExerciseSessionCreateWithoutSessionInput, AIExerciseSessionUncheckedCreateWithoutSessionInput>
+  }
+
+  export type AIExerciseSessionUpdateWithWhereUniqueWithoutSessionInput = {
+    where: AIExerciseSessionWhereUniqueInput
+    data: XOR<AIExerciseSessionUpdateWithoutSessionInput, AIExerciseSessionUncheckedUpdateWithoutSessionInput>
+  }
+
+  export type AIExerciseSessionUpdateManyWithWhereWithoutSessionInput = {
+    where: AIExerciseSessionScalarWhereInput
+    data: XOR<AIExerciseSessionUpdateManyMutationInput, AIExerciseSessionUncheckedUpdateManyWithoutSessionInput>
+  }
+
+  export type AIExerciseSessionScalarWhereInput = {
+    AND?: AIExerciseSessionScalarWhereInput | AIExerciseSessionScalarWhereInput[]
+    OR?: AIExerciseSessionScalarWhereInput[]
+    NOT?: AIExerciseSessionScalarWhereInput | AIExerciseSessionScalarWhereInput[]
+    id?: StringFilter<"AIExerciseSession"> | string
+    sessionId?: StringNullableFilter<"AIExerciseSession"> | string | null
+    userId?: StringFilter<"AIExerciseSession"> | string
+    exerciseType?: EnumAIExerciseTypeFilter<"AIExerciseSession"> | $Enums.AIExerciseType
+    exerciseName?: StringFilter<"AIExerciseSession"> | string
+    category?: StringFilter<"AIExerciseSession"> | string
+    difficulty?: StringFilter<"AIExerciseSession"> | string
+    duration?: IntFilter<"AIExerciseSession"> | number
+    startedAt?: DateTimeFilter<"AIExerciseSession"> | Date | string
+    completedAt?: DateTimeNullableFilter<"AIExerciseSession"> | Date | string | null
+    completed?: BoolFilter<"AIExerciseSession"> | boolean
+    progress?: IntFilter<"AIExerciseSession"> | number
+    results?: StringNullableFilter<"AIExerciseSession"> | string | null
+    feedback?: StringNullableFilter<"AIExerciseSession"> | string | null
+    improvement?: FloatNullableFilter<"AIExerciseSession"> | number | null
+    moodBefore?: IntNullableFilter<"AIExerciseSession"> | number | null
+    moodAfter?: IntNullableFilter<"AIExerciseSession"> | number | null
+  }
+
+  export type AITherapySessionCreateWithoutMessagesInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    therapist: AITherapistCreateNestedOneWithoutSessionsInput
+    exercises?: AIExerciseSessionCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionUncheckedCreateWithoutMessagesInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    therapistId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    exercises?: AIExerciseSessionUncheckedCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionCreateOrConnectWithoutMessagesInput = {
+    where: AITherapySessionWhereUniqueInput
+    create: XOR<AITherapySessionCreateWithoutMessagesInput, AITherapySessionUncheckedCreateWithoutMessagesInput>
+  }
+
+  export type AITherapySessionUpsertWithoutMessagesInput = {
+    update: XOR<AITherapySessionUpdateWithoutMessagesInput, AITherapySessionUncheckedUpdateWithoutMessagesInput>
+    create: XOR<AITherapySessionCreateWithoutMessagesInput, AITherapySessionUncheckedCreateWithoutMessagesInput>
+    where?: AITherapySessionWhereInput
+  }
+
+  export type AITherapySessionUpdateToOneWithWhereWithoutMessagesInput = {
+    where?: AITherapySessionWhereInput
+    data: XOR<AITherapySessionUpdateWithoutMessagesInput, AITherapySessionUncheckedUpdateWithoutMessagesInput>
+  }
+
+  export type AITherapySessionUpdateWithoutMessagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    therapist?: AITherapistUpdateOneRequiredWithoutSessionsNestedInput
+    exercises?: AIExerciseSessionUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapySessionUncheckedUpdateWithoutMessagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    exercises?: AIExerciseSessionUncheckedUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapistCreateWithoutPersonalizationsInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: AITherapySessionCreateNestedManyWithoutTherapistInput
+  }
+
+  export type AITherapistUncheckedCreateWithoutPersonalizationsInput = {
+    id?: string
+    therapistId: string
+    name: string
+    avatar: string
+    personality: string
+    description: string
+    specialties: string
+    approaches: string
+    bestFor: string
+    features: string
+    availability: string
+    sessionsCompleted?: number
+    userRating?: number
+    responseTime?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: AITherapySessionUncheckedCreateNestedManyWithoutTherapistInput
+  }
+
+  export type AITherapistCreateOrConnectWithoutPersonalizationsInput = {
+    where: AITherapistWhereUniqueInput
+    create: XOR<AITherapistCreateWithoutPersonalizationsInput, AITherapistUncheckedCreateWithoutPersonalizationsInput>
+  }
+
+  export type AITherapistUpsertWithoutPersonalizationsInput = {
+    update: XOR<AITherapistUpdateWithoutPersonalizationsInput, AITherapistUncheckedUpdateWithoutPersonalizationsInput>
+    create: XOR<AITherapistCreateWithoutPersonalizationsInput, AITherapistUncheckedCreateWithoutPersonalizationsInput>
+    where?: AITherapistWhereInput
+  }
+
+  export type AITherapistUpdateToOneWithWhereWithoutPersonalizationsInput = {
+    where?: AITherapistWhereInput
+    data: XOR<AITherapistUpdateWithoutPersonalizationsInput, AITherapistUncheckedUpdateWithoutPersonalizationsInput>
+  }
+
+  export type AITherapistUpdateWithoutPersonalizationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: AITherapySessionUpdateManyWithoutTherapistNestedInput
+  }
+
+  export type AITherapistUncheckedUpdateWithoutPersonalizationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    personality?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    specialties?: StringFieldUpdateOperationsInput | string
+    approaches?: StringFieldUpdateOperationsInput | string
+    bestFor?: StringFieldUpdateOperationsInput | string
+    features?: StringFieldUpdateOperationsInput | string
+    availability?: StringFieldUpdateOperationsInput | string
+    sessionsCompleted?: IntFieldUpdateOperationsInput | number
+    userRating?: FloatFieldUpdateOperationsInput | number
+    responseTime?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: AITherapySessionUncheckedUpdateManyWithoutTherapistNestedInput
+  }
+
+  export type AITherapySessionCreateWithoutExercisesInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    therapist: AITherapistCreateNestedOneWithoutSessionsInput
+    messages?: AITherapyMessageCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionUncheckedCreateWithoutExercisesInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    therapistId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+    messages?: AITherapyMessageUncheckedCreateNestedManyWithoutSessionInput
+  }
+
+  export type AITherapySessionCreateOrConnectWithoutExercisesInput = {
+    where: AITherapySessionWhereUniqueInput
+    create: XOR<AITherapySessionCreateWithoutExercisesInput, AITherapySessionUncheckedCreateWithoutExercisesInput>
+  }
+
+  export type AITherapySessionUpsertWithoutExercisesInput = {
+    update: XOR<AITherapySessionUpdateWithoutExercisesInput, AITherapySessionUncheckedUpdateWithoutExercisesInput>
+    create: XOR<AITherapySessionCreateWithoutExercisesInput, AITherapySessionUncheckedCreateWithoutExercisesInput>
+    where?: AITherapySessionWhereInput
+  }
+
+  export type AITherapySessionUpdateToOneWithWhereWithoutExercisesInput = {
+    where?: AITherapySessionWhereInput
+    data: XOR<AITherapySessionUpdateWithoutExercisesInput, AITherapySessionUncheckedUpdateWithoutExercisesInput>
+  }
+
+  export type AITherapySessionUpdateWithoutExercisesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    therapist?: AITherapistUpdateOneRequiredWithoutSessionsNestedInput
+    messages?: AITherapyMessageUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapySessionUncheckedUpdateWithoutExercisesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    therapistId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    messages?: AITherapyMessageUncheckedUpdateManyWithoutSessionNestedInput
+  }
+
   export type CrisisMessageCreateManySessionInput = {
     id?: string
     senderType: $Enums.MessageSender
@@ -73890,6 +87822,370 @@ export namespace Prisma {
     wasHelpful?: NullableBoolFieldUpdateOperationsInput | boolean | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AITherapySessionCreateManyTherapistInput = {
+    id?: string
+    sessionToken: string
+    userId: string
+    sessionType: $Enums.AISessionType
+    status?: $Enums.AISessionStatus
+    startedAt?: Date | string
+    endedAt?: Date | string | null
+    duration?: number | null
+    pausedAt?: Date | string | null
+    pausedDuration?: number
+    moodBefore?: number | null
+    moodAfter?: number | null
+    anxietyBefore?: number | null
+    anxietyAfter?: number | null
+    energyBefore?: number | null
+    energyAfter?: number | null
+    encryptedNotes?: Uint8Array | null
+    encryptedInsights?: Uint8Array | null
+    encryptedHomework?: Uint8Array | null
+    encryptedGoals?: Uint8Array | null
+    topics?: string | null
+    techniques?: string | null
+    interventions?: string | null
+    breakthroughs?: string | null
+    crisisDetected?: boolean
+    crisisLevel?: number | null
+    crisisInterventions?: string | null
+  }
+
+  export type AIPersonalizationCreateManyTherapistInput = {
+    id?: string
+    userId: string
+    preferredStyle?: string | null
+    preferredTechniques?: string | null
+    preferredTopics?: string | null
+    avoidTopics?: string | null
+    responseLength?: string
+    responseComplexity?: string
+    empathyLevel?: string
+    directness?: string
+    culturalBackground?: string | null
+    languagePreference?: string
+    timezone?: string
+    pronouns?: string | null
+    learnedPatterns?: string | null
+    effectiveTechniques?: string | null
+    triggerPatterns?: string | null
+    copingStrategies?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AITherapySessionUpdateWithoutTherapistInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    messages?: AITherapyMessageUpdateManyWithoutSessionNestedInput
+    exercises?: AIExerciseSessionUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapySessionUncheckedUpdateWithoutTherapistInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+    messages?: AITherapyMessageUncheckedUpdateManyWithoutSessionNestedInput
+    exercises?: AIExerciseSessionUncheckedUpdateManyWithoutSessionNestedInput
+  }
+
+  export type AITherapySessionUncheckedUpdateManyWithoutTherapistInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sessionType?: EnumAISessionTypeFieldUpdateOperationsInput | $Enums.AISessionType
+    status?: EnumAISessionStatusFieldUpdateOperationsInput | $Enums.AISessionStatus
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    pausedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pausedDuration?: IntFieldUpdateOperationsInput | number
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    anxietyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    energyBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    energyAfter?: NullableIntFieldUpdateOperationsInput | number | null
+    encryptedNotes?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedInsights?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedHomework?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    encryptedGoals?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    topics?: NullableStringFieldUpdateOperationsInput | string | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    interventions?: NullableStringFieldUpdateOperationsInput | string | null
+    breakthroughs?: NullableStringFieldUpdateOperationsInput | string | null
+    crisisDetected?: BoolFieldUpdateOperationsInput | boolean
+    crisisLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    crisisInterventions?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AIPersonalizationUpdateWithoutTherapistInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AIPersonalizationUncheckedUpdateWithoutTherapistInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AIPersonalizationUncheckedUpdateManyWithoutTherapistInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    preferredStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    preferredTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    avoidTopics?: NullableStringFieldUpdateOperationsInput | string | null
+    responseLength?: StringFieldUpdateOperationsInput | string
+    responseComplexity?: StringFieldUpdateOperationsInput | string
+    empathyLevel?: StringFieldUpdateOperationsInput | string
+    directness?: StringFieldUpdateOperationsInput | string
+    culturalBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    languagePreference?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    pronouns?: NullableStringFieldUpdateOperationsInput | string | null
+    learnedPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    effectiveTechniques?: NullableStringFieldUpdateOperationsInput | string | null
+    triggerPatterns?: NullableStringFieldUpdateOperationsInput | string | null
+    copingStrategies?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AITherapyMessageCreateManySessionInput = {
+    id?: string
+    messageType: $Enums.AIMessageType
+    sender: $Enums.AIMessageSender
+    encryptedContent: Uint8Array
+    messageHash: string
+    timestamp?: Date | string
+    edited?: boolean
+    editedAt?: Date | string | null
+    sentiment?: number | null
+    emotion?: string | null
+    riskScore?: number | null
+    techniques?: string | null
+    hasAudio?: boolean
+    audioDuration?: number | null
+    audioUrl?: string | null
+  }
+
+  export type AIExerciseSessionCreateManySessionInput = {
+    id?: string
+    userId: string
+    exerciseType: $Enums.AIExerciseType
+    exerciseName: string
+    category: string
+    difficulty: string
+    duration: number
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    completed?: boolean
+    progress?: number
+    results?: string | null
+    feedback?: string | null
+    improvement?: number | null
+    moodBefore?: number | null
+    moodAfter?: number | null
+  }
+
+  export type AITherapyMessageUpdateWithoutSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AITherapyMessageUncheckedUpdateWithoutSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AITherapyMessageUncheckedUpdateManyWithoutSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    messageType?: EnumAIMessageTypeFieldUpdateOperationsInput | $Enums.AIMessageType
+    sender?: EnumAIMessageSenderFieldUpdateOperationsInput | $Enums.AIMessageSender
+    encryptedContent?: BytesFieldUpdateOperationsInput | Uint8Array
+    messageHash?: StringFieldUpdateOperationsInput | string
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    edited?: BoolFieldUpdateOperationsInput | boolean
+    editedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sentiment?: NullableFloatFieldUpdateOperationsInput | number | null
+    emotion?: NullableStringFieldUpdateOperationsInput | string | null
+    riskScore?: NullableIntFieldUpdateOperationsInput | number | null
+    techniques?: NullableStringFieldUpdateOperationsInput | string | null
+    hasAudio?: BoolFieldUpdateOperationsInput | boolean
+    audioDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AIExerciseSessionUpdateWithoutSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AIExerciseSessionUncheckedUpdateWithoutSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
+    moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
+    moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AIExerciseSessionUncheckedUpdateManyWithoutSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    exerciseType?: EnumAIExerciseTypeFieldUpdateOperationsInput | $Enums.AIExerciseType
+    exerciseName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
+    duration?: IntFieldUpdateOperationsInput | number
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    progress?: IntFieldUpdateOperationsInput | number
+    results?: NullableStringFieldUpdateOperationsInput | string | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+    improvement?: NullableFloatFieldUpdateOperationsInput | number | null
     moodBefore?: NullableIntFieldUpdateOperationsInput | number | null
     moodAfter?: NullableIntFieldUpdateOperationsInput | number | null
   }

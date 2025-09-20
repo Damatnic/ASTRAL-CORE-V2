@@ -729,7 +729,7 @@ Privacy: This summary is encrypted and confidential
             </Link>
             
             <ProductionButton 
-              variant="outline" 
+              variant="ghost" 
               size="lg" 
               className="w-full sm:w-auto"
               onClick={() => {

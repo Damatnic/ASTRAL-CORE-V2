@@ -38,6 +38,7 @@ interface State {
  */
 export class GlobalErrorBoundary extends Component<Props, State> {
   private errorLogTimeout: NodeJS.Timeout | null = null;
+  refs: any;
 
   constructor(props: Props) {
     super(props);
@@ -189,7 +190,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
     </div>
   );
 
-  render() {
+  render(): React.ReactNode {
     if (this.state.hasError) {
       // Custom fallback provided
       if (this.props.fallback) {
