@@ -249,7 +249,7 @@ export default function AITherapyHub({ userId, onSessionStart }: AITherapyHubPro
           <h1 className="text-3xl font-bold text-gray-900">AI Therapy Hub</h1>
           <Sparkles className="w-8 h-8 text-purple-600" />
         </div>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-900 font-medium max-w-2xl mx-auto bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm border">
           Connect with our AI therapy specialists for personalized mental health support, 
           available 24/7 with complete privacy and confidentiality.
         </p>
@@ -591,11 +591,11 @@ export default function AITherapyHub({ userId, onSessionStart }: AITherapyHubPro
             onStart={() => startAISession(AI_THERAPISTS[0], 'crisis')}
           />
           <SessionTypeCard
-            icon={<Calendar className="w-6 h-6 text-blue-500" />}
-            title="Scheduled Therapy"
-            description="Regular therapy sessions at your convenience"
-            duration="30-60 minutes"
-            onStart={() => setShowScheduler(true)}
+            icon={<MessageCircle className="w-6 h-6 text-blue-500" />}
+            title="Instant Chat"
+            description="Start talking with an AI therapist right now"
+            duration="Available now"
+            onStart={() => startAISession(recommendedTherapist!, 'check-in')}
           />
           <SessionTypeCard
             icon={<Heart className="w-6 h-6 text-pink-500" />}
@@ -740,9 +740,9 @@ function TherapistCard({
       <div className="space-y-2">
         <button
           onClick={() => onStartSession('check-in')}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
         >
-          Quick Check-in
+          Start Therapy
         </button>
         <button
           onClick={onSelect}

@@ -5,7 +5,6 @@ export const dynamic = 'force-dynamic';
 
 import React from 'react';
 import AITherapyHub from '@/components/ai-therapy/AITherapyHub';
-import TherapistSelectionInterface from '@/components/ai-therapy/TherapistSelectionInterface';
 import { Glass, ProductionButton } from '@/components/design-system/ProductionGlassSystem';
 import { Brain, MessageCircle, Shield, Clock } from 'lucide-react';
 import { Metadata } from 'next';
@@ -62,19 +61,7 @@ export default function AITherapyPage() {
           </div>
         </Glass>
 
-        {/* New Therapist Selection Interface with AI Disclosure */}
-        <TherapistSelectionInterface 
-          onTherapistSelect={(therapist) => {
-            // Navigate to therapy chat with selected therapist
-            const therapistId = therapist.id.replace('dr-', ''); // Convert dr-aria to aria for compatibility
-            window.location.href = `/ai-therapy/chat?therapist=${therapistId}&sessionType=check-in`;
-          }}
-          showDisclosure={true}
-          userNeeds={[]}
-          crisisLevel="none"
-        />
-
-        {/* Enhanced Resource Hub */}
+        {/* Enhanced AI Therapy Hub - Now consolidated with therapist selection */}
         <AITherapyHub 
           userId="demo-user" 
           onSessionStart={(therapist, sessionType) => {

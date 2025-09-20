@@ -1,14 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import EnhancedTherapyChat from '@/components/ai-therapy/EnhancedTherapyChat';
 import { Glass } from '@/components/design-system/ProductionGlassSystem';
 import { Brain, Shield } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 // Force dynamic rendering to avoid prerender issues
 export const dynamic = 'force-dynamic';
 
-export default function AITherapyChatPage() {
+function AITherapyChatContent() {
+  const searchParams = useSearchParams();
+  const rawTherapistId = searchParams.get('therapist') || 'aria';
+  const therapistId = rawTherapistId.replace('dr-', ''); // Remove 'dr-' prefix if present
+  const sessionType = searchParams.get('sessionType') || 'check-in';
+  const userId = searchParams.get('userId') || 'demo-user';
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
       {/* Crisis Alert Bar */}
@@ -34,9 +40,9 @@ export default function AITherapyChatPage() {
 
         {/* Enhanced Therapy Chat Component */}
         <EnhancedTherapyChat 
-          therapistId="aria"
-          userId="demo-user"
-          sessionType="check-in"
+          therapistId={therapistId}
+          userId={userId}
+          sessionType={sessionType as any}
           initialMood={6}
           sessionGoals={['Reduce anxiety', 'Improve mood']}
           preferences={{
@@ -70,5 +76,13 @@ export default function AITherapyChatPage() {
         </Glass>
       </div>
     </div>
+  );
+}
+
+export default function AITherapyChatPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading therapy session...</div>}>
+      <AITherapyChatContent />
+    </Suspense>
   );
 }

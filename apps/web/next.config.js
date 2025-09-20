@@ -10,9 +10,12 @@ const nextConfig = {
     ignoreDuringBuilds: process.env.SKIP_TYPE_CHECK === 'true',
   },
 
-  // Enable experimental features for performance
-  experimental: {
-    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+  // Enable external packages for server components
+  serverExternalPackages: ['@prisma/client', 'bcryptjs'],
+
+  // Turbopack configuration
+  turbopack: {
+    root: require('path').resolve(__dirname, '../../'),
   },
 
   // Optimize for crisis response speed
@@ -49,7 +52,7 @@ const nextConfig = {
                   "default-src 'self'",
                   "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.sentry-cdn.com",
                   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-                  "font-src 'self' https://fonts.gstatic.com https://r2cdn.perplexity.ai",
+                  "font-src 'self' https://fonts.gstatic.com",
                   "img-src 'self' data: https: blob:",
                   "connect-src 'self' ws: wss: https: http://localhost:* https://api.astralcore.org https://socket.astralcore.org https://o4505801209782272.ingest.sentry.io",
                   "media-src 'self'",
@@ -62,7 +65,7 @@ const nextConfig = {
                   "default-src 'self'",
                   "script-src 'self' 'unsafe-inline' https://js.sentry-cdn.com",
                   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-                  "font-src 'self' https://fonts.gstatic.com https://r2cdn.perplexity.ai",
+                  "font-src 'self' https://fonts.gstatic.com",
                   "img-src 'self' data: https:",
                   "connect-src 'self' wss: https: https://api.astralcore.org https://socket.astralcore.org https://o4505801209782272.ingest.sentry.io",
                   "media-src 'self'",
