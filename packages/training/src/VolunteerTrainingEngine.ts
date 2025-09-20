@@ -597,7 +597,7 @@ export class VolunteerTrainingEngine extends EventEmitter {
     });
 
     const existingCertifications = volunteer?.certifications 
-      ? (JSON.parse(volunteer.certifications as string) as any[])
+      ? (JSON.parse(volunteer.certifications) as unknown as any[])
       : [];
     const newCertification = {
       certificationId,
@@ -611,7 +611,7 @@ export class VolunteerTrainingEngine extends EventEmitter {
     await this.prisma.volunteer.update({
       where: { id: volunteerId },
       data: {
-        certifications: JSON.stringify([...existingCertifications, newCertification])
+        certifications: JSON.stringify([...existingCertifications, newCertification]) as any
       }
     });
 
@@ -646,7 +646,7 @@ export class VolunteerTrainingEngine extends EventEmitter {
     if (!volunteer?.certifications) return null;
 
     const certifications = volunteer.certifications 
-      ? (JSON.parse(volunteer.certifications as string) as any[])
+      ? (JSON.parse(volunteer.certifications) as unknown as any[])
       : [];
     return certifications
       .filter((cert: any) => cert.certificationId === certificationId)
@@ -711,7 +711,7 @@ export class VolunteerTrainingEngine extends EventEmitter {
       if (!volunteer.certifications) continue;
       
       const certifications = volunteer.certifications 
-      ? (JSON.parse(volunteer.certifications as string) as any[])
+      ? (JSON.parse(volunteer.certifications) as unknown as any[])
       : [];
       for (const cert of certifications) {
         if (cert.status === 'ACTIVE' && new Date(cert.expiresAt) <= thirtyDaysFromNow) {
@@ -733,7 +733,7 @@ export class VolunteerTrainingEngine extends EventEmitter {
     });
 
     const certifications = volunteer?.certifications 
-      ? (JSON.parse(volunteer.certifications as string) as any[])
+      ? (JSON.parse(volunteer.certifications) as unknown as any[])
       : [];
 
     return {
