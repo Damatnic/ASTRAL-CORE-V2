@@ -7,15 +7,10 @@
 const CACHE_NAME = 'crisis-chat-v1';
 const RUNTIME_CACHE = 'crisis-runtime-v1';
 
-// Critical resources to cache immediately
+// Critical resources to cache immediately (only cache files that exist)
 const PRECACHE_URLS = [
   '/',
-  '/offline.html',
-  '/manifest.json',
-  '/fonts/inter-var.woff2',
-  '/sounds/notification.mp3',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  '/manifest.json'
 ];
 
 // Install event - cache critical resources
