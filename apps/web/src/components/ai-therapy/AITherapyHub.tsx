@@ -70,50 +70,9 @@ interface AITherapySession {
   encrypted: boolean
 }
 
-const AI_THERAPISTS: AITherapist[] = [
-  {
-    id: 'aria',
-    name: 'Dr. Aria',
-    specialty: ['Cognitive Behavioral Therapy', 'Anxiety Disorders', 'Depression', 'Crisis Intervention'],
-    personality: 'Compassionate, direct, solution-focused',
-    avatar: '🧠',
-    description: 'Dr. Aria specializes in evidence-based CBT techniques and crisis intervention. She provides practical, actionable strategies for managing anxiety, depression, and acute mental health crises.',
-    approaches: ['CBT', 'Dialectical Behavior Therapy', 'Crisis Intervention', 'Mindfulness-Based Therapy'],
-    bestFor: ['Anxiety', 'Depression', 'Panic Attacks', 'Crisis Situations', 'Cognitive Restructuring'],
-    sessionsCompleted: 0,
-    userRating: 4.9,
-    availability: '24/7',
-    features: ['Crisis Detection', 'Real-time Intervention', 'Safety Planning', 'Coping Strategy Development']
-  },
-  {
-    id: 'sage',
-    name: 'Dr. Sage',
-    specialty: ['Trauma Therapy', 'PTSD', 'Mindfulness', 'Emotional Regulation'],
-    personality: 'Gentle, patient, trauma-informed',
-    avatar: '🌿',
-    description: 'Dr. Sage offers trauma-informed care with a focus on mindfulness and emotional regulation. She creates a safe space for processing difficult experiences and building resilience.',
-    approaches: ['EMDR', 'Trauma-Focused CBT', 'Mindfulness-Based Stress Reduction', 'Somatic Experiencing'],
-    bestFor: ['PTSD', 'Trauma Recovery', 'Emotional Dysregulation', 'Stress Management', 'Mindfulness Training'],
-    sessionsCompleted: 0,
-    userRating: 4.8,
-    availability: 'scheduled',
-    features: ['Trauma-Informed Approach', 'Grounding Techniques', 'Mindfulness Exercises', 'Emotional Regulation']
-  },
-  {
-    id: 'luna',
-    name: 'Dr. Luna',
-    specialty: ['Sleep Disorders', 'Mood Regulation', 'Circadian Rhythm', 'Wellness Coaching'],
-    personality: 'Calming, nurturing, holistic',
-    avatar: '🌙',
-    description: 'Dr. Luna focuses on sleep health, mood regulation, and overall wellness. She helps establish healthy routines and addresses the connection between sleep and mental health.',
-    approaches: ['Sleep Hygiene Therapy', 'Chronotherapy', 'Behavioral Sleep Medicine', 'Wellness Coaching'],
-    bestFor: ['Insomnia', 'Sleep Disorders', 'Mood Instability', 'Wellness Optimization', 'Routine Building'],
-    sessionsCompleted: 0,
-    userRating: 4.7,
-    availability: 'on-demand',
-    features: ['Sleep Assessment', 'Circadian Optimization', 'Mood Tracking', 'Wellness Planning']
-  }
-]
+import { aiTherapistProfiles, convertToAITherapist } from '@/components/ai-therapy/EnhancedTherapistProfiles'
+
+const AI_THERAPISTS: AITherapist[] = aiTherapistProfiles.map(convertToAITherapist)
 
 interface AITherapyHubProps {
   userId: string

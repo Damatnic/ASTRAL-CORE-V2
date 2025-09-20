@@ -131,7 +131,7 @@ interface EnhancedTherapySession {
 }
 
 interface EnhancedTherapyChatProps {
-  therapistId: 'aria' | 'sage' | 'luna'
+  therapistId: 'aria' | 'sage' | 'luna' | 'phoenix' | 'river' | 'kai' | 'harmony'
   userId: string
   sessionType: 'crisis' | 'scheduled' | 'check-in' | 'intensive'
   onSessionEnd: (session: EnhancedTherapySession) => void
@@ -140,38 +140,9 @@ interface EnhancedTherapyChatProps {
   preferences?: any
 }
 
-const ENHANCED_THERAPIST_PROFILES = {
-  aria: {
-    name: 'Dr. Aria',
-    avatar: '🧠',
-    style: 'direct, solution-focused, evidence-based',
-    greeting: "Hello! I'm Dr. Aria, your AI therapy specialist. I'm here to help you work through whatever you're facing today using evidence-based techniques. How are you feeling right now?",
-    techniques: ['CBT', 'Crisis Intervention', 'Cognitive Restructuring', 'Safety Planning'],
-    specialties: ['Anxiety', 'Depression', 'Cognitive Patterns', 'Crisis Support'],
-    personality: 'Direct and solution-focused, Dr. Aria combines warmth with practical tools to help you make real progress.',
-    approach: 'Evidence-based cognitive behavioral therapy with crisis intervention expertise'
-  },
-  sage: {
-    name: 'Dr. Sage',
-    avatar: '🌿',
-    style: 'gentle, mindful, trauma-informed',
-    greeting: "Welcome, I'm Dr. Sage. This is a safe, peaceful space for you to share whatever is on your heart and mind. I practice trauma-informed care and mindfulness-based approaches. Take your time, and let's start wherever feels comfortable for you.",
-    techniques: ['Mindfulness', 'Trauma Therapy', 'Grounding', 'EMDR', 'Somatic Therapy'],
-    specialties: ['Trauma', 'PTSD', 'Mindfulness', 'Emotional Regulation'],
-    personality: 'Gentle and trauma-informed, Dr. Sage creates a safe space for healing with mindfulness and compassion.',
-    approach: 'Trauma-informed care with mindfulness-based interventions and somatic awareness'
-  },
-  luna: {
-    name: 'Dr. Luna',
-    avatar: '🌙',
-    style: 'nurturing, holistic, wellness-focused',
-    greeting: "Hi there, I'm Dr. Luna. I'm so glad you're taking time for your wellbeing today. I believe in a holistic approach to mental health that considers your whole life. Let's explore what's going on and how we can support your overall wellness together.",
-    techniques: ['Sleep Therapy', 'Wellness Coaching', 'Routine Building', 'Mood Regulation', 'Lifestyle Medicine'],
-    specialties: ['Sleep', 'Wellness', 'Lifestyle', 'Routine Building'],
-    personality: 'Nurturing and holistic, Dr. Luna helps you build sustainable wellness practices for your whole life.',
-    approach: 'Holistic wellness approach focusing on sleep, lifestyle, and sustainable mental health practices'
-  }
-}
+import { ENHANCED_THERAPIST_PROFILES_FOR_CHAT } from '@/components/ai-therapy/EnhancedTherapistProfiles'
+
+const ENHANCED_THERAPIST_PROFILES = ENHANCED_THERAPIST_PROFILES_FOR_CHAT
 
 export default function EnhancedTherapyChat({ 
   therapistId, 
