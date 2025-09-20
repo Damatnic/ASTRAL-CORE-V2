@@ -4,8 +4,8 @@
  * Ensures critical resources are cached for fast loading
  */
 
-const CACHE_NAME = 'crisis-chat-v1';
-const RUNTIME_CACHE = 'crisis-runtime-v1';
+const CACHE_NAME = 'crisis-chat-v2';
+const RUNTIME_CACHE = 'crisis-runtime-v2';
 
 // Critical resources to cache immediately (only cache files that exist)
 const PRECACHE_URLS = [
