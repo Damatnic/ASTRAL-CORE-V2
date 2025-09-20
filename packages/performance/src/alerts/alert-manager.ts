@@ -362,7 +362,7 @@ export class AlertManager extends EventEmitter {
     this.oncallNotified.add(key);
     
     // Implement on-call notification logic here
-    logger.critical('ON-CALL NOTIFICATION TRIGGERED', {
+    (logger as any).critical('ON-CALL NOTIFICATION TRIGGERED', {
       alert,
       timestamp: new Date().toISOString()
     });
@@ -374,7 +374,7 @@ export class AlertManager extends EventEmitter {
   }
 
   private triggerIncident(alert: Alert): void {
-    logger.critical('INCIDENT TRIGGERED', {
+    (logger as any).critical('INCIDENT TRIGGERED', {
       alert,
       timestamp: new Date().toISOString()
     });

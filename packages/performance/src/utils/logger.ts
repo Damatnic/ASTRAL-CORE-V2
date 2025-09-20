@@ -76,7 +76,7 @@ export const logger = winston.createLogger({
 
 // Add critical level for crisis situations
 (logger as any).critical = function(message: string, meta?: any) {
-  return this.log({
+  return (this as any).log({
     level: 'error',
     message: `[CRITICAL] ${message}`,
     critical: true,
