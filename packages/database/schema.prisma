@@ -1671,7 +1671,7 @@ model AITherapist {
   name         String
   avatar       String
   personality  String
-  description  String   @db.Text
+  description  String
   specialties  String   // JSON array of specialties
   approaches   String   // JSON array of therapeutic approaches
   bestFor      String   // JSON array of conditions
@@ -1861,7 +1861,7 @@ model AITherapyInsight {
   
   // Insight content
   title        String
-  description  String   @db.Text
+  description  String
   significance String   @default("medium") // low, medium, high
   
   // Data points
@@ -1896,7 +1896,7 @@ model AITherapyGoal {
   
   // Goal details
   title        String
-  description  String   @db.Text
+  description  String
   category     String
   priority     String   @default("medium") // low, medium, high
   
