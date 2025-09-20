@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "installCommand": "npm install --legacy-peer-deps",
+  "installCommand": "cd apps/web && npm install --legacy-peer-deps",
   "buildCommand": "cd apps/web && npm run vercel-build",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
